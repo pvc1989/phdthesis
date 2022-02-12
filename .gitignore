@@ -1,3 +1,6 @@
+template.tex
+template.pdf
+*.tmp
 ### TeX.gitignore ###
 README.pdf
 ## Core latex/pdflatex auxiliary files:
