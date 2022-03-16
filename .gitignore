@@ -1,6 +1,6 @@
 *.zip
 template.tex
-template.pdf
+*.pdf
 *.tmp
 ### TeX.gitignore ###
 README.pdf
