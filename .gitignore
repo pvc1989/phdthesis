@@ -1,5 +1,4 @@
 *.zip
-*.pdf
 *.tmp
 ### TeX.gitignore ###
 README.pdf
