@@ -1,0 +1,151 @@
+% !Mode:: "TeX:UTF-8"
+\chapter{矢量分析公式}\label{vector}
+
+\section{求和约定}
+矢量：
+\begin{equation}
+\symbfit{a} = a^i \symbf{e}_i = \sum_{i=1}^{3} a^i \symbf{e}_i
+\end{equation}
+
+二阶张量：
+\begin{equation}
+\symbfit{\sigma} = \sigma^{ij} \symbf{e}_i \symbf{e}_j = \sum_{i=1}^{3}\sum_{j=1}^{3}  \sigma^{ij} \symbf{e}_i \symbf{e}_j
+\end{equation}
+
+\section{代数运算}
+数量积：
+\begin{equation}
+\symbf{e}_i \cdot\symbf{e}_j = \delta_{ij} =
+    \begin{cases}
+    1 & i=j \\
+    0 & i\neq j
+    \end{cases}
+\end{equation}
+%
+\begin{equation}
+\symbfit{a} \cdot \symbfit{b}
+=
+a^i \symbf{e}_i \cdot b^j \symbf{e}_j
+=
+a^i b^j \symbf{e}_i \cdot\symbf{e}_j
+= a^i b^j \delta_{ij}
+= a^i b^i
+\end{equation}
+
+矢量积：
+\begin{equation}
+\symbf{e}_i \times\symbf{e}_j = \varepsilon_{ijk}\symbf{e}_k =
+    \begin{cases}
+    1 & ijk=123\text{或}231\text{或}312 \\
+    -1 & ijk=321\text{或}213\text{或}132 \\
+    0 & ijk\text{其他}
+    \end{cases}
+\end{equation}
+%
+\begin{equation}
+\symbfit{a} \times \symbfit{b}
+=
+a^i \symbf{e}_i \times b^j \symbf{e}_j
+=
+a^i b^j  \varepsilon_{ijk}\symbf{e}_k
+\end{equation}
+%
+\begin{equation}
+\varepsilon_{ijk} \varepsilon_{ilm} =
+\delta_{jl}\delta_{km} - \delta_{jm}\delta_{kl}
+\end{equation}
+%
+\section{恒等式}
+%
+\begin{equation}
+\left( \symbfit{a} \times \symbfit{b} \right) \cdot \symbfit{c}
+=
+\left( \symbfit{b} \times \symbfit{c} \right) \cdot \symbfit{a}
+=
+\left( \symbfit{c} \times \symbfit{a} \right) \cdot \symbfit{b}
+\end{equation}
+%
+\begin{equation}
+\left( \symbfit{a} \times \symbfit{b} \right) \times \symbfit{c}
+=
+\left( \symbfit{a} \cdot \symbfit{c} \right)  \symbfit{b}
+-
+\left( \symbfit{b} \cdot \symbfit{c} \right)  \symbfit{a}
+\end{equation}
+%
+\begin{equation}
+\nabla \times \left( \nabla \phi \right)
+=
+\symbf{0}
+\end{equation}
+%
+\begin{equation}
+\nabla \cdot \left( \nabla \times \phi \right)
+=
+0
+\end{equation}
+%
+\begin{equation}
+\nabla \cdot \left( \phi \symbfit{a} \right)
+=
+\phi \left( \nabla \cdot \symbfit{a} \right)
++
+\nabla \phi \cdot \symbfit{a}
+\end{equation}
+%
+\begin{equation}
+\nabla \times \left( \phi \symbfit{a} \right)
+=
+\phi \left( \nabla \times \symbfit{a} \right)
++
+\nabla \phi \times \symbfit{a}
+\end{equation}
+%
+\begin{equation}
+\nabla \cdot \left( \symbfit{a} \times \symbfit{b} \right)
+=
+\left( \nabla \times \symbfit{a} \right) \cdot \symbfit{b}
+-
+\symbfit{a} \cdot  \left( \nabla \times \symbfit{b} \right)
+\end{equation}
+%
+\begin{equation}
+\nabla \times \left( \symbfit{a} \times \symbfit{b} \right)
+=
+\left( \symbfit{b} \cdot \nabla \right) \symbfit{a}
+-
+\left( \symbfit{a} \cdot \nabla \right) \symbfit{b}
++
+\symbfit{a} \left( \nabla \cdot \symbfit{b} \right)
+-
+\symbfit{b} \left( \nabla \cdot \symbfit{a} \right)
+\end{equation}
+%
+\begin{equation}
+\nabla \left( \symbfit{a} \cdot \symbfit{b} \right)
+=
+\symbfit{a} \times \left( \nabla \times \symbfit{b} \right)
++
+\symbfit{b} \times \left( \nabla \times \symbfit{a} \right)
++
+\left( \symbfit{a} \cdot \nabla \right) \symbfit{b}
++
+\left( \symbfit{b} \cdot \nabla \right) \symbfit{a}
+\end{equation}
+%
+\begin{equation}
+\nabla \times \left( \nabla \times \symbfit{a} \right)
+=
+\nabla \left( \nabla \cdot \symbfit{a} \right)
+-
+\nabla^2 \symbfit{a}
+\end{equation}
+%
+\begin{equation}\label{}
+\left( \symbfit{a} \cdot \nabla \right) \symbfit{a}
+=
+\left( \nabla \times \symbfit{a} \right) \times \symbfit{a}
++
+\nabla \left( \frac{1}{2} a^2 \right)
+\end{equation}
+%

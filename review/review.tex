@@ -1,0 +1,51 @@
+% !Mode:: "TeX:UTF-8"
+\documentclass[doctor,openright,twoside,color]{buaathesis}
+\begin{document}
+
+% 用户信息
+\include{tex/info}
+
+% 中英封面、提名页、授权书
+%\maketitle
+% 前言页眉页脚样式
+\pagestyle{frontmatter}
+% 摘要
+\include{tex/abstract}
+% 目录、插图目录、表格目录
+\tableofcontents
+\listoffigures
+%\listoftables
+% 符号表
+\include{tex/denotation}
+
+% 正文页码样式
+\mainmatter
+% 正文页眉页脚样式
+\pagestyle{mainmatter}
+
+% 正文
+\include{tex/introduction}
+\include{tex/present}
+\include{tex/conclusion}
+% 参考文献
+%\include{tex/reference}
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{参考文献}
+\nocite{*}
+\bibliography{tex/review}
+\cleardoublepage
+
+
+% 附录
+\appendix
+%\include{tex/vector}
+
+% 附页标题样式
+%\backmatter
+
+% 附页
+%\include{tex/master/back1-achievement}
+%\include{tex/master/back2-thanks}
+%\include{tex/master/back3-aboutauthor}
+\end{document}
