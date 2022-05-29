@@ -136,7 +136,7 @@ The LaTeX template for thesis of BUAA]
     \fancyfoot{}
     \ifbuaa@bachelor
         \fancyhead[C]{
-            \includegraphics[width=37bp]{figure/buaamark.eps}\hfill
+            \includegraphics[width=37bp]{figures/buaamark.eps}\hfill
             \raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hfill
             \raisebox{2ex}{\songti\zihao{5}第\quad\thepage\quad 页}
         }
@@ -329,7 +329,7 @@ The LaTeX template for thesis of BUAA]
 
 \RequirePackage{graphicx}
 \DeclareGraphicsExtensions{.eps,.ps,.jpg,.bmp}
-\graphicspath{{figure/}}
+%\graphicspath{{figures/}}
 \RequirePackage{pifont} % “秘级”后的五角星
 \RequirePackage{subfigure}
 
@@ -531,7 +531,7 @@ The LaTeX template for thesis of BUAA]
         \begin{titlepage}
             % 第二个()里的参数表示左移35pt，下移55pt
             \begin{picture}(0,0)(35,55)
-                \includegraphics[width=90pt]{figure/buaamark.eps}
+                \includegraphics[width=90pt]{figures/buaamark.eps}
             \end{picture}
             \hfill
             \raisebox{-.2cm}[0pt][0pt]{
@@ -544,7 +544,7 @@ The LaTeX template for thesis of BUAA]
             }
             \vskip 95bp
             \begin{center}
-                \includegraphics[width=360bp]{figure/buaaname.eps}
+                \includegraphics[width=360bp]{figures/buaaname.eps}
                 \vskip 45bp
                 \centerline{\zihao{-0}\heiti 毕业设计(论文)}
                 ~~\\
@@ -584,7 +584,7 @@ The LaTeX template for thesis of BUAA]
                         \end{flushleft}
                     }
                     \vskip 80bp
-                    \includegraphics[width=.5\textwidth]{figure/buaaname.jpg}
+                    \includegraphics[width=.5\textwidth]{figures/buaaname.jpg}
                     \vskip 30bp
                     \centerline{\zihao{0}\ziju{0.2}\hwxingkai\buaa@degree 论文}
                     ~~\\
