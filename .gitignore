@@ -1,7 +1,8 @@
-buaa/chapters.tex
-buaathesis.pdf
-data
-figure
+main.pdf
+thesis/chapters.tex
+thesis/main.bib
+thesis/data
+thesis/figure
 applsci-1662023.pdf
 aerospace-1787394.pdf
 *.zip

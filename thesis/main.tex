@@ -1,0 +1,210 @@
+% !Mode:: "TeX:UTF-8"
+\documentclass[doctor,openright,twoside,color,AutoFakeBold=true]{buaathesis}
+
+% 参考文献
+\usepackage{gbt7714}
+% 参考文献输出方式，numerical为按照出现顺序，authoryear为按照作者姓名和年份
+\citestyle{numerical}
+% \citestyle{authoryear}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\newcommand{\noun}[1]{\textsc{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\makeatletter
+
+\theoremstyle{plain}
+\ifx\thechapter\undefined
+\newtheorem{thm}{\protect\theoremname}
+\else
+\newtheorem{thm}{\protect\theoremname}[chapter]
+\fi
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{\protect\definitionname}
+\theoremstyle{plain}
+\newtheorem{lem}[thm]{\protect\lemmaname}
+\theoremstyle{plain}
+\newtheorem{cor}[thm]{\protect\corollaryname}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{\protect\remarkname}
+\theoremstyle{remark}
+\newtheorem*{rem*}{\protect\remarkname}
+\theoremstyle{definition}
+\newtheorem*{example*}{\protect\examplename}
+\theoremstyle{plain}
+\newtheorem{lyxalgorithm}[thm]{\protect\algorithmname}
+\theoremstyle{definition}
+\newtheorem{example}[thm]{\protect\examplename}
+\theoremstyle{plain}
+\newtheorem*{assumption*}{\protect\assumptionname}
+\theoremstyle{plain}
+\newtheorem{ax}[thm]{\protect\axiomname}
+\theoremstyle{remark}
+\newtheorem*{notation*}{\protect\notationname}
+\theoremstyle{plain}
+\newtheorem*{thm*}{\protect\theoremname}
+\theoremstyle{definition}
+\newtheorem*{defn*}{\protect\definitionname}
+\theoremstyle{remark}
+\newtheorem{notation}[thm]{\protect\notationname}
+\theoremstyle{plain}
+\newtheorem{conjecture}[thm]{\protect\conjecturename}
+\theoremstyle{remark}
+\newtheorem*{claim*}{\protect\claimname}
+\theoremstyle{definition}
+\newtheorem*{sol*}{\protect\solutionname}
+\theoremstyle{plain}
+\newtheorem{fact}[thm]{\protect\factname}
+\theoremstyle{plain}
+\newtheorem*{cor*}{\protect\corollaryname}
+\theoremstyle{plain}
+\newtheorem{question}[thm]{\protect\questionname}
+\theoremstyle{definition}
+\newtheorem{problem}[thm]{\protect\problemname}
+\theoremstyle{plain}
+\newtheorem*{lem*}{\protect\lemmaname}
+\theoremstyle{plain}
+\newtheorem{assumption}[thm]{\protect\assumptionname}
+\theoremstyle{definition}
+\newtheorem{condition}[thm]{\protect\conditionname}
+
+\makeatother
+
+\providecommand{\algorithmname}{算法}
+\providecommand{\assumptionname}{假设}
+\providecommand{\axiomname}{公理}
+\providecommand{\claimname}{声明}
+\providecommand{\conditionname}{条件}
+\providecommand{\conjecturename}{猜想}
+\providecommand{\corollaryname}{推论}
+\providecommand{\definitionname}{定义}
+\providecommand{\examplename}{例}
+\providecommand{\factname}{事实}
+\providecommand{\lemmaname}{引理}
+\providecommand{\notationname}{记号}
+\providecommand{\problemname}{问题}
+\providecommand{\questionname}{问题}
+\providecommand{\remarkname}{注}
+\providecommand{\solutionname}{解答}
+\providecommand{\theoremname}{定理}
+%
+% Settings for Graphics
+%
+\usepackage{tikz}
+\usetikzlibrary{intersections}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{angles}
+\usetikzlibrary{calc}
+\usetikzlibrary{quotes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+
+\usepackage{tablefootnote}
+\usepackage{physics}
+\usepackage{unicode-math}
+\setmathfont{NewCMMath-Book}[
+	math-style = ISO,
+	bold-style = ISO,
+]
+\setmathfont{STIX Two Math}[
+	math-style = ISO,
+	bold-style = ISO,
+	StylisticSet = {3}, % see stixfonts/docs/charts/StixTwoMath.pdf
+	range = {up/{greek}, \hslash}
+]
+\AtBeginDocument{
+	\renewcommand{\vdot}{\mathbin{\mdsmblkcircle}}
+	\renewcommand{\cross}{\vectimes}
+	\renewcommand{\emptyset}{\diameter}
+	\renewcommand{\varnothing}{\diameter}
+	%% italic versions of the capital Greek letters
+	\let\oldGamma\Gamma
+	\let\oldGamma\Gamma
+	\let\oldDelta\Delta
+	\let\oldTheta\Theta
+	\let\oldLambda\Lambda
+	\let\oldXi\Xi
+	\let\oldPi\Pi
+	\let\oldSigma\Sigma
+	\let\oldUpsilon\Upsilon
+	\let\oldPhi\Phi
+	\let\oldPsi\Psi
+	\let\oldOmega\Omega
+	\renewcommand{\Gamma}{\symup{\oldGamma}}
+	\renewcommand{\Delta}{\symup{\oldDelta}}
+	\renewcommand{\Theta}{\symup{\oldTheta}}
+	\renewcommand{\Lambda}{\symup{\oldLambda}}
+	\renewcommand{\Xi}{\symup{\oldXi}}
+	\renewcommand{\Pi}{\symup{\oldPi}}
+	\renewcommand{\Sigma}{\symup{\oldSigma}}
+	\renewcommand{\Upsilon}{\symup{\oldUpsilon}}
+	\renewcommand{\Phi}{\symup{\oldPhi}}
+	\renewcommand{\Psi}{\symup{\oldPsi}}
+	\renewcommand{\Omega}{\symup{\oldOmega}}
+	\renewcommand{\varGamma}{\mitGamma}
+	\renewcommand{\varDelta}{\mitDelta}
+	\renewcommand{\varTheta}{\mitTheta}
+	\renewcommand{\varLambda}{\mitLambda}
+	\renewcommand{\varXi}{\mitXi}
+	\renewcommand{\varPi}{\mitPi}
+	\renewcommand{\varSigma}{\mitSigma}
+	\renewcommand{\varUpsilon}{\mitUpsilon}
+	\renewcommand{\varPhi}{\mitPhi}
+	\renewcommand{\varPsi}{\mitPsi}
+	\renewcommand{\varOmega}{\mitOmega}
+	\renewcommand{\mathrm}[1]{\symup{#1}}
+	\renewcommand{\mathbf}[1]{\symbf{#1}}
+	\renewcommand{\boldsymbol}[1]{\symbf{#1}}
+}
+\usepackage{cancel}
+\usepackage{siunitx}
+% `physics` and `unicode-math` treat `\div` differently:
+\let\divg\divergence  % define another abbr for `\divergence`.
+
+\begin{document}
+
+% 用户信息
+\include{data/com_info}
+\include{data/master/master_info}
+
+% 中英封面、提名页、授权书
+\maketitle
+% 前言页眉页脚样式
+\pagestyle{frontmatter}
+% 摘要
+\include{data/abstract}
+% 目录、插图目录、表格目录
+\tableofcontents
+\listoffigures
+\listoftables
+% 符号表
+\include{data/master/denotation}
+
+% 正文页码样式
+\mainmatter
+% 正文页眉页脚样式
+\pagestyle{mainmatter}
+
+% 正文
+\include{chapters}
+
+% 参考文献
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{参考文献}
+% \nocite{*}
+\bibliography{main,review}
+\cleardoublepage
+
+% 附录
+\appendix
+\include{data/appendix2-contactus}
+
+% 附页标题样式
+\backmatter
+
+% 附页
+% \include{data/master/back1-achievement}
+\include{data/master/back2-acknowledgement}
+\include{data/master/back3-aboutauthor}
+\end{document}
