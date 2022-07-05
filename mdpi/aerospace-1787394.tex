@@ -1,6 +1,9 @@
 %% LyX 2.3.6.2 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[aerospace,article,submit,moreauthors]{Definitions/mdpi}
+\usepackage{array}
+\usepackage{float}
+\usepackage{booktabs}
 \usepackage{mathtools}
 \usepackage{url}
 \usepackage{amsmath}
@@ -37,17 +40,21 @@ Ningbo, Zhejiang, P.R. China, 315800.}
 
 
 \abstract{In aerospace engineering, high-order computational fluid dynamics
-solvers suitable for three-dimensional unstructured meshes are less
-developed than expected. In our previous works, we have given an efficient
-parallel implementation of the Runge--Kutta discontinuous Galerkin
-finite element method with compact weighted essentially non-oscillatory
-limiters. In this article, we further test these solvers on model
-problems and augment them with a momentum source model so that they
-can be used for solving problems including rotary wings. Results of
-lower-dimensional problems validate the correctness and accuracy of
-these solvers. The capability of capturing complex flow structures
+(CFD) solvers suitable for three-dimensional unstructured meshes are
+less developed than expected. The Runge--Kutta discontinuous Galerkin
+(RKDG) finite element method with compact weighted essentially non-oscillatory
+(WENO) limiters is one of the candicates, which might give high-order
+solutions on unstructured meshes. In this article, we provide an efficient
+parallel implementation of this method for simulating inviscid compressible
+flows. The implemented solvers are tested on lower-dimensional model
+problems and real three-dimensional engineering problems. Results
+of lower-dimensional problems validate the correctness and accuracy
+of these solvers. The capability of capturing complex flow structures
 even on coarse meshes are shown in the results of three-dimensional
-applications.}
+applications. For solving problems containing rotary wings, an unsteady
+momentum source model is incorporated into the solvers. Such a finite-element/momentum-source
+hybrid method eliminates the reliance on advanced mesh techniques,
+which might provide an efficient tool for studying rotorcraft aerodynamics.}
 
 
 \keyword{high-order CFD solvers; three-dimensional unstructured meshes; RKDG
@@ -166,31 +173,31 @@ models}
 
 \section{Introduction}
 
-Computational fluid dynamics (CFD) solvers widely used in aerospace
-engineering are based either on finite difference (FD) schemes or
-on finite volume (FV) schemes. However, most FD schemes are restricted
-on structured meshes, while most FV schemes have only first- or second-order
-accuracy. One way to develop higher-order schemes suitable for unstructured
-meshes is to use the discontinuous Galerkin (DG) finite element (FE)
-methods. Like classic FE methods, DG methods assume continuous approximation
-in each element (a.k.a. cell). However, they allow discontinuities
-to exist on intercell boundaries. Such discontinuities are resolved
-by numerical fluxes, e.g. exact or approximate Riemann solvers, just
-like Godunov-type schemes \citep{Harten_1983}. The original DG scheme
-was not proposed for CFD but for solving the linear neutron transport
-equation \citep{Reed_1973}. For nonlinear conservation laws, Chavent
-and Salzano \citep{Chavent_1982} designed an explicit Euler DG cheme,
-which is second-order accurate in space but only first-order accurate
-in time. To improve the accuracy of time discretization, Cockburn
-and Shu \citep{Cockburn_1988} replaced the first-order Euler method
-with high-order Runge--Kutta (RK) methods, which led to the family
-of RKDG schemes for scalar conservation laws \citep{Shu_1988,Shu_1989},
-for one-dimensional system case \citep{Cockburn_1989}, for multi-dimensional
-scalar case \citep{Cockburn_1990} and for multi-dimensional system
-case \citep{Cockburn_1998}. The last case includes the Euler system
-that depicts inviscid compressible flows, which is the first application
-of RKDG in CFD. We will give a concise derivation this scheme in Section
-\ref{subsec:spatial_discretization} and \ref{subsec:temporal_discretization}.
+CFD solvers widely used in aerospace engineering are based either
+on finite difference (FD) schemes or on finite volume (FV) schemes.
+However, FD schemes are restricted on structured meshes, while most
+FV schemes have only first- or second-order accuracy. One way to develop
+higher-order schemes suitable for unstructured meshes is to use the
+discontinuous Galerkin (DG) finite element (FE) methods. Like other
+FE methods, DG methods assume continuous approximation in each element
+(a.k.a. cell). However, they allow discontinuities to exist on intercell
+boundaries. Such discontinuities are then resolved by numerical fluxes,
+e.g. exact or approximate Riemann solvers, just like Godunov-type
+schemes \citep{Harten_1983}. The original DG scheme was not proposed
+for CFD but for solving the linear neutron transport equation \citep{Reed_1973}.
+For nonlinear conservation laws, Chavent and Salzano \citep{Chavent_1982}
+designed an explicit Euler DG cheme, which is second-order accurate
+in space but only first-order accurate in time. To improve the accuracy
+of time discretization, Cockburn and Shu \citep{Cockburn_1988} replaced
+the first-order forward Euler method with high-order Runge--Kutta
+(RK) methods, which led to the family of RKDG schemes for scalar conservation
+laws \citep{Shu_1988,Shu_1989}, for one-dimensional conservation
+law systems \citep{Cockburn_1989}, for multi-dimensional scalar conservation
+laws \citep{Cockburn_1990} and for multi-dimensional conservation
+law systems \citep{Cockburn_1998a}. The last case includes the Euler
+system that depicts inviscid compressible flows, which is the first
+application of RKDG in CFD. We will give a concise derivation of this
+scheme in Section \ref{subsec:spatial_discretization} and \ref{subsec:temporal_discretization}.
 
 The Euler system is hyperbolic, which might have discontinuities in
 its solutions. Appoximating such solutions with finite terms of continuous
@@ -212,9 +219,10 @@ WENO limiters have to query not only a cell's immediate neighbors,
 but also the neighbors' neighbors, and so on. To preserve the compactness
 of RKDG schemes, Zhong \citep{Zhong_2013} and Zhu \citep{Zhu_2013}
 proposed a compact WENO limter for two-dimensional structured and
-unstructrued meshes. In our early works, we extended it to three-dimensional
-and presented an efficient parallel implementation. We will summarize
-the key steps of this compact WENO limiter in Section \ref{subsec:limiting_procedures}.
+unstructrued meshes. In our early work \citep{Pei_2022}, we extended
+it to three-dimensional and presented an efficient parallel implementation.
+We will summarize the key steps of this compact WENO limiter in Section
+\ref{subsec:limiting_procedures}.
 
 The parallel implementation of the RKDG scheme with a compact WENO
 limiter can be used for solving many practical problems in aerospace
@@ -222,23 +230,29 @@ engineering. However, for problems with moving boundaries (such as
 rotary wings on a helicopter or blades on a wind turbine), advanced
 meshing techniques (such as dynamic meshing, overset meshes or adaptive
 mesh refinement) have to be applied. On the other hand, typical lifting
-bodies (such as rotary wings) have been modelled as various momentum
-sources in FD/FV schemes. Rajagopalan and Mathur \citep{Rajagopalan_1989,Rajagopalan_1993}
+bodies (such as rotary wings) have been successfully modelled as various
+momentum sources in FD/FV schemes. Rajagopalan and Mathur \citep{Rajagopalan_1989,Rajagopalan_1993}
 proposed the first FD/FV based momentum source model, which models
 the time-averaged effect of a rotor as an actuator disk. Such a steady
 model was used by Kang and Sun \citep{Kang_1997,Kang_2000} for solving
-the flow fields of a rotor in ground effect. Shi \citep{Shi_2017}
+the flow fields of rotors in ground effect. Shi \citep{Shi_2017}
 compared this model with an unsteady overset mesh method, and found
 that the steady momentum source model can predict complex aerodynamic
 interactions between a rotor and a flight deck at a much cheaper cost.
 Shen \citep{Shen_2009} and Kim \citep{Kim_2015} refined the model
 by replacing the actuator disk for the entire rotor with an actuator
 surface for each blade of the rotor, so that unsteady effects of rotary
-wings can be captured. We will show how to incorporate a similar unsteady
-model into our RKDG solver in Section \ref{subsec:The-Momentum-Source}.
-Some demonstrative results are presented in Section \ref{subsec:Problems-with-Momentum}.
+wings can be captured. Such early works are either over simplified
+by ignoring unsteady effects (such as \citep{Rajagopalan_1989,Rajagopalan_1993,Kang_1997,Kang_2000}),
+or restricted to structured meshes (such as \citep{Shen_2009,Shi_2017}).
+To overcome these drawbacks, our parallel RKDG solvers are augmented
+with an unsteady actuator line model, which successfully capture unsteady
+effects of a rotor on unstructured meshes. The formulation of this
+finite-element/momentum-source hybrid method will be given in Section
+\ref{subsec:The-Momentum-Source}. Some demonstrative results are
+presented in Section \ref{subsec:Problems-with-Momentum}.
 
-\section{Methods\label{sec:Methods}}
+\section{The RKDG Method with WENO Limiters and Momentum Sources\label{sec:Methods}}
 
 Mathematically, the problems we are going to solve in Section \ref{sec:Results}
 are defined by the three-dimensional Euler system
@@ -275,9 +289,9 @@ b_{z}\\
 with certain boundary and initial conditions, which describes inviscid
 compressible flows. In Equation \ref{eq:euler_system},
 \begin{itemize}
+\item Variables in the first column called conservative variables.
 \item The density $\rho$, the velocity components $u_{x},u_{y},u_{z}$
-and the pressure $p$ are primitive variables that can be measured
-by experimental instruments.
+and the pressure $p$ are called primitive variables.
 \item The thermodynamic quantities $e_{0}$ and $h_{0}$ are the specific
 total energy and the specific total enthalpy, respectively. For ideal
 gases, they can be written as functions of the five primitive variables:
@@ -292,10 +306,11 @@ except in Subsection \ref{subsec:Problems-with-Momentum}.
 \end{itemize}
 %
 The method we use for solving the Euler \ref{eq:euler_system} is
-the RKDG method with a WENO limiter. We have given a detailed formulation
-of this method for sourceless problems in previous works. In this
-section, we give a more complete version by taking source terms into
-consideration.
+the RKDG method with a WENO limiter. A detailed formulation of this
+method for sourceless problems has been given in our previous work
+\citep{Pei_2022}. In this section, we give a more complete formulation
+which takes source terms into consideration. If all source terms were
+canceled, it would reduce to the form in \citep{Pei_2022}.
 
 \subsection{The DG Space Discretization\label{subsec:spatial_discretization}}
 
@@ -309,46 +324,46 @@ in which $\underline{\vec{F}}=\underline{F^{x}}\vec{e}_{x}+\underline{F^{y}}\vec
 is the flux tensor and $\underline{U}$, $\underline{F^{x}}$, $\underline{F^{y}}$,
 $\underline{F^{z}}$, $\underline{Q}$ are all $5\times1$ matrices,
 each row of which is a scalar function depending on position $\vec{x}$
-and time $t$. By multiplying both sides with an arbitrary function
-$V(\vec{x})$ and integrating the products on an arbitrary element
-(a.k.a. cell) $E$, and applying integral by parts and Gauss's divergence
-theorem, Equation \ref{eq:differential_form} can be turned into a
-weak form:
+and time $t$. By multiplying both sides with an arbitrary test function
+$\psi(\vec{x})$ and integrating the products on the $i$-th element
+(a.k.a. cell) $E_{i}$, and applying integral by parts and Gauss's
+divergence theorem, Equation \ref{eq:differential_form} can be turned
+into a weak form:
 
 \begin{equation}
-\int_{E}\left(V\,\partial_{t}\underline{U}-\underline{\vec{F}}\cdot\nabla V\right)+\int_{\partial E}\left(\vec{\nu}\cdot\underline{\vec{F}}\right)V=\int_{E}\underline{Q}\,V,\label{eq:weak_form}
+\int_{E_{i}}\left(\psi\,\partial_{t}\underline{U}-\underline{\vec{F}}\cdot\nabla\psi\right)+\int_{\partial E_{i}}\left(\vec{\nu}\cdot\underline{\vec{F}}\right)\psi=\int_{E_{i}}\underline{Q}\,\psi,\label{eq:weak_form}
 \end{equation}
 
-where $\vec{\nu}$ is the outer normal unit vector of $\partial E$
+where $\vec{\nu}$ is the outer normal unit vector of $\partial E_{i}$
 (which is the boundary of $E$). By choosing an orthonormal basis
-of the linear space spanned by polynomials up to the $p$-th degree
+of the linear space spanned by polynomials less than the $p$-th degree
 over $E$, denoted as $\underline{\phi}(\vec{x})\coloneqq\begin{bmatrix}\phi_{1}(\vec{x}) & \cdots & \phi_{L}(\vec{x})\end{bmatrix}$,
-the unknowns $\underline{U}$ and the arbitrary function $V$ can
-be approximated as
+the unknowns $\underline{U}$ and the arbitrary test function $\psi$
+can be approximated as
 
 \[
-\underline{U}(\vec{x},t)\approx\underline{U}^{h}(\vec{x},t)=\sum_{l=1}^{L}\hat{\underline{U}}_{l}(t)\,\phi_{l}(\vec{x}),\qquad V(\vec{x})\approx V^{h}(\vec{x})=\sum_{l=1}^{L}\hat{V}_{l}\,\phi_{l}(\vec{x}),
+\underline{U}(\vec{x},t)\approx\underline{U}^{h}(\vec{x},t)=\sum_{l=1}^{L}\hat{\underline{U}}_{l}(t)\,\phi_{l}(\vec{x}),\qquad\psi(\vec{x})\approx\psi^{h}(\vec{x})=\sum_{l=1}^{L}\hat{\psi}_{l}\,\phi_{l}(\vec{x}),
 \]
 
 in which each $\hat{\underline{U}}_{l}(t)$ is a $5\times1$ matrix
-of temporal functions, and each $\hat{V}_{l}$ is an arbitrary constant
-number. Substitute them into the weak form (Equation \ref{eq:differential_form}),
+of temporal functions, and each $\hat{\psi}_{l}$ is an arbitrary
+constant number. Substitute them into the weak form (Equation \ref{eq:differential_form}),
 it gives
 
 \begin{equation}
-\sum_{l}\hat{V}_{l}\,\left[\sum_{k}\left(\int_{E}\phi_{l}\phi_{k}\right)\dv{\underline{\hat{U}}_{k}}{t}+\int_{E}\left(\underline{\mathopen{\vec{F}}}\cdot\nabla\phi_{l}-\underline{Q}\,\phi_{l}\right)+\oint_{\partial E}\phi_{l}\,\underline{\mathopen{F^{\nu}}}\right]=\underline{O}\label{eq:spatial_discretization}
+\sum_{l}\hat{\psi}_{l}\,\left[\sum_{k}\left(\int_{E_{i}}\phi_{l}\phi_{k}\right)\dv{\underline{\hat{U}}_{k}}{t}+\int_{E_{i}}\left(\underline{\mathopen{\vec{F}}}\cdot\nabla\phi_{l}-\underline{Q}\,\phi_{l}\right)+\oint_{\partial E_{i}}\phi_{l}\,\underline{\mathopen{F^{\nu}}}\right]=\underline{O}\label{eq:spatial_discretization}
 \end{equation}
 
 where $\vec{\nu}\cdot\underline{\vec{F}}\eqqcolon\underline{F^{\nu}}$
-is the normal flux on $\partial E$, whose value could be given by
-an exact or approximate Riemann solver of Equation \ref{eq:differential_form},
-see \citep{Toro_2009} for details.
+is the normal flux at some point on $\partial E_{i}$, whose value
+could be given by an exact or approximate Riemann solver of Equation
+\ref{eq:differential_form}, see \citep{Toro_2009} for details.
 
-Recall the arbitrariness of $\left\{ \hat{V}_{l}\right\} _{l=1}^{L}$
+Recall the arbitrariness of $\left\{ \hat{\psi}_{l}\right\} _{l=1}^{L}$
 and adopt the inner-product notation
 
 \[
-\langle f\vert g\rangle\coloneqq\int_{E}f(\vec{x})\,g(\vec{x}),
+\langle f\vert g\rangle\coloneqq\int_{E_{i}}f(\vec{x})\,g(\vec{x}),
 \]
 
 we could turn Equation \ref{eq:spatial_discretization} into a system
@@ -371,10 +386,10 @@ is a $5\times L$ matrix of temporal functions (which will be solved
 in Section \ref{subsec:temporal_discretization}), and
 
 \begin{equation}
-\underline{R}=\int_{E}\left(\begin{bmatrix}\underline{F^{x}} & \underline{F^{y}} & \underline{F^{z}}\end{bmatrix}\begin{bmatrix}\partial_{x}\underline{\phi}\\
+\underline{R}=\int_{E_{i}}\left(\begin{bmatrix}\underline{F^{x}} & \underline{F^{y}} & \underline{F^{z}}\end{bmatrix}\begin{bmatrix}\partial_{x}\underline{\phi}\\
 \partial_{y}\underline{\phi}\\
 \partial_{z}\underline{\phi}
-\end{bmatrix}-\underline{Q}\,\underline{\phi}\right)-\oint_{\partial E}\underline{F^{\nu}}\,\underline{\phi}\label{eq:flux_integrals}
+\end{bmatrix}-\underline{Q}\,\underline{\phi}\right)-\oint_{\partial E_{i}}\underline{F^{\nu}}\,\underline{\phi}\label{eq:flux_integrals}
 \end{equation}
 
 is a variable matrix depending on $\underline{\hat{U}}$. The integrals
@@ -412,9 +427,11 @@ Runge--Kutta methods:
 in which the $\underline{R}^{\mu}\coloneqq\underline{R}(\underline{\hat{U}}^{\mu})$'s
 are the values mapped by the nonlinear operator $\underline{R}$ from
 the corresponding $\underline{\hat{U}}^{\mu}$'s. It has been proved
-by \citep{Gottlieb_1998} that they are all TVD (which is a desired
-feature for hyperbolic problems) and fourth-order Runge--Kutta methods
-cannot be TVD without introducing the adjoint operator of $\underline{R}$,
+by Gottlieb and Shu that they are all total variation diminishing
+(TVD) \citep{Gottlieb_1998} or strong stability-preserving (SSP)
+\citep{Gottlieb_2001} (which is a desired feature for hyperbolic
+problems) and fourth-order Runge--Kutta methods cannot be TVD or
+SSP without introducing the adjoint operator of $\underline{R}$,
 denoted as $\underline{R}^{\dagger}$, which satisfies
 
 \[
@@ -427,8 +444,8 @@ than three.
 
 \subsection{The Compact WENO Limiter\label{subsec:limiting_procedures}}
 
-Following our previous works, we use the three-dimensional extension
-of the two-dimensional WENO limiters by Zhong \citep{Zhong_2013}
+Following our previous work \citep{Pei_2022}, we use the three-dimensional
+extension of the two-dimensional WENO limiters by Zhong \citep{Zhong_2013}
 and Zhu \citep{Zhu_2013}. For simplicity, we denote the index set
 of $E_{i}$'s neighbors as $K_{i}$. For each $k\in K_{i}$, we first
 transform Equation \ref{eq:differential_form} to the $\nu$-split
@@ -449,18 +466,18 @@ From the hyperbolicity of Equation \ref{eq:differential_form}, there
 always exists the eigenvalue decomposition
 
 \begin{equation}
-\underline{A^{\nu}}=\underline{R}\begin{bmatrix}u_{\nu}-a\\
+\underline{A^{\nu}}=\underline{R^{\nu}}\begin{bmatrix}u_{\nu}-a\\
  & u_{\nu}\\
  &  & u_{\nu}\\
  &  &  & u_{\nu}\\
  &  &  &  & u_{\nu}+a
-\end{bmatrix}\underline{R}^{-1},\label{eq:eigen_decompose}
+\end{bmatrix}(\underline{R^{\nu}})^{-1},\label{eq:eigen_decompose}
 \end{equation}
 
 in which
 
 \[
-\underline{R}(\underline{U})=\begin{bmatrix}1 & 1 & 0 & 0 & 1\\
+\underline{R^{\nu}}=\begin{bmatrix}1 & 1 & 0 & 0 & 1\\
 u_{x}-a\nu_{x} & u_{x} & \sigma_{x} & \pi_{x} & u_{x}+a\nu_{x}\\
 u_{y}-a\nu_{y} & u_{y} & \sigma_{y} & \pi_{y} & u_{y}+a\nu_{y}\\
 u_{z}-a\nu_{z} & u_{z} & \sigma_{z} & \pi_{z} & u_{z}+a\nu_{z}\\
@@ -477,7 +494,7 @@ u_{z}
 \end{bmatrix},
 \]
 \[
-\underline{R}^{-1}(\underline{U})=\begin{bmatrix}\frac{1}{2}\left(B_{2}+\frac{u_{\nu}}{a}\right) & \frac{-1}{2}\left(B_{1}u_{x}+\frac{\nu_{x}}{a}\right) & \frac{-1}{2}\left(B_{1}u_{y}+\frac{\nu_{y}}{a}\right) & \frac{-1}{2}\left(B_{1}u_{z}+\frac{\nu_{z}}{a}\right) & \frac{1}{2}B_{1}\\
+(\underline{R^{\nu}})^{-1}=\begin{bmatrix}\frac{1}{2}\left(B_{2}+\frac{u_{\nu}}{a}\right) & \frac{-1}{2}\left(B_{1}u_{x}+\frac{\nu_{x}}{a}\right) & \frac{-1}{2}\left(B_{1}u_{y}+\frac{\nu_{y}}{a}\right) & \frac{-1}{2}\left(B_{1}u_{z}+\frac{\nu_{z}}{a}\right) & \frac{1}{2}B_{1}\\
 1-B_{2} & B_{1}u_{x} & B_{1}u_{y} & B_{1}u_{z} & -B_{1}\\
 -u_{\sigma} & \sigma_{x} & \sigma_{y} & \sigma_{z} & 0\\
 -u_{\pi} & \pi_{x} & \pi_{y} & \pi_{z} & 0\\
@@ -491,7 +508,7 @@ into the space spanned by the columns of $\underline{R}$, which defines
 the characteristic variable:
 
 \[
-\underline{V}\coloneqq\underline{R}^{-1}\,\underline{U}.
+\underline{V}\coloneqq(\underline{R^{\nu}})^{-1}\,\underline{U}.
 \]
 
 Each scalar component of $\underline{V}$ can now be treated as independent
@@ -501,7 +518,7 @@ the reconstructed characteristic variable $\underline{V}^{\mathrm{new}}$,
 it is turned back to the original conservative variable:
 
 \begin{equation}
-\underline{U}_{i|k}^{\mathrm{new}}\coloneqq\underline{R}\,\underline{V}^{\mathrm{new}},\label{eq:eigen_rows}
+\underline{U}_{i|k}^{\mathrm{new}}\coloneqq\underline{R^{\nu}}\,\underline{V}^{\mathrm{new}},\label{eq:eigen_rows}
 \end{equation}
 
 The subscript $i|k$ emphasizes the fact that it is a function defined
@@ -561,7 +578,7 @@ source term in Equation \ref{eq:flux_integrals} is actually a line
 integral:
 
 \begin{equation}
-\int_{E}\underline{Q}\,\underline{\phi}=\int_{E}\begin{bmatrix}0\\
+\int_{E_{i}}\underline{Q}\,\underline{\phi}=\int_{E_{i}}\begin{bmatrix}0\\
 \vec{b}_{V}(\vec{r})\\
 0
 \end{bmatrix}\underline{\phi}(\vec{r})=\begin{bmatrix}\underline{0}\\
@@ -580,12 +597,12 @@ integral:
 
 to which the standard Gaussian quadrature can be applied.
 
-\section{Results\label{sec:Results}}
+\section{Results of Model Problems and Engineering Problems\label{sec:Results}}
 
 In this section, we give the results of various problems to show the
 accuracy and performance of the methods described in Section \ref{sec:Methods}.
 
-\subsection{Lower-Dimensional Problems}
+\subsection{Lower-Dimensional Model Problems}
 
 \subsubsection{Shock Tube Problems}
 
@@ -595,9 +612,9 @@ in a $[0.0,5.0]\times[0.0,1.0]\times[0.0,0.5]$ box with all boundaries
 closed but the left and right ends open. Using the method described
 in \citep{Toro_2009}, their exact solutions can be obtained, which
 can be used for assessing the accuracy of our solvers. In our earlier
-works, we have given the results obtained by running our solvers on
-an unstructured hexahedral mesh. This time, we use an unstructured
-tetrahedral mesh instead.
+work \citep{Pei_2022}, we have given the results obtained by running
+our solvers on an unstructured hexahedral mesh. This time, we use
+an unstructured tetrahedral mesh instead.
 \begin{Problem}
 [Sod]\label{prob:sod}Solve the Euler system (Equation \ref{eq:euler_system})
 for $t\in[0.0,1.0]$ with the initial condition
@@ -620,7 +637,7 @@ Problem \ref{prob:sod}.}
 \begin{figure}
 \includegraphics[width=1\textwidth]{figures/shock_tubes/sod/result_tetra}
 
-\caption{\label{fig:sod}Comparison between solutions of $\rho(t=1.0)$ in
+\caption{\label{fig:sod_p}Comparison between solutions of $\rho(t=1.0)$ in
 Problem \ref{prob:sod}.}
 \end{figure}
 
@@ -629,10 +646,49 @@ all the three types of discontinuities: a shock wave and a contact
 discontinuity running towards the right and an expansion wave running
 towards the left. In Figure \ref{fig:sod_contour}, we plot the density
 contour given by our third-order solver with an \texttt{EigenWeno}
-limiter. In Figure \ref{fig:sod_contour}, we compare the density
-distributions given by various solvers along the longitudinal axis
-(on which $y=0.5$ and $z=0.25$) of the box. The accuracy of our
-solvers and the effect of $p$-refinement are clear in these figures.
+limiter. In Figure \ref{fig:sod_p}, we compare the density distributions
+given by various solvers along the longitudinal axis (on which $y=0.5$
+and $z=0.25$) of the box. The accuracy of our solvers and the effect
+of $p$-refinement are clear in these figures.
+
+It is predictable that both mesh refinement (decreasing $h$) and
+order increment (increasing $p$) can help to improve accuracy. To
+compare the performance of solvers with different orders more fairly,
+it is better to use finer meshes for running lower-order solvers.
+After a few trials, we find that solutions given by the $h$-$p$
+pairs listed in Table \ref{tab:sod_performance} roughly have the
+same level of accuracy, as shown in Figure \ref{fig:sod_h}. It is
+clear, at least for Problem \ref{prob:sod}, that high-order solvers
+are better than low-order ones in the sense of getting the same level
+of accuracy with less time and space costs. Similar conclusions were
+drawn in our previous work \citep{Pei_2022}, in which the $p=3$
+solution of a linear advection problem on an $h\approx1/4$ mesh defeated
+the $p=1$ solution of the same problem on an $h\approx1/32$ mesh
+in accuracy but saved quite a lot of time. These encouraging results
+justify our efforts to implement higher-order solvers.
+
+\begin{table}[H]
+\caption{\label{tab:sod_performance}Comparison between time costs and file
+sizes of various $h$-$p$ pairs.}
+
+\begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}>{\centering}p{0.1\textwidth}>{\centering}p{0.05\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.15\textwidth}>{\centering}p{0.1\textwidth}}
+\toprule 
+$h$ & $p$ & \#cells & \#steps & time cost & file size\tabularnewline
+\midrule 
+1/50 & 1 & 2469675 & 1500 & 1492.16 s & 1.23 GB\tabularnewline
+1/18 & 2 & 117045 & 500 & 279.119 s & 213 MB\tabularnewline
+1/10 & 3 & 19815 & 250 & 201.034 s & 89.1 MB\tabularnewline
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\begin{figure}
+\includegraphics[width=1\textwidth]{figures/shock_tubes/sod/h_vary_tetra}
+
+\caption{\label{fig:sod_h}Comparison between solutions given by various $h$-$p$
+pairs.}
+\end{figure}
+
 \begin{Problem}
 [Lax]\label{prob:lax}Solve the Euler system (Equation \ref{eq:euler_system})
 for $t\in[0.0,0.6]$ with the initial condition
@@ -841,41 +897,17 @@ from the triple point is captured by Figures \ref{fig:forward_step_p=00003D3_t=0
 This flow structure would be smeared off if we solved Problem \ref{prob:forward_step}
 using lower-order solvers or coarser meshes.
 
-\subsection{Three-Dimensional Problems\label{subsec:YF-17}}
+\subsection{Three-Dimensional Engineering Problems\label{subsec:YF-17}}
 
 In this section, we solve the Euler system (Equation \ref{eq:euler_system})
 on a three-dimensional unstructured mesh, which discretizes the space
-around a YF-17 aircraft by tetrahedral cells. The mesh is highly unstructured
-and non-uniform as shown in Figure \ref{fig:yf17_mesh}, thus simple
-geometric partitioning cannot achieve a relatively balanced distribution
-of computational efforts. In this work, we use the \textsc{Metis}
-library \citep{Karypis_1998} to partition the dual graph of the mesh,
-which gives the results in Figures \ref{fig:yf17_partition} and \ref{fig:yf17_balance}.
-The fluctuation of cell numbers is under $2\%$, which is quite good
-since the optimal partitioning of an unstructured mesh is an $NP$-hard
-problem. With this partitioning, the speedup ratio of our third-order
-solver running on a 100-core cluster could surpass $90$, which reduces
-the wall clock time to an acceptable level.
+around a YF-17 aircraft by tetrahedral cells as shown in Figure \ref{fig:yf17_mesh}.
 
 \begin{figure}
 \includegraphics[width=1\textwidth]{figures/yf17/mesh}
 
 \caption{\label{fig:yf17_mesh}A zoomed-in view of the most important boundaries
 of the mesh for solving problems in Section \ref{subsec:YF-17}.}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/yf17/partition}
-
-\caption{\label{fig:yf17_partition}A 100-part partitioning of the mesh used
-for solving problems in Section \ref{subsec:YF-17}.}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/yf17/balance}
-
-\caption{\label{fig:yf17_balance}Distribution of cells in the mesh partitioning
-given in Figure \ref{fig:yf17_partition}.}
 \end{figure}
 
 
@@ -920,8 +952,16 @@ It can be seen that the streamlines obtained from the high-order ($p=3$)
 solution are smoother than those from the low-order ($p=1$) solution,
 which shows the benefit of $p$-refinement. The difference in accuracy
 is more obvious in Figure \ref{fig:yf17_rho_subsonic}, which clearly
-shows a more detailed flow structure in the third-order solution and
-the piecewise constantness of the first-order solution.
+shows a more detailed flow structure in the third-order solution (left
+half) and the piecewise constantness of the first-order solution (right
+half). Both solutions are able to capture the vortex trailing from
+the wing tip, which is generated from the the pressure difference
+between the upper and lower surfaces of the wing. When the wing generates
+positive lift, the pressure on the lower wing surface is higher than
+that on the upper wing surface. Under the action of this pressure
+difference, the air under the wing rolls up around the tip and flows
+backward, the tip vortex is thus formed. The vortex trailing from
+the strake is generated from a similar mechanism.
 
 \begin{figure}
 \includegraphics[width=1\textwidth]{figures/yf17/rho_subsonic}
@@ -991,7 +1031,81 @@ by both of them. To show the difference more clearly, we compare the
 two solutions in Figure \ref{fig:yf17_supersonic_top_view} and Figure
 \ref{fig:yf17_supersonic_bottom_view}. As in the subsonic case, the
 third-order solution (which is piecewise quadratic) outperforms the
-first-order one (which is piecewise constant).
+first-order one (which is piecewise constant). Shock waves (red) are
+generated on surfaces facing the wind, since the relative speed of
+air is larger than the speed of sound. Expansion waves (blue) are
+generated on leeward surfaces, since the solid body contracts there
+which leaves more room for the supersonic flow to go.
+
+\subsubsection{Parallel Efficiency}
+
+\begin{figure}
+\includegraphics[width=1\textwidth]{figures/yf17/partition}
+
+\caption{\label{fig:yf17_partition}A 100-part partitioning of the mesh used
+for solving problems in Section \ref{subsec:YF-17}.}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=1\textwidth]{figures/yf17/balance}
+
+\caption{\label{fig:yf17_balance}Distribution of cells in the mesh partitioning
+given in Figure \ref{fig:yf17_partition}.}
+\end{figure}
+
+Since the mesh in Figure \ref{fig:yf17_mesh} is highly unstructured
+and non-uniform, simple geometric partitioning cannot achieve a relatively
+balanced distribution of computational efforts. In our code, we use
+the \textsc{Metis} library \citep{Karypis_1998} to partition the
+dual graph of the mesh, which gives the results in Figures \ref{fig:yf17_partition}
+and \ref{fig:yf17_balance}. The fluctuation of cell numbers is under
+$2\%$, which is quite good since the optimal partitioning of an unstructured
+mesh is an NP-hard problem. With such an approximately optimal partitioning,
+the parallel efficiency, which is defined as
+
+\[
+E=\frac{T_{\text{serial}}}{PT_{\text{parallel}}}\times100\%
+\]
+
+in which $P$ is the number of processes, could surpass $99\%$ in
+theory. In practice, however, the $E$ values given by our numerical
+experiments are only around $80\%$ as shown in Figure \ref{fig:yf17_efficiency},
+which is derived from the measured time costs given in Table \ref{tab:time_cost}.
+The main reason for the gap between theory and practice is that in
+the derivation of the ideal $E$ value, inter-process communications
+are assumed to overlap in time with inner-cell computations, which
+is an over-optimistic assumption. Nevertheless, the acceleration is
+still significant, which reduces the wall clock time to an acceptable
+level.
+
+\begin{figure}
+\includegraphics[width=1\textwidth]{figures/yf17/efficiency}
+
+\caption{\label{fig:yf17_efficiency}Parallel efficiency of the third-order
+solver for solving Problem \ref{prob:Supersonic-YF17}.}
+\end{figure}
+
+\begin{table}[H]
+\caption{\label{tab:time_cost}Time costs of the third-order solver running
+on different number of cores.}
+
+\begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}}
+\toprule 
+\textbf{$P$} & \textbf{$T_{100}$} & \textbf{$T_{399}$} & \textbf{$T_{400}$} & $P\frac{T_{399}-T_{100}}{399-100}$ & $P\frac{T_{400}-T_{100}}{400-100}$\tabularnewline
+\midrule 
+1 & 10511.3 & 42466.5 & 42593.0 & 106.873 & 106.939\tabularnewline
+5 & 2389.25 & 9740.13 & 9769.96 & 122.925 & 123.012\tabularnewline
+10 & 1246.37 & 5086.62 & 5101.95 & 128.436 & 128.519\tabularnewline
+15 & 839.554 & 3420.17 & 3430.75 & 129.462 & 129.560\tabularnewline
+20 & 645.737 & 2632.32 & 2640.57 & 132.882 & 132.989\tabularnewline
+40 & 325.269 & 1310.72 & 1319.73 & 131.833 & 132.595\tabularnewline
+60 & 222.890 & 923.043 & 931.754 & 140.499 & 141.773\tabularnewline
+80 & 168.862 & 672.439 & 681.445 & 134.736 & 136.689\tabularnewline
+100 & 137.787 & 543.081 & 552.682 & 135.550 & 138.298\tabularnewline
+\bottomrule
+\end{tabular*}
+\end{table}
+
 
 \subsection{Problems with Momentum Sources\label{subsec:Problems-with-Momentum}}
 
@@ -1048,7 +1162,13 @@ plotted on selected slices. Large-scale flow structures, such as the
 contraction of airflow near the rotor disk and the rolled-up of airwake,
 are captured in both figures. However, finer details, such as the
 ripples generated from the rotor disk and the strong vortex ring in
-the downstream, are only visible in the third-order solution.
+the downstream, are only visible in the third-order solution. The
+nearly axisymmetric flow structure is caused by the periodic movement
+of the rotary wings. The density of air just below the rotor (red)
+is greater than that above the rotor (blue), which means the rotor
+is compressing the air flowing across it. According to Newton's third
+law, the rotor must be experiencing a force in the opposite direction
+exerted by the air. This is where the rotor thrust comes from.
 
 \subsubsection{A Rotor in Forward Flight}
 \begin{Problem}
@@ -1152,8 +1272,51 @@ FV & Finite Volume\tabularnewline
 FE & Finite Element\tabularnewline
 DG & Discontinuous Galerkin\tabularnewline
 RK & Runge--Kutta\tabularnewline
+TVD & total variation diminishing\tabularnewline
+SSP & strong stability-preserving\tabularnewline
 ENO & Essentially Non-Oscillatory\tabularnewline
 WENO & Weighted ENO\tabularnewline
+\end{tabular}}
+
+\abbreviations{Nomenclature}{The following symbols are used in this manuscript:\\
+
+\noindent%
+\begin{tabular}{@{}ll}
+$\partial_{t},\partial_{x},\partial_{y},\partial_{z}$ & partial derivative with respect to $t,x,y,z$\tabularnewline
+$\alpha$ & angle of attack\tabularnewline
+$\gamma$ & heat capacity ratio of the gas\tabularnewline
+$\vec{\nu}$ & outer normal vector at some point on $\partial E_{i}$\tabularnewline
+$\vec{\pi},\vec{\sigma}$ & tangential vectors at some point on $\partial E_{i}$\tabularnewline
+$\rho$ & density of the gas\tabularnewline
+$\phi_{k}$ & $k$-th function in an orthonormal basis\tabularnewline
+$\psi$ & an arbitrary test function\tabularnewline
+$\psi^{h}$ & approximation of $\psi$\tabularnewline
+$\hat{\psi}_{k}$ & projection of $\psi$ on $\phi_{k}$\tabularnewline
+$\underline{A^{\nu}}$ & Jacobian of $\underline{F^{\nu}}$ with respect to $\underline{U}$\tabularnewline
+$\vec{b}_{L}$  & body force per unit length\tabularnewline
+$\vec{b}_{V}$ & body force per unit volume\tabularnewline
+$b_{x},b_{y},b_{z}$ & $x,y,z$-component of body force per unit volume\tabularnewline
+$c$ & chord length of a blade\tabularnewline
+$E_{i}$ and $\partial E_{i}$ & $i$-th element (cell) and its boundary\tabularnewline
+$e_{0}$ & specific total energy of the gas\tabularnewline
+$\underline{\vec{F}}$ & flux tensor\tabularnewline
+$\underline{F^{\nu}}$ & projection of $\underline{\vec{F}}$ on $\vec{\nu}$\tabularnewline
+$\underline{F^{x}},\underline{F^{y}},\underline{F^{z}}$ & $x,y,z$-component of $\underline{\vec{F}}$\tabularnewline
+$h_{0}$ & specific total enthalpy of the gas\tabularnewline
+$p$ & pressure of the gas\tabularnewline
+$\underline{Q}$ & column matrix of source terms\tabularnewline
+$\underline{R}$ & changing rate of $\underline{\hat{U}}$\tabularnewline
+$\underline{R^{\nu}}$ & matrix whose $j$-th column is the $j$-th eigenvector of $\underline{A^{\nu}}$\tabularnewline
+$\underline{U}$ & column matrix of conservative variables\tabularnewline
+$\underline{U}^{h}$ and $\underline{U}^{\text{new}}$ & approximation of $\underline{U}$ and its WENO reconstruction\tabularnewline
+$\underline{U}_{i|k}^{\text{new}}$ & WENO reconstruction of $\underline{U}^{h}$ on $E_{i}$ with the help
+of $E_{k}$\tabularnewline
+$\underline{\hat{U}}$ & coefficient matrix whose $k$-th column is $\underline{\hat{U}}_{k}$\tabularnewline
+$\underline{\hat{U}}_{k}$ & projection of $\underline{U}$ on $\phi_{k}$\tabularnewline
+$\underline{\hat{U}}^{n}$ & $\underline{\hat{U}}$ and at the $n$-th time step\tabularnewline
+$u_{x},u_{y},u_{z}$ & $x,y,z$-component of velocity\tabularnewline
+$\underline{V}$ & column matrix of characteristic variables\tabularnewline
+$\underline{V}^{h}$ and $\underline{V}^{\text{new}}$ & approximation of $\underline{V}$ and its WENO reconstruction\tabularnewline
 \end{tabular}}
 
 \appendixtitles{no}
@@ -1182,4 +1345,6 @@ WENO & Weighted ENO\tabularnewline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{adjustwidth}{}
+
+
 \end{document}
