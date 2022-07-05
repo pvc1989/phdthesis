@@ -4317,17 +4317,7 @@ literal "false"
 \end_layout
 
 \begin_layout Chapter
-双曲型方程的精确解
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-双曲型方程及其黎曼解
-\end_layout
-
-\end_inset
-
-
+特征线法与黎曼问题
 \end_layout
 
 \begin_layout Section
@@ -20615,7 +20605,7 @@ p_{\mathrm{b}}=p_{\mathrm{o}},\qquad\begin{bmatrix}\rho_{\mathrm{b}}\\
 \end_layout
 
 \begin_layout Chapter
-双曲型方程的数值解
+间断伽辽金有限元法
 \end_layout
 
 \begin_layout Section
@@ -23157,7 +23147,7 @@ reference "eq:m-stage_Runge--Kutta"
 \end_layout
 
 \begin_layout Chapter
-翼空气动力学模型
+旋翼空气动力学模型
 \end_layout
 
 \begin_layout Section
@@ -23169,7 +23159,7 @@ reference "eq:m-stage_Runge--Kutta"
 \end_layout
 
 \begin_layout Chapter
-算法并行化及其实现
+舰载直升机气动干扰
 \end_layout
 
 \begin_layout Chapter
