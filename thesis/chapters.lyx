@@ -4321,7 +4321,11 @@ literal "false"
 \end_layout
 
 \begin_layout Section
-线性单波
+单波方程
+\end_layout
+
+\begin_layout Subsection
+线性平流方程
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:微分方程：双曲型：单波：线性"
@@ -4329,10 +4333,6 @@ name "sec:微分方程：双曲型：单波：线性"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-线性平流
 \end_layout
 
 \begin_layout Question
@@ -5307,12 +5307,8 @@ status open
 
 \end_layout
 
-\begin_layout Section
-拟线性单波
-\end_layout
-
 \begin_layout Subsection
-由特征线法得光滑解
+非线性单波的光滑解
 \end_layout
 
 \begin_layout Question
@@ -6389,7 +6385,7 @@ t_{\mathrm{br}}(x_{0})=t_{0}-\left(\dv*{a}{x_{0}}\right)^{-1}
 \end_layout
 
 \begin_layout Section
-线性多波
+双曲型方程组
 \end_layout
 
 \begin_layout Subsection
@@ -7571,10 +7567,6 @@ reference "eq:微分方程：双曲型：多波：解耦"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-拟线性多波
 \end_layout
 
 \begin_layout Subsection
@@ -20609,7 +20601,7 @@ p_{\mathrm{b}}=p_{\mathrm{o}},\qquad\begin{bmatrix}\rho_{\mathrm{b}}\\
 \end_layout
 
 \begin_layout Section
-空间离散
+非结构网格上的空间离散
 \end_layout
 
 \begin_layout Subsection
@@ -21690,6 +21682,10 @@ reference "eq:inner-product"
 \end_layout
 
 \begin_layout Subsection
+对称弱形式
+\end_layout
+
+\begin_layout Subsection
 正交归一化
 \end_layout
 
@@ -22458,23 +22454,1810 @@ reference "eq:rth-order-gaussian"
 \end_layout
 
 \begin_layout Section
-振荡抑制
+激波捕捉与 WENO 重构
 \end_layout
 
 \begin_layout Subsection
 吉布斯现象
 \end_layout
 
+\begin_layout Standard
+《
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sec:微分方程：守恒律"
+
+\end_inset
+
+》一节指出：双曲型守恒律系统
+\begin_inset Formula 
+\begin{equation}
+\partial_{t}\vert U\rangle+\partial_{x}\vert F(\underline{U})\rangle=0\qquad\underline{A}(\underline{U})\coloneqq\pdv{\vert F\rangle}{\vert U\rangle}\label{eq:激波捕捉：守恒律：系统}
+\end{equation}
+
+\end_inset
+
+的弱解可能含有以下几种间断：
+\end_layout
+
+\begin_layout Description
+激波
+\begin_inset space \space{}
+\end_inset
+
+(shock) 可以用厚度为零的控制体表示；物理量在其两侧的值有跳跃，因此是一种强间断；熵的值在其两侧有跳跃。
+\end_layout
+
+\begin_layout Description
+膨胀波
+\begin_inset space \space{}
+\end_inset
+
+(expansion) 可以用有限厚度的控制体表示；物理量在其内部光滑、在其边界两侧的值连续、但导数值有跳跃，因此是一种弱间断；熵的值在其两侧相等。
+\end_layout
+
+\begin_layout Description
+接触间断
+\begin_inset space \space{}
+\end_inset
+
+(contact
+\begin_inset space \space{}
+\end_inset
+
+discontinuity) 上述两种间断的临界情形：既看作熵变为零的激波，又可以看作厚度为零的膨胀波。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "Gottlieb--Shu (1997)"
+target "https://doi.org/10.1137/S0036144596301390"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{listing}
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand inputminted
+filename "../../mathematics/functional/gibbs.py"
+lstparams "language=Python,caption={Fourier 级数在间断处的 Gibbs 现象},label={code:激波捕捉：振荡来源：Gibbs}"
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{listing}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color blue
+基本无振荡 (Essentially Non-Oscillatory, ENO)
+\color inherit
+ 格式始于 
+\begin_inset CommandInset href
+LatexCommand href
+name "Harten--Engquist--Osher--Chakravarthy (1987)"
+target "https://doi.org/10.1016/0021-9991(87)90031-3"
+literal "false"
+
+\end_inset
+
+，其核心思想是：
+\end_layout
+
+\begin_layout Itemize
+为每个结点指定多个
+\color blue
+候选模板 (candidate stencil)
+\color inherit
+。
+\end_layout
+
+\begin_layout Itemize
+在每个候选模板上分别构造一个
+\color blue
+候选多项式 (candidate polynomial)
+\color inherit
+。
+\end_layout
+
+\begin_layout Itemize
+取
+\color blue
+光滑程度 (smoothness)
+\color inherit
+ 最高的那一个作为近似解。
+\end_layout
+
+\begin_layout Standard
+在近似解充分光滑的区域，各候选多项式的光滑程度通常也很接近，只保留其中一个显然是对计算资源的一种浪费。为了充分利用所有已知信息，
+\color blue
+加权基本无振荡 (Weighted ENO, WENO)
+\color inherit
+ 格式将 ENO 格式的最后一步替换为：
+\end_layout
+
+\begin_layout Itemize
+取所有候选多项式的
+\color blue
+非线性加权平均
+\color inherit
+作为近似解。
+\end_layout
+
+\begin_layout Standard
+各种 WENO 格式的区别，正是体现在
+\color blue
+非线性权重
+\color inherit
+的设计上。
+\end_layout
+
+\begin_layout Remark*
+(W)ENO 格式虽不能完全消除数值振荡（故不是 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "def:TVD-scheme"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+），但可以将数值振荡的幅值限制在 
+\begin_inset Formula $\order{h^{p}}$
+\end_inset
+
+ 以下（因此是 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "rem:TVB-scheme"
+
+\end_inset
+
+），同时还能够避免近似解的精度在光滑极值点附近降阶，因此特别适合于既含间断（激波、接触）、又含复杂光滑结构（湍流、涡系）的问题。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 标量限制器
+\end_layout
+
+\begin_layout Standard
+为求解一维标量守恒律 
+\begin_inset Formula $\partial_{t}u+\partial_{x}f=0$
+\end_inset
+
+，在等距网格上引入守恒型差分格式
+\begin_inset Formula 
+\[
+\left(\partial_{x}f\right)_{i}\equiv\eval{\pdv{f}{x}}_{i}\approx\frac{f_{i+1/2}-f_{i-1/2}}{h}
+\]
+
+\end_inset
+
+其中 
+\begin_inset Formula $f_{i\pm1/2}$
+\end_inset
+
+ 为下面将要构造的数值通量。不失一般性，这里只考虑 
+\begin_inset Formula $a(u_{i})>0$
+\end_inset
+
+ 的情形；对于 
+\begin_inset Formula $a(u_{i})<0$
+\end_inset
+
+ 的情形，只需将下标中紧跟在 
+\begin_inset Formula $i$
+\end_inset
+
+ 后面的 
+\begin_inset Formula $\pm$
+\end_inset
+
+ 互换，例如 
+\begin_inset Formula $f_{i+1}$
+\end_inset
+
+ 换为 
+\begin_inset Formula $f_{i-1}$
+\end_inset
+
+，以此类推。在构造 
+\begin_inset Formula $f_{i+1/2}$
+\end_inset
+
+ 时，含有五个点的大模板（用下标偏移量表示）
+\begin_inset Formula 
+\[
+S=\begin{bmatrix}-2 & -1 & 0 & +1 & +2\end{bmatrix}
+\]
+
+\end_inset
+
+被分解为三个各含三个点且部分重叠的小模板：
+\begin_inset Formula 
+\[
+S_{1}=\begin{bmatrix}-2 & -1 & 0\end{bmatrix}\qquad S_{2}=\begin{bmatrix}-1 & 0 & +1\end{bmatrix}\qquad S_{3}=\begin{bmatrix}0 & +1 & +2\end{bmatrix}
+\]
+
+\end_inset
+
+由此可以构造出三种对 
+\begin_inset Formula $\left(\partial_{x}f\right)_{i}$
+\end_inset
+
+ 的三阶近似，相应的数值通量分别为
+\begin_inset Formula 
+\[
+\begin{bmatrix}f_{i+1/2}^{[1]}\\
+f_{i+1/2}^{[2]}\\
+f_{i+1/2}^{[3]}
+\end{bmatrix}=\frac{1}{6}\begin{bmatrix}2 & -7 & 11\\
+ & -1 & 5 & 2\\
+ &  & 2 & 5 & -1
+\end{bmatrix}\begin{bmatrix}f_{i-2}\\
+f_{i-1}\\
+f_{i}\\
+f_{i+1}\\
+f_{i+2}
+\end{bmatrix}
+\]
+
+\end_inset
+
+对三者取加权平均即得大模板上的数值通量：
+\begin_inset Formula 
+\[
+f_{i+1/2}=\begin{bmatrix}w_{1} & w_{2} & w_{3}\end{bmatrix}\begin{bmatrix}f_{i+1/2}^{[1]}\\
+f_{i+1/2}^{[2]}\\
+f_{i+1/2}^{[3]}
+\end{bmatrix}
+\]
+
+\end_inset
+
+其中 
+\begin_inset Formula $\begin{bmatrix}w_{1} & w_{2} & w_{3}\end{bmatrix}$
+\end_inset
+
+ 是根据 
+\begin_inset Formula $f$
+\end_inset
+
+ 在 
+\begin_inset Formula $\begin{bmatrix}S_{1} & S_{2} & S_{3}\end{bmatrix}$
+\end_inset
+
+ 上的光滑程度构造的
+\color blue
+非线性权重
+\color inherit
+：
+\end_layout
+
+\begin_layout Itemize
+在充分光滑的区域，上述 
+\begin_inset Formula $f_{i+1/2}$
+\end_inset
+
+ 应当逼近（五点）大模板上的（五阶）
+\color blue
+理想格式
+\color inherit
+：
+\begin_inset Formula 
+\[
+f_{i+1/2}^{S}=\frac{\begin{bmatrix}2 & -13 & 47 & 27 & -3\end{bmatrix}}{60}\begin{bmatrix}f_{i-2}\\
+f_{i-1}\\
+f_{i}\\
+f_{i+1}\\
+f_{i+2}
+\end{bmatrix}
+\]
+
+\end_inset
+
+这可以通过取
+\color blue
+理想权重
+\color inherit
+来实现：
+\begin_inset Formula 
+\[
+\begin{bmatrix}w_{1} & w_{2} & w_{3}\end{bmatrix}=\begin{bmatrix}w_{1}^{\star} & w_{2}^{\star} & w_{3}^{\star}\end{bmatrix}\coloneqq\frac{\begin{bmatrix}1 & 6 & 3\end{bmatrix}}{10}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+在非光滑区域，被间断穿过的小模板即
+\color blue
+坏模板 (troubled stencil)
+\color inherit
+ 上的权重应当接近 
+\begin_inset Formula $0$
+\end_inset
+
+，但所有小模板的权重之和依然为 
+\begin_inset Formula $1$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "Jiang--Shu (1996)"
+target "https://doi.org/10.1006/jcph.1996.0130"
+literal "false"
+
+\end_inset
+
+ 给出了一种满足上述性质的方案：
+\end_layout
+
+\begin_layout Enumerate
+在小模板 
+\begin_inset Formula $S_{k}$
+\end_inset
+
+ 上构造二次多项式 
+\begin_inset Formula $Q_{i}^{[k]}$
+\end_inset
+
+ 作为在 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ 附近对 
+\begin_inset Formula $f$
+\end_inset
+
+ 的近似：
+\begin_inset Formula 
+\[
+Q_{i}^{[k]}(x)=f_{i}+\eval{\pdv{f}{x}}_{i}^{[k]}(x-x_{i})+\eval{\pdv[2]{f}{x}}_{i}^{[k]}\frac{(x-x_{i})^{2}}{2}
+\]
+
+\end_inset
+
+其中 
+\begin_inset Formula $\left(\partial_{x}f\right)_{i}^{[k]}$
+\end_inset
+
+ 与 
+\begin_inset Formula $\left(\partial_{x}^{2}f\right)_{i}^{[k]}$
+\end_inset
+
+ 分别表示由 
+\begin_inset Formula $\left\{ f_{i+s}:s\in S_{k}\right\} $
+\end_inset
+
+ 给出的一阶与二阶差商，即 
+\begin_inset Formula $\partial_{x}f$
+\end_inset
+
+ 与 
+\begin_inset Formula $\partial_{x}^{2}f$
+\end_inset
+
+ 在点 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ 处的近似值：
+\begin_inset Formula 
+\[
+\begin{bmatrix}\left(\partial_{x}f\right)_{i}^{[1]}\\
+\left(\partial_{x}f\right)_{i}^{[2]}\\
+\left(\partial_{x}f\right)_{i}^{[3]}
+\end{bmatrix}=\frac{1}{2h}\begin{bmatrix}1 & -4 & 3\\
+ & -1 & 0 & 1\\
+ &  & 3 & -4 & 1
+\end{bmatrix}\begin{bmatrix}f_{i-2}\\
+f_{i-1}\\
+f_{i}\\
+f_{i+1}\\
+f_{i+2}
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{bmatrix}\left(\partial_{x}^{2}f\right)_{i}^{[1]}\\
+\left(\partial_{x}^{2}f\right)_{i}^{[2]}\\
+\left(\partial_{x}^{2}f\right)_{i}^{[3]}
+\end{bmatrix}=\frac{1}{h^{2}}\begin{bmatrix}1 & -2 & 1\\
+ & 1 & -2 & 1\\
+ &  & 1 & -2 & 1
+\end{bmatrix}\begin{bmatrix}f_{i-2}\\
+f_{i-1}\\
+f_{i}\\
+f_{i+1}\\
+f_{i+2}
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+计算二次多项式 
+\begin_inset Formula $Q_{i}^{[k]}$
+\end_inset
+
+ 在控制体 
+\begin_inset Formula $(x_{i-1/2},x_{i+1/2})$
+\end_inset
+
+ 上的
+\color blue
+光滑程度
+\color inherit
+
+\begin_inset Formula 
+\[
+\beta_{i}^{[k]}\coloneqq\int_{x_{i-1/2}}^{x_{i+1/2}}\sum_{p=1}^{2}\left(\dv[p]{Q_{i}^{[k]}}{x}\right)^{2}h^{2p-1}\dd{x}=\left(\eval{\pdv{f}{x}}_{i}^{[k]}h\right)^{2}+\frac{13}{12}\left(\eval{\pdv[2]{f}{x}}_{i}^{[k]}h^{2}\right)^{2}
+\]
+
+\end_inset
+
+在光滑区域，它们都趋于同一个二阶小量 
+\begin_inset Formula $\beta_{i}^{\star}$
+\end_inset
+
+，且两两之差为六阶小量：
+\begin_inset Formula 
+\[
+\beta_{i}^{[k]}=\beta_{i}^{\star}+\order{h^{6}}\qquad\beta_{i}^{\star}\coloneqq\left(\eval{\pdv{f}{x}}_{i}h\right)^{2}+\frac{13}{12}\left(\eval{\pdv[2]{f}{x}}_{i}h^{2}\right)^{2}
+\]
+
+\end_inset
+
+在非光滑区域，坏模板上的 
+\begin_inset Formula $Q_{i}^{[k]}$
+\end_inset
+
+ 偏离 
+\begin_inset Formula $f$
+\end_inset
+
+ 在 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ 处的 Taylor 展开式较多，因此
+\begin_inset Formula 
+\[
+\beta_{i}^{[k]}=\order{1}\gg\order{h^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+计算非线性权重
+\begin_inset Formula 
+\[
+w_{k}=\frac{w_{k}^{\beta}}{w_{3}^{\beta}+w_{2}^{\beta}+w_{3}^{\beta}}\qquad w_{k}^{\beta}=\frac{w_{k}^{\star}}{\left(\varepsilon+\beta_{i}^{[k]}\right)^{2}}\qquad\varepsilon=10^{-6}
+\]
+
+\end_inset
+
+在光滑区域，上述非线性权重接近理想权重：
+\begin_inset Formula 
+\[
+w_{k}=w_{k}^{\star}+\order{h^{4}}\impliedby w_{k}^{\beta}=\frac{w_{k}^{\star}}{(\beta_{i}^{\star})^{2}+\order{h^{8}}}
+\]
+
+\end_inset
+
+故大模板上的 
+\begin_inset Formula $f_{i+1/2}$
+\end_inset
+
+ 具有五阶精度；在非光滑区域，坏模板的实际权重（与其他小模板的权重相比）接近 
+\begin_inset Formula $0$
+\end_inset
+
+，但大模板上的 
+\begin_inset Formula $f_{i+1/2}$
+\end_inset
+
+ 依然具有三阶精度。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+下面介绍由 
+\begin_inset CommandInset href
+LatexCommand href
+name "Zhong--Shu (2013)"
+target "https://doi.org/10.1016/j.jcp.2012.08.028"
+literal "false"
+
+\end_inset
+
+ 提出（适用于结构网格）、并由 
+\begin_inset CommandInset href
+LatexCommand href
+name "Zhu--Zhong--Shu--Qiu (2013)"
+target "https://doi.org/10.1016/j.jcp.2013.04.012"
+literal "false"
+
+\end_inset
+
+ 推广（适用于非结构网格）的
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sec:间断有限元"
+
+\end_inset
+
+ WENO 重构方法。
+\end_layout
+
+\begin_layout Notation*
+为方便叙述，将分片光滑的（标量或向量）函数 
+\begin_inset Formula $\psi$
+\end_inset
+
+ 在单元 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ 上的
+\color blue
+限制 (restriction)
+\color inherit
+ 记为
+\begin_inset Formula 
+\[
+\psi_{i}(\vec{x})\coloneqq\psi\vert_{E_{i}}(\vec{x})\qquad\vec{x}\in E_{i}
+\]
+
+\end_inset
+
+并将单元 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ 及与之邻接的那些单元的下标集（即局部模板）记为
+\begin_inset Formula 
+\[
+K_{i}\coloneqq\left\{ k:\partial E_{i}\cap\partial E_{k}\ne\varnothing\right\} 
+\]
+
+\end_inset
+
+这里的
+\color blue
+邻接
+\color inherit
+是指单元之间有公共边界，即几何区域相邻（
+\begin_inset Formula $d$
+\end_inset
+
+ 维单元至少有 
+\begin_inset Formula $d$
+\end_inset
+
+ 个公共点），而非单元编号相邻。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[标量函数]
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:WENO：基于邻接单元：标量函数"
+
+\end_inset
+
+设 
+\begin_inset Formula $\psi$
+\end_inset
+
+ 为分段光滑的标量函数
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+通常为标量守恒律 
+\begin_inset Formula $\partial_{t}u+\divg\vec{f}=0$
+\end_inset
+
+ 的多项式近似解；也可以是双曲型方程组的某个特征变量。
+\end_layout
+
+\end_inset
+
+。
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+对每个邻接单元，即 
+\begin_inset Formula $\forall k\in K_{i}$
+\end_inset
+
+：
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+将 
+\begin_inset Formula $\psi_{k}$
+\end_inset
+
+ 延拓到 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ 上，并对函数值作适当平移，使所得的 
+\begin_inset Formula $\psi_{k\to i}$
+\end_inset
+
+ 在 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ 上的均值等于 
+\begin_inset Formula $\psi_{i}$
+\end_inset
+
+ 在 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ 上的均值：
+\begin_inset Formula 
+\[
+\psi_{k\to i}(\vec{x})\coloneqq\psi_{k}(\vec{x})-\langle\psi_{k}\rangle_{i}+\langle\psi_{i}\rangle_{i}\qquad\vec{x}\in E_{i}
+\]
+
+\end_inset
+
+其中 
+\begin_inset Formula $\langle\psi\rangle_{i}$
+\end_inset
+
+ 表示函数 
+\begin_inset Formula $\psi$
+\end_inset
+
+ 在单元 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ 上的均值：
+\begin_inset Formula 
+\[
+\langle\psi\rangle_{i}\coloneqq\frac{\int_{E_{i}}\psi(\vec{x})}{\vert E_{i}\vert\coloneqq\int_{E_{i}}1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+为 
+\begin_inset Formula $\psi_{k\to i}$
+\end_inset
+
+ 分配理想权重：
+\begin_inset Formula 
+\[
+w_{k\to i}^{\star}=\begin{cases}
+0.001 & k\ne i\\
+1-\sum_{k\in K_{i}\setminus\left\{ i\right\} }w_{k\to i}^{\star} & k=i
+\end{cases}
+\]
+
+\end_inset
+
+数值实验表明：较大的 
+\begin_inset Formula $w_{i\to i}^{\star}$
+\end_inset
+
+ 有利于在光滑处保持精度，较小的 
+\begin_inset Formula $w_{i\to i}^{\star}$
+\end_inset
+
+ 有利于在间断处压制振荡。
+\end_layout
+
+\begin_layout Enumerate
+计算 
+\begin_inset Formula $\psi_{k\to i}$
+\end_inset
+
+ 在 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ 上的光滑程度：
+\begin_inset Formula 
+\[
+\beta_{k\to i}=\sum_{\vert\alpha\vert=1}^{p}\frac{\vert E_{i}\vert^{2\vert\alpha\vert/n-1}}{(\vert\alpha\vert!)^{2}}\int_{E_{i}}\left(\frac{\partial^{\vert\alpha\vert}\psi_{k\to i}}{\partial x_{1}^{\alpha_{1}}\cdots\partial x_{n}^{\alpha_{n}}}\right)^{2}\qquad\vert\alpha\vert\coloneqq\alpha_{1}+\cdots+\alpha_{n}
+\]
+
+\end_inset
+
+其中系数 
+\begin_inset Formula $\vert E_{i}\vert^{2\vert\alpha\vert/n-1}/(\vert\alpha\vert!)^{2}$
+\end_inset
+
+ 的分子
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Zhu--Zhong--Shu--Qiu (2013)"
+target "https://doi.org/10.1016/j.jcp.2013.04.012"
+literal "false"
+
+\end_inset
+
+ 中的系数以 
+\begin_inset Formula $\vert E_{i}\vert^{\vert\alpha\vert-1}$
+\end_inset
+
+ 为分子。
+\end_layout
+
+\end_inset
+
+用于无量纲化，分母用于避免高阶导数的占比过多。
+\end_layout
+
+\begin_layout Enumerate
+计算非线性权重：
+\begin_inset Formula 
+\[
+w_{k\to i}=\frac{w_{k\to i}^{\beta}}{\sum_{k\in K_{i}}w_{k\to i}^{\beta}}\qquad w_{k\to i}^{\beta}\coloneqq\frac{w_{k\to i}^{\star}}{\left(\varepsilon+\beta_{k\to i}\right)^{2}}
+\]
+
+\end_inset
+
+其中 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ 用于避免分母为 
+\begin_inset Formula $0$
+\end_inset
+
+，可取 
+\begin_inset Formula $\varepsilon=10^{-6}$
+\end_inset
+
+。
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+按上述非线性权重对 
+\begin_inset Formula $\left\{ \psi_{k}:k\in K_{i}\right\} $
+\end_inset
+
+ 作平均，以所得的新函数 
+\begin_inset Formula $\psi_{i}^{\mathrm{new}}$
+\end_inset
+
+ 取代旧函数 
+\begin_inset Formula $\psi_{i}$
+\end_inset
+
+：
+\begin_inset Formula 
+\[
+\psi_{i}^{\mathrm{new}}(\vec{x})\coloneqq\sum_{k\in K_{i}}w_{k\to i}\,\psi_{k\to i}(\vec{x})\qquad\vec{x}\in E_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+借助（向量）函数的投影表示法
+\begin_inset Formula 
+\[
+\begin{bmatrix}f_{1}(x,y)\\
+\vdots\\
+f_{K}(x,y)
+\end{bmatrix}_{K\times1}=\underline{A}_{K\times N}\begin{bmatrix}1\\
+x-x_{0}\\
+y-y_{0}\\
+(x-x_{0})(x-x_{0})\\
+(x-x_{0})(y-y_{0})\\
+(y-y_{0})(y-y_{0})
+\end{bmatrix}_{N\times1}
+\]
+
+\end_inset
+
+可以将其偏导数表示为
+\begin_inset Formula 
+\[
+\underbrace{\begin{bmatrix}\dfrac{\partial}{\partial x}\begin{bmatrix}f_{1}\\
+\vdots\\
+f_{K}
+\end{bmatrix} & \dfrac{\partial}{\partial y}\begin{bmatrix}f_{1}\\
+\vdots\\
+f_{K}
+\end{bmatrix} & \dfrac{\partial^{2}}{\partial x^{2}}\begin{bmatrix}f_{1}\\
+\vdots\\
+f_{K}
+\end{bmatrix} & \dfrac{\partial^{2}}{\partial x\partial y}\begin{bmatrix}f_{1}\\
+\vdots\\
+f_{K}
+\end{bmatrix} & \dfrac{\partial^{2}}{\partial y^{2}}\begin{bmatrix}f_{1}\\
+\vdots\\
+f_{K}
+\end{bmatrix}\end{bmatrix}}_{K\times(N-1)}=\underline{A}_{K\times N}\underbrace{\begin{bmatrix}0\\
+1\\
+0 & 1\\
+2(x-x_{0}) & 0 & 2\\
+0 & 0 & 0 & 1\\
+0 & 2(y-y_{0}) & 0 & 0 & 2
+\end{bmatrix}}_{N\times(N-1)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 向量限制器
 \end_layout
 
+\begin_layout Algorithm
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[一维方程组]
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:WENO：基于邻接单元：一维方程组"
+
+\end_inset
+
+设多项式列阵 
+\begin_inset Formula $\vert U\rangle_{i}$
+\end_inset
+
+ 为一维守恒律方程组
+\begin_inset Formula 
+\[
+\partial_{t}\vert U\rangle+\partial_{x}\vert F\rangle=\vert0\rangle\qquad\underline{A}(\underline{U})\coloneqq\pdv*{\vert F\rangle}{\vert U\rangle}
+\]
+
+\end_inset
+
+在单元 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ 上的近似解。若 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ 被识别为坏单元，则
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+将各邻接单元上的 
+\begin_inset Formula $\vert U\rangle_{k}$
+\end_inset
+
+ 延拓到 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ 上，并对函数值作适当平移，使所得的 
+\begin_inset Formula $\vert U\rangle_{k\to i}$
+\end_inset
+
+ 在 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ 上的均值等于 
+\begin_inset Formula $\vert U\rangle_{i}$
+\end_inset
+
+ 在 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ 上的均值。
+\end_layout
+
+\begin_layout Enumerate
+用 
+\begin_inset Formula $\vert U\rangle_{i}$
+\end_inset
+
+ 在 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ 上的均值（重构不变量）计算 
+\begin_inset Formula $\Mat{A}$
+\end_inset
+
+ 的特征矩阵：
+\begin_inset Formula 
+\[
+\Mat{A}\Mat{R}=\Mat{R}\Mat{\varLambda}\implies\Mat{L}\coloneqq\Mat{R}^{-1}\implies\Mat{L}\Mat{A}=\Mat{\varLambda}\Mat{L}
+\]
+
+\end_inset
+
+所得的 
+\begin_inset Formula $\Mat{L}$
+\end_inset
+
+ 与 
+\begin_inset Formula $\Mat{R}$
+\end_inset
+
+ 均为数量矩阵。
+\end_layout
+
+\begin_layout Enumerate
+用上述 
+\begin_inset Formula $\Mat{L}$
+\end_inset
+
+ 定义
+\color blue
+特征变量
+\color inherit
+：
+\begin_inset Formula 
+\[
+\vert V\rangle\coloneqq\Mat{L}\vert U\rangle
+\]
+
+\end_inset
+
+这一步称为
+\color blue
+局部特征分解 (local characteristic decomposition)
+\color inherit
+。具体地：
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+计算 
+\begin_inset Formula $\vert V\rangle_{k\to i}\coloneqq\Mat{L}\vert U\rangle_{k\to i}$
+\end_inset
+
+，即 
+\begin_inset Formula $\vert V\rangle$
+\end_inset
+
+ 的多项式近似。
+\end_layout
+
+\begin_layout Enumerate
+平移后的 
+\begin_inset Formula $\vert U\rangle_{k\to i}$
+\end_inset
+
+ 已确保均值不变，故不必再对 
+\begin_inset Formula $\vert V\rangle_{k\to i}$
+\end_inset
+
+ 作平移。
+\end_layout
+
+\begin_layout Enumerate
+对 
+\begin_inset Formula $\left\{ \vert V\rangle_{k\to i}\right\} _{k\in K_{i}}$
+\end_inset
+
+ 逐行调用算法 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:WENO：基于邻接单元：标量函数"
+
+\end_inset
+
+，具体到第 
+\begin_inset Formula $r$
+\end_inset
+
+ 行：
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\forall k\in K_{i}$
+\end_inset
+
+：计算 
+\begin_inset Formula $\ip{r}{V}_{k\to i}$
+\end_inset
+
+ 的光滑程度 
+\begin_inset Formula $\beta_{k\to i}$
+\end_inset
+
+ 及相应的非线性权重 
+\begin_inset Formula $w_{k\to i}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+按所得权重组合出 
+\begin_inset Formula $\vert V\rangle_{i}^{\mathrm{new}}$
+\end_inset
+
+ 的第 
+\begin_inset Formula $r$
+\end_inset
+
+ 行：
+\begin_inset Formula 
+\[
+\ip{r}{V}_{i}^{\mathrm{new}}\coloneqq\sum_{k\in K_{i}}w_{k\to i}\ip{r}{V}_{k\to i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+将
+\color blue
+特征变量
+\color inherit
+还原为
+\color blue
+守恒变量
+\color inherit
+：
+\begin_inset Formula 
+\[
+\vert U\rangle_{i}^{\mathrm{new}}\coloneqq\Mat{R}\vert V\rangle_{i}^{\mathrm{new}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[高维方程组]
+\end_layout
+
+\end_inset
+
+设多项式列阵 
+\begin_inset Formula $\vert U\rangle_{i}$
+\end_inset
+
+ 为高维守恒律方程组
+\begin_inset Formula 
+\[
+\partial_{t}\vert U\rangle+\divg\vec{\vert F\rangle}=\vert0\rangle
+\]
+
+\end_inset
+
+在单元 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ 上的近似解。若 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ 被识别为坏单元，则
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\forall k\in K_{i}\setminus\left\{ i\right\} $
+\end_inset
+
+：在公共边界 
+\begin_inset Formula $\partial E_{i}\cap\partial E_{k}$
+\end_inset
+
+ 上，对守恒律方程组沿外法向 
+\begin_inset Formula $\vec{\nu}$
+\end_inset
+
+ 的
+\color blue
+法向分裂形式
+\color inherit
+
+\begin_inset Formula 
+\[
+\partial_{t}\vert U\rangle+\partial_{\nu}\vert F_{\nu}\rangle=\vert0\rangle\qquad\vert F_{\nu}\rangle\coloneqq\vec{\nu}\vdot\vec{\vert F\rangle}
+\]
+
+\end_inset
+
+应用算法 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:WENO：基于邻接单元：一维方程组"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，所得结果记为 
+\begin_inset Formula $\vert U\rangle_{i|k}^{\mathrm{new}}$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+按 
+\begin_inset Formula $E_{k}$
+\end_inset
+
+ 的面积对 
+\begin_inset Formula $\vert U\rangle_{i|k}^{\mathrm{new}}$
+\end_inset
+
+ 作加权平均：
+\begin_inset Formula 
+\[
+\vert U\rangle_{i}^{\mathrm{new}}\coloneqq\frac{\sum_{k\in K_{i}\setminus\left\{ i\right\} }\abs{E_{k}}\cdot\vert U\rangle_{i|k}^{\mathrm{new}}}{\sum_{k\in K_{i}\setminus\left\{ i\right\} }\abs{E_{k}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[平面边界假设]
+\end_layout
+
+\end_inset
+
+上述过程在每个 
+\begin_inset Formula $B_{i,k}\coloneqq\partial E_{i}\cap\partial E_{k}$
+\end_inset
+
+ 上只做一次法向投影，实际上是假设了单位法向量 
+\begin_inset Formula $\vec{\nu}$
+\end_inset
+
+ 沿该边界不变，即单元边界属于某个平面。在三维问题中，四面体单元通常可以保证不属于任何平面的单元边界只出现在流场边界上，而六面体单元（即使最低阶的八结点单元）的
+单元边界一般而言是非平面的。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[二维 Euler 方程]
+\end_layout
+
+\end_inset
+
+二维 Euler 方程的法向分裂形式 
+\begin_inset Formula $\partial_{t}\vert U\rangle+\partial_{\nu}\vert F_{\nu}\rangle=\vert0\rangle$
+\end_inset
+
+ 即
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial t}\begin{bmatrix}\rho\\
+\rho\vec{u}\\
+\rho e_{0}
+\end{bmatrix}+\frac{\partial}{\partial\nu}\begin{bmatrix}\rho u_{\nu}\\
+\rho u_{\nu}\vec{u}+p\vec{\nu}\\
+\rho u_{\nu}h_{0}
+\end{bmatrix}=\begin{bmatrix}0\\
+\vec{0}\\
+0
+\end{bmatrix}
+\]
+
+\end_inset
+
+在全局 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ 坐标系与局部 
+\begin_inset Formula $(\nu,\sigma)$
+\end_inset
+
+ 坐标系下的展开式分别为
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial t}\begin{bmatrix}\rho\\
+\rho u_{x}\\
+\rho u_{y}\\
+\rho e_{0}
+\end{bmatrix}+\frac{\partial}{\partial\nu}\begin{bmatrix}\rho u_{\nu}\\
+\rho u_{\nu}u_{x}+p\nu_{x}\\
+\rho u_{\nu}u_{y}+p\nu_{y}\\
+\rho u_{\nu}h_{0}
+\end{bmatrix}=\begin{bmatrix}0\\
+0\\
+0\\
+0
+\end{bmatrix}\qquad\frac{\partial}{\partial t}\begin{bmatrix}\rho\\
+\rho u_{\nu}\\
+\rho u_{\sigma}\\
+\rho e_{0}
+\end{bmatrix}+\frac{\partial}{\partial\nu}\begin{bmatrix}\rho u_{\nu}\\
+\rho u_{\nu}u_{\nu}+p\\
+\rho u_{\nu}u_{\sigma}\\
+\rho u_{\nu}h_{0}
+\end{bmatrix}=\begin{bmatrix}0\\
+0\\
+0\\
+0
+\end{bmatrix}
+\]
+
+\end_inset
+
+将后者与二维 Euler 方程的 
+\begin_inset Formula $x$
+\end_inset
+
+-分裂形式（见第 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:激波管：高维版本"
+
+\end_inset
+
+ 节）对比，易得
+\begin_inset Formula 
+\[
+\underline{\varLambda'}(\underline{U'})=\begin{bmatrix}u_{\nu}-a\\
+ & u_{\nu}\\
+ &  & u_{\nu}\\
+ &  &  & u_{\nu}+a
+\end{bmatrix}\qquad\underline{R'}(\underline{U'})=\begin{bmatrix}1 & 1 & 0 & 1\\
+u_{\nu}-a & u_{\nu} & 0 & u_{\nu}+a\\
+u_{\sigma} & u_{\sigma} & 1 & u_{\sigma}\\
+h_{0}-u_{\nu}a & \frac{u_{\nu}^{2}+u_{\sigma}^{2}}{2} & u_{\sigma} & h_{0}+u_{\nu}a
+\end{bmatrix}
+\]
+
+\end_inset
+
+利用符号运算可得
+\begin_inset Formula 
+\[
+\begin{aligned}\underline{L'}(\underline{U'}) & =(\underline{R'})^{-1}=\frac{\gamma^{-}}{2a^{3}}a\begin{bmatrix}\frac{u_{\nu}^{2}+u_{\sigma}^{2}}{2}+\frac{au_{\nu}}{\gamma^{-}} & -u_{\nu}-\frac{a}{\gamma^{-}} & -u_{\sigma} & 1\\
+2\left(\frac{a^{2}}{\gamma^{-}}-\frac{u_{\nu}^{2}+u_{\sigma}^{2}}{2}\right) & 2u_{\nu} & 2u_{\sigma} & -2\\
+-2\frac{a^{2}}{\gamma^{-}}u_{\sigma} & 0 & \frac{2a^{2}}{\gamma^{-}} & 0\\
+\frac{u_{\nu}^{2}+u_{\sigma}^{2}}{2}-\frac{au_{\nu}}{\gamma^{-}} & -u_{\nu}+\frac{a}{\gamma^{-}} & -u_{\sigma} & 1
+\end{bmatrix}\\
+ & =\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}+1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{1}{2}B_{1}\\
+1-B_{2} & B_{1}u_{\nu} & B_{1}u_{\sigma} & -B_{1}\\
+-u_{\sigma} & 0 & 1 & 0\\
+\frac{1}{2}\left(B_{2}-u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}-1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{1}{2}B_{1}
+\end{bmatrix}\impliedby\begin{cases}
+B_{1}\coloneqq\frac{\gamma^{-}}{a^{2}}\\
+B_{2}\coloneqq B_{1}\frac{u_{\nu}^{2}+u_{\sigma}^{2}}{2}
+\end{cases}
+\end{aligned}
+\]
+
+\end_inset
+
+利用
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "thm:微分方程：双曲型：换元：特征向量"
+
+\end_inset
+
+及变量替换关系
+\begin_inset Formula 
+\[
+\underbrace{\begin{bmatrix}\rho\\
+\rho u_{x}\\
+\rho u_{y}\\
+\rho e_{0}
+\end{bmatrix}}_{\vert U\rangle}=\begin{bmatrix}\rho\\
+\rho u_{\nu}\nu_{x}+\rho u_{\sigma}\sigma_{x}\\
+\rho u_{\nu}\nu_{y}+\rho u_{\sigma}\sigma_{y}\\
+\rho e_{0}
+\end{bmatrix}=\underbrace{\begin{bmatrix}1\\
+ & \nu_{x} & \sigma_{x}\\
+ & \nu_{y} & \sigma_{y}\\
+ &  &  & 1
+\end{bmatrix}}_{\underline{J}_{\underline{U}\to\underline{U'}}}\underbrace{\begin{bmatrix}\rho\\
+\rho u_{\nu}\\
+\rho u_{\sigma}\\
+\rho e_{0}
+\end{bmatrix}}_{\vert U'\rangle}
+\]
+
+\end_inset
+
+可得全局 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ 坐标系下的特征向量矩阵：
+\begin_inset Formula 
+\[
+\begin{aligned}\underline{R}(\underline{U}) & =\underline{J}_{\underline{U}\to\underline{U'}}\,\underline{R'}(\underline{U'})=\begin{bmatrix}1\\
+ & \nu_{x} & \sigma_{x}\\
+ & \nu_{y} & \sigma_{y}\\
+ &  &  & 1
+\end{bmatrix}\begin{bmatrix}1 & 1 & 0 & 1\\
+u_{\nu}-a & u_{\nu} & 0 & u_{\nu}+a\\
+u_{\sigma} & u_{\sigma} & 1 & u_{\sigma}\\
+h_{0}-u_{\nu}a & \frac{u_{\nu}^{2}+u_{\sigma}^{2}}{2} & u_{\sigma} & h_{0}+u_{\nu}a
+\end{bmatrix}\\
+ & =\begin{bmatrix}1 & 1 & 0 & 1\\
+u_{x}-a\nu_{x} & u_{x} & \sigma_{x} & u_{x}+a\nu_{x}\\
+u_{y}-a\nu_{y} & u_{y} & \sigma_{y} & u_{y}+a\nu_{y}\\
+h_{0}-(u_{x}x_{\nu}+u_{y}y_{\nu})a & \frac{u_{x}^{2}+u_{y}^{2}}{2} & u_{x}x_{\sigma}+u_{y}y_{\sigma} & h_{0}+(u_{x}x_{\nu}+u_{y}y_{\nu})a
+\end{bmatrix}
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\begin{aligned}\underline{L}(\underline{U}) & =\underline{L'}(\underline{U'})\,\underline{J}_{\underline{U}\to\underline{U'}}^{-1}=\underline{L'}\begin{bmatrix}1\\
+ & \nu_{x} & \sigma_{x}\\
+ & \nu_{y} & \sigma_{y}\\
+ &  &  & 1
+\end{bmatrix}^{-1}=\underline{L'}\begin{bmatrix}1\\
+ & \nu_{x} & \nu_{y}\\
+ & \sigma_{x} & \sigma_{y}\\
+ &  &  & 1
+\end{bmatrix}\\
+ & =\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}+1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{1}{2}B_{1}\\
+1-B_{2} & B_{1}u_{\nu} & B_{1}u_{\sigma} & -B_{1}\\
+-u_{\sigma} & 0 & 1 & 0\\
+\frac{1}{2}\left(B_{2}-u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}-1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{1}{2}B_{1}
+\end{bmatrix}\begin{bmatrix}1\\
+ & \nu_{x} & \nu_{y}\\
+ & \sigma_{x} & \sigma_{y}\\
+ &  &  & 1
+\end{bmatrix}\\
+ & =\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{x}+\nu_{x}/a\right) & \frac{-1}{2}\left(B_{1}u_{y}+\nu_{y}/a\right) & \frac{1}{2}B_{1}\\
+1-B_{2} & B_{1}u_{x} & B_{1}u_{y} & -B_{1}\\
+-u_{\sigma} & \sigma_{x} & \sigma_{y} & 0\\
+\frac{1}{2}\left(B_{2}-u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{x}-\nu_{x}/a\right) & \frac{-1}{2}\left(B_{1}u_{y}-\nu_{y}/a\right) & \frac{1}{2}B_{1}
+\end{bmatrix}
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[三维 Euler 方程]
+\end_layout
+
+\end_inset
+
+三维 Euler 方程的法向分裂形式 
+\begin_inset Formula $\partial_{t}\vert U\rangle+\partial_{\nu}\vert F_{\nu}\rangle=\vert0\rangle$
+\end_inset
+
+ 即
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial t}\begin{bmatrix}\rho\\
+\rho\vec{u}\\
+\rho e_{0}
+\end{bmatrix}+\frac{\partial}{\partial\nu}\begin{bmatrix}\rho u_{\nu}\\
+\rho u_{\nu}\vec{u}+p\vec{\nu}\\
+\rho u_{\nu}h_{0}
+\end{bmatrix}=\begin{bmatrix}0\\
+\vec{0}\\
+0
+\end{bmatrix}
+\]
+
+\end_inset
+
+在全局 
+\begin_inset Formula $(x,y,z)$
+\end_inset
+
+ 坐标系与局部 
+\begin_inset Formula $(\nu,\sigma,\pi)$
+\end_inset
+
+ 坐标系下的展开式分别为
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial t}\begin{bmatrix}\rho\\
+\rho u_{x}\\
+\rho u_{y}\\
+\rho u_{z}\\
+\rho e_{0}
+\end{bmatrix}+\frac{\partial}{\partial\nu}\begin{bmatrix}\rho u_{\nu}\\
+\rho u_{\nu}u_{x}+p\nu_{x}\\
+\rho u_{\nu}u_{y}+p\nu_{y}\\
+\rho u_{\nu}u_{z}+p\nu_{z}\\
+\rho u_{\nu}h_{0}
+\end{bmatrix}=\begin{bmatrix}0\\
+0\\
+0\\
+0\\
+0
+\end{bmatrix}\qquad\frac{\partial}{\partial t}\begin{bmatrix}\rho\\
+\rho u_{\nu}\\
+\rho u_{\sigma}\\
+\rho u_{\pi}\\
+\rho e_{0}
+\end{bmatrix}+\frac{\partial}{\partial\nu}\begin{bmatrix}\rho u_{\nu}\\
+\rho u_{\nu}u_{\nu}+p\\
+\rho u_{\nu}u_{\sigma}\\
+\rho u_{\nu}u_{\pi}\\
+\rho u_{\nu}h_{0}
+\end{bmatrix}=\begin{bmatrix}0\\
+0\\
+0\\
+0\\
+0
+\end{bmatrix}
+\]
+
+\end_inset
+
+将后者与三维 Euler 方程的 
+\begin_inset Formula $x$
+\end_inset
+
+-分裂形式（见第 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:激波管：高维版本"
+
+\end_inset
+
+ 节）对比，易得：
+\begin_inset Formula 
+\[
+\underline{\varLambda'}=\begin{bmatrix}u_{\nu}-a\\
+ & u_{\nu}\\
+ &  & u_{\nu}\\
+ &  &  & u_{\nu}\\
+ &  &  &  & u_{\nu}+a
+\end{bmatrix}\qquad\underline{R'}=\begin{bmatrix}1 & 1 & 0 & 0 & 1\\
+u_{\nu}-a & u_{\nu} & 0 & 0 & u_{\nu}+a\\
+u_{\sigma} & u_{\sigma} & 1 & 0 & u_{\sigma}\\
+u_{\pi} & u_{\pi} & 0 & 1 & u_{\pi}\\
+h_{0}-u_{\nu}a & \frac{u_{\nu}^{2}+u_{\sigma}^{2}+u_{\pi}^{2}}{2} & u_{\sigma} & u_{\pi} & h_{0}+u_{\nu}a
+\end{bmatrix}
+\]
+
+\end_inset
+
+利用符号运算可得
+\begin_inset Formula 
+\[
+\begin{aligned}\underline{L'} & =(\underline{R'})^{-1}=\frac{\gamma^{-}}{2a^{3}}a\begin{bmatrix}\frac{u_{\nu}^{2}+u_{\sigma}^{2}+u_{\pi}^{2}}{2}+\frac{au_{\nu}}{\gamma^{-}} & -u_{\nu}-\frac{a}{\gamma^{-}} & -u_{\sigma} & -u_{\pi} & 1\\
+2\left(\frac{a^{2}}{\gamma^{-}}-\frac{u_{\nu}^{2}+u_{\sigma}^{2}+u_{\pi}^{2}}{2}\right) & 2u_{\nu} & 2u_{\sigma} & 2u_{\pi} & -2\\
+-2\frac{a^{2}}{\gamma^{-}}u_{\sigma} & 0 & \frac{2a^{2}}{\gamma^{-}} & 0 & 0\\
+-2\frac{a^{2}}{\gamma^{-}}u_{\pi} & 0 & 0 & \frac{2a^{2}}{\gamma^{-}} & 0\\
+\frac{u_{\nu}^{2}+u_{\sigma}^{2}+u_{\pi}^{2}}{2}-\frac{au_{\nu}}{\gamma^{-}} & -u_{\nu}+\frac{a}{\gamma^{-}} & -u_{\sigma} & -u_{\pi} & 1
+\end{bmatrix}\\
+ & =\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}+1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{-1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}\\
+1-B_{2} & B_{1}u_{\nu} & B_{1}u_{\sigma} & B_{1}u_{\pi} & -B_{1}\\
+-u_{\sigma} & 0 & 1 & 0 & 0\\
+-u_{\pi} & 0 & 0 & 1 & 0\\
+\frac{1}{2}\left(B_{2}-u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}-1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{-1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}
+\end{bmatrix}\impliedby\begin{cases}
+B_{1}\coloneqq\frac{\gamma^{-}}{a^{2}}\\
+B_{2}\coloneqq B_{1}\frac{u_{\nu}^{2}+u_{\sigma}^{2}+u_{\pi}^{2}}{2}
+\end{cases}
+\end{aligned}
+\]
+
+\end_inset
+
+利用
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "thm:微分方程：双曲型：换元：特征向量"
+
+\end_inset
+
+及变量替换关系
+\begin_inset Formula 
+\[
+\underbrace{\begin{bmatrix}\rho\\
+\rho u_{x}\\
+\rho u_{y}\\
+\rho u_{z}\\
+\rho e_{0}
+\end{bmatrix}}_{\vert U\rangle}=\begin{bmatrix}\rho\\
+\rho u_{\nu}\nu_{x}+\rho u_{\sigma}\sigma_{x}+\rho u_{\pi}\pi_{x}\\
+\rho u_{\nu}\nu_{y}+\rho u_{\sigma}\sigma_{y}+\rho u_{\pi}\pi_{y}\\
+\rho u_{\nu}\nu_{z}+\rho u_{\sigma}\sigma_{z}+\rho u_{\pi}\pi_{z}\\
+\rho e_{0}
+\end{bmatrix}=\underbrace{\begin{bmatrix}1\\
+ & \nu_{x} & \sigma_{x} & \pi_{x}\\
+ & \nu_{y} & \sigma_{y} & \pi_{y}\\
+ & \nu_{z} & \sigma_{z} & \pi_{z}\\
+ &  &  &  & 1
+\end{bmatrix}}_{\underline{J}_{\underline{U}\to\underline{U'}}}\underbrace{\begin{bmatrix}\rho\\
+\rho u_{\nu}\\
+\rho u_{\sigma}\\
+\rho u_{\pi}\\
+\rho e_{0}
+\end{bmatrix}}_{\vert U'\rangle}
+\]
+
+\end_inset
+
+可得全局 
+\begin_inset Formula $(x,y,z)$
+\end_inset
+
+ 坐标系下的特征向量矩阵：
+\begin_inset Formula 
+\[
+\begin{aligned}\underline{R}(\underline{U}) & =\underline{J}_{\underline{U}\to\underline{U'}}\,\underline{R'}(\underline{U'})=\begin{bmatrix}1\\
+ & \nu_{x} & \sigma_{x} & \pi_{x}\\
+ & \nu_{y} & \sigma_{y} & \pi_{y}\\
+ & \nu_{z} & \sigma_{z} & \pi_{z}\\
+ &  &  &  & 1
+\end{bmatrix}\begin{bmatrix}1 & 1 & 0 & 0 & 1\\
+u_{\nu}-a & u_{\nu} & 0 & 0 & u_{\nu}+a\\
+u_{\sigma} & u_{\sigma} & 1 & 0 & u_{\sigma}\\
+u_{\pi} & u_{\pi} & 0 & 1 & u_{\pi}\\
+h_{0}-u_{\nu}a & \frac{u_{\nu}^{2}+u_{\sigma}^{2}+u_{\pi}^{2}}{2} & u_{\sigma} & u_{\pi} & h_{0}+u_{\nu}a
+\end{bmatrix}\\
+ & =\begin{bmatrix}1 & 1 & 0 & 0 & 1\\
+u_{x}-a\nu_{x} & u_{x} & \sigma_{x} & \pi_{x} & u_{x}+a\nu_{x}\\
+u_{y}-a\nu_{y} & u_{y} & \sigma_{y} & \pi_{y} & u_{y}+a\nu_{y}\\
+u_{z}-a\nu_{z} & u_{z} & \sigma_{z} & \pi_{z} & u_{z}+a\nu_{z}\\
+h_{0}-u_{\nu}a & \frac{u_{x}^{2}+u_{y}^{2}+u_{z}^{2}}{2} & u_{\sigma} & u_{\pi} & h_{0}+u_{\nu}a
+\end{bmatrix}\impliedby\begin{bmatrix}u_{\nu}\\
+u_{\sigma}\\
+u_{\pi}
+\end{bmatrix}=\begin{bmatrix}\nu_{x} & \sigma_{x} & \pi_{x}\\
+\nu_{y} & \sigma_{y} & \pi_{y}\\
+\nu_{z} & \sigma_{z} & \pi_{z}
+\end{bmatrix}^{-1}\begin{bmatrix}u_{x}\\
+u_{y}\\
+u_{z}
+\end{bmatrix}
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\begin{aligned}\underline{L}(\underline{U}) & =\underline{L'}(\underline{U'})\,\underline{J}_{\underline{U}\to\underline{U'}}^{-1}=\underline{L'}\begin{bmatrix}1\\
+ & \nu_{x} & \sigma_{x} & \pi_{x}\\
+ & \nu_{y} & \sigma_{y} & \pi_{y}\\
+ & \nu_{z} & \sigma_{z} & \pi_{z}\\
+ &  &  &  & 1
+\end{bmatrix}^{-1}=\underline{L'}\begin{bmatrix}1\\
+ & \nu_{x} & \nu_{y} & \nu_{z}\\
+ & \sigma_{x} & \sigma_{y} & \sigma_{z}\\
+ & \pi_{x} & \pi_{y} & \pi_{z}\\
+ &  &  &  & 1
+\end{bmatrix}\\
+ & =\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}+1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{-1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}\\
+1-B_{2} & B_{1}u_{\nu} & B_{1}u_{\sigma} & B_{1}u_{\pi} & -B_{1}\\
+-u_{\sigma} & 0 & 1 & 0 & 0\\
+-u_{\pi} & 0 & 0 & 1 & 0\\
+\frac{1}{2}\left(B_{2}-u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}-1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{-1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}
+\end{bmatrix}\begin{bmatrix}1\\
+ & \nu_{x} & \nu_{y} & \nu_{z}\\
+ & \sigma_{x} & \sigma_{y} & \sigma_{z}\\
+ & \pi_{x} & \pi_{y} & \pi_{z}\\
+ &  &  &  & 1
+\end{bmatrix}\\
+ & =\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{x}+\nu_{x}/a\right) & \frac{-1}{2}\left(B_{1}u_{y}+\nu_{y}/a\right) & \frac{-1}{2}\left(B_{1}u_{z}+\nu_{z}/a\right) & \frac{1}{2}B_{1}\\
+1-B_{2} & B_{1}u_{x} & B_{1}u_{y} & B_{1}u_{z} & -B_{1}\\
+-u_{\sigma} & \sigma_{x} & \sigma_{y} & \sigma_{z} & 0\\
+-u_{\pi} & \pi_{x} & \pi_{y} & \pi_{z} & 0\\
+\frac{1}{2}\left(B_{2}-u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{x}-\nu_{x}/a\right) & \frac{-1}{2}\left(B_{1}u_{y}-\nu_{y}/a\right) & \frac{-1}{2}\left(B_{1}u_{z}-\nu_{z}/a\right) & \frac{1}{2}B_{1}
+\end{bmatrix}
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
-时间推进
+强稳定保持时间推进格式
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:有限差分：时间推进"
@@ -23144,6 +24927,38 @@ reference "eq:m-stage_Runge--Kutta"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+算法并行化及其泛型实现
+\end_layout
+
+\begin_layout Section
+模型算例验证及工程应用
+\end_layout
+
+\begin_layout Subsection
+线性单波方程
+\end_layout
+
+\begin_layout Subsection
+线性双波系统
+\end_layout
+
+\begin_layout Subsection
+激波管问题
+\end_layout
+
+\begin_layout Subsection
+双马赫反射问题
+\end_layout
+
+\begin_layout Subsection
+前台阶问题
+\end_layout
+
+\begin_layout Subsection
+YF-17 全机绕流问题
 \end_layout
 
 \begin_layout Chapter
