@@ -1,0 +1,38 @@
+eigen_p=3:
+
+[Done] `Update(Step299/300)` on 2 cores at 75.724266s (0.253258s to go)
+[1/2] t = 0.299000, l1_error = 1.713489e+00 4.778390e+00
+[0/2] t = 0.300000, l1_error = 8.169175e-01 2.442008e+00
+[Done] `Update(Step300/300)` on 2 cores at 75.942132s (0.000000s to go)
+[1/2] t = 0.300000, l1_error = 1.705864e+00 4.754903e+00
+[Start] `WriteSolutions(Frame10)` on 2 cores at 75.942466 sec
+time-range = [0.000000, 0.300000], frame-range = [0, 10], dt = 0.001000
+[Start] MPI_Finalize() on 2 cores at 77.228437 sec
+
+lazy_p=3:
+
+[Done] `Update(Step299/300)` on 2 cores at 55.396335s (0.185272s to go)
+[Done] `Update(Step300/300)` on 2 cores at 55.541823s (0.000000s to go)
+[Start] `WriteSolutions(Frame10)` on 2 cores at 55.542140 sec
+time-range = [0.000000, 0.300000], frame-range = [0, 10], dt = 0.001000
+[Start] MPI_Finalize() on 2 cores at 56.199148 sec
+
+lazy_p=2
+
+[Done] `Update(Step299/300)` on 2 cores at 21.404550s (0.071587s to go)
+[Done] `Update(Step300/300)` on 2 cores at 21.482710s (0.000000s to go)
+[Start] `WriteSolutions(Frame10)` on 2 cores at 21.484799 sec
+time-range = [0.000000, 0.300000], frame-range = [0, 10], dt = 0.001000
+[Start] MPI_Finalize() on 2 cores at 22.091681 sec
+
+eigen_p=2
+
+[Done] `Update(Step299/300)` on 2 cores at 40.515188s (0.135502s to go)
+[1/2] t = 0.299000, l1_error = 1.742384e+00 4.776526e+00
+[0/2] t = 0.300000, l1_error = 8.191389e-01 2.444451e+00
+[Done] `Update(Step300/300)` on 2 cores at 40.620805s (0.000000s to go)
+[1/2] t = 0.300000, l1_error = 1.735029e+00 4.753234e+00
+[Start] `WriteSolutions(Frame10)` on 2 cores at 40.621195 sec
+time-range = [0.000000, 0.300000], frame-range = [0, 10], dt = 0.001000
+[Start] MPI_Finalize() on 2 cores at 41.280910 sec
+

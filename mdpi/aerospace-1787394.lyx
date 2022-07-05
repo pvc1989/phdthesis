@@ -1,0 +1,9570 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass Definitions/mdpi
+\begin_preamble
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+
+
+% For posting an early version of this manuscript as a preprint, you may use "preprints" as the journal and change "submit" to "accept". The document class line would be, e.g., \documentclass[preprints,article,accept,moreauthors,pdftex]{mdpi}. This is especially recommended for submission to arXiv, where line numbers should be removed before posting. For preprints.org, the editorial staff will make this change immediately prior to posting.
+
+%--------------------
+% Class Options:
+%--------------------
+%----------
+% journal
+%----------
+% Choose between the following MDPI journals:
+% acoustics, actuators, addictions, admsci, adolescents, aerospace, agriculture, agriengineering, agronomy, ai, algorithms, allergies, alloys, analytica, animals, antibiotics, antibodies, antioxidants, applbiosci, appliedchem, appliedmath, applmech, applmicrobiol, applnano, applsci, aquacj, architecture, arts, asc, asi, astronomy, atmosphere, atoms, audiolres, automation, axioms, bacteria, batteries, bdcc, behavsci, beverages, biochem, bioengineering, biologics, biology, biomass, biomechanics, biomed, biomedicines, biomedinformatics, biomimetics, biomolecules, biophysica, biosensors, biotech, birds, bloods, blsf, brainsci, breath, buildings, businesses, cancers, carbon, cardiogenetics, catalysts, cells, ceramics, challenges, chemengineering, chemistry, chemosensors, chemproc, children, chips, cimb, civileng, cleantechnol, climate, clinpract, clockssleep, cmd, coasts, coatings, colloids, colorants, commodities, compounds, computation, computers, condensedmatter, conservation, constrmater, cosmetics, covid, crops, cryptography, crystals, csmf, ctn, curroncol, currophthalmol, cyber, dairy, data, dentistry, dermato, dermatopathology, designs, diabetology, diagnostics, dietetics, digital, disabilities, diseases, diversity, dna, drones, dynamics, earth, ebj, ecologies, econometrics, economies, education, ejihpe, electricity, electrochem, electronicmat, electronics, encyclopedia, endocrines, energies, eng, engproc, ent, entomology, entropy, environments, environsciproc, epidemiologia, epigenomes, est, fermentation, fibers, fintech, fire, fishes, fluids, foods, forecasting, forensicsci, forests, foundations, fractalfract, fuels, futureinternet, futureparasites, futurepharmacol, futurephys, futuretransp, galaxies, games, gases, gastroent, gastrointestdisord, gels, genealogy, genes, geographies, geohazards, geomatics, geosciences, geotechnics, geriatrics, hazardousmatters, healthcare, hearts, hemato, heritage, highthroughput, histories, horticulturae, humanities, humans, hydrobiology, hydrogen, hydrology, hygiene, idr, ijerph, ijfs, ijgi, ijms, ijns, ijtm, ijtpp, immuno, informatics, information, infrastructures, inorganics, insects, instruments, inventions, iot, j, jal, jcdd, jcm, jcp, jcs, jdb, jeta, jfb, jfmk, jimaging, jintelligence, jlpea, jmmp, jmp, jmse, jne, jnt, jof, joitmc, jor, journalmedia, jox, jpm, jrfm, jsan, jtaer, jzbg, kidney, kidneydial, knowledge, land, languages, laws, life, liquids, literature, livers, logics, logistics, lubricants, lymphatics, machines, macromol, magnetism, magnetochemistry, make, marinedrugs, materials, materproc, mathematics, mca, measurements, medicina, medicines, medsci, membranes, merits, metabolites, metals, meteorology, methane, metrology, micro, microarrays, microbiolres, micromachines, microorganisms, microplastics, minerals, mining, modelling, molbank, molecules, mps, msf, mti, muscles, nanoenergyadv, nanomanufacturing, nanomaterials, ncrna, network, neuroglia, neurolint, neurosci, nitrogen, notspecified, nri, nursrep, nutraceuticals, nutrients, obesities, oceans, ohbm, onco, oncopathology, optics, oral, organics, organoids, osteology, oxygen, parasites, parasitologia, particles, pathogens, pathophysiology, pediatrrep, pharmaceuticals, pharmaceutics, pharmacoepidemiology, pharmacy, philosophies, photochem, photonics, phycology, physchem, physics, physiologia, plants, plasma, pollutants, polymers, polysaccharides, poultry, powders, preprints, proceedings, processes, prosthesis, proteomes, psf, psych, psychiatryint, psychoactives, publications, quantumrep, quaternary, qubs, radiation, reactions, recycling, regeneration, religions, remotesensing, reports, reprodmed, resources, rheumato, risks, robotics, ruminants, safety, sci, scipharm, seeds, sensors, separations, sexes, signals, sinusitis, skins, smartcities, sna, societies, socsci, software, soilsystems, solar, solids, sports, standards, stats, stresses, surfaces, surgeries, suschem, sustainability, symmetry, synbio, systems, taxonomy, technologies, telecom, test, textiles, thalassrep, thermo, tomography, tourismhosp, toxics, toxins, transplantology, transportation, traumacare, traumas, tropicalmed, universe, urbansci, uro, vaccines, vehicles, venereology, vetsci, vibration, viruses, vision, waste, water, wem, wevj, wind, women, world, youth, zoonoticdis 
+
+%---------
+% article
+%---------
+% The default type of manuscript is "article", but can be replaced by: 
+% abstract, addendum, article, book, bookreview, briefreport, casereport, comment, commentary, communication, conferenceproceedings, correction, conferencereport, entry, expressionofconcern, extendedabstract, datadescriptor, editorial, essay, erratum, hypothesis, interestingimage, obituary, opinion, projectreport, reply, retraction, review, perspective, protocol, shortnote, studyprotocol, systematicreview, supfile, technicalnote, viewpoint, guidelines, registeredreport, tutorial
+% supfile = supplementary materials
+
+%----------
+% submit
+%----------
+% The class option "submit" will be changed to "accept" by the Editorial Office when the paper is accepted. This will only make changes to the frontpage (e.g., the logo of the journal will get visible), the headings, and the copyright information. Also, line numbering will be removed. Journal info and pagination for accepted papers will also be assigned by the Editorial Office.
+
+%------------------
+% moreauthors
+%------------------
+% If there is only one author the class option oneauthor should be used. Otherwise use the class option moreauthors.
+
+%---------
+% pdftex
+%---------
+% The option pdftex is for use with pdfLaTeX. If eps figures are used, remove the option pdftex and use LaTeX and dvi2pdf.
+
+%=================================================================
+% MDPI internal commands
+\firstpage{1} 
+ 
+\setcounter{page}{\@firstpage} 
+
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2022}
+\copyrightyear{2022}
+%\externaleditor{Academic Editor: Firstname Lastname} % For journal Automation, please change Academic Editor to "Communicated by"
+\datereceived{} 
+\dateaccepted{} 
+\datepublished{} 
+%\datecorrected{} % Corrected papers include a "Corrected: XXX" date in the original paper.
+%\dateretracted{} % Corrected papers include a "Retracted: XXX" date in the original paper.
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+%------------------------------------------------------------------
+% The following line should be uncommented if the LaTeX file is uploaded to arXiv.org
+%\pdfoutput=1
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, lineno, float, amsmath, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, cleveref, amsthm, hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
+\usepackage{physics}
+
+%=================================================================
+%% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
+%% For proofs, please use the proof environment (the amsthm package is loaded by the MDPI class).
+
+%=================================================================
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+%\PACS{J0101}
+%\MSC{}
+%\JEL{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Diversity
+%\LSID{\url{http://}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Applied Sciences:
+%\featuredapplication{Authors are encouraged to provide a concise description of the specific application or a potential application of the work. This section is not mandatory.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Data:
+%\dataset{DOI number or link to the deposited data set in cases where the data set is published or set to be published separately. If the data set is submitted and will be published as a supplement to this paper in the journal Data, this field will be filled by the editors of the journal. In this case, please make sure to submit the data set as a supplement when entering your manuscript into our manuscript editorial system.}
+
+%\datasetlicense{license under which the data set is made available (CC0, CC-BY, CC-BY-SA, CC-BY-NC, etc.)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Toxins
+%\keycontribution{The breakthroughs or highlights of the manuscript. Authors can write one or two sentences to describe the most important part of the paper.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Encyclopedia
+%\encyclopediadef{Instead of the abstract}
+%\entrylink{The Link to this entry published on the encyclopedia platform.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\options aerospace,article,submit,moreauthors
+\use_default_options false
+\maintain_unincluded_children false
+\begin_local_layout
+#Adds an endnote inset, in addition to footnotes. You will need to add
+#\printendnotes in TeX-code where you want the endnotes to appear.
+
+Format 66
+
+Counter endnotes
+    PrettyFormat "Endnote ##"
+End
+
+InsetLayout Flex:Endnote
+   LyXType     custom
+   LatexName   endnote
+   LatexType   command
+   Counter     endnotes
+   Decoration  classic
+   Font
+     Size Small
+   EndFont
+   MultiPar    true
+   LabelString endnote
+   Requires    enotez
+End
+\end_local_layout
+\language english
+\language_package none
+\inputencoding utf8
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+High-order CFD Solvers on Three-dimensional Unstructured Meshes: Parallel
+ Implementation of RKDG Method with WENO Limiter and Momentum Sources
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Title
+This is the Capitalized Title of the Paper
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title Citation
+High-order CFD Solvers on Three-dimensional Unstructured Meshes: Parallel
+ Implementation of RKDG Method with WENO Limiter and Momentum Sources
+\end_layout
+
+\begin_layout Author
+\begin_inset Note Note
+status open
+
+\begin_layout Author Orcid ID
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+orcidauthorA
+\end_layout
+
+\end_inset
+
+0000-0000-0000-000X
+\end_layout
+
+\begin_layout Author Orcid ID
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+orcidauthorB
+\end_layout
+
+\end_inset
+
+0000-0000-0000-000X
+\end_layout
+
+\begin_layout Plain Layout
+Firstname Lastname
+\begin_inset Formula $^{1,\dagger,\ddagger}$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+orcidA{}
+\end_layout
+
+\end_inset
+
+, Firstname Lastname
+\begin_inset Formula $^{2,\dagger}$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+orcidB{}
+\end_layout
+
+\end_inset
+
+ and Firstname Lastname
+\begin_inset Formula $^{2,*}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+Weicheng Pei
+\begin_inset Formula $^{1}$
+\end_inset
+
+, Yuyan Jiang
+\begin_inset Formula $^{1}$
+\end_inset
+
+ and Shu Li
+\begin_inset Formula $^{1,2,*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author Names for PDF
+Weicheng Pei, Yuyan Jiang and Shu Li
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Authors, for metadata in PDF
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author Names for Citation
+Pei, W.; Jiang, Y.; Li, S.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Authors, for citation in the left column
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+If this is a Chicago style journal: Lastname, Firstname, Firstname Lastname,
+ and Firstname Lastname.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Address
+\begin_inset Formula $^{1}$
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+School of Aeronautics Science and Engineering, Beihang University, 37 Xueyuan
+ Road, Haidian District, Beijing, P.R.
+ China, 100191.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $^{2}$
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+Ningbo Institute of Technology, Beihang University, Ningbo, Zhejiang, P.R.
+ China, 315800.
+\end_layout
+
+\begin_layout Corresponding Author
+Correspondence: lishu@buaa.edu.cn
+\end_layout
+
+\begin_layout Abstract
+In aerospace engineering, high-order computational fluid dynamics (CFD)
+ solvers suitable for three-dimensional unstructured meshes are less developed
+ than expected.
+ The Runge–Kutta discontinuous Galerkin (RKDG) finite element method with
+ compact weighted essentially non-oscillatory (WENO) limiters is one of
+ the candicates, which might give high-order solutions on unstructured meshes.
+ In this article, we provide an efficient parallel implementation of this
+ method for simulating inviscid compressible flows.
+ The implemented solvers are tested on lower-dimensional model problems
+ and real three-dimensional engineering problems.
+ Results of lower-dimensional problems validate the correctness and accuracy
+ of these solvers.
+ The capability of capturing complex flow structures even on coarse meshes
+ are shown in the results of three-dimensional applications.
+ For solving problems containing rotary wings, an unsteady momentum source
+ model is incorporated into the solvers.
+ Such a finite-element/momentum-source hybrid method eliminates the reliance
+ on advanced mesh techniques, which might provide an efficient tool for
+ studying rotorcraft aerodynamics.
+\end_layout
+
+\begin_layout Keywords
+high-order CFD solvers; three-dimensional unstructured meshes; RKDG method;
+ compact WENO limiter; parallel implementation; momentum source models
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+CFD solvers widely used in aerospace engineering are based either on finite
+ difference (FD) schemes or on finite volume (FV) schemes.
+ However, FD schemes are restricted on structured meshes, while most FV
+ schemes have only first- or second-order accuracy.
+ One way to develop higher-order schemes suitable for unstructured meshes
+ is to use the discontinuous Galerkin (DG) finite element (FE) methods.
+ Like other FE methods, DG methods assume continuous approximation in each
+ element (a.k.a.
+ cell).
+ However, they allow discontinuities to exist on intercell boundaries.
+ Such discontinuities are then resolved by numerical fluxes, e.g.
+ exact or approximate Riemann solvers, just like Godunov-type schemes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Harten_1983"
+literal "true"
+
+\end_inset
+
+.
+ The original DG scheme was not proposed for CFD but for solving the linear
+ neutron transport equation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Reed_1973"
+literal "false"
+
+\end_inset
+
+.
+ For nonlinear conservation laws, Chavent and Salzano 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chavent_1982"
+literal "false"
+
+\end_inset
+
+ designed an explicit Euler DG cheme, which is second-order accurate in
+ space but only first-order accurate in time.
+ To improve the accuracy of time discretization, Cockburn and Shu 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1988"
+literal "false"
+
+\end_inset
+
+ replaced the first-order forward Euler method with high-order Runge–Kutta
+ (RK) methods, which led to the family of RKDG schemes for scalar conservation
+ laws 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shu_1988,Shu_1989"
+literal "false"
+
+\end_inset
+
+, for one-dimensional conservation law systems 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1989"
+literal "true"
+
+\end_inset
+
+, for multi-dimensional scalar conservation laws 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1990"
+literal "false"
+
+\end_inset
+
+ and for multi-dimensional conservation law systems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cockburn_1998"
+literal "false"
+
+\end_inset
+
+.
+ The last case includes the Euler system that depicts inviscid compressible
+ flows, which is the first application of RKDG in CFD.
+ We will give a concise derivation of this scheme in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:spatial_discretization"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:temporal_discretization"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The Euler system is hyperbolic, which might have discontinuities in its
+ solutions.
+ Appoximating such solutions with finite terms of continuous functions would
+ generate numerical oscillations near discontinuities (known as the Gibbs
+ phenomenon 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gottlieb_1997"
+literal "false"
+
+\end_inset
+
+).
+ Therefore, any useful high-order scheme must incorporate some mechanism
+ for suppressing such spurious oscillations.
+ For second-order FD and FV schemes, there are slope and flux limiters 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sweby_1984"
+literal "false"
+
+\end_inset
+
+.
+ These limiters work well on shock capturing but might reduce the order
+ of accuracy when used in smooth regions.
+ Furthermore, they are not applicable to higher-order schemes.
+ To overcome these drawbacks, the essentially non-oscillatory (ENO) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Harten_1997"
+literal "false"
+
+\end_inset
+
+ and weighted ENO (WENO) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jiang_1996"
+literal "false"
+
+\end_inset
+
+ limiters for high-order FD schemes, which can essentially suppress spurious
+ oscillations and maintain high-order accuracy in smooth regions, were developed.
+ Similar ideas were later incorporated into FV 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Hu_1999"
+literal "false"
+
+\end_inset
+
+ and DG 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Qiu_2005,Zhu_2008"
+literal "false"
+
+\end_inset
+
+ schemes, which are suitable for unstructured meshes.
+ However, such early versions of unstructured WENO limiters have to query
+ not only a cell's immediate neighbors, but also the neighbors' neighbors,
+ and so on.
+ To preserve the compactness of RKDG schemes, Zhong 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhong_2013"
+literal "true"
+
+\end_inset
+
+ and Zhu 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhu_2013"
+literal "true"
+
+\end_inset
+
+ proposed a compact WENO limter for two-dimensional structured and unstructrued
+ meshes.
+ In our early work 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Pei_2022"
+literal "false"
+
+\end_inset
+
+, we extended it to three-dimensional and presented an efficient parallel
+ implementation.
+ We will summarize the key steps of this compact WENO limiter in Section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:limiting_procedures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The parallel implementation of the RKDG scheme with a compact WENO limiter
+ can be used for solving many practical problems in aerospace engineering.
+ However, for problems with moving boundaries (such as rotary wings on a
+ helicopter or blades on a wind turbine), advanced meshing techniques (such
+ as dynamic meshing, overset meshes or adaptive mesh refinement) have to
+ be applied.
+ On the other hand, typical lifting bodies (such as rotary wings) have been
+ successfully modelled as various momentum sources in FD/FV schemes.
+ Rajagopalan and Mathur 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rajagopalan_1989,Rajagopalan_1993"
+literal "false"
+
+\end_inset
+
+ proposed the first FD/FV based momentum source model, which models the
+ time-averaged effect of a rotor as an actuator disk.
+ Such a steady model was used by Kang and Sun 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kang_1997,Kang_2000"
+literal "false"
+
+\end_inset
+
+ for solving the flow fields of rotors in ground effect.
+ Shi 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shi_2017"
+literal "false"
+
+\end_inset
+
+ compared this model with an unsteady overset mesh method, and found that
+ the steady momentum source model can predict complex aerodynamic interactions
+ between a rotor and a flight deck at a much cheaper cost.
+ Shen 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shen_2009"
+literal "false"
+
+\end_inset
+
+ and Kim 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kim_2015"
+literal "false"
+
+\end_inset
+
+ refined the model by replacing the actuator disk for the entire rotor with
+ an actuator surface for each blade of the rotor, so that unsteady effects
+ of rotary wings can be captured.
+ Such early works are either over simplified by ignoring unsteady effects
+ (such as 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Rajagopalan_1989,Rajagopalan_1993,Kang_1997,Kang_2000"
+literal "false"
+
+\end_inset
+
+), or restricted to structured meshes (such as 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Shen_2009,Shi_2017"
+literal "false"
+
+\end_inset
+
+).
+ To overcome these drawbacks, our parallel RKDG solvers are augmented with
+ an unsteady actuator line model, which successfully capture unsteady effects
+ of a rotor on unstructured meshes.
+ The formulation of this finite-element/momentum-source hybrid method will
+ be given in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:The-Momentum-Source"
+
+\end_inset
+
+.
+ Some demonstrative results are presented in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Problems-with-Momentum"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+The RKDG Method with WENO Limiters and Momentum Sources
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Methods"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mathematically, the problems we are going to solve in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Results"
+
+\end_inset
+
+ are defined by the three-dimensional Euler system
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\partial_{t}\begin{bmatrix}\rho\\
+\rho u_{x}\\
+\rho u_{y}\\
+\rho u_{z}\\
+\rho e_{0}
+\end{bmatrix}+\partial_{x}\begin{bmatrix}\rho u_{x}\\
+\rho u_{x}u_{x}+p\\
+\rho u_{y}u_{x}\\
+\rho u_{z}u_{x}\\
+\rho h_{0}u_{x}
+\end{bmatrix}+\partial_{y}\begin{bmatrix}\rho u_{y}\\
+\rho u_{x}u_{y}\\
+\rho u_{y}u_{y}+p\\
+\rho u_{z}u_{y}\\
+\rho h_{0}u_{y}
+\end{bmatrix}+\partial_{z}\begin{bmatrix}\rho u_{z}\\
+\rho u_{x}u_{z}\\
+\rho u_{y}u_{z}\\
+\rho u_{z}u_{z}+p\\
+\rho h_{0}u_{z}
+\end{bmatrix}=\begin{bmatrix}0\\
+b_{x}\\
+b_{y}\\
+b_{z}\\
+0
+\end{bmatrix}\label{eq:euler_system}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with certain boundary and initial conditions, which describes inviscid compressi
+ble flows.
+ In Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Itemize
+Variables in the first column called conservative variables.
+\end_layout
+
+\begin_layout Itemize
+The density 
+\begin_inset Formula $\rho$
+\end_inset
+
+, the velocity components 
+\begin_inset Formula $u_{x},u_{y},u_{z}$
+\end_inset
+
+ and the pressure 
+\begin_inset Formula $p$
+\end_inset
+
+ are called primitive variables.
+\end_layout
+
+\begin_layout Itemize
+The thermodynamic quantities 
+\begin_inset Formula $e_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $h_{0}$
+\end_inset
+
+ are the specific total energy and the specific total enthalpy, respectively.
+ For ideal gases, they can be written as functions of the five primitive
+ variables:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+e_{0}=\frac{p/\rho}{\gamma-1}+\frac{u_{x}^{2}+u_{y}^{2}+u_{z}^{2}}{2},\qquad h_{0}=e_{0}+\frac{p}{\rho},
+\]
+
+\end_inset
+
+in which 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ is the heat capacity ratio of the gas and we use 
+\begin_inset Formula $\gamma=1.4$
+\end_inset
+
+ in this article.
+\end_layout
+
+\begin_layout Itemize
+The body force components 
+\begin_inset Formula $b_{x},b_{y},b_{z}$
+\end_inset
+
+ are assumed to be 
+\begin_inset Formula $0$
+\end_inset
+
+'s except in Subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Problems-with-Momentum"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The method we use for solving the Euler 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+
+\end_inset
+
+ is the RKDG method with a WENO limiter.
+ A detailed formulation of this method for sourceless problems has been
+ given in our previous work 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Pei_2022"
+literal "false"
+
+\end_inset
+
+.
+ In this section, we give a more complete formulation which takes source
+ terms into consideration.
+ If all source terms were canceled, it would reduce to the form in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Pei_2022"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+The DG Space Discretization
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:spatial_discretization"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+
+\end_inset
+
+ can be written as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\partial_{t}\underline{U}+\nabla\cdot\underline{\vec{F}}=\underline{Q}\label{eq:differential_form}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+in which 
+\begin_inset Formula $\underline{\vec{F}}=\underline{F^{x}}\vec{e}_{x}+\underline{F^{y}}\vec{e}_{y}+\underline{F^{z}}\vec{e}_{z}$
+\end_inset
+
+ is the flux tensor and 
+\begin_inset Formula $\underline{U}$
+\end_inset
+
+, 
+\begin_inset Formula $\underline{F^{x}}$
+\end_inset
+
+, 
+\begin_inset Formula $\underline{F^{y}}$
+\end_inset
+
+, 
+\begin_inset Formula $\underline{F^{z}}$
+\end_inset
+
+, 
+\begin_inset Formula $\underline{Q}$
+\end_inset
+
+ are all 
+\begin_inset Formula $5\times1$
+\end_inset
+
+ matrices, each row of which is a scalar function depending on position
+ 
+\begin_inset Formula $\vec{x}$
+\end_inset
+
+ and time 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ By multiplying both sides with an arbitrary test function 
+\begin_inset Formula $\psi(\vec{x})$
+\end_inset
+
+ and integrating the products on the 
+\begin_inset Formula $i$
+\end_inset
+
+-th element (a.k.a.
+ cell) 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+, and applying integral by parts and Gauss's divergence theorem, Equation
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:differential_form"
+
+\end_inset
+
+ can be turned into a weak form:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\int_{E_{i}}\left(\psi\,\partial_{t}\underline{U}-\underline{\vec{F}}\cdot\nabla\psi\right)+\int_{\partial E_{i}}\left(\vec{\nu}\cdot\underline{\vec{F}}\right)\psi=\int_{E_{i}}\underline{Q}\,\psi,\label{eq:weak_form}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\vec{\nu}$
+\end_inset
+
+ is the outer normal unit vector of 
+\begin_inset Formula $\partial E_{i}$
+\end_inset
+
+ (which is the boundary of 
+\begin_inset Formula $E$
+\end_inset
+
+).
+ By choosing an orthonormal basis of the linear space spanned by polynomials
+ less than the 
+\begin_inset Formula $p$
+\end_inset
+
+-th degree over 
+\begin_inset Formula $E$
+\end_inset
+
+, denoted as 
+\begin_inset Formula $\underline{\phi}(\vec{x})\coloneqq\begin{bmatrix}\phi_{1}(\vec{x}) & \cdots & \phi_{L}(\vec{x})\end{bmatrix}$
+\end_inset
+
+, the unknowns 
+\begin_inset Formula $\underline{U}$
+\end_inset
+
+ and the arbitrary test function 
+\begin_inset Formula $\psi$
+\end_inset
+
+ can be approximated as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\underline{U}(\vec{x},t)\approx\underline{U}^{h}(\vec{x},t)=\sum_{l=1}^{L}\hat{\underline{U}}_{l}(t)\,\phi_{l}(\vec{x}),\qquad\psi(\vec{x})\approx\psi^{h}(\vec{x})=\sum_{l=1}^{L}\hat{\psi}_{l}\,\phi_{l}(\vec{x}),
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+in which each 
+\begin_inset Formula $\hat{\underline{U}}_{l}(t)$
+\end_inset
+
+ is a 
+\begin_inset Formula $5\times1$
+\end_inset
+
+ matrix of temporal functions, and each 
+\begin_inset Formula $\hat{\psi}_{l}$
+\end_inset
+
+ is an arbitrary constant number.
+ Substitute them into the weak form (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:differential_form"
+
+\end_inset
+
+), it gives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sum_{l}\hat{\psi}_{l}\,\left[\sum_{k}\left(\int_{E_{i}}\phi_{l}\phi_{k}\right)\dv{\underline{\hat{U}}_{k}}{t}+\int_{E_{i}}\left(\underline{\mathopen{\vec{F}}}\cdot\nabla\phi_{l}-\underline{Q}\,\phi_{l}\right)+\oint_{\partial E_{i}}\phi_{l}\,\underline{\mathopen{F^{\nu}}}\right]=\underline{O}\label{eq:spatial_discretization}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\vec{\nu}\cdot\underline{\vec{F}}\eqqcolon\underline{F^{\nu}}$
+\end_inset
+
+ is the normal flux at some point on 
+\begin_inset Formula $\partial E_{i}$
+\end_inset
+
+, whose value could be given by an exact or approximate Riemann solver of
+ Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:differential_form"
+
+\end_inset
+
+, see 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Toro_2009"
+literal "true"
+
+\end_inset
+
+ for details.
+\end_layout
+
+\begin_layout Standard
+Recall the arbitrariness of 
+\begin_inset Formula $\left\{ \hat{\psi}_{l}\right\} _{l=1}^{L}$
+\end_inset
+
+ and adopt the inner-product notation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\langle f\vert g\rangle\coloneqq\int_{E_{i}}f(\vec{x})\,g(\vec{x}),
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+we could turn Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:spatial_discretization"
+
+\end_inset
+
+ into a system of ordinary differential equations:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\dv{\underline{\hat{U}}}{t}=\underline{R}(\underline{\hat{U}})\label{eq:ode_system}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+in which
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\underline{\hat{U}}(t)=\begin{bmatrix}\langle U_{1}\vert\phi_{1}\rangle & \cdots & \langle U_{1}\vert\phi_{L}\rangle\\
+\vdots & \ddots & \vdots\\
+\langle U_{5}\vert\phi_{1}\rangle & \cdots & \langle U_{5}\vert\phi_{L}\rangle
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is a 
+\begin_inset Formula $5\times L$
+\end_inset
+
+ matrix of temporal functions (which will be solved in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:temporal_discretization"
+
+\end_inset
+
+), and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\underline{R}=\int_{E_{i}}\left(\begin{bmatrix}\underline{F^{x}} & \underline{F^{y}} & \underline{F^{z}}\end{bmatrix}\begin{bmatrix}\partial_{x}\underline{\phi}\\
+\partial_{y}\underline{\phi}\\
+\partial_{z}\underline{\phi}
+\end{bmatrix}-\underline{Q}\,\underline{\phi}\right)-\oint_{\partial E_{i}}\underline{F^{\nu}}\,\underline{\phi}\label{eq:flux_integrals}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is a variable matrix depending on 
+\begin_inset Formula $\underline{\hat{U}}$
+\end_inset
+
+.
+ The integrals in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:flux_integrals"
+
+\end_inset
+
+ are evaluated by Gaussian quadrature rules, such as those given by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhang_2009"
+literal "true"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+The RK Time Discretization
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:temporal_discretization"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ode_system"
+
+\end_inset
+
+ is a typical system of nonlinear ordinary differential equations.
+ In this article, we use the following explicit Runge–Kutta methods:
+\end_layout
+
+\begin_layout Itemize
+first-order:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\begin{aligned}\underline{\hat{U}}^{n+1} & =\underline{\hat{U}}^{n}+\underline{R}^{n}\Delta t\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+second-order:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\begin{aligned}\underline{\hat{U}}^{n+1/2} & =\underline{\hat{U}}^{n}+\underline{R}^{n}\Delta t,\\
+\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+2/2} & =\frac{1}{2}\underline{\hat{U}}^{n}+\frac{1}{2}\left(\underline{\hat{U}}^{n+1/2}+\underline{R}^{n+1/2}\Delta t\right)
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+third-order:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}\underline{\hat{U}}^{n+1/3} & =\underline{\hat{U}}^{n}+\underline{R}^{n}\Delta t,\\
+\underline{\hat{U}}^{n+2/3} & =\frac{3}{4}\underline{\hat{U}}^{n}+\frac{1}{4}\left(\underline{\hat{U}}^{n+1/3}+\underline{R}^{n+1/3}\Delta t\right)\\
+\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+3/3} & =\frac{1}{3}\underline{\hat{U}}^{n}+\frac{2}{3}\left(\underline{\hat{U}}^{n+2/3}+\underline{R}^{n+2/3}\Delta t\right)
+\end{aligned}
+\label{eq:Runge--Kutta}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+in which the 
+\begin_inset Formula $\underline{R}^{\mu}\coloneqq\underline{R}(\underline{\hat{U}}^{\mu})$
+\end_inset
+
+'s are the values mapped by the nonlinear operator 
+\begin_inset Formula $\underline{R}$
+\end_inset
+
+ from the corresponding 
+\begin_inset Formula $\underline{\hat{U}}^{\mu}$
+\end_inset
+
+'s.
+ It has been proved by Gottlieb and Shu that they are all total variation
+ diminishing (TVD) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gottlieb_1998"
+literal "true"
+
+\end_inset
+
+ or strong stability-preserving (SSP) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gottlieb_2001"
+literal "false"
+
+\end_inset
+
+ (which is a desired feature for hyperbolic problems) and fourth-order Runge–Kut
+ta methods cannot be TVD or SSP without introducing the adjoint operator
+ of 
+\begin_inset Formula $\underline{R}$
+\end_inset
+
+, denoted as 
+\begin_inset Formula $\underline{R}^{\dagger}$
+\end_inset
+
+, which satisfies
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}-\underline{R}^{\dagger}(\underline{\hat{U}}^{n})\,\Delta t.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is non-trivial to implement such an adjoint operator and thus we do not
+ implement Runge–Kutta methods whose accuracy order is higher than three.
+\end_layout
+
+\begin_layout Subsection
+The Compact WENO Limiter
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:limiting_procedures"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Following our previous work 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Pei_2022"
+literal "false"
+
+\end_inset
+
+, we use the three-dimensional extension of the two-dimensional WENO limiters
+ by Zhong 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhong_2013"
+literal "true"
+
+\end_inset
+
+ and Zhu 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhu_2013"
+literal "true"
+
+\end_inset
+
+.
+ For simplicity, we denote the index set of 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+'s neighbors as 
+\begin_inset Formula $K_{i}$
+\end_inset
+
+.
+ For each 
+\begin_inset Formula $k\in K_{i}$
+\end_inset
+
+, we first transform Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:differential_form"
+
+\end_inset
+
+ to the 
+\begin_inset Formula $\nu$
+\end_inset
+
+-split form on the interface shared by 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ and its neighbor 
+\begin_inset Formula $E_{k}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\partial_{t}\underline{U}+\partial_{\nu}\underline{F^{\nu}}\equiv\left(\partial_{t}+\underline{A^{\nu}}\,\partial_{\nu}\right)\underline{U}=\underline{Q},\label{eq:normal_split_form}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+in which, the flux Jacobian can be approximated by the average value of
+ 
+\begin_inset Formula $\underline{U}$
+\end_inset
+
+ on 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\underline{A^{\nu}}\equiv\frac{\partial\underline{F^{\nu}}}{\partial\underline{U}}\approx\left.\frac{\partial\underline{F^{\nu}}}{\partial\underline{U}}\right|_{\langle\underline{U}\rangle_{i}}.\label{eq:normal_jacobian}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From the hyperbolicity of Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:differential_form"
+
+\end_inset
+
+, there always exists the eigenvalue decomposition
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\underline{A^{\nu}}=\underline{R^{\nu}}\begin{bmatrix}u_{\nu}-a\\
+ & u_{\nu}\\
+ &  & u_{\nu}\\
+ &  &  & u_{\nu}\\
+ &  &  &  & u_{\nu}+a
+\end{bmatrix}(\underline{R^{\nu}})^{-1},\label{eq:eigen_decompose}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+in which
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\underline{R^{\nu}}=\begin{bmatrix}1 & 1 & 0 & 0 & 1\\
+u_{x}-a\nu_{x} & u_{x} & \sigma_{x} & \pi_{x} & u_{x}+a\nu_{x}\\
+u_{y}-a\nu_{y} & u_{y} & \sigma_{y} & \pi_{y} & u_{y}+a\nu_{y}\\
+u_{z}-a\nu_{z} & u_{z} & \sigma_{z} & \pi_{z} & u_{z}+a\nu_{z}\\
+h_{0}-u_{\nu}a & \frac{u_{x}^{2}+u_{y}^{2}+u_{z}^{2}}{2} & u_{\sigma} & u_{\pi} & h_{0}+u_{\nu}a
+\end{bmatrix},\qquad\begin{bmatrix}u_{\nu}\\
+u_{\sigma}\\
+u_{\pi}
+\end{bmatrix}=\begin{bmatrix}\nu_{x} & \sigma_{x} & \pi_{x}\\
+\nu_{y} & \sigma_{y} & \pi_{y}\\
+\nu_{z} & \sigma_{z} & \pi_{z}
+\end{bmatrix}^{-1}\begin{bmatrix}u_{x}\\
+u_{y}\\
+u_{z}
+\end{bmatrix},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+(\underline{R^{\nu}})^{-1}=\begin{bmatrix}\frac{1}{2}\left(B_{2}+\frac{u_{\nu}}{a}\right) & \frac{-1}{2}\left(B_{1}u_{x}+\frac{\nu_{x}}{a}\right) & \frac{-1}{2}\left(B_{1}u_{y}+\frac{\nu_{y}}{a}\right) & \frac{-1}{2}\left(B_{1}u_{z}+\frac{\nu_{z}}{a}\right) & \frac{1}{2}B_{1}\\
+1-B_{2} & B_{1}u_{x} & B_{1}u_{y} & B_{1}u_{z} & -B_{1}\\
+-u_{\sigma} & \sigma_{x} & \sigma_{y} & \sigma_{z} & 0\\
+-u_{\pi} & \pi_{x} & \pi_{y} & \pi_{z} & 0\\
+\frac{1}{2}\left(B_{2}-\frac{u_{\nu}}{a}\right) & \frac{-1}{2}\left(B_{1}u_{x}-\frac{\nu_{x}}{a}\right) & \frac{-1}{2}\left(B_{1}u_{y}-\frac{\nu_{y}}{a}\right) & \frac{-1}{2}\left(B_{1}u_{z}-\frac{\nu_{z}}{a}\right) & \frac{1}{2}B_{1}
+\end{bmatrix},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $B_{1}\coloneqq(\gamma-1)/a^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $B_{2}\coloneqq B_{1}(u_{\nu}^{2}+u_{\sigma}^{2}+u_{\pi}^{2})$
+\end_inset
+
+.
+ The original conservative variable 
+\begin_inset Formula $\underline{U}$
+\end_inset
+
+ is then projected into the space spanned by the columns of 
+\begin_inset Formula $\underline{R}$
+\end_inset
+
+, which defines the characteristic variable:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\underline{V}\coloneqq(\underline{R^{\nu}})^{-1}\,\underline{U}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Each scalar component of 
+\begin_inset Formula $\underline{V}$
+\end_inset
+
+ can now be treated as independent functions, to which any suitable scalar
+ WENO limiter (such as the one in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhong_2013,Zhu_2013"
+literal "true"
+
+\end_inset
+
+) can be applied.
+ Once obtaining the reconstructed characteristic variable 
+\begin_inset Formula $\underline{V}^{\mathrm{new}}$
+\end_inset
+
+, it is turned back to the original conservative variable:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\underline{U}_{i|k}^{\mathrm{new}}\coloneqq\underline{R^{\nu}}\,\underline{V}^{\mathrm{new}},\label{eq:eigen_rows}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The subscript 
+\begin_inset Formula $i|k$
+\end_inset
+
+ emphasizes the fact that it is a function defined on 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ with the help of 
+\begin_inset Formula $E_{k}$
+\end_inset
+
+.
+ There is one such reconstructed 
+\begin_inset Formula $\underline{U}_{i|k}^{\mathrm{new}}$
+\end_inset
+
+ for each 
+\begin_inset Formula $k\in K_{i}$
+\end_inset
+
+, so the final step is to weight them by the volume of the corresponding
+ adjacent element:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\underline{U}_{i}^{\mathrm{new}}\coloneqq\frac{\sum_{k\in K_{i}}\underline{U}_{i|k}^{\mathrm{new}}\vert E_{k}\vert}{\sum_{k\in K_{i}}\vert E_{k}\vert}.\label{eq:weight_by_volume}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+The Momentum Source Model
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:The-Momentum-Source"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To model a fixed or rotary wing with high aspect ratio, we use the actuator
+ line model, which is a special case of the more general momentum source
+ model.
+ In this model, a wing is sliced into a series of thin pieces, each of which
+ is perpendicular to the wing's axis.
+ When moving relatively to the air, a piece feels a pair of aerodynamic
+ forces:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{bmatrix}L\dd{s}\\
+D\dd{s}
+\end{bmatrix}=\frac{1}{2}\rho(u^{2}+w^{2})\begin{bmatrix}C_{L}(\alpha)\\
+C_{D}(\alpha)
+\end{bmatrix}c\dd{s}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+in which
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $c$
+\end_inset
+
+ is the chord length of the piece, 
+\begin_inset Formula $s$
+\end_inset
+
+ is the arc length parameter of the axis.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is the angle of attack, which is related to 
+\begin_inset Formula $u$
+\end_inset
+
+ and 
+\begin_inset Formula $w$
+\end_inset
+
+ (velocity components resolved in the airfoil's local frame) by 
+\begin_inset Formula $\tan\alpha=w/u$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{L}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{D}$
+\end_inset
+
+ are the lift and drag coefficients of the airfoil, respectively.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $L$
+\end_inset
+
+ and 
+\begin_inset Formula $D$
+\end_inset
+
+ are the lift and drag per unit length, respectively.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using Newton's third Law, the force per unit length felt by the air surrounding
+ the piece is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{b}_{L}(\vec{r}(s))=-\begin{bmatrix}\vec{e}_{L}(s) & \vec{e}_{D}(s)\end{bmatrix}\begin{bmatrix}L(s)\\
+D(s)
+\end{bmatrix},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+in which 
+\begin_inset Formula $\vec{e}_{L}$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{e}_{D}$
+\end_inset
+
+ are unit vectors along and perpendicular to the direction of airflow relative
+ to the airfoil.
+ To avoid ambiguity, we denote the force per unit length as 
+\begin_inset Formula $\vec{b}_{L}$
+\end_inset
+
+ and use 
+\begin_inset Formula $\vec{b}_{V}$
+\end_inset
+
+ to denote the force per unit volume.
+ If the intersection of a wing's axis 
+\begin_inset Formula $\overline{PQ}$
+\end_inset
+
+ and a DG element 
+\begin_inset Formula $E$
+\end_inset
+
+ is the line segement 
+\begin_inset Formula $\overline{RT}$
+\end_inset
+
+, then the body integral of the source term in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:flux_integrals"
+
+\end_inset
+
+ is actually a line integral:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\int_{E_{i}}\underline{Q}\,\underline{\phi}=\int_{E_{i}}\begin{bmatrix}0\\
+\vec{b}_{V}(\vec{r})\\
+0
+\end{bmatrix}\underline{\phi}(\vec{r})=\begin{bmatrix}\underline{0}\\
+\int_{\overline{RT}}\vec{b}_{L}(\vec{r})\,\underline{\phi}(\vec{r})\\
+\underline{0}
+\end{bmatrix},\label{eq:line_integral}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By parameterizing the line segment 
+\begin_inset Formula $\overline{RT}$
+\end_inset
+
+, the line integral in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:line_integral"
+
+\end_inset
+
+ can be evaluated as a definite integral:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\int_{RT}\vec{b}_{L}(\vec{r})\,\underline{\phi}(\vec{r})=\int_{\xi_{R}}^{\xi_{T}}\vec{b}_{L}(\vec{r}(\xi))\,\underline{\phi}(\vec{r}(\xi))\left\Vert \frac{\partial\vec{r}}{\partial\xi}\right\Vert \dd{\xi},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+to which the standard Gaussian quadrature can be applied.
+\end_layout
+
+\begin_layout Section
+Results of Model Problems and Engineering Problems
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Results"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section, we give the results of various problems to show the accuracy
+ and performance of the methods described in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Methods"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Lower-Dimensional Model Problems
+\end_layout
+
+\begin_layout Subsubsection
+Shock Tube Problems
+\end_layout
+
+\begin_layout Standard
+These problems are usually defined as one-dimensional problems, but we treat
+ them as three-dimensional ones.
+ All these problems are considered in a 
+\begin_inset Formula $[0.0,5.0]\times[0.0,1.0]\times[0.0,0.5]$
+\end_inset
+
+ box with all boundaries closed but the left and right ends open.
+ Using the method described in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Toro_2009"
+literal "true"
+
+\end_inset
+
+, their exact solutions can be obtained, which can be used for assessing
+ the accuracy of our solvers.
+ In our earlier work 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Pei_2022"
+literal "false"
+
+\end_inset
+
+, we have given the results obtained by running our solvers on an unstructured
+ hexahedral mesh.
+ This time, we use an unstructured tetrahedral mesh instead.
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[Sod]
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:sod"
+
+\end_inset
+
+Solve the Euler system (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) for 
+\begin_inset Formula $t\in[0.0,1.0]$
+\end_inset
+
+ with the initial condition
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
+\begin{bmatrix}1 & 0 & 0 & 0 & 1\end{bmatrix} & x<2.5\\
+\begin{bmatrix}\frac{1}{8} & 0 & 0 & 0 & \frac{1}{10}\end{bmatrix} & x>2.5
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/shock_tubes/sod/contour_tetra.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sod_contour"
+
+\end_inset
+
+Third-order solution of 
+\begin_inset Formula $\rho(t=1.0)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/shock_tubes/sod/result_tetra.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sod_p"
+
+\end_inset
+
+Comparison between solutions of 
+\begin_inset Formula $\rho(t=1.0)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is a classical problem of inviscid compressible flows.
+ It contains all the three types of discontinuities: a shock wave and a
+ contact discontinuity running towards the right and an expansion wave running
+ towards the left.
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sod_contour"
+
+\end_inset
+
+, we plot the density contour given by our third-order solver with an 
+\family typewriter
+EigenWeno
+\family default
+ limiter.
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sod_p"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we compare the density distributions given by various solvers along the
+ longitudinal axis (on which 
+\begin_inset Formula $y=0.5$
+\end_inset
+
+ and 
+\begin_inset Formula $z=0.25$
+\end_inset
+
+) of the box.
+ The accuracy of our solvers and the effect of 
+\begin_inset Formula $p$
+\end_inset
+
+-refinement are clear in these figures.
+\end_layout
+
+\begin_layout Standard
+It is predictable that both mesh refinement (decreasing 
+\begin_inset Formula $h$
+\end_inset
+
+) and order increment (increasing 
+\begin_inset Formula $p$
+\end_inset
+
+) can help to improve accuracy.
+ To compare the 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+performance
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ of solvers with different orders more fairly, it is better to use finer
+ meshes for running lower-order solvers.
+ After a few trials, we find that solutions given by the 
+\begin_inset Formula $h$
+\end_inset
+
+-
+\begin_inset Formula $p$
+\end_inset
+
+ pairs listed in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:sod_performance"
+
+\end_inset
+
+ roughly have the same level of accuracy, as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sod_h"
+
+\end_inset
+
+.
+ It is clear, at least for Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, that high-order solvers are better than low-order ones in the sense of
+ getting the same level of accuracy with less time and space costs.
+ Similar conclusions were drawn in our previous work 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Pei_2022"
+literal "false"
+
+\end_inset
+
+, in which the 
+\begin_inset Formula $p=3$
+\end_inset
+
+ solution of a linear advection problem on an 
+\begin_inset Formula $h\approx1/4$
+\end_inset
+
+ mesh defeated the 
+\begin_inset Formula $p=1$
+\end_inset
+
+ solution of the same problem on an 
+\begin_inset Formula $h\approx1/32$
+\end_inset
+
+ mesh in accuracy but saved quite a lot of time.
+ These encouraging results justify our efforts to implement higher-order
+ solvers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:sod_performance"
+
+\end_inset
+
+Comparison between time costs and file sizes of various 
+\begin_inset Formula $h$
+\end_inset
+
+-
+\begin_inset Formula $p$
+\end_inset
+
+ pairs.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="6">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="5text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="15text%">
+<column alignment="center" valignment="top" width="10text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $h$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+#cells
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+#steps
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+time cost
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+file size
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1/50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2469675
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1500
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1492.16 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.23 GB
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1/18
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+117045
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+279.119 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+213 MB
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1/10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19815
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+250
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+201.034 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+89.1 MB
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/shock_tubes/sod/h_vary_tetra.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sod_h"
+
+\end_inset
+
+Comparison between solutions given by various 
+\begin_inset Formula $h$
+\end_inset
+
+-
+\begin_inset Formula $p$
+\end_inset
+
+ pairs.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[Lax]
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:lax"
+
+\end_inset
+
+Solve the Euler system (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) for 
+\begin_inset Formula $t\in[0.0,0.6]$
+\end_inset
+
+ with the initial condition
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
+\begin{bmatrix}0.445 & 0.698 & 0.000 & 0.000 & 3.528\end{bmatrix} & x<2.5\\
+\begin{bmatrix}0.500 & 0.000 & 0.000 & 0.000 & 0.571\end{bmatrix} & x>2.5
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/shock_tubes/lax/contour_tetra.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:lax_contour"
+
+\end_inset
+
+Third-order solution of 
+\begin_inset Formula $\rho(t=0.5)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:lax"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/shock_tubes/lax/result_tetra.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:lax"
+
+\end_inset
+
+Comparison between solutions of 
+\begin_inset Formula $\rho(t=0.5)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:lax"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is another problem that involves all the three types of discontinuities.
+ It is more difficult than the previous one in the sense that its solution
+ contains values beyond the range of initial values and the discontinuities
+ are much steeper.
+ As before, we plot the density contour of our third-order solution in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:lax_contour"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and compare the density distributions given by various solvers in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:lax"
+
+\end_inset
+
+.
+ Both figures demonstrate the effect of 
+\begin_inset Formula $p$
+\end_inset
+
+-refinement and the ability of our high-order solvers to suppress numerical
+ oscillations.
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[Vacuum]
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:vacuum"
+
+\end_inset
+
+Solve the Euler system (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) for 
+\begin_inset Formula $t\in[0.0,0.4]$
+\end_inset
+
+ with the initial condition
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
+\begin{bmatrix}1 & -4 & 0 & 0 & 0.4\end{bmatrix} & x<2.5\\
+\begin{bmatrix}1 & +4 & 0 & 0 & 0.4\end{bmatrix} & x>2.5
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/shock_tubes/vacuum/contour_tetra.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:vacuum_contour"
+
+\end_inset
+
+Third-order solution of 
+\begin_inset Formula $\rho(t=0.4)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:vacuum"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/shock_tubes/vacuum/result_tetra.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:vacuum"
+
+\end_inset
+
+Comparison between solutions of 
+\begin_inset Formula $\rho(t=0.4)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:vacuum"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This problem is easier than the previous two in the sense that no strong
+ discontinuities (shock or contact discontinuity) occurs in the solution.
+ However, there is a region of vacuum, which does not occur in the previous
+ prolems, generated between the left- and right-running expansion waves.
+ The velocity 
+\begin_inset Formula $u$
+\end_inset
+
+ inside the vacuumed region (denoted by a 
+\begin_inset Formula $*$
+\end_inset
+
+ in subscripts) is undefined, but its boundary values should be determined
+ from the left (denoted by an 
+\begin_inset Formula $L$
+\end_inset
+
+ in subscripts) and right (denoted by an 
+\begin_inset Formula $R$
+\end_inset
+
+ in subscripts) initial values by the two Riemann invariants:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+u_{*L}=u_{L}+\frac{2a_{L}}{\gamma-1},\qquad u_{*R}=u_{R}-\frac{2a_{R}}{\gamma-1}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+See Section 4.6 in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Toro_2009"
+literal "true"
+
+\end_inset
+
+ for more detailed discussions.
+ Unfortunenately, approximate Riemann solvers usually (have to) neglect
+ this condition.
+ For this reason, we use an exact Riemann solver to obtain fluxes on cell
+ boundaries.
+ As before, we plot the results in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:vacuum_contour"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:vacuum"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, which again validate the correctness and robustness of our solvers.
+\end_layout
+
+\begin_layout Subsubsection
+The Forward Step Problem
+\end_layout
+
+\begin_layout Standard
+This is a classical two-dimensional problem 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Woodward_1984"
+literal "true"
+
+\end_inset
+
+, but we treat it as a three-dimensional one:
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:forward_step"
+
+\end_inset
+
+Solve the Euler system (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) in a 
+\begin_inset Formula $[0,3]\times[0,1]\times[0,Z]$
+\end_inset
+
+ box (representing a wind tunnel), where the thickness 
+\begin_inset Formula $Z$
+\end_inset
+
+ could be any positive value, with a 
+\begin_inset Formula $[0.6,3]\times[0,0.2]\times[0,Z]$
+\end_inset
+
+ box removed (representing a forward-facing step).
+ The 
+\begin_inset Formula $x=0$
+\end_inset
+
+ surface is open as an inlet and the 
+\begin_inset Formula $x=3$
+\end_inset
+
+ surface is open as an outlet.
+ All other boundary surfaces are closed as solid walls.
+ The initial condition is given as a uniform state:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 3.0 & 0.0 & 0.0 & 1.0\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward_step/mesh.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_domain"
+
+\end_inset
+
+A coarse (
+\begin_inset Formula $h=1/20$
+\end_inset
+
+) mesh for solving Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ This mesh is too coarse to capture details of the flow field but clear
+ enough to demonstrate the distribution of nodes and cells.
+ Actually, we use a much finer (
+\begin_inset Formula $h=1/200$
+\end_inset
+
+) mesh to produce Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=02e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=40e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To show the applicability of our solvers on structured meshes, we solve
+ this problem on meshes like the one in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_domain"
+
+\end_inset
+
+.
+ As a common practice, we plot the density contours at various time steps
+ in Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=02e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=40e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward_step/p=3_t=02e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=02e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=0.2$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward_step/p=3_t=04e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=04e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=0.4$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward_step/p=3_t=06e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=06e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=0.6$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward_step/p=3_t=08e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=08e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=0.8$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward_step/p=3_t=10e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=10e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward_step/p=3_t=12e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=12e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=1.2$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward_step/p=3_t=20e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=20e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=2.0$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward_step/p=3_t=24e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=24e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=2.4$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward_step/p=3_t=28e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_h=28e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=2.8$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward_step/p=3_t=32e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=32e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=3.2$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward_step/p=3_t=40e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=40e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=4.0$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The flow starts from a uniform supersonic (
+\begin_inset Formula $M=3.0$
+\end_inset
+
+) state.
+ In Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=02e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=04e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, a curved bow shock wave generates in front of the forward-facing step
+ and a fan-shaped expansion wave generates at the corner (
+\begin_inset Formula $x=0.6,y=0.2$
+\end_inset
+
+).
+ The bow shock then hits the top of the tunnel (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=06e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) and reflects from it (Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=08e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=10e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ At about 
+\begin_inset Formula $t=1.2$
+\end_inset
+
+ (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=12e-1"
+
+\end_inset
+
+), the reflected shock hits the bottom of the tunnel (the top of the step)
+ and reflects from it.
+ Both of the two reflections are regular at these moments.
+ Just before 
+\begin_inset Formula $t=2.0$
+\end_inset
+
+ (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=12e-1"
+
+\end_inset
+
+), a Mach stem which characterizes a Mach reflection has generated from
+ the first reflection point.
+ A wavy contact discontinuity generating from the triple point is captured
+ by Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=24e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=40e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ This flow structure would be smeared off if we solved Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+
+\end_inset
+
+ using lower-order solvers or coarser meshes.
+\end_layout
+
+\begin_layout Subsection
+Three-Dimensional Engineering Problems
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:YF-17"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section, we solve the Euler system (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) on a three-dimensional unstructured mesh, which discretizes the space
+ around a YF-17 aircraft by tetrahedral cells as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_mesh"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/yf17/mesh.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_mesh"
+
+\end_inset
+
+A zoomed-in view of the most important boundaries of the mesh for solving
+ problems in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:YF-17"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+YF-17 in Subsonic Flight
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:Subsonic-YF17"
+
+\end_inset
+
+Solve the Euler system (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) in the surrounding of a YF-17 aircraft.
+ The initial condition is given as a subsonic flow (
+\begin_inset Formula $M=0.3$
+\end_inset
+
+) with a 
+\begin_inset Formula $20$
+\end_inset
+
+-deg angle of attack:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 0.2819 & 0.0 & 0.1026 & 1.0\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+All boundaries of the aircraft are defined as solid walls, except the intake
+ the engine which is defined as a subsonic outlet of the condition equal
+ to the initial condition, and the exhaust of the engine which is defined
+ as a supersonic (
+\begin_inset Formula $M=3.0$
+\end_inset
+
+) inlet of the condition:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{\text{ex.}}=\begin{bmatrix}1.4 & 2.4 & 0.0 & 0.0 & 1.44\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/yf17/streamlines_p=1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_streamlines_p=1"
+
+\end_inset
+
+Streamlines given by the first-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Subsonic-YF17"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/yf17/streamlines_p=3.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_streamlines_p=3"
+
+\end_inset
+
+Streamlines given by the third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Subsonic-YF17"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We solve this problem by two of our finite element solvers and plot the
+ streamlines released from the strake and the wing at 
+\begin_inset Formula $t=10$
+\end_inset
+
+ in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_streamlines_p=1"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_streamlines_p=3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ It can be seen that the streamlines obtained from the high-order (
+\begin_inset Formula $p=3$
+\end_inset
+
+) solution are smoother than those from the low-order (
+\begin_inset Formula $p=1$
+\end_inset
+
+) solution, which shows the benefit of 
+\begin_inset Formula $p$
+\end_inset
+
+-refinement.
+ The difference in accuracy is more obvious in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_rho_subsonic"
+
+\end_inset
+
+, which clearly shows a more detailed flow structure in the third-order
+ solution (left half) and the piecewise constantness of the first-order
+ solution (right half).
+ Both solutions are able to capture the vortex trailing from the wing tip,
+ which is generated from the the pressure difference between the upper and
+ lower surfaces of the wing.
+ When the wing generates positive lift, the pressure on the lower wing surface
+ is higher than that on the upper wing surface.
+ Under the action of this pressure difference, the air under the wing rolls
+ up around the tip and flows backward, the tip vortex is thus formed.
+ The vortex trailing from the strake is generated from a similar mechanism.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/yf17/rho_subsonic.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_rho_subsonic"
+
+\end_inset
+
+Comparison between the third-order solution (left half) and the first-order
+ solution (right half) of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Subsonic-YF17"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+YF-17 in Supersonic Flight
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:Supersonic-YF17"
+
+\end_inset
+
+Solve the Euler system (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) in the surrounding of a YF-17 aircraft.
+ The initial condition is given as a supersonic flow (
+\begin_inset Formula $M=2.0$
+\end_inset
+
+) with a 
+\begin_inset Formula $0$
+\end_inset
+
+-deg angle of attack:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 2.0 & 0.0 & 0.0 & 1.0\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+All boundaries of the aircraft are defined as solid walls, except the intake
+ the engine which is defined as a supersonic outlet of the condition equal
+ to the initial condition, and the exhaust of the engine which is defined
+ as a supersonic (
+\begin_inset Formula $M=3.0$
+\end_inset
+
+) inlet of the condition:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{\text{ex.}}=\begin{bmatrix}1.4 & 2.4 & 0.0 & 0.0 & 1.44\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/yf17/rho_p=1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_rho_p=1"
+
+\end_inset
+
+Density contour obtained from the first-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/yf17/rho_p=3.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_rho_p=3"
+
+\end_inset
+
+Density contour obtained from the third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/yf17/supersonic_top_view.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_supersonic_top_view"
+
+\end_inset
+
+Comparison between the third-order solution (upper half) and the first-order
+ solution (lower half) of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ on the 
+\begin_inset Formula $z=0$
+\end_inset
+
+ surface (top view).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/yf17/supersonic_bottom_view.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_supersonic_bottom_view"
+
+\end_inset
+
+Comparison between the third-order solution (upper half) and the first-order
+ solution (lower half) of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ on the 
+\begin_inset Formula $z=0$
+\end_inset
+
+ surface (bottom view).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We solve this problem using the same solvers as for Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Subsonic-YF17"
+
+\end_inset
+
+.
+ Density contours on the 
+\begin_inset Formula $y=0$
+\end_inset
+
+ surface obtained from the first- and the third-order solutions are given
+ in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_rho_p=1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_rho_p=3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, respectively.
+ It is obvious that shock waves are captured well (without spurious oscillations
+) by both of them.
+ To show the difference more clearly, we compare the two solutions in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_supersonic_top_view"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_supersonic_bottom_view"
+
+\end_inset
+
+.
+ As in the subsonic case, the third-order solution (which is piecewise quadratic
+) outperforms the first-order one (which is piecewise constant).
+ Shock waves (red) are generated on surfaces facing the wind, since the
+ relative speed of air is larger than the speed of sound.
+ Expansion waves (blue) are generated on leeward surfaces, since the solid
+ body contracts there which leaves more room for the supersonic flow to
+ go.
+\end_layout
+
+\begin_layout Subsubsection
+Parallel Efficiency
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/yf17/partition.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_partition"
+
+\end_inset
+
+A 100-part partitioning of the mesh used for solving problems in Section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:YF-17"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/yf17/balance.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_balance"
+
+\end_inset
+
+Distribution of cells in the mesh partitioning given in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_partition"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since the mesh in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_mesh"
+
+\end_inset
+
+ is highly unstructured and non-uniform, simple geometric partitioning cannot
+ achieve a relatively balanced distribution of computational efforts.
+ In our code, we use the 
+\shape smallcaps
+Metis
+\shape default
+ library 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Karypis_1998"
+literal "false"
+
+\end_inset
+
+ to partition the dual graph of the mesh, which gives the results in Figures
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_partition"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_balance"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The fluctuation of cell numbers is under 
+\begin_inset Formula $2\%$
+\end_inset
+
+, which is quite good since the optimal partitioning of an unstructured
+ mesh is an NP-hard problem.
+ With such an approximately optimal partitioning, the parallel efficiency,
+ which is defined as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E=\frac{T_{\text{serial}}}{PT_{\text{parallel}}}\times100\%
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+in which 
+\begin_inset Formula $P$
+\end_inset
+
+ is the number of processes, could surpass 
+\begin_inset Formula $99\%$
+\end_inset
+
+ in theory.
+ In practice, however, the 
+\begin_inset Formula $E$
+\end_inset
+
+ values given by our numerical experiments are only around 
+\begin_inset Formula $80\%$
+\end_inset
+
+ as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_efficiency"
+
+\end_inset
+
+, which is derived from the measured time costs given in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:time_cost"
+
+\end_inset
+
+.
+ The main reason for the gap between theory and practice is that in the
+ derivation of the ideal 
+\begin_inset Formula $E$
+\end_inset
+
+ value, inter-process communications are assumed to overlap in time with
+ inner-cell computations, which is an over-optimistic assumption.
+ Nevertheless, the acceleration is still significant, which reduces the
+ wall clock time to an acceptable level.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/yf17/speedup.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_speedup"
+
+\end_inset
+
+Speedup of the third-order solver for solving Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/yf17/efficiency.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_efficiency"
+
+\end_inset
+
+Parallel efficiency of the third-order solver for solving Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:time_cost"
+
+\end_inset
+
+Time costs of the third-order solver running on different number of cores.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="6">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $P$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{100}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{399}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{400}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P\frac{T_{399}-T_{100}}{399-100}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P\frac{T_{400}-T_{100}}{400-100}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10511.3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+42466.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+42593.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+106.873
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+106.939
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2389.25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9740.13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9769.96
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+122.925
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+123.012
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1246.37
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5086.62
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5101.95
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+128.436
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+128.519
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+839.554
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3420.17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3430.75
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+129.462
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+129.560
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+645.737
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2632.32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2640.57
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+132.882
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+132.989
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+325.269
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1310.72
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1319.73
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+131.833
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+132.595
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+222.890
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+923.043
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+931.754
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+140.499
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+141.773
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+80
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+168.862
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+672.439
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+681.445
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+134.736
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+136.689
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+137.787
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+543.081
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+552.682
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+135.550
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+138.298
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Problems with Momentum Sources
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Problems-with-Momentum"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section, we solve two problems of rotorcraft aerodynamics using
+ the momentum source model described in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:The-Momentum-Source"
+
+\end_inset
+
+.
+ The problems are set to simulate wind tunnel tests of a rotor (a pair of
+ rotary wings), using the mesh shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_mesh"
+
+\end_inset
+
+.
+ All of the boundaries of the outside box are solid walls, except he left
+ and right ends, which are set as inlet and outlet, respectively.
+ The spherical region is the circumscribed sphere of the rotor, whose rotating
+ axis could point to any direction.
+ The smaller box enclosing the sphere is used for refining the mesh in the
+ surrounding and downstream regions of the rotor.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/rotor_in_tunnel/mesh.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_mesh"
+
+\end_inset
+
+A schematic mesh for solving problems in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Problems-with-Momentum"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+A Climbing Rotor
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:rotor_upward"
+
+\end_inset
+
+Solve Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ in the surrounding of a rotor, whose rotating axis points to the direction
+ of 
+\begin_inset Formula $(-1,0,0)$
+\end_inset
+
+.
+ The initial condition is given as a uniform flow:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 1.0 & 0.0 & 0.0 & 101325.0\end{bmatrix},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+which is also the background state at the two ends of the wind tunnel.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/rotor_in_tunnel/upward_p=3.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_upward_p=3"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/rotor_in_tunnel/upward_p=1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_upward_p=1"
+
+\end_inset
+
+First-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Third- and first-order solutions at the same moment (
+\begin_inset Formula $t=1$
+\end_inset
+
+) are shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_upward_p=3"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_upward_p=1"
+
+\end_inset
+
+, respectively, in which density contours and velocity directions are plotted
+ on selected slices.
+ Large-scale flow structures, such as the contraction of airflow near the
+ rotor disk and the rolled-up of airwake, are captured in both figures.
+ However, finer details, such as the ripples generated from the rotor disk
+ and the strong vortex ring in the downstream, are only visible in the third-ord
+er solution.
+ The nearly axisymmetric flow structure is caused by the periodic movement
+ of the rotary wings.
+ The density of air just below the rotor (red) is greater than that above
+ the rotor (blue), which means the rotor is compressing the air flowing
+ across it.
+ According to Newton's third law, the rotor must be experiencing a force
+ in the opposite direction exerted by the air.
+ This is where the rotor thrust comes from.
+\end_layout
+
+\begin_layout Subsubsection
+A Rotor in Forward Flight
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:rotor_forward"
+
+\end_inset
+
+Solve Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ in the surrounding of a rotor, whose rotating axis points to the direction
+ of 
+\begin_inset Formula $(0,0,1)$
+\end_inset
+
+.
+ The initial condition is given as a uniform flow:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 10.0 & 0.0 & 0.0 & 101325.0\end{bmatrix},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+which is also the background state at the two ends of the wind tunnel.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/rotor_in_tunnel/forward_p=3.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_forward_p=3"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/rotor_in_tunnel/forward_p=1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_forward_p=1"
+
+\end_inset
+
+First-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/rotor_in_tunnel/forward_wake_p=3.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_forward_wake"
+
+\end_inset
+
+Streamlines of the solution in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_forward_p=3"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Just like the climbing problem, we plot the third- and first-order solution
+ at the same moment (
+\begin_inset Formula $t=1$
+\end_inset
+
+) in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_forward_p=3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_forward_p=1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, respectively.
+ As before, both of them can capture large-scaled structures, such as the
+ skewed and rolled-up airwakes.
+ The rolled-up structure is more clear in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_forward_wake"
+
+\end_inset
+
+, in which streamlines of are ploted and colorred by the magnitude of velocity.
+ The piecewise constant first-order solution is much vaguer and losts many
+ details, which shows again the value of developing high-order solvers.
+\end_layout
+
+\begin_layout Section
+Discussion
+\end_layout
+
+\begin_layout Standard
+In this article, we give a concise but complete formulation of an RKDG scheme
+ with a compact WENO limiter for solving inviscid compressible flows, possibly
+ with momentum sources, on three-dimensional unstructured meshes.
+ The algorithms are implemented on top of public available libraries, which
+ support unstructured mesh partitioning, inter-process communication and
+ distributed memory parallelization.
+ The correctness and accuracy of the solvers are validated by lower-dimensional
+ reference problems.
+ Results of real three-dimensional applications are also presented, in which
+ complex flow structures are captured by the third-order solver even on
+ very coarse unstructured meshes.
+ Future works may include implementing higher-order solvers under the this
+ framework and testing them on larger meshes and on larger high-performance
+ computing platforms.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 6pt
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Optional — Dissolve the outer note inset to activate
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Supplementary
+The following are available online at 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+linksupplementary{s1}
+\end_layout
+
+\end_inset
+
+, Figure S1: title, Table S1: title, Video S1: title.
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Only for the journal Methods and Protocols:
+\end_layout
+
+\begin_layout Plain Layout
+If you wish to submit a video article, please do so with any other supplementary
+ material.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Supplementary
+The following are available at 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+linksupplementary{s1}
+\end_layout
+
+\end_inset
+
+, Figure S1: title, Table S1: title, Video S1: title.
+ A supporting video article is available at doi: link.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author Contributions
+Conceptualization, W.P.
+ and S.L.; methodology, W.P.; software, W.P.
+ and Y.J.; validation, W.P.
+ and Y.J.; formal analysis, W.P.
+ and Y.J.; investigation, W.P.; resources, W.P.; data curation, W.P.; writing---original
+ draft preparation, W.P.; writing---review and editing, W.P., Y.J.
+ and S.L.; visualization, W.P.; supervision, S.L.; project administration, S.L.;
+ funding acquisition, S.L.
+ All authors have read and agreed to the published version of the manuscript.
+\end_layout
+
+\begin_layout Funding
+This research was funded by the National High-tech R&D Program of China
+ (863 Program) grant number 2012AA112201.
+\end_layout
+
+\begin_layout Institutional Review
+Not applicable.
+\end_layout
+
+\begin_layout Informed Consent
+Not applicable.
+\end_layout
+
+\begin_layout Data Availability
+The data presented in this article are all generated from the source code
+ publicly available in our Git repository 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://github.com/pvc1989/miniCFD
+\end_layout
+
+\end_inset
+
+ (or the mirror site 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://gitee.com/pvc1989/miniCFD
+\end_layout
+
+\end_inset
+
+), except the mesh used in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:YF-17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ which is downloaded from 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://cgns.github.io/CGNSFiles.html
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Acknowledgments
+The authors would like to express the deepest appreciation to Shen Xin for
+ his professional guidance on computer science, and to Zhou Yukai for his
+ patient assistance on mathtyping.
+\end_layout
+
+\begin_layout Conflicts of Interest
+The authors declare no conflict of interest.
+ The funders had no role in the design of the study; in the collection,
+ analyses, or interpretation of data; in the writing of the manuscript,
+ or in the decision to publish the
+\begin_inset space ~
+\end_inset
+
+results.
+\end_layout
+
+\begin_layout Abbreviations
+The following abbreviations are used in this manuscript:
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Optional
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="2">
+<features tabularvalignment="middle">
+<column alignment="none" valignment="top" special="@{}l">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CFD
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Computational Fluid Dynamics
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FD
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Finite Difference
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FV
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Finite Volume
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Finite Element
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DG
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Discontinuous Galerkin
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Runge–Kutta
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TVD
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+total variation diminishing
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SSP
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+strong stability-preserving
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ENO
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Essentially Non-Oscillatory
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+WENO
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Weighted ENO
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abbreviations
+The following symbols are used in this manuscript:
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Optional
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="34" columns="2">
+<features tabularvalignment="middle">
+<column alignment="none" valignment="top" special="@{}l">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\partial_{t},\partial_{x},\partial_{y},\partial_{z}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+partial derivative with respect to 
+\begin_inset Formula $t,x,y,z$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+angle of attack
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\gamma$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+heat capacity ratio of the gas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vec{\nu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+outer normal vector at some point on 
+\begin_inset Formula $\partial E_{i}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vec{\pi},\vec{\sigma}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+tangential vectors at some point on 
+\begin_inset Formula $\partial E_{i}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rho$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+density of the gas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\phi_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $k$
+\end_inset
+
+-th function in an orthonormal basis
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\psi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+an arbitrary test function
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\psi^{h}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+approximation of 
+\begin_inset Formula $\psi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\hat{\psi}_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+projection of 
+\begin_inset Formula $\psi$
+\end_inset
+
+ on 
+\begin_inset Formula $\phi_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underline{A^{\nu}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Jacobian of 
+\begin_inset Formula $\underline{F^{\nu}}$
+\end_inset
+
+ with respect to 
+\begin_inset Formula $\underline{U}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vec{b}_{L}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+body force per unit length
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vec{b}_{V}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+body force per unit volume
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $b_{x},b_{y},b_{z}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x,y,z$
+\end_inset
+
+-component of body force per unit volume
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+chord length of a blade
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\partial E_{i}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $i$
+\end_inset
+
+-th element (cell) and its boundary
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $e_{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+specific total energy of the gas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underline{\vec{F}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+flux tensor
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underline{F^{\nu}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+projection of 
+\begin_inset Formula $\underline{\vec{F}}$
+\end_inset
+
+ on 
+\begin_inset Formula $\vec{\nu}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underline{F^{x}},\underline{F^{y}},\underline{F^{z}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x,y,z$
+\end_inset
+
+-component of 
+\begin_inset Formula $\underline{\vec{F}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $h_{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+specific total enthalpy of the gas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+pressure of the gas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underline{Q}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+column matrix of source terms
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underline{R}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+changing rate of 
+\begin_inset Formula $\underline{\hat{U}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underline{R^{\nu}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+matrix whose 
+\begin_inset Formula $j$
+\end_inset
+
+-th column is the 
+\begin_inset Formula $j$
+\end_inset
+
+-th eigenvector of 
+\begin_inset Formula $\underline{A^{\nu}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underline{U}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+column matrix of conservative variables
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underline{U}^{h}$
+\end_inset
+
+ and 
+\begin_inset Formula $\underline{U}^{\text{new}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+approximation of 
+\begin_inset Formula $\underline{U}$
+\end_inset
+
+ and its WENO reconstruction
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underline{U}_{i|k}^{\text{new}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+WENO reconstruction of 
+\begin_inset Formula $\underline{U}^{h}$
+\end_inset
+
+ on 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ with the help of 
+\begin_inset Formula $E_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underline{\hat{U}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+coefficient matrix whose 
+\begin_inset Formula $k$
+\end_inset
+
+-th column is 
+\begin_inset Formula $\underline{\hat{U}}_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underline{\hat{U}}_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+projection of 
+\begin_inset Formula $\underline{U}$
+\end_inset
+
+ on 
+\begin_inset Formula $\phi_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underline{\hat{U}}^{n}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underline{\hat{U}}$
+\end_inset
+
+ and at the 
+\begin_inset Formula $n$
+\end_inset
+
+-th time step
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $u_{x},u_{y},u_{z}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x,y,z$
+\end_inset
+
+-component of velocity
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underline{V}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+column matrix of characteristic variables
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\underline{V}^{h}$
+\end_inset
+
+ and 
+\begin_inset Formula $\underline{V}^{\text{new}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+approximation of 
+\begin_inset Formula $\underline{V}$
+\end_inset
+
+ and its WENO reconstruction
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Appendix Titles
+no
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Optional
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Leave argument 
+\begin_inset Quotes eld
+\end_inset
+
+no
+\begin_inset Quotes erd
+\end_inset
+
+ if all appendix headings stay EMPTY (then no dot is printed after 
+\begin_inset Quotes eld
+\end_inset
+
+Appendix A
+\begin_inset Quotes erd
+\end_inset
+
+).
+ If the appendix sections contain a heading then change the argument to
+ 
+\begin_inset Quotes eld
+\end_inset
+
+yes
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Please, note that in LyX a trailing dot is always present and the name 
+\begin_inset Quotes eld
+\end_inset
+
+Appendix
+\begin_inset Quotes erd
+\end_inset
+
+ is missing.
+ Also make sure that no space follows the argument 
+\begin_inset Quotes eld
+\end_inset
+
+yes
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Start of Appendix
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Begin Whole Page
+\start_of_appendix
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Dissolve the outer note inset to print a list of endnotes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Print End Notes
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout References Title
+References
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Please provide either the correct journal abbreviation (e.g.
+ according to the “List of Title Word Abbreviations” http://www.issn.org/services/
+online-services/access-to-the-ltwa/) or the full name of the journal.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Citations and References in Supplementary files are permitted provided that
+ they also appear in the reference list here.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+References, variant A: external bibliography
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout External Bibliography
+yes
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Insert you external bibtex file into the BibTeX inset below but keep empty
+ the Style field.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "reference"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+References, variant B: internal bibliography
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Author1(year)"
+key "ref-journal"
+literal "false"
+
+\end_inset
+
+ Author
+\begin_inset space ~
+\end_inset
+
+1, T.
+ The title of the cited article.
+ 
+\emph on
+Journal Abbreviation
+\emph default
+ 
+\series bold
+2008
+\series default
+, 
+\emph on
+10
+\emph default
+, 142–149.
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Author2(year)"
+key "ref-book1"
+literal "false"
+
+\end_inset
+
+ Author
+\begin_inset space ~
+\end_inset
+
+2, L.
+ The title of the cited contribution.
+ In 
+\emph on
+The Book Title
+\emph default
+; Editor1, F., Editor2, A., Eds.; Publishing House: City, Country, 2007; pp.
+ 32–58.
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Author3(year)"
+key "ref-book2"
+literal "false"
+
+\end_inset
+
+ Author 1, A.; Author 2, B.
+ 
+\shape italic
+Book Title
+\shape default
+, 3rd ed.; Publisher: Publisher Location, Country, 2008; pp.
+ 154–196.
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Author4(year)"
+key "ref-unpublish"
+literal "false"
+
+\end_inset
+
+ Author 1, A.B.; Author 2, C.
+ Title of Unpublished Work.
+ 
+\shape italic
+Abbreviated Journal Name
+\shape default
+ year, 
+\shape italic
+phrase indicating stage of publication (submitted; accepted; in press)
+\shape default
+.
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Author5(year)"
+key "ref-communication"
+literal "false"
+
+\end_inset
+
+ Author 1, A.B.
+ (University, City, State, Country); Author 2, C.
+ (Institute, City, State, Country).
+ Personal communication, 2012.
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Author6(year)"
+key "ref-proceeding"
+literal "false"
+
+\end_inset
+
+ Author 1, A.B.; Author 2, C.D.; Author 3, E.F.
+ Title of presentation.
+ In Proceedings of the Name of the Conference, Location of Conference, Country,
+ Date of Conference (Day Month Year); Abstract Number (optional), Pagination
+ (optional).
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Author7(year)"
+key "ref-thesis"
+literal "false"
+
+\end_inset
+
+ Author 1, A.B.
+ Title of Thesis.
+ Level of Thesis, Degree-Granting University, Location of University, Date
+ of Completion.
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Author8(year)"
+key "ref-url"
+literal "false"
+
+\end_inset
+
+ Title of Site.
+ Available online: URL (accessed on Day Month Year).
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+If authors have biography, please use the format below
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Short Biography of Authors
+\end_layout
+
+\begin_layout Biography
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+Definitions/author
+\end_layout
+
+\end_inset
+
+
+\series bold
+Firstname Lastname
+\series default
+ Biography of first author
+\end_layout
+
+\begin_layout Biography
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+Definitions/author
+\end_layout
+
+\end_inset
+
+
+\series bold
+Firstname Lastname
+\series default
+ Biography of second author
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+For the MDPI journals use author-date citation, please follow the formatting
+ guidelines on http://www.mdpi.com/authors/references
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+To cite two works by the same author: 
+\backslash
+citeauthor{ref-journal-1a} (
+\backslash
+citeyear{ref-journal-1a}, 
+\backslash
+citeyear{ref-journal-1b}).
+ This produces: Whittaker (1967, 1975).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+To cite two works by the same author with specific pages: 
+\backslash
+citeauthor{ref-journal-3a} (
+\backslash
+citeyear{ref-journal-3a}, p.
+ 328; 
+\backslash
+citeyear{ref-journal-3b}, p.475).
+ This produces: Wong (1999, p.
+ 328; 2000, p.
+ 475).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+To obtain 
+\backslash
+citeauthor{} in LyX you have to choose 
+\begin_inset Quotes eld
+\end_inset
+
+Author1
+\begin_inset Quotes erd
+\end_inset
+
+ (or 
+\begin_inset Quotes eld
+\end_inset
+
+Author2
+\begin_inset Quotes erd
+\end_inset
+
+, or \SpecialChar ldots
+) in 
+\family sans
+Insert\SpecialChar menuseparator
+Citation\SpecialChar menuseparator
+Citation style
+\family default
+, as demonstrated in this citation inset: 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "ref-journal"
+literal "false"
+
+\end_inset
+
+ (either left- or right-click it).
+\end_layout
+
+\begin_layout Plain Layout
+To obtain 
+\backslash
+citeyear{} in LyX you have to choose 
+\begin_inset Quotes eld
+\end_inset
+
+year
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\family sans
+Insert\SpecialChar menuseparator
+Citation\SpecialChar menuseparator
+Citation style
+\family default
+, as demonstrated in this citation inset: 
+\begin_inset CommandInset citation
+LatexCommand citeyear
+key "ref-journal"
+literal "false"
+
+\end_inset
+
+ (either left- or right-click it).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+%% for journal Sci
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+reviewreports{
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Reviewer 1 comments and authors' response
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Reviewer 2 comments and authors' response
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Reviewer 3 comments and authors' response
+\end_layout
+
+\begin_layout Plain Layout
+
+%}
+\end_layout
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout End Whole Page
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Section*
+Cover Letter
+\end_layout
+
+\begin_layout Plain Layout
+In this manuscript, we further test our high-order CFD solvers using the
+ RKDG method with a compact WENO limiter, which are suitable for simulating
+ inviscid compressible flows on three-dimensional unstructured meshes.
+ The solvers are implemented with distributed memory parallelization that
+ makes the time cost affordable for large aerospace engineering problems.
+ An unsteady momentum source model is coupled into the CFD solvers so that
+ they can be used for problems with rotary wings.
+\end_layout
+
+\begin_layout Plain Layout
+We confirm that neither the manuscript nor any parts of its content are
+ currently under consideration or published in another journal.
+\end_layout
+
+\begin_layout Plain Layout
+All authors have approved the manuscript and agree with its submission to
+ Aerospace.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Section*
+Reviewer 1
+\end_layout
+
+\begin_layout Quote
+The authors of this article follow up on their previous work; they use a
+ developed solver to study inviscid compressible flows on unstructured three-dim
+ensional meshes.
+ My suggestions to improve the quality of the manuscript are listed below.
+ Please include all responses in the manuscript.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.
+ In the abstract, previous work should not be expressed.
+ Abstract need to rewrite.
+ The author should be saying in the Abstract why the work is of interest
+ and what the innovation is.
+ Include highlight results and match them with the significant objective
+ of the article.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Thanks for the advice.
+ The 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+abstract
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ has been rewritten.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2.
+ An abbreviation presented in an abstract should be introduced first to
+ determine what the abbreviation stands for (for example, RKDG).
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+After rewriting the abstract, abbreviations are introduced when they appear
+ for the first time.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3.
+ Innovation is not clearly stated.
+ The introduction needs to enrich the readers with stat-of- the-art works,
+ giving the reader a clear vision of the gap that these studies have not
+ addressed and covered by this study?
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Besides the parallel implementation of the RKDG method with WENO limiters,
+ this paper propose and implement a finite-element/momentum-source hybrid
+ method for solving problems containing rotary wings.
+ The new method overcomes the drawbacks of previous studies, which are either
+ over simplified by ignoring unsteady effects, or restricted to structured
+ meshes.
+ We have revised the introduction to show this novelty.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+4.
+ What does line 70 page 2 mean, "variables that can be measured by experimental
+ instruments"? What does getting values from experimental results mean in
+ numerical work?
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Unlike 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+primitive variables (such as velocity 
+\begin_inset Formula $\vec{u}$
+\end_inset
+
+ and pressure
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\begin_inset Formula $p$
+\end_inset
+
+), conservative variables
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ (such as the density of momentum 
+\begin_inset Formula $\rho\vec{u}$
+\end_inset
+
+ and the density of total energy 
+\begin_inset Formula $\rho e_{0}$
+\end_inset
+
+) are not 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+directly measur
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+able in 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+experimen
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ts.
+ The original description might be misleading, so we delete the clause after
+ 
+\begin_inset Quotes eld
+\end_inset
+
+primitive variables
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+5.
+ Referring to Form, "It has been proved by [26] that..." is not common.
+ It is better to include the authors' names and the reference number.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Thanks.
+ It has been fixed.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+6.
+ The overall significance and novelty of the current work can be highlighted
+ at the end of the introduction section.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Similar to 3).
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+7.
+ A reference to everything in your previous article is not standard.
+ The parts that refer to the previous paper (particularly the equation part)
+ are better presented in the present work so the reader will not be confused.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+The formulation in this paper is self-contained and more complete, which
+ takes source terms into consideration.
+ If all source terms were canceled, it would reduce to the form in our previous
+ work.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+8.
+ Details of the numerical solution, discretization, gradients calculation,
+ and convergence criteria ...
+ must be provided.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+The section of methods has been revised to include more details.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+9.
+ Some of references such as “otor as an actuator disk.
+ Such “55 a steady model was used by Kang and Sun [? ? ] for solving the
+ flow fields of a rotor 56 in ground effect.” Are missing.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+They have been fixed now in the revised version.
+ Sorry for forgetting updating the bibtex database before submission.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+10.
+ On page 6, it appears Figure 1 should be Figure 2.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Yes, the second reference should be Figure 2.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+11.
+ Need more discussion about the results.
+ The authors mainly discuss only the observed phenomena in their discussion
+ of results, without explaining the physics related to that phenomenon.
+ In the results section, the author needs to analyze the finding by giving
+ reasons for each fact.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Physics, such as vortices and shock waves, are explained in the revised
+ version.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+12.
+ If the goal is to evaluate the performance of the present solver with a
+ non-uniform mesh, what is the reason for using the first geometry used,
+ which is very simple and can easily be used with a uniform mesh?
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+The 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+one-dimensional
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ shock tube problems have exact solutions, which are ideal for measuring
+ the accuracy of numerical solutions.
+ To reproduce a 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+one-dimensional
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ problem in 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+a three-dimensional
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ space, the boundary and initial conditions must be axisymmetric.
+ Although the geometry is very simple, the mesh for discretizing it could
+ still be unstructured.
+ Once our solvers are validated on this relatively simple mesh, we could
+ easily apply them on any other unstructured mesh, which might be generated
+ (automatically) from a very complex geometry.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+13.
+ The shock tube problem being examined is physically one-dimensional; So,
+ what is the purpose of reviewing it in three dimensions?
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Same as 12).
+ Solving the shock tube problems on three-dimensional unstructured meshes
+ validates the correctness our solvers.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+14.
+ What is the reason for drawing the contour at different times? Is there
+ a specific reason, or is something going to be proven? Instead of aimlessly
+ presenting several contours, the results can be presented on a diagram.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Comparison with theoretical and experimental results has not been done;
+ the purpose is to provide a numerical solution method, so what is the purpose
+ of studying the effects at different times?
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Unlike the 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+shock tube problem
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+s, the forward step problem in Section 3.1.2 has no exact solution, but its
+ numerical solutions published in literatures all converge to the same flow
+ pattern.
+ Such a consensus on its solution makes it a model problem for testing multi-dim
+ensional solvers.
+ Since the solution is highly unsteady, a short animation might be better
+ than a few figures to show the results.
+ In the cited paper written by Woodward (1984), a series of density contours
+ are given to show the time evolution (up to 
+\begin_inset Formula $t=4$
+\end_inset
+
+) of the flow field.
+ We follow this practice, since Aerospace has no restrictions on the length
+ of manuscripts.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+15.
+ Matching the obtained results in the current study with other findings
+ and comparing them with previous studies.
+ The comparison must also be made using a chart.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Mathematically, first-order RKDG solutions are equivalent to traditional
+ (first-order) finite volume solutions, which are highly reliable and thus
+ are used for validating third-order RKDG solutions.
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+In other words, first- and third-order solutions in this manuscript play
+ the role of previous and current studies
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+, respectively.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+16.
+ Is Euler's solution in the present decade logical? Most problems are viscose
+ and turbulent, Euler's solution is not common due to errors, and Navier–Stokes
+ is commonly used.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+We do agree that
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ Navier–Stokes
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ equations and turbulence models are necessary for predicting drags, and
+ an upgrade from Euler to 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Navier–Stokes
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ is undergoing.
+ The main reason to implement Euler solvers first is the existence of exact
+ solutions, at least for some one-dimensional model problems.
+ Moreover, inviscid flow solutions are still used in aeroelastic and acoustic
+ studies, for which a full 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Navier–Stokes
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ solution might be too expensive.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+17.
+ Figures such as 24 are not scientific; it is recommended to include at
+ least lift and drag diagrams.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+These figures are intended to compare third-order RKDG solutions with first-orde
+r ones.
+ Since first-order solutions are reliable, as explained in 15), such comparisons
+ validate third-order solutions in a qualitative manner.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Section*
+Reviewer 2
+\end_layout
+
+\begin_layout Quote
+The manuscript entitled High-order CFD Solvers on Three-dimensional Unstructured
+ Meshes: Parallel Implementation of RKDG Method with WENO Limiter and Momentum
+ Sources is numerical study of Parallel Implementation.
+ I commented as follows;
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.The author should revise the reference in Line 56.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+It has been fixed now in the revised version.
+ Sorry for forgetting updating the bibtex database before submission.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2.Introduction is not clear.
+ The author should revise it.
+ Especially, disadvantages of the previous studies and advantages of the
+ present study should show.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Besides the parallel implementation of the RKDG method with WENO limiters,
+ the main contribution of this paper is the finite-element/momentum-source
+ hybrid method.
+ It overcomes the drawbacks of previous studies, which are either over simplifie
+d by ignoring unsteady effects, or restricted to structured meshes.
+ We have revised the introduction to show this novelty.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+3.The validity of the numerical results is very important.
+ The author should compare with the experimental results or the previous
+ results in other numerical methods.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Yes, we do have validated the numerical results, although not extensively.
+ The main purpose of Section 3.1 is to validate the correctness and measure
+ the accuracy of the solvers implemented by us.
+ The shock tube problems in this section have exact solutions, which are
+ ideal for measuring the accuracy of numerical solutions.
+ The forward step problem in this section has no exact solution, but its
+ numerical solutions published in literatures all converge to the same flow
+ pattern.
+ Such a consensus on its solution makes it a model problem for testing multi-dim
+ensional shock capturing methods.
+ Results of these model problems, together with those presented in our previous
+ work, validate the correctness of the solvers either quantitatively or
+ qualitatively.
+ In Sections 3.2 and 3.3, real three-dimensional problems in aeronautical
+ engineering are solved, and comparisons between first- and third-order
+ RKDG solutions are given.
+ Mathematically, first-order RKDG solutions are equivalent to traditional
+ (first-order) finite volume solutions, which are highly reliable and thus
+ are used for validating our third-order RKDG solutions.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+4.The many letters and symbols are used.
+ The author should summarize them as a nomenclature.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Thanks for the suggestion.
+ We add a symbol table after the section of abbreviations.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Section*
+Reviewer 3
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+In the abstract, it looks like the main work of this paper is to implement
+ a mature method in different scenarios.
+ The novelty of this paper should be further cleared.
+ For instance, what is the exact scientific challenge of using the previous
+ methods to solve the new problems?
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+We admit that the RKDG method with WENO limiters is proposed by other scholars.
+ Our work is to provide an efficient parallel and open-source implementation
+ of it and test the implemented solvers on three-dimensional unstructured
+ meshes.
+ The second contribution of this paper is the finite-element/momentum-source
+ hybrid method, which is our first attempt to augment the 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+RKDG/WENO
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ method.
+ We have revised the abstract to show this novelty.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+In the introduction, the authors refer to their own early works like ‘in
+ our early works’.
+ But no reference is provided here.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+One recently published paper has been added.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+A reference is missing following ‘Kang and Sun [??]’ in the last paragraph
+ of the introduction.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Sorry for forgetting updating the bibtex database before submission.
+ It has been fixed now in the revised version.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+A more specific section title is preferred for section 2, instead of a too
+ ambiguous one ‘methods’.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+The section titles have been revised.
+\end_layout
+
+\begin_layout Quote
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+It is seen from the analysis that the numerical accuracy increases with
+ the increase of p.
+ But it is not clear how much performance is improved with respect to the
+ previous ones.
+ Could you please include more comparative analysis with other methods to
+ claim the superiority of this method?
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Thanks for the suggestion.
+ We add some data and discussion to show that high-order solvers are better
+ than low-order ones.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

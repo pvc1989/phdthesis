@@ -3,8 +3,8 @@ thesis/chapters.tex
 thesis/main.bib
 thesis/data
 thesis/figure
-applsci-1662023.pdf
-aerospace-1787394.pdf
+mdpi/applsci-1662023.pdf
+mdpi/aerospace-1787394.pdf
 *.zip
 *.tmp
 ### TeX.gitignore ###
