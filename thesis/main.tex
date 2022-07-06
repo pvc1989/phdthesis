@@ -7,8 +7,25 @@
 \citestyle{numerical}
 % \citestyle{authoryear}
 
+\makeatletter
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
 \newcommand{\noun}[1]{\textsc{#1}}
+\long\def\lyxmintcaption[#1]#2{%
+	\ifx#1t\vskip\baselineskip\fi%
+	\refstepcounter{listing}\noindent%
+	\addcontentsline{lol}{listing}%
+	{\protect\numberline{\thelisting}{\ignorespaces #2}}%
+	\setbox\@tempboxa\hbox{\listingscaption~\thelisting: #2}%
+	\ifdim \wd\@tempboxa >\linewidth%
+	\parbox[t]{\linewidth}{\unhbox\@tempboxa}\else%
+	\hbox to\linewidth{\hfil\box\@tempboxa\hfil}\fi%
+	\ifx#1b\vskip\baselineskip\fi
+}
+\AtBeginDocument{
+	\renewcommand{\listingscaption}{代码片段}
+	\renewcommand{\listoflistingscaption}{代码目录}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
 \makeatletter
@@ -70,6 +87,14 @@
 
 \makeatother
 
+\usepackage[chapter]{minted}
+\setminted{style=xcode,
+	frame=leftline,
+	baselinestretch={1.2},
+	breaklines=true,
+	fontsize={\normalsize}
+}
+
 \providecommand{\algorithmname}{算法}
 \providecommand{\assumptionname}{假设}
 \providecommand{\axiomname}{公理}
@@ -102,6 +127,18 @@
 \usepackage{tablefootnote}
 \usepackage{physics}
 \usepackage{unicode-math}
+\setsansfont[
+ItalicFont=NewCMSans10-BookOblique,
+BoldFont=NewCMSans10-Bold,
+BoldItalicFont=NewCMSans10-BoldOblique,
+SmallCapsFeatures={Numbers=OldStyle}
+]{NewCMSans10-Book}
+\setmonofont[
+ItalicFont=NewCMMono10-BookItalic,
+BoldFont=NewCMMono10-Bold,
+BoldItalicFont=NewCMMono10-BoldOblique,
+SmallCapsFeatures={Numbers=OldStyle}
+]{NewCMMono10-Book}
 \setmathfont{NewCMMath-Book}[
 	math-style = ISO,
 	bold-style = ISO,
@@ -113,6 +150,7 @@
 	range = {up/{greek}, \hslash}
 ]
 \AtBeginDocument{
+	\newcommand{\Mat}[1]{\mathinner{\underline{#1}}}
 	\renewcommand{\vdot}{\mathbin{\mdsmblkcircle}}
 	\renewcommand{\cross}{\vectimes}
 	\renewcommand{\emptyset}{\diameter}
