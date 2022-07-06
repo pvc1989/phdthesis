@@ -25448,24 +25448,7576 @@ reference "eq:m-stage_Runge--Kutta"
 线性单波方程
 \end_layout
 
+\begin_layout Standard
+The first group of problems to be solved is the linear version of Equation
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:differential_form"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\partial_{t}\underline{U}+\underline{A^{x}}\,\partial_{x}\underline{U}+\underline{A^{y}}\,\partial_{y}\underline{U}+\underline{A^{z}}\,\partial_{z}\underline{U}=\underline{O}\label{eq:linear_system}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with certain boundary and initial conditions.
+ These problems are mathematically simple in the sense that they can be
+ solved analytically.
+ The existence of analytic solutions gives us a good way to measure the
+ accuracy of our numerical solvers.
+ In this subsection, we use tetrahedral meshes generated in a 
+\begin_inset Formula $[0,4]\times[0,1]\times[0,0.5]$
+\end_inset
+
+ box.
+\end_layout
+
+\begin_layout Standard
+This is the simplest case of Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:linear_system"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:linear_scalar"
+
+\end_inset
+
+In Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:linear_system"
+
+\end_inset
+
+, let 
+\begin_inset Formula $\underline{U}$
+\end_inset
+
+ consists only one component and each 
+\begin_inset Formula $\underline{A}$
+\end_inset
+
+ consists a single number:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\underline{U}(\vec{x},t)=\begin{bmatrix}U(x,y,z,t)\end{bmatrix},\qquad\underline{A^{x}}=\begin{bmatrix}-10\end{bmatrix},\qquad\underline{A^{y}}=\underline{A^{z}}=\begin{bmatrix}0\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+The following boundary conditions
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\underline{U}(x=0,y,z,t)=\begin{bmatrix}-10\end{bmatrix}\eqqcolon\underline{U}_{\mathrm{L}},\qquad\underline{U}(x=4,y,z,t)=\begin{bmatrix}+10\end{bmatrix}\eqqcolon\underline{U}_{\mathrm{R}},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+and the initial condition
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\underline{U}(x,y,z,t=0)=\underline{U}_{\mathrm{L}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+are applied.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The analytic solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:linear_scalar"
+
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\underline{U}(x,y,z,t)=\begin{cases}
+\underline{U}_{\mathrm{L}} & x-4<-10t\\
+\underline{U}_{\mathrm{R}} & x-4>-10t
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which can be interpreted as a left-running plane wave, whose profile is
+ a jump initially positioned at the right end (
+\begin_inset Formula $x=4$
+\end_inset
+
+).
+ To compare the accuracy of various schemes, we plot the meshes and the
+ numerical solutions at the same moment (
+\begin_inset Formula $t=0.2$
+\end_inset
+
+) in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_scalar_p=3_h=2^-3"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_scalar_p=3_h=2^-2"
+
+\end_inset
+
+.
+ The white-colored regions in these figures are continuous transition layers,
+ which are inevitable due to the dissipation of numerical schemes.
+ The thickness of such transition layer, however, can then be used as an
+ indicator of the scheme's accuracy.
+ Ideally, the thickness should be infinitesimal, as in the analytic solution.
+ The differences between these results are more obvious in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_scalar_h_vary"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_scalar_p_vary"
+
+\end_inset
+
+, in which we plot the values on 1001 uniformly distributed sample points
+ along the longitudinal axis (on which 
+\begin_inset Formula $y=0.5$
+\end_inset
+
+ and 
+\begin_inset Formula $z=0.25$
+\end_inset
+
+) for each solver.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../mdpi/figures/linear_scalar/p=3_h=2^-3.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:linear_scalar_p=3_h=2^-3"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:linear_scalar"
+
+\end_inset
+
+ on medium (
+\begin_inset Formula $h\approx2^{-3}$
+\end_inset
+
+) cells.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/linear_scalar/p=1_h=2^-4.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:linear_scalar_p=1_h=2^-4"
+
+\end_inset
+
+First-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:linear_scalar"
+
+\end_inset
+
+ on small (
+\begin_inset Formula $h\approx2^{-4}$
+\end_inset
+
+) cells.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/linear_scalar/p=1_h=2^-5.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:linear_scalar_p=1_h=2^-5"
+
+\end_inset
+
+First-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:linear_scalar"
+
+\end_inset
+
+ on tiny (
+\begin_inset Formula $h\approx2^{-5}$
+\end_inset
+
+) cells.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/linear_scalar/p=3_h=2^-2.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:linear_scalar_p=3_h=2^-2"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:linear_scalar"
+
+\end_inset
+
+ on big (
+\begin_inset Formula $h\approx2^{-2}$
+\end_inset
+
+) cells.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/linear_scalar/h_vary.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:linear_scalar_h_vary"
+
+\end_inset
+
+Comparison between solutions of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:linear_scalar"
+
+\end_inset
+
+ given by running the same solver on different meshes.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/linear_scalar/p_vary.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:linear_scalar_p_vary"
+
+\end_inset
+
+Comparison between solutions of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:linear_scalar"
+
+\end_inset
+
+ given by running different solvers on the same mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:accuracy_and_cost"
+
+\end_inset
+
+, we give the measured error and time cost of each solver/mesh pair.
+ The seconds consumed by first-order solutions are somewhat exaggerated,
+ since we use the same high-order quadrature rules for both first- and third-ord
+er solvers, which is necessary to integrate non-constant errors.
+ If we did not have to measure the errors, then low-order numerical integrators
+ could be used, which might save some time.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Accuracy and time cost of each solver–mesh (
+\begin_inset Formula $p$
+\end_inset
+
+–
+\begin_inset Formula $h$
+\end_inset
+
+) pair.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:accuracy_and_cost"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "49text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $L_{1}$
+\end_inset
+
+-error
+\end_layout
+
+\begin_layout Plain Layout
+with respect to the analytic solution.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="5">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
+<column alignment="center" valignment="top" width="20text%">
+<column alignment="center" valignment="top" width="12text%">
+<column alignment="center" valignment="top" width="12text%">
+<column alignment="center" valignment="top" width="12text%">
+<column alignment="center" valignment="top" width="12text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+diagbox{$p$}{$h$}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2^{-2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2^{-3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2^{-4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2^{-5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2.858
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2.095
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.524
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.108
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.258
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.771
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.463
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.275
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.021
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.590
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.341
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "49text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+Time cost (in seconds) measured on a single
+\end_layout
+
+\begin_layout Plain Layout
+core whose main frequency is 2.7 GHz.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="5">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
+<column alignment="center" valignment="top" width="20text%">
+<column alignment="center" valignment="top" width="12text%">
+<column alignment="center" valignment="top" width="12text%">
+<column alignment="center" valignment="top" width="12text%">
+<column alignment="center" valignment="top" width="12text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+diagbox{$p$}{$h$}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2^{-2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2^{-3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2^{-4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2^{-5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.373
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1.129
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+16.53
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+306.3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.580
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+14.89
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+253.8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4986.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+4.147
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+61.42
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+906.9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The following conclusions can be drawn from both Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_scalar_p=3_h=2^-3"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_scalar_p_vary"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:accuracy_and_cost"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+Both mesh refinement (decreasing 
+\begin_inset Formula $h$
+\end_inset
+
+) and order increment (increasing 
+\begin_inset Formula $p$
+\end_inset
+
+) can help to improve accuracy.
+\end_layout
+
+\begin_layout Itemize
+The solver of the highest order (
+\begin_inset Formula $p=3$
+\end_inset
+
+) on the coarsest (
+\begin_inset Formula $h\approx2^{-2}$
+\end_inset
+
+) mesh defeats the solver of the lowest order (
+\begin_inset Formula $p=1$
+\end_inset
+
+) on the finest (
+\begin_inset Formula $h\approx2^{-5}$
+\end_inset
+
+) mesh in accuracy but saves quite a lot of time.
+\end_layout
+
+\begin_layout Itemize
+High-order schemes are better than low-order ones in the sense of getting
+ the same level of accuracy with less time cost.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 线性双波系统
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:linear_system"
+
+\end_inset
+
+In Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:linear_system"
+
+\end_inset
+
+, let 
+\begin_inset Formula $\underline{U}$
+\end_inset
+
+ consists two components and each 
+\begin_inset Formula $\underline{A}$
+\end_inset
+
+ be a 
+\begin_inset Formula $2\times2$
+\end_inset
+
+ matrix:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\underline{U}(\vec{x},t)=\begin{bmatrix}U_{1}(x,y,z,t)\\
+U_{2}(x,y,z,t)
+\end{bmatrix},\qquad\underline{A^{x}}=\begin{bmatrix}6 & -2\\
+-2 & 6
+\end{bmatrix},\qquad\underline{A^{y}}=\underline{A^{z}}=\begin{bmatrix}0 & 0\\
+0 & 0
+\end{bmatrix},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+The following boundary conditions
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\underline{U}(x=0,y,z,t)=\begin{bmatrix}0\\
+0
+\end{bmatrix}\eqqcolon\underline{U}_{\mathrm{L}},\qquad\underline{U}(x=4,y,z,t)=\begin{bmatrix}12\\
+-4
+\end{bmatrix}\eqqcolon\underline{U}_{\mathrm{R}},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+and the initial condition
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\underline{U}(x,y,z,t=0)=\underline{U}_{\mathrm{R}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+are applied.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To solve this problem analytically, we first obtain the eigenvalue decomposition
+ of 
+\begin_inset Formula $\underline{A^{x}}$
+\end_inset
+
+, which is
+\begin_inset Formula 
+\[
+\underbrace{\begin{bmatrix}6 & -2\\
+-2 & 6
+\end{bmatrix}}_{\underline{A^{x}}}=\underbrace{\begin{bmatrix}1 & 1\\
+-1 & 1
+\end{bmatrix}}_{\underline{R^{x}}}\underbrace{\begin{bmatrix}8\\
+ & 4
+\end{bmatrix}}_{\underline{\varLambda^{x}}}\underbrace{\begin{bmatrix}1/2 & -1/2\\
+1/2 & 1/2
+\end{bmatrix}}_{(\underline{R^{x}})^{-1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By introducing the characteristic variable 
+\begin_inset Formula $\underline{V}\coloneqq(\underline{R^{x}})^{-1}\underline{U}$
+\end_inset
+
+, which means
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{bmatrix}V_{1}\\
+V_{2}
+\end{bmatrix}\coloneqq\begin{bmatrix}1/2 & -1/2\\
+1/2 & 1/2
+\end{bmatrix}\begin{bmatrix}U_{1}\\
+U_{2}
+\end{bmatrix}=\frac{1}{2}\begin{bmatrix}U_{1}-U_{2}\\
+U_{1}+U_{2}
+\end{bmatrix},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+the boundary conditions become
+\begin_inset Formula 
+\[
+\underline{V}_{\mathrm{L}}=(\underline{R^{x}})^{-1}\underline{U}_{\mathrm{L}}=\begin{bmatrix}0\\
+0
+\end{bmatrix},\qquad\underline{V}_{\mathrm{R}}=(\underline{R^{x}})^{-1}\underline{U}_{\mathrm{R}}=\begin{bmatrix}8\\
+4
+\end{bmatrix},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and the system can be decoupled:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{bmatrix}\partial_{t}+8\partial_{x}\\
+ & \partial_{t}+4\partial_{x}
+\end{bmatrix}\begin{bmatrix}V_{1}\\
+V_{2}
+\end{bmatrix}=\begin{bmatrix}0\\
+0
+\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can then solve these two scalar problems independently, which gives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{1}(x,y,z,t)=\begin{cases}
+0 & x<8t\\
+8 & x>8t
+\end{cases},\qquad V_{2}(x,y,z,t)=\begin{cases}
+0 & x<4t\\
+4 & x>4t
+\end{cases}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:linear_system"
+
+\end_inset
+
+ can be obtained by 
+\begin_inset Formula $\underline{U}=\underline{R^{x}}\,\underline{V}$
+\end_inset
+
+, which gives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\underline{U}(\vec{x},t)=\begin{bmatrix}V_{2}+V_{1}\\
+V_{2}-V_{1}
+\end{bmatrix}=\begin{cases}
+\underline{U}_{\mathrm{L}} & x/t<4\\
+\underline{U}_{\mathrm{M}} & x/t\in(4,8)\\
+\underline{U}_{\mathrm{R}} & x/t>8
+\end{cases},\label{eq:system_solution}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where
+\begin_inset Formula 
+\[
+\underline{U}_{\mathrm{L}}=\begin{bmatrix}0\\
+0
+\end{bmatrix},\qquad\underline{U}_{\mathrm{M}}=\begin{bmatrix}4\\
+4
+\end{bmatrix},\qquad\underline{U}_{\mathrm{R}}=\begin{bmatrix}12\\
+-4
+\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With this analytic solution, we can evaluate the accuracy of our numerical
+ solvers.
+ Four solver–limiter pairs are tested on the same mesh (
+\begin_inset Formula $h\approx2^{-3}$
+\end_inset
+
+) used in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_scalar_p=3_h=2^-3"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/linear_system/u_1_contour.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:linear_system_u_1_contour"
+
+\end_inset
+
+Third-order solution of 
+\begin_inset Formula $U_{1}(t=0.3)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:linear_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/linear_system/u_1.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:linear_system_u_1"
+
+\end_inset
+
+Comparison between solutions of 
+\begin_inset Formula $U_{1}(t=0.3)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:linear_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/linear_system/u_2_contour.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:linear_system_u_2_contour"
+
+\end_inset
+
+Third-order solution of 
+\begin_inset Formula $U_{2}(t=0.3)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:linear_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/linear_system/u_2.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:linear_system_u_2"
+
+\end_inset
+
+Comparison between solutions of 
+\begin_inset Formula $U_{2}(t=0.3)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:linear_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We plot the contour of 
+\begin_inset Formula $\underline{U}(x,y,z,t=0.3)$
+\end_inset
+
+ with the underlying mesh in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_system_u_1_contour"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_system_u_2_contour"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and compare the results along the longitudinal axis at 
+\begin_inset Formula $t=0.3$
+\end_inset
+
+ with the analytic solution in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_system_u_1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_system_u_2"
+
+\end_inset
+
+.
+ It is clear that both 
+\family typewriter
+LazyWeno
+\family default
+ and 
+\family typewriter
+EigenWeno
+\family default
+ (see Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:limiting_procedures"
+
+\end_inset
+
+) can essentially suppress non-physical oscillations in each component.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_system_error"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows that higher-order (
+\begin_inset Formula $p=3$
+\end_inset
+
+) solvers still outperforms lower-order (
+\begin_inset Formula $p=2$
+\end_inset
+
+) solvers in accuracy and the 
+\family typewriter
+EigenWeno
+\family default
+ limiter generally works better than its 
+\family typewriter
+LazyWeno
+\family default
+ counterpart.
+ For this reason, we will use 
+\family typewriter
+EigenWeno
+\family default
+ limiters exclusively in the rest of this section.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/linear_system/error.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:linear_system_error"
+
+\end_inset
+
+Comparison between absolute errors of numerical solutions in Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_system_u_1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_system_u_2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 激波管问题
 \end_layout
 
+\begin_layout Standard
+These problems are usually defined as one-dimensional problems, but we treat
+ them as three-dimensional ones.
+ All these problems are considered in a 
+\begin_inset Formula $[0.0,5.0]\times[0.0,1.0]\times[0.0,0.5]$
+\end_inset
+
+ box with all boundaries closed but the left and right ends open.
+ Although no analytic solutions exist, we can still use the method described
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Toro_2009"
+literal "true"
+
+\end_inset
+
+, which solves nonlinear algebraic equations numerically, to obtain their
+ exact solutions.
+ To test the numerical methods described in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:methods"
+
+\end_inset
+
+, we use the unstructured hexahedral mesh in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:shock_tube"
+
+\end_inset
+
+, in which 
+\begin_inset Formula $h\approx1/10$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/shock_tubes/mesh.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:shock_tube"
+
+\end_inset
+
+Mesh for Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:vacuum"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[Sod]
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:sod"
+
+\end_inset
+
+Solve the Euler system (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) for 
+\begin_inset Formula $t\in[0.0,1.0]$
+\end_inset
+
+ with the initial condition
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
+\begin{bmatrix}1.000 & 0.000 & 0.000 & 0.000 & 1.000\end{bmatrix} & x<2.5\\
+\begin{bmatrix}0.125 & 0.000 & 0.000 & 0.000 & 0.100\end{bmatrix} & x>2.5
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/shock_tubes/sod/contour.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sod_contour"
+
+\end_inset
+
+Third-order solution of 
+\begin_inset Formula $\rho(t=1.0)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/shock_tubes/sod/result.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sod"
+
+\end_inset
+
+Comparison between solutions of 
+\begin_inset Formula $\rho(t=1.0)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/shock_tubes/sod/contour_tetra.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sod_contour-1"
+
+\end_inset
+
+Third-order solution of 
+\begin_inset Formula $\rho(t=1.0)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/shock_tubes/sod/result_tetra.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sod_p"
+
+\end_inset
+
+Comparison between solutions of 
+\begin_inset Formula $\rho(t=1.0)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is a classical problem of inviscid compressible flows.
+ It contains all the three types of discontinuities: a shock wave and a
+ contact discontinuity running towards the right and an expansion wave running
+ towards the left.
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sod_contour-1"
+
+\end_inset
+
+, we plot the density contour given by our third-order solver with an 
+\family typewriter
+EigenWeno
+\family default
+ limiter.
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sod_p"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we compare the density distributions given by various solvers along the
+ longitudinal axis (on which 
+\begin_inset Formula $y=0.5$
+\end_inset
+
+ and 
+\begin_inset Formula $z=0.25$
+\end_inset
+
+) of the box.
+ The accuracy of our solvers and the effect of 
+\begin_inset Formula $p$
+\end_inset
+
+-refinement are clear in these figures.
+\end_layout
+
+\begin_layout Standard
+It is predictable that both mesh refinement (decreasing 
+\begin_inset Formula $h$
+\end_inset
+
+) and order increment (increasing 
+\begin_inset Formula $p$
+\end_inset
+
+) can help to improve accuracy.
+ To compare the 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+performance
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ of solvers with different orders more fairly, it is better to use finer
+ meshes for running lower-order solvers.
+ After a few trials, we find that solutions given by the 
+\begin_inset Formula $h$
+\end_inset
+
+-
+\begin_inset Formula $p$
+\end_inset
+
+ pairs listed in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:sod_performance"
+
+\end_inset
+
+ roughly have the same level of accuracy, as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sod_h"
+
+\end_inset
+
+.
+ It is clear, at least for Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, that high-order solvers are better than low-order ones in the sense of
+ getting the same level of accuracy with less time and space costs.
+ Similar conclusions were drawn in our previous work 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Pei_2022"
+literal "false"
+
+\end_inset
+
+, in which the 
+\begin_inset Formula $p=3$
+\end_inset
+
+ solution of a linear advection problem on an 
+\begin_inset Formula $h\approx1/4$
+\end_inset
+
+ mesh defeated the 
+\begin_inset Formula $p=1$
+\end_inset
+
+ solution of the same problem on an 
+\begin_inset Formula $h\approx1/32$
+\end_inset
+
+ mesh in accuracy but saved quite a lot of time.
+ These encouraging results justify our efforts to implement higher-order
+ solvers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:sod_performance"
+
+\end_inset
+
+Comparison between time costs and file sizes of various 
+\begin_inset Formula $h$
+\end_inset
+
+-
+\begin_inset Formula $p$
+\end_inset
+
+ pairs.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="6">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="5text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="15text%">
+<column alignment="center" valignment="top" width="10text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $h$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+#cells
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+#steps
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+time cost
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+file size
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1/50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2469675
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1500
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1492.16 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.23 GB
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1/18
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+117045
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+279.119 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+213 MB
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1/10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19815
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+250
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+201.034 s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+89.1 MB
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/shock_tubes/sod/h_vary_tetra.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sod_h"
+
+\end_inset
+
+Comparison between solutions given by various 
+\begin_inset Formula $h$
+\end_inset
+
+-
+\begin_inset Formula $p$
+\end_inset
+
+ pairs.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[Lax]
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:lax"
+
+\end_inset
+
+Solve the Euler system (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) for 
+\begin_inset Formula $t\in[0.0,0.6]$
+\end_inset
+
+ with the initial condition
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
+\begin{bmatrix}0.445 & 0.698 & 0.000 & 0.000 & 3.528\end{bmatrix} & x<2.5\\
+\begin{bmatrix}0.500 & 0.000 & 0.000 & 0.000 & 0.571\end{bmatrix} & x>2.5
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/shock_tubes/lax/contour.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:lax_contour"
+
+\end_inset
+
+Third-order solution of 
+\begin_inset Formula $\rho(t=0.5)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:lax"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/shock_tubes/lax/result.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:lax"
+
+\end_inset
+
+Comparison between solutions of 
+\begin_inset Formula $\rho(t=0.5)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:lax"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/shock_tubes/lax/contour_tetra.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:lax_contour-1"
+
+\end_inset
+
+Third-order solution of 
+\begin_inset Formula $\rho(t=0.5)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:lax-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/shock_tubes/lax/result_tetra.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:lax-1"
+
+\end_inset
+
+Comparison between solutions of 
+\begin_inset Formula $\rho(t=0.5)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:lax-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is another problem that involves all the three types of discontinuities.
+ It is more difficult than the previous one in the sense that its solution
+ contains values beyond the range of initial values and the discontinuities
+ are much steeper.
+ As before, we plot the density contour of our third-order solution in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:lax_contour-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and compare the density distributions given by various solvers in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:lax-1"
+
+\end_inset
+
+.
+ Both figures demonstrate the effect of 
+\begin_inset Formula $p$
+\end_inset
+
+-refinement and the ability of our high-order solvers to suppress numerical
+ oscillations.
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[Vacuum]
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:vacuum"
+
+\end_inset
+
+Solve the Euler system (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) for 
+\begin_inset Formula $t\in[0.0,0.4]$
+\end_inset
+
+ with the initial condition
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
+\begin{bmatrix}1.0 & -4.0 & 0.0 & 0.0 & 0.4\end{bmatrix} & x<2.5\\
+\begin{bmatrix}1.0 & +4.0 & 0.0 & 0.0 & 0.4\end{bmatrix} & x>2.5
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/shock_tubes/vacuum/contour.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:vacuum_contour"
+
+\end_inset
+
+Third-order solution of 
+\begin_inset Formula $\rho(t=0.4)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:vacuum"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/shock_tubes/vacuum/result.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:vacuum"
+
+\end_inset
+
+Comparison between solutions of 
+\begin_inset Formula $\rho(t=0.4)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:vacuum"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sod_contour"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:lax_contour"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:vacuum_contour"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we plot the density contours given by the same third-order solver with
+ an 
+\family typewriter
+EigenWeno
+\family default
+ limiter.
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sod_contour"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:vacuum"
+
+\end_inset
+
+, we plot the density distributions along the longitudinal axis (on which
+ 
+\begin_inset Formula $y=0.5$
+\end_inset
+
+ and 
+\begin_inset Formula $z=0.25$
+\end_inset
+
+) of the box.
+ All these results show that higher-order (
+\begin_inset Formula $p=3$
+\end_inset
+
+) solvers with 
+\family typewriter
+EigenWeno
+\family default
+ limiters are better than lower-order (
+\begin_inset Formula $p=1$
+\end_inset
+
+) solvers at capturing discontinuities (shocks, contacts, expansions), which
+ may occur frequently in compressible flows.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/shock_tubes/vacuum/contour_tetra.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:vacuum_contour-1"
+
+\end_inset
+
+Third-order solution of 
+\begin_inset Formula $\rho(t=0.4)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:vacuum-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/shock_tubes/vacuum/result_tetra.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:vacuum-1"
+
+\end_inset
+
+Comparison between solutions of 
+\begin_inset Formula $\rho(t=0.4)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:vacuum-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This problem is easier than the previous two in the sense that no strong
+ discontinuities (shock or contact discontinuity) occurs in the solution.
+ However, there is a region of vacuum, which does not occur in the previous
+ prolems, generated between the left- and right-running expansion waves.
+ The velocity 
+\begin_inset Formula $u$
+\end_inset
+
+ inside the vacuumed region (denoted by a 
+\begin_inset Formula $*$
+\end_inset
+
+ in subscripts) is undefined, but its boundary values should be determined
+ from the left (denoted by an 
+\begin_inset Formula $L$
+\end_inset
+
+ in subscripts) and right (denoted by an 
+\begin_inset Formula $R$
+\end_inset
+
+ in subscripts) initial values by the two Riemann invariants:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+u_{*L}=u_{L}+\frac{2a_{L}}{\gamma-1},\qquad u_{*R}=u_{R}-\frac{2a_{R}}{\gamma-1}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+See Section 4.6 in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Toro_2009"
+literal "true"
+
+\end_inset
+
+ for more detailed discussions.
+ Unfortunenately, approximate Riemann solvers usually (have to) neglect
+ this condition.
+ For this reason, we use an exact Riemann solver to obtain fluxes on cell
+ boundaries.
+ As before, we plot the results in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:vacuum_contour-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:vacuum-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, which again validate the correctness and robustness of our solvers.
+\end_layout
+
 \begin_layout Subsection
 双马赫反射问题
+\end_layout
+
+\begin_layout Standard
+This is a classical two-dimensional problem originally proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Woodward_1984"
+literal "true"
+
+\end_inset
+
+, which we redefine here as a three-dimensional one:
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:double_mach"
+
+\end_inset
+
+Solve the Euler system (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) in the region defined in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_sketch"
+
+\end_inset
+
+, in which 
+\begin_inset Formula $x_{0}=1/6$
+\end_inset
+
+.
+ The initial condition is given as a moving shock wave:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\begin{equation}
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
+\begin{bmatrix}1.4 & 0.0 & 0.0 & 0.0 & 1.0\end{bmatrix} & y<\sqrt{3}(x-x_{0})\\
+\begin{bmatrix}8.0 & u_{\mathrm{A}} & v_{\mathrm{A}} & 0.0 & 116.5\end{bmatrix} & y>\sqrt{3}(x-x_{0})
+\end{cases},\label{eq:double_mach_ic}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+in which 
+\begin_inset Formula $u_{\mathrm{A}}=4.125\sqrt{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{\mathrm{A}}=-4.125$
+\end_inset
+
+ are the velocity components 
+\bar under
+a
+\bar default
+fter the shock wave.
+ The boundary conditions are given as following:
+\end_layout
+
+\begin_layout Itemize
+the 
+\begin_inset Formula $x=0$
+\end_inset
+
+ surface is open as an inlet;
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+the 
+\begin_inset Formula $x=4$
+\end_inset
+
+ surface and the 
+\begin_inset Formula $x<x_{0}$
+\end_inset
+
+ part of the 
+\begin_inset Formula $y=0$
+\end_inset
+
+ surface are open as outlets;
+\end_layout
+
+\begin_layout Itemize
+the 
+\begin_inset Formula $x>x_{0}$
+\end_inset
+
+ part of the 
+\begin_inset Formula $y=0$
+\end_inset
+
+ surface is closed as a solid wall;
+\end_layout
+
+\begin_layout Itemize
+the 
+\begin_inset Formula $y=1$
+\end_inset
+
+ surface has the following prescribed state:
+\end_layout
+
+\end_deeper
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}=\begin{cases}
+\begin{bmatrix}1.4 & 0.0 & 0.0 & 0.0 & 1.0\end{bmatrix} & 1<\sqrt{3}(x-(x_{0}+u_{\mathrm{A}}t))\\
+\begin{bmatrix}8.0 & u_{\mathrm{A}} & v_{\mathrm{A}} & 0.0 & 116.5\end{bmatrix} & 1>\sqrt{3}(x-(x_{0}+u_{\mathrm{A}}t))
+\end{cases},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+which is consistent with the initial condition (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:double_mach_ic"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[scale=3, rotate=30]
+\end_layout
+
+\begin_layout Plain Layout
+
+% axes
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[->] (4,0) -- +(0.2,0) node[below] {$x$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[->] (0,1) -- +(0,.2) node[above] {$y$};
+\end_layout
+
+\begin_layout Plain Layout
+
+% ticks
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+foreach 
+\backslash
+i in {0,...,4}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (
+\backslash
+i,0) -- +(0,-.05) node[below] {$
+\backslash
+i$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+foreach 
+\backslash
+i in {0,1}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0,
+\backslash
+i) -- +(-.04,0) node[left] {$
+\backslash
+i$};
+\end_layout
+
+\begin_layout Plain Layout
+
+% lines and nodes
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[ultra thick, red!80!black] (0.25,0) coordinate (x0) -- +(60:3) coordinate
+ (us);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[ultra thick, red!80!black] (x0) -- +(-120:0.5) coordinate (ut);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[dashed] (0,0) rectangle (4,1);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path (us) -- (x0 -| us) coordinate (xs);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[->] (us) -- +(-30:.3) node[right] {$u_
+\backslash
+perp=8.25$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[->] (ut) -- +(-30:.3) node[right] {$u_
+\backslash
+perp=8.25$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[thick] (4,0) -- (x0) -- +(-60:.5) coordinate (xt);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path node[left] at (x0) {$x_0$};
+\end_layout
+
+\begin_layout Plain Layout
+
+% angle
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw pic[draw,pic text=$
+\backslash
+pi/3$, angle eccentricity=1.8, angle radius=.6cm] {angle=xs--x0--us};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw pic[draw,pic text=$
+\backslash
+pi/3$, angle eccentricity=2.0, angle radius=.6cm] {angle=xt--x0--xs};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_sketch"
+
+\end_inset
+
+A schematic diagram of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:double_mach"
+
+\end_inset
+
+.
+ The rectangle bounded by four dashed lines and a solid line is the computationa
+l domain.
+ The thick red line represents the initial shock wave, which is at an angle
+ of 
+\begin_inset Formula $\pi/3$
+\end_inset
+
+ relative to the 
+\begin_inset Formula $x$
+\end_inset
+
+-axis.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As a common practice, we plot the density contour at 
+\begin_inset Formula $t=0.2$
+\end_inset
+
+ in a 
+\begin_inset Formula $[0,3]\times[0,1]$
+\end_inset
+
+ rectangle (on the 
+\begin_inset Formula $z=0$
+\end_inset
+
+ surface) for each solver in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=1_h=5e-3"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=3_h=5e-3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ It is clear that as the accuracy order increases, the thickness of each
+ discontinuity decreases and the rolled-up vortex structure becomes more
+ clear.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/double_mach/p=1_h=5e-3.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_p=1_h=5e-3"
+
+\end_inset
+
+First-order solution of 
+\begin_inset Formula $\rho(x,y,z=0,t=0.2)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:double_mach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (
+\begin_inset Formula $h\approx1/200$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/double_mach/p=2_h=5e-3.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_p=2_h=5e-3"
+
+\end_inset
+
+Second-order solution of 
+\begin_inset Formula $\rho(x,y,z=0,t=0.2)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:double_mach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (
+\begin_inset Formula $h\approx1/200$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/double_mach/p=3_h=5e-3.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_p=3_h=5e-3"
+
+\end_inset
+
+Third-order solution of 
+\begin_inset Formula $\rho(x,y,z=0,t=0.2)$
+\end_inset
+
+ in Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:double_mach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (
+\begin_inset Formula $h\approx1/200$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Before concluding this section, we provide the measured performance of our
+ third-order solver that produces Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=3_h=5e-3"
+
+\end_inset
+
+ in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:parallel_efficiency"
+
+\end_inset
+
+, in which
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P$
+\end_inset
+
+ means the number of processes (one process per core).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $T_{n}$
+\end_inset
+
+ means the wall clock time to finish the first 
+\begin_inset Formula $n$
+\end_inset
+
+ step.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P\frac{T_{m+m}-T_{n}}{m}$
+\end_inset
+
+ is the core time per step.
+ The total core time of all steps is often used as an index for charging
+ by high performance computing centers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:parallel_efficiency"
+
+\end_inset
+
+Performance of the same solver running on different number of cores.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="6">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $P$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{100}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{199}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{200}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P\frac{T_{199}-T_{100}}{99}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P\frac{T_{200}-T_{100}}{100}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17652.2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+35324.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+35519.3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+178.508
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+178.671
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+960.443
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1912.365
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1926.584
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+192.307
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+193.228
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+491.070
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+971.710
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+983.933
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+194.198
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+197.145
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+335.651
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+666.548
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+676.930
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+200.544
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+204.767
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+80
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+251.548
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+494.541
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+504.951
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+196.358
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+202.722
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+202.789
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+397.641
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+408.126
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+196.820
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+205.337
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since parallel I/O operations require many collective communications, we
+ write one frame every 100 steps.
+ Thus, the difference between the values in the last two columns is the
+ amortized core time of writing per step.
+ We have to admit that this cost is growing as the number of cores increases.
+ If the number of cores keeps increasing, this may be a bottleneck of maintainin
+g scalability.
+\end_layout
+
+\begin_layout Standard
+The community of parallel computing usually use the speedup (
+\begin_inset Formula $S$
+\end_inset
+
+) and efficiency (
+\begin_inset Formula $E$
+\end_inset
+
+) defined as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S=\frac{T_{\text{serial}}}{T_{\text{parallel}}},\qquad E=\frac{S}{P}\times100\%,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+to assess the performance a parallel program.
+ We follow this practice, calculate these values based on the measured data
+ given in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:parallel_efficiency"
+
+\end_inset
+
+ and plot them in Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_speedup"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_efficiency"
+
+\end_inset
+
+.
+ These figures show again that the I/O operations have adverse effects on
+ the parallel performance.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/double_mach/speedup.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_speedup"
+
+\end_inset
+
+Speedup of the third-order solver for generating Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=3_h=5e-3"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/double_mach/efficiency.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_efficiency"
+
+\end_inset
+
+Parallel efficiency of the third-order solver for generating Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=3_h=5e-3"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The efficiency values given in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_efficiency"
+
+\end_inset
+
+ fluctuate around 
+\begin_inset Formula $90\%$
+\end_inset
+
+, which are not as good as those above 
+\begin_inset Formula $99\%$
+\end_inset
+
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Biswas_1994"
+literal "false"
+
+\end_inset
+
+.
+ One source of such gap is the imperfect load balancing of our tests.
+ Since we are using a three-dimensional unstructured mesh, it can hardly
+ be partitioned uniformly, which is an 
+\begin_inset Formula $NP$
+\end_inset
+
+-hard problem.
+ On the other hand, their meshes are one- and two-dimensional structured,
+ on which uniform partitioning can be trivially achieved.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_balance"
+
+\end_inset
+
+ gives the distribution of cells of the 100-part mesh partitioning (Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_partition"
+
+\end_inset
+
+) used in this section, which shows a 
+\begin_inset Formula $3\%$
+\end_inset
+
+ fluctuation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/double_mach/balance.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_balance"
+
+\end_inset
+
+Distribution of cells in the mesh partitioning given in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_partition"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/double_mach/partition.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_partition"
+
+\end_inset
+
+A 100-part mesh partitioning of the unstructured mesh used for generating
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=1_h=5e-3"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=3_h=5e-3"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 前台阶问题
 \end_layout
 
+\begin_layout Standard
+This is a classical two-dimensional problem 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Woodward_1984"
+literal "true"
+
+\end_inset
+
+, but we treat it as a three-dimensional one:
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:forward_step"
+
+\end_inset
+
+Solve the Euler system (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) in a 
+\begin_inset Formula $[0,3]\times[0,1]\times[0,Z]$
+\end_inset
+
+ box (representing a wind tunnel), where the thickness 
+\begin_inset Formula $Z$
+\end_inset
+
+ could be any positive value, with a 
+\begin_inset Formula $[0.6,3]\times[0,0.2]\times[0,Z]$
+\end_inset
+
+ box removed (representing a forward-facing step).
+ The 
+\begin_inset Formula $x=0$
+\end_inset
+
+ surface is open as an inlet and the 
+\begin_inset Formula $x=3$
+\end_inset
+
+ surface is open as an outlet.
+ All other boundary surfaces are closed as solid walls.
+ The initial condition is given as a uniform state:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 3.0 & 0.0 & 0.0 & 1.0\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/forward_step/mesh.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_domain"
+
+\end_inset
+
+A coarse (
+\begin_inset Formula $h=1/20$
+\end_inset
+
+) mesh for solving Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ This mesh is too coarse to capture details of the flow field but clear
+ enough to demonstrate the distribution of nodes and cells.
+ Actually, we use a much finer (
+\begin_inset Formula $h=1/200$
+\end_inset
+
+) mesh to produce Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=02e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=40e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To show the applicability of our solvers on structured meshes, we solve
+ this problem on meshes like the one in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_domain"
+
+\end_inset
+
+.
+ As a common practice, we plot the density contours at various time steps
+ in Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=02e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=40e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/forward_step/p=3_t=02e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=02e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=0.2$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/forward_step/p=3_t=04e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=04e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=0.4$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/forward_step/p=3_t=06e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=06e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=0.6$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/forward_step/p=3_t=08e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=08e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=0.8$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/forward_step/p=3_t=10e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=10e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/forward_step/p=3_t=12e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=12e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=1.2$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/forward_step/p=3_t=20e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=20e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=2.0$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/forward_step/p=3_t=24e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=24e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=2.4$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/forward_step/p=3_t=28e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_h=28e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=2.8$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/forward_step/p=3_t=32e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=32e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=3.2$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/forward_step/p=3_t=40e-1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=40e-1"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=4.0$
+\end_inset
+
+ on an 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ mesh.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The flow starts from a uniform supersonic (
+\begin_inset Formula $M=3.0$
+\end_inset
+
+) state.
+ In Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=02e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=04e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, a curved bow shock wave generates in front of the forward-facing step
+ and a fan-shaped expansion wave generates at the corner (
+\begin_inset Formula $x=0.6,y=0.2$
+\end_inset
+
+).
+ The bow shock then hits the top of the tunnel (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=06e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) and reflects from it (Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=08e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=10e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ At about 
+\begin_inset Formula $t=1.2$
+\end_inset
+
+ (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=12e-1"
+
+\end_inset
+
+), the reflected shock hits the bottom of the tunnel (the top of the step)
+ and reflects from it.
+ Both of the two reflections are regular at these moments.
+ Just before 
+\begin_inset Formula $t=2.0$
+\end_inset
+
+ (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=12e-1"
+
+\end_inset
+
+), a Mach stem which characterizes a Mach reflection has generated from
+ the first reflection point.
+ A wavy contact discontinuity generating from the triple point is captured
+ by Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=24e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=40e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ This flow structure would be smeared off if we solved Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:forward_step"
+
+\end_inset
+
+ using lower-order solvers or coarser meshes.
+\end_layout
+
 \begin_layout Subsection
 YF-17 全机绕流问题
+\end_layout
+
+\begin_layout Standard
+In this section, we solve the Euler system (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) on a three-dimensional unstructured mesh, which discretizes the space
+ around a YF-17 aircraft by tetrahedral cells as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_mesh"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/yf17/mesh.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_mesh"
+
+\end_inset
+
+A zoomed-in view of the most important boundaries of the mesh for solving
+ problems in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:YF-17"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:Subsonic-YF17"
+
+\end_inset
+
+Solve the Euler system (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) in the surrounding of a YF-17 aircraft.
+ The initial condition is given as a subsonic flow (
+\begin_inset Formula $M=0.3$
+\end_inset
+
+) with a 
+\begin_inset Formula $20$
+\end_inset
+
+-deg angle of attack:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 0.2819 & 0.0 & 0.1026 & 1.0\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+All boundaries of the aircraft are defined as solid walls, except the intake
+ the engine which is defined as a subsonic outlet of the condition equal
+ to the initial condition, and the exhaust of the engine which is defined
+ as a supersonic (
+\begin_inset Formula $M=3.0$
+\end_inset
+
+) inlet of the condition:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{\text{ex.}}=\begin{bmatrix}1.4 & 2.4 & 0.0 & 0.0 & 1.44\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/yf17/streamlines_p=1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_streamlines_p=1"
+
+\end_inset
+
+Streamlines given by the first-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Subsonic-YF17"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/yf17/streamlines_p=3.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_streamlines_p=3"
+
+\end_inset
+
+Streamlines given by the third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Subsonic-YF17"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We solve this problem by two of our finite element solvers and plot the
+ streamlines released from the strake and the wing at 
+\begin_inset Formula $t=10$
+\end_inset
+
+ in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_streamlines_p=1"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_streamlines_p=3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ It can be seen that the streamlines obtained from the high-order (
+\begin_inset Formula $p=3$
+\end_inset
+
+) solution are smoother than those from the low-order (
+\begin_inset Formula $p=1$
+\end_inset
+
+) solution, which shows the benefit of 
+\begin_inset Formula $p$
+\end_inset
+
+-refinement.
+ The difference in accuracy is more obvious in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_rho_subsonic"
+
+\end_inset
+
+, which clearly shows a more detailed flow structure in the third-order
+ solution (left half) and the piecewise constantness of the first-order
+ solution (right half).
+ Both solutions are able to capture the vortex trailing from the wing tip,
+ which is generated from the the pressure difference between the upper and
+ lower surfaces of the wing.
+ When the wing generates positive lift, the pressure on the lower wing surface
+ is higher than that on the upper wing surface.
+ Under the action of this pressure difference, the air under the wing rolls
+ up around the tip and flows backward, the tip vortex is thus formed.
+ The vortex trailing from the strake is generated from a similar mechanism.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/yf17/rho_subsonic.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_rho_subsonic"
+
+\end_inset
+
+Comparison between the third-order solution (left half) and the first-order
+ solution (right half) of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Subsonic-YF17"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:Supersonic-YF17"
+
+\end_inset
+
+Solve the Euler system (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) in the surrounding of a YF-17 aircraft.
+ The initial condition is given as a supersonic flow (
+\begin_inset Formula $M=2.0$
+\end_inset
+
+) with a 
+\begin_inset Formula $0$
+\end_inset
+
+-deg angle of attack:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 2.0 & 0.0 & 0.0 & 1.0\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+All boundaries of the aircraft are defined as solid walls, except the intake
+ the engine which is defined as a supersonic outlet of the condition equal
+ to the initial condition, and the exhaust of the engine which is defined
+ as a supersonic (
+\begin_inset Formula $M=3.0$
+\end_inset
+
+) inlet of the condition:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{\text{ex.}}=\begin{bmatrix}1.4 & 2.4 & 0.0 & 0.0 & 1.44\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/yf17/rho_p=1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_rho_p=1"
+
+\end_inset
+
+Density contour obtained from the first-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/yf17/rho_p=3.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_rho_p=3"
+
+\end_inset
+
+Density contour obtained from the third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/yf17/supersonic_top_view.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_supersonic_top_view"
+
+\end_inset
+
+Comparison between the third-order solution (upper half) and the first-order
+ solution (lower half) of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ on the 
+\begin_inset Formula $z=0$
+\end_inset
+
+ surface (top view).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/yf17/supersonic_bottom_view.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_supersonic_bottom_view"
+
+\end_inset
+
+Comparison between the third-order solution (upper half) and the first-order
+ solution (lower half) of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ on the 
+\begin_inset Formula $z=0$
+\end_inset
+
+ surface (bottom view).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We solve this problem using the same solvers as for Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Subsonic-YF17"
+
+\end_inset
+
+.
+ Density contours on the 
+\begin_inset Formula $y=0$
+\end_inset
+
+ surface obtained from the first- and the third-order solutions are given
+ in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_rho_p=1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_rho_p=3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, respectively.
+ It is obvious that shock waves are captured well (without spurious oscillations
+) by both of them.
+ To show the difference more clearly, we compare the two solutions in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_supersonic_top_view"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_supersonic_bottom_view"
+
+\end_inset
+
+.
+ As in the subsonic case, the third-order solution (which is piecewise quadratic
+) outperforms the first-order one (which is piecewise constant).
+ Shock waves (red) are generated on surfaces facing the wind, since the
+ relative speed of air is larger than the speed of sound.
+ Expansion waves (blue) are generated on leeward surfaces, since the solid
+ body contracts there which leaves more room for the supersonic flow to
+ go.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/yf17/partition.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_partition"
+
+\end_inset
+
+A 100-part partitioning of the mesh used for solving problems in Section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:YF-17"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/yf17/balance.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_balance"
+
+\end_inset
+
+Distribution of cells in the mesh partitioning given in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_partition"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since the mesh in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_mesh"
+
+\end_inset
+
+ is highly unstructured and non-uniform, simple geometric partitioning cannot
+ achieve a relatively balanced distribution of computational efforts.
+ In our code, we use the 
+\shape smallcaps
+Metis
+\shape default
+ library 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Karypis_1998"
+literal "false"
+
+\end_inset
+
+ to partition the dual graph of the mesh, which gives the results in Figures
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_partition"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_balance"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The fluctuation of cell numbers is under 
+\begin_inset Formula $2\%$
+\end_inset
+
+, which is quite good since the optimal partitioning of an unstructured
+ mesh is an NP-hard problem.
+ With such an approximately optimal partitioning, the parallel efficiency,
+ which is defined as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E=\frac{T_{\text{serial}}}{PT_{\text{parallel}}}\times100\%
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+in which 
+\begin_inset Formula $P$
+\end_inset
+
+ is the number of processes, could surpass 
+\begin_inset Formula $99\%$
+\end_inset
+
+ in theory.
+ In practice, however, the 
+\begin_inset Formula $E$
+\end_inset
+
+ values given by our numerical experiments are only around 
+\begin_inset Formula $80\%$
+\end_inset
+
+ as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_efficiency"
+
+\end_inset
+
+, which is derived from the measured time costs given in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:time_cost"
+
+\end_inset
+
+.
+ The main reason for the gap between theory and practice is that in the
+ derivation of the ideal 
+\begin_inset Formula $E$
+\end_inset
+
+ value, inter-process communications are assumed to overlap in time with
+ inner-cell computations, which is an over-optimistic assumption.
+ Nevertheless, the acceleration is still significant, which reduces the
+ wall clock time to an acceptable level.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/yf17/speedup.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_speedup"
+
+\end_inset
+
+Speedup of the third-order solver for solving Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/yf17/efficiency.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_efficiency"
+
+\end_inset
+
+Parallel efficiency of the third-order solver for solving Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:time_cost"
+
+\end_inset
+
+Time costs of the third-order solver running on different number of cores.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="6">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $P$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{100}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{399}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{400}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P\frac{T_{399}-T_{100}}{399-100}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P\frac{T_{400}-T_{100}}{400-100}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10511.3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+42466.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+42593.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+106.873
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+106.939
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2389.25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9740.13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9769.96
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+122.925
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+123.012
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1246.37
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5086.62
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5101.95
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+128.436
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+128.519
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+839.554
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3420.17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3430.75
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+129.462
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+129.560
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+645.737
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2632.32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2640.57
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+132.882
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+132.989
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+325.269
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1310.72
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1319.73
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+131.833
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+132.595
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+222.890
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+923.043
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+931.754
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+140.499
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+141.773
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+80
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+168.862
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+672.439
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+681.445
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+134.736
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+136.689
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+137.787
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+543.081
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+552.682
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+135.550
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+138.298
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -25478,6 +33030,528 @@ YF-17 全机绕流问题
 
 \begin_layout Section
 动量源模型
+\end_layout
+
+\begin_layout Section
+孤立旋翼算例
+\end_layout
+
+\begin_layout Standard
+In this section, we solve two problems of rotorcraft aerodynamics using
+ the momentum source model described in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:The-Momentum-Source"
+
+\end_inset
+
+.
+ The problems are set to simulate wind tunnel tests of a rotor (a pair of
+ rotary wings), using the mesh shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_mesh"
+
+\end_inset
+
+.
+ All of the boundaries of the outside box are solid walls, except he left
+ and right ends, which are set as inlet and outlet, respectively.
+ The spherical region is the circumscribed sphere of the rotor, whose rotating
+ axis could point to any direction.
+ The smaller box enclosing the sphere is used for refining the mesh in the
+ surrounding and downstream regions of the rotor.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/rotor_in_tunnel/mesh.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_mesh"
+
+\end_inset
+
+A schematic mesh for solving problems in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Problems-with-Momentum"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+爬升
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:rotor_upward"
+
+\end_inset
+
+Solve Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ in the surrounding of a rotor, whose rotating axis points to the direction
+ of 
+\begin_inset Formula $(-1,0,0)$
+\end_inset
+
+.
+ The initial condition is given as a uniform flow:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 1.0 & 0.0 & 0.0 & 101325.0\end{bmatrix},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+which is also the background state at the two ends of the wind tunnel.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/rotor_in_tunnel/upward_p=3.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_upward_p=3"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/rotor_in_tunnel/upward_p=1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_upward_p=1"
+
+\end_inset
+
+First-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Third- and first-order solutions at the same moment (
+\begin_inset Formula $t=1$
+\end_inset
+
+) are shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_upward_p=3"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_upward_p=1"
+
+\end_inset
+
+, respectively, in which density contours and velocity directions are plotted
+ on selected slices.
+ Large-scale flow structures, such as the contraction of airflow near the
+ rotor disk and the rolled-up of airwake, are captured in both figures.
+ However, finer details, such as the ripples generated from the rotor disk
+ and the strong vortex ring in the downstream, are only visible in the third-ord
+er solution.
+ The nearly axisymmetric flow structure is caused by the periodic movement
+ of the rotary wings.
+ The density of air just below the rotor (red) is greater than that above
+ the rotor (blue), which means the rotor is compressing the air flowing
+ across it.
+ According to Newton's third law, the rotor must be experiencing a force
+ in the opposite direction exerted by the air.
+ This is where the rotor thrust comes from.
+\end_layout
+
+\begin_layout Subsection
+前飞
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:rotor_forward"
+
+\end_inset
+
+Solve Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ in the surrounding of a rotor, whose rotating axis points to the direction
+ of 
+\begin_inset Formula $(0,0,1)$
+\end_inset
+
+.
+ The initial condition is given as a uniform flow:
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 10.0 & 0.0 & 0.0 & 101325.0\end{bmatrix},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+which is also the background state at the two ends of the wind tunnel.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/rotor_in_tunnel/forward_p=3.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_forward_p=3"
+
+\end_inset
+
+Third-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/rotor_in_tunnel/forward_p=1.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_forward_p=1"
+
+\end_inset
+
+First-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../code/manuscript/mdpi/figures/rotor_in_tunnel/forward_wake_p=3.png
+	lyxscale 35
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_forward_wake"
+
+\end_inset
+
+Streamlines of the solution in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_forward_p=3"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Just like the climbing problem, we plot the third- and first-order solution
+ at the same moment (
+\begin_inset Formula $t=1$
+\end_inset
+
+) in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_forward_p=3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_forward_p=1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, respectively.
+ As before, both of them can capture large-scaled structures, such as the
+ skewed and rolled-up airwakes.
+ The rolled-up structure is more clear in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_forward_wake"
+
+\end_inset
+
+, in which streamlines of are ploted and colorred by the magnitude of velocity.
+ The piecewise constant first-order solution is much vaguer and losts many
+ details, which shows again the value of developing high-order solvers.
 \end_layout
 
 \begin_layout Chapter
