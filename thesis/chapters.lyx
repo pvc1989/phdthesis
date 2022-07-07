@@ -34247,5 +34247,39 @@ reference "fig:rotor_forward_wake"
 结论
 \end_layout
 
+\begin_layout Standard
+In this article, we have formulated the RKDG methods and the WENO limiters
+ for three-dimensional unstructured meshes.
+ The algorithms have been implemented on top of the MPI standard, which
+ supports distributed memory parallelization.
+ The numerical experiments have shown that increasing a solver's accuracy
+ order helps more to produce better results than just refining the mesh
+ it uses.
+ The efficient parallel implementation has made the time cost affordable
+ for large problems, as long as the solvers can be executed on sufficiently
+ large number of cores.
+ Extending the methods to Navier–Stokes equations and applications of these
+ high-order parallel solvers to real engineering problems are ongoing works.
+ Further optimization of the parallel I/O module may be conducted to achieve
+ better parallel performance.
+\end_layout
+
+\begin_layout Standard
+In this article, we give a concise but complete formulation of an RKDG scheme
+ with a compact WENO limiter for solving inviscid compressible flows, possibly
+ with momentum sources, on three-dimensional unstructured meshes.
+ The algorithms are implemented on top of public available libraries, which
+ support unstructured mesh partitioning, inter-process communication and
+ distributed memory parallelization.
+ The correctness and accuracy of the solvers are validated by lower-dimensional
+ reference problems.
+ Results of real three-dimensional applications are also presented, in which
+ complex flow structures are captured by the third-order solver even on
+ very coarse unstructured meshes.
+ Future works may include implementing higher-order solvers under the this
+ framework and testing them on larger meshes and on larger high-performance
+ computing platforms.
+\end_layout
+
 \end_body
 \end_document
