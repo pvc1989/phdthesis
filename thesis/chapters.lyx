@@ -20601,6 +20601,378 @@ p_{\mathrm{b}}=p_{\mathrm{o}},\qquad\begin{bmatrix}\rho_{\mathrm{b}}\\
 间断伽辽金有限元法
 \end_layout
 
+\begin_layout Section*
+Introduction
+\end_layout
+
+\begin_layout Standard
+Most of the computational fluid dynamics (CFD) solvers currently used in
+ aerospace engineering are based on schemes using finite volume (FV) methods,
+ which are more suitable than schemes using finite difference (FD) methods
+ for unstructured meshes.
+ However, FV schemes usually have only second-order spatial accuracy, due
+ to the difficulty of handling irregular local stencils, whose sizes grows
+ rapidly as the order of accuracy increases.
+ In high-order FV schemes, the local stencil of a cell is made up of the
+ cell and the cell's neighbors, and the neighbors' neighbors, and so on.
+ To ease the development of high-order schemes for unstructured meshes,
+ it is better to use finite element (FE) methods whose local stencils are
+ much more compact than those of FV schemes.
+ One family of such compact high-order schemes suitable for unstructured
+ meshes are called the discontinuous Galerkin (DG) methods, which assume
+ continuous approximation in each cell (like classic FE methods), but allow
+ discontinuities to exist on cell boundaries (like classic FV methods).
+ Such an assumption gives scheme designers more freedom on choosing the
+ basis for each cell, such as orthogonal functions which lead to modal DG
+ methods, and Lagrange polynomials which lead to nodal DG methods 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hesthaven_2008"
+literal "false"
+
+\end_inset
+
+.
+ The original DG method was introduced by Reed and Hill 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Reed_1973"
+literal "false"
+
+\end_inset
+
+ for solving the neutron transport equation, which is a linear problem contains
+ only first-order spatial derivatives.
+ For nonlinear conservation laws, Chavent and Salzano 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chavent_1982"
+literal "false"
+
+\end_inset
+
+ made the first attempt of using a DG method to discretize in space and
+ using the explicit Euler method for time discretization.
+ This scheme is second-order accurate in space but only first-order accurate
+ in time.
+ To improve the accuracy of time discretization, Cockburn and Shu 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1988"
+literal "false"
+
+\end_inset
+
+ replace the first-order Euler method with a special second-order Runge–Kutta
+ (RK) method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shu_1988,Shu_1989"
+literal "false"
+
+\end_inset
+
+, which is explicit and total variation diminishing (TVD).
+ This is the first successful Runge–Kutta discontinuous Galerkin (RKDG)
+ method, which is high-order accurate both in space and time, for scalar
+ conservation laws.
+ This RKDG method was soon extended to one-dimensional system case 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1989"
+literal "true"
+
+\end_inset
+
+, multi-dimensional scalar case 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1990"
+literal "false"
+
+\end_inset
+
+ and multi-dimensional system case 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cockburn_1998"
+literal "false"
+
+\end_inset
+
+, which includes the Euler system that models inviscid compressible flows.
+ Nearly the same time (late 1990s), the DG methods were also extended to
+ the Navier–Stokes system that governs viscous flows.
+ Bassi and Rebay 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bassi_1997"
+literal "false"
+
+\end_inset
+
+ made the first attempt to apply the DG idea to both the unknowns and their
+ gradients for solving the Navier–Stokes equations.
+ This method was then generalized by Cockburn and Shu 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cockburn_1998b"
+literal "false"
+
+\end_inset
+
+ to the family of local discontinuous Galerkin (LDG) methods, which extends
+ the RKDG methods from conversation laws to convection-dominated problems.
+ One may refer to 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_2001"
+literal "false"
+
+\end_inset
+
+, which is a comprehensive review article on this topic.
+ In the rest of this article, we will only study the RKDG methods for conservati
+on laws that are purely hyperbolic.
+ In Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:spatial_discretization"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:temporal_discretization"
+
+\end_inset
+
+, we will give a matrix formed formulation of the RKDG method for solving
+ three-dimensional conservation law systems.
+\end_layout
+
+\begin_layout Standard
+When solving hyperbolic problems, limiting procedures, or limiters for short,
+ are necessary for suppressing numerical oscillations that might occur near
+ discontinuities (known as the Gibbs phenomenon 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gottlieb_1997"
+literal "false"
+
+\end_inset
+
+).
+ For FD and FV schemes, there is the monotonic upstream-centered scheme
+ for conservation laws (MUSCL) 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Van_Leer_1977,Van_Leer_1977a,van_Leer_1979,van_Leer_2021"
+literal "false"
+
+\end_inset
+
+, which could achieve third-order accuracy when used with caution.
+ However, it is not directly applicable to FE schemes.
+ Besides the RKDG formulations, there is another important contribution
+ made by 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1990,Cockburn_1998"
+literal "false"
+
+\end_inset
+
+, which is proposing the generalized slope limiters for multi-dimensional
+ problems.
+ These minmod type limiters, together with TVD RK methods, makes the high-order
+ solutions free from non-physical oscillation, but tend to reduce the order
+ of accuracy in smooth regions.
+ To overcome this drawback, the essentially non-oscillatory (ENO) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Harten_1997"
+literal "false"
+
+\end_inset
+
+ and weighted ENO (WENO) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jiang_1996"
+literal "false"
+
+\end_inset
+
+ limiting procedures were introduced.
+ Both of them can maintain high-order accuracy in smooth regions but essentially
+ suppress spurious oscillations near discontinuities.
+ The first attempt of making such limiters suitable for unstructured meshes
+ was to incorporate a WENO reconstruction procedure into high-order FV schemes
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Hu_1999"
+literal "false"
+
+\end_inset
+
+.
+ Similar ideas were later adopted for DG methods 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Qiu_2005,Zhu_2008"
+literal "false"
+
+\end_inset
+
+ at the cost of sacrificing the compactness of DG methods.
+ Compact versions of WENO limiters suitable for DG methods only occurred
+ in the last ten years 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhong_2013,Zhu_2013,Mazaheri_2019"
+literal "true"
+
+\end_inset
+
+ and most of them are only formulated for two-dimensional meshes.
+ In Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:limiting_procedures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we will give a unified formulation of some compact WENO limiters for both
+ two- and three-dimensional RKDG methods on unstructured meshes.
+\end_layout
+
+\begin_layout Standard
+The two-dimensional version of the algorithms described in Sections 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:spatial_discretization"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:temporal_discretization"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ has been proposed for nearly ten years, but few three-dimensional or real
+ engineering applications have been reported so far.
+ One reason is that the amount of computational resources cost by each cell
+ grows rapidly as the order of accuracy or the dimension of space increases.
+ Fortunately, both RKDG methods and WENO limiters use highly compact stencils
+ and there is no global algebraic equation to be solved (as in FD and FV
+ schemes).
+ Based on these facts, parallel computing using domain decomposition can
+ be applied for accelerating computation in a very natural way.
+ Currently, we have not seen any parallel implementation of RKDG methods
+ with WENO limiters for three-dimensional unstructured meshes.
+ However, there are some frequently referenced works existing in the literature,
+ which measured the parallel efficiencies of their DG methods.
+ Biswas, Devine and Flaherty 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Biswas_1994"
+literal "false"
+
+\end_inset
+
+ performed some tests of their one- and two-dimensional DG solvers for linear
+ scalar problems on uniform structured meshes.
+ They achieved excellent parallel efficiencies, which were over 
+\begin_inset Formula $99\%$
+\end_inset
+
+ for pure solution time (without I/O) and at least 
+\begin_inset Formula $89\%$
+\end_inset
+
+ for total running time.
+ Bey, Patra and Oden 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bey_1995"
+literal "false"
+
+\end_inset
+
+ tested their DG solvers for linear conservation laws on both structured
+ (uniform) and unstructured (
+\begin_inset Formula $hp$
+\end_inset
+
+-adaptive) meshes.
+ They got nearly optimal speedups when the number of interior elements is
+ sufficiently larger than that of subdomain boundary elements.
+ Recently, Chalmers et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chalmers_2019"
+literal "false"
+
+\end_inset
+
+ implemented their DG solver for two-dimensional Navier–Stokes equations
+ using MPI/OpenMP hybrid parallelism and achieved good scalability on a
+ uniform mesh with only quadrilateral elements.
+ None of them show the parallel performance of DG solvers on three-dimensional
+ unstructured meshes.
+ In this article, we incorporate unstructured mesh partitioning and message
+ passing into the algorithms and implement them on top of publicly available
+ libraries to support parallel execution.
+ To partition a three-dimensional unstructured mesh, we use the application
+ programming interface (API) provided by the 
+\shape smallcaps
+Metis
+\shape default
+ library 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Karypis_1998"
+literal "false"
+
+\end_inset
+
+.
+ To send and receive messages, we use the message passing interface (MPI)
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MPIF_2021"
+literal "false"
+
+\end_inset
+
+, which is the de facto industry standard of distributed memory parallelization.
+ We will give the details of these parallel programming techniques in Section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:parallelization"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 非结构网格上的空间离散
 \end_layout
@@ -33024,6 +33396,319 @@ Time costs of the third-order solver running on different number of cores.
 旋翼空气动力学模型
 \end_layout
 
+\begin_layout Section*
+Introduction
+\end_layout
+
+\begin_layout Standard
+CFD solvers widely used in aerospace engineering are based either on finite
+ difference (FD) schemes or on finite volume (FV) schemes.
+ However, FD schemes are restricted on structured meshes, while most FV
+ schemes have only first- or second-order accuracy.
+ One way to develop higher-order schemes suitable for unstructured meshes
+ is to use the discontinuous Galerkin (DG) finite element (FE) methods.
+ Like other FE methods, DG methods assume continuous approximation in each
+ element (a.k.a.
+ cell).
+ However, they allow discontinuities to exist on intercell boundaries.
+ Such discontinuities are then resolved by numerical fluxes, e.g.
+ exact or approximate Riemann solvers, just like Godunov-type schemes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Harten_1983"
+literal "true"
+
+\end_inset
+
+.
+ The original DG scheme was not proposed for CFD but for solving the linear
+ neutron transport equation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Reed_1973"
+literal "false"
+
+\end_inset
+
+.
+ For nonlinear conservation laws, Chavent and Salzano 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chavent_1982"
+literal "false"
+
+\end_inset
+
+ designed an explicit Euler DG cheme, which is second-order accurate in
+ space but only first-order accurate in time.
+ To improve the accuracy of time discretization, Cockburn and Shu 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1988"
+literal "false"
+
+\end_inset
+
+ replaced the first-order forward Euler method with high-order Runge–Kutta
+ (RK) methods, which led to the family of RKDG schemes for scalar conservation
+ laws 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shu_1988,Shu_1989"
+literal "false"
+
+\end_inset
+
+, for one-dimensional conservation law systems 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1989"
+literal "true"
+
+\end_inset
+
+, for multi-dimensional scalar conservation laws 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1990"
+literal "false"
+
+\end_inset
+
+ and for multi-dimensional conservation law systems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cockburn_1998"
+literal "false"
+
+\end_inset
+
+.
+ The last case includes the Euler system that depicts inviscid compressible
+ flows, which is the first application of RKDG in CFD.
+ We will give a concise derivation of this scheme in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:spatial_discretization"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:temporal_discretization"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The Euler system is hyperbolic, which might have discontinuities in its
+ solutions.
+ Appoximating such solutions with finite terms of continuous functions would
+ generate numerical oscillations near discontinuities (known as the Gibbs
+ phenomenon 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gottlieb_1997"
+literal "false"
+
+\end_inset
+
+).
+ Therefore, any useful high-order scheme must incorporate some mechanism
+ for suppressing such spurious oscillations.
+ For second-order FD and FV schemes, there are slope and flux limiters 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sweby_1984"
+literal "false"
+
+\end_inset
+
+.
+ These limiters work well on shock capturing but might reduce the order
+ of accuracy when used in smooth regions.
+ Furthermore, they are not applicable to higher-order schemes.
+ To overcome these drawbacks, the essentially non-oscillatory (ENO) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Harten_1997"
+literal "false"
+
+\end_inset
+
+ and weighted ENO (WENO) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jiang_1996"
+literal "false"
+
+\end_inset
+
+ limiters for high-order FD schemes, which can essentially suppress spurious
+ oscillations and maintain high-order accuracy in smooth regions, were developed.
+ Similar ideas were later incorporated into FV 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Hu_1999"
+literal "false"
+
+\end_inset
+
+ and DG 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Qiu_2005,Zhu_2008"
+literal "false"
+
+\end_inset
+
+ schemes, which are suitable for unstructured meshes.
+ However, such early versions of unstructured WENO limiters have to query
+ not only a cell's immediate neighbors, but also the neighbors' neighbors,
+ and so on.
+ To preserve the compactness of RKDG schemes, Zhong 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhong_2013"
+literal "true"
+
+\end_inset
+
+ and Zhu 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhu_2013"
+literal "true"
+
+\end_inset
+
+ proposed a compact WENO limter for two-dimensional structured and unstructrued
+ meshes.
+ In our early work 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Pei_2022"
+literal "false"
+
+\end_inset
+
+, we extended it to three-dimensional and presented an efficient parallel
+ implementation.
+ We will summarize the key steps of this compact WENO limiter in Section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:limiting_procedures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The parallel implementation of the RKDG scheme with a compact WENO limiter
+ can be used for solving many practical problems in aerospace engineering.
+ However, for problems with moving boundaries (such as rotary wings on a
+ helicopter or blades on a wind turbine), advanced meshing techniques (such
+ as dynamic meshing, overset meshes or adaptive mesh refinement) have to
+ be applied.
+ On the other hand, typical lifting bodies (such as rotary wings) have been
+ successfully modelled as various momentum sources in FD/FV schemes.
+ Rajagopalan and Mathur 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rajagopalan_1989,Rajagopalan_1993"
+literal "false"
+
+\end_inset
+
+ proposed the first FD/FV based momentum source model, which models the
+ time-averaged effect of a rotor as an actuator disk.
+ Such a steady model was used by Kang and Sun 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kang_1997,Kang_2000"
+literal "false"
+
+\end_inset
+
+ for solving the flow fields of rotors in ground effect.
+ Shi 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shi_2017"
+literal "false"
+
+\end_inset
+
+ compared this model with an unsteady overset mesh method, and found that
+ the steady momentum source model can predict complex aerodynamic interactions
+ between a rotor and a flight deck at a much cheaper cost.
+ Shen 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shen_2009"
+literal "false"
+
+\end_inset
+
+ and Kim 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kim_2015"
+literal "false"
+
+\end_inset
+
+ refined the model by replacing the actuator disk for the entire rotor with
+ an actuator surface for each blade of the rotor, so that unsteady effects
+ of rotary wings can be captured.
+ Such early works are either over simplified by ignoring unsteady effects
+ (such as 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Rajagopalan_1989,Rajagopalan_1993,Kang_1997,Kang_2000"
+literal "false"
+
+\end_inset
+
+), or restricted to structured meshes (such as 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Shen_2009,Shi_2017"
+literal "false"
+
+\end_inset
+
+).
+ To overcome these drawbacks, our parallel RKDG solvers are augmented with
+ an unsteady actuator line model, which successfully capture unsteady effects
+ of a rotor on unstructured meshes.
+ The formulation of this finite-element/momentum-source hybrid method will
+ be given in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:The-Momentum-Source"
+
+\end_inset
+
+.
+ Some demonstrative results are presented in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Problems-with-Momentum"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 自由尾迹模型
 \end_layout
@@ -33558,7 +34243,7 @@ reference "fig:rotor_forward_wake"
 舰载直升机气动干扰
 \end_layout
 
-\begin_layout Chapter
+\begin_layout Chapter*
 结论
 \end_layout
 
