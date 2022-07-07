@@ -1916,7 +1916,7 @@ literal "false"
 是旋翼涡系对该点的诱导速度。 该诱导速度需根据Biot-Savart定律
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Anderson2001"
+key "Anderson_2017"
 literal "false"
 
 \end_inset
