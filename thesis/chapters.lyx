@@ -4332,6 +4332,13 @@ literal "false"
 
 \begin_layout Chapter
 特征线法与黎曼问题
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:riemann"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -25830,54 +25837,46 @@ reference "eq:m-stage_Runge--Kutta"
 \end_layout
 
 \begin_layout Subsection
-线性单波方程
+线性平流问题
 \end_layout
 
 \begin_layout Standard
-The first group of problems to be solved is the linear version of Equation
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:differential_form"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
+本小节求解如下线性波动方程
 \begin_inset Formula 
 \begin{equation}
-\partial_{t}\underline{U}+\underline{A^{x}}\,\partial_{x}\underline{U}+\underline{A^{y}}\,\partial_{y}\underline{U}+\underline{A^{z}}\,\partial_{z}\underline{U}=\underline{O}\label{eq:linear_system}
+\partial_{t}\underline{U}+\underline{A^{x}}\,\partial_{x}\underline{U}+\underline{A^{y}}\,\partial_{y}\underline{U}+\underline{A^{z}}\,\partial_{z}\underline{U}=\underline{0}\label{eq:linear_system}
 \end{equation}
 
 \end_inset
 
+的初边值问题。这组问题的解析解可以由第 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:riemann"
 
-\end_layout
+\end_inset
 
-\begin_layout Standard
-with certain boundary and initial conditions.
- These problems are mathematically simple in the sense that they can be
- solved analytically.
- The existence of analytic solutions gives us a good way to measure the
- accuracy of our numerical solvers.
- In this subsection, we use tetrahedral meshes generated in a 
+ 章介绍的方法获得，因而很适合被用于数值求解器性能的定量评估。本节所有问题都是在三维区间 
 \begin_inset Formula $[0,4]\times[0,1]\times[0,0.5]$
 \end_inset
 
- box.
-\end_layout
+ 内求解的，且所有平行于 
+\begin_inset Formula $x$
+\end_inset
 
-\begin_layout Standard
-This is the simplest case of Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:linear_system"
+ 轴的边界均以“法向导数为零”为边界条件，即
+\begin_inset Formula 
+\[
+\frac{\partial U}{\partial\nu}=0,\qquad(y-0)(y-1)(z-0)(z-0.5)=0.
+\]
 
 \end_inset
 
-:
+
+\end_layout
+
+\begin_layout Subsubsection
+线性单波方程
 \end_layout
 
 \begin_layout Problem
@@ -25887,67 +25886,49 @@ name "prob:linear_scalar"
 
 \end_inset
 
-In Equation 
+在方程 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:linear_system"
 
 \end_inset
 
-, let 
-\begin_inset Formula $\underline{U}$
+ 中，令
+\begin_inset Formula 
+\[
+\underline{U}(x,y,z,t)=\begin{bmatrix}U(x,y,z,t)\end{bmatrix},\qquad\underline{A^{x}}=\begin{bmatrix}-10\end{bmatrix},\qquad\underline{A^{y}}=\underline{A^{z}}=\begin{bmatrix}0\end{bmatrix},
+\]
+
 \end_inset
 
- consists only one component and each 
-\begin_inset Formula $\underline{A}$
+即得线性单波方程
+\begin_inset Formula 
+\[
+\left(\partial_{t}-10\partial_{x}\right)U=0.
+\]
+
 \end_inset
 
- consists a single number:
+求满足此方程与边界条件
+\begin_inset Formula 
+\[
+U(x=0,y,z,t)=-10\eqqcolon U_{L},\qquad U(x=4,y,z,t)=+10\eqqcolon U_{R},
+\]
+
+\end_inset
+
+及初始条件
 \end_layout
 
 \begin_layout Problem
 \begin_inset Formula 
 \[
-\underline{U}(\vec{x},t)=\begin{bmatrix}U(x,y,z,t)\end{bmatrix},\qquad\underline{A^{x}}=\begin{bmatrix}-10\end{bmatrix},\qquad\underline{A^{y}}=\underline{A^{z}}=\begin{bmatrix}0\end{bmatrix}.
+U(x,y,z,t=0)=U_{L}
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Problem
-The following boundary conditions
-\end_layout
-
-\begin_layout Problem
-\begin_inset Formula 
-\[
-\underline{U}(x=0,y,z,t)=\begin{bmatrix}-10\end{bmatrix}\eqqcolon\underline{U}_{\mathrm{L}},\qquad\underline{U}(x=4,y,z,t)=\begin{bmatrix}+10\end{bmatrix}\eqqcolon\underline{U}_{\mathrm{R}},
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Problem
-and the initial condition
-\end_layout
-
-\begin_layout Problem
-\begin_inset Formula 
-\[
-\underline{U}(x,y,z,t=0)=\underline{U}_{\mathrm{L}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Problem
-are applied.
+的广义解。
 \end_layout
 
 \begin_layout Standard
@@ -25958,43 +25939,44 @@ are applied.
 \end_layout
 
 \begin_layout Standard
-The analytic solution of Problem 
+问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:linear_scalar"
 
 \end_inset
 
- is:
+ 的解析解为
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\underline{U}(x,y,z,t)=\begin{cases}
-\underline{U}_{\mathrm{L}} & x-4<-10t\\
-\underline{U}_{\mathrm{R}} & x-4>-10t
+U^{\star}(x,y,z,t)=\begin{cases}
+U_{L}, & x-4<-10t;\\
+U_{R}, & x-4>-10t.
 \end{cases}
 \]
 
 \end_inset
 
+其物理意义为以速率 
+\begin_inset Formula $10$
+\end_inset
 
-\end_layout
+ 沿 
+\begin_inset Formula $-x$
+\end_inset
 
-\begin_layout Standard
-which can be interpreted as a left-running plane wave, whose profile is
- a jump initially positioned at the right end (
+ 方向移动的平面波。初始时，长方体内部为均匀状态，但有一间断位于 
 \begin_inset Formula $x=4$
 \end_inset
 
-).
- To compare the accuracy of various schemes, we plot the meshes and the
- numerical solutions at the same moment (
-\begin_inset Formula $t=0.2$
-\end_inset
+ 处。
+\end_layout
 
-) in Figure 
+\begin_layout Standard
+为了直观地比较数值解的精度，图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:linear_scalar_p=3_h=2^-3"
@@ -26008,39 +25990,45 @@ reference "fig:linear_scalar_p=3_h=2^-2"
 
 \end_inset
 
-.
- The white-colored regions in these figures are continuous transition layers,
- which are inevitable due to the dissipation of numerical schemes.
- The thickness of such transition layer, however, can then be used as an
- indicator of the scheme's accuracy.
- Ideally, the thickness should be infinitesimal, as in the analytic solution.
- The differences between these results are more obvious in Figure 
+ 给出了若干求解器–网格 (
+\begin_inset Formula $p$
+\end_inset
+
+–
+\begin_inset Formula $h$
+\end_inset
+
+) 组合给出的同一时刻的数值解云图。这些图中的白色区域为函数值连续变化的过渡层，其厚度与数值解的误差呈正相关。通过比较图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:linear_scalar_h_vary"
-plural "false"
-caps "false"
-noprefix "false"
+reference "fig:linear_scalar_p=1_h=2^-5"
 
 \end_inset
 
- and 
+ 所示的细 (
+\begin_inset Formula $h\approx1/32$
+\end_inset
+
+) 网格上的低阶 (
+\begin_inset Formula $p=1$
+\end_inset
+
+) 数值解，与图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:linear_scalar_p_vary"
+reference "fig:linear_scalar_p=3_h=2^-2"
 
 \end_inset
 
-, in which we plot the values on 1001 uniformly distributed sample points
- along the longitudinal axis (on which 
-\begin_inset Formula $y=0.5$
+ 所示粗 (
+\begin_inset Formula $h\approx1/4$
 \end_inset
 
- and 
-\begin_inset Formula $z=0.25$
+) 网格上的高阶 (
+\begin_inset Formula $p=3$
 \end_inset
 
-) for each solver.
+) 数值解，可知二者的误差在同一量级。
 \end_layout
 
 \begin_layout Standard
@@ -26070,18 +26058,22 @@ name "fig:linear_scalar_p=3_h=2^-3"
 
 \end_inset
 
-Third-order solution of Problem 
+在 
+\begin_inset Formula $h\approx2^{-3}$
+\end_inset
+
+ 网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:linear_scalar"
 
 \end_inset
 
- on medium (
-\begin_inset Formula $h\approx2^{-3}$
+ 在 
+\begin_inset Formula $t=0.2$
 \end_inset
 
-) cells.
+ 时刻的三阶精度解
 \end_layout
 
 \end_inset
@@ -26121,18 +26113,22 @@ name "fig:linear_scalar_p=1_h=2^-4"
 
 \end_inset
 
-First-order solution of Problem 
+在 
+\begin_inset Formula $h\approx2^{-4}$
+\end_inset
+
+ 网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:linear_scalar"
 
 \end_inset
 
- on small (
-\begin_inset Formula $h\approx2^{-4}$
+ 在 
+\begin_inset Formula $t=0.2$
 \end_inset
 
-) cells.
+ 时刻的一阶精度解
 \end_layout
 
 \end_inset
@@ -26172,18 +26168,22 @@ name "fig:linear_scalar_p=1_h=2^-5"
 
 \end_inset
 
-First-order solution of Problem 
+在 
+\begin_inset Formula $h\approx2^{-5}$
+\end_inset
+
+ 网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:linear_scalar"
 
 \end_inset
 
- on tiny (
-\begin_inset Formula $h\approx2^{-5}$
+ 在 
+\begin_inset Formula $t=0.2$
 \end_inset
 
-) cells.
+ 时刻的一阶精度解
 \end_layout
 
 \end_inset
@@ -26223,18 +26223,22 @@ name "fig:linear_scalar_p=3_h=2^-2"
 
 \end_inset
 
-Third-order solution of Problem 
+在 
+\begin_inset Formula $h\approx2^{-2}$
+\end_inset
+
+ 网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:linear_scalar"
 
 \end_inset
 
- on big (
-\begin_inset Formula $h\approx2^{-2}$
+ 在 
+\begin_inset Formula $t=0.2$
 \end_inset
 
-) cells.
+ 时刻的三阶精度解
 \end_layout
 
 \end_inset
@@ -26245,6 +26249,39 @@ reference "prob:linear_scalar"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+为了进一步体现单元尺寸与求解器阶数对数值解精度的影响，图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_scalar_h_vary"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_scalar_p_vary"
+
+\end_inset
+
+ 给出了沿纵向对称轴 (
+\begin_inset Formula $y=0.5,\,z=0.25$
+\end_inset
+
+) 均匀分布的 1001 个采样点处的函数值。二者分别体现了加密网格（减小 
+\begin_inset Formula $h$
+\end_inset
+
+）与增加阶数（增大 
+\begin_inset Formula $p$
+\end_inset
+
+）对数值解精度的提高。
 \end_layout
 
 \begin_layout Standard
@@ -26274,14 +26311,18 @@ name "fig:linear_scalar_h_vary"
 
 \end_inset
 
-Comparison between solutions of Problem 
+同一求解器在不同网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:linear_scalar"
 
 \end_inset
 
- given by running the same solver on different meshes.
+ 在 
+\begin_inset Formula $t=0.2$
+\end_inset
+
+ 时刻的解之间的比较
 \end_layout
 
 \end_inset
@@ -26321,14 +26362,18 @@ name "fig:linear_scalar_p_vary"
 
 \end_inset
 
-Comparison between solutions of Problem 
+不同求解器在同一网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:linear_scalar"
 
 \end_inset
 
- given by running different solvers on the same mesh.
+ 在 
+\begin_inset Formula $t=0.2$
+\end_inset
+
+ 时刻的解之间的比较
 \end_layout
 
 \end_inset
@@ -26342,19 +26387,61 @@ reference "prob:linear_scalar"
 \end_layout
 
 \begin_layout Standard
-In Table 
+表 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:accuracy_and_cost"
+reference "tab:linear_accuracy"
 
 \end_inset
 
-, we give the measured error and time cost of each solver/mesh pair.
- The seconds consumed by first-order solutions are somewhat exaggerated,
- since we use the same high-order quadrature rules for both first- and third-ord
-er solvers, which is necessary to integrate non-constant errors.
- If we did not have to measure the errors, then low-order numerical integrators
- could be used, which might save some time.
+ 列出了各种求解器–网格 (
+\begin_inset Formula $p$
+\end_inset
+
+–
+\begin_inset Formula $h$
+\end_inset
+
+) 组合的全局误差测量值。这里的“全局误差”定义为
+\begin_inset Formula 
+\begin{equation}
+\varepsilon(t)=\sum_{i\in I_{V}}\iiint_{V_{i}}|U^{h}(x,y,z,t)-U^{\star}(x,y,z,t)|\dd{x}\dd{y}\dd{z}.\label{eq:global-error}
+\end{equation}
+
+\end_inset
+
+表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:linear_accuracy"
+
+\end_inset
+
+ 中的数据验证了前文定性观察得出的结论，即（1）细 (
+\begin_inset Formula $h\approx1/32$
+\end_inset
+
+) 网格上的低阶 (
+\begin_inset Formula $p=1$
+\end_inset
+
+) 数值解，与粗 (
+\begin_inset Formula $h\approx1/4$
+\end_inset
+
+) 网格上的高阶 (
+\begin_inset Formula $p=3$
+\end_inset
+
+) 数值解精度相当；（2）加密网格（减小 
+\begin_inset Formula $h$
+\end_inset
+
+）或增加阶数（增大 
+\begin_inset Formula $p$
+\end_inset
+
+）都能提高数值解精度。
 \end_layout
 
 \begin_layout Standard
@@ -26368,7 +26455,13 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Accuracy and time cost of each solver–mesh (
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:linear_accuracy"
+
+\end_inset
+
+各种求解器–网格 (
 \begin_inset Formula $p$
 \end_inset
 
@@ -26376,52 +26469,12 @@ Accuracy and time cost of each solver–mesh (
 \begin_inset Formula $h$
 \end_inset
 
-) pair.
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:accuracy_and_cost"
-
-\end_inset
-
-
+) 组合的全局误差
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "49text%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-\begin_inset Formula $L_{1}$
-\end_inset
-
--error
-\end_layout
-
-\begin_layout Plain Layout
-with respect to the analytic solution.
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="5">
 <features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
@@ -26756,34 +26809,125 @@ diagbox{$p$}{$h$}
 \end_inset
 
 
-\begin_inset space \hfill{}
+\end_layout
+
+\begin_layout Standard
+表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:linear_cost"
+
 \end_inset
 
+ 列出了各种求解器–网格 (
+\begin_inset Formula $p$
+\end_inset
 
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "49text%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
+–
+\begin_inset Formula $h$
+\end_inset
+
+) 组合的运行时间。这里的“运行时间”含数据结构初始化及文件读写等操作，均为在主频为 2.7 GHz 的单核处理器上测得。需要说明的是，表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:linear_cost"
+
+\end_inset
+
+ 中的数据夸大了低阶求解器的运行时间，这是因为就间断伽辽金有限元方法而言，低阶求解器本可以采用与之相对应的低阶数值积分器。但为了公平地计算式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:global-error"
+
+\end_inset
+
+ 所定义的全局误差，本节所展示的各阶求解器使用了同一个高阶数值积分器，即在四面体单元上具有 6 阶代数精度的 24 点积分器。即便如此，由表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:linear_cost"
+
+\end_inset
+
+ 所列数据依然可知：在数值解精度大致相当的情况下，高阶 (
+\begin_inset Formula $p=3$
+\end_inset
+
+) 求解器在粗 (
+\begin_inset Formula $h\approx1/4$
+\end_inset
+
+) 网格上所消耗的运行时间 (4.147 s) 远小于低阶 (
+\begin_inset Formula $p=1$
+\end_inset
+
+) 求解器在细 (
+\begin_inset Formula $h\approx1/32$
+\end_inset
+
+) 网格上的所消耗的运行时间 (
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+306.293
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ s 或按 
+\begin_inset Formula $1/24$
+\end_inset
+
+ 换算后的 12.762 s)。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-Time cost (in seconds) measured on a single
-\end_layout
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-core whose main frequency is 2.7 GHz.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:linear_cost"
+
+\end_inset
+
+各种求解器–网格 (
+\begin_inset Formula $p$
+\end_inset
+
+–
+\begin_inset Formula $h$
+\end_inset
+
+) 组合的运行时间（单位：s）
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -26937,7 +27081,7 @@ diagbox{$p$}{$h$}
 \uwave off
 \noun off
 \color none
-16.53
+16.533
 \end_layout
 
 \end_inset
@@ -26959,7 +27103,7 @@ diagbox{$p$}{$h$}
 \uwave off
 \noun off
 \color none
-306.3
+306.293
 \end_layout
 
 \end_inset
@@ -27001,7 +27145,7 @@ diagbox{$p$}{$h$}
 \uwave off
 \noun off
 \color none
-14.89
+14.894
 \end_layout
 
 \end_inset
@@ -27010,7 +27154,7 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-253.8
+253.821
 \end_layout
 
 \end_inset
@@ -27019,7 +27163,7 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-4986.
+4986.391
 \end_layout
 
 \end_inset
@@ -27074,7 +27218,7 @@ diagbox{$p$}{$h$}
 \uwave off
 \noun off
 \color none
-61.42
+61.425
 \end_layout
 
 \end_inset
@@ -27096,7 +27240,7 @@ diagbox{$p$}{$h$}
 \uwave off
 \noun off
 \color none
-906.9
+906.914
 \end_layout
 
 \end_inset
@@ -27123,84 +27267,11 @@ diagbox{$p$}{$h$}
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
-The following conclusions can be drawn from both Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:linear_scalar_p=3_h=2^-3"
-
-\end_inset
-
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:linear_scalar_p_vary"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- and Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:accuracy_and_cost"
-
-\end_inset
-
-:
+以上结果表明：高阶求解器具有较高的性价比。这里的“性”指全局精度，“价”指运行时间。
 \end_layout
 
-\begin_layout Itemize
-Both mesh refinement (decreasing 
-\begin_inset Formula $h$
-\end_inset
-
-) and order increment (increasing 
-\begin_inset Formula $p$
-\end_inset
-
-) can help to improve accuracy.
-\end_layout
-
-\begin_layout Itemize
-The solver of the highest order (
-\begin_inset Formula $p=3$
-\end_inset
-
-) on the coarsest (
-\begin_inset Formula $h\approx2^{-2}$
-\end_inset
-
-) mesh defeats the solver of the lowest order (
-\begin_inset Formula $p=1$
-\end_inset
-
-) on the finest (
-\begin_inset Formula $h\approx2^{-5}$
-\end_inset
-
-) mesh in accuracy but saves quite a lot of time.
-\end_layout
-
-\begin_layout Itemize
-High-order schemes are better than low-order ones in the sense of getting
- the same level of accuracy with less time cost.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
+\begin_layout Subsubsection
 线性双波系统
 \end_layout
 
@@ -27941,6 +28012,10 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+Sod 问题
 \end_layout
 
 \begin_layout Problem
@@ -28694,6 +28769,10 @@ Comparison between solutions given by various
 
 \end_layout
 
+\begin_layout Subsubsection
+Lax 问题
+\end_layout
+
 \begin_layout Problem
 \begin_inset ERT
 status open
@@ -28997,6 +29076,10 @@ reference "fig:lax-1"
 
 -refinement and the ability of our high-order solvers to suppress numerical
  oscillations.
+\end_layout
+
+\begin_layout Subsubsection
+真空形成问题
 \end_layout
 
 \begin_layout Problem
