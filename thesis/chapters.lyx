@@ -26405,7 +26405,7 @@ reference "tab:linear_accuracy"
 ) 组合的全局误差测量值。这里的“全局误差”定义为
 \begin_inset Formula 
 \begin{equation}
-\varepsilon(t)=\sum_{i\in I_{V}}\iiint_{V_{i}}|U^{h}(x,y,z,t)-U^{\star}(x,y,z,t)|\dd{x}\dd{y}\dd{z}.\label{eq:global-error}
+\varepsilon(t)=\sum_{i\in I_{V}}\int_{V_{i}}|U^{h}(x,y,z,t)-U^{\star}(x,y,z,t)|.\label{eq:global-error}
 \end{equation}
 
 \end_inset
@@ -27272,7 +27272,7 @@ diagbox{$p$}{$h$}
 \end_layout
 
 \begin_layout Subsubsection
-线性双波系统
+线性双波方程组
 \end_layout
 
 \begin_layout Problem
@@ -27282,29 +27282,14 @@ name "prob:linear_system"
 
 \end_inset
 
-In Equation 
+在方程 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:linear_system"
 
 \end_inset
 
-, let 
-\begin_inset Formula $\underline{U}$
-\end_inset
-
- consists two components and each 
-\begin_inset Formula $\underline{A}$
-\end_inset
-
- be a 
-\begin_inset Formula $2\times2$
-\end_inset
-
- matrix:
-\end_layout
-
-\begin_layout Problem
+ 中，令
 \begin_inset Formula 
 \[
 \underline{U}(\vec{x},t)=\begin{bmatrix}U_{1}(x,y,z,t)\\
@@ -27318,14 +27303,18 @@ U_{2}(x,y,z,t)
 
 \end_inset
 
+由此得线性双波方程组
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+\partial_{t}U_{1}+6\partial_{x}U_{1}-2\partial_{x}U_{2}=0,\\
+\partial_{t}U_{2}-2\partial_{x}U_{1}+6\partial_{x}U_{2}=0.
+\end{cases}\label{eq:linear_double_wave}
+\end{equation}
 
-\end_layout
+\end_inset
 
-\begin_layout Problem
-The following boundary conditions
-\end_layout
-
-\begin_layout Problem
+求满足此方程组与边界条件
 \begin_inset Formula 
 \[
 \underline{U}(x=0,y,z,t)=\begin{bmatrix}0\\
@@ -27337,14 +27326,7 @@ The following boundary conditions
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Problem
-and the initial condition
-\end_layout
-
-\begin_layout Problem
+及初始条件
 \begin_inset Formula 
 \[
 \underline{U}(x,y,z,t=0)=\underline{U}_{\mathrm{R}}
@@ -27352,11 +27334,7 @@ and the initial condition
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Problem
-are applied.
+的广义解。
 \end_layout
 
 \begin_layout Standard
@@ -27367,12 +27345,11 @@ are applied.
 \end_layout
 
 \begin_layout Standard
-To solve this problem analytically, we first obtain the eigenvalue decomposition
- of 
+为获得其解析解，先对 
 \begin_inset Formula $\underline{A^{x}}$
 \end_inset
 
-, which is
+ 作特征分解，得到
 \begin_inset Formula 
 \[
 \underbrace{\begin{bmatrix}6 & -2\\
@@ -27383,20 +27360,16 @@ To solve this problem analytically, we first obtain the eigenvalue decomposition
  & 4
 \end{bmatrix}}_{\underline{\varLambda^{x}}}\underbrace{\begin{bmatrix}1/2 & -1/2\\
 1/2 & 1/2
-\end{bmatrix}}_{(\underline{R^{x}})^{-1}}
+\end{bmatrix}}_{\underline{L^{x}}}.
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-By introducing the characteristic variable 
-\begin_inset Formula $\underline{V}\coloneqq(\underline{R^{x}})^{-1}\underline{U}$
+通过引入特征变量 
+\begin_inset Formula $\underline{V}\coloneqq\underline{L^{x}}\,\underline{U}$
 \end_inset
 
-, which means
+，即
 \end_layout
 
 \begin_layout Standard
@@ -27415,57 +27388,46 @@ U_{1}+U_{2}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-the boundary conditions become
+可以将边界条件转化为
 \begin_inset Formula 
 \[
-\underline{V}_{\mathrm{L}}=(\underline{R^{x}})^{-1}\underline{U}_{\mathrm{L}}=\begin{bmatrix}0\\
+\underline{V}_{\mathrm{L}}=\underline{L^{x}}\,\underline{U}_{\mathrm{L}}=\begin{bmatrix}0\\
 0
-\end{bmatrix},\qquad\underline{V}_{\mathrm{R}}=(\underline{R^{x}})^{-1}\underline{U}_{\mathrm{R}}=\begin{bmatrix}8\\
+\end{bmatrix},\qquad\underline{V}_{\mathrm{R}}=\underline{L^{x}}\,\underline{U}_{\mathrm{R}}=\begin{bmatrix}8\\
 4
 \end{bmatrix},
 \]
 
 \end_inset
 
+并将方程组 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:linear_double_wave"
 
-\end_layout
+\end_inset
 
-\begin_layout Standard
-and the system can be decoupled:
-\end_layout
-
-\begin_layout Standard
+ 解耦为
 \begin_inset Formula 
 \[
-\begin{bmatrix}\partial_{t}+8\partial_{x}\\
- & \partial_{t}+4\partial_{x}
-\end{bmatrix}\begin{bmatrix}V_{1}\\
-V_{2}
-\end{bmatrix}=\begin{bmatrix}0\\
-0
-\end{bmatrix}.
+\begin{cases}
+\left(\partial_{t}+8\partial_{x}\right)V_{1}=0,\\
+\left(\partial_{t}+4\partial_{x}\right)V_{2}=0.
+\end{cases}
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-We can then solve these two scalar problems independently, which gives
+由此得到两个独立的初边值问题，它们的解析解分别为
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-V_{1}(x,y,z,t)=\begin{cases}
+V_{1}^{\star}(x,y,z,t)=\begin{cases}
 0 & x<8t\\
 8 & x>8t
-\end{cases},\qquad V_{2}(x,y,z,t)=\begin{cases}
+\end{cases},\qquad V_{2}^{\star}(x,y,z,t)=\begin{cases}
 0 & x<4t\\
 4 & x>4t
 \end{cases}.
@@ -27473,43 +27435,32 @@ V_{1}(x,y,z,t)=\begin{cases}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-The solution of Problem 
+在此基础上，问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:linear_system"
 
 \end_inset
 
- can be obtained by 
-\begin_inset Formula $\underline{U}=\underline{R^{x}}\,\underline{V}$
+ 的解可通过特征变量到守恒变量的反变换 
+\begin_inset Formula $\underline{U^{\star}}=\underline{R^{x}}\,\underline{V^{\star}}$
 \end_inset
 
-, which gives
-\end_layout
-
-\begin_layout Standard
+ 得到：
 \begin_inset Formula 
 \begin{equation}
-\underline{U}(\vec{x},t)=\begin{bmatrix}V_{2}+V_{1}\\
-V_{2}-V_{1}
+\underline{U^{\star}}(\vec{x},t)=\begin{bmatrix}V_{2}^{\star}+V_{1}^{\star}\\
+V_{2}^{\star}-V_{1}^{\star}
 \end{bmatrix}=\begin{cases}
 \underline{U}_{\mathrm{L}} & x/t<4\\
 \underline{U}_{\mathrm{M}} & x/t\in(4,8)\\
 \underline{U}_{\mathrm{R}} & x/t>8
-\end{cases},\label{eq:system_solution}
+\end{cases},\label{eq:linear_double_wave_solution}
 \end{equation}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-where
+其中
 \begin_inset Formula 
 \[
 \underline{U}_{\mathrm{L}}=\begin{bmatrix}0\\
@@ -27527,20 +27478,42 @@ where
 \end_layout
 
 \begin_layout Standard
-With this analytic solution, we can evaluate the accuracy of our numerical
- solvers.
- Four solver–limiter pairs are tested on the same mesh (
-\begin_inset Formula $h\approx2^{-3}$
-\end_inset
-
-) used in Figure 
+此解析解可以被用来定量地评估数值求解器的性能。本小节使用图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:linear_scalar_p=3_h=2^-3"
 
 \end_inset
 
-.
+ 所示的网格，测试了四种求解器–限制器组合，所得结果如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_double_wave_contour"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_double_wave_u_2"
+
+\end_inset
+
+ 所示，其中图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_double_wave_u_1"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:linear_double_wave_u_2"
+
+\end_inset
+
+ 依然为沿纵向对称轴均匀分布的 1001 个采样点处的函数值。
 \end_layout
 
 \begin_layout Standard
@@ -27561,20 +27534,31 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../mdpi/figures/linear_system/u_2_contour.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:linear_system_u_1_contour"
+name "fig:linear_double_wave_contour"
 
 \end_inset
 
-Third-order solution of 
-\begin_inset Formula $U_{1}(t=0.3)$
+在 
+\begin_inset Formula $h\approx2^{-3}$
 \end_inset
 
- in Problem 
+ 网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:linear_system"
@@ -27584,7 +27568,11 @@ noprefix "false"
 
 \end_inset
 
-.
+ 在 
+\begin_inset Formula $t=0.3$
+\end_inset
+
+ 时刻的三阶精度解
 \end_layout
 
 \end_inset
@@ -27620,79 +27608,15 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:linear_system_u_1"
+name "fig:linear_double_wave_u_1"
 
 \end_inset
 
-Comparison between solutions of 
-\begin_inset Formula $U_{1}(t=0.3)$
+不同求解器–限制器组合在同一网格上得到的数值解 
+\begin_inset Formula $U_{1}^{h}(x,y=0.5,z=0.25,t=0.3)$
 \end_inset
 
- in Problem 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:linear_system"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../mdpi/figures/linear_system/u_2_contour.png
-	lyxscale 15
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:linear_system_u_2_contour"
-
-\end_inset
-
-Third-order solution of 
-\begin_inset Formula $U_{2}(t=0.3)$
-\end_inset
-
- in Problem 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:linear_system"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
+ 之间的比较
 \end_layout
 
 \end_inset
@@ -27728,25 +27652,15 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:linear_system_u_2"
+name "fig:linear_double_wave_u_2"
 
 \end_inset
 
-Comparison between solutions of 
-\begin_inset Formula $U_{2}(t=0.3)$
+不同求解器–限制器组合在同一网格上得到的数值解 
+\begin_inset Formula $U_{2}^{h}(x,y=0.5,z=0.25,t=0.3)$
 \end_inset
 
- in Problem 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:linear_system"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
+ 之间的比较
 \end_layout
 
 \end_inset
@@ -27760,97 +27674,25 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-We plot the contour of 
-\begin_inset Formula $\underline{U}(x,y,z,t=0.3)$
-\end_inset
-
- with the underlying mesh in Figure 
+为了更清晰地展示各种求解器–限制器组合的效果，图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:linear_system_u_1_contour"
+reference "fig:linear_double_wave_error"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
- and Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:linear_system_u_2_contour"
-plural "false"
-caps "false"
-noprefix "false"
+ 比较了以上四种数值解的绝对误差。这里的“绝对误差”定义为
+\begin_inset Formula 
+\[
+\varepsilon(x)=\left(|U_{1}^{h}-U_{1}^{\star}|+|U_{2}^{h}-U_{2}^{\star}|\right)_{y=0.5,\,z=0.25,\,t=0.3}.
+\]
 
 \end_inset
 
- and compare the results along the longitudinal axis at 
-\begin_inset Formula $t=0.3$
-\end_inset
 
- with the analytic solution in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:linear_system_u_1"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:linear_system_u_2"
-
-\end_inset
-
-.
- It is clear that both 
-\family typewriter
-LazyWeno
-\family default
- and 
-\family typewriter
-EigenWeno
-\family default
- (see Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:limiting_procedures"
-
-\end_inset
-
-) can essentially suppress non-physical oscillations in each component.
- Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:linear_system_error"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- shows that higher-order (
-\begin_inset Formula $p=3$
-\end_inset
-
-) solvers still outperforms lower-order (
-\begin_inset Formula $p=2$
-\end_inset
-
-) solvers in accuracy and the 
-\family typewriter
-EigenWeno
-\family default
- limiter generally works better than its 
-\family typewriter
-LazyWeno
-\family default
- counterpart.
- For this reason, we will use 
-\family typewriter
-EigenWeno
-\family default
- limiters exclusively in the rest of this section.
 \end_layout
 
 \begin_layout Standard
@@ -27876,28 +27718,28 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:linear_system_error"
+name "fig:linear_double_wave_error"
 
 \end_inset
 
-Comparison between absolute errors of numerical solutions in Figures 
+图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:linear_system_u_1"
+reference "fig:linear_double_wave_u_1"
 
 \end_inset
 
- and 
+–
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:linear_system_u_2"
+reference "fig:linear_double_wave_u_2"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-.
+ 所示数值解的绝对误差之比较
 \end_layout
 
 \end_inset
@@ -27908,6 +27750,22 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+由以上结果可知：
+\family typewriter
+LazyWeno
+\family default
+ 及 
+\family typewriter
+EigenWeno
+\family default
+ 这两种限制器都能有效地压制非物理振荡，且后者压制振荡的效果优于前者。基于此结论，本文剩余部分的算例将全部采用 
+\family typewriter
+EigenWeno
+\family default
+ 限制器。
 \end_layout
 
 \begin_layout Subsection
