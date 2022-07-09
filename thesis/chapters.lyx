@@ -27773,103 +27773,26 @@ EigenWeno
 \end_layout
 
 \begin_layout Standard
-These problems are usually defined as one-dimensional problems, but we treat
- them as three-dimensional ones.
- All these problems are considered in a 
+这组问题通常被定义为一维问题，但本文在三维空间内重新定义这些问题，以用于验证三维求解器的正确性。本小节所有算例都是在三维区间 
 \begin_inset Formula $[0.0,5.0]\times[0.0,1.0]\times[0.0,0.5]$
 \end_inset
 
- box with all boundaries closed but the left and right ends open.
- Although no analytic solutions exist, we can still use the method described
- in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Toro_2009"
-literal "true"
-
+ 内求解的，且所有平行于 
+\begin_inset Formula $x$
 \end_inset
 
-, which solves nonlinear algebraic equations numerically, to obtain their
- exact solutions.
- To test the numerical methods described in Section 
+ 轴的边界均设为固体壁面。尽管它们没有封闭形式的解析解，但基于第 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:methods"
-
-\end_inset
-
-, we use the unstructured hexahedral mesh in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:shock_tube"
-
-\end_inset
-
-, in which 
-\begin_inset Formula $h\approx1/10$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../mdpi/figures/shock_tubes/mesh.png
-	lyxscale 15
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:shock_tube"
-
-\end_inset
-
-Mesh for Problem 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:sod"
+reference "chap:riemann"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:vacuum"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+ 章的方法，辅之以精度充分高的非线性代数方程求解器，仍然可以得到精度任意高的近似解。这种近似解的精度可以充分高，以至于其与实数范围内的精确解具有相同的（有限位）
+浮点数表示。若无特别说明，本文剩余部分提到的“精确解”都是指“浮点数范围内的精确解”或“计算机上的精确解”。
 \end_layout
 
 \begin_layout Subsubsection
