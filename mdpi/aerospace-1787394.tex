@@ -24,6 +24,7 @@
 \pubyear{2022}
 \copyrightyear{2022}
 \externaleditor{\hl{Academic Editor: Firstname Lastname}} %MDPI: PLease add Academic Editor.
+%Authors: We are not sure who is the Academic Editor.
 \datereceived{} 
 %\daterevised{} % Only for the journal Acoustics
 \dateaccepted{} 
@@ -37,6 +38,7 @@
 \Title{High-Order CFD Solvers on Three-Dimensional Unstructured Meshes: Parallel
 Implementation of RKDG Method with WENO Limiter and Momentum Sources}
 %Please confirm title change.
+%Authors: Confirmed.
 
 \TitleCitation{High-Order CFD Solvers on Three-Dimensional Unstructured Meshes: Parallel
 Implementation of RKDG Method with WENO Limiter and Momentum Sources}
@@ -45,6 +47,7 @@ Implementation of RKDG Method with WENO Limiter and Momentum Sources}
 
 \Author{\hl{Weicheng Pei} $^{1}$, Yuyan Jiang $^{1}$ and Shu Li $^{1,2,}$*}
 %MDPI: Please carefully check the accuracy of names and affiliations.
+%Authors: Confirmed.
 \AuthorNames{Weicheng Pei, Yuyan Jiang and Shu Li}
 
 \AuthorCitation{Pei, W.; Jiang, Y.; Li, S. }
@@ -58,6 +61,7 @@ $^{2}$\quad{}Ningbo Institute of Technology, Beihang University,
 %MDPI: Please confirm removed P.R. before China, and please confirm moved  postcode after city.
 %MDPI: PLease confirm added authors emails from remine.
 %MDPI: we removed province in aff. 2, Please check  
+%Authors: All confirmed.
 \corres{Correspondence: lishu@buaa.edu.cn}
 
 
@@ -195,7 +199,7 @@ models}
 
 \section{Introduction}
 
-CFD solvers, widely used in aerospace engineering, are based either
+Computational fluid dynamics (CFD) solvers, widely used in aerospace engineering, are based either
 on finite difference (FD) schemes or on finite volume (FV) schemes.
 However, FD schemes are restricted on structured meshes, while most
 FV schemes have only first- or second-order accuracy. One way to develop
@@ -212,7 +216,7 @@ designed an explicit Euler DG cheme, which is second-order accurate
 in space but only first-order accurate in time. To~improve the accuracy
 of time discretization, Cockburn and Shu \citep{Cockburn_1988} replaced
 the first-order forward Euler method with high-order Runge--Kutta
-(RK) methods, which led to the family of RKDG schemes for scalar conservation
+(RK) methods, which led to the family of Runge--Kutta discontinuous Galerkin (RKDG) schemes for scalar conservation
 \mbox{laws \citep{Shu_1988,Shu_1989},} for~one-dimensional conservation
 law systems \citep{Cockburn_1989}, for~multi-dimensional scalar conservation
 \mbox{laws \citep{Cockburn_1990}} and for multi-dimensional conservation
@@ -315,7 +319,7 @@ and the pressure $p$ are called primitive variables;
 \item The thermodynamic quantities $e_{0}$ and $h_{0}$ are the specific
 total energy and the specific total enthalpy, respectively; for~ideal
 gases, they can be written as functions of the five primitive variables:
-\item 
+%Authors: Delete a dummy \item.
 \[
 e_{0}=\frac{p/\rho}{\gamma-1}+\frac{u_{x}^{2}+u_{y}^{2}+u_{z}^{2}}{2},\qquad h_{0}=e_{0}+\frac{p}{\rho},
 \]
@@ -337,11 +341,11 @@ canceled, it would reduce to the form in \citep{Pei_2022}.
 
 Equation~(\ref{eq:euler_system}) can be written as
 \begin{equation}
-\partial_{t}\underline{U}+\nabla\cdot\underline{\vec{F}}=\underline{Q}\label{eq:differential_form}
+\partial_{t}\underline{U}+\nabla\cdot\underline{\vec{F}}=\underline{Q},\label{eq:differential_form}
 \end{equation}
 in which $\underline{\vec{F}}=\underline{F^{x}}\vec{e}_{x}+\underline{F^{y}}\vec{e}_{y}+\underline{F^{z}}\vec{e}_{z}$
-is the flux tensor and $\underline{U}$, $\underline{F^{x}}$, $\underline{F^{y}}$,
-$\underline{F^{z}}$, $\underline{Q}$ are all $5\times1$ matrices,
+is the flux vector whose components $\underline{F^{x}}$, $\underline{F^{y}}$,
+$\underline{F^{z}}$, and $\underline{U}$, $\underline{Q}$ are all $5\times1$ matrices,
 each row of which is a scalar function depending on position $\vec{x}$
 and time $t$. By~multiplying both sides with an arbitrary test function
 $\psi(\vec{x})$ and integrating the products on the $i$-th element
@@ -352,12 +356,15 @@ into a weak form:
 \int_{E_{i}}\left(\psi\,\partial_{t}\underline{U}-\underline{\vec{F}}\cdot\nabla\psi\right)+\int_{\partial E_{i}}\left(\vec{\nu}\cdot\underline{\vec{F}}\right)\psi=\int_{E_{i}}\underline{Q}\,\psi,\label{eq:weak_form}
 \end{equation}
 where $\vec{\nu}$ is the outer normal unit vector of $\partial E_{i}$
-(which is the boundary of $E$). By~choosing an orthonormal basis
+(which is the boundary of $E$).
+
+%Authors: Add a blank line.
+By~choosing an orthonormal basis
 of the linear space spanned by polynomials less than the $p$-th degree
 over $E$, denoted as $\underline{\phi}(\vec{x})\coloneqq\begin{bmatrix}\phi_{1}(\vec{x}) & \cdots & \phi_{L}(\vec{x})\end{bmatrix}$,
 the unknowns $\underline{U}$ and the arbitrary test function $\psi$
 can be approximated~as
-
+%Authors: Delete a blank line.
 \[
 \underline{U}(\vec{x},t)\approx\underline{U}^{h}(\vec{x},t)=\sum_{l=1}^{L}\hat{\underline{U}}_{l}(t)\,\phi_{l}(\vec{x}),\qquad\psi(\vec{x})\approx\psi^{h}(\vec{x})=\sum_{l=1}^{L}\hat{\psi}_{l}\,\phi_{l}(\vec{x}),
 \]
@@ -365,7 +372,7 @@ in which each $\hat{\underline{U}}_{l}(t)$ is a $5\times1$ matrix
 of temporal functions, and~each $\hat{\psi}_{l}$ is an arbitrary
 constant number. Substituting them into the weak form (Equation \ref{eq:differential_form}) gives
 \begin{equation}
-\sum_{l}\hat{\psi}_{l}\,\left[\sum_{k}\left(\int_{E_{i}}\phi_{l}\phi_{k}\right)\dv{\underline{\hat{U}}_{k}}{t}+\int_{E_{i}}\left(\underline{\mathopen{\vec{F}}}\cdot\nabla\phi_{l}-\underline{Q}\,\phi_{l}\right)+\oint_{\partial E_{i}}\phi_{l}\,\underline{\mathopen{F^{\nu}}}\right]=\underline{O}\label{eq:spatial_discretization}
+\sum_{l}\hat{\psi}_{l}\,\left[\sum_{k}\left(\int_{E_{i}}\phi_{l}\phi_{k}\right)\dv{\underline{\hat{U}}_{k}}{t}+\int_{E_{i}}\left(\underline{\mathopen{\vec{F}}}\cdot\nabla\phi_{l}-\underline{Q}\,\phi_{l}\right)+\oint_{\partial E_{i}}\phi_{l}\,\underline{\mathopen{F^{\nu}}}\right]=\underline{O},\label{eq:spatial_discretization}
 \end{equation}
 where $\vec{\nu}\cdot\underline{\vec{F}}\eqqcolon\underline{F^{\nu}}$
 is the normal flux at some point on $\partial E_{i}$, whose value
@@ -374,14 +381,14 @@ Equation~(\ref{eq:differential_form}); see \citep{Toro_2009} for~details.
 
 Recall the arbitrariness of $\left\{ \hat{\psi}_{l}\right\} _{l=1}^{L}$
 and adopt the inner product~notation
-
+%Authors: Delete a blank line.
 \[
 \langle f\vert g\rangle\coloneqq\int_{E_{i}}f(\vec{x})\,g(\vec{x}),
 \]
 and we could turn Equation~(\ref{eq:spatial_discretization}) into a system
 of ordinary differential equations:
 \begin{equation}
-\dv{\underline{\hat{U}}}{t}=\underline{R}(\underline{\hat{U}})\label{eq:ode_system}
+\dv{\underline{\hat{U}}}{t}=\underline{R}(\underline{\hat{U}}),\label{eq:ode_system}
 \end{equation}
 in~which
 \[
@@ -406,43 +413,45 @@ rules, such as those given by \citep{Zhang_2009}.
 Equation~(\ref{eq:ode_system}) is a typical system of nonlinear ordinary
 differential equations. In~this article, we use the following explicit
 Runge--Kutta~methods:
-\begin{itemize}
-\item \hl{first-order:} %MDPI: Please confirm list format.
-
+\begin{description}
+\item [\hl{first-order:}] %MDPI: Please confirm list format.
+%Authors: A description list might be better.
+%Authors: Commas and semicolons are added at the end of equations.
 \[
-\begin{aligned}\underline{\hat{U}}^{n+1} & =\underline{\hat{U}}^{n}+\underline{R}^{n}\Delta t\end{aligned}
+\begin{aligned}\underline{\hat{U}}^{n+1} & =\underline{\hat{U}}^{n}+\underline{R}^{n}\Delta t;\end{aligned}
 \]
-\item \hl{second-order:}
-
+\item [\hl{second-order:}]
 \[
 \begin{aligned}\underline{\hat{U}}^{n+1/2} & =\underline{\hat{U}}^{n}+\underline{R}^{n}\Delta t,\\
-\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+2/2} & =\frac{1}{2}\underline{\hat{U}}^{n}+\frac{1}{2}\left(\underline{\hat{U}}^{n+1/2}+\underline{R}^{n+1/2}\Delta t\right)
+\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+2/2} & =\frac{1}{2}\underline{\hat{U}}^{n}+\frac{1}{2}\left(\underline{\hat{U}}^{n+1/2}+\underline{R}^{n+1/2}\Delta t\right);
 \end{aligned}
 \]
-\item \hl{third-order:}
-
+\item [\hl{third-order:}]
 \begin{equation}
 \begin{aligned}\underline{\hat{U}}^{n+1/3} & =\underline{\hat{U}}^{n}+\underline{R}^{n}\Delta t,\\
-\underline{\hat{U}}^{n+2/3} & =\frac{3}{4}\underline{\hat{U}}^{n}+\frac{1}{4}\left(\underline{\hat{U}}^{n+1/3}+\underline{R}^{n+1/3}\Delta t\right)\\
-\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+3/3} & =\frac{1}{3}\underline{\hat{U}}^{n}+\frac{2}{3}\left(\underline{\hat{U}}^{n+2/3}+\underline{R}^{n+2/3}\Delta t\right)
+\underline{\hat{U}}^{n+2/3} & =\frac{3}{4}\underline{\hat{U}}^{n}+\frac{1}{4}\left(\underline{\hat{U}}^{n+1/3}+\underline{R}^{n+1/3}\Delta t\right),\\
+\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+3/3} & =\frac{1}{3}\underline{\hat{U}}^{n}+\frac{2}{3}\left(\underline{\hat{U}}^{n+2/3}+\underline{R}^{n+2/3}\Delta t\right);
 \end{aligned}
 \label{eq:Runge--Kutta}
 \end{equation}
-\end{itemize}
+\end{description}
 in which the $\underline{R}^{\mu}\coloneqq\underline{R}(\underline{\hat{U}}^{\mu})$s
 are the values mapped by the nonlinear operator $\underline{R}$ from
-the corresponding $\underline{\hat{U}}^{\mu}$s. It has been proven
+the corresponding $\underline{\hat{U}}^{\mu}$s.
+
+%Authors: Add a blank line.
+It has been proven
 by Gottlieb and Shu that they are all total variation diminishing
 (TVD) \citep{Gottlieb_1998} or strong stability preserving (SSP)
 \citep{Gottlieb_2001} (which is a desired feature for hyperbolic
 problems), and fourth-order Runge--Kutta methods cannot be TVD or
 SSP without introducing the adjoint operator of $\underline{R}$,
 denoted as $\underline{R}^{\dagger}$, which~satisfies
-
+%Authors: Delete a blank line.
 \[
 \underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}-\underline{R}^{\dagger}(\underline{\hat{U}}^{n})\,\Delta t.
 \]
-
+%Authors: Delete a blank line.
 It is non-trivial to implement such an adjoint operator and thus we
 do not implement Runge--Kutta methods whose accuracy order is higher
 than~three.
@@ -458,13 +467,13 @@ form on the interface shared by $E_{i}$ and its neighbor $E_{k}$:
 \begin{equation}
 \partial_{t}\underline{U}+\partial_{\nu}\underline{F^{\nu}}\equiv\left(\partial_{t}+\underline{A^{\nu}}\,\partial_{\nu}\right)\underline{U}=\underline{Q},\label{eq:normal_split_form}
 \end{equation}
-
+%Authors: Delete a blank line.
 in which the~flux Jacobian can be approximated by the average value
 of $\underline{U}$ on $E_{i}$:
 \begin{equation}
 \underline{A^{\nu}}\equiv\frac{\partial\underline{F^{\nu}}}{\partial\underline{U}}\approx\left.\frac{\partial\underline{F^{\nu}}}{\partial\underline{U}}\right|_{\langle\underline{U}\rangle_{i}}.\label{eq:normal_jacobian}
 \end{equation}
-
+%Authors: Delete a blank line.
 \textls[-15]{From the hyperbolicity of Equation~(\ref{eq:differential_form}), there
 always exists the eigenvalue decomposition}
 \begin{equation}
@@ -476,7 +485,7 @@ always exists the eigenvalue decomposition}
 \end{bmatrix}(\underline{R^{\nu}})^{-1},\label{eq:eigen_decompose}
 \end{equation}
 in~which
-
+%Authors: Delete a blank line.
 \[
 \underline{R^{\nu}}=\begin{bmatrix}1 & 1 & 0 & 0 & 1\\
 u_{x}-a\nu_{x} & u_{x} & \sigma_{x} & \pi_{x} & u_{x}+a\nu_{x}\\
@@ -506,11 +515,11 @@ where $B_{1}\coloneqq(\gamma-1)/a^{2}$ and $B_{2}\coloneqq B_{1}(u_{\nu}^{2}+u_{
 The original conservative variable $\underline{U}$ is then projected
 into the space spanned by the columns of $\underline{R}$, which defines
 the characteristic variable:
-
+%Authors: Delete a blank line.
 \[
 \underline{V}\coloneqq(\underline{R^{\nu}})^{-1}\,\underline{U}.
 \]
-
+%Authors: Delete a blank line.
 Each scalar component of $\underline{V}$ can now be treated as independent
 functions, to~which any suitable scalar WENO limiter (such as the
 one in \citep{Zhong_2013,Zhu_2013}) can be applied. Once obtaining
@@ -519,7 +528,7 @@ it is turned back to the original conservative variable:
 \begin{equation}
 \underline{U}_{i|k}^{\mathrm{new}}\coloneqq\underline{R^{\nu}}\,\underline{V}^{\mathrm{new}},\label{eq:eigen_rows}
 \end{equation}
-
+%Authors: Delete a blank line.
 The subscript $i|k$ emphasizes the fact that it is a function defined
 on $E_{i}$ with the help of $E_{k}$. There is one such reconstructed
 $\underline{U}_{i|k}^{\mathrm{new}}$ for each $k\in K_{i}$, so the
@@ -537,13 +546,13 @@ actuator line model, which is a special case of the more general momentum
 source model. In~this model, a~wing is sliced into a series of thin
 pieces, each of which is perpendicular to the wing's axis. When moving
 relative to the air, a~piece feels a pair of aerodynamic forces:
-
+%Authors: Delete a blank line.
 \[
 \begin{bmatrix}L\dd{s}\\
 D\dd{s}
 \end{bmatrix}=\frac{1}{2}\rho(u^{2}+w^{2})\begin{bmatrix}C_{L}(\alpha)\\
 C_{D}(\alpha)
-\end{bmatrix}c\dd{s}
+\end{bmatrix}c\dd{s},
 \]
 in~which
 \begin{itemize}
@@ -559,7 +568,7 @@ respectively;
 
 Using Newton's third Law, the~force per unit length felt by the air
 surrounding the piece~is
-
+%Authors: Delete a blank line.
 \[
 \vec{b}_{L}(\vec{r}(s))=-\begin{bmatrix}\vec{e}_{L}(s) & \vec{e}_{D}(s)\end{bmatrix}\begin{bmatrix}L(s)\\
 D(s)
@@ -582,11 +591,11 @@ integral:
 \underline{0}
 \end{bmatrix},\label{eq:line_integral}
 \end{equation}
-
+%Authors: Delete a blank line.
 By parameterizing the line segment $\overline{RT}$, the~line integral
 in Equation~(\ref{eq:line_integral}) can be evaluated as a definite
 integral:
-
+%Authors: Delete a blank line.
 \[
 \int_{RT}\vec{b}_{L}(\vec{r})\,\underline{\phi}(\vec{r})=\int_{\xi_{R}}^{\xi_{T}}\vec{b}_{L}(\vec{r}(\xi))\,\underline{\phi}(\vec{r}(\xi))\left\Vert \frac{\partial\vec{r}}{\partial\xi}\right\Vert \dd{\xi},
 \]
@@ -610,14 +619,14 @@ work \citep{Pei_2022}, we have given the results obtained by running
 our solvers on an unstructured hexahedral mesh. This time, we use
 an unstructured tetrahedral mesh instead.
 \begin{Problem} %MDPI: Please confirm position is not after first citation.
+%Authors: Confirmed.
 [\hl{Sod}] \label{prob:sod} Solve the Euler system Equation (\ref{eq:euler_system})
 for $t\in[0.0,1.0]$ with the initial~condition
-
-
+%Authors: Delete a blank line.
 \begin{equation*}
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
-\begin{bmatrix}1 & 0 & 0 & 0 & 1\end{bmatrix} & x<2.5 \vspace{4pt}\\
-\begin{bmatrix}\frac{1}{8} & 0 & 0 & 0 & \frac{1}{10}\end{bmatrix} & x>2.5
+\begin{bmatrix}1 & 0 & 0 & 0 & 1\end{bmatrix}, & x<2.5;\vspace{4pt}\\
+\begin{bmatrix}\frac{1}{8} & 0 & 0 & 0 & \frac{1}{10}\end{bmatrix}, & x>2.5.
 \end{cases}
 \end{equation*}
 \end{Problem}
@@ -652,6 +661,7 @@ Problem \ref{prob:sod}.}
 \caption{\label{fig:sod_p}\hl{Comparison b}etween solutions of $\rho(t=1.0)$ in
 Problem \ref{prob:sod}.}
 \end{figure} %MDPI: Please confirm Figures moved after first citations.
+%Authors: Confirmed.
 
 It is predictable that both mesh refinement (decreasing $h$) and
 order increment (increasing $p$) can help to improve accuracy. To~compare the performance of solvers with different orders more fairly,
@@ -693,13 +703,14 @@ pairs.}
 \end{figure}
 
 \begin{Problem} %MDPI: Please confirm format
+%Authors: A \vspace{4pt} is added before \\.
 [\hl{Lax}]\label{prob:lax}Solve the Euler system Equation (\ref{eq:euler_system})
 for $t\in[0.0,0.6]$ with the initial~condition
-
+%Authors: Delete a blank line.
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
-\begin{bmatrix}0.445 & 0.698 & 0.000 & 0.000 & 3.528\end{bmatrix} & x<2.5\\
-\begin{bmatrix}0.500 & 0.000 & 0.000 & 0.000 & 0.571\end{bmatrix} & x>2.5
+\begin{bmatrix}0.445 & 0.698 & 0.000 & 0.000 & 3.528\end{bmatrix}, & x<2.5;\vspace{4pt}\\
+\begin{bmatrix}0.500 & 0.000 & 0.000 & 0.000 & 0.571\end{bmatrix}, & x>2.5.
 \end{cases}
 \]
 \end{Problem}
@@ -717,6 +728,7 @@ of our high-order solvers to suppress numerical oscillations.
 \vspace{-6pt}
 \begin{figure}[H]
 \hspace{-18pt} %MDPI: Please confirm figures moved after first citation.
+%Authors: Confirmed.
 \includegraphics[width=1\textwidth]{figures/shock_tubes/lax/contour_tetra}
 
 \caption{\label{fig:lax_contour}\hl{Third-order} solution of $\rho(t=0.5)$ in
@@ -735,11 +747,12 @@ Problem \ref{prob:lax}.}
 \begin{Problem}
 [\hl{Vacuum}]\label{prob:vacuum}\textls[-15]{Solve the Euler system Equation (\ref{eq:euler_system})
 for $t\in[0.0,0.4]$ with the initial~condition}
-
+%Authors: Delete a blank line.
+%Authors: A \vspace{4pt} is added before \\.
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
-\begin{bmatrix}1 & -4 & 0 & 0 & 0.4\end{bmatrix} & x<2.5\\
-\begin{bmatrix}1 & +4 & 0 & 0 & 0.4\end{bmatrix} & x>2.5
+\begin{bmatrix}1 & -4 & 0 & 0 & 0.4\end{bmatrix}, & x<2.5;\vspace{4pt}\\
+\begin{bmatrix}1 & +4 & 0 & 0 & 0.4\end{bmatrix}, & x>2.5.
 \end{cases}
 \]
 \end{Problem}
@@ -754,12 +767,12 @@ by a $*$ in subscript) is undefined, but~its boundary values should
 be determined from the left (denoted by an $L$ in subscript) and
 right (denoted by an $R$ in subscript) initial values by the two
 Riemann invariants:
-
+%Authors: Delete a blank line.
 \[
 u_{*L}=u_{L}+\frac{2a_{L}}{\gamma-1},\qquad u_{*R}=u_{R}-\frac{2a_{R}}{\gamma-1}.
 \]
-
-See \hl{Section}~4.6 in \citep{Toro_2009} for more detailed discussions. %MDPI: Please check and revise Section 4.6 does not exist in the document.
+See \citep{Toro_2009} for more detailed discussions. %MDPI: Please check and revise Section 4.6 does not exist in the document.
+%Authors: Removed.
 Unfortunately, approximate Riemann solvers usually (have to) neglect
 this condition. For~this reason, we use an exact Riemann solver to
 obtain fluxes on cell boundaries. As~before, we plot the results in
@@ -796,7 +809,7 @@ box removed (representing a forward-facing step). The~$x=0$ surface
 is open as an inlet and the $x=3$ surface is open as an outlet. All
 other boundary surfaces are closed as solid walls. The~initial condition
 is given as a uniform state:
-
+%Authors: Delete a blank line.
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 3.0 & 0.0 & 0.0 & 1.0\end{bmatrix}.
 \]
@@ -826,6 +839,7 @@ to produce Figures~\ref{fig:forward_step_p=00003D3_t=00003D02e-1}--\ref{fig:forw
 \includegraphics[width=1\textwidth]{figures/forward_step/p=3_t=02e-1}
 
 \caption{\label{fig:forward_step_p=00003D3_t=00003D02e-1}\hl{Third-order} %MDPI: figures 9-19: Is the space above the image necessary? If not, crop it for a better display 
+%Authors: OK. Trimed figures are used.
  solution
 of Problem \ref{prob:forward_step} at $t=0.2$ on an $h=1/200$ mesh.}
 \end{figure}
@@ -956,15 +970,16 @@ of the mesh for solving problems~in~Section~\ref{subsec:YF-17}.}}}
 \label{prob:Subsonic-YF17}Solve the Euler system Equation (\ref{eq:euler_system})
 in the surroundings of a YF-17 aircraft. The~initial condition is given
 as a subsonic flow ($M=0.3$) with a $20$-deg angle of attack:
-
+%Authors: Delete a blank line.
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 0.2819 & 0.0 & 0.1026 & 1.0\end{bmatrix}.
 \]
-
+%Authors: Delete a blank line.
 A\hl{ll boundaries of the aircraft are defined as solid walls, except~the intake of the engine, which is defined as a subsonic outlet of the
 condition equal to the initial condition, and~the exhaust of the engine,
 which is defined as a sup}ersonic ($M=3.0$) inlet of the condition: %MDPI: Please confirm italics format.
-
+%Authors: Confirmed. They are within the problem environment.
+%Authors: Delete a blank line.
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{\text{ex.}}=\begin{bmatrix}1.4 & 2.4 & 0.0 & 0.0 & 1.44\end{bmatrix}.
 \]
@@ -1020,15 +1035,15 @@ solution of Problem \ref{prob:Subsonic-YF17}.}
 \label{prob:Supersonic-YF17}Solve the Euler system Equation (\ref{eq:euler_system})
 in the surroundings of a YF-17 aircraft. The~initial condition is given
 as a supersonic flow ($M=2.0$) with a $0$-deg angle of attack:
-
+%Authors: Delete a blank line.
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 2.0 & 0.0 & 0.0 & 1.0\end{bmatrix}.
 \]
-
+%Authors: Delete a blank line.
 All bo\hl{undaries of the aircraft are defined as solid walls, except~the intake of the engine, which is defined as a supersonic outlet of the
 condition equal to the initial conditio}n, and~the exhaust of the engine,
 which is defined as a supersonic ($M=3.0$) inlet of the condition:
-
+%Authors: Delete a blank line.
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{\text{ex.}}=\begin{bmatrix}1.4 & 2.4 & 0.0 & 0.0 & 1.44\end{bmatrix}.
 \]
@@ -1050,8 +1065,12 @@ generated on leeward surfaces, since the solid body contracts there,
 which leaves more room for the supersonic flow.
 
 
-\begin{figure}[H] %MDPI: Please check and revise Fiures 24 and 26 are look the same.  %MDPI: Please confirm figures moved after first citations.
+\begin{figure}[H] %MDPI: Please check and revise Fiures 24 and 26 are look the same.
+%Authors: Do you mean Figures 24 and 25? If so, it is confirmed that they are different.
+%MDPI: Please confirm figures moved after first citations.
+%Authors: Confirmed.
 \includegraphics[width=0.9\textwidth]{figures/yf17/rho_p=1} %MDPI: Please confirm reducing the size of the figure.
+%Authors: Confirmed.
 
 \caption{\label{fig:yf17_rho_p=00003D1}\hl{Density contour obtained from the first-orde}r
 solution of Problem \ref{prob:Supersonic-YF17}.}
@@ -1097,9 +1116,9 @@ and \ref{fig:yf17_balance}. The~fluctuation of cell numbers is under
 $2\%$, which is quite good since the optimal partitioning of an unstructured
 mesh is an NP-hard problem. With~such an approximately optimal partitioning,
 the parallel efficiency, which is defined~as
-
+%Authors: Delete a blank line.
 \[
-E=\frac{T_{\text{serial}}}{PT_{\text{parallel}}}\times100\%
+E=\frac{T_{\text{serial}}}{PT_{\text{parallel}}}\times100\%,
 \]
 in which $P$ is the number of processes, could surpass $99\%$ in
 theory. In~practice, however, the~$E$ values given by our numerical
@@ -1113,6 +1132,7 @@ still significant, which reduces the wall clock time to an acceptable
 level.
 
 \begin{figure}[H] %MDPI: Figures moved after first citation, please confirm. %MDPI: Please confirm reducing the size of the figure.
+%Authors: Both confirmed.
 \includegraphics[width=0.9\textwidth]{figures/yf17/partition}
 
 \caption{\label{fig:yf17_partition}A \hl{100-part partition}ing of the mesh used
@@ -1131,6 +1151,7 @@ given in Figure~\ref{fig:yf17_partition}.}
 \begin{figure}[H]
 \hspace{-10pt}
 \includegraphics[width=0.8\textwidth]{figures/yf17/efficiency}%MDPI: Please confirm reducing the size of the figure.
+%Authors: Confirmed.
 
 \caption{\label{fig:yf17_efficiency}P\hl{arallel} efficiency of the third-order
 solver for solving Problem \ref{prob:Supersonic-YF17}.}
@@ -1157,6 +1178,7 @@ on different numbers of cores.}
 \bottomrule
 \end{tabularx}
 \end{table} %MDPI: Please confirm added comma on five-digits numbers.
+%Authors: Confirmed.
 %\unskip
 
 
@@ -1188,7 +1210,7 @@ Section~\ref{subsec:Problems-with-Momentum}.}
 \label{prob:rotor_upward}Solve Equation \eqref{eq:euler_system}
 in the surroundings of a rotor, whose rotating axis points in the direction
 of $(-1,0,0)$. The~initial condition is given as a uniform flow:
-
+%Authors: Delete a blank line.
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 1.0 & 0.0 & 0.0 & 101325.0\end{bmatrix},
 \]
@@ -1233,7 +1255,7 @@ exerted by the air. This is where the rotor thrust comes~from.
 \label{prob:rotor_forward}Solve Equation \eqref{eq:euler_system}
 in the surrounding of a rotor, whose rotating axis points in the direction
 of $(0,0,1)$. The~initial condition is given as a uniform flow:
-
+%Authors: Delete a blank line.
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 10.0 & 0.0 & 0.0 & 101325.0\end{bmatrix},
 \]
@@ -1308,9 +1330,9 @@ China (863 Program), grant number 2012AA112201.}
 \informedconsent{Not applicable.}
 
 \dataavailability{The data presented in this article are all generated from the source %MDPI: Please add accessed on date on links.
-code publicly available in our GitHub \hl{repository at} \url{https://github.com/pvc1989/miniCFD}
-(or the mirror \hl{site} \url{https://gitee.com/pvc1989/miniCFD}), except~the mesh used in Section~\ref{subsec:YF-17}, which was downloaded \hl{from}
-\url{https://cgns.github.io/CGNSFiles.html}.}
+%Authors: Added.
+code publicly available in our GitHub \hl{repository at} \url{https://github.com/pvc1989/miniCFD} accessed on 10 July 2022 (or the mirror \hl{site} \url{https://gitee.com/pvc1989/miniCFD} accessed on 10 July 2022), except~the mesh used in Section~\ref{subsec:YF-17}, which was downloaded \hl{from}
+\url{https://cgns.github.io/CGNSFiles.html}  accessed on 13 May 2022.}
 
 \acknowledgments{\textls[-5]{The authors would like to express their deepest appreciation to Shen
 Xin for his professional guidance on computer science, and~to Zhou
@@ -1323,7 +1345,7 @@ the~results.}
 
 %\newpage
 
-\abbreviations{Abbreviations}{ %MDPI: Please check can it be merge Abbreviations and Nomenclature to one list.
+\abbreviations{Abbreviations}{ %MDPI: Please check can it be merge Abbreviations and Nomenclature to one list.  % PVC: Yes.
 \hl{The following abbreviations} are used in~this manuscript:\\
 
 \noindent 
@@ -1335,8 +1357,8 @@ FV & Finite Volume\tabularnewline
 FE & Finite Element\tabularnewline
 DG & Discontinuous Galerkin\tabularnewline
 RK & Runge--Kutta\tabularnewline
-TVD & total variation diminishing\tabularnewline
-SSP & strong stability preserving\tabularnewline
+TVD & Total Variation Diminishing\tabularnewline
+SSP & Strong Stability Preserving\tabularnewline
 ENO & Essentially Non-Oscillatory\tabularnewline
 WENO & Weighted ENO\tabularnewline
 \end{tabular}}
@@ -1372,7 +1394,7 @@ $e_{0}$ & specific total energy of the gas\tabularnewline
 \noindent {\fontsize{9}{11.2}\selectfont
 \begin{tabular}{@{}ll}
 
-$\underline{\vec{F}}$ & flux tensor\tabularnewline
+$\underline{\vec{F}}$ & flux vector whose components are matrices\tabularnewline
 $\underline{F^{\nu}}$ & projection of $\underline{\vec{F}}$ on $\vec{\nu}$\tabularnewline
 $\underline{F^{x}},\underline{F^{y}},\underline{F^{z}}$ & $x,y,z$-component of $\underline{\vec{F}}$\tabularnewline
 $h_{0}$ & specific total enthalpy of the gas\tabularnewline
@@ -1390,7 +1412,7 @@ $\underline{U}_{i|k}^{\text{new}}$ & WENO reconstruction of $\underline{U}^{h}$ 
 of $E_{k}$\tabularnewline
 $\underline{\hat{U}}$ & coefficient matrix whose $k$-th column is $\underline{\hat{U}}_{k}$\tabularnewline
 $\underline{\hat{U}}_{k}$ & projection of $\underline{U}$ on $\phi_{k}$\tabularnewline
-$\underline{\hat{U}}^{n}$ & $\underline{\hat{U}}$ and at the $n$-th time step\tabularnewline
+$\underline{\hat{U}}^{n}$ and $\underline{R}^{n}$ & $\underline{\hat{U}}$ and $\underline{R}$ at the $n$-th time step\tabularnewline
 $u_{x},u_{y},u_{z}$ & $x,y,z$-component of velocity\tabularnewline
 $\underline{V}$ & column matrix of characteristic variables\tabularnewline
 $\underline{V}^{h}$ and $\underline{V}^{\text{new}}$ & approximation of $\underline{V}$ and its WENO reconstruction\tabularnewline
@@ -1418,6 +1440,7 @@ Harten, A.; Lax, P.D.; van Leer, B.
 \bibitem[Reed and Hill(1973)]{Reed_1973}
 Reed, W.H.; Hill, T.R.
 \newblock {\em Triangular Mesh Methods for the Neutron Transport Equation} %MDPI: Please confirm added information.
+%Authors: Confirmed. Thanks for the completion.
 \newblock Technical Report LA-UR-73-479; Los Alamos Scientific Lab.: \hl{Los Alamos, MN, USA,}  1973.
 
 \bibitem[Chavent and Salzano(1982)]{Chavent_1982}
