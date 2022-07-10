@@ -1,6 +1,6 @@
 %% LyX 2.3.6.2 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[aerospace,article,submit,moreauthors]{Definitions/mdpi}
+\documentclass[aerospace,article,accept,moreauthors,pdftex]{Definitions/mdpi}
 \usepackage{array}
 \usepackage{float}
 \usepackage{booktabs}
@@ -9,33 +9,55 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{esint}
+\usepackage{physics}
+%\providecommand{\tabularnewline}{\\}
 
-\makeatletter
+%\makeatletter
+
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2022}
+\copyrightyear{2022}
+\externaleditor{\hl{Academic Editor: Firstname Lastname}} %MDPI: PLease add Academic Editor.
+\datereceived{} 
+%\daterevised{} % Only for the journal Acoustics
+\dateaccepted{} 
+\datepublished{} 
+%\datecorrected{} % Corrected papers include a "Corrected: XXX" date in the original paper.
+%\dateretracted{} % Corrected papers include a "Retracted: XXX" date in the original paper.
+\hreflink{https://doi.org/} % If needed use \linebreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
 
-\Title{High-order CFD Solvers on Three-dimensional Unstructured Meshes: Parallel
+\Title{High-Order CFD Solvers on Three-Dimensional Unstructured Meshes: Parallel
+Implementation of RKDG Method with WENO Limiter and Momentum Sources}
+%Please confirm title change.
+
+\TitleCitation{High-Order CFD Solvers on Three-Dimensional Unstructured Meshes: Parallel
 Implementation of RKDG Method with WENO Limiter and Momentum Sources}
 
-\TitleCitation{High-order CFD Solvers on Three-dimensional Unstructured Meshes: Parallel
-Implementation of RKDG Method with WENO Limiter and Momentum Sources}
 
-\Author{}
 
-\Author{Weicheng Pei$^{1}$, Yuyan Jiang$^{1}$ and Shu Li$^{1,2,*}$}
-
+\Author{\hl{Weicheng Pei} $^{1}$, Yuyan Jiang $^{1}$ and Shu Li $^{1,2,}$*}
+%MDPI: Please carefully check the accuracy of names and affiliations.
 \AuthorNames{Weicheng Pei, Yuyan Jiang and Shu Li}
 
 \AuthorCitation{Pei, W.; Jiang, Y.; Li, S. }
 
 
 \address{$^{1}$\quad{}School of Aeronautics Science and Engineering, Beihang
-University, 37 Xueyuan Road, Haidian District, Beijing, P.R. China,
-100191.\\
+University, 37 Xueyuan Road, Haidian District, \hl{Beijing 100191,} \hl{China;} w\hl{eicheng.pei@icloud.com }(W.P.); ji\hl{ang.yu.yan@icloud.com }(Y.J.)\\
 $^{2}$\quad{}Ningbo Institute of Technology, Beihang University,
-Ningbo, Zhejiang, P.R. China, 315800.}
+\hl{Ningbo 315800},  \hl{China}} 
 
-
+%MDPI: Please confirm removed P.R. before China, and please confirm moved  postcode after city.
+%MDPI: PLease confirm added authors emails from remine.
+%MDPI: we removed province in aff. 2, Please check  
 \corres{Correspondence: lishu@buaa.edu.cn}
 
 
@@ -43,26 +65,26 @@ Ningbo, Zhejiang, P.R. China, 315800.}
 (CFD) solvers suitable for three-dimensional unstructured meshes are
 less developed than expected. The Runge--Kutta discontinuous Galerkin
 (RKDG) finite element method with compact weighted essentially non-oscillatory
-(WENO) limiters is one of the candicates, which might give high-order
+(WENO) limiters is one of the candidates, which might give high-order
 solutions on unstructured meshes. In this article, we provide an efficient
 parallel implementation of this method for simulating inviscid compressible
 flows. The implemented solvers are tested on lower-dimensional model
 problems and real three-dimensional engineering problems. Results
 of lower-dimensional problems validate the correctness and accuracy
 of these solvers. The capability of capturing complex flow structures
-even on coarse meshes are shown in the results of three-dimensional
+even on coarse meshes is shown in the results of three-dimensional
 applications. For solving problems containing rotary wings, an unsteady
-momentum source model is incorporated into the solvers. Such a finite-element/momentum-source
+momentum source model is incorporated into the solvers. Such a finite element/momentum source
 hybrid method eliminates the reliance on advanced mesh techniques,
 which might provide an efficient tool for studying rotorcraft aerodynamics.}
 
 
 \keyword{high-order CFD solvers; three-dimensional unstructured meshes; RKDG
-method; compact WENO limiter; parallel implementation; momentum source
+method; \linebreak  compact WENO limiter; parallel implementation; momentum source
 models}
 
 %% Because html converters don't know tabularnewline
-\providecommand{\tabularnewline}{\\}
+%\providecommand{\tabularnewline}{\\}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 %  LaTeX support: latex@mdpi.com 
@@ -106,22 +128,22 @@ models}
 
 %=================================================================
 % MDPI internal commands
-\firstpage{1} 
- 
-\setcounter{page}{\@firstpage} 
-
-\pubvolume{1}
-\issuenum{1}
-\articlenumber{0}
-\pubyear{2022}
-\copyrightyear{2022}
-%\externaleditor{Academic Editor: Firstname Lastname} % For journal Automation, please change Academic Editor to "Communicated by"
-\datereceived{} 
-\dateaccepted{} 
-\datepublished{} 
-%\datecorrected{} % Corrected papers include a "Corrected: XXX" date in the original paper.
-%\dateretracted{} % Corrected papers include a "Retracted: XXX" date in the original paper.
-\hreflink{https://doi.org/} % If needed use \linebreak
+%\firstpage{1} 
+% 
+%\setcounter{page}{\@firstpage} 
+%
+%\pubvolume{1}
+%\issuenum{1}
+%\articlenumber{0}
+%\pubyear{2022}
+%\copyrightyear{2022}
+%%\externaleditor{Academic Editor: Firstname Lastname} % For journal Automation, please change Academic Editor to "Communicated by"
+%\datereceived{} 
+%\dateaccepted{} 
+%\datepublished{} 
+%%\datecorrected{} % Corrected papers include a "Corrected: XXX" date in the original paper.
+%%\dateretracted{} % Corrected papers include a "Retracted: XXX" date in the original paper.
+%\hreflink{https://doi.org/} % If needed use \linebreak
 %\doinum{}
 %------------------------------------------------------------------
 % The following line should be uncommented if the LaTeX file is uploaded to arXiv.org
@@ -129,7 +151,7 @@ models}
 
 %=================================================================
 % Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, lineno, float, amsmath, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, cleveref, amsthm, hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
-\usepackage{physics}
+
 
 %=================================================================
 %% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
@@ -166,49 +188,49 @@ models}
 %\entrylink{The Link to this entry published on the encyclopedia platform.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\makeatother
+%\makeatother
 
 \begin{document}
-\maketitle
+%\maketitle
 
 \section{Introduction}
 
-CFD solvers widely used in aerospace engineering are based either
+CFD solvers, widely used in aerospace engineering, are based either
 on finite difference (FD) schemes or on finite volume (FV) schemes.
 However, FD schemes are restricted on structured meshes, while most
 FV schemes have only first- or second-order accuracy. One way to develop
 higher-order schemes suitable for unstructured meshes is to use the
-discontinuous Galerkin (DG) finite element (FE) methods. Like other
+discontinuous Galerkin (DG) finite element (FE) methods. As with other
 FE methods, DG methods assume continuous approximation in each element
-(a.k.a. cell). However, they allow discontinuities to exist on intercell
+(i.e., cell). However, they allow discontinuities to exist on intercell
 boundaries. Such discontinuities are then resolved by numerical fluxes,
-e.g. exact or approximate Riemann solvers, just like Godunov-type
-schemes \citep{Harten_1983}. The original DG scheme was not proposed
+e.g., exact or approximate Riemann solvers, as with Godunov-type
+schemes \citep{Harten_1983}. The~original DG scheme was not proposed
 for CFD but for solving the linear neutron transport equation \citep{Reed_1973}.
 For nonlinear conservation laws, Chavent and Salzano \citep{Chavent_1982}
 designed an explicit Euler DG cheme, which is second-order accurate
-in space but only first-order accurate in time. To improve the accuracy
+in space but only first-order accurate in time. To~improve the accuracy
 of time discretization, Cockburn and Shu \citep{Cockburn_1988} replaced
 the first-order forward Euler method with high-order Runge--Kutta
 (RK) methods, which led to the family of RKDG schemes for scalar conservation
-laws \citep{Shu_1988,Shu_1989}, for one-dimensional conservation
-law systems \citep{Cockburn_1989}, for multi-dimensional scalar conservation
-laws \citep{Cockburn_1990} and for multi-dimensional conservation
-law systems \citep{Cockburn_1998a}. The last case includes the Euler
+\mbox{laws \citep{Shu_1988,Shu_1989},} for~one-dimensional conservation
+law systems \citep{Cockburn_1989}, for~multi-dimensional scalar conservation
+\mbox{laws \citep{Cockburn_1990}} and for multi-dimensional conservation
+law systems \citep{Cockburn_1998a}. The~last case includes the Euler
 system that depicts inviscid compressible flows, which is the first
 application of RKDG in CFD. We will give a concise derivation of this
-scheme in Section \ref{subsec:spatial_discretization} and \ref{subsec:temporal_discretization}.
+scheme in Sections~\ref{subsec:spatial_discretization}~and~\ref{subsec:temporal_discretization}.
 
-The Euler system is hyperbolic, which might have discontinuities in
-its solutions. Appoximating such solutions with finite terms of continuous
+The Euler system is hyperbolic, and might have discontinuities in
+its solutions. Approximating such solutions with finite terms of continuous
 functions would generate numerical oscillations near discontinuities
 (known as the Gibbs phenomenon \citep{Gottlieb_1997}). Therefore,
 any useful high-order scheme must incorporate some mechanism for suppressing
-such spurious oscillations. For second-order FD and FV schemes, there
+such spurious oscillations. For~second-order FD and FV schemes, there
 are slope and flux limiters \citep{Sweby_1984}. These limiters work
 well on shock capturing but might reduce the order of accuracy when
 used in smooth regions. Furthermore, they are not applicable to higher-order
-schemes. To overcome these drawbacks, the essentially non-oscillatory
+schemes. To~overcome these drawbacks, the~essentially non-oscillatory
 (ENO) \citep{Harten_1997} and weighted ENO (WENO) \citep{Jiang_1996}
 limiters for high-order FD schemes, which can essentially suppress
 spurious oscillations and maintain high-order accuracy in smooth regions,
@@ -216,47 +238,46 @@ were developed. Similar ideas were later incorporated into FV \citep{Hu_1999}
 and DG \citep{Qiu_2005,Zhu_2008} schemes, which are suitable for
 unstructured meshes. However, such early versions of unstructured
 WENO limiters have to query not only a cell's immediate neighbors,
-but also the neighbors' neighbors, and so on. To preserve the compactness
-of RKDG schemes, Zhong \citep{Zhong_2013} and Zhu \citep{Zhu_2013}
+but also the neighbors' neighbors, and~so on. To~preserve the compactness
+of RKDG schemes, Zhong \citep{Zhong_2013} and \mbox{Zhu \citep{Zhu_2013}}
 proposed a compact WENO limter for two-dimensional structured and
-unstructrued meshes. In our early work \citep{Pei_2022}, we extended
+unstructrued meshes. In~our early work \citep{Pei_2022}, we extended
 it to three-dimensional and presented an efficient parallel implementation.
-We will summarize the key steps of this compact WENO limiter in Section
-\ref{subsec:limiting_procedures}.
+We will summarize the key steps of this compact WENO limiter in
+Section~\ref{subsec:limiting_procedures}.
 
 The parallel implementation of the RKDG scheme with a compact WENO
 limiter can be used for solving many practical problems in aerospace
-engineering. However, for problems with moving boundaries (such as
+engineering. However, for~problems with moving boundaries (such as
 rotary wings on a helicopter or blades on a wind turbine), advanced
 meshing techniques (such as dynamic meshing, overset meshes or adaptive
-mesh refinement) have to be applied. On the other hand, typical lifting
-bodies (such as rotary wings) have been successfully modelled as various
+mesh refinement) have to be applied. On~the other hand, typical lifting
+bodies (such as rotary wings) have been successfully modeled as various
 momentum sources in FD/FV schemes. Rajagopalan and Mathur \citep{Rajagopalan_1989,Rajagopalan_1993}
-proposed the first FD/FV based momentum source model, which models
+proposed the first FD/FV-based momentum source model, which models
 the time-averaged effect of a rotor as an actuator disk. Such a steady
 model was used by Kang and Sun \citep{Kang_1997,Kang_2000} for solving
 the flow fields of rotors in ground effect. Shi \citep{Shi_2017}
-compared this model with an unsteady overset mesh method, and found
+compared this model with an unsteady overset mesh method, and~found
 that the steady momentum source model can predict complex aerodynamic
 interactions between a rotor and a flight deck at a much cheaper cost.
 Shen \citep{Shen_2009} and Kim \citep{Kim_2015} refined the model
 by replacing the actuator disk for the entire rotor with an actuator
 surface for each blade of the rotor, so that unsteady effects of rotary
-wings can be captured. Such early works are either over simplified
+wings can be captured. Such early works are either oversimplified
 by ignoring unsteady effects (such as \citep{Rajagopalan_1989,Rajagopalan_1993,Kang_1997,Kang_2000}),
 or restricted to structured meshes (such as \citep{Shen_2009,Shi_2017}).
 To overcome these drawbacks, our parallel RKDG solvers are augmented
-with an unsteady actuator line model, which successfully capture unsteady
-effects of a rotor on unstructured meshes. The formulation of this
-finite-element/momentum-source hybrid method will be given in Section
-\ref{subsec:The-Momentum-Source}. Some demonstrative results are
-presented in Section \ref{subsec:Problems-with-Momentum}.
+with an unsteady actuator line model, which successfully captures unsteady
+effects of a rotor on unstructured meshes. The~formulation of this
+finite element/momentum source hybrid method will be given in
+Section~\ref{subsec:The-Momentum-Source}. Some demonstrative results are
+presented in Section~\ref{subsec:Problems-with-Momentum}.
 
-\section{The RKDG Method with WENO Limiters and Momentum Sources\label{sec:Methods}}
+\section{The RKDG Method with WENO Limiters and Momentum~Sources\label{sec:Methods}}
 
-Mathematically, the problems we are going to solve in Section \ref{sec:Results}
+Mathematically, the~problems that we are going to solve in Section~\ref{sec:Results}
 are defined by the three-dimensional Euler system
-
 \begin{equation}
 \partial_{t}\begin{bmatrix}\rho\\
 \rho u_{x}\\
@@ -285,137 +306,121 @@ b_{z}\\
 0
 \end{bmatrix}\label{eq:euler_system}
 \end{equation}
-
 with certain boundary and initial conditions, which describes inviscid
-compressible flows. In Equation \ref{eq:euler_system},
+compressible flows. In~Equation~(\ref{eq:euler_system}),
 \begin{itemize}
-\item Variables in the first column called conservative variables.
-\item The density $\rho$, the velocity components $u_{x},u_{y},u_{z}$
-and the pressure $p$ are called primitive variables.
+\item Variables in the first column are called conservative variables;
+\item The density $\rho$, the~velocity components $u_{x},u_{y},u_{z}$
+and the pressure $p$ are called primitive variables;
 \item The thermodynamic quantities $e_{0}$ and $h_{0}$ are the specific
-total energy and the specific total enthalpy, respectively. For ideal
+total energy and the specific total enthalpy, respectively; for~ideal
 gases, they can be written as functions of the five primitive variables:
 \item 
 \[
 e_{0}=\frac{p/\rho}{\gamma-1}+\frac{u_{x}^{2}+u_{y}^{2}+u_{z}^{2}}{2},\qquad h_{0}=e_{0}+\frac{p}{\rho},
 \]
-in which $\gamma$ is the heat capacity ratio of the gas and we use
-$\gamma=1.4$ in this article.
-\item The body force components $b_{x},b_{y},b_{z}$ are assumed to be $0$'s
-except in Subsection \ref{subsec:Problems-with-Momentum}.
+in which $\gamma$ is the heat capacity ratio of the gas, and we use
+$\gamma=1.4$ in this article;
+\item The body force components $b_{x},b_{y},b_{z}$ are assumed to be $0$s,
+except in Section \ref{subsec:Problems-with-Momentum}.
 \end{itemize}
 %
-The method we use for solving the Euler \ref{eq:euler_system} is
-the RKDG method with a WENO limiter. A detailed formulation of this
+
+The method that we use for solving the Euler system (\ref{eq:euler_system}) is
+the RKDG method with a WENO limiter. A~detailed formulation of this
 method for sourceless problems has been given in our previous work
-\citep{Pei_2022}. In this section, we give a more complete formulation
-which takes source terms into consideration. If all source terms were
+\citep{Pei_2022}. In~this section, we give a more complete formulation,
+which takes source terms into consideration. If~all source terms were
 canceled, it would reduce to the form in \citep{Pei_2022}.
 
-\subsection{The DG Space Discretization\label{subsec:spatial_discretization}}
+\subsection{The DG Space~Discretization\label{subsec:spatial_discretization}}
 
-Equation \ref{eq:euler_system} can be written as
-
+Equation~(\ref{eq:euler_system}) can be written as
 \begin{equation}
 \partial_{t}\underline{U}+\nabla\cdot\underline{\vec{F}}=\underline{Q}\label{eq:differential_form}
 \end{equation}
-
 in which $\underline{\vec{F}}=\underline{F^{x}}\vec{e}_{x}+\underline{F^{y}}\vec{e}_{y}+\underline{F^{z}}\vec{e}_{z}$
 is the flux tensor and $\underline{U}$, $\underline{F^{x}}$, $\underline{F^{y}}$,
 $\underline{F^{z}}$, $\underline{Q}$ are all $5\times1$ matrices,
 each row of which is a scalar function depending on position $\vec{x}$
-and time $t$. By multiplying both sides with an arbitrary test function
+and time $t$. By~multiplying both sides with an arbitrary test function
 $\psi(\vec{x})$ and integrating the products on the $i$-th element
-(a.k.a. cell) $E_{i}$, and applying integral by parts and Gauss's
-divergence theorem, Equation \ref{eq:differential_form} can be turned
+(i.e., cell) $E_{i}$, and~applying integral by parts and Gauss's
+divergence theorem, Equation~(\ref{eq:differential_form}) can be turned
 into a weak form:
-
 \begin{equation}
 \int_{E_{i}}\left(\psi\,\partial_{t}\underline{U}-\underline{\vec{F}}\cdot\nabla\psi\right)+\int_{\partial E_{i}}\left(\vec{\nu}\cdot\underline{\vec{F}}\right)\psi=\int_{E_{i}}\underline{Q}\,\psi,\label{eq:weak_form}
 \end{equation}
-
 where $\vec{\nu}$ is the outer normal unit vector of $\partial E_{i}$
-(which is the boundary of $E$). By choosing an orthonormal basis
+(which is the boundary of $E$). By~choosing an orthonormal basis
 of the linear space spanned by polynomials less than the $p$-th degree
 over $E$, denoted as $\underline{\phi}(\vec{x})\coloneqq\begin{bmatrix}\phi_{1}(\vec{x}) & \cdots & \phi_{L}(\vec{x})\end{bmatrix}$,
 the unknowns $\underline{U}$ and the arbitrary test function $\psi$
-can be approximated as
+can be approximated~as
 
 \[
 \underline{U}(\vec{x},t)\approx\underline{U}^{h}(\vec{x},t)=\sum_{l=1}^{L}\hat{\underline{U}}_{l}(t)\,\phi_{l}(\vec{x}),\qquad\psi(\vec{x})\approx\psi^{h}(\vec{x})=\sum_{l=1}^{L}\hat{\psi}_{l}\,\phi_{l}(\vec{x}),
 \]
-
 in which each $\hat{\underline{U}}_{l}(t)$ is a $5\times1$ matrix
-of temporal functions, and each $\hat{\psi}_{l}$ is an arbitrary
-constant number. Substitute them into the weak form (Equation \ref{eq:differential_form}),
-it gives
-
+of temporal functions, and~each $\hat{\psi}_{l}$ is an arbitrary
+constant number. Substituting them into the weak form (Equation \ref{eq:differential_form}) gives
 \begin{equation}
 \sum_{l}\hat{\psi}_{l}\,\left[\sum_{k}\left(\int_{E_{i}}\phi_{l}\phi_{k}\right)\dv{\underline{\hat{U}}_{k}}{t}+\int_{E_{i}}\left(\underline{\mathopen{\vec{F}}}\cdot\nabla\phi_{l}-\underline{Q}\,\phi_{l}\right)+\oint_{\partial E_{i}}\phi_{l}\,\underline{\mathopen{F^{\nu}}}\right]=\underline{O}\label{eq:spatial_discretization}
 \end{equation}
-
 where $\vec{\nu}\cdot\underline{\vec{F}}\eqqcolon\underline{F^{\nu}}$
 is the normal flux at some point on $\partial E_{i}$, whose value
-could be given by an exact or approximate Riemann solver of Equation
-\ref{eq:differential_form}, see \citep{Toro_2009} for details.
+could be given by an exact or approximate Riemann solver of
+Equation~(\ref{eq:differential_form}); see \citep{Toro_2009} for~details.
 
 Recall the arbitrariness of $\left\{ \hat{\psi}_{l}\right\} _{l=1}^{L}$
-and adopt the inner-product notation
+and adopt the inner product~notation
 
 \[
 \langle f\vert g\rangle\coloneqq\int_{E_{i}}f(\vec{x})\,g(\vec{x}),
 \]
-
-we could turn Equation \ref{eq:spatial_discretization} into a system
+and we could turn Equation~(\ref{eq:spatial_discretization}) into a system
 of ordinary differential equations:
-
 \begin{equation}
 \dv{\underline{\hat{U}}}{t}=\underline{R}(\underline{\hat{U}})\label{eq:ode_system}
 \end{equation}
-
-in which
-
+in~which
 \[
 \underline{\hat{U}}(t)=\begin{bmatrix}\langle U_{1}\vert\phi_{1}\rangle & \cdots & \langle U_{1}\vert\phi_{L}\rangle\\
 \vdots & \ddots & \vdots\\
 \langle U_{5}\vert\phi_{1}\rangle & \cdots & \langle U_{5}\vert\phi_{L}\rangle
 \end{bmatrix}
 \]
-
 is a $5\times L$ matrix of temporal functions (which will be solved
-in Section \ref{subsec:temporal_discretization}), and
-
-\begin{equation}
+in Section~\ref{subsec:temporal_discretization}), and~\begin{equation}
 \underline{R}=\int_{E_{i}}\left(\begin{bmatrix}\underline{F^{x}} & \underline{F^{y}} & \underline{F^{z}}\end{bmatrix}\begin{bmatrix}\partial_{x}\underline{\phi}\\
 \partial_{y}\underline{\phi}\\
 \partial_{z}\underline{\phi}
 \end{bmatrix}-\underline{Q}\,\underline{\phi}\right)-\oint_{\partial E_{i}}\underline{F^{\nu}}\,\underline{\phi}\label{eq:flux_integrals}
 \end{equation}
-
-is a variable matrix depending on $\underline{\hat{U}}$. The integrals
-in Equation \ref{eq:flux_integrals} are evaluated by Gaussian quadrature
+is a variable matrix depending on $\underline{\hat{U}}$. The~integrals
+in Equation~(\ref{eq:flux_integrals}) are evaluated by Gaussian quadrature
 rules, such as those given by \citep{Zhang_2009}.
 
-\subsection{The RK Time Discretization\label{subsec:temporal_discretization}}
+\subsection{The RK Time~Discretization\label{subsec:temporal_discretization}}
 
-Equation \ref{eq:ode_system} is a typical system of nonlinear ordinary
-differential equations. In this article, we use the following explicit
-Runge--Kutta methods:
+Equation~(\ref{eq:ode_system}) is a typical system of nonlinear ordinary
+differential equations. In~this article, we use the following explicit
+Runge--Kutta~methods:
 \begin{itemize}
-\item first-order:
-\item 
+\item \hl{first-order:} %MDPI: Please confirm list format.
+
 \[
 \begin{aligned}\underline{\hat{U}}^{n+1} & =\underline{\hat{U}}^{n}+\underline{R}^{n}\Delta t\end{aligned}
 \]
-\item second-order:
-\item 
+\item \hl{second-order:}
+
 \[
 \begin{aligned}\underline{\hat{U}}^{n+1/2} & =\underline{\hat{U}}^{n}+\underline{R}^{n}\Delta t,\\
 \underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+2/2} & =\frac{1}{2}\underline{\hat{U}}^{n}+\frac{1}{2}\left(\underline{\hat{U}}^{n+1/2}+\underline{R}^{n+1/2}\Delta t\right)
 \end{aligned}
 \]
-\item third-order:
-\item 
+\item \hl{third-order:}
+
 \begin{equation}
 \begin{aligned}\underline{\hat{U}}^{n+1/3} & =\underline{\hat{U}}^{n}+\underline{R}^{n}\Delta t,\\
 \underline{\hat{U}}^{n+2/3} & =\frac{3}{4}\underline{\hat{U}}^{n}+\frac{1}{4}\left(\underline{\hat{U}}^{n+1/3}+\underline{R}^{n+1/3}\Delta t\right)\\
@@ -424,15 +429,15 @@ Runge--Kutta methods:
 \label{eq:Runge--Kutta}
 \end{equation}
 \end{itemize}
-in which the $\underline{R}^{\mu}\coloneqq\underline{R}(\underline{\hat{U}}^{\mu})$'s
+in which the $\underline{R}^{\mu}\coloneqq\underline{R}(\underline{\hat{U}}^{\mu})$s
 are the values mapped by the nonlinear operator $\underline{R}$ from
-the corresponding $\underline{\hat{U}}^{\mu}$'s. It has been proved
+the corresponding $\underline{\hat{U}}^{\mu}$s. It has been proven
 by Gottlieb and Shu that they are all total variation diminishing
-(TVD) \citep{Gottlieb_1998} or strong stability-preserving (SSP)
+(TVD) \citep{Gottlieb_1998} or strong stability preserving (SSP)
 \citep{Gottlieb_2001} (which is a desired feature for hyperbolic
-problems) and fourth-order Runge--Kutta methods cannot be TVD or
+problems), and fourth-order Runge--Kutta methods cannot be TVD or
 SSP without introducing the adjoint operator of $\underline{R}$,
-denoted as $\underline{R}^{\dagger}$, which satisfies
+denoted as $\underline{R}^{\dagger}$, which~satisfies
 
 \[
 \underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}-\underline{R}^{\dagger}(\underline{\hat{U}}^{n})\,\Delta t.
@@ -440,31 +445,28 @@ denoted as $\underline{R}^{\dagger}$, which satisfies
 
 It is non-trivial to implement such an adjoint operator and thus we
 do not implement Runge--Kutta methods whose accuracy order is higher
-than three.
+than~three.
 
-\subsection{The Compact WENO Limiter\label{subsec:limiting_procedures}}
+\subsection{The Compact WENO~Limiter\label{subsec:limiting_procedures}}
 
 Following our previous work \citep{Pei_2022}, we use the three-dimensional
 extension of the two-dimensional WENO limiters by Zhong \citep{Zhong_2013}
-and Zhu \citep{Zhu_2013}. For simplicity, we denote the index set
-of $E_{i}$'s neighbors as $K_{i}$. For each $k\in K_{i}$, we first
-transform Equation \ref{eq:differential_form} to the $\nu$-split
+and Zhu \citep{Zhu_2013}. For~simplicity, we denote the index set
+of $E_{i}$'s neighbors as $K_{i}$. For~each $k\in K_{i}$, we first
+transform Equation~(\ref{eq:differential_form}) to the $\nu$-split
 form on the interface shared by $E_{i}$ and its neighbor $E_{k}$:
-
 \begin{equation}
 \partial_{t}\underline{U}+\partial_{\nu}\underline{F^{\nu}}\equiv\left(\partial_{t}+\underline{A^{\nu}}\,\partial_{\nu}\right)\underline{U}=\underline{Q},\label{eq:normal_split_form}
 \end{equation}
 
-in which, the flux Jacobian can be approximated by the average value
+in which the~flux Jacobian can be approximated by the average value
 of $\underline{U}$ on $E_{i}$:
-
 \begin{equation}
 \underline{A^{\nu}}\equiv\frac{\partial\underline{F^{\nu}}}{\partial\underline{U}}\approx\left.\frac{\partial\underline{F^{\nu}}}{\partial\underline{U}}\right|_{\langle\underline{U}\rangle_{i}}.\label{eq:normal_jacobian}
 \end{equation}
 
-From the hyperbolicity of Equation \ref{eq:differential_form}, there
-always exists the eigenvalue decomposition
-
+\textls[-15]{From the hyperbolicity of Equation~(\ref{eq:differential_form}), there
+always exists the eigenvalue decomposition}
 \begin{equation}
 \underline{A^{\nu}}=\underline{R^{\nu}}\begin{bmatrix}u_{\nu}-a\\
  & u_{\nu}\\
@@ -473,8 +475,7 @@ always exists the eigenvalue decomposition
  &  &  &  & u_{\nu}+a
 \end{bmatrix}(\underline{R^{\nu}})^{-1},\label{eq:eigen_decompose}
 \end{equation}
-
-in which
+in~which
 
 \[
 \underline{R^{\nu}}=\begin{bmatrix}1 & 1 & 0 & 0 & 1\\
@@ -501,7 +502,6 @@ u_{z}
 \frac{1}{2}\left(B_{2}-\frac{u_{\nu}}{a}\right) & \frac{-1}{2}\left(B_{1}u_{x}-\frac{\nu_{x}}{a}\right) & \frac{-1}{2}\left(B_{1}u_{y}-\frac{\nu_{y}}{a}\right) & \frac{-1}{2}\left(B_{1}u_{z}-\frac{\nu_{z}}{a}\right) & \frac{1}{2}B_{1}
 \end{bmatrix},
 \]
-
 where $B_{1}\coloneqq(\gamma-1)/a^{2}$ and $B_{2}\coloneqq B_{1}(u_{\nu}^{2}+u_{\sigma}^{2}+u_{\pi}^{2})$.
 The original conservative variable $\underline{U}$ is then projected
 into the space spanned by the columns of $\underline{R}$, which defines
@@ -512,11 +512,10 @@ the characteristic variable:
 \]
 
 Each scalar component of $\underline{V}$ can now be treated as independent
-functions, to which any suitable scalar WENO limiter (such as the
+functions, to~which any suitable scalar WENO limiter (such as the
 one in \citep{Zhong_2013,Zhu_2013}) can be applied. Once obtaining
 the reconstructed characteristic variable $\underline{V}^{\mathrm{new}}$,
 it is turned back to the original conservative variable:
-
 \begin{equation}
 \underline{U}_{i|k}^{\mathrm{new}}\coloneqq\underline{R^{\nu}}\,\underline{V}^{\mathrm{new}},\label{eq:eigen_rows}
 \end{equation}
@@ -526,19 +525,18 @@ on $E_{i}$ with the help of $E_{k}$. There is one such reconstructed
 $\underline{U}_{i|k}^{\mathrm{new}}$ for each $k\in K_{i}$, so the
 final step is to weight them by the volume of the corresponding adjacent
 element:
-
 \begin{equation}
 \underline{U}_{i}^{\mathrm{new}}\coloneqq\frac{\sum_{k\in K_{i}}\underline{U}_{i|k}^{\mathrm{new}}\vert E_{k}\vert}{\sum_{k\in K_{i}}\vert E_{k}\vert}.\label{eq:weight_by_volume}
 \end{equation}
 
 
-\subsection{The Momentum Source Model\label{subsec:The-Momentum-Source}}
+\subsection{The Momentum Source~Model\label{subsec:The-Momentum-Source}}
 
-To model a fixed or rotary wing with high aspect ratio, we use the
+To model a fixed or rotary wing with a high aspect ratio, we use the
 actuator line model, which is a special case of the more general momentum
-source model. In this model, a wing is sliced into a series of thin
+source model. In~this model, a~wing is sliced into a series of thin
 pieces, each of which is perpendicular to the wing's axis. When moving
-relatively to the air, a piece feels a pair of aerodynamic forces:
+relative to the air, a~piece feels a pair of aerodynamic forces:
 
 \[
 \begin{bmatrix}L\dd{s}\\
@@ -547,36 +545,34 @@ D\dd{s}
 C_{D}(\alpha)
 \end{bmatrix}c\dd{s}
 \]
-
-in which
+in~which
 \begin{itemize}
-\item $c$ is the chord length of the piece, $s$ is the arc length parameter
-of the axis.
+\item $c$ is the chord length of the piece, and $s$ is the arc length parameter
+of the axis;
 \item $\alpha$ is the angle of attack, which is related to $u$ and $w$
-(velocity components resolved in the airfoil's local frame) by $\tan\alpha=w/u$.
+(velocity components resolved in the airfoil's local frame) by $\tan\alpha=w/u$;
 \item $C_{L}$ and $C_{D}$ are the lift and drag coefficients of the airfoil,
-respectively.
+respectively;
 \item $L$ and $D$ are the lift and drag per unit length, respectively.
 \end{itemize}
 %
-Using Newton's third Law, the force per unit length felt by the air
-surrounding the piece is
+
+Using Newton's third Law, the~force per unit length felt by the air
+surrounding the piece~is
 
 \[
 \vec{b}_{L}(\vec{r}(s))=-\begin{bmatrix}\vec{e}_{L}(s) & \vec{e}_{D}(s)\end{bmatrix}\begin{bmatrix}L(s)\\
 D(s)
 \end{bmatrix},
 \]
-
 in which $\vec{e}_{L}$ and $\vec{e}_{D}$ are unit vectors along
 and perpendicular to the direction of airflow relative to the airfoil.
 To avoid ambiguity, we denote the force per unit length as $\vec{b}_{L}$
-and use $\vec{b}_{V}$ to denote the force per unit volume. If the
+and use $\vec{b}_{V}$ to denote the force per unit volume. If~the
 intersection of a wing's axis $\overline{PQ}$ and a DG element $E$
-is the line segement $\overline{RT}$, then the body integral of the
-source term in Equation \ref{eq:flux_integrals} is actually a line
+is the line segment $\overline{RT}$, then the body integral of the
+source term in Equation~(\ref{eq:flux_integrals}) is actually a line
 integral:
-
 \begin{equation}
 \int_{E_{i}}\underline{Q}\,\underline{\phi}=\int_{E_{i}}\begin{bmatrix}0\\
 \vec{b}_{V}(\vec{r})\\
@@ -587,111 +583,118 @@ integral:
 \end{bmatrix},\label{eq:line_integral}
 \end{equation}
 
-By parameterizing the line segment $\overline{RT}$, the line integral
-in Equation \ref{eq:line_integral} can be evaluated as a definite
+By parameterizing the line segment $\overline{RT}$, the~line integral
+in Equation~(\ref{eq:line_integral}) can be evaluated as a definite
 integral:
 
 \[
 \int_{RT}\vec{b}_{L}(\vec{r})\,\underline{\phi}(\vec{r})=\int_{\xi_{R}}^{\xi_{T}}\vec{b}_{L}(\vec{r}(\xi))\,\underline{\phi}(\vec{r}(\xi))\left\Vert \frac{\partial\vec{r}}{\partial\xi}\right\Vert \dd{\xi},
 \]
+to which the standard Gaussian quadrature can be~applied.
 
-to which the standard Gaussian quadrature can be applied.
-
-\section{Results of Model Problems and Engineering Problems\label{sec:Results}}
+\section{Results of Model Problems and Engineering~Problems\label{sec:Results}}
 
 In this section, we give the results of various problems to show the
-accuracy and performance of the methods described in Section \ref{sec:Methods}.
+accuracy and performance of the methods described in Section~\ref{sec:Methods}.
 
-\subsection{Lower-Dimensional Model Problems}
+\subsection{Lower-Dimensional Model~Problems}
 
-\subsubsection{Shock Tube Problems}
+\subsubsection{Shock Tube~Problems}
 
-These problems are usually defined as one-dimensional problems, but
-we treat them as three-dimensional ones. All these problems are considered
+These problems are usually defined as one-dimensional problems, but~we treat them as three-dimensional ones. All these problems are considered
 in a $[0.0,5.0]\times[0.0,1.0]\times[0.0,0.5]$ box with all boundaries
 closed but the left and right ends open. Using the method described
 in \citep{Toro_2009}, their exact solutions can be obtained, which
-can be used for assessing the accuracy of our solvers. In our earlier
+can be used for assessing the accuracy of our solvers. In~our earlier
 work \citep{Pei_2022}, we have given the results obtained by running
 our solvers on an unstructured hexahedral mesh. This time, we use
 an unstructured tetrahedral mesh instead.
-\begin{Problem}
-[Sod]\label{prob:sod}Solve the Euler system (Equation \ref{eq:euler_system})
-for $t\in[0.0,1.0]$ with the initial condition
+\begin{Problem} %MDPI: Please confirm position is not after first citation.
+[\hl{Sod}] \label{prob:sod} Solve the Euler system Equation (\ref{eq:euler_system})
+for $t\in[0.0,1.0]$ with the initial~condition
 
-\[
+
+\begin{equation*}
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
-\begin{bmatrix}1 & 0 & 0 & 0 & 1\end{bmatrix} & x<2.5\\
+\begin{bmatrix}1 & 0 & 0 & 0 & 1\end{bmatrix} & x<2.5 \vspace{4pt}\\
 \begin{bmatrix}\frac{1}{8} & 0 & 0 & 0 & \frac{1}{10}\end{bmatrix} & x>2.5
 \end{cases}
-\]
+\end{equation*}
 \end{Problem}
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/shock_tubes/sod/contour_tetra}
 
-\caption{\label{fig:sod_contour}Third-order solution of $\rho(t=1.0)$ in
-Problem \ref{prob:sod}.}
-\end{figure}
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/shock_tubes/sod/result_tetra}
-
-\caption{\label{fig:sod_p}Comparison between solutions of $\rho(t=1.0)$ in
-Problem \ref{prob:sod}.}
-\end{figure}
 
 This is a classical problem of inviscid compressible flows. It contains
-all the three types of discontinuities: a shock wave and a contact
+all three types of discontinuities: a shock wave and a contact
 discontinuity running towards the right and an expansion wave running
-towards the left. In Figure \ref{fig:sod_contour}, we plot the density
+towards the left. In~Figure~\ref{fig:sod_contour}, we plot the density
 contour given by our third-order solver with an \texttt{EigenWeno}
-limiter. In Figure \ref{fig:sod_p}, we compare the density distributions
+limiter. In~Figure~\ref{fig:sod_p}, we compare the density distributions
 given by various solvers along the longitudinal axis (on which $y=0.5$
-and $z=0.25$) of the box. The accuracy of our solvers and the effect
-of $p$-refinement are clear in these figures.
+and $z=0.25$) of the box. The~accuracy of our solvers and the effect
+of $p$-refinement are clear in these~figures.
+\vspace{-6pt}
+
+
+\begin{figure}[H]
+\includegraphics[width=1\textwidth]{figures/shock_tubes/sod/contour_tetra}
+
+\caption{\label{fig:sod_contour}\hl{Third-or}der solution of $\rho(t=1.0)$ in
+Problem \ref{prob:sod}.}
+\end{figure}
+%\unskip
+\vspace{-6pt}
+\begin{figure}[H]
+\hspace{-17pt}
+\includegraphics[width=1\textwidth]{figures/shock_tubes/sod/result_tetra}
+
+\caption{\label{fig:sod_p}\hl{Comparison b}etween solutions of $\rho(t=1.0)$ in
+Problem \ref{prob:sod}.}
+\end{figure} %MDPI: Please confirm Figures moved after first citations.
 
 It is predictable that both mesh refinement (decreasing $h$) and
-order increment (increasing $p$) can help to improve accuracy. To
-compare the performance of solvers with different orders more fairly,
+order increment (increasing $p$) can help to improve accuracy. To~compare the performance of solvers with different orders more fairly,
 it is better to use finer meshes for running lower-order solvers.
-After a few trials, we find that solutions given by the $h$-$p$
-pairs listed in Table \ref{tab:sod_performance} roughly have the
-same level of accuracy, as shown in Figure \ref{fig:sod_h}. It is
-clear, at least for Problem \ref{prob:sod}, that high-order solvers
-are better than low-order ones in the sense of getting the same level
+After a few trials, we find that the solutions given by the $h$-$p$
+pairs listed in Table~\ref{tab:sod_performance} roughly have the
+same level of accuracy, as~shown in Figure~\ref{fig:sod_h}. It is
+clear, at~least for Problem \ref{prob:sod}, that high-order solvers
+are better than low-order ones in the sense of obtaining the same level
 of accuracy with less time and space costs. Similar conclusions were
-drawn in our previous work \citep{Pei_2022}, in which the $p=3$
+drawn in our previous work \citep{Pei_2022}, in~which the $p=3$
 solution of a linear advection problem on an $h\approx1/4$ mesh defeated
 the $p=1$ solution of the same problem on an $h\approx1/32$ mesh
 in accuracy but saved quite a lot of time. These encouraging results
-justify our efforts to implement higher-order solvers.
+justify our efforts to implement higher-order~solvers.
 
 \begin{table}[H]
 \caption{\label{tab:sod_performance}Comparison between time costs and file
-sizes of various $h$-$p$ pairs.}
+sizes of various $h$--$p$ pairs.}
 
-\begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}>{\centering}p{0.1\textwidth}>{\centering}p{0.05\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.15\textwidth}>{\centering}p{0.1\textwidth}}
+\begin{tabularx}{1\textwidth}{@{\extracolsep{\fill}}>{\centering}p{0.1\textwidth}>{\centering}p{0.05\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.15\textwidth}>{\centering}p{0.1\textwidth}}
 \toprule 
-$h$ & $p$ & \#cells & \#steps & time cost & file size\tabularnewline
+\boldmath{$h$} &\boldmath{ $p$} & \textbf{\#Cells} & \textbf{\#Steps} & \textbf{Time Cost} & \textbf{File Size}\tabularnewline
 \midrule 
 1/50 & 1 & 2469675 & 1500 & 1492.16 s & 1.23 GB\tabularnewline
 1/18 & 2 & 117045 & 500 & 279.119 s & 213 MB\tabularnewline
 1/10 & 3 & 19815 & 250 & 201.034 s & 89.1 MB\tabularnewline
 \bottomrule
-\end{tabular*}
+\end{tabularx}
 \end{table}
+\unskip
 
-\begin{figure}
+\begin{figure}[H]
+\hspace{-18pt}
 \includegraphics[width=1\textwidth]{figures/shock_tubes/sod/h_vary_tetra}
 
-\caption{\label{fig:sod_h}Comparison between solutions given by various $h$-$p$
+\caption{\label{fig:sod_h}Comparison between solutions given by various $h$--$p$
 pairs.}
 \end{figure}
 
-\begin{Problem}
-[Lax]\label{prob:lax}Solve the Euler system (Equation \ref{eq:euler_system})
-for $t\in[0.0,0.6]$ with the initial condition
+\begin{Problem} %MDPI: Please confirm format
+[\hl{Lax}]\label{prob:lax}Solve the Euler system Equation (\ref{eq:euler_system})
+for $t\in[0.0,0.6]$ with the initial~condition
 
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
@@ -701,31 +704,37 @@ for $t\in[0.0,0.6]$ with the initial condition
 \]
 \end{Problem}
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/shock_tubes/lax/contour_tetra}
 
-\caption{\label{fig:lax_contour}Third-order solution of $\rho(t=0.5)$ in
-Problem \ref{prob:lax}.}
-\end{figure}
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/shock_tubes/lax/result_tetra}
-
-\caption{\label{fig:lax}Comparison between solutions of $\rho(t=0.5)$ in
-Problem \ref{prob:lax}.}
-\end{figure}
-
-This is another problem that involves all the three types of discontinuities.
+This is another problem that involves all three types of discontinuities.
 It is more difficult than the previous one in the sense that its solution
 contains values beyond the range of initial values and the discontinuities
-are much steeper. As before, we plot the density contour of our third-order
-solution in Figure \ref{fig:lax_contour} and compare the density
-distributions given by various solvers in Figure \ref{fig:lax}. Both
+are much steeper. As~before, we plot the density contour of our third-order
+solution in Figure~\ref{fig:lax_contour} and compare the density
+distributions given by various solvers in Figure~\ref{fig:lax}. Both
 figures demonstrate the effect of $p$-refinement and the ability
 of our high-order solvers to suppress numerical oscillations.
+\vspace{-6pt}
+\begin{figure}[H]
+\hspace{-18pt} %MDPI: Please confirm figures moved after first citation.
+\includegraphics[width=1\textwidth]{figures/shock_tubes/lax/contour_tetra}
+
+\caption{\label{fig:lax_contour}\hl{Third-order} solution of $\rho(t=0.5)$ in
+Problem \ref{prob:lax}.}
+\end{figure}
+%\unskip
+
+\begin{figure}[H]
+\hspace{-18pt}
+\includegraphics[width=1\textwidth]{figures/shock_tubes/lax/result_tetra}
+
+\caption{\label{fig:lax}Co\hl{mparison b}etween solutions of $\rho(t=0.5)$ in
+Problem \ref{prob:lax}.}
+\end{figure}
+
 \begin{Problem}
-[Vacuum]\label{prob:vacuum}Solve the Euler system (Equation \ref{eq:euler_system})
-for $t\in[0.0,0.4]$ with the initial condition
+[\hl{Vacuum}]\label{prob:vacuum}\textls[-15]{Solve the Euler system Equation (\ref{eq:euler_system})
+for $t\in[0.0,0.4]$ with the initial~condition}
 
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
@@ -735,52 +744,57 @@ for $t\in[0.0,0.4]$ with the initial condition
 \]
 \end{Problem}
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/shock_tubes/vacuum/contour_tetra}
-
-\caption{\label{fig:vacuum_contour}Third-order solution of $\rho(t=0.4)$
-in Problem \ref{prob:vacuum}.}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/shock_tubes/vacuum/result_tetra}
-
-\caption{\label{fig:vacuum}Comparison between solutions of $\rho(t=0.4)$
-in Problem \ref{prob:vacuum}.}
-\end{figure}
 
 This problem is easier than the previous two in the sense that no
-strong discontinuities (shock or contact discontinuity) occurs in
+strong discontinuities (shock or contact discontinuity) occur in
 the solution. However, there is a region of vacuum, which does not
-occur in the previous prolems, generated between the left- and right-running
-expansion waves. The velocity $u$ inside the vacuumed region (denoted
-by a $*$ in subscripts) is undefined, but its boundary values should
-be determined from the left (denoted by an $L$ in subscripts) and
-right (denoted by an $R$ in subscripts) initial values by the two
+occur in the previous problems, generated between the left- and right-running
+expansion waves. The~velocity $u$ inside the vacuumed region (denoted
+by a $*$ in subscript) is undefined, but~its boundary values should
+be determined from the left (denoted by an $L$ in subscript) and
+right (denoted by an $R$ in subscript) initial values by the two
 Riemann invariants:
 
 \[
 u_{*L}=u_{L}+\frac{2a_{L}}{\gamma-1},\qquad u_{*R}=u_{R}-\frac{2a_{R}}{\gamma-1}.
 \]
 
-See Section 4.6 in \citep{Toro_2009} for more detailed discussions.
-Unfortunenately, approximate Riemann solvers usually (have to) neglect
-this condition. For this reason, we use an exact Riemann solver to
-obtain fluxes on cell boundaries. As before, we plot the results in
-Figure \ref{fig:vacuum_contour} and Figure \ref{fig:vacuum}, which
-again validate the correctness and robustness of our solvers.
+See \hl{Section}~4.6 in \citep{Toro_2009} for more detailed discussions. %MDPI: Please check and revise Section 4.6 does not exist in the document.
+Unfortunately, approximate Riemann solvers usually (have to) neglect
+this condition. For~this reason, we use an exact Riemann solver to
+obtain fluxes on cell boundaries. As~before, we plot the results in
+Figures~\ref{fig:vacuum_contour} and~\ref{fig:vacuum}, which
+again validate the correctness and robustness of our~solvers.
 
-\subsubsection{The Forward Step Problem}
+\begin{figure}[H]
+\hspace{-13pt}
+\includegraphics[width=0.9\textwidth]{figures/shock_tubes/vacuum/contour_tetra}
 
-This is a classical two-dimensional problem \citep{Woodward_1984},
-but we treat it as a three-dimensional one:
+\caption{\label{fig:vacuum_contour}\hl{Third-orde}r solution of $\rho(t=0.4)$
+in Problem \ref{prob:vacuum}.}
+\end{figure}
+%\unskip
+
+\begin{figure}[H]
+\hspace{-13pt}
+\includegraphics[width=0.9\textwidth]{figures/shock_tubes/vacuum/result_tetra}
+
+\caption{\label{fig:vacuum}C\hl{omparison }between solutions of $\rho(t=0.4)$
+in Problem \ref{prob:vacuum}.}
+\end{figure}
+
+
+\subsubsection{The Forward Step~Problem}
+
+\textls[-25]{This is a classical two-dimensional problem \citep{Woodward_1984},
+but we treat it as a three-dimensional one:}
 \begin{Problem}
 \label{prob:forward_step}Solve the Euler system (Equation \ref{eq:euler_system})
 in a $[0,3]\times[0,1]\times[0,Z]$ box (representing a wind tunnel),
-where the thickness $Z$ could be any positive value, with a $[0.6,3]\times[0,0.2]\times[0,Z]$
-box removed (representing a forward-facing step). The $x=0$ surface
+where the thickness $Z$ could be any positive value, with~a $[0.6,3]\times[0,0.2]\times[0,Z]$
+box removed (representing a forward-facing step). The~$x=0$ surface
 is open as an inlet and the $x=3$ surface is open as an outlet. All
-other boundary surfaces are closed as solid walls. The initial condition
+other boundary surfaces are closed as solid walls. The~initial condition
 is given as a uniform state:
 
 \[
@@ -788,202 +802,231 @@ is given as a uniform state:
 \]
 \end{Problem}
 
-\begin{figure}
+
+
+To show the applicability of our solvers on structured meshes, we
+solve this problem on meshes such as the one in Figure~\ref{fig:forward_step_domain}.
+As a common practice, we plot the density contours at various time
+steps in Figures~\ref{fig:forward_step_p=00003D3_t=00003D02e-1}--\ref{fig:forward_step_p=00003D3_t=00003D40e-1}.
+
+
+\begin{figure}[H]
+\hspace{-12pt}
 \includegraphics[width=1\textwidth]{figures/forward_step/mesh}
 
-\caption{\label{fig:forward_step_domain}A coarse ($h=1/20$) mesh for solving
+\caption{\label{fig:forward_step_domain}\hl{A coarse} ($h=1/20$) mesh for solving
 Problem \ref{prob:forward_step}. This mesh is too coarse to capture
 details of the flow field but clear enough to demonstrate the distribution
 of nodes and cells. Actually, we use a much finer ($h=1/200$) mesh
-to produce Figures \ref{fig:forward_step_p=00003D3_t=00003D02e-1}--\ref{fig:forward_step_p=00003D3_t=00003D40e-1}.}
+to produce Figures~\ref{fig:forward_step_p=00003D3_t=00003D02e-1}--\ref{fig:forward_step_p=00003D3_t=00003D40e-1}.}
 \end{figure}
 
-To show the applicability of our solvers on structured meshes, we
-solve this problem on meshes like the one in Figure \ref{fig:forward_step_domain}.
-As a common practice, we plot the density contours at various time
-steps in Figures \ref{fig:forward_step_p=00003D3_t=00003D02e-1}--\ref{fig:forward_step_p=00003D3_t=00003D40e-1}.
-
-\begin{figure}
+\begin{figure}[H]
+\hspace{-19pt}
 \includegraphics[width=1\textwidth]{figures/forward_step/p=3_t=02e-1}
 
-\caption{\label{fig:forward_step_p=00003D3_t=00003D02e-1}Third-order solution
+\caption{\label{fig:forward_step_p=00003D3_t=00003D02e-1}\hl{Third-order} %MDPI: figures 9-19: Is the space above the image necessary? If not, crop it for a better display 
+ solution
 of Problem \ref{prob:forward_step} at $t=0.2$ on an $h=1/200$ mesh.}
 \end{figure}
 
-\begin{figure}
+\vspace{-6pt}
+\begin{figure}[H]
+\hspace{-19pt}
 \includegraphics[width=1\textwidth]{figures/forward_step/p=3_t=04e-1}
 
 \caption{\label{fig:forward_step_p=00003D3_t=00003D04e-1}Third-order solution
 of Problem \ref{prob:forward_step} at $t=0.4$ on an $h=1/200$ mesh.}
 \end{figure}
 
-\begin{figure}
+
+\begin{figure}[H]
+\hspace{-19pt}
 \includegraphics[width=1\textwidth]{figures/forward_step/p=3_t=06e-1}
 
 \caption{\label{fig:forward_step_p=00003D3_t=00003D06e-1}Third-order solution
 of Problem \ref{prob:forward_step} at $t=0.6$ on an $h=1/200$ mesh.}
 \end{figure}
 
-\begin{figure}
+
+\begin{figure}[H]
+\hspace{-19pt}
 \includegraphics[width=1\textwidth]{figures/forward_step/p=3_t=08e-1}
 
 \caption{\label{fig:forward_step_p=00003D3_t=00003D08e-1}Third-order solution
 of Problem \ref{prob:forward_step} at $t=0.8$ on an $h=1/200$ mesh.}
 \end{figure}
 
-\begin{figure}
+
+\begin{figure}[H]
+\hspace{-19pt}
 \includegraphics[width=1\textwidth]{figures/forward_step/p=3_t=10e-1}
 
 \caption{\label{fig:forward_step_p=00003D3_t=00003D10e-1}Third-order solution
 of Problem \ref{prob:forward_step} at $t=1.0$ on an $h=1/200$ mesh.}
 \end{figure}
 
-\begin{figure}
+
+\begin{figure}[H]
+\hspace{-19pt}
 \includegraphics[width=1\textwidth]{figures/forward_step/p=3_t=12e-1}
 
 \caption{\label{fig:forward_step_p=00003D3_t=00003D12e-1}Third-order solution
 of Problem \ref{prob:forward_step} at $t=1.2$ on an $h=1/200$ mesh.}
 \end{figure}
 
-\begin{figure}
+
+\begin{figure}[H]
+\hspace{-19pt}
 \includegraphics[width=1\textwidth]{figures/forward_step/p=3_t=20e-1}
 
 \caption{\label{fig:forward_step_p=00003D3_t=00003D20e-1}Third-order solution
 of Problem \ref{prob:forward_step} at $t=2.0$ on an $h=1/200$ mesh.}
 \end{figure}
 
-\begin{figure}
+
+\begin{figure}[H]
+\hspace{-19pt}
 \includegraphics[width=1\textwidth]{figures/forward_step/p=3_t=24e-1}
 
 \caption{\label{fig:forward_step_p=00003D3_t=00003D24e-1}Third-order solution
 of Problem \ref{prob:forward_step} at $t=2.4$ on an $h=1/200$ mesh.}
 \end{figure}
 
-\begin{figure}
+
+\begin{figure}[H]
+\hspace{-19pt}
 \includegraphics[width=1\textwidth]{figures/forward_step/p=3_t=28e-1}
 
 \caption{\label{fig:forward_step_p=00003D3_h=00003D28e-1}Third-order solution
 of Problem \ref{prob:forward_step} at $t=2.8$ on an $h=1/200$ mesh.}
 \end{figure}
 
-\begin{figure}
+
+\begin{figure}[H]
+\hspace{-19pt}
 \includegraphics[width=1\textwidth]{figures/forward_step/p=3_t=32e-1}
 
 \caption{\label{fig:forward_step_p=00003D3_t=00003D32e-1}Third-order solution
 of Problem \ref{prob:forward_step} at $t=3.2$ on an $h=1/200$ mesh.}
 \end{figure}
 
-\begin{figure}
+
+\begin{figure}[H]
+\hspace{-19pt}
 \includegraphics[width=1\textwidth]{figures/forward_step/p=3_t=40e-1}
 
 \caption{\label{fig:forward_step_p=00003D3_t=00003D40e-1}Third-order solution
 of Problem \ref{prob:forward_step} at $t=4.0$ on an $h=1/200$ mesh.}
 \end{figure}
 
-The flow starts from a uniform supersonic ($M=3.0$) state. In Figures
-\ref{fig:forward_step_p=00003D3_t=00003D02e-1} and \ref{fig:forward_step_p=00003D3_t=00003D04e-1},
+The flow starts from a uniform supersonic ($M=3.0$) state. In~Figures~\ref{fig:forward_step_p=00003D3_t=00003D02e-1} and \ref{fig:forward_step_p=00003D3_t=00003D04e-1},
 a curved bow shock wave generates in front of the forward-facing step
 and a fan-shaped expansion wave generates at the corner ($x=0.6,y=0.2$).
 The bow shock then hits the top of the tunnel (Figure \ref{fig:forward_step_p=00003D3_t=00003D06e-1})
 and reflects from it (Figures \ref{fig:forward_step_p=00003D3_t=00003D08e-1}
-and \ref{fig:forward_step_p=00003D3_t=00003D10e-1}). At about $t=1.2$
-(Figure \ref{fig:forward_step_p=00003D3_t=00003D12e-1}), the reflected
+and \ref{fig:forward_step_p=00003D3_t=00003D10e-1}). At~approximately $t=1.2$
+(Figure \ref{fig:forward_step_p=00003D3_t=00003D12e-1}), the~reflected
 shock hits the bottom of the tunnel (the top of the step) and reflects
 from it. Both of the two reflections are regular at these moments.
-Just before $t=2.0$ (Figure \ref{fig:forward_step_p=00003D3_t=00003D12e-1}),
-a Mach stem which characterizes a Mach reflection has generated from
-the first reflection point. A wavy contact discontinuity generating
-from the triple point is captured by Figures \ref{fig:forward_step_p=00003D3_t=00003D24e-1}--\ref{fig:forward_step_p=00003D3_t=00003D40e-1}.
+Shortly before $t=2.0$ (Figure \ref{fig:forward_step_p=00003D3_t=00003D12e-1}),
+a Mach stem that characterizes a Mach reflection is generated from
+the first reflection point. A~wavy contact discontinuity generating
+from the triple point is captured by Figures~\ref{fig:forward_step_p=00003D3_t=00003D24e-1}--\ref{fig:forward_step_p=00003D3_t=00003D40e-1}.
 This flow structure would be smeared off if we solved Problem \ref{prob:forward_step}
-using lower-order solvers or coarser meshes.
+using lower-order solvers or coarser~meshes.
 
-\subsection{Three-Dimensional Engineering Problems\label{subsec:YF-17}}
+\subsection{Three-Dimensional Engineering~Problems\label{subsec:YF-17}}
 
-In this section, we solve the Euler system (Equation \ref{eq:euler_system})
+In this section, we solve the Euler system Equation (\ref{eq:euler_system})
 on a three-dimensional unstructured mesh, which discretizes the space
-around a YF-17 aircraft by tetrahedral cells as shown in Figure \ref{fig:yf17_mesh}.
+around a YF-17 aircraft by tetrahedral cells, as shown in Figure~\ref{fig:yf17_mesh}.
 
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[width=1\textwidth]{figures/yf17/mesh}
 
-\caption{\label{fig:yf17_mesh}A zoomed-in view of the most important boundaries
-of the mesh for solving problems in Section \ref{subsec:YF-17}.}
+\caption{{\label{fig:yf17_mesh}{A zoomed-in view of the most important boundaries
+of the mesh for solving problems~in~Section~\ref{subsec:YF-17}.}}}
 \end{figure}
+\unskip
 
 
-\subsubsection{YF-17 in Subsonic Flight}
+\subsubsection{YF-17 in Subsonic~Flight}
 \begin{Problem}
-\label{prob:Subsonic-YF17}Solve the Euler system (Equation \ref{eq:euler_system})
-in the surrounding of a YF-17 aircraft. The initial condition is given
+\label{prob:Subsonic-YF17}Solve the Euler system Equation (\ref{eq:euler_system})
+in the surroundings of a YF-17 aircraft. The~initial condition is given
 as a subsonic flow ($M=0.3$) with a $20$-deg angle of attack:
 
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 0.2819 & 0.0 & 0.1026 & 1.0\end{bmatrix}.
 \]
 
-All boundaries of the aircraft are defined as solid walls, except
-the intake the engine which is defined as a subsonic outlet of the
-condition equal to the initial condition, and the exhaust of the engine
-which is defined as a supersonic ($M=3.0$) inlet of the condition:
+A\hl{ll boundaries of the aircraft are defined as solid walls, except~the intake of the engine, which is defined as a subsonic outlet of the
+condition equal to the initial condition, and~the exhaust of the engine,
+which is defined as a sup}ersonic ($M=3.0$) inlet of the condition: %MDPI: Please confirm italics format.
 
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{\text{ex.}}=\begin{bmatrix}1.4 & 2.4 & 0.0 & 0.0 & 1.44\end{bmatrix}.
 \]
 \end{Problem}
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/yf17/streamlines_p=1}
 
-\caption{\label{fig:yf17_streamlines_p=00003D1}Streamlines given by the first-order
-solution of Problem \ref{prob:Subsonic-YF17}.}
-\end{figure}
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/yf17/streamlines_p=3}
-
-\caption{\label{fig:yf17_streamlines_p=00003D3}Streamlines given by the third-order
-solution of Problem \ref{prob:Subsonic-YF17}.}
-\end{figure}
-
-We solve this problem by two of our finite element solvers and plot
+We solve this problem via two of our finite element solvers and plot
 the streamlines released from the strake and the wing at $t=10$ in
-Figure \ref{fig:yf17_streamlines_p=00003D1} and Figure \ref{fig:yf17_streamlines_p=00003D3}.
+Figures~\ref{fig:yf17_streamlines_p=00003D1} and \ref{fig:yf17_streamlines_p=00003D3}.
 It can be seen that the streamlines obtained from the high-order ($p=3$)
 solution are smoother than those from the low-order ($p=1$) solution,
-which shows the benefit of $p$-refinement. The difference in accuracy
-is more obvious in Figure \ref{fig:yf17_rho_subsonic}, which clearly
+which shows the benefit of $p$-refinement. The~difference in accuracy
+is more obvious in Figure~\ref{fig:yf17_rho_subsonic}, which clearly
 shows a more detailed flow structure in the third-order solution (left
 half) and the piecewise constantness of the first-order solution (right
 half). Both solutions are able to capture the vortex trailing from
 the wing tip, which is generated from the the pressure difference
 between the upper and lower surfaces of the wing. When the wing generates
-positive lift, the pressure on the lower wing surface is higher than
-that on the upper wing surface. Under the action of this pressure
-difference, the air under the wing rolls up around the tip and flows
-backward, the tip vortex is thus formed. The vortex trailing from
-the strake is generated from a similar mechanism.
+positive lift, the~pressure on the lower wing surface is higher than
+that on the upper wing surface. Under~the action of this pressure
+difference, the~air under the wing rolls up around the tip and flows
+backward, and the~tip vortex is thus formed. The~vortex trailing from
+the strake is generated from a similar~mechanism.
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/yf17/rho_subsonic}
+
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth]{figures/yf17/streamlines_p=1}
+
+\caption{\label{fig:yf17_streamlines_p=00003D1}S\hl{treamlines }given by the first-order
+solution of Problem \ref{prob:Subsonic-YF17}.}
+\end{figure}
+\unskip
+
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth]{figures/yf17/streamlines_p=3}
+
+\caption{\label{fig:yf17_streamlines_p=00003D3}\hl{Streamline}s given by the third-order
+solution of Problem \ref{prob:Subsonic-YF17}.}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth]{figures/yf17/rho_subsonic}
 
 \caption{\label{fig:yf17_rho_subsonic}Comparison between the third-order solution
 (left half) and the first-order solution (right half) of Problem \ref{prob:Subsonic-YF17}.}
 \end{figure}
+\unskip
 
 
-\subsubsection{YF-17 in Supersonic Flight}
+\subsubsection{YF-17 in Supersonic~Flight}
 \begin{Problem}
-\label{prob:Supersonic-YF17}Solve the Euler system (Equation \ref{eq:euler_system})
-in the surrounding of a YF-17 aircraft. The initial condition is given
+\label{prob:Supersonic-YF17}Solve the Euler system Equation (\ref{eq:euler_system})
+in the surroundings of a YF-17 aircraft. The~initial condition is given
 as a supersonic flow ($M=2.0$) with a $0$-deg angle of attack:
 
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 2.0 & 0.0 & 0.0 & 1.0\end{bmatrix}.
 \]
 
-All boundaries of the aircraft are defined as solid walls, except
-the intake the engine which is defined as a supersonic outlet of the
-condition equal to the initial condition, and the exhaust of the engine
+All bo\hl{undaries of the aircraft are defined as solid walls, except~the intake of the engine, which is defined as a supersonic outlet of the
+condition equal to the initial conditio}n, and~the exhaust of the engine,
 which is defined as a supersonic ($M=3.0$) inlet of the condition:
 
 \[
@@ -991,109 +1034,118 @@ which is defined as a supersonic ($M=3.0$) inlet of the condition:
 \]
 \end{Problem}
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/yf17/rho_p=1}
 
-\caption{\label{fig:yf17_rho_p=00003D1}Density contour obtained from the first-order
+
+We solve this problem using the same solvers as for Problem \ref{prob:Subsonic-YF17}.
+Density contours on the $y=0$ surface obtained from the first- and
+the third-order solutions are given in Figures~\ref{fig:yf17_rho_p=00003D1}
+and~\ref{fig:yf17_rho_p=00003D3}, respectively. It is obvious
+that shock waves are captured well (without spurious oscillations)
+by both of them. To~show the difference more clearly, we compare the
+two solutions in Figures~\ref{fig:yf17_supersonic_top_view} and \ref{fig:yf17_supersonic_bottom_view}. As~in the subsonic case, the~third-order solution (which is piecewise quadratic) outperforms the
+first-order one (which is piecewise constant). Shock waves (red) are
+generated on surfaces facing the wind, since the relative speed of
+air is larger than the speed of sound. Expansion waves (blue) are
+generated on leeward surfaces, since the solid body contracts there,
+which leaves more room for the supersonic flow.
+
+
+\begin{figure}[H] %MDPI: Please check and revise Fiures 24 and 26 are look the same.  %MDPI: Please confirm figures moved after first citations.
+\includegraphics[width=0.9\textwidth]{figures/yf17/rho_p=1} %MDPI: Please confirm reducing the size of the figure.
+
+\caption{\label{fig:yf17_rho_p=00003D1}\hl{Density contour obtained from the first-orde}r
 solution of Problem \ref{prob:Supersonic-YF17}.}
 \end{figure}
+\unskip
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/yf17/rho_p=3}
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth]{figures/yf17/rho_p=3}
 
-\caption{\label{fig:yf17_rho_p=00003D3}Density contour obtained from the third-order
+\caption{\label{fig:yf17_rho_p=00003D3}D\hl{ensity contour obtained from the third-order}
 solution of Problem \ref{prob:Supersonic-YF17}.}
 \end{figure}
+\unskip
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/yf17/supersonic_top_view}
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth]{figures/yf17/supersonic_top_view}
 
-\caption{\label{fig:yf17_supersonic_top_view}Comparison between the third-order
+\caption{\label{fig:yf17_supersonic_top_view}Com\hl{parison between} the third-order
 solution (upper half) and the first-order solution (lower half) of
 Problem \ref{prob:Supersonic-YF17} on the $z=0$ surface (top view).}
 \end{figure}
+\unskip
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/yf17/supersonic_bottom_view}
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth]{figures/yf17/supersonic_bottom_view}
 
-\caption{\label{fig:yf17_supersonic_bottom_view}Comparison between the third-order
+\caption{\label{fig:yf17_supersonic_bottom_view}Co\hl{mparison between} the third-order
 solution (upper half) and the first-order solution (lower half) of
 Problem \ref{prob:Supersonic-YF17} on the $z=0$ surface (bottom
 view).}
 \end{figure}
 
-We solve this problem using the same solvers as for Problem \ref{prob:Subsonic-YF17}.
-Density contours on the $y=0$ surface obtained from the first- and
-the third-order solutions are given in Figure \ref{fig:yf17_rho_p=00003D1}
-and Figure \ref{fig:yf17_rho_p=00003D3}, respectively. It is obvious
-that shock waves are captured well (without spurious oscillations)
-by both of them. To show the difference more clearly, we compare the
-two solutions in Figure \ref{fig:yf17_supersonic_top_view} and Figure
-\ref{fig:yf17_supersonic_bottom_view}. As in the subsonic case, the
-third-order solution (which is piecewise quadratic) outperforms the
-first-order one (which is piecewise constant). Shock waves (red) are
-generated on surfaces facing the wind, since the relative speed of
-air is larger than the speed of sound. Expansion waves (blue) are
-generated on leeward surfaces, since the solid body contracts there
-which leaves more room for the supersonic flow to go.
+\subsubsection{Parallel~Efficiency}
 
-\subsubsection{Parallel Efficiency}
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/yf17/partition}
 
-\caption{\label{fig:yf17_partition}A 100-part partitioning of the mesh used
-for solving problems in Section \ref{subsec:YF-17}.}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/yf17/balance}
-
-\caption{\label{fig:yf17_balance}Distribution of cells in the mesh partitioning
-given in Figure \ref{fig:yf17_partition}.}
-\end{figure}
-
-Since the mesh in Figure \ref{fig:yf17_mesh} is highly unstructured
+Since the mesh in Figure~\ref{fig:yf17_mesh} is highly unstructured
 and non-uniform, simple geometric partitioning cannot achieve a relatively
-balanced distribution of computational efforts. In our code, we use
+balanced distribution of computational effort. In~our code, we use
 the \textsc{Metis} library \citep{Karypis_1998} to partition the
-dual graph of the mesh, which gives the results in Figures \ref{fig:yf17_partition}
-and \ref{fig:yf17_balance}. The fluctuation of cell numbers is under
+dual graph of the mesh, which gives the results in Figures~\ref{fig:yf17_partition}
+and \ref{fig:yf17_balance}. The~fluctuation of cell numbers is under
 $2\%$, which is quite good since the optimal partitioning of an unstructured
-mesh is an NP-hard problem. With such an approximately optimal partitioning,
-the parallel efficiency, which is defined as
+mesh is an NP-hard problem. With~such an approximately optimal partitioning,
+the parallel efficiency, which is defined~as
 
 \[
 E=\frac{T_{\text{serial}}}{PT_{\text{parallel}}}\times100\%
 \]
-
 in which $P$ is the number of processes, could surpass $99\%$ in
-theory. In practice, however, the $E$ values given by our numerical
-experiments are only around $80\%$ as shown in Figure \ref{fig:yf17_efficiency},
-which is derived from the measured time costs given in Table \ref{tab:time_cost}.
+theory. In~practice, however, the~$E$ values given by our numerical
+experiments are only around $80\%$, as shown in Figure~\ref{fig:yf17_efficiency},
+which is derived from the measured time costs given in Table~\ref{tab:time_cost}.
 The main reason for the gap between theory and practice is that in
 the derivation of the ideal $E$ value, inter-process communications
 are assumed to overlap in time with inner-cell computations, which
-is an over-optimistic assumption. Nevertheless, the acceleration is
+is an over-optimistic assumption. Nevertheless, the~acceleration is
 still significant, which reduces the wall clock time to an acceptable
 level.
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/yf17/efficiency}
+\begin{figure}[H] %MDPI: Figures moved after first citation, please confirm. %MDPI: Please confirm reducing the size of the figure.
+\includegraphics[width=0.9\textwidth]{figures/yf17/partition}
 
-\caption{\label{fig:yf17_efficiency}Parallel efficiency of the third-order
-solver for solving Problem \ref{prob:Supersonic-YF17}.}
+\caption{\label{fig:yf17_partition}A \hl{100-part partition}ing of the mesh used
+for solving problems in Section~\ref{subsec:YF-17}.}
+\end{figure}
+%\unskip
+
+\begin{figure}[H]
+\hspace{-10pt}
+\includegraphics[width=0.9\textwidth]{figures/yf17/balance}
+
+\caption{\label{fig:yf17_balance}Distri\hl{bution of c}ells in the mesh partitioning
+given in Figure~\ref{fig:yf17_partition}.}
 \end{figure}
 
+\begin{figure}[H]
+\hspace{-10pt}
+\includegraphics[width=0.8\textwidth]{figures/yf17/efficiency}%MDPI: Please confirm reducing the size of the figure.
+
+\caption{\label{fig:yf17_efficiency}P\hl{arallel} efficiency of the third-order
+solver for solving Problem \ref{prob:Supersonic-YF17}.}
+\end{figure}
+%\unskip
+\vspace{-6pt}
 \begin{table}[H]
 \caption{\label{tab:time_cost}Time costs of the third-order solver running
-on different number of cores.}
+on different numbers of cores.}
 
-\begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}}
+\begin{tabularx}{1\textwidth}{@{\extracolsep{\fill}}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}>{\centering}p{0.1\textwidth}}
 \toprule 
-\textbf{$P$} & \textbf{$T_{100}$} & \textbf{$T_{399}$} & \textbf{$T_{400}$} & $P\frac{T_{399}-T_{100}}{399-100}$ & $P\frac{T_{400}-T_{100}}{400-100}$\tabularnewline
+\boldmath{$P$} & \boldmath{$T_{100}$} & \boldmath{$T_{399}$} & \boldmath{$T_{400}$} & \boldmath$P\frac{T_{399}-T_{100}}{399-100}$ &\boldmath$P\frac{T_{400}-T_{100}}{400-100}$\tabularnewline
 \midrule 
-1 & 10511.3 & 42466.5 & 42593.0 & 106.873 & 106.939\tabularnewline
+1 & \hl{10,511}.3 & \hl{42,466}.5 & \hl{42,593}.0 & 106.873 & 106.939\tabularnewline
 5 & 2389.25 & 9740.13 & 9769.96 & 122.925 & 123.012\tabularnewline
 10 & 1246.37 & 5086.62 & 5101.95 & 128.436 & 128.519\tabularnewline
 15 & 839.554 & 3420.17 & 3430.75 & 129.462 & 129.560\tabularnewline
@@ -1103,169 +1155,180 @@ on different number of cores.}
 80 & 168.862 & 672.439 & 681.445 & 134.736 & 136.689\tabularnewline
 100 & 137.787 & 543.081 & 552.682 & 135.550 & 138.298\tabularnewline
 \bottomrule
-\end{tabular*}
-\end{table}
+\end{tabularx}
+\end{table} %MDPI: Please confirm added comma on five-digits numbers.
+%\unskip
 
 
-\subsection{Problems with Momentum Sources\label{subsec:Problems-with-Momentum}}
+\subsection{Problems with Momentum~Sources\label{subsec:Problems-with-Momentum}}
 
 In this section, we solve two problems of rotorcraft aerodynamics
-using the momentum source model described in Section \ref{subsec:The-Momentum-Source}.
+using the momentum source model described in Section~\ref{subsec:The-Momentum-Source}.
 The problems are set to simulate wind tunnel tests of a rotor (a pair
-of rotary wings), using the mesh shown in Figure \ref{fig:rotor_mesh}.
-All of the boundaries of the outside box are solid walls, except he
-left and right ends, which are set as inlet and outlet, respectively.
+of rotary wings), using the mesh shown in Figure~\ref{fig:rotor_mesh}.
+All of the boundaries of the outside box are solid walls, except~he
+left and right ends, which are set as the inlet and outlet, respectively.
 The spherical region is the circumscribed sphere of the rotor, whose
-rotating axis could point to any direction. The smaller box enclosing
+rotating axis could point in any direction. The~smaller box enclosing
 the sphere is used for refining the mesh in the surrounding and downstream
-regions of the rotor.
+regions of the~rotor.
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/rotor_in_tunnel/mesh}
+\begin{figure}[H]
+\hspace{-28pt}
+\includegraphics[width=0.8\textwidth]{figures/rotor_in_tunnel/mesh}
 
-\caption{\label{fig:rotor_mesh}A schematic mesh for solving problems in Section
-\ref{subsec:Problems-with-Momentum}.}
+\caption{\label{fig:rotor_mesh}A schematic mesh for solving problems in
+Section~\ref{subsec:Problems-with-Momentum}.}
 \end{figure}
+\unskip
 
 
-\subsubsection{A Climbing Rotor}
+\subsubsection{A Climbing~Rotor}
 \begin{Problem}
 \label{prob:rotor_upward}Solve Equation \eqref{eq:euler_system}
-in the surrounding of a rotor, whose rotating axis points to the direction
-of $(-1,0,0)$. The initial condition is given as a uniform flow:
+in the surroundings of a rotor, whose rotating axis points in the direction
+of $(-1,0,0)$. The~initial condition is given as a uniform flow:
 
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 1.0 & 0.0 & 0.0 & 101325.0\end{bmatrix},
 \]
-
 which is also the background state at the two ends of the wind tunnel.
 \end{Problem}
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/rotor_in_tunnel/upward_p=3}
 
-\caption{\label{fig:rotor_upward_p=00003D3}Third-order solution of Problem
-\ref{prob:rotor_upward} at $t=1$.}
-\end{figure}
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/rotor_in_tunnel/upward_p=1}
-
-\caption{\label{fig:rotor_upward_p=00003D1}First-order solution of Problem
-\ref{prob:rotor_upward} at $t=1$.}
-\end{figure}
-
-Third- and first-order solutions at the same moment ($t=1$) are shown
-in Figure \ref{fig:rotor_upward_p=00003D3} and Figure \ref{fig:rotor_upward_p=00003D1},
-respectively, in which density contours and velocity directions are
+\textls[-35]{Third- and first-order solutions at the same moment ($t=1$) are shown
+in Figures~\ref{fig:rotor_upward_p=00003D3} and~\ref{fig:rotor_upward_p=00003D1},
+respectively, in~which density contours and velocity directions are
 plotted on selected slices. Large-scale flow structures, such as the
-contraction of airflow near the rotor disk and the rolled-up of airwake,
+contraction of airflow near the rotor disk and the rolled-up airwake,
 are captured in both figures. However, finer details, such as the
 ripples generated from the rotor disk and the strong vortex ring in
-the downstream, are only visible in the third-order solution. The
-nearly axisymmetric flow structure is caused by the periodic movement
-of the rotary wings. The density of air just below the rotor (red)
-is greater than that above the rotor (blue), which means the rotor
+the downstream, are only visible in the third-order solution. The~nearly axisymmetric flow structure is caused by the periodic movement
+of the rotary wings. The~density of air immediately below the rotor (red)
+is greater than that above the rotor (blue), which means that the rotor
 is compressing the air flowing across it. According to Newton's third
-law, the rotor must be experiencing a force in the opposite direction
-exerted by the air. This is where the rotor thrust comes from.
+law, the~rotor must be experiencing a force in the opposite direction
+exerted by the air. This is where the rotor thrust comes~from.
+}
 
-\subsubsection{A Rotor in Forward Flight}
+\begin{figure}[H]
+\hspace{-3pt}
+\includegraphics[width=1\textwidth]{figures/rotor_in_tunnel/upward_p=3}
+
+\caption{\label{fig:rotor_upward_p=00003D3}\hl{Third-ord}er solution of Problem
+\ref{prob:rotor_upward} at $t=1$.}
+\end{figure}
+\unskip
+
+\begin{figure}[H]
+\includegraphics[width=1\textwidth]{figures/rotor_in_tunnel/upward_p=1}
+
+\caption{\label{fig:rotor_upward_p=00003D1}\hl{First}-order solution of Problem
+\ref{prob:rotor_upward} at $t=1$.}
+\end{figure}
+
+\subsubsection{A Rotor in Forward~Flight}
 \begin{Problem}
 \label{prob:rotor_forward}Solve Equation \eqref{eq:euler_system}
-in the surrounding of a rotor, whose rotating axis points to the direction
-of $(0,0,1)$. The initial condition is given as a uniform flow:
+in the surrounding of a rotor, whose rotating axis points in the direction
+of $(0,0,1)$. The~initial condition is given as a uniform flow:
 
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 10.0 & 0.0 & 0.0 & 101325.0\end{bmatrix},
 \]
-
 which is also the background state at the two ends of the wind tunnel.
 \end{Problem}
 
-\begin{figure}
+
+
+As with the climbing problem, we plot the third- and first-order
+solution at the same moment ($t=1$) in Figures~\ref{fig:rotor_forward_p=00003D3}
+and \ref{fig:rotor_forward_p=00003D1}, respectively. As~before,
+both of them can capture large-scaled structures, such as the skewed
+and rolled-up airwakes. The~rolled-up structure is more clear in
+Figure~\ref{fig:rotor_forward_wake}, in~which streamlines are plotted
+and colored by the magnitude of velocity. The~piecewise constant
+first-order solution is much vaguer and loses many details, which
+shows again the value of developing high-order~solvers.
+\begin{figure}[H]
 \includegraphics[width=1\textwidth]{figures/rotor_in_tunnel/forward_p=3}
 
-\caption{\label{fig:rotor_forward_p=00003D3}Third-order solution of Problem
+\caption{\label{fig:rotor_forward_p=00003D3}T\hl{hird}-order solution of Problem
 \ref{prob:rotor_forward} at $t=1$.}
 \end{figure}
+\unskip
 
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[width=1\textwidth]{figures/rotor_in_tunnel/forward_p=1}
 
-\caption{\label{fig:rotor_forward_p=00003D1}First-order solution of Problem
+\caption{\label{fig:rotor_forward_p=00003D1}F\hl{irst}-order solution of Problem
 \ref{prob:rotor_forward} at $t=1$.}
 \end{figure}
+\unskip
 
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[width=1\textwidth]{figures/rotor_in_tunnel/forward_wake_p=3}
 
-\caption{\label{fig:rotor_forward_wake}Streamlines of the solution in Figure
-\ref{fig:rotor_forward_p=00003D3}.}
+\caption{\label{fig:rotor_forward_wake}S\hl{treamline}s of the solution in
+Figure~\ref{fig:rotor_forward_p=00003D3}.}
 \end{figure}
-
-Just like the climbing problem, we plot the third- and first-order
-solution at the same moment ($t=1$) in Figure \ref{fig:rotor_forward_p=00003D3}
-and Figure \ref{fig:rotor_forward_p=00003D1}, respectively. As before,
-both of them can capture large-scaled structures, such as the skewed
-and rolled-up airwakes. The rolled-up structure is more clear in Figure
-\ref{fig:rotor_forward_wake}, in which streamlines of are ploted
-and colorred by the magnitude of velocity. The piecewise constant
-first-order solution is much vaguer and losts many details, which
-shows again the value of developing high-order solvers.
 
 \section{Discussion}
 
 In this article, we give a concise but complete formulation of an
 RKDG scheme with a compact WENO limiter for solving inviscid compressible
-flows, possibly with momentum sources, on three-dimensional unstructured
-meshes. The algorithms are implemented on top of public available
+flows, possibly with momentum sources, on~three-dimensional unstructured
+meshes. The~algorithms are implemented on top of public available
 libraries, which support unstructured mesh partitioning, inter-process
-communication and distributed memory parallelization. The correctness
+communication and distributed memory parallelization. The~correctness
 and accuracy of the solvers are validated by lower-dimensional reference
 problems. Results of real three-dimensional applications are also
-presented, in which complex flow structures are captured by the third-order
+presented, in~which complex flow structures are captured by the third-order
 solver even on very coarse unstructured meshes. Future works may include
-implementing higher-order solvers under the this framework and testing
-them on larger meshes and on larger high-performance computing platforms.
+implementing higher-order solvers under this framework and testing
+them on larger meshes and on larger high-performance computing~platforms.
 
 \vspace{6pt}
 
 
 \authorcontributions{Conceptualization, W.P. and S.L.; methodology, W.P.; software, W.P.
 and Y.J.; validation, W.P. and Y.J.; formal analysis, W.P. and Y.J.;
-investigation, W.P.; resources, W.P.; data curation, W.P.; writing-{}-{}-original
-draft preparation, W.P.; writing-{}-{}-review and editing, W.P., Y.J.
+investigation, W.P.; resources, W.P.; data curation, W.P.; writing---original
+draft preparation, W.P.; writing---review and editing, W.P., Y.J.
 and S.L.; visualization, W.P.; supervision, S.L.; project administration,
 S.L.; funding acquisition, S.L. All authors have read and agreed to
 the published version of the manuscript.}
 
-\funding{This research was funded by the National High-tech R\&D Program of
-China (863 Program) grant number 2012AA112201.}
+\funding{This research was funded by the National High-Tech R\&D Program of
+China (863 Program), grant number 2012AA112201.}
 
-\institutionalreview{Not applicable.}
+\institutionalreview{Not~applicable.}
 
 \informedconsent{Not applicable.}
 
-\dataavailability{The data presented in this article are all generated from the source
-code publicly available in our Git repository \url{https://github.com/pvc1989/miniCFD}
-(or the mirror site \url{https://gitee.com/pvc1989/miniCFD}), except
-the mesh used in Section \ref{subsec:YF-17} which is downloaded from
+\dataavailability{The data presented in this article are all generated from the source %MDPI: Please add accessed on date on links.
+code publicly available in our GitHub \hl{repository at} \url{https://github.com/pvc1989/miniCFD}
+(or the mirror \hl{site} \url{https://gitee.com/pvc1989/miniCFD}), except~the mesh used in Section~\ref{subsec:YF-17}, which was downloaded \hl{from}
 \url{https://cgns.github.io/CGNSFiles.html}.}
 
-\acknowledgments{The authors would like to express the deepest appreciation to Shen
-Xin for his professional guidance on computer science, and to Zhou
-Yukai for his patient assistance on mathtyping.}
+\acknowledgments{\textls[-5]{The authors would like to express their deepest appreciation to Shen
+Xin for his professional guidance on computer science, and~to Zhou
+Yukai for his patient assistance with~mathtyping.}}
 
-\conflictsofinterest{The authors declare no conflict of interest. The funders had no role
-in the design of the study; in the collection, analyses, or interpretation
-of data; in the writing of the manuscript, or in the decision to publish
+\conflictsofinterest{The authors declare no conflicts of interest. The~funders had no role
+in the design of the study; in the collection, analyses, or~interpretation
+of data; in the writing of the manuscript, or~in the decision to publish
 the~results.}
 
-\abbreviations{Abbreviations}{The following abbreviations are used in this manuscript:\\
+%\newpage
 
-\noindent%
+\abbreviations{Abbreviations}{ %MDPI: Please check can it be merge Abbreviations and Nomenclature to one list.
+\hl{The following abbreviations} are used in~this manuscript:\\
+
+\noindent 
 \begin{tabular}{@{}ll}
+
 CFD & Computational Fluid Dynamics\tabularnewline
 FD & Finite Difference\tabularnewline
 FV & Finite Volume\tabularnewline
@@ -1273,15 +1336,19 @@ FE & Finite Element\tabularnewline
 DG & Discontinuous Galerkin\tabularnewline
 RK & Runge--Kutta\tabularnewline
 TVD & total variation diminishing\tabularnewline
-SSP & strong stability-preserving\tabularnewline
+SSP & strong stability preserving\tabularnewline
 ENO & Essentially Non-Oscillatory\tabularnewline
 WENO & Weighted ENO\tabularnewline
 \end{tabular}}
 
-\abbreviations{Nomenclature}{The following symbols are used in this manuscript:\\
+%\abbreviations{}{\\
 
-\noindent%
+\abbreviations{Nomenclature}{
+\hl{The following symbols are used in this ma}nuscript:\\
+
+\noindent 
 \begin{tabular}{@{}ll}
+
 $\partial_{t},\partial_{x},\partial_{y},\partial_{z}$ & partial derivative with respect to $t,x,y,z$\tabularnewline
 $\alpha$ & angle of attack\tabularnewline
 $\gamma$ & heat capacity ratio of the gas\tabularnewline
@@ -1299,6 +1366,12 @@ $b_{x},b_{y},b_{z}$ & $x,y,z$-component of body force per unit volume\tabularnew
 $c$ & chord length of a blade\tabularnewline
 $E_{i}$ and $\partial E_{i}$ & $i$-th element (cell) and its boundary\tabularnewline
 $e_{0}$ & specific total energy of the gas\tabularnewline
+
+\end{tabular}
+}
+\noindent {\fontsize{9}{11.2}\selectfont
+\begin{tabular}{@{}ll}
+
 $\underline{\vec{F}}$ & flux tensor\tabularnewline
 $\underline{F^{\nu}}$ & projection of $\underline{\vec{F}}$ on $\vec{\nu}$\tabularnewline
 $\underline{F^{x}},\underline{F^{y}},\underline{F^{z}}$ & $x,y,z$-component of $\underline{\vec{F}}$\tabularnewline
@@ -1309,6 +1382,10 @@ $\underline{R}$ & changing rate of $\underline{\hat{U}}$\tabularnewline
 $\underline{R^{\nu}}$ & matrix whose $j$-th column is the $j$-th eigenvector of $\underline{A^{\nu}}$\tabularnewline
 $\underline{U}$ & column matrix of conservative variables\tabularnewline
 $\underline{U}^{h}$ and $\underline{U}^{\text{new}}$ & approximation of $\underline{U}$ and its WENO reconstruction\tabularnewline
+
+
+
+
 $\underline{U}_{i|k}^{\text{new}}$ & WENO reconstruction of $\underline{U}^{h}$ on $E_{i}$ with the help
 of $E_{k}$\tabularnewline
 $\underline{\hat{U}}$ & coefficient matrix whose $k$-th column is $\underline{\hat{U}}_{k}$\tabularnewline
@@ -1319,21 +1396,224 @@ $\underline{V}$ & column matrix of characteristic variables\tabularnewline
 $\underline{V}^{h}$ and $\underline{V}^{\text{new}}$ & approximation of $\underline{V}$ and its WENO reconstruction\tabularnewline
 \end{tabular}}
 
-\appendixtitles{no}
+%\appendixtitles{no}
+%
+%\appendixstart{}
+%
+%\appendix
 
-\appendixstart{}
 
-\appendix
-
-\begin{adjustwidth}{-\extralength}{0cm}{}
-
+\begin{adjustwidth}{-\extralength}{0cm}
+%\printendnotes[custom] % Un-comment to print a~list of endnotes
 
 \reftitle{References}
+\begin{thebibliography}{999}
+
+\bibitem[Harten \em{et~al.}(1983)Harten, Lax, and van Leer]{Harten_1983}
+Harten, A.; Lax, P.D.; van Leer, B.
+\newblock On Upstream Differencing and Godunov-Type Schemes for Hyperbolic
+  Conservation Laws.
+\newblock {\em {SIAM} Rev.} {\bf 1983}, {\em 25},~35--61, https://doi.org/10.1137/1025002.
+
+\bibitem[Reed and Hill(1973)]{Reed_1973}
+Reed, W.H.; Hill, T.R.
+\newblock {\em Triangular Mesh Methods for the Neutron Transport Equation} %MDPI: Please confirm added information.
+\newblock Technical Report LA-UR-73-479; Los Alamos Scientific Lab.: \hl{Los Alamos, MN, USA,}  1973.
+
+\bibitem[Chavent and Salzano(1982)]{Chavent_1982}
+Chavent, G.; Salzano, G.
+\newblock A finite-element method for the 1-D water flooding problem with
+  gravity.
+\newblock {\em J. Comput. Phys.} {\bf 1982}, {\em
+  45},~307--344, https://doi.org/10.1016/0021-9991(82)90107-3.
+
+\bibitem[Cockburn and Shu(1988)]{Cockburn_1988}
+Cockburn, B.; Shu, C.W.
+\newblock The Runge-Kutta local projection P1-discontinuous-Galerkin finite
+  element method for scalar conservation laws.
+\newblock  In Proceedings of the  1st National Fluid Dynamics Conference, Cincinnati, OH, USA, 25--28
+  July 1988; American Institute of Aeronautics and Astronautics: Reston, VA,
+  USA,  1988, https://doi.org/10.2514/6.1988-3797.
+
+\bibitem[Shu and Osher(1988)]{Shu_1988}
+Shu, C.W.; Osher, S.
+\newblock Efficient implementation of essentially non-oscillatory
+  shock-capturing schemes.
+\newblock {\em J. Comput. Phys.} {\bf 1988}, {\em
+  77},~439--471, https://doi.org/10.1016/0021-9991(88)90177-5.
+
+\bibitem[Shu and Osher(1989)]{Shu_1989}
+Shu, C.W.; Osher, S.
+\newblock Efficient implementation of essentially non-oscillatory
+  shock-capturing schemes, {II}.
+\newblock {\em J. Comput. Phys.} {\bf 1989}, {\em 83},~32--78, https://doi.org/10.1016/0021-9991(89)90222-2.
+
+\bibitem[Cockburn \em{et~al.}(1989)Cockburn, Lin, and Shu]{Cockburn_1989}
+Cockburn, B.; Lin, S.Y.; Shu, C.W.
+\newblock {TVB} Runge-Kutta local projection discontinuous Galerkin finite
+  element method for conservation laws {III}: One-dimensional systems.
+\newblock {\em J. Comput. Phys.} {\bf 1989}, {\em 84},~90--113, https://doi.org/10.1016/0021-9991(89)90183-6.
+
+\bibitem[Cockburn \em{et~al.}(1990)Cockburn, Hou, and Shu]{Cockburn_1990}
+Cockburn, B.; Hou, S.; Shu, C.W.
+\newblock The {Runge-Kutta} local projection discontinuous {Galerkin} finite
+  element method for conservation laws. {IV}. The multidimensional case.
+\newblock {\em Math. Comput.} {\bf 1990}, {\em 54},~545--581, https://doi.org/10.1090/s0025-5718-1990-1010597-0.
+
+\bibitem[Cockburn and Shu(1998)]{Cockburn_1998a}
+Cockburn, B.; Shu, C.W.
+\newblock The Runge{\textendash}Kutta Discontinuous Galerkin Method for
+  Conservation Laws V: Multidimensional Systems.
+\newblock {\em J. Comput. Phys.} {\bf 1998}, {\em
+  141},~199--224, https://doi.org/10.1006/jcph.1998.5892.
+
+\bibitem[Gottlieb and Shu(1997)]{Gottlieb_1997}
+{Gottlieb, D.; Shu, C.W.
+\newblock On the Gibbs Phenomenon and Its Resolution.
+\newblock {\em SIAM Rev.} {\bf 1997}, {\em 39},~644–668, \linebreak https://doi.org/10.1137/S0036144596301390.}
+
+\bibitem[Sweby(1984)]{Sweby_1984}
+Sweby, P.K.
+\newblock High Resolution Schemes Using Flux Limiters for Hyperbolic
+  Conservation Laws.
+\newblock {\em {SIAM} J. Numer. Anal.} {\bf 1984}, {\em
+  21},~995--1011, https://doi.org/10.1137/0721062.
+
+\bibitem[Harten \em{et~al.}(1997)Harten, Engquist, Osher, and
+  Chakravarthy]{Harten_1997}
+Harten, A.; Engquist, B.; Osher, S.; Chakravarthy, S.R.
+\newblock Uniformly High Order Accurate Essentially Non-oscillatory Schemes,
+  {III}.
+\newblock {\em J. Comput. Phys.} {\bf 1997}, {\em 131},~3--47, https://doi.org/10.1006/jcph.1996.5632.
+
+\bibitem[Jiang and Shu(1996)]{Jiang_1996}
+Jiang, G.S.; Shu, C.W.
+\newblock Efficient Implementation of Weighted {ENO} Schemes.
+\newblock {\em J. Comput. Phys.} {\bf 1996}, {\em
+  126},~202--228, https://doi.org/10.1006/jcph.1996.0130.
+
+\bibitem[Hu and Shu(1999)]{Hu_1999}
+Hu, C.; Shu, C.W.
+\newblock Weighted Essentially Non-oscillatory Schemes on Triangular Meshes.
+\newblock {\em J. Comput. Phys.} {\bf 1999}, {\em
+  150},~97--127, https://doi.org/10.1006/jcph.1998.6165.
+
+\bibitem[Qiu and Shu(2005)]{Qiu_2005}
+Qiu, J.; Shu, C.W.
+\newblock Runge--Kutta Discontinuous Galerkin Method Using {WENO} Limiters.
+\newblock {\em {SIAM} J. Sci. Comput.} {\bf 2005}, {\em
+  26},~907--929, https://doi.org/10.1137/s1064827503425298.
+
+\bibitem[Zhu \em{et~al.}(2008)Zhu, Qiu, Shu, and Dumbser]{Zhu_2008}
+Zhu, J.; Qiu, J.; Shu, C.W.; Dumbser, M.
+\newblock Runge{\textendash}Kutta discontinuous Galerkin method using {WENO}
+  limiters {II}: Unstructured meshes.
+\newblock {\em J. Comput. Phys.} {\bf 2008}, {\em
+  227},~4330--4353, https://doi.org/10.1016/j.jcp.2007.12.024.
+
+\bibitem[Zhong and Shu(2013)]{Zhong_2013}
+Zhong, X.; Shu, C.W.
+\newblock A simple weighted essentially nonoscillatory limiter for
+  {Runge}{\textendash}{Kutta} discontinuous {Galerkin} methods.
+\newblock {\em J. Comput. Phys.} {\bf 2013}, {\em
+  232},~397--415, https://doi.org/10.1016/j.jcp.2012.08.028.
+
+\bibitem[Zhu \em{et~al.}(2013)Zhu, Zhong, Shu, and Qiu]{Zhu_2013}
+Zhu, J.; Zhong, X.; Shu, C.W.; Qiu, J.
+\newblock {Runge}{\textendash}{Kutta} discontinuous {Galerkin} method using a
+  new type of {WENO} limiters on unstructured meshes.
+\newblock {\em J. Comput. Phys.} {\bf 2013}, {\em
+  248},~200--220, https://doi.org/10.1016/j.jcp.2013.04.012.
+
+\bibitem[Pei \em{et~al.}(2022)Pei, Jiang, and Li]{Pei_2022}
+Pei, W.; Jiang, Y.; Li, S.
+\newblock An Efficient Parallel Implementation of the Runge{\textendash}Kutta
+  Discontinuous Galerkin Method with Weighted Essentially Non-Oscillatory
+  Limiters on Three-Dimensional Unstructured Meshes.
+\newblock {\em Appl. Sci.} {\bf 2022}, {\em 12},~4228, https://doi.org/10.3390/app12094228.
+
+\bibitem[Rajagopalan and Mathur(1989)]{Rajagopalan_1989}
+Rajagopalan, R.G.; Mathur, S.R.
+\newblock Three dimensional analysis of a rotor in forward flight.
+\newblock  In Proceedings of the 20th Fluid Dynamics, Plasma Dynamics and Lasers Conference, \hl{Buffalo, NY, USA,  12--14 J}uly 1989; American
+  Institute of Aeronautics and Astronautics: \hl{Reston, VA, USA, } 1989, https://doi.org/10.2514/6.1989-1815.
+
+\bibitem[Rajagopalan and Mathur(1993)]{Rajagopalan_1993}
+Rajagopalan, R.G.; Mathur, S.R.
+\newblock Three Dimensional Analysis of a Rotor in Forward Flight.
+\newblock {\em J. Am. Helicopter Soc.} {\bf 1993}, {\em
+  38},~14--25, https://doi.org/10.4050/JAHS.38.14.
+
+\bibitem[Kang and Sun(1997)]{Kang_1997}
+Kang, N.; Sun, M.
+\newblock Technical Note: Prediction of the Flow Field of a Rotor in Ground
+  Effect.
+\newblock {\em J. Am. Helicopter Soc.} {\bf 1997}, {\em
+  42},~195--198, https://doi.org/10.4050/jahs.42.195.
+
+\bibitem[Kang and Sun(2000)]{Kang_2000}
+Kang, N.; Sun, M.
+\newblock Simulated Flowfields in Near-Ground Operation of Single- and
+  Twin-Rotor Configurations.
+\newblock {\em J. Aircr.} {\bf 2000}, {\em 37},~214--220, https://doi.org/10.2514/2.2609.
+
+\bibitem[Shi \em{et~al.}(2017)Shi, Xu, Zong, and Xu]{Shi_2017}
+Shi, Y.; Xu, Y.; Zong, K.; Xu, G.
+\newblock An investigation of coupling ship/rotor flowfield using steady and
+  unsteady rotor methods.
+\newblock {\em Eng. Appl. Comput. Fluid Mech.} {\bf
+  2017}, {\em 11},~417--434, https://doi.org/10.1080/19942060.2017.1308272.
+
+\bibitem[Shen \em{et~al.}(2009)Shen, Zhang, and S{\o}rensen]{Shen_2009}
+Shen, W.Z.; Zhang, J.H.; S{\o}rensen, J.N.
+\newblock The Actuator Surface Model: A New Navier{\textendash}Stokes Based
+  Model for Rotor Computations.
+\newblock {\em J. Sol. Energy Eng.} {\bf 2009}, {\em 131}, https://doi.org/10.1115/1.3027502.
+
+\bibitem[Kim \em{et~al.}(2015)Kim, Oh, and Yee]{Kim_2015}
+Kim, T.; Oh, S.; Yee, K.
+\newblock Improved actuator surface method for wind turbine application.
+\newblock {\em Renew. Energy} {\bf 2015}, {\em 76},~16--26, https://doi.org/10.1016/j.renene.2014.11.002.
+
+\bibitem[Toro(2009)]{Toro_2009}
+Toro, E.F.
+\newblock {\em Riemann Solvers and Numerical Methods for Fluid Dynamics};
+  Springer: B\hl{erlin/Heidelberg, Germany,  }2009, https://doi.org/10.1007/b79761.
+
+\bibitem[Zhang \em{et~al.}(2009)Zhang, Cui, and Liu]{Zhang_2009}
+Zhang, L.; Cui, T.; Liu, H.
+\newblock A Set of Symmetric Quadrature Rules on Triangles and Tetrahedra.
+\newblock {\em J. Comput. Math.} {\bf 2009}, {\em
+  27},~89–96.
+
+\bibitem[Gottlieb and Shu(1998)]{Gottlieb_1998}
+Gottlieb, S.; Shu, C.W.
+\newblock Total variation diminishing {Runge-Kutta} schemes.
+\newblock {\em Math. Comput.} {\bf 1998}, {\em 67},~73--85, \linebreak https://doi.org/10.1090/s0025-5718-98-00913-2.
+
+\bibitem[Gottlieb \em{et~al.}(2001)Gottlieb, Shu, and Tadmor]{Gottlieb_2001}
+Gottlieb, S.; Shu, C.W.; Tadmor, E.
+\newblock Strong Stability-Preserving High-Order Time Discretization Methods.
+\newblock {\em {SIAM} Rev.} {\bf 2001}, {\em 43},~89--112, https://doi.org/10.1137/s003614450036757x.
 
 
-\externalbibliography{yes}
+%\newpage
+\bibitem[Woodward and Colella(1984)]{Woodward_1984}
+Woodward, P.; Colella, P.
+\newblock The numerical simulation of two-dimensional fluid flow with strong
+  shocks.
+\newblock {\em J. Comput. Phys.} {\bf 1984}, {\em
+  54},~115--173, https://doi.org/10.1016/0021-9991(84)90142-6.
 
-\bibliography{reference}
+\bibitem[Karypis and Kumar(1998)]{Karypis_1998}
+Karypis, G.; Kumar, V.
+\newblock A Fast and High Quality Multilevel Scheme for Partitioning Irregular
+  Graphs.
+\newblock {\em {SIAM} J. Sci. Comput.} {\bf 1998}, {\em
+  20},~359--392, https://doi.org/10.1137/s1064827595287997.
+
+%\end{thebibliography}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% for journal Sci
@@ -1344,7 +1624,6 @@ $\underline{V}^{h}$ and $\underline{V}^{\text{new}}$ & approximation of $\underl
 %}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\end{adjustwidth}{}
-
-
+\end{thebibliography}
+\end{adjustwidth}
 \end{document}

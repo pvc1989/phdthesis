@@ -247,6 +247,14 @@ FUNCTION {format.key}
   if$
 }
 
+FUNCTION {format.key}
+{ empty$
+    { key field.or.null }
+    { "" }
+  if$
+}
+
+
 FUNCTION {format.authors}
 { author empty$
     { "" }
@@ -265,6 +273,9 @@ FUNCTION {format.editors}
     }
   if$
 }
+
+
+
 
 FUNCTION {format.title}
 { title empty$

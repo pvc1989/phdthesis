@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%	MDPI class for LaTeX files	 4 January 2022
+%%%%	MDPI class for LaTeX files	 25 December 2021
 %% %%	For any information please send an e-mail to:
 %% %%		latex@mdpi.com
 %% %%
@@ -21,7 +21,7 @@
 
 %% IDENTIFICATION
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Definitions/mdpi}[01/20/2022 MDPI paper class]
+\ProvidesClass{Definitions/mdpi}[28/12/2021 MDPI paper class]
 
  %% PRELIMINARY DECLARATIONS
 \LoadClass[10pt,a4paper]{article}
@@ -58,8 +58,8 @@
 \RequirePackage{tabularx}
 \RequirePackage{pbox} % For biography environment
 \RequirePackage{ragged2e} % For command \justifying
-%\RequirePackage{subfigure} % Needed because of clash with tocloft package.
-\RequirePackage{tocloft} % For dots in TOC. Subfigure option needed because of clash with subfigure package. [subfigure]
+\RequirePackage{subfigure} % Needed because of clash with tocloft package.
+\RequirePackage[subfigure]{tocloft} % For dots in TOC. Subfigure option needed because of clash with subfigure package.
 \RequirePackage{marginnote} % For left column
 \reversemarginpar % To have the left column on the left side
 \RequirePackage{marginfix} % For command \clearmargin for manually moving the left column to the next page
@@ -1184,7 +1184,7 @@
 \vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Review Reports:} {#1}\par}}
 
 \newcommand{\abbreviations}[2]{\vspace{12pt}\noindent{\selectfont\textbf{#1}}{%
-\par\vspace{3pt}\hspace{-0.84cm}{\fontsize{9}{11.2}\selectfont #2}\par}}
+\par\vspace{3pt}\hspace{-0.85cm}\noindent{\fontsize{9}{11.2}\selectfont #2}\par}}
 
 % Standby command for adding paragraph in back matter part
 \newcommand{\specialsection}[2]{%
@@ -1386,7 +1386,7 @@
 \captionsetup[boxenv]{position=top, 		labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, singlelinecheck=off, justification=justified}
 
 
-%\renewcommand\thesubfigure{\normalfont(\textbf{\alph{subfigure}})}
+\renewcommand\thesubfigure{\normalfont(\textbf{\alph{subfigure}})}
 
 %% For table footnotes
 \newsavebox{\@justcentbox}
