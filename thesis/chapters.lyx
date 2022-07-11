@@ -23354,6 +23354,13 @@ reference "eq:rth-order-gaussian"
 
 \begin_layout Section
 激波捕捉与 WENO 重构
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:WENO"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -25836,8 +25843,59 @@ reference "eq:m-stage_Runge--Kutta"
 模型算例验证及工程应用
 \end_layout
 
+\begin_layout Standard
+除 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:linear_advection"
+
+\end_inset
+
+ 小节外，本节所有算例均为求解由描述无黏可压缩流动的三维欧拉方程
+\begin_inset Formula 
+\begin{equation}
+\partial_{t}\begin{bmatrix}\rho\\
+\rho u_{x}\\
+\rho u_{y}\\
+\rho u_{z}\\
+\rho e_{0}
+\end{bmatrix}+\partial_{x}\begin{bmatrix}\rho u_{x}\\
+\rho u_{x}u_{x}+p\\
+\rho u_{y}u_{x}\\
+\rho u_{z}u_{x}\\
+\rho h_{0}u_{x}
+\end{bmatrix}+\partial_{y}\begin{bmatrix}\rho u_{y}\\
+\rho u_{x}u_{y}\\
+\rho u_{y}u_{y}+p\\
+\rho u_{z}u_{y}\\
+\rho h_{0}u_{y}
+\end{bmatrix}+\partial_{z}\begin{bmatrix}\rho u_{z}\\
+\rho u_{x}u_{z}\\
+\rho u_{y}u_{z}\\
+\rho u_{z}u_{z}+p\\
+\rho h_{0}u_{z}
+\end{bmatrix}=\begin{bmatrix}0\\
+0\\
+0\\
+0\\
+0
+\end{bmatrix}\label{eq:euler_system}
+\end{equation}
+
+\end_inset
+
+与某些初始条件及边界条件所构成的初边值问题。
+\end_layout
+
 \begin_layout Subsection
 线性平流问题
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:linear_advection"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -26062,7 +26120,7 @@ name "fig:linear_scalar_p=3_h=2^-3"
 \begin_inset Formula $h\approx2^{-3}$
 \end_inset
 
- 网格上得到的问题 
+ 的四面体网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:linear_scalar"
@@ -26073,7 +26131,7 @@ reference "prob:linear_scalar"
 \begin_inset Formula $t=0.2$
 \end_inset
 
- 时刻的三阶精度解
+ 时刻的三阶精度近似解
 \end_layout
 
 \end_inset
@@ -26117,7 +26175,7 @@ name "fig:linear_scalar_p=1_h=2^-4"
 \begin_inset Formula $h\approx2^{-4}$
 \end_inset
 
- 网格上得到的问题 
+ 的四面体网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:linear_scalar"
@@ -26128,7 +26186,7 @@ reference "prob:linear_scalar"
 \begin_inset Formula $t=0.2$
 \end_inset
 
- 时刻的一阶精度解
+ 时刻的一阶精度近似解
 \end_layout
 
 \end_inset
@@ -26172,7 +26230,7 @@ name "fig:linear_scalar_p=1_h=2^-5"
 \begin_inset Formula $h\approx2^{-5}$
 \end_inset
 
- 网格上得到的问题 
+ 的四面体网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:linear_scalar"
@@ -26183,7 +26241,7 @@ reference "prob:linear_scalar"
 \begin_inset Formula $t=0.2$
 \end_inset
 
- 时刻的一阶精度解
+ 时刻的一阶精度近似解
 \end_layout
 
 \end_inset
@@ -26227,7 +26285,7 @@ name "fig:linear_scalar_p=3_h=2^-2"
 \begin_inset Formula $h\approx2^{-2}$
 \end_inset
 
- 网格上得到的问题 
+ 的四面体网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:linear_scalar"
@@ -26238,7 +26296,7 @@ reference "prob:linear_scalar"
 \begin_inset Formula $t=0.2$
 \end_inset
 
- 时刻的三阶精度解
+ 时刻的三阶精度近似解
 \end_layout
 
 \end_inset
@@ -26322,7 +26380,7 @@ reference "prob:linear_scalar"
 \begin_inset Formula $t=0.2$
 \end_inset
 
- 时刻的解之间的比较
+ 时刻的近似解之间的比较
 \end_layout
 
 \end_inset
@@ -26373,7 +26431,7 @@ reference "prob:linear_scalar"
 \begin_inset Formula $t=0.2$
 \end_inset
 
- 时刻的解之间的比较
+ 时刻的近似解之间的比较
 \end_layout
 
 \end_inset
@@ -27558,7 +27616,7 @@ name "fig:linear_double_wave_contour"
 \begin_inset Formula $h\approx2^{-3}$
 \end_inset
 
- 网格上得到的问题 
+ 的四面体网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:linear_system"
@@ -27572,7 +27630,7 @@ noprefix "false"
 \begin_inset Formula $t=0.3$
 \end_inset
 
- 时刻的三阶精度解
+ 时刻的三阶精度近似解
 \end_layout
 
 \end_inset
@@ -27612,7 +27670,17 @@ name "fig:linear_double_wave_u_1"
 
 \end_inset
 
-不同求解器–限制器组合在同一网格上得到的数值解 
+不同求解器–限制器组合在同一网格上得到的问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:linear_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的近似解 
 \begin_inset Formula $U_{1}^{h}(x,y=0.5,z=0.25,t=0.3)$
 \end_inset
 
@@ -27656,7 +27724,17 @@ name "fig:linear_double_wave_u_2"
 
 \end_inset
 
-不同求解器–限制器组合在同一网格上得到的数值解 
+不同求解器–限制器组合在同一网格上得到的问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:linear_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的近似解 
 \begin_inset Formula $U_{2}^{h}(x,y=0.5,z=0.25,t=0.3)$
 \end_inset
 
@@ -27739,7 +27817,7 @@ noprefix "false"
 
 \end_inset
 
- 所示数值解的绝对误差之比较
+ 所示近似解的绝对误差之比较
 \end_layout
 
 \end_inset
@@ -27773,15 +27851,20 @@ EigenWeno
 \end_layout
 
 \begin_layout Standard
-这组问题通常被定义为一维问题，但本文在三维空间内重新定义这些问题，以用于验证三维求解器的正确性。本小节所有算例都是在三维区间 
+激波管问题是欧拉方程的黎曼问题，其精确解含有激波、膨胀波、接触间断中的一种或多种，且初始条件、边界条件非常容易设置，因此自提出以来便被用作考核欧拉方程数值解的标
+准算例。
+\end_layout
+
+\begin_layout Standard
+它们通常被简化为一维问题，但本文将其用于验证三维欧拉方程求解器的正确性，因此需要在三维空间内重新给出其定义。本小节的所有问题都在三维区间 
 \begin_inset Formula $[0.0,5.0]\times[0.0,1.0]\times[0.0,0.5]$
 \end_inset
 
- 内求解的，且所有平行于 
+ 内求解，且平行于 
 \begin_inset Formula $x$
 \end_inset
 
- 轴的边界均设为固体壁面。尽管它们没有封闭形式的解析解，但基于第 
+ 轴的边界均设为固体壁面。尽管这些问题没有封闭形式的解析解，但基于第 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:riemann"
@@ -27817,7 +27900,11 @@ name "prob:sod"
 
 \end_inset
 
-Solve the Euler system (Equation 
+在时间范围 
+\begin_inset Formula $t\in[0.0,1.0]$
+\end_inset
+
+ 内，求满足三维欧拉方程（式 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:euler_system"
@@ -27827,25 +27914,29 @@ noprefix "false"
 
 \end_inset
 
-) for 
-\begin_inset Formula $t\in[0.0,1.0]$
+）及边界条件
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=0}=\begin{bmatrix}1 & 0 & 0 & 0 & 1\end{bmatrix},\qquad\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=5}=\begin{bmatrix}\frac{1}{8} & 0 & 0 & 0 & \frac{1}{10}\end{bmatrix},
+\]
+
 \end_inset
 
- with the initial condition
+与初始条件
 \end_layout
 
 \begin_layout Problem
 \begin_inset Formula 
 \[
-\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
-\begin{bmatrix}1.000 & 0.000 & 0.000 & 0.000 & 1.000\end{bmatrix} & x<2.5\\
-\begin{bmatrix}0.125 & 0.000 & 0.000 & 0.000 & 0.100\end{bmatrix} & x>2.5
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{cases}
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=0}, & x<2.5,\\
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=5}, & x>2.5,
 \end{cases}
 \]
 
 \end_inset
 
-
+的广义解。
 \end_layout
 
 \begin_layout Standard
@@ -27853,6 +27944,53 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sod_hexa"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 给出了在 
+\begin_inset Formula $h\approx0.1$
+\end_inset
+
+ 的非结构六面体网格上得到的问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的三阶精度近似解。由此图中的四个间断（两个导数值间断、两个函数值间断）处的光滑过渡可知：高阶格式引起的数值振荡得到了有效压制。这种光滑过渡在图
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sod_hexa_p_vary"
+
+\end_inset
+
+ 中更为明显。此图沿纵向对称轴 (
+\begin_inset Formula $y=0.5,\,z=0.25$
+\end_inset
+
+) 均匀选取了 1001 个采样点，依次画出了一阶、二阶、三阶近似解在这些采样点处的密度值。由图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sod_hexa_p_vary"
+
+\end_inset
+
+ 还可知：在相同的网格上，求解器的阶数越高，数值解的精度也越高。
 \end_layout
 
 \begin_layout Standard
@@ -27878,15 +28016,15 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:sod_contour"
+name "fig:sod_hexa"
 
 \end_inset
 
-Third-order solution of 
-\begin_inset Formula $\rho(t=1.0)$
+在 
+\begin_inset Formula $h\approx0.1$
 \end_inset
 
- in Problem 
+ 的非结构六面体网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:sod"
@@ -27896,7 +28034,11 @@ noprefix "false"
 
 \end_inset
 
-.
+ 的三阶近似解 
+\begin_inset Formula $\rho^{h}(x,y,z,t=1.0)$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -27932,15 +28074,15 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:sod"
+name "fig:sod_hexa_p_vary"
 
 \end_inset
 
-Comparison between solutions of 
-\begin_inset Formula $\rho(t=1.0)$
+在 
+\begin_inset Formula $h\approx0.1$
 \end_inset
 
- in Problem 
+ 的非结构六面体网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:sod"
@@ -27950,7 +28092,11 @@ noprefix "false"
 
 \end_inset
 
-.
+ 的各阶近似解 
+\begin_inset Formula $\rho^{h}(x,y=0.5,z=0.25,t=1.0)$
+\end_inset
+
+ 之间的比较
 \end_layout
 
 \end_inset
@@ -27961,6 +28107,71 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+为了验证上述结论的网格无关性，作者在 
+\begin_inset Formula $h\approx0.1$
+\end_inset
+
+ 的非结构四面体网格上再次求解了问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，所得结果如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sod_tetra"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sod_tetra_p_vary"
+
+\end_inset
+
+ 所示。将它们与图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sod_hexa"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sod_hexa_p_vary"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 比较，不难发现：无论采用何种单元，只要网格足够精细，问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的各阶近似解均能收敛到精确解。
 \end_layout
 
 \begin_layout Standard
@@ -27986,25 +28197,29 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:sod_contour-1"
+name "fig:sod_tetra"
 
 \end_inset
 
-Third-order solution of 
-\begin_inset Formula $\rho(t=1.0)$
+在 
+\begin_inset Formula $h\approx0.1$
 \end_inset
 
- in Problem 
+ 的非结构四面体网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:sod-1"
+reference "prob:sod"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-.
+ 的三阶近似解 
+\begin_inset Formula $\rho^{h}(x,y,z,t=1.0)$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -28040,25 +28255,29 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:sod_p"
+name "fig:sod_tetra_p_vary"
 
 \end_inset
 
-Comparison between solutions of 
-\begin_inset Formula $\rho(t=1.0)$
+在 
+\begin_inset Formula $h\approx0.1$
 \end_inset
 
- in Problem 
+ 的非结构四面体网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:sod-1"
+reference "prob:sod"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-.
+ 的各阶近似解 
+\begin_inset Formula $\rho^{h}(x,y=0.5,z=0.25,t=1.0)$
+\end_inset
+
+ 之间的比较
 \end_layout
 
 \end_inset
@@ -28072,88 +28291,69 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-This is a classical problem of inviscid compressible flows.
- It contains all the three types of discontinuities: a shock wave and a
- contact discontinuity running towards the right and an expansion wave running
- towards the left.
- In Figure 
+为了更公平地比较不同阶数的求解器，作者开展了一组数值试验，将低阶求解器在细网格上的性能与高阶求解器在粗网格上的性能进行了对比。图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:sod_contour-1"
+reference "fig:sod_h"
 
 \end_inset
 
-, we plot the density contour given by our third-order solver with an 
-\family typewriter
-EigenWeno
-\family default
- limiter.
- In Figure 
+ 及表 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:sod_p"
-plural "false"
-caps "false"
-noprefix "false"
+reference "tab:sod_cost"
 
 \end_inset
 
-, we compare the density distributions given by various solvers along the
- longitudinal axis (on which 
-\begin_inset Formula $y=0.5$
+ 给出了三组试验的结果。由该图、表可知：（1）一阶近似解的全局误差、运行时间、存储空间均最大，性价比最低；（2）二阶与三阶近似解的全局误差、运行时间大致相当，但
+二阶近似解所需的存储空间较大，故其性价比低于三阶近似解；（3）求解器精度每提高一阶，单元尺寸与时间步长可增加一倍，体单元数与时间步数的乘积可以减小为原来的
+ 
+\begin_inset Formula $1/16$
 \end_inset
 
- and 
-\begin_inset Formula $z=0.25$
+。因此，只要 
+\begin_inset Formula $p+1$
 \end_inset
 
-) of the box.
- The accuracy of our solvers and the effect of 
+ 阶求解器分摊到每个体单元上的单步计算量不超过 
 \begin_inset Formula $p$
 \end_inset
 
--refinement are clear in these figures.
+ 阶求解器的 
+\begin_inset Formula $16$
+\end_inset
+
+ 倍，就具有更高的性价比。这里的“性”值全局精度，“价”指运行时间及存储空间。
 \end_layout
 
 \begin_layout Standard
-It is predictable that both mesh refinement (decreasing 
-\begin_inset Formula $h$
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../mdpi/figures/shock_tubes/sod/h_vary_tetra.pdf
+	lyxscale 50
+	width 100text%
+
 \end_inset
 
-) and order increment (increasing 
-\begin_inset Formula $p$
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sod_h"
+
 \end_inset
 
-) can help to improve accuracy.
- To compare the 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-performance
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- of solvers with different orders more fairly, it is better to use finer
- meshes for running lower-order solvers.
- After a few trials, we find that solutions given by the 
+Comparison between solutions given by various 
 \begin_inset Formula $h$
 \end_inset
 
@@ -28161,60 +28361,17 @@ performance
 \begin_inset Formula $p$
 \end_inset
 
- pairs listed in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:sod_performance"
+ pairs.
+\end_layout
 
 \end_inset
 
- roughly have the same level of accuracy, as shown in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:sod_h"
+
+\end_layout
 
 \end_inset
 
-.
- It is clear, at least for Problem 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:sod-1"
-plural "false"
-caps "false"
-noprefix "false"
 
-\end_inset
-
-, that high-order solvers are better than low-order ones in the sense of
- getting the same level of accuracy with less time and space costs.
- Similar conclusions were drawn in our previous work 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Pei_2022"
-literal "false"
-
-\end_inset
-
-, in which the 
-\begin_inset Formula $p=3$
-\end_inset
-
- solution of a linear advection problem on an 
-\begin_inset Formula $h\approx1/4$
-\end_inset
-
- mesh defeated the 
-\begin_inset Formula $p=1$
-\end_inset
-
- solution of the same problem on an 
-\begin_inset Formula $h\approx1/32$
-\end_inset
-
- mesh in accuracy but saved quite a lot of time.
- These encouraging results justify our efforts to implement higher-order
- solvers.
 \end_layout
 
 \begin_layout Standard
@@ -28230,7 +28387,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:sod_performance"
+name "tab:sod_cost"
 
 \end_inset
 
@@ -28289,7 +28446,7 @@ Comparison between time costs and file sizes of various
 \begin_inset Text
 
 \begin_layout Plain Layout
-#cells
+体单元数
 \end_layout
 
 \end_inset
@@ -28298,7 +28455,7 @@ Comparison between time costs and file sizes of various
 \begin_inset Text
 
 \begin_layout Plain Layout
-#steps
+时间步数
 \end_layout
 
 \end_inset
@@ -28307,7 +28464,7 @@ Comparison between time costs and file sizes of various
 \begin_inset Text
 
 \begin_layout Plain Layout
-time cost
+运行时间
 \end_layout
 
 \end_inset
@@ -28316,7 +28473,7 @@ time cost
 \begin_inset Text
 
 \begin_layout Plain Layout
-file size
+存储空间
 \end_layout
 
 \end_inset
@@ -28503,51 +28660,45 @@ file size
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../mdpi/figures/shock_tubes/sod/h_vary_tetra.pdf
-	lyxscale 50
-	width 100text%
+需要说明的是，不同于表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:linear_cost"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:sod_h"
+，表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:sod_cost"
 
 \end_inset
 
-Comparison between solutions given by various 
-\begin_inset Formula $h$
+ 中的数据没有夸大低阶求解器的运行时间，这是因为这里的低阶求解器采用了与之相对应的低阶数值积分器。具体地说，这里的一阶求解器采用了 
+\begin_inset Formula $1$
 \end_inset
 
--
-\begin_inset Formula $p$
+ 点四面体积分器与 
+\begin_inset Formula $1$
 \end_inset
 
- pairs.
-\end_layout
-
+ 点三角形积分器，二阶求解器采用了 
+\begin_inset Formula $4$
 \end_inset
 
-
-\end_layout
-
+ 点四面体积分器与 
+\begin_inset Formula $3$
 \end_inset
 
+ 点三角形积分器，三阶求解器采用了 
+\begin_inset Formula $14$
+\end_inset
 
+ 点四面体积分器与 
+\begin_inset Formula $6$
+\end_inset
+
+ 点三角形积分器。因此，本节关于性价比的结论比线性单波方程一节得到的类似结论更加可靠，也更具有实际意义。
 \end_layout
 
 \begin_layout Subsubsection
@@ -29031,7 +29182,7 @@ noprefix "false"
 In Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:sod_contour"
+reference "fig:sod_hexa"
 
 \end_inset
 
@@ -29064,7 +29215,7 @@ EigenWeno
  In Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:sod_contour"
+reference "fig:sod_hexa"
 
 \end_inset
 
