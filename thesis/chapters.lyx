@@ -25976,9 +25976,6 @@ U(x=0,y,z,t)=-10\eqqcolon U_{L},\qquad U(x=4,y,z,t)=+10\eqqcolon U_{R},
 \end_inset
 
 及初始条件
-\end_layout
-
-\begin_layout Problem
 \begin_inset Formula 
 \[
 U(x,y,z,t=0)=U_{L}
@@ -26005,9 +26002,6 @@ reference "prob:linear_scalar"
 \end_inset
 
  的解析解为
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 U^{\star}(x,y,z,t)=\begin{cases}
@@ -27428,9 +27422,6 @@ U_{2}(x,y,z,t)
 \end_inset
 
 ，即
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 \begin{bmatrix}V_{1}\\
@@ -27477,9 +27468,6 @@ reference "eq:linear_double_wave"
 \end_inset
 
 由此得到两个独立的初边值问题，它们的解析解分别为
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 V_{1}^{\star}(x,y,z,t)=\begin{cases}
@@ -27550,24 +27538,17 @@ reference "fig:linear_double_wave_contour"
 
 \end_inset
 
-–
+ 及图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:linear_double_wave_u_2"
+reference "fig:linear_double_wave_sample"
 
 \end_inset
 
  所示，其中图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:linear_double_wave_u_1"
-
-\end_inset
-
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:linear_double_wave_u_2"
+reference "fig:linear_double_wave_sample"
 
 \end_inset
 
@@ -27661,49 +27642,6 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:linear_double_wave_u_1"
-
-\end_inset
-
-不同求解器–限制器组合在同一网格上得到的问题 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:linear_system"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 的近似解 
-\begin_inset Formula $U_{1}^{h}(x,y=0.5,z=0.25,t=0.3)$
-\end_inset
-
- 之间的比较
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
 \begin_inset Graphics
 	filename ../mdpi/figures/linear_system/u_2.pdf
 	lyxscale 50
@@ -27720,7 +27658,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:linear_double_wave_u_2"
+name "fig:linear_double_wave_sample"
 
 \end_inset
 
@@ -27734,11 +27672,7 @@ noprefix "false"
 
 \end_inset
 
- 的近似解 
-\begin_inset Formula $U_{2}^{h}(x,y=0.5,z=0.25,t=0.3)$
-\end_inset
-
- 之间的比较
+ 的近似解之间的比较
 \end_layout
 
 \end_inset
@@ -27803,17 +27737,7 @@ name "fig:linear_double_wave_error"
 图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:linear_double_wave_u_1"
-
-\end_inset
-
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:linear_double_wave_u_2"
-plural "false"
-caps "false"
-noprefix "false"
+reference "fig:linear_double_wave_sample"
 
 \end_inset
 
@@ -27917,7 +27841,10 @@ noprefix "false"
 ）及边界条件
 \begin_inset Formula 
 \[
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=0}=\begin{bmatrix}1 & 0 & 0 & 0 & 1\end{bmatrix},\qquad\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=5}=\begin{bmatrix}\frac{1}{8} & 0 & 0 & 0 & \frac{1}{10}\end{bmatrix},
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}=\begin{cases}
+\begin{bmatrix}1 & 0 & 0 & 0 & 1\end{bmatrix}, & x=0,\\
+\begin{bmatrix}\frac{1}{8} & 0 & 0 & 0 & \frac{1}{10}\end{bmatrix}, & x=5,
+\end{cases}
 \]
 
 \end_inset
@@ -28294,7 +28221,7 @@ noprefix "false"
 为了更公平地比较不同阶数的求解器，作者开展了一组数值试验，将低阶求解器在细网格上的性能与高阶求解器在粗网格上的性能进行了对比。图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:sod_h"
+reference "fig:sod_error"
 
 \end_inset
 
@@ -28349,19 +28276,29 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:sod_h"
+name "fig:sod_error"
 
 \end_inset
 
-Comparison between solutions given by various 
+不同求解器–网格 (
 \begin_inset Formula $h$
 \end_inset
 
--
+–
 \begin_inset Formula $p$
 \end_inset
 
- pairs.
+) 组合对问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的计算精度之比较
 \end_layout
 
 \end_inset
@@ -28391,15 +28328,25 @@ name "tab:sod_cost"
 
 \end_inset
 
-Comparison between time costs and file sizes of various 
+不同求解器–网格 (
 \begin_inset Formula $h$
 \end_inset
 
--
+–
 \begin_inset Formula $p$
 \end_inset
 
- pairs.
+) 组合对问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的计算成本之比较
 \end_layout
 
 \end_inset
