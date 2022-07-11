@@ -29852,9 +29852,9 @@ noprefix "false"
 初始条件 设为
 \begin_inset Formula 
 \begin{equation}
-\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
-\underline{W}_{A}, & \sqrt{3}(x-x_{0})<y,\\
-\underline{W}_{B}, & \sqrt{3}(x-x_{0})>y,
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{cases}
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{A}, & \sqrt{3}(x-x_{0})<y,\\
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{B}, & \sqrt{3}(x-x_{0})>y,
 \end{cases}\label{eq:double_mach_ic}
 \end{equation}
 
@@ -29863,7 +29863,9 @@ noprefix "false"
 其中
 \begin_inset Formula 
 \[
-\underline{W}_{A}=\begin{bmatrix}8.0 & 4.125\sqrt{3} & -4.125 & 0.0 & 116.5\end{bmatrix},\qquad\underline{W}_{B}=\begin{bmatrix}1.4 & 0.0 & 0.0 & 0.0 & 1.0\end{bmatrix},
+\begin{aligned}\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{A} & =\begin{bmatrix}8.0 & 4.125\sqrt{3} & -4.125 & 0.0 & 116.5\end{bmatrix},\\
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{B} & =\begin{bmatrix}1.4 & 0.0 & 0.0 & 0.0 & 1.0\end{bmatrix},
+\end{aligned}
 \]
 
 \end_inset
@@ -29882,7 +29884,7 @@ noprefix "false"
 \end_inset
 
 ) 为超音速入口，状态设为 
-\begin_inset Formula $\underline{U}_{A}$
+\begin_inset Formula $\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{A}$
 \end_inset
 
 ；
@@ -29934,9 +29936,9 @@ noprefix "false"
 ）兼容：
 \begin_inset Formula 
 \[
-\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}=\begin{cases}
-\underline{W}_{A}, & x-(x_{0}+4.125\sqrt{3}t)<\sqrt{3}/3,\\
-\underline{W}_{B}, & x-(x_{0}+4.125\sqrt{3}t)>\sqrt{3}/3.
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}=\begin{cases}
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{A}, & x-(x_{0}+4.125\sqrt{3}t)<\sqrt{3}/3,\\
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{B}, & x-(x_{0}+4.125\sqrt{3}t)>\sqrt{3}/3.
 \end{cases}
 \]
 
@@ -31065,19 +31067,12 @@ reference "fig:double_mach_efficiency"
 \end_layout
 
 \begin_layout Subsection
-前台阶问题
+前台阶吹风问题
 \end_layout
 
 \begin_layout Standard
-This is a classical two-dimensional problem 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Woodward_1984"
-literal "true"
-
-\end_inset
-
-, but we treat it as a three-dimensional one:
+该问题是另一个用于校验无黏可压缩气流数值解的经典二维问题。该问题的边界条件与初始条件比双马赫反射问题的简单，但其解不具有自相似性，所涉及的物理现象更加复杂，因此
+对求解器的性能要求更为苛刻。与双马赫反射问题类似，我们在三维空间内重新给出其定义。
 \end_layout
 
 \begin_layout Problem
@@ -31087,7 +31082,31 @@ name "prob:forward_step"
 
 \end_inset
 
-Solve the Euler system (Equation 
+考虑一个由三维区间 
+\begin_inset Formula $[0,3]\times[0,1]\times[0,Z]$
+\end_inset
+
+ 表示的风洞，其底部设有一始于 
+\begin_inset Formula $x=0.6$
+\end_inset
+
+ 处、高度为 
+\begin_inset Formula $0.2$
+\end_inset
+
+ 的水平台阶。左端 (
+\begin_inset Formula $x=0$
+\end_inset
+
+) 为超音速入口，右端 (
+\begin_inset Formula $x=3$
+\end_inset
+
+) 为超音速出口，其余边界均设为固体壁面。在上述计算区域与时间范围 
+\begin_inset Formula $t\in[0.0,4.0]$
+\end_inset
+
+ 内，求满足三维欧拉方程（式 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:euler_system"
@@ -31097,41 +31116,23 @@ noprefix "false"
 
 \end_inset
 
-) in a 
-\begin_inset Formula $[0,3]\times[0,1]\times[0,Z]$
-\end_inset
-
- box (representing a wind tunnel), where the thickness 
-\begin_inset Formula $Z$
-\end_inset
-
- could be any positive value, with a 
-\begin_inset Formula $[0.6,3]\times[0,0.2]\times[0,Z]$
-\end_inset
-
- box removed (representing a forward-facing step).
- The 
-\begin_inset Formula $x=0$
-\end_inset
-
- surface is open as an inlet and the 
-\begin_inset Formula $x=3$
-\end_inset
-
- surface is open as an outlet.
- All other boundary surfaces are closed as solid walls.
- The initial condition is given as a uniform state:
-\end_layout
-
-\begin_layout Problem
+）及初始条件
 \begin_inset Formula 
 \[
-\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 3.0 & 0.0 & 0.0 & 1.0\end{bmatrix}.
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 3.0 & 0.0 & 0.0 & 1.0\end{bmatrix}
 \]
 
 \end_inset
 
+与边界条件
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=0}=\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}
+\]
 
+\end_inset
+
+的广义解。
 \end_layout
 
 \begin_layout Standard
@@ -31139,6 +31140,66 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_domain"
+
+\end_inset
+
+ 给出了一种可用于求解该问题的只含有 
+\begin_inset Formula $h=1/20$
+\end_inset
+
+ 的六面体单元的伪结构网格。这里的“伪结构”指其可以用结构网格的数据结构来表示，但本小节的所有算例仍将其以非结构网格的数据结构来表示。需要说明的是，该网格仅用于
+展示网格拓扑，其精细程度不足以捕捉图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=02e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=40e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所示的复杂流动结构。实际上，图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=02e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=40e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 使用了 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ 的精细网格。
 \end_layout
 
 \begin_layout Standard
@@ -31168,11 +31229,7 @@ name "fig:forward_step_domain"
 
 \end_inset
 
-A coarse (
-\begin_inset Formula $h=1/20$
-\end_inset
-
-) mesh for solving Problem 
+用于求解问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:forward_step"
@@ -31182,34 +31239,11 @@ noprefix "false"
 
 \end_inset
 
-.
- This mesh is too coarse to capture details of the flow field but clear
- enough to demonstrate the distribution of nodes and cells.
- Actually, we use a much finer (
-\begin_inset Formula $h=1/200$
+ 的只含 
+\begin_inset Formula $h=1/20$
 \end_inset
 
-) mesh to produce Figures 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_step_p=3_t=02e-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_step_p=3_t=40e-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
+ 的六面体单元的伪结构网格
 \end_layout
 
 \end_inset
@@ -31223,17 +31257,27 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-To show the applicability of our solvers on structured meshes, we solve
- this problem on meshes like the one in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_step_domain"
+由于该问题的解在上述时间范围内剧烈变化，最理想的呈现计算结果的方式应当是动画。本节仿照文献 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Woodward_1984"
+literal "true"
 
 \end_inset
 
-.
- As a common practice, we plot the density contours at various time steps
- in Figures 
+ 的做法，将数值解在若干时刻的状态分别以图片的形式给出。
+\end_layout
+
+\begin_layout Standard
+流场始于 
+\begin_inset Formula $3$
+\end_inset
+
+ 马赫的均匀状态（未画出）。
+\end_layout
+
+\begin_layout Standard
+计时开始后，超音速气流撞击在台阶上，形成一道弓形激波，如图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:forward_step_p=3_t=02e-1"
@@ -31243,17 +31287,25 @@ noprefix "false"
 
 \end_inset
 
-–
+、图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:forward_step_p=3_t=40e-1"
+reference "fig:forward_step_p=3_t=04e-1"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-.
+ 所示。与此同时，在台阶上表面前端的拐角处 (
+\begin_inset Formula $x=0.6$
+\end_inset
+
+, 
+\begin_inset Formula $y=0.2$
+\end_inset
+
+) 还形成了一道膨胀波，拐角附近的气流状态接近真空。因此该算例对求解器捕捉激波和处理真空的能力都提出了很高的要求。
 \end_layout
 
 \begin_layout Standard
@@ -31283,7 +31335,11 @@ name "fig:forward_step_p=3_t=02e-1"
 
 \end_inset
 
-Third-order solution of Problem 
+在只含 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ 的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:forward_step"
@@ -31293,15 +31349,11 @@ noprefix "false"
 
 \end_inset
 
- at 
+ 在 
 \begin_inset Formula $t=0.2$
 \end_inset
 
- on an 
-\begin_inset Formula $h=1/200$
-\end_inset
-
- mesh.
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -31341,7 +31393,11 @@ name "fig:forward_step_p=3_t=04e-1"
 
 \end_inset
 
-Third-order solution of Problem 
+在只含 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ 的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:forward_step"
@@ -31351,15 +31407,11 @@ noprefix "false"
 
 \end_inset
 
- at 
+ 在 
 \begin_inset Formula $t=0.4$
 \end_inset
 
- on an 
-\begin_inset Formula $h=1/200$
-\end_inset
-
- mesh.
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -31370,6 +31422,44 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+大约在 
+\begin_inset Formula $t=0.6$
+\end_inset
+
+ 时刻，该弓形激波与风洞顶部发生碰撞并发生反射，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=06e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所示。该反射为常规反射，反射波向风洞底部运动，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=08e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=10e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所示。
 \end_layout
 
 \begin_layout Standard
@@ -31399,7 +31489,11 @@ name "fig:forward_step_p=3_t=06e-1"
 
 \end_inset
 
-Third-order solution of Problem 
+在只含 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ 的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:forward_step"
@@ -31409,15 +31503,11 @@ noprefix "false"
 
 \end_inset
 
- at 
+ 在 
 \begin_inset Formula $t=0.6$
 \end_inset
 
- on an 
-\begin_inset Formula $h=1/200$
-\end_inset
-
- mesh.
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -31457,7 +31547,11 @@ name "fig:forward_step_p=3_t=08e-1"
 
 \end_inset
 
-Third-order solution of Problem 
+在只含 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ 的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:forward_step"
@@ -31467,15 +31561,11 @@ noprefix "false"
 
 \end_inset
 
- at 
+ 在 
 \begin_inset Formula $t=0.8$
 \end_inset
 
- on an 
-\begin_inset Formula $h=1/200$
-\end_inset
-
- mesh.
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -31515,7 +31605,11 @@ name "fig:forward_step_p=3_t=10e-1"
 
 \end_inset
 
-Third-order solution of Problem 
+在只含 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ 的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:forward_step"
@@ -31525,15 +31619,11 @@ noprefix "false"
 
 \end_inset
 
- at 
+ 在 
 \begin_inset Formula $t=1.0$
 \end_inset
 
- on an 
-\begin_inset Formula $h=1/200$
-\end_inset
-
- mesh.
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -31544,6 +31634,21 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+大约在 
+\begin_inset Formula $t=1.2$
+\end_inset
+
+ 时刻，反射波与台阶顶部发生碰撞并再次反射，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=12e-1"
+
+\end_inset
+
+ 所示。
 \end_layout
 
 \begin_layout Standard
@@ -31573,7 +31678,11 @@ name "fig:forward_step_p=3_t=12e-1"
 
 \end_inset
 
-Third-order solution of Problem 
+在只含 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ 的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:forward_step"
@@ -31583,15 +31692,11 @@ noprefix "false"
 
 \end_inset
 
- at 
+ 在 
 \begin_inset Formula $t=1.2$
 \end_inset
 
- on an 
-\begin_inset Formula $h=1/200$
-\end_inset
-
- mesh.
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -31602,6 +31707,21 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+大约在 
+\begin_inset Formula $t=2.0$
+\end_inset
+
+ 时刻，该二级反射依然为常规反射，但风洞顶部的初级反射已发展为马赫反射，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=20e-1"
+
+\end_inset
+
+ 所示。垂直于壁面的马赫杆，入射波、反射波、马赫杆汇聚处的三岔点，以及自三岔点向后拖出的剪切层，正是马赫反射的标志性特征。
 \end_layout
 
 \begin_layout Standard
@@ -31631,7 +31751,11 @@ name "fig:forward_step_p=3_t=20e-1"
 
 \end_inset
 
-Third-order solution of Problem 
+在只含 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ 的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:forward_step"
@@ -31641,15 +31765,11 @@ noprefix "false"
 
 \end_inset
 
- at 
+ 在 
 \begin_inset Formula $t=2.0$
 \end_inset
 
- on an 
-\begin_inset Formula $h=1/200$
-\end_inset
-
- mesh.
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -31660,6 +31780,17 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+此后一段时间，马赫杆逐渐拉长，二级反射波逐渐靠近风洞顶部，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=24e-1"
+
+\end_inset
+
+ 所示。
 \end_layout
 
 \begin_layout Standard
@@ -31689,7 +31820,11 @@ name "fig:forward_step_p=3_t=24e-1"
 
 \end_inset
 
-Third-order solution of Problem 
+在只含 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ 的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:forward_step"
@@ -31699,15 +31834,11 @@ noprefix "false"
 
 \end_inset
 
- at 
+ 在 
 \begin_inset Formula $t=2.4$
 \end_inset
 
- on an 
-\begin_inset Formula $h=1/200$
-\end_inset
-
- mesh.
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -31718,6 +31849,21 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+大约在 
+\begin_inset Formula $t=2.8$
+\end_inset
+
+ 时刻，二级反射波与风洞顶部发生碰撞并形成三级反射，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=28e-1"
+
+\end_inset
+
+ 所示。不难想象，如果风洞的长度足够长，且计算的时间范围也足够大，那么这种反射的级数还有可能继续增加。
 \end_layout
 
 \begin_layout Standard
@@ -31743,11 +31889,15 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:forward_step_p=3_h=28e-1"
+name "fig:forward_step_p=3_t=28e-1"
 
 \end_inset
 
-Third-order solution of Problem 
+在只含 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ 的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:forward_step"
@@ -31757,15 +31907,11 @@ noprefix "false"
 
 \end_inset
 
- at 
+ 在 
 \begin_inset Formula $t=2.8$
 \end_inset
 
- on an 
-\begin_inset Formula $h=1/200$
-\end_inset
-
- mesh.
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -31776,6 +31922,47 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+自 
+\begin_inset Formula $t=2.8$
+\end_inset
+
+ 时刻起，到 
+\begin_inset Formula $t=4.0$
+\end_inset
+
+ 时刻止，一个显著发展的流动特征是三叉点后的波纹状剪切层涡系，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=28e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=40e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所示。文献 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Woodward_1984"
+literal "true"
+
+\end_inset
+
+ 认为，这种波纹的形成是数值误差引起的扰动被剪切层的开尔文–亥姆霍兹不稳定性捕获的结果。虽然该涡系的形成有非物理的原因，但对其细节的分辨能力已经成为了评价求解器
+性能的一个定性指标，更低阶的求解器或更粗糙的网格都很难捕获该流动特征。
 \end_layout
 
 \begin_layout Standard
@@ -31805,7 +31992,11 @@ name "fig:forward_step_p=3_t=32e-1"
 
 \end_inset
 
-Third-order solution of Problem 
+在只含 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ 的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:forward_step"
@@ -31815,15 +32006,11 @@ noprefix "false"
 
 \end_inset
 
- at 
+ 在 
 \begin_inset Formula $t=3.2$
 \end_inset
 
- on an 
-\begin_inset Formula $h=1/200$
-\end_inset
-
- mesh.
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -31863,157 +32050,35 @@ name "fig:forward_step_p=3_t=40e-1"
 
 \end_inset
 
-Third-order solution of Problem 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:forward_step"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- at 
-\begin_inset Formula $t=4.0$
-\end_inset
-
- on an 
+在只含 
 \begin_inset Formula $h=1/200$
 \end_inset
 
- mesh.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The flow starts from a uniform supersonic (
-\begin_inset Formula $M=3.0$
-\end_inset
-
-) state.
- In Figures 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_step_p=3_t=02e-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_step_p=3_t=04e-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, a curved bow shock wave generates in front of the forward-facing step
- and a fan-shaped expansion wave generates at the corner (
-\begin_inset Formula $x=0.6,y=0.2$
-\end_inset
-
-).
- The bow shock then hits the top of the tunnel (Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_step_p=3_t=06e-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-) and reflects from it (Figures 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_step_p=3_t=08e-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_step_p=3_t=10e-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-).
- At about 
-\begin_inset Formula $t=1.2$
-\end_inset
-
- (Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_step_p=3_t=12e-1"
-
-\end_inset
-
-), the reflected shock hits the bottom of the tunnel (the top of the step)
- and reflects from it.
- Both of the two reflections are regular at these moments.
- Just before 
-\begin_inset Formula $t=2.0$
-\end_inset
-
- (Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_step_p=3_t=12e-1"
-
-\end_inset
-
-), a Mach stem which characterizes a Mach reflection has generated from
- the first reflection point.
- A wavy contact discontinuity generating from the triple point is captured
- by Figures 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_step_p=3_t=24e-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_step_p=3_t=40e-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- This flow structure would be smeared off if we solved Problem 
+ 的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:forward_step"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
- using lower-order solvers or coarser meshes.
+ 在 
+\begin_inset Formula $t=4.0$
+\end_inset
+
+ 时刻的三阶 RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
