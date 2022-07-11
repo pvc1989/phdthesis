@@ -26886,14 +26886,16 @@ reference "tab:linear_cost"
 
 \end_inset
 
- 中的数据夸大了低阶求解器的运行时间，这是因为就间断伽辽金有限元方法而言，低阶求解器本可以采用与之相对应的低阶数值积分器。但为了公平地计算式 
+ 中的数据夸大了低阶 RKDG 求解器的运行时间，这是因为就间断伽辽金有限元方法而言，低阶 RKDG 求解器本可以采用与之相对应的低阶数值积分器。但为了公平地计
+算式 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:global-error"
 
 \end_inset
 
- 所定义的全局误差，本节所展示的各阶求解器使用了同一个高阶数值积分器，即在四面体单元上具有 6 阶代数精度的 24 点积分器。即便如此，由表 
+ 所定义的全局误差，本节所展示的各阶 RKDG 求解器使用了同一个高阶数值积分器，即在四面体单元上具有 6 阶代数精度的 24 点积分器。即便如此，由表
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:linear_cost"
@@ -27320,7 +27322,7 @@ diagbox{$p$}{$h$}
 \end_layout
 
 \begin_layout Standard
-以上结果表明：高阶求解器具有较高的性价比。这里的“性”指全局精度，“价”指运行时间。
+以上结果表明：高阶 RKDG 求解器具有较高的性价比。这里的“性”指全局精度，“价”指运行时间。
 \end_layout
 
 \begin_layout Subsubsection
@@ -28218,7 +28220,8 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-为了更公平地比较不同阶数的求解器，作者开展了一组数值试验，将低阶求解器在细网格上的性能与高阶求解器在粗网格上的性能进行了对比。图 
+为了更公平地比较不同阶数的求解器，作者开展了一组数值试验，将低阶 RKDG 求解器在细网格上的性能与高阶 RKDG 求解器在粗网格上的性能进行了对比。图
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:sod_error"
@@ -28242,11 +28245,11 @@ reference "tab:sod_cost"
 \begin_inset Formula $p+1$
 \end_inset
 
- 阶求解器分摊到每个体单元上的单步计算量不超过 
+ 阶 RKDG 求解器分摊到每个体单元上的单步计算量不超过 
 \begin_inset Formula $p$
 \end_inset
 
- 阶求解器的 
+ 阶 RKDG 求解器的 
 \begin_inset Formula $16$
 \end_inset
 
@@ -28625,7 +28628,8 @@ reference "tab:sod_cost"
 
 \end_inset
 
- 中的数据没有夸大低阶求解器的运行时间，这是因为这里的低阶求解器采用了与之相对应的低阶数值积分器。具体地说，这里的一阶求解器采用了 
+ 中的数据没有夸大低阶 RKDG 求解器的运行时间，这是因为这里的低阶 RKDG 求解器采用了与之相对应的低阶数值积分器。具体地说，这里的一阶
+ RKDG 求解器采用了 
 \begin_inset Formula $1$
 \end_inset
 
@@ -28633,7 +28637,7 @@ reference "tab:sod_cost"
 \begin_inset Formula $1$
 \end_inset
 
- 点三角形积分器，二阶求解器采用了 
+ 点三角形积分器，二阶 RKDG 求解器采用了 
 \begin_inset Formula $4$
 \end_inset
 
@@ -28641,7 +28645,7 @@ reference "tab:sod_cost"
 \begin_inset Formula $3$
 \end_inset
 
- 点三角形积分器，三阶求解器采用了 
+ 点三角形积分器，三阶 RKDG 求解器采用了 
 \begin_inset Formula $14$
 \end_inset
 
@@ -30003,7 +30007,7 @@ noprefix "false"
 \end_inset
 
  的六面体单元的非结构网格上的一阶、二阶、三阶 RKDG 近似解。三者给出的流场结构大致相同，都含有一道弓形激波与两组马赫反射；但只有高阶近似解才能捕捉到右下角
-的复杂涡系。这种差别再次体现了高阶求解器分辨流动细节的优越性。
+的复杂涡系。这种差别再次体现了高阶 RKDG 求解器分辨流动细节的优越性。
 \end_layout
 
 \begin_layout Standard
@@ -30181,49 +30185,205 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-Before concluding this section, we provide the measured performance of our
- third-order solver that produces Figure 
+尽管本小结使用了非结构网格，然而其中的单元尺寸大致相等，且计算区域具有简单的几何外形，因此很容易得到较为均匀的网格分块，从而实现静态负载均衡。为了提高求解器的普
+适性，我们放弃了这种简单几何外形带来的便利，转而通过直接调用第三方库来实施网格分块。图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_partition"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_balance"
+
+\end_inset
+
+ 给出了将图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=1_h=5e-3"
+
+\end_inset
+
+–
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:double_mach_p=3_h=5e-3"
 
 \end_inset
 
- in Table 
+ 中的非结构网格分割为 100 块的（某次）分块结果，可见单元数量的波动小于 
+\begin_inset Formula $3\%$
+\end_inset
+
+，大致呈均匀分布。考虑到非结构网格的均匀分块属于 NP-hard 问题，图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:parallel_efficiency"
+reference "fig:double_mach_partition"
 
 \end_inset
 
-, in which
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_balance"
+
+\end_inset
+
+ 所示的分块效果已经相当令人满意。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../mdpi/figures/double_mach/partition.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_partition"
+
+\end_inset
+
+将图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=1_h=5e-3"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=3_h=5e-3"
+
+\end_inset
+
+ 中的非结构网格分割为 
+\begin_inset Formula $100$
+\end_inset
+
+ 块的分块结果
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../mdpi/figures/double_mach/balance.pdf
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_balance"
+
+\end_inset
+
+图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_partition"
+
+\end_inset
+
+ 所示分块结果的单元分布情况
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+基于上述优质的分块工具，我们测量了三阶 RKDG 求解器的加速比及并行效率。表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:parallel_cost"
+
+\end_inset
+
+ 列出了该求解器以不同进程数量并行求解问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:double_mach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所消耗的时间，其中
 \end_layout
 
 \begin_layout Itemize
 \begin_inset Formula $P$
 \end_inset
 
- means the number of processes (one process per core).
+ 表示进程数量，亦即运行时所需的核心数量。
 \end_layout
 
 \begin_layout Itemize
 \begin_inset Formula $T_{n}$
 \end_inset
 
- means the wall clock time to finish the first 
+ 表示完成第 
 \begin_inset Formula $n$
 \end_inset
 
- step.
+ 步所消耗的秒数。
 \end_layout
 
 \begin_layout Itemize
 \begin_inset Formula $P\frac{T_{m+m}-T_{n}}{m}$
 \end_inset
 
- is the core time per step.
- The total core time of all steps is often used as an index for charging
- by high performance computing centers.
+ 为每一步所消耗的核心数与墙上时间的乘积，简称“核时”。该数据通常被高性能计算平台用作收费依据。
 \end_layout
 
 \begin_layout Standard
@@ -30231,6 +30391,19 @@ reference "tab:parallel_efficiency"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+由于并行读写操作会导致许多聚合通信，聚合通信的效率又依赖于网络质量，因此我们应当尽量减少并行读写的调用次数。在本小节中，每完成一百步计算才输出一帧结果。因此，表
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:parallel_cost"
+
+\end_inset
+
+ 的后两列之差体现了读写操作的代价，它等于分摊到每一个时间步上读写开销。不难发现：随着核心数量的增加，单步读写开销也在逐渐地增加。这是因为随着核心数量的增加，每
+个进程的通信对象的数量以及端到端的距离都在不断增加。
 \end_layout
 
 \begin_layout Standard
@@ -30246,11 +30419,21 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:parallel_efficiency"
+name "tab:parallel_cost"
 
 \end_inset
 
-Performance of the same solver running on different number of cores.
+三阶 RKDG 求解器以不同进程数量并行求解问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:double_mach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所消耗的时间
 \end_layout
 
 \end_inset
@@ -30429,7 +30612,7 @@ Performance of the same solver running on different number of cores.
 \begin_inset Text
 
 \begin_layout Plain Layout
-1912.365
+1912.37
 \end_layout
 
 \end_inset
@@ -30438,7 +30621,7 @@ Performance of the same solver running on different number of cores.
 \begin_inset Text
 
 \begin_layout Plain Layout
-1926.584
+1926.58
 \end_layout
 
 \end_inset
@@ -30699,65 +30882,44 @@ Performance of the same solver running on different number of cores.
 \end_layout
 
 \begin_layout Standard
-Since parallel I/O operations require many collective communications, we
- write one frame every 100 steps.
- Thus, the difference between the values in the last two columns is the
- amortized core time of writing per step.
- We have to admit that this cost is growing as the number of cores increases.
- If the number of cores keeps increasing, this may be a bottleneck of maintainin
-g scalability.
-\end_layout
+由表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:parallel_cost"
 
-\begin_layout Standard
-The community of parallel computing usually use the speedup (
+\end_inset
+
+ 中的数据，可以导出加速比 
 \begin_inset Formula $S$
 \end_inset
 
-) and efficiency (
+ 与并行效率 
 \begin_inset Formula $E$
 \end_inset
 
-) defined as
-\end_layout
-
-\begin_layout Standard
+，二者定义如下：
 \begin_inset Formula 
 \[
-S=\frac{T_{\text{serial}}}{T_{\text{parallel}}},\qquad E=\frac{S}{P}\times100\%,
+S=\frac{T_{\text{serial}}}{T_{\text{parallel}}},\qquad E=\frac{S}{P}\times100\%.
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-to assess the performance a parallel program.
- We follow this practice, calculate these values based on the measured data
- given in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:parallel_efficiency"
-
-\end_inset
-
- and plot them in Figures 
+所得结果分别绘于图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:double_mach_speedup"
 
 \end_inset
 
-–
+ 与图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:double_mach_efficiency"
 
 \end_inset
 
-.
- These figures show again that the I/O operations have adverse effects on
- the parallel performance.
+。这两幅图更直观地体现了并行读写操作对并行程序扩展性的不利影响。
 \end_layout
 
 \begin_layout Standard
@@ -30787,14 +30949,17 @@ name "fig:double_mach_speedup"
 
 \end_inset
 
-Speedup of the third-order solver for generating Figure 
+三阶 RKDG 求解器以不同进程数量并行求解问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:double_mach_p=3_h=5e-3"
+reference "prob:double_mach"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-.
+ 所得的加速比
 \end_layout
 
 \end_inset
@@ -30834,14 +30999,17 @@ name "fig:double_mach_efficiency"
 
 \end_inset
 
-Parallel efficiency of the third-order solver for generating Figure 
+三阶 RKDG 求解器以不同进程数量并行求解问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:double_mach_p=3_h=5e-3"
+reference "prob:double_mach"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-.
+ 所得的并行效率
 \end_layout
 
 \end_inset
@@ -30855,22 +31023,18 @@ reference "fig:double_mach_p=3_h=5e-3"
 \end_layout
 
 \begin_layout Standard
-The efficiency values given in Figure 
+图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:double_mach_efficiency"
 
 \end_inset
 
- fluctuate around 
+ 所示的并行效率在 
 \begin_inset Formula $90\%$
 \end_inset
 
-, which are not as good as those above 
-\begin_inset Formula $99\%$
-\end_inset
-
- in 
+ 附近波动，这比文献 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Biswas_1994"
@@ -30878,138 +31042,26 @@ literal "false"
 
 \end_inset
 
-.
- One source of such gap is the imperfect load balancing of our tests.
- Since we are using a three-dimensional unstructured mesh, it can hardly
- be partitioned uniformly, which is an 
-\begin_inset Formula $NP$
+ 中给出的 
+\begin_inset Formula $99\%$
 \end_inset
 
--hard problem.
- On the other hand, their meshes are one- and two-dimensional structured,
- on which uniform partitioning can be trivially achieved.
- Figure 
+ 略差。造成这种差距的主要原因，在于该文献中的算例都是基于一维、二维的结构网格，分块数量又恰好是 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+，因此经过 
+\begin_inset Formula $n$
+\end_inset
+
+ 次几何等分，就能得到完美的均匀分块。本节所有算例均基于三维非结构网格，因此图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:double_mach_balance"
+reference "fig:double_mach_efficiency"
 
 \end_inset
 
- gives the distribution of cells of the 100-part mesh partitioning (Figure
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_partition"
-
-\end_inset
-
-) used in this section, which shows a 
-\begin_inset Formula $3\%$
-\end_inset
-
- fluctuation.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../mdpi/figures/double_mach/balance.pdf
-	lyxscale 50
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:double_mach_balance"
-
-\end_inset
-
-Distribution of cells in the mesh partitioning given in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_partition"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../mdpi/figures/double_mach/partition.png
-	lyxscale 15
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:double_mach_partition"
-
-\end_inset
-
-A 100-part mesh partitioning of the unstructured mesh used for generating
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_p=1_h=5e-3"
-
-\end_inset
-
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_p=3_h=5e-3"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+ 中的并行效率更具有参考价值。
 \end_layout
 
 \begin_layout Subsection
