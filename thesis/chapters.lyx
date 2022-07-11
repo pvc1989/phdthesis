@@ -27910,7 +27910,7 @@ reference "fig:sod_hexa_p_vary"
 \begin_inset Formula $y=0.5,\,z=0.25$
 \end_inset
 
-) 均匀选取了 1001 个采样点，依次画出了一阶、二阶、三阶近似解在这些采样点处的密度值。由图 
+) 均匀选取了 1001 个采样点，依次画出了一阶、二阶、三阶 RKDG 近似解在这些采样点处的密度值。由图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:sod_hexa_p_vary"
@@ -27961,7 +27961,7 @@ noprefix "false"
 
 \end_inset
 
- 的三阶近似解（按 
+ 的三阶 RKDG 近似解（按 
 \begin_inset Formula $\rho(x,y,z,t=1.0)$
 \end_inset
 
@@ -28019,7 +28019,7 @@ noprefix "false"
 
 \end_inset
 
- 的各阶近似解之间的比较（按 
+ 的各阶 RKDG 近似解之间的比较（按 
 \begin_inset Formula $\rho(x,y=0.5,z=0.25,t=1.0)$
 \end_inset
 
@@ -28098,7 +28098,7 @@ noprefix "false"
 
 \end_inset
 
- 的各阶近似解均能收敛到精确解。
+ 的各阶 RKDG 近似解均能收敛到精确解。
 \end_layout
 
 \begin_layout Standard
@@ -28142,7 +28142,7 @@ noprefix "false"
 
 \end_inset
 
- 的三阶近似解（按 
+ 的三阶 RKDG 近似解（按 
 \begin_inset Formula $\rho(x,y,z,t=1.0)$
 \end_inset
 
@@ -28200,7 +28200,7 @@ noprefix "false"
 
 \end_inset
 
- 的各阶近似解之间的比较（按 
+ 的各阶 RKDG 近似解之间的比较（按 
 \begin_inset Formula $\rho(x,y=0.5,z=0.25,t=1.0)$
 \end_inset
 
@@ -28232,9 +28232,9 @@ reference "tab:sod_cost"
 
 \end_inset
 
- 给出了三组试验的结果。由该图、表可知：（1）一阶近似解的全局误差、运行时间、存储空间均最大，性价比最低；（2）二阶与三阶近似解的全局误差、运行时间大致相当，但
-二阶近似解所需的存储空间较大，故其性价比低于三阶近似解；（3）求解器精度每提高一阶，单元尺寸与时间步长可增加一倍，体单元数与时间步数的乘积可以减小为原来的
- 
+ 给出了三组试验的结果。由该图、表可知：（1）一阶 RKDG 近似解的全局误差、运行时间、存储空间均最大，性价比最低；（2）二阶与三阶 RKDG
+ 近似解的全局误差、运行时间大致相当，但二阶 RKDG 近似解所需的存储空间较大，故其性价比低于三阶 RKDG 近似解；（3）求解器精度每提高一阶，单元尺寸与时
+间步长可增加一倍，体单元数与时间步数的乘积可以减小为原来的 
 \begin_inset Formula $1/16$
 \end_inset
 
@@ -28780,7 +28780,7 @@ noprefix "false"
 
 \end_inset
 
- 的三阶近似解。图 
+ 的三阶 RKDG 近似解。图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:lax_hexa_p_vary"
@@ -28794,8 +28794,8 @@ noprefix "false"
 \begin_inset Formula $y=0.5,\,z=0.25$
 \end_inset
 
-) 均匀选取了 1001 个采样点，依次画出了一阶、二阶、三阶近似解在这些采样点处的密度值。由这两幅图不难再次得出结论：（1）高阶格式在间断附近引起的数值振荡得
-到了有效压制；（2）在相同的网格上，求解器的阶数越高，数值解的精度也越高。
+) 均匀选取了 1001 个采样点，依次画出了一阶、二阶、三阶 RKDG 近似解在这些采样点处的密度值。由这两幅图不难再次得出结论：（1）高阶格式在间断附近引起
+的数值振荡得到了有效压制；（2）在相同的网格上，求解器的阶数越高，数值解的精度也越高。
 \end_layout
 
 \begin_layout Standard
@@ -28839,7 +28839,7 @@ noprefix "false"
 
 \end_inset
 
- 的三阶近似解（按 
+ 的三阶 RKDG 近似解（按 
 \begin_inset Formula $\rho(x,y,z,t=0.5)$
 \end_inset
 
@@ -28897,7 +28897,7 @@ noprefix "false"
 
 \end_inset
 
- 的各阶近似解之间的比较（按 
+ 的各阶 RKDG 近似解之间的比较（按 
 \begin_inset Formula $\rho(x,y=0.5,z=0.25,t=0.5)$
 \end_inset
 
@@ -28979,7 +28979,7 @@ noprefix "false"
 
 \end_inset
 
- 的各阶近似解均能收敛到精确解。
+ 的各阶 RKDG 近似解均能收敛到精确解。
 \end_layout
 
 \begin_layout Standard
@@ -29023,7 +29023,7 @@ noprefix "false"
 
 \end_inset
 
- 的三阶近似解（按 
+ 的三阶 RKDG 近似解（按 
 \begin_inset Formula $\rho(x,y,z,t=0.5)$
 \end_inset
 
@@ -29081,7 +29081,7 @@ noprefix "false"
 
 \end_inset
 
- 的各阶近似解之间的比较（按 
+ 的各阶 RKDG 近似解之间的比较（按 
 \begin_inset Formula $\rho(x,y=0.5,z=0.25,t=0.5)$
 \end_inset
 
@@ -29266,7 +29266,7 @@ noprefix "false"
 
 \end_inset
 
- 的三阶近似解，图 
+ 的三阶 RKDG 近似解，图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:vacuum_hexa_p_vary"
@@ -29280,7 +29280,7 @@ noprefix "false"
 \begin_inset Formula $y=0.5,\,z=0.25$
 \end_inset
 
-) 均匀选取了 1001 个采样点，依次画出了一阶、二阶、三阶近似解在这些采样点处的密度值。结果再次验证了的有效性和阶数与精度的正相关。
+) 均匀选取了 1001 个采样点，依次画出了一阶、二阶、三阶 RKDG 近似解在这些采样点处的密度值。结果再次验证了的有效性和阶数与精度的正相关。
 \end_layout
 
 \begin_layout Standard
@@ -29324,7 +29324,7 @@ noprefix "false"
 
 \end_inset
 
- 的三阶近似解（按 
+ 的三阶 RKDG 近似解（按 
 \begin_inset Formula $\rho(x,y,z,t=0.4)$
 \end_inset
 
@@ -29382,7 +29382,7 @@ noprefix "false"
 
 \end_inset
 
- 的各阶近似解之间的比较（按 
+ 的各阶 RKDG 近似解之间的比较（按 
 \begin_inset Formula $\rho(x,y=0.5,z=0.25,t=0.4)$
 \end_inset
 
@@ -29478,7 +29478,7 @@ noprefix "false"
 
 \end_inset
 
- 的三阶近似解（按 
+ 的三阶 RKDG 近似解（按 
 \begin_inset Formula $\rho(x,y,z,t=0.4)$
 \end_inset
 
@@ -29536,7 +29536,7 @@ noprefix "false"
 
 \end_inset
 
- 的各阶近似解之间的比较（按 
+ 的各阶 RKDG 近似解之间的比较（按 
 \begin_inset Formula $\rho(x,y=0.5,z=0.25,t=0.4)$
 \end_inset
 
@@ -29558,159 +29558,26 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-This is a classical two-dimensional problem originally proposed in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Woodward_1984"
-literal "true"
-
+该问题模拟一道 
+\begin_inset Formula $10$
 \end_inset
 
-, which we redefine here as a three-dimensional one:
-\end_layout
-
-\begin_layout Problem
-\begin_inset CommandInset label
-LatexCommand label
-name "prob:double_mach"
-
+ 马赫的激波迎头撞击一个 
+\begin_inset Formula $60\deg$
 \end_inset
 
-Solve the Euler system (Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:euler_system"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-) in the region defined in Figure 
+ 楔形障碍物的流动图象，边界条件及初始条件如图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:double_mach_sketch"
 
 \end_inset
 
-, in which 
+ 所示，其中 
 \begin_inset Formula $x_{0}=1/6$
 \end_inset
 
-.
- The initial condition is given as a moving shock wave:
-\end_layout
-
-\begin_layout Problem
-\begin_inset Formula 
-\begin{equation}
-\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
-\begin{bmatrix}1.4 & 0.0 & 0.0 & 0.0 & 1.0\end{bmatrix} & y<\sqrt{3}(x-x_{0})\\
-\begin{bmatrix}8.0 & u_{\mathrm{A}} & v_{\mathrm{A}} & 0.0 & 116.5\end{bmatrix} & y>\sqrt{3}(x-x_{0})
-\end{cases},\label{eq:double_mach_ic}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Problem
-in which 
-\begin_inset Formula $u_{\mathrm{A}}=4.125\sqrt{3}$
-\end_inset
-
- and 
-\begin_inset Formula $v_{\mathrm{A}}=-4.125$
-\end_inset
-
- are the velocity components 
-\bar under
-a
-\bar default
-fter the shock wave.
- The boundary conditions are given as following:
-\end_layout
-
-\begin_layout Itemize
-the 
-\begin_inset Formula $x=0$
-\end_inset
-
- surface is open as an inlet;
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-the 
-\begin_inset Formula $x=4$
-\end_inset
-
- surface and the 
-\begin_inset Formula $x<x_{0}$
-\end_inset
-
- part of the 
-\begin_inset Formula $y=0$
-\end_inset
-
- surface are open as outlets;
-\end_layout
-
-\begin_layout Itemize
-the 
-\begin_inset Formula $x>x_{0}$
-\end_inset
-
- part of the 
-\begin_inset Formula $y=0$
-\end_inset
-
- surface is closed as a solid wall;
-\end_layout
-
-\begin_layout Itemize
-the 
-\begin_inset Formula $y=1$
-\end_inset
-
- surface has the following prescribed state:
-\end_layout
-
-\end_deeper
-\begin_layout Problem
-\begin_inset Formula 
-\[
-\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}=\begin{cases}
-\begin{bmatrix}1.4 & 0.0 & 0.0 & 0.0 & 1.0\end{bmatrix} & 1<\sqrt{3}(x-(x_{0}+u_{\mathrm{A}}t))\\
-\begin{bmatrix}8.0 & u_{\mathrm{A}} & v_{\mathrm{A}} & 0.0 & 116.5\end{bmatrix} & 1>\sqrt{3}(x-(x_{0}+u_{\mathrm{A}}t))
-\end{cases},
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Problem
-which is consistent with the initial condition (Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:double_mach_ic"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
+，黑色细实线表示固体壁面，红色粗实线表示初始激波。
 \end_layout
 
 \begin_layout Standard
@@ -29718,7 +29585,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -29906,26 +29773,14 @@ name "fig:double_mach_sketch"
 
 \end_inset
 
-A schematic diagram of Problem 
+问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:double_mach"
 
 \end_inset
 
-.
- The rectangle bounded by four dashed lines and a solid line is the computationa
-l domain.
- The thick red line represents the initial shock wave, which is at an angle
- of 
-\begin_inset Formula $\pi/3$
-\end_inset
-
- relative to the 
-\begin_inset Formula $x$
-\end_inset
-
--axis.
+ 边界条件及初始条件示意图
 \end_layout
 
 \end_inset
@@ -29939,19 +29794,184 @@ l domain.
 \end_layout
 
 \begin_layout Standard
-As a common practice, we plot the density contour at 
+以文献 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Woodward_1984"
+literal "true"
+
+\end_inset
+
+ 为代表，该问题通常以二维形式出现。与激波管问题类似，我们在三维空间内重新给出其定义。
+\end_layout
+
+\begin_layout Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:double_mach"
+
+\end_inset
+
+在时间范围 
+\begin_inset Formula $t\in[0.0,1.0]$
+\end_inset
+
+ 及图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_sketch"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中虚线所围计算区域（厚度 
+\begin_inset Formula $Z$
+\end_inset
+
+ 为任意有限值）内，求满足三维欧拉方程（式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+）及如下条件的广义解。
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+初始条件 设为
+\begin_inset Formula 
+\begin{equation}
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
+\underline{W}_{A}, & \sqrt{3}(x-x_{0})<y,\\
+\underline{W}_{B}, & \sqrt{3}(x-x_{0})>y,
+\end{cases}\label{eq:double_mach_ic}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+\underline{W}_{A}=\begin{bmatrix}8.0 & 4.125\sqrt{3} & -4.125 & 0.0 & 116.5\end{bmatrix},\qquad\underline{W}_{B}=\begin{bmatrix}1.4 & 0.0 & 0.0 & 0.0 & 1.0\end{bmatrix},
+\]
+
+\end_inset
+
+分别为波后 (After the wave) 与波前 (Before the wave) 状态。
+\end_layout
+
+\begin_layout Description
+边界条件 设为
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+左端 (
+\begin_inset Formula $x=0$
+\end_inset
+
+) 为超音速入口，状态设为 
+\begin_inset Formula $\underline{U}_{A}$
+\end_inset
+
+；
+\end_layout
+
+\begin_layout Itemize
+右端 (
+\begin_inset Formula $x=4$
+\end_inset
+
+) 及底部前段 (
+\begin_inset Formula $y=0$
+\end_inset
+
+ 且 
+\begin_inset Formula $x<x_{0}$
+\end_inset
+
+) 为超音速出口（无需设置状态）；
+\end_layout
+
+\begin_layout Itemize
+底部后段 (
+\begin_inset Formula $y=0$
+\end_inset
+
+ 且 
+\begin_inset Formula $x<x_{0}$
+\end_inset
+
+) 为固体壁面；
+\end_layout
+
+\begin_layout Itemize
+顶部 (
+\begin_inset Formula $y=1$
+\end_inset
+
+) 状态随时间变化，并且与初始条件（式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:double_mach_ic"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+）兼容：
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}=\begin{cases}
+\underline{W}_{A}, & x-(x_{0}+4.125\sqrt{3}t)<\sqrt{3}/3,\\
+\underline{W}_{B}, & x-(x_{0}+4.125\sqrt{3}t)>\sqrt{3}/3.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+该问题的解具有自相似性，因此只需要画出某一时刻的计算结果。为了方便对比，这里仿照文献 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Woodward_1984,Zhong_2013,Zhu_2013"
+literal "true"
+
+\end_inset
+
+ 的习惯，画出 
 \begin_inset Formula $t=0.2$
 \end_inset
 
- in a 
+ 时刻、二维区间 
 \begin_inset Formula $[0,3]\times[0,1]$
 \end_inset
 
- rectangle (on the 
-\begin_inset Formula $z=0$
+ 与 
+\begin_inset Formula $z=Z/2$
 \end_inset
 
- surface) for each solver in Figure 
+ 平面交集内的密度分布。图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:double_mach_p=1_h=5e-3"
@@ -29968,10 +29988,22 @@ noprefix "false"
 
 \end_inset
 
-.
- It is clear that as the accuracy order increases, the thickness of each
- discontinuity decreases and the rolled-up vortex structure becomes more
- clear.
+ 依次为问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:double_mach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在只含 
+\begin_inset Formula $h\approx1/200$
+\end_inset
+
+ 的六面体单元的非结构网格上的一阶、二阶、三阶 RKDG 近似解。三者给出的流场结构大致相同，都含有一道弓形激波与两组马赫反射；但只有高阶近似解才能捕捉到右下角
+的复杂涡系。这种差别再次体现了高阶求解器分辨流动细节的优越性。
 \end_layout
 
 \begin_layout Standard
@@ -30001,11 +30033,11 @@ name "fig:double_mach_p=1_h=5e-3"
 
 \end_inset
 
-First-order solution of 
-\begin_inset Formula $\rho(x,y,z=0,t=0.2)$
+在只含 
+\begin_inset Formula $h\approx1/200$
 \end_inset
 
- in Problem 
+ 的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:double_mach"
@@ -30015,11 +30047,11 @@ noprefix "false"
 
 \end_inset
 
- (
-\begin_inset Formula $h\approx1/200$
+ 的一阶 RKDG 近似解（按 
+\begin_inset Formula $\rho(x,y,z=Z/2,t=0.2)$
 \end_inset
 
-).
+ 作图）
 \end_layout
 
 \end_inset
@@ -30059,11 +30091,11 @@ name "fig:double_mach_p=2_h=5e-3"
 
 \end_inset
 
-Second-order solution of 
-\begin_inset Formula $\rho(x,y,z=0,t=0.2)$
+在只含 
+\begin_inset Formula $h\approx1/200$
 \end_inset
 
- in Problem 
+ 的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:double_mach"
@@ -30073,11 +30105,11 @@ noprefix "false"
 
 \end_inset
 
- (
-\begin_inset Formula $h\approx1/200$
+ 的二阶 RKDG 近似解（按 
+\begin_inset Formula $\rho(x,y,z=Z/2,t=0.2)$
 \end_inset
 
-).
+ 作图）
 \end_layout
 
 \end_inset
@@ -30117,11 +30149,11 @@ name "fig:double_mach_p=3_h=5e-3"
 
 \end_inset
 
-Third-order solution of 
-\begin_inset Formula $\rho(x,y,z=0,t=0.2)$
+在只含 
+\begin_inset Formula $h\approx1/200$
 \end_inset
 
- in Problem 
+ 的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:double_mach"
@@ -30131,11 +30163,11 @@ noprefix "false"
 
 \end_inset
 
- (
-\begin_inset Formula $h\approx1/200$
+ 的三阶 RKDG 近似解（按 
+\begin_inset Formula $\rho(x,y,z=Z/2,t=0.2)$
 \end_inset
 
-).
+ 作图）
 \end_layout
 
 \end_inset
