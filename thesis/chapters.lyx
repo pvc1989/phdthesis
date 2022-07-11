@@ -27961,11 +27961,11 @@ noprefix "false"
 
 \end_inset
 
- 的三阶近似解 
-\begin_inset Formula $\rho^{h}(x,y,z,t=1.0)$
+ 的三阶近似解（按 
+\begin_inset Formula $\rho(x,y,z,t=1.0)$
 \end_inset
 
-
+ 作图）
 \end_layout
 
 \end_inset
@@ -28019,11 +28019,11 @@ noprefix "false"
 
 \end_inset
 
- 的各阶近似解 
-\begin_inset Formula $\rho^{h}(x,y=0.5,z=0.25,t=1.0)$
+ 的各阶近似解之间的比较（按 
+\begin_inset Formula $\rho(x,y=0.5,z=0.25,t=1.0)$
 \end_inset
 
- 之间的比较
+ 作图）
 \end_layout
 
 \end_inset
@@ -28142,11 +28142,11 @@ noprefix "false"
 
 \end_inset
 
- 的三阶近似解 
-\begin_inset Formula $\rho^{h}(x,y,z,t=1.0)$
+ 的三阶近似解（按 
+\begin_inset Formula $\rho(x,y,z,t=1.0)$
 \end_inset
 
-
+ 作图）
 \end_layout
 
 \end_inset
@@ -28200,11 +28200,11 @@ noprefix "false"
 
 \end_inset
 
- 的各阶近似解 
-\begin_inset Formula $\rho^{h}(x,y=0.5,z=0.25,t=1.0)$
+ 的各阶近似解之间的比较（按 
+\begin_inset Formula $\rho(x,y=0.5,z=0.25,t=1.0)$
 \end_inset
 
- 之间的比较
+ 作图）
 \end_layout
 
 \end_inset
@@ -28298,7 +28298,11 @@ noprefix "false"
 
 \end_inset
 
- 的计算精度之比较
+ 的计算精度之比较（按 
+\begin_inset Formula $\rho(x,y=0.5,z=0.25,t=1.0)$
+\end_inset
+
+ 作图）
 \end_layout
 
 \end_inset
@@ -28670,7 +28674,11 @@ name "prob:lax"
 
 \end_inset
 
-Solve the Euler system (Equation 
+在时间范围 
+\begin_inset Formula $t\in[0.0,0.6]$
+\end_inset
+
+ 内，求满足三维欧拉方程（式 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:euler_system"
@@ -28680,25 +28688,32 @@ noprefix "false"
 
 \end_inset
 
-) for 
-\begin_inset Formula $t\in[0.0,0.6]$
-\end_inset
-
- with the initial condition
-\end_layout
-
-\begin_layout Problem
+）及边界条件
 \begin_inset Formula 
 \[
-\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
-\begin{bmatrix}0.445 & 0.698 & 0.000 & 0.000 & 3.528\end{bmatrix} & x<2.5\\
-\begin{bmatrix}0.500 & 0.000 & 0.000 & 0.000 & 0.571\end{bmatrix} & x>2.5
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}=\begin{cases}
+\begin{bmatrix}0.445 & 0.698 & 0.000 & 0.000 & 3.528\end{bmatrix}, & x=0,\\
+\begin{bmatrix}0.500 & 0.000 & 0.000 & 0.000 & 0.571\end{bmatrix}, & x=5,
 \end{cases}
 \]
 
 \end_inset
 
+与初始条件
+\end_layout
 
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{cases}
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=0}, & x<2.5,\\
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=5}, & x>2.5,
+\end{cases}
+\]
+
+\end_inset
+
+的广义解。
 \end_layout
 
 \begin_layout Standard
@@ -28706,6 +28721,81 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+与问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 类似，该问题的精确解也含有激波、接触间断、膨胀波这三种间断。相对而言，该问题的求解难度更大，这是因为其精确解的各个分量均含有超出其初始值范围的部分，并且接触间
+断与激波的跳跃幅度远大于问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 中的值（无论是相对值还是绝对值）。
+\end_layout
+
+\begin_layout Standard
+与问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 类似，图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:lax_hexa"
+
+\end_inset
+
+ 给出了在 
+\begin_inset Formula $h\approx0.1$
+\end_inset
+
+ 的非结构六面体网格上得到的问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:lax"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的三阶近似解。图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:lax_hexa_p_vary"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 沿纵向对称轴 (
+\begin_inset Formula $y=0.5,\,z=0.25$
+\end_inset
+
+) 均匀选取了 1001 个采样点，依次画出了一阶、二阶、三阶近似解在这些采样点处的密度值。由这两幅图不难再次得出结论：（1）高阶格式引起的数值振荡得到了有效压
+制；（2）在相同的网格上，求解器的阶数越高，数值解的精度也越高。
 \end_layout
 
 \begin_layout Standard
@@ -28731,15 +28821,15 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:lax_contour"
+name "fig:lax_hexa"
 
 \end_inset
 
-Third-order solution of 
-\begin_inset Formula $\rho(t=0.5)$
+在 
+\begin_inset Formula $h\approx0.1$
 \end_inset
 
- in Problem 
+ 的非结构六面体网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:lax"
@@ -28749,7 +28839,11 @@ noprefix "false"
 
 \end_inset
 
-.
+ 的三阶近似解（按 
+\begin_inset Formula $\rho(x,y,z,t=0.5)$
+\end_inset
+
+ 作图）
 \end_layout
 
 \end_inset
@@ -28785,15 +28879,15 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:lax"
+name "fig:lax_hexa_p_vary"
 
 \end_inset
 
-Comparison between solutions of 
-\begin_inset Formula $\rho(t=0.5)$
+在 
+\begin_inset Formula $h\approx0.1$
 \end_inset
 
- in Problem 
+ 的非结构六面体网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:lax"
@@ -28803,7 +28897,11 @@ noprefix "false"
 
 \end_inset
 
-.
+ 的各阶近似解之间的比较（按 
+\begin_inset Formula $\rho(x,y=0.5,z=0.25,t=0.5)$
+\end_inset
+
+ 作图）
 \end_layout
 
 \end_inset
@@ -28814,6 +28912,74 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+为了验证计算结果及上述结论的网格无关性，我们在 
+\begin_inset Formula $h\approx0.1$
+\end_inset
+
+ 的非结构四面体网格上再次求解了问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:lax"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+，所得结果如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:lax_tetra"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 与图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:lax_tetra_p_vary"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所示。将它们与图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:lax_hexa"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:lax_hexa_p_vary"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 比较，不难发现：无论采用何种单元，只要网格足够精细，问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:lax"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的各阶近似解均能收敛到精确解。
 \end_layout
 
 \begin_layout Standard
@@ -28839,25 +29005,29 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:lax_contour-1"
+name "fig:lax_tetra"
 
 \end_inset
 
-Third-order solution of 
-\begin_inset Formula $\rho(t=0.5)$
+在 
+\begin_inset Formula $h\approx0.1$
 \end_inset
 
- in Problem 
+ 的非结构四面体网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:lax-1"
+reference "prob:lax"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-.
+ 的三阶近似解（按 
+\begin_inset Formula $\rho(x,y,z,t=0.5)$
+\end_inset
+
+ 作图）
 \end_layout
 
 \end_inset
@@ -28893,25 +29063,29 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:lax-1"
+name "fig:lax_tetra_p_vary"
 
 \end_inset
 
-Comparison between solutions of 
-\begin_inset Formula $\rho(t=0.5)$
+在 
+\begin_inset Formula $h\approx0.1$
 \end_inset
 
- in Problem 
+ 的非结构四面体网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:lax-1"
+reference "prob:lax"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-.
+ 的各阶近似解之间的比较（按 
+\begin_inset Formula $\rho(x,y=0.5,z=0.25,t=0.5)$
+\end_inset
+
+ 作图）
 \end_layout
 
 \end_inset
@@ -28922,39 +29096,6 @@ noprefix "false"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-This is another problem that involves all the three types of discontinuities.
- It is more difficult than the previous one in the sense that its solution
- contains values beyond the range of initial values and the discontinuities
- are much steeper.
- As before, we plot the density contour of our third-order solution in Figure
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:lax_contour-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- and compare the density distributions given by various solvers in Figure
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:lax-1"
-
-\end_inset
-
-.
- Both figures demonstrate the effect of 
-\begin_inset Formula $p$
-\end_inset
-
--refinement and the ability of our high-order solvers to suppress numerical
- oscillations.
 \end_layout
 
 \begin_layout Subsubsection
@@ -28979,7 +29120,11 @@ name "prob:vacuum"
 
 \end_inset
 
-Solve the Euler system (Equation 
+在时间范围 
+\begin_inset Formula $t\in[0.0,0.4]$
+\end_inset
+
+ 内，求满足三维欧拉方程（式 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:euler_system"
@@ -28989,25 +29134,32 @@ noprefix "false"
 
 \end_inset
 
-) for 
-\begin_inset Formula $t\in[0.0,0.4]$
-\end_inset
-
- with the initial condition
-\end_layout
-
-\begin_layout Problem
+）及边界条件
 \begin_inset Formula 
 \[
-\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{cases}
-\begin{bmatrix}1.0 & -4.0 & 0.0 & 0.0 & 0.4\end{bmatrix} & x<2.5\\
-\begin{bmatrix}1.0 & +4.0 & 0.0 & 0.0 & 0.4\end{bmatrix} & x>2.5
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}=\begin{cases}
+\begin{bmatrix}1.0 & -4.0 & 0.0 & 0.0 & 0.4\end{bmatrix}, & x=0,\\
+\begin{bmatrix}1.0 & +4.0 & 0.0 & 0.0 & 0.4\end{bmatrix}, & x=5,
 \end{cases}
 \]
 
 \end_inset
 
+与初始条件
+\end_layout
 
+\begin_layout Problem
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{cases}
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=0}, & x<2.5,\\
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=5}, & x>2.5,
+\end{cases}
+\]
+
+\end_inset
+
+的广义解。
 \end_layout
 
 \begin_layout Standard
@@ -29136,7 +29288,7 @@ reference "fig:sod_hexa"
 , 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:lax_contour"
+reference "fig:lax_hexa"
 plural "false"
 caps "false"
 noprefix "false"
