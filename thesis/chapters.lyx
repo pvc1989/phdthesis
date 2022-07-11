@@ -27538,7 +27538,7 @@ reference "fig:linear_double_wave_contour"
 
 \end_inset
 
- 及图 
+、图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:linear_double_wave_sample"
@@ -27775,8 +27775,8 @@ EigenWeno
 \end_layout
 
 \begin_layout Standard
-激波管问题是欧拉方程的黎曼问题，其精确解含有激波、膨胀波、接触间断中的一种或多种，且初始条件、边界条件非常容易设置，因此自提出以来便被用作考核欧拉方程数值解的标
-准算例。
+激波管问题是欧拉方程的黎曼问题。其精确解含有激波、膨胀波、接触间断中的一种或多种，有时还会形成真空；又因其流场边界几何外形简单，初始条件、边界条件非常容易设置，
+自其被提出以来便被用作考核欧拉方程数值解的标准算例。
 \end_layout
 
 \begin_layout Standard
@@ -27884,11 +27884,11 @@ noprefix "false"
 
 \end_inset
 
- 给出了在 
+ 给出了在只含 
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的非结构六面体网格上得到的问题 
+ 的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:sod"
@@ -27898,7 +27898,7 @@ noprefix "false"
 
 \end_inset
 
- 的三阶精度近似解。由此图中的四个间断（两个导数值间断、两个函数值间断）处的光滑过渡可知：高阶格式引起的数值振荡得到了有效压制。这种光滑过渡在图
+ 的三阶精度近似解。由此图中的四个间断（两个导数值间断、两个函数值间断）处的光滑过渡可知：高阶格式在间断附近引起的数值振荡得到了有效压制。这种光滑过渡在图
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -27947,11 +27947,11 @@ name "fig:sod_hexa"
 
 \end_inset
 
-在 
+在只含 
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的非结构六面体网格上得到的问题 
+ 的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:sod"
@@ -28005,11 +28005,11 @@ name "fig:sod_hexa_p_vary"
 
 \end_inset
 
-在 
+在只含 
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的非结构六面体网格上得到的问题 
+ 的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:sod"
@@ -28037,11 +28037,11 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-为了验证上述结论的网格无关性，作者在 
+为了验证上述结论的网格无关性，我们在只含 
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的非结构四面体网格上再次求解了问题 
+ 的四面体单元的非结构网格上再次求解了问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:sod"
@@ -28128,11 +28128,11 @@ name "fig:sod_tetra"
 
 \end_inset
 
-在 
+在只含 
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的非结构四面体网格上得到的问题 
+ 的四面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:sod"
@@ -28186,11 +28186,11 @@ name "fig:sod_tetra_p_vary"
 
 \end_inset
 
-在 
+在只含 
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的非结构四面体网格上得到的问题 
+ 的四面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:sod"
@@ -28225,7 +28225,7 @@ reference "fig:sod_error"
 
 \end_inset
 
- 及表 
+、表 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:sod_cost"
@@ -28766,11 +28766,11 @@ reference "fig:lax_hexa"
 
 \end_inset
 
- 给出了在 
+ 给出了在只含 
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的非结构六面体网格上得到的问题 
+ 的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:lax"
@@ -28794,8 +28794,8 @@ noprefix "false"
 \begin_inset Formula $y=0.5,\,z=0.25$
 \end_inset
 
-) 均匀选取了 1001 个采样点，依次画出了一阶、二阶、三阶近似解在这些采样点处的密度值。由这两幅图不难再次得出结论：（1）高阶格式引起的数值振荡得到了有效压
-制；（2）在相同的网格上，求解器的阶数越高，数值解的精度也越高。
+) 均匀选取了 1001 个采样点，依次画出了一阶、二阶、三阶近似解在这些采样点处的密度值。由这两幅图不难再次得出结论：（1）高阶格式在间断附近引起的数值振荡得
+到了有效压制；（2）在相同的网格上，求解器的阶数越高，数值解的精度也越高。
 \end_layout
 
 \begin_layout Standard
@@ -28825,11 +28825,11 @@ name "fig:lax_hexa"
 
 \end_inset
 
-在 
+在只含 
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的非结构六面体网格上得到的问题 
+ 的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:lax"
@@ -28883,11 +28883,11 @@ name "fig:lax_hexa_p_vary"
 
 \end_inset
 
-在 
+在只含 
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的非结构六面体网格上得到的问题 
+ 的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:lax"
@@ -28915,11 +28915,11 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-为了验证计算结果及上述结论的网格无关性，我们在 
+为了验证计算结果及上述结论的网格无关性，我们在只含 
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的非结构四面体网格上再次求解了问题 
+ 的四面体单元的非结构网格上再次求解了问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:lax"
@@ -28939,7 +28939,7 @@ noprefix "false"
 
 \end_inset
 
- 与图 
+、图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:lax_tetra_p_vary"
@@ -29009,11 +29009,11 @@ name "fig:lax_tetra"
 
 \end_inset
 
-在 
+在只含 
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的非结构四面体网格上得到的问题 
+ 的四面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:lax"
@@ -29067,11 +29067,11 @@ name "fig:lax_tetra_p_vary"
 
 \end_inset
 
-在 
+在只含 
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的非结构四面体网格上得到的问题 
+ 的四面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:lax"
@@ -29099,7 +29099,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Subsubsection
-真空形成问题
+真空问题
 \end_layout
 
 \begin_layout Problem
@@ -29108,7 +29108,7 @@ status open
 
 \begin_layout Plain Layout
 
-[Vacuum]
+[真空]
 \end_layout
 
 \end_inset
@@ -29170,6 +29170,120 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+该问题只含膨胀波这种导数值间断，不含激波、接触间断这写函数值间断，因此对限制器的要求比问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:sod"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 及问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:lax"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 更低。然而，该问题的精确解中含有一段连续的真空区域，这是求解前两个问题的过程中没有遇到过的现象。文献 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Toro_2009"
+literal "true"
+
+\end_inset
+
+ 的 4.6 节对真空区域的处理开展了充分的讨论。本文根据其建议，按如下方式确定真空区域的状态：真空区域（在下标中用 
+\begin_inset Formula $*$
+\end_inset
+
+ 表示）内没有气体分子，因此密度 
+\begin_inset Formula $\rho$
+\end_inset
+
+ 及压强 
+\begin_inset Formula $p$
+\end_inset
+
+ 可以设为 
+\begin_inset Formula $0$
+\end_inset
+
+，但速率 
+\begin_inset Formula $u$
+\end_inset
+
+ 是未定义的；另一方面，真空区域的边界恰好是膨胀波的波尾，因此其上的速率值可以由穿过膨胀波的黎曼不变量求得，即
+\begin_inset Formula 
+\[
+u_{*L}=u_{L}+\frac{2a_{L}}{\gamma-1},\qquad u_{*R}=u_{R}-\frac{2a_{R}}{\gamma-1}.
+\]
+
+\end_inset
+
+在这里，下标中的 
+\begin_inset Formula $L$
+\end_inset
+
+ 与 
+\begin_inset Formula $R$
+\end_inset
+
+ 分别表示左、右，符号 
+\begin_inset Formula $a=\sqrt{\gamma p/\rho}$
+\end_inset
+
+ 表示当地声速。
+\end_layout
+
+\begin_layout Standard
+根据前两个问题类似，图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:vacuum_hexa"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 给出了在只含 
+\begin_inset Formula $h\approx0.1$
+\end_inset
+
+ 的六面体单元的非结构网格上得到的问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:vacuum"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的三阶近似解，图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:vacuum_hexa_p_vary"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 沿纵向对称轴 (
+\begin_inset Formula $y=0.5,\,z=0.25$
+\end_inset
+
+) 均匀选取了 1001 个采样点，依次画出了一阶、二阶、三阶近似解在这些采样点处的密度值。结果再次验证了的有效性和阶数与精度的正相关。
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -29192,15 +29306,15 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:vacuum_contour"
+name "fig:vacuum_hexa"
 
 \end_inset
 
-Third-order solution of 
-\begin_inset Formula $\rho(t=0.4)$
+在只含 
+\begin_inset Formula $h\approx0.1$
 \end_inset
 
- in Problem 
+ 的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:vacuum"
@@ -29210,7 +29324,11 @@ noprefix "false"
 
 \end_inset
 
-.
+ 的三阶近似解（按 
+\begin_inset Formula $\rho(x,y,z,t=0.4)$
+\end_inset
+
+ 作图）
 \end_layout
 
 \end_inset
@@ -29246,15 +29364,15 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:vacuum"
+name "fig:vacuum_hexa_p_vary"
 
 \end_inset
 
-Comparison between solutions of 
-\begin_inset Formula $\rho(t=0.4)$
+在只含 
+\begin_inset Formula $h\approx0.1$
 \end_inset
 
- in Problem 
+ 的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:vacuum"
@@ -29264,7 +29382,11 @@ noprefix "false"
 
 \end_inset
 
-.
+ 的各阶近似解之间的比较（按 
+\begin_inset Formula $\rho(x,y=0.5,z=0.25,t=0.4)$
+\end_inset
+
+ 作图）
 \end_layout
 
 \end_inset
@@ -29278,77 +29400,41 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-In Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:sod_hexa"
-
+与之前两个问题类似，我们在只含 
+\begin_inset Formula $h\approx0.1$
 \end_inset
 
-, 
+ 的四面体单元的非结构网格上再次求解了问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:lax_hexa"
+reference "prob:vacuum"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
- and 
+，所得结果如图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:vacuum_contour"
+reference "fig:vacuum_tetra"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-, we plot the density contours given by the same third-order solver with
- an 
-\family typewriter
-EigenWeno
-\family default
- limiter.
- In Figure 
+、图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:sod_hexa"
+reference "fig:vacuum_tetra_p_vary"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:vacuum"
-
-\end_inset
-
-, we plot the density distributions along the longitudinal axis (on which
- 
-\begin_inset Formula $y=0.5$
-\end_inset
-
- and 
-\begin_inset Formula $z=0.25$
-\end_inset
-
-) of the box.
- All these results show that higher-order (
-\begin_inset Formula $p=3$
-\end_inset
-
-) solvers with 
-\family typewriter
-EigenWeno
-\family default
- limiters are better than lower-order (
-\begin_inset Formula $p=1$
-\end_inset
-
-) solvers at capturing discontinuities (shocks, contacts, expansions), which
- may occur frequently in compressible flows.
+ 所示。数值解的网格无关性再次得到了验证。
 \end_layout
 
 \begin_layout Standard
@@ -29374,25 +29460,29 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:vacuum_contour-1"
+name "fig:vacuum_tetra"
 
 \end_inset
 
-Third-order solution of 
-\begin_inset Formula $\rho(t=0.4)$
+在只含 
+\begin_inset Formula $h\approx0.1$
 \end_inset
 
- in Problem 
+ 的四面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:vacuum-1"
+reference "prob:vacuum"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-.
+ 的三阶近似解（按 
+\begin_inset Formula $\rho(x,y,z,t=0.4)$
+\end_inset
+
+ 作图）
 \end_layout
 
 \end_inset
@@ -29428,25 +29518,29 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:vacuum-1"
+name "fig:vacuum_tetra_p_vary"
 
 \end_inset
 
-Comparison between solutions of 
-\begin_inset Formula $\rho(t=0.4)$
+在只含 
+\begin_inset Formula $h\approx0.1$
 \end_inset
 
- in Problem 
+ 的四面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:vacuum-1"
+reference "prob:vacuum"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-.
+ 的各阶近似解之间的比较（按 
+\begin_inset Formula $\rho(x,y=0.5,z=0.25,t=0.4)$
+\end_inset
+
+ 作图）
 \end_layout
 
 \end_inset
@@ -29457,79 +29551,6 @@ noprefix "false"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-This problem is easier than the previous two in the sense that no strong
- discontinuities (shock or contact discontinuity) occurs in the solution.
- However, there is a region of vacuum, which does not occur in the previous
- prolems, generated between the left- and right-running expansion waves.
- The velocity 
-\begin_inset Formula $u$
-\end_inset
-
- inside the vacuumed region (denoted by a 
-\begin_inset Formula $*$
-\end_inset
-
- in subscripts) is undefined, but its boundary values should be determined
- from the left (denoted by an 
-\begin_inset Formula $L$
-\end_inset
-
- in subscripts) and right (denoted by an 
-\begin_inset Formula $R$
-\end_inset
-
- in subscripts) initial values by the two Riemann invariants:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-u_{*L}=u_{L}+\frac{2a_{L}}{\gamma-1},\qquad u_{*R}=u_{R}-\frac{2a_{R}}{\gamma-1}.
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-See Section 4.6 in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Toro_2009"
-literal "true"
-
-\end_inset
-
- for more detailed discussions.
- Unfortunenately, approximate Riemann solvers usually (have to) neglect
- this condition.
- For this reason, we use an exact Riemann solver to obtain fluxes on cell
- boundaries.
- As before, we plot the results in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:vacuum_contour-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- and Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:vacuum-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, which again validate the correctness and robustness of our solvers.
 \end_layout
 
 \begin_layout Subsection
