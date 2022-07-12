@@ -25840,7 +25840,7 @@ reference "eq:m-stage_Runge--Kutta"
 \end_layout
 
 \begin_layout Section
-模型算例验证及工程应用
+算例验证与求解器性能评估
 \end_layout
 
 \begin_layout Standard
@@ -26125,7 +26125,7 @@ reference "prob:linear_scalar"
 \begin_inset Formula $t=0.2$
 \end_inset
 
- 时刻的三阶精度近似解
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -26180,7 +26180,7 @@ reference "prob:linear_scalar"
 \begin_inset Formula $t=0.2$
 \end_inset
 
- 时刻的一阶精度近似解
+ 时刻的一阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -26235,7 +26235,7 @@ reference "prob:linear_scalar"
 \begin_inset Formula $t=0.2$
 \end_inset
 
- 时刻的一阶精度近似解
+ 时刻的一阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -26290,7 +26290,7 @@ reference "prob:linear_scalar"
 \begin_inset Formula $t=0.2$
 \end_inset
 
- 时刻的三阶精度近似解
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -27613,7 +27613,7 @@ noprefix "false"
 \begin_inset Formula $t=0.3$
 \end_inset
 
- 时刻的三阶精度近似解
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -27773,7 +27773,7 @@ EigenWeno
 \end_layout
 
 \begin_layout Subsection
-激波管问题
+一维流动问题
 \end_layout
 
 \begin_layout Standard
@@ -27900,8 +27900,8 @@ noprefix "false"
 
 \end_inset
 
- 的三阶精度近似解。由此图中的四个间断（两个导数值间断、两个函数值间断）处的光滑过渡可知：高阶格式在间断附近引起的数值振荡得到了有效压制。这种光滑过渡在图
- 
+ 的三阶 RKDG 近似解。由此图中的四个间断（两个导数值间断、两个函数值间断）处的光滑过渡可知：高阶格式在间断附近引起的数值振荡得到了有效压制。这种光滑过渡在
+图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:sod_hexa_p_vary"
@@ -29558,6 +29558,10 @@ noprefix "false"
 \end_layout
 
 \begin_layout Subsection
+二维流动问题
+\end_layout
+
+\begin_layout Subsubsection
 双马赫反射问题
 \end_layout
 
@@ -30186,887 +30190,7 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Standard
-尽管本小结使用了非结构网格，然而其中的单元尺寸大致相等，且计算区域具有简单的几何外形，因此很容易得到较为均匀的网格分块，从而实现静态负载均衡。为了提高求解器的普
-适性，我们放弃了这种简单几何外形带来的便利，转而通过直接调用第三方库来实施网格分块。图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_partition"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_balance"
-
-\end_inset
-
- 给出了将图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_p=1_h=5e-3"
-
-\end_inset
-
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_p=3_h=5e-3"
-
-\end_inset
-
- 中的非结构网格分割为 100 块的（某次）分块结果，可见单元数量的波动小于 
-\begin_inset Formula $3\%$
-\end_inset
-
-，大致呈均匀分布。考虑到非结构网格的均匀分块属于 NP-hard 问题，图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_partition"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_balance"
-
-\end_inset
-
- 所示的分块效果已经相当令人满意。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../mdpi/figures/double_mach/partition.png
-	lyxscale 15
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:double_mach_partition"
-
-\end_inset
-
-将图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_p=1_h=5e-3"
-
-\end_inset
-
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_p=3_h=5e-3"
-
-\end_inset
-
- 中的非结构网格分割为 
-\begin_inset Formula $100$
-\end_inset
-
- 块的分块结果
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../mdpi/figures/double_mach/balance.pdf
-	lyxscale 50
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:double_mach_balance"
-
-\end_inset
-
-图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_partition"
-
-\end_inset
-
- 所示分块结果的单元分布情况
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-基于上述优质的分块工具，我们测量了三阶 RKDG 求解器的加速比及并行效率。表 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:parallel_cost"
-
-\end_inset
-
- 列出了该求解器以不同进程数量并行求解问题 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:double_mach"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 所消耗的时间，其中
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $P$
-\end_inset
-
- 表示进程数量，亦即运行时所需的核心数量。
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $T_{n}$
-\end_inset
-
- 表示完成第 
-\begin_inset Formula $n$
-\end_inset
-
- 步所消耗的秒数。
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $P\frac{T_{m+m}-T_{n}}{m}$
-\end_inset
-
- 为每一步所消耗的核心数与墙上时间的乘积，简称“核时”。该数据通常被高性能计算平台用作收费依据。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-由于并行读写操作会导致许多聚合通信，聚合通信的效率又依赖于网络质量，因此我们应当尽量减少并行读写的调用次数。在本小节中，每完成一百步计算才输出一帧结果。因此，表
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:parallel_cost"
-
-\end_inset
-
- 的后两列之差体现了读写操作的代价，它等于分摊到每一个时间步上读写开销。不难发现：随着核心数量的增加，单步读写开销也在逐渐地增加。这是因为随着核心数量的增加，每
-个进程的通信对象的数量以及端到端的距离都在不断增加。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:parallel_cost"
-
-\end_inset
-
-三阶 RKDG 求解器以不同进程数量并行求解问题 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:double_mach"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 所消耗的时间
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Tabular
-<lyxtabular version="3" rows="7" columns="6">
-<features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
-<column alignment="center" valignment="top" width="10text%">
-<column alignment="center" valignment="top" width="10text%">
-<column alignment="center" valignment="top" width="10text%">
-<column alignment="center" valignment="top" width="10text%">
-<column alignment="center" valignment="top" width="10text%">
-<column alignment="center" valignment="top" width="10text%">
-<row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\begin_inset Formula $P$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\begin_inset Formula $T_{100}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\begin_inset Formula $T_{199}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\begin_inset Formula $T_{200}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $P\frac{T_{199}-T_{100}}{99}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $P\frac{T_{200}-T_{100}}{100}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-17652.2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-35324.5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-35519.3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-178.508
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-178.671
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-20
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-960.443
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1912.37
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1926.58
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-192.307
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-193.228
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-40
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-491.070
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-971.710
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-983.933
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-194.198
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-197.145
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-60
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-335.651
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-666.548
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-676.930
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-200.544
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-204.767
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-80
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-251.548
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-494.541
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-504.951
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-196.358
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-202.722
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-100
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-202.789
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-397.641
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-408.126
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-196.820
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-205.337
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-由表 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:parallel_cost"
-
-\end_inset
-
- 中的数据，可以导出加速比 
-\begin_inset Formula $S$
-\end_inset
-
- 与并行效率 
-\begin_inset Formula $E$
-\end_inset
-
-，二者定义如下：
-\begin_inset Formula 
-\[
-S=\frac{T_{\text{serial}}}{T_{\text{parallel}}},\qquad E=\frac{S}{P}\times100\%.
-\]
-
-\end_inset
-
-所得结果分别绘于图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_speedup"
-
-\end_inset
-
- 与图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_efficiency"
-
-\end_inset
-
-。这两幅图更直观地体现了并行读写操作对并行程序扩展性的不利影响。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../mdpi/figures/double_mach/speedup.pdf
-	lyxscale 50
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:double_mach_speedup"
-
-\end_inset
-
-三阶 RKDG 求解器以不同进程数量并行求解问题 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:double_mach"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 所得的加速比
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../mdpi/figures/double_mach/efficiency.pdf
-	lyxscale 50
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:double_mach_efficiency"
-
-\end_inset
-
-三阶 RKDG 求解器以不同进程数量并行求解问题 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:double_mach"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 所得的并行效率
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_efficiency"
-
-\end_inset
-
- 所示的并行效率在 
-\begin_inset Formula $90\%$
-\end_inset
-
- 附近波动，这比文献 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Biswas_1994"
-literal "false"
-
-\end_inset
-
- 中给出的 
-\begin_inset Formula $99\%$
-\end_inset
-
- 略差。造成这种差距的主要原因，在于该文献中的算例都是基于一维、二维的结构网格，分块数量又恰好是 
-\begin_inset Formula $2^{n}$
-\end_inset
-
-，因此经过 
-\begin_inset Formula $n$
-\end_inset
-
- 次几何等分，就能得到完美的均匀分块。本节所有算例均基于三维非结构网格，因此图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_efficiency"
-
-\end_inset
-
- 中的并行效率更具有参考价值。
-\end_layout
-
-\begin_layout Subsection
+\begin_layout Subsubsection
 前台阶吹风问题
 \end_layout
 
@@ -32082,29 +31206,45 @@ noprefix "false"
 \end_layout
 
 \begin_layout Subsection
-YF-17 全机绕流问题
+三维流动问题
 \end_layout
 
 \begin_layout Standard
-In this section, we solve the Euler system (Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:euler_system"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-) on a three-dimensional unstructured mesh, which discretizes the space
- around a YF-17 aircraft by tetrahedral cells as shown in Figure 
+本小节在如图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:yf17_mesh"
 
 \end_inset
 
-.
+ 所示只含四面体单元的三维非结构网格上，求解轻量级原型战斗机 YF-17 的全机绕流问题。该网格用 528915 个四面体单元，对机身一侧外部的空间进行了离散。
+单元尺寸变换剧烈：近壁面单元大致与壁面曲率成反比，最小边长约为 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{5}{cm}
+\end_layout
+
+\end_inset
+
+；远场单元大致均匀，边长约为 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{3.7}{m}
+\end_layout
+
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Standard
@@ -32134,15 +31274,24 @@ name "fig:yf17_mesh"
 
 \end_inset
 
-A zoomed-in view of the most important boundaries of the mesh for solving
- problems in Section 
+用于求解问题
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:YF-17"
+reference "prob:Subsonic-YF17"
 
 \end_inset
 
-.
+、问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 的三维非结构网格（只显示边界上的三角形单元）
 \end_layout
 
 \end_inset
@@ -32153,6 +31302,10 @@ reference "subsec:YF-17"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+YF-17 亚音速吹风试验
 \end_layout
 
 \begin_layout Problem
@@ -32162,6 +31315,24 @@ name "prob:Subsonic-YF17"
 
 \end_inset
 
+在时间范围 
+\begin_inset Formula $t\in[0.0,0.6]$
+\end_inset
+
+ 内，求满足三维欧拉方程（式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+）及边界条件
+\end_layout
+
+\begin_layout Problem
 Solve the Euler system (Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -32421,6 +31592,10 @@ reference "prob:Subsonic-YF17"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+YF-17 超音速吹风试验
 \end_layout
 
 \begin_layout Problem
@@ -32762,6 +31937,898 @@ reference "fig:yf17_supersonic_bottom_view"
  Expansion waves (blue) are generated on leeward surfaces, since the solid
  body contracts there which leaves more room for the supersonic flow to
  go.
+\end_layout
+
+\begin_layout Subsection
+并行性能测量
+\end_layout
+
+\begin_layout Subsubsection
+双马赫反射问题
+\end_layout
+
+\begin_layout Standard
+尽管该问题使用了非结构网格，然而其中的单元尺寸大致相等，且计算区域具有简单的几何外形，因此很容易得到较为均匀的网格分块，从而实现静态负载均衡。为了提高求解器的普
+适性，我们放弃了这种简单几何外形带来的便利，转而通过直接调用第三方库来实施网格分块。图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_partition"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_balance"
+
+\end_inset
+
+ 给出了将图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=1_h=5e-3"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=3_h=5e-3"
+
+\end_inset
+
+ 中的非结构网格分割为 100 块的（某次）分块结果，可见单元数量的波动小于 
+\begin_inset Formula $3\%$
+\end_inset
+
+，大致呈均匀分布。考虑到非结构网格的均匀分块属于 NP-hard 问题，图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_partition"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_balance"
+
+\end_inset
+
+ 所示的分块效果已经相当令人满意。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../mdpi/figures/double_mach/partition.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_partition"
+
+\end_inset
+
+将图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=1_h=5e-3"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=3_h=5e-3"
+
+\end_inset
+
+ 中的非结构网格分割为 
+\begin_inset Formula $100$
+\end_inset
+
+ 块的分块结果
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../mdpi/figures/double_mach/balance.pdf
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_balance"
+
+\end_inset
+
+图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_partition"
+
+\end_inset
+
+ 所示分块结果的单元分布情况
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+基于上述优质的分块工具，我们测量了三阶 RKDG 求解器的加速比及并行效率。表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:parallel_cost"
+
+\end_inset
+
+ 列出了该求解器以不同进程数量并行求解问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:double_mach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所消耗的时间，其中
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P$
+\end_inset
+
+ 表示进程数量，亦即运行时所需的核心数量。
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $T_{n}$
+\end_inset
+
+ 表示完成第 
+\begin_inset Formula $n$
+\end_inset
+
+ 步所消耗的秒数。
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P\frac{T_{m+m}-T_{n}}{m}$
+\end_inset
+
+ 为每一步所消耗的核心数与墙上时间的乘积，简称“核时”。该数据通常被高性能计算平台用作收费依据。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+由于并行读写操作会导致许多聚合通信，聚合通信的效率又依赖于网络质量，因此我们应当尽量减少并行读写的调用次数。在本小节中，每完成一百步计算才输出一帧结果。因此，表
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:parallel_cost"
+
+\end_inset
+
+ 的后两列之差体现了读写操作的代价，它等于分摊到每一个时间步上读写开销。不难发现：随着核心数量的增加，单步读写开销也在逐渐地增加。这是因为随着核心数量的增加，每
+个进程的通信对象的数量以及端到端的距离都在不断增加。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:parallel_cost"
+
+\end_inset
+
+三阶 RKDG 求解器以不同进程数量并行求解问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:double_mach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所消耗的时间
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="6">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="10text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $P$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{100}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{199}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{200}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P\frac{T_{199}-T_{100}}{99}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P\frac{T_{200}-T_{100}}{100}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17652.2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+35324.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+35519.3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+178.508
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+178.671
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+960.443
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1912.37
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1926.58
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+192.307
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+193.228
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+491.070
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+971.710
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+983.933
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+194.198
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+197.145
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+335.651
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+666.548
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+676.930
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+200.544
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+204.767
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+80
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+251.548
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+494.541
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+504.951
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+196.358
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+202.722
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+202.789
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+397.641
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+408.126
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+196.820
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+205.337
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+由表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:parallel_cost"
+
+\end_inset
+
+ 中的数据，可以导出加速比 
+\begin_inset Formula $S$
+\end_inset
+
+ 与并行效率 
+\begin_inset Formula $E$
+\end_inset
+
+，二者定义如下：
+\begin_inset Formula 
+\[
+S=\frac{T_{\text{serial}}}{T_{\text{parallel}}},\qquad E=\frac{S}{P}\times100\%.
+\]
+
+\end_inset
+
+所得结果分别绘于图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_speedup"
+
+\end_inset
+
+ 与图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_efficiency"
+
+\end_inset
+
+。这两幅图更直观地体现了并行读写操作对并行程序扩展性的不利影响。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../mdpi/figures/double_mach/speedup.pdf
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_speedup"
+
+\end_inset
+
+三阶 RKDG 求解器以不同进程数量并行求解问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:double_mach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所得的加速比
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../mdpi/figures/double_mach/efficiency.pdf
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_efficiency"
+
+\end_inset
+
+三阶 RKDG 求解器以不同进程数量并行求解问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:double_mach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所得的并行效率
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_efficiency"
+
+\end_inset
+
+ 所示的并行效率在 
+\begin_inset Formula $90\%$
+\end_inset
+
+ 附近波动，这比文献 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Biswas_1994"
+literal "false"
+
+\end_inset
+
+ 中给出的 
+\begin_inset Formula $99\%$
+\end_inset
+
+ 略差。造成这种差距的主要原因，在于该文献中的算例都是基于一维、二维的结构网格，分块数量又恰好是 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+，因此经过 
+\begin_inset Formula $n$
+\end_inset
+
+ 次几何等分，就能得到完美的均匀分块。本节所有算例均基于三维非结构网格，因此图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_efficiency"
+
+\end_inset
+
+ 中的并行效率更具有参考价值。
+\end_layout
+
+\begin_layout Subsubsection
+战斗机绕流问题
 \end_layout
 
 \begin_layout Standard
