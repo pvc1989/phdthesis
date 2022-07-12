@@ -74,8 +74,6 @@
 \newtheorem{fact}[thm]{\protect\factname}
 \theoremstyle{plain}
 \newtheorem*{cor*}{\protect\corollaryname}
-\theoremstyle{plain}
-\newtheorem{question}[thm]{\protect\questionname}
 \theoremstyle{definition}
 \newtheorem{problem}[thm]{\protect\problemname}
 \theoremstyle{plain}
@@ -84,6 +82,10 @@
 \newtheorem{assumption}[thm]{\protect\assumptionname}
 \theoremstyle{definition}
 \newtheorem{condition}[thm]{\protect\conditionname}
+
+\def\th@definition{%
+	\fangsong % body font
+}
 
 \makeatother
 
@@ -108,7 +110,6 @@
 \providecommand{\lemmaname}{引理}
 \providecommand{\notationname}{记号}
 \providecommand{\problemname}{问题}
-\providecommand{\questionname}{问题}
 \providecommand{\remarkname}{注}
 \providecommand{\solutionname}{解答}
 \providecommand{\theoremname}{定理}
