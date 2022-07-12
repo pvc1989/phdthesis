@@ -25840,7 +25840,7 @@ reference "eq:m-stage_Runge--Kutta"
 \end_layout
 
 \begin_layout Section
-算例验证与求解器性能评估
+算例验证与并行性能评估
 \end_layout
 
 \begin_layout Standard
@@ -31305,7 +31305,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Subsubsection
-YF-17 亚音速吹风试验
+亚音速绕流问题
 \end_layout
 
 \begin_layout Problem
@@ -31595,7 +31595,7 @@ reference "prob:Subsonic-YF17"
 \end_layout
 
 \begin_layout Subsubsection
-YF-17 超音速吹风试验
+超音速绕流问题
 \end_layout
 
 \begin_layout Problem
@@ -31940,7 +31940,7 @@ reference "fig:yf17_supersonic_bottom_view"
 \end_layout
 
 \begin_layout Subsection
-并行性能测量
+并行性能评估
 \end_layout
 
 \begin_layout Subsubsection
@@ -31948,8 +31948,30 @@ reference "fig:yf17_supersonic_bottom_view"
 \end_layout
 
 \begin_layout Standard
-尽管该问题使用了非结构网格，然而其中的单元尺寸大致相等，且计算区域具有简单的几何外形，因此很容易得到较为均匀的网格分块，从而实现静态负载均衡。为了提高求解器的普
-适性，我们放弃了这种简单几何外形带来的便利，转而通过直接调用第三方库来实施网格分块。图 
+虽然我们在求解双马赫反射问题（问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:double_mach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+）时使用了非结构网格，但其所含单元的尺寸大致相等，且计算区域具有简单的几何外形，因此很容易得到较为均匀的网格分块，从而实现静态负载均衡。为了提高求解器的普适性，
+我们放弃了这种简单几何外形带来的便利，转而通过调用第三方库 
+\shape smallcaps
+Metis
+\shape default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Karypis_1998"
+literal "false"
+
+\end_inset
+
+ 来实施网格分块。图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:double_mach_partition"
@@ -32107,7 +32129,7 @@ reference "fig:double_mach_partition"
 基于上述优质的分块工具，我们测量了三阶 RKDG 求解器的加速比及并行效率。表 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:parallel_cost"
+reference "tab:double_mach_cost"
 
 \end_inset
 
@@ -32157,11 +32179,11 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-由于并行读写操作会导致许多聚合通信，聚合通信的效率又依赖于网络质量，因此我们应当尽量减少并行读写的调用次数。在本小节中，每完成一百步计算才输出一帧结果。因此，表
- 
+由于并行读写操作会导致许多聚合通信，聚合通信的效率又依赖于网络质量，因此我们应当尽量减少并行读写的调用次数。在求解该问题时，我们每完成一百步计算才输出一帧结果。
+因此，表 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:parallel_cost"
+reference "tab:double_mach_cost"
 
 \end_inset
 
@@ -32182,7 +32204,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:parallel_cost"
+name "tab:double_mach_cost"
 
 \end_inset
 
@@ -32648,7 +32670,7 @@ noprefix "false"
 由表 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:parallel_cost"
+reference "tab:double_mach_cost"
 
 \end_inset
 
@@ -32662,9 +32684,9 @@ reference "tab:parallel_cost"
 
 ，二者定义如下：
 \begin_inset Formula 
-\[
-S=\frac{T_{\text{serial}}}{T_{\text{parallel}}},\qquad E=\frac{S}{P}\times100\%.
-\]
+\begin{equation}
+S=\frac{T_{\text{serial}}}{T_{\text{parallel}}},\qquad E=\frac{S}{P}\times100\%.\label{eq:speedup}
+\end{equation}
 
 \end_inset
 
@@ -32828,7 +32850,105 @@ reference "fig:double_mach_efficiency"
 \end_layout
 
 \begin_layout Subsubsection
-战斗机绕流问题
+超音速绕流问题
+\end_layout
+
+\begin_layout Standard
+如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_mesh"
+
+\end_inset
+
+ 所示，求解 YF-17 战斗机超音速绕流问题（问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+）的网格是高度非结构、非均匀的，因此基于几何分割的简单分块方法难以实现负载均衡。如前所述，本文通过调用第三方库 
+\shape smallcaps
+Metis
+\shape default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Karypis_1998"
+literal "false"
+
+\end_inset
+
+ 来事实网格分块，分块结果如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_partition"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_balance"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所示。与双马赫反射问题的分块结果（图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_balance"
+
+\end_inset
+
+）相比，这里的单元分布更加均匀。单元数量的波动小于 
+\begin_inset Formula $1\%$
+\end_inset
+
+，粗略估计可以获得 
+\begin_inset Formula $99\%$
+\end_inset
+
+ 的并行效率（式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:speedup"
+
+\end_inset
+
+）：
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}E & =\frac{T_{\text{serial}}}{PT_{\text{parallel}}}\times100\%\approx\frac{\sum_{i}N_{i}}{P\cdot\max_{i}N_{i}}\times100\%\\
+ & =\frac{528915}{100\times5332}\times100\%\approx99.2\%,
+\end{aligned}
+\label{eq:yf17_estimate}
+\end{equation}
+
+\end_inset
+
+其中 
+\begin_inset Formula $N_{i}$
+\end_inset
+
+ 表示第 
+\begin_inset Formula $i$
+\end_inset
+
+ 块内的体单元数量。式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:yf17_estimate"
+
+\end_inset
+
+ 只考虑了体单元上的计算所消耗的时间，因此是一种偏乐观的估计。
 \end_layout
 
 \begin_layout Standard
@@ -32858,15 +32978,21 @@ name "fig:yf17_partition"
 
 \end_inset
 
-A 100-part partitioning of the mesh used for solving problems in Section
- 
+将图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:YF-17"
+reference "fig:yf17_mesh"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-.
+ 中的非结构网格分割为 
+\begin_inset Formula $100$
+\end_inset
+
+ 块的分块结果
 \end_layout
 
 \end_inset
@@ -32906,14 +33032,14 @@ name "fig:yf17_balance"
 
 \end_inset
 
-Distribution of cells in the mesh partitioning given in Figure 
+图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:yf17_partition"
 
 \end_inset
 
-.
+ 所示分块结果的单元分布情况
 \end_layout
 
 \end_inset
@@ -32927,218 +33053,60 @@ reference "fig:yf17_partition"
 \end_layout
 
 \begin_layout Standard
-Since the mesh in Figure 
+表 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:yf17_mesh"
+reference "tab:yf17_cost"
 
 \end_inset
 
- is highly unstructured and non-uniform, simple geometric partitioning cannot
- achieve a relatively balanced distribution of computational efforts.
- In our code, we use the 
-\shape smallcaps
-Metis
-\shape default
- library 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Karypis_1998"
-literal "false"
+ 给出了三阶 RKDG 求解器以不同进程数量并行求解问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
 
 \end_inset
 
- to partition the dual graph of the mesh, which gives the results in Figures
- 
+ 所消耗的时间，以及换算后得到的单步核时。基于此表，可以画出加速比与并行效率随进程数量的变换趋势，如如图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:yf17_partition"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:yf17_balance"
+reference "fig:yf17_speedup"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-.
- The fluctuation of cell numbers is under 
-\begin_inset Formula $2\%$
-\end_inset
-
-, which is quite good since the optimal partitioning of an unstructured
- mesh is an NP-hard problem.
- With such an approximately optimal partitioning, the parallel efficiency,
- which is defined as
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-E=\frac{T_{\text{serial}}}{PT_{\text{parallel}}}\times100\%
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-in which 
-\begin_inset Formula $P$
-\end_inset
-
- is the number of processes, could surpass 
-\begin_inset Formula $99\%$
-\end_inset
-
- in theory.
- In practice, however, the 
-\begin_inset Formula $E$
-\end_inset
-
- values given by our numerical experiments are only around 
-\begin_inset Formula $80\%$
-\end_inset
-
- as shown in Figure 
+ 所示、图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:yf17_efficiency"
 
 \end_inset
 
-, which is derived from the measured time costs given in Table 
+ 所示。由图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:time_cost"
+reference "fig:yf17_efficiency"
 
 \end_inset
 
-.
- The main reason for the gap between theory and practice is that in the
- derivation of the ideal 
-\begin_inset Formula $E$
+ 可知，超音速绕流问题的实测并行效率只有约 
+\begin_inset Formula $80\%$
 \end_inset
 
- value, inter-process communications are assumed to overlap in time with
- inner-cell computations, which is an over-optimistic assumption.
- Nevertheless, the acceleration is still significant, which reduces the
- wall clock time to an acceptable level.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../mdpi/figures/yf17/speedup.pdf
-	lyxscale 50
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:yf17_speedup"
-
-\end_inset
-
-Speedup of the third-order solver for solving Problem 
+，低于双马赫反射问题的对应结果（如图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:Supersonic-YF17"
+reference "fig:double_mach_efficiency"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../mdpi/figures/yf17/efficiency.pdf
-	lyxscale 50
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:yf17_efficiency"
-
-\end_inset
-
-Parallel efficiency of the third-order solver for solving Problem 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:Supersonic-YF17"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+ 所示）。造成这种下降的主要原因，在于边界单元分布不均（处理边界条件时，含边界单元较少的进程易处于闲置状态），以及进程间通信量的增加（通信与计算不完全重叠，邻居
+较少的进程易处于闲置状态）。
 \end_layout
 
 \begin_layout Standard
@@ -33154,11 +33122,18 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:time_cost"
+name "tab:yf17_cost"
 
 \end_inset
 
-Time costs of the third-order solver running on different number of cores.
+三阶 RKDG 求解器以不同进程数量并行求解问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
+
+\end_inset
+
+ 所消耗的时间
 \end_layout
 
 \end_inset
@@ -33763,6 +33738,106 @@ Time costs of the third-order solver running on different number of cores.
 </cell>
 </row>
 </lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../mdpi/figures/yf17/speedup.pdf
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_speedup"
+
+\end_inset
+
+三阶 RKDG 求解器以不同进程数量并行求解问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所得的加速比
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../mdpi/figures/yf17/efficiency.pdf
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_efficiency"
+
+\end_inset
+
+三阶 RKDG 求解器以不同进程数量并行求解问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:Supersonic-YF17"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所得的并行效率
+\end_layout
 
 \end_inset
 

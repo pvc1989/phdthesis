@@ -17,6 +17,7 @@ if __name__ == '__main__':
     5299, 5299, 5299, 5299, 5299, 5299, 5300, 5299, 5300, 5300,
     5300, 5299, 5299, 5299, 5298, 5298, 5299, 5298, 5299, 5299])
 
+  print(np.sum(cells), np.max(cells))
   print(np.sum(cells) / 100 / np.max(cells))
 
   plt.figure(figsize=(6,3))
