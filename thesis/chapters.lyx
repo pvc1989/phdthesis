@@ -1530,7 +1530,7 @@ literal "false"
 \begin_inset Formula $0.7\sim0.9~M$
 \end_inset
 
-，属于高亚音速范围，压缩性已较为明显。 随着前飞速度增大，在前行侧桨叶桨尖处可能会出现局部跨音速区，甚至产生激波。 桨叶的旋转又使得可压缩区域与低速不可压缩区域
+，属于高亚声速范围，压缩性已较为明显。 随着前飞速度增大，在前行侧桨叶桨尖处可能会出现局部跨声速区，甚至产生激波。 桨叶的旋转又使得可压缩区域与低速不可压缩区域
 之间没有固定的、显著的界线。 这一流动特征使得原本在固定翼空气动力学中已经形成的分别适用于不可压缩和可压缩流动的分析方法，需经过特殊处理才能应用于旋翼空气动力学
 的研究。 
 \end_layout
@@ -2360,7 +2360,7 @@ name "Viscous-Vortex-Particle-Method"
 \end_layout
 
 \begin_layout Standard
-旋翼尾迹流场属于低亚音速流动，通常可以对空气采用各项同性、不可压缩、正压等理想化假设。 基于这些假设，可以将Navier-Stokes方程（详见
+旋翼尾迹流场属于低亚声速流动，通常可以对空气采用各项同性、不可压缩、正压等理想化假设。 基于这些假设，可以将Navier-Stokes方程（详见
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Navier-Stokes-Equation"
@@ -3174,7 +3174,7 @@ noprefix "false"
 
 \end_inset
 
-）均以此方程为出发点。 显然，不可压缩流体模型不能用于压缩效应明显的高亚音速、跨音速流动区域。
+）均以此方程为出发点。 显然，不可压缩流体模型不能用于压缩效应明显的高亚声速、跨声速流动区域。
 \end_layout
 
 \begin_layout Standard
@@ -3281,7 +3281,7 @@ literal "false"
 
 \end_inset
 
-。 由于体积黏度只对可压缩流体有意义，因此，Stokes假设只对桨尖附近高亚音速、跨音速流动区域的计算精度有影响。 但对旋翼气动噪声等压缩性起主导作用的流动问题
+。 由于体积黏度只对可压缩流体有意义，因此，Stokes假设只对桨尖附近高亚声速、跨声速流动区域的计算精度有影响。 但对旋翼气动噪声等压缩性起主导作用的流动问题
 ，仍采用Stokes假设是不合适的。
 \end_layout
 
@@ -3419,7 +3419,7 @@ literal "false"
 
 \end_inset
 
- 提出了一种适用于计算流体动力学的无网格方法，并与传统的基于网格的有限体积法进行了对比。 对于二维跨音速、超音速、黏性流动问题（翼型绕流问题），此文提出的无网格
+ 提出了一种适用于计算流体动力学的无网格方法，并与传统的基于网格的有限体积法进行了对比。 对于二维跨声速、超声速、黏性流动问题（翼型绕流问题），此文提出的无网格
 算法在计算精度和效率上与大多数有限体积法相当。 此外，把无网格方法应用到重叠网格的无缝连接中，计算结果好于传统的在不同网格之间进行插值的处理方法。
  然而， 这里所用的无网格法仍然属于非守恒的算法，因而不能取代基于网格的传统方法。 此文也没有提出具体的计算点生成方法，因而并没有解决传统方法中网格生成难的问题
 。 Katz认为，无网格法并不会取代传统方法，而只会作为传统的方法在处理一些问题时的补充手段，例如重叠网格的无缝连接问题。 此文只用无网格法求解了二维问题，将其
@@ -3506,7 +3506,7 @@ literal "false"
  采用时间谱方法（Time Spectral method）和涡量约束方法（Vorticity Confinement method）研究了旋翼飞行器的流动问题
 。 时间谱方法在满足工程问题所需精度要求的前提下，显著减少了计算时间，其计算效率大约比传统方法（隐式时间积分格式）提高了10倍。 但是，这种时间谱方法利用了旋翼
 流场周期变化的特点，因而不适用于机动飞行等非周期工况。 对于结果中含有高频成分的问题，所需计算量将显著增加，从而失去该方法计算效率高的优势。 涡量约束方法较好地
-模拟了旋翼流场中普遍存在的亚音速和跨音速流动现象。 该方法不需采用传统的网格加密技术，就能使涡结构在较长距离内保持存在。 但是，这种涡量约束方法并没有严格的数学
+模拟了旋翼流场中普遍存在的亚声速和跨声速流动现象。 该方法不需采用传统的网格加密技术，就能使涡结构在较长距离内保持存在。 但是，这种涡量约束方法并没有严格的数学
 基础。 约束参数的选取与计算精度和稳定性密切相关，但还没有标准的取值方法。 因此，涡量约束方法目前还不是一种成熟的流体动力学计算方法。 另外，此文只研究了刚性、
 无扭、矩形桨叶在总距和周期变距为常值时孤立旋翼的流动问题，没有考虑桨毂连接形式，也没有考虑机身、尾桨存在时的气动干扰问题。
 \end_layout
@@ -15628,7 +15628,7 @@ reference "tab:激波管：一维：特征场"
 
  分别表示
 \color blue
-音速
+声速
 \color inherit
 与
 \color blue
@@ -15849,7 +15849,7 @@ u^{2}/2
 \end_layout
 
 \begin_layout Itemize
-第一、三特征场的特征值含有音速 
+第一、三特征场的特征值含有声速 
 \begin_inset Formula $a$
 \end_inset
 
@@ -16944,7 +16944,7 @@ s_{\mathrm{B}}<s_{\mathrm{A}}\qquad p_{\mathrm{B}}<p_{\mathrm{A}}\qquad\rho_{\ma
 
 \end_inset
 
-速度由超音速减至亚音速：
+速度由超声速减至亚声速：
 \begin_inset Formula 
 \[
 \abs{v_{\mathrm{B}}}>\abs{v_{\mathrm{A}}}\qquad M_{\mathrm{B}}>1>M_{\mathrm{A}}
@@ -20403,7 +20403,7 @@ p
 \end_layout
 
 \begin_layout Subsubsection
-超音速入口
+超声速入口
 \end_layout
 
 \begin_layout Standard
@@ -20415,7 +20415,7 @@ p
 \end_layout
 
 \begin_layout Subsubsection
-亚音速入口
+亚声速入口
 \end_layout
 
 \begin_layout Standard
@@ -20552,7 +20552,7 @@ T_{\mathrm{b}}=T_{0}\frac{c_{\mathrm{b}}^{2}}{c_{0}^{2}},\qquad p_{\mathrm{b}}=p
 \end_layout
 
 \begin_layout Subsubsection
-亚音速出口
+亚声速出口
 \end_layout
 
 \begin_layout Standard
@@ -20606,7 +20606,7 @@ p_{\mathrm{b}}=p_{\mathrm{o}},\qquad\begin{bmatrix}\rho_{\mathrm{b}}\\
 \end_layout
 
 \begin_layout Subsubsection
-超音速出口
+超声速出口
 \end_layout
 
 \begin_layout Standard
@@ -29886,7 +29886,7 @@ noprefix "false"
 \begin_inset Formula $x=0$
 \end_inset
 
-) 为超音速入口，状态设为 
+) 为超声速入口，状态设为 
 \begin_inset Formula $\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{A}$
 \end_inset
 
@@ -29906,7 +29906,7 @@ noprefix "false"
 \begin_inset Formula $x<x_{0}$
 \end_inset
 
-) 为超音速出口（无需设置状态）；
+) 为超声速出口（无需设置状态）；
 \end_layout
 
 \begin_layout Itemize
@@ -30220,11 +30220,11 @@ name "prob:forward_step"
 \begin_inset Formula $x=0$
 \end_inset
 
-) 为超音速入口，右端 (
+) 为超声速入口，右端 (
 \begin_inset Formula $x=3$
 \end_inset
 
-) 为超音速出口，其余边界均设为固体壁面。在上述计算区域与时间范围 
+) 为超声速出口，其余边界均设为固体壁面。在上述计算区域与时间范围 
 \begin_inset Formula $t\in[0.0,4.0]$
 \end_inset
 
@@ -30399,7 +30399,7 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-计时开始后，超音速气流撞击在台阶上，形成一道弓形激波，如图 
+计时开始后，超声速气流撞击在台阶上，形成一道弓形激波，如图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:forward_step_p=3_t=02e-1"
@@ -31303,7 +31303,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Subsubsection
-亚音速绕流问题
+亚声速绕流问题
 \end_layout
 
 \begin_layout Problem
@@ -31331,7 +31331,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Problem
-初始条件设为 20 deg 迎角、0.3 马赫的亚音速气流：
+初始条件设为 20 deg 迎角、0.3 马赫的亚声速气流：
 \begin_inset Formula 
 \[
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 0.2819 & 0.0 & 0.1026 & 1.0\end{bmatrix}.
@@ -31356,15 +31356,15 @@ noprefix "false"
 \end_layout
 
 \begin_layout Itemize
-远场为亚音速入口或出口，状态与初始条件相同；
+远场为亚声速入口或出口，状态与初始条件相同；
 \end_layout
 
 \begin_layout Itemize
-进气道入口为（外流场的）亚音速出口，状态与初始条件相同；
+进气道入口为（外流场的）亚声速出口，状态与初始条件相同；
 \end_layout
 
 \begin_layout Itemize
-尾喷管出口为（外流场的）超音速入口：
+尾喷管出口为（外流场的）超声速入口：
 \begin_inset Formula 
 \[
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\text{尾喷口}}=\begin{bmatrix}1.4 & 2.4 & 0.0 & 0.0 & 1.44\end{bmatrix}.
@@ -31589,7 +31589,7 @@ reference "prob:yf17_subsonic"
 \end_layout
 
 \begin_layout Subsubsection
-超音速绕流问题
+超声速绕流问题
 \end_layout
 
 \begin_layout Problem
@@ -31617,7 +31617,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Problem
-初始条件设为 0 deg 迎角、2.0 马赫的超音速气流：
+初始条件设为 0 deg 迎角、2.0 马赫的超声速气流：
 \begin_inset Formula 
 \[
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 2.0 & 0.0 & 0.0 & 1.0\end{bmatrix}.
@@ -31642,11 +31642,11 @@ noprefix "false"
 \end_layout
 
 \begin_layout Itemize
-远场为超音速入口或出口，前者状态与初始条件相同，后者状态无需预设；
+远场为超声速入口或出口，前者状态与初始条件相同，后者状态无需预设；
 \end_layout
 
 \begin_layout Itemize
-进气道入口为（外流场的）超音速出口，状态无需预设；尾喷管出口为（外流场的）超音速入口：
+进气道入口为（外流场的）超声速出口，状态无需预设；尾喷管出口为（外流场的）超声速入口：
 \begin_inset Formula 
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{\text{尾喷口}}=\begin{bmatrix}1.4 & 2.4 & 0.0 & 0.0 & 1.44\end{bmatrix}.
@@ -31693,7 +31693,7 @@ noprefix "false"
 
 \end_inset
 
- 所示。与亚音速绕流不同，超音速绕流的一大特征是存在激波及膨胀波。
+ 所示。与亚声速绕流不同，超声速绕流的一大特征是存在激波及膨胀波。
 \end_layout
 
 \begin_layout Standard
@@ -31707,8 +31707,8 @@ noprefix "false"
 
 \end_inset
 
- 较为可靠地显示了激波及膨胀波的分布情况：激波（红色）在迎风面上产生，该处气流的相对速度大于当地音速，发生强烈压缩；膨胀波（蓝色）在背风面产生，固体壁面在该处收
-缩，为超音速气流让出更多空间。
+ 较为可靠地显示了激波及膨胀波的分布情况：激波（红色）在迎风面上产生，该处气流的相对速度大于当地声速，发生强烈压缩；膨胀波（蓝色）在背风面产生，固体壁面在该处收
+缩，为超声速气流让出更多空间。
 \end_layout
 
 \begin_layout Standard
@@ -32885,7 +32885,7 @@ reference "fig:double_mach_efficiency"
 \end_layout
 
 \begin_layout Subsubsection
-超音速绕流问题
+超声速绕流问题
 \end_layout
 
 \begin_layout Standard
@@ -32896,7 +32896,7 @@ reference "fig:yf17_mesh"
 
 \end_inset
 
- 所示，求解 YF-17 战斗机超音速绕流问题（问题 
+ 所示，求解 YF-17 战斗机超声速绕流问题（问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:yf17_supersonic"
@@ -33126,7 +33126,7 @@ reference "fig:yf17_efficiency"
 
 \end_inset
 
- 可知，超音速绕流问题的实测并行效率只有约 
+ 可知，超声速绕流问题的实测并行效率只有约 
 \begin_inset Formula $80\%$
 \end_inset
 
@@ -34513,7 +34513,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Itemize
-风洞左端为亚音速入口，状态与初始条件兼容：
+风洞左端为亚声速入口，状态与初始条件兼容：
 \begin_inset Formula 
 \[
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=-3}=\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0};
@@ -34525,7 +34525,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Itemize
-风洞右端为亚音速出口，只给定背景压强：
+风洞右端为亚声速出口，只给定背景压强：
 \begin_inset Formula 
 \[
 \eval{p}_{x=9}=101325.0.
@@ -34742,7 +34742,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Itemize
-风洞左端为亚音速入口，状态与初始条件兼容：
+风洞左端为亚声速入口，状态与初始条件兼容：
 \begin_inset Formula 
 \[
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=-3}=\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0};
@@ -34754,7 +34754,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Itemize
-风洞右端为亚音速出口，只给定背景压强：
+风洞右端为亚声速出口，只给定背景压强：
 \begin_inset Formula 
 \[
 \eval{p}_{x=9}=101325.0.
