@@ -34377,7 +34377,7 @@ name "fig:rotor_c_lift"
 
 \end_inset
 
-翼型 SC1095 的升力系数曲线
+SC 1095 翼型的升力系数曲线
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Howlett_1981"
@@ -34425,7 +34425,7 @@ name "fig:rotor_c_drag"
 
 \end_inset
 
-翼型 SC1095 的阻力系数曲线
+SC 1095 翼型的阻力系数曲线
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Howlett_1981"
@@ -34545,46 +34545,472 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-Third- and first-order solutions at the same moment (
-\begin_inset Formula $t=1$
+为了体现高阶求解器在粗网格上的优势，这里采用只含 
+\begin_inset Formula $h\approx0.25$
 \end_inset
 
-) are shown in Figure 
+ 的四面体单元的粗网格求解该问题。图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_upward_p=3"
+reference "fig:rotor_upward_t=2e-1"
 
 \end_inset
 
- and Figure 
+、图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_upward_p=1"
+reference "fig:rotor_upward_t=4e-1"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-, respectively, in which density contours and velocity directions are plotted
- on selected slices.
- Large-scale flow structures, such as the contraction of airflow near the
- rotor disk and the rolled-up of airwake, are captured in both figures.
- However, finer details, such as the ripples generated from the rotor disk
- and the strong vortex ring in the downstream, are only visible in the third-ord
-er solution.
- The nearly axisymmetric flow structure is caused by the periodic movement
- of the rotary wings.
- The density of air just below the rotor (red) is greater than that above
- the rotor (blue), which means the rotor is compressing the air flowing
- across it.
- According to Newton's third law, the rotor must be experiencing a force
- in the opposite direction exerted by the air.
- This is where the rotor thrust comes from.
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_upward_t=6e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_upward_t=8e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_upward_t=10e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 依次给出了问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=0.2$
+\end_inset
+
+、
+\begin_inset Formula $t=0.4$
+\end_inset
+
+、
+\begin_inset Formula $t=0.6$
+\end_inset
+
+、
+\begin_inset Formula $t=0.8$
+\end_inset
+
+、
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的一阶、三阶 RKDG 近似解。这里给出精度较低的一阶近似解，是因为一阶求解器无需限制器，其给出的结果在物理上较为可靠，可以用来定性地验证高阶近似解的正确
+性。由于缺少试验数据，本文的所有含旋翼的算例都将采用这种方式来验证。
+\end_layout
+
+\begin_layout Standard
+图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_upward_t=2e-1"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_upward_t=10e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 采取了相同的作图方式：在 
+\begin_inset Formula $y=0$
+\end_inset
+
+ 平面上画出密度分布；在 
+\begin_inset Formula $z=0$
+\end_inset
+
+ 平面上画出速度方向，并以当地密度着色；偏左侧的一对同心圆表示桨尖及桨根轨迹。不难发现：桨盘上（左）侧的速度矢量明显在向中心汇聚，密度值在桨盘附近有一个明显的跳
+跃。由等熵条件 
+\begin_inset Formula $p=C\rho^{\gamma}$
+\end_inset
+
+ 可以推知，压强在桨盘附近也有一跳跃，且下（右）侧值大于上（左）侧值。这说明流经桨盘平面的气体，正在被桨叶压缩做功；根据牛顿第三定律，桨叶必然受到气体对其施加的
+反作用力，这正是旋翼升力的来源。
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/upward/p=1/Frame20.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/upward/p=3/Frame20.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_upward_t=2e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=0.2$
+\end_inset
+
+ 时刻的一阶、三阶 RKDG 近似解（一阶在上，三阶在下）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/upward/p=1/Frame40.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/upward/p=3/Frame40.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_upward_t=4e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=0.4$
+\end_inset
+
+ 时刻的 RKDG 近似解（一阶在上，三阶在下）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/upward/p=1/Frame60.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/upward/p=3/Frame60.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_upward_t=6e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=0.6$
+\end_inset
+
+ 时刻的 RKDG 近似解（一阶在上，三阶在下）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/upward/p=1/Frame80.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/upward/p=3/Frame80.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_upward_t=8e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=0.8$
+\end_inset
+
+ 时刻的 RKDG 近似解（一阶在上，三阶在下）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/upward/p=1/Frame100.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/upward/p=3/Frame100.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_upward_t=10e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 RKDG 近似解（一阶在上，三阶在下）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+比较不同时刻的一阶、三阶近似解可以发现：两种求解器都能捕捉大尺度的涡结构，例如形成于桨盘下（右）侧、随时间推移而向下（右）移动的环状启动涡；但只有三阶求解器才能
+在如此稀疏的网格上捕捉到声波的干涉条纹。这是因为一阶求解器采用分段常数近似，过大的数值耗散容易将流动细节抹平。
+\end_layout
+
+\begin_layout Standard
+近似解的数值耗散，还可以通过环状启动涡的涡核清晰度来观察。图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_upward_p=1"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_upward_p=3"
+
+\end_inset
+
+ 在图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_upward_t=10e-1"
+
+\end_inset
+
+ 的基础上，补充显示了 
+\begin_inset Formula $x=4.8$
+\end_inset
+
+ 平面上的密度分布。可以发现：环状启动涡的涡核在一阶近似解中较为模糊，在三阶近似解中仍十分明显。这再次体现了高阶求解器数值耗散低的优势。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -34607,7 +35033,7 @@ name "fig:rotor_upward_p=1"
 
 \end_inset
 
-First-order solution of Problem 
+问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:rotor_upward"
@@ -34617,11 +35043,11 @@ noprefix "false"
 
 \end_inset
 
- at 
-\begin_inset Formula $t=1$
+ 在 
+\begin_inset Formula $t=1.0$
 \end_inset
 
-.
+ 时刻的一阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -34661,7 +35087,7 @@ name "fig:rotor_upward_p=3"
 
 \end_inset
 
-Third-order solution of Problem 
+问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:rotor_upward"
@@ -34671,11 +35097,11 @@ noprefix "false"
 
 \end_inset
 
- at 
-\begin_inset Formula $t=1$
+ 在 
+\begin_inset Formula $t=1.0$
 \end_inset
 
-.
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
