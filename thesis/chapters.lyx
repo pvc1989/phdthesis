@@ -29174,7 +29174,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-该问题只含膨胀波这种导数值间断，不含激波、接触间断这写函数值间断，因此对限制器的要求比问题 
+该问题只含膨胀波这种导数值间断，不含激波、接触间断这类函数值间断，因此对限制器的要求比问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:sod"
@@ -29848,12 +29848,11 @@ noprefix "false"
 
 \end_inset
 
-）及如下条件的广义解。
+）及如下定解条件的广义解。
 \end_layout
 
-\begin_deeper
-\begin_layout Description
-初始条件 设为
+\begin_layout Problem
+初始条件设为
 \begin_inset Formula 
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{cases}
@@ -29877,8 +29876,8 @@ noprefix "false"
 分别为波后 (After the wave) 与波前 (Before the wave) 状态。
 \end_layout
 
-\begin_layout Description
-边界条件 设为
+\begin_layout Problem
+边界条件如下：
 \end_layout
 
 \begin_deeper
@@ -29951,7 +29950,6 @@ noprefix "false"
 
 \end_layout
 
-\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
@@ -31332,12 +31330,11 @@ noprefix "false"
 ）及以下定解条件的广义解。
 \end_layout
 
-\begin_deeper
-\begin_layout Description
-初始条件 设为 20 deg 迎角、0.3 马赫的亚音速气流：
+\begin_layout Problem
+初始条件设为 20 deg 迎角、0.3 马赫的亚音速气流：
 \begin_inset Formula 
 \[
-\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 0.2819 & 0.0 & 0.1026 & 1.0\end{bmatrix}.
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 0.2819 & 0.0 & 0.1026 & 1.0\end{bmatrix}.
 \]
 
 \end_inset
@@ -31345,8 +31342,8 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Description
-边界条件 设为
+\begin_layout Problem
+边界条件如下
 \end_layout
 
 \begin_deeper
@@ -31370,7 +31367,7 @@ noprefix "false"
 尾喷管出口为（外流场的）超音速入口：
 \begin_inset Formula 
 \[
-\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{\text{尾喷口}}=\begin{bmatrix}1.4 & 2.4 & 0.0 & 0.0 & 1.44\end{bmatrix}.
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\text{尾喷口}}=\begin{bmatrix}1.4 & 2.4 & 0.0 & 0.0 & 1.44\end{bmatrix}.
 \]
 
 \end_inset
@@ -31378,7 +31375,6 @@ noprefix "false"
 
 \end_layout
 
-\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
@@ -31620,12 +31616,11 @@ noprefix "false"
 ）及以下定解条件的广义解。
 \end_layout
 
-\begin_deeper
-\begin_layout Description
-初始条件 设为 0 deg 迎角、2.0 马赫的超音速气流：
+\begin_layout Problem
+初始条件设为 0 deg 迎角、2.0 马赫的超音速气流：
 \begin_inset Formula 
 \[
-\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 2.0 & 0.0 & 0.0 & 1.0\end{bmatrix}.
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 2.0 & 0.0 & 0.0 & 1.0\end{bmatrix}.
 \]
 
 \end_inset
@@ -31633,8 +31628,8 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Description
-边界条件 设为
+\begin_layout Problem
+边界条件如下：
 \end_layout
 
 \begin_deeper
@@ -31647,15 +31642,11 @@ noprefix "false"
 \end_layout
 
 \begin_layout Itemize
-远场为亚音速入口或出口，前者状态与初始条件相同，后者状态无需预设；
+远场为超音速入口或出口，前者状态与初始条件相同，后者状态无需预设；
 \end_layout
 
 \begin_layout Itemize
-进气道入口为（外流场的）超音速出口，状态无需预设；
-\end_layout
-
-\begin_layout Itemize
-尾喷管出口为（外流场的）超音速入口：
+进气道入口为（外流场的）超音速出口，状态无需预设；尾喷管出口为（外流场的）超音速入口：
 \begin_inset Formula 
 \[
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{\text{尾喷口}}=\begin{bmatrix}1.4 & 2.4 & 0.0 & 0.0 & 1.44\end{bmatrix}.
@@ -31666,7 +31657,6 @@ noprefix "false"
 
 \end_layout
 
-\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
@@ -31717,7 +31707,7 @@ noprefix "false"
 
 \end_inset
 
- 较为可靠地显示了激波及膨胀波的分布情况：激波（红色）在迎风面上产生，该处气流的相对速度大于当地声速，发生强烈压缩；膨胀波（蓝色）在背风面产生，固体壁面在该处收
+ 较为可靠地显示了激波及膨胀波的分布情况：激波（红色）在迎风面上产生，该处气流的相对速度大于当地音速，发生强烈压缩；膨胀波（蓝色）在背风面产生，固体壁面在该处收
 缩，为超音速气流让出更多空间。
 \end_layout
 
@@ -33895,7 +33885,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Chapter
-旋翼空气动力学模型
+旋翼空气动力学仿真
 \end_layout
 
 \begin_layout Section*
@@ -34216,38 +34206,61 @@ reference "subsec:Problems-with-Momentum"
 \end_layout
 
 \begin_layout Section
-动量源模型
+非定常动量源模型
 \end_layout
 
 \begin_layout Section
-孤立旋翼算例
+旋翼数值风洞试验
 \end_layout
 
 \begin_layout Standard
-In this section, we solve two problems of rotorcraft aerodynamics using
- the momentum source model described in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:The-Momentum-Source"
-
-\end_inset
-
-.
- The problems are set to simulate wind tunnel tests of a rotor (a pair of
- rotary wings), using the mesh shown in Figure 
+本节用图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:rotor_mesh"
 
 \end_inset
 
-.
- All of the boundaries of the outside box are solid walls, except he left
- and right ends, which are set as inlet and outlet, respectively.
- The spherical region is the circumscribed sphere of the rotor, whose rotating
- axis could point to any direction.
- The smaller box enclosing the sphere is used for refining the mesh in the
- surrounding and downstream regions of the rotor.
+ 所示的网格，模拟孤立旋翼在低速风洞中的吹风试验，并约定以米 (m) 为长度单位，以秒 (s) 为时间单位。风洞外形由三维区间 
+\begin_inset Formula $[-3,9]\times[-3,3]\times[-3,3]$
+\end_inset
+
+ 表示，在其内部嵌套一个较小的三维区间 
+\begin_inset Formula $[-2,8]\times[-2,2]\times[-2,2]$
+\end_inset
+
+，用以表示旋翼及其尾迹附近网格需要加密的区域。旋翼桨盘中心固定于点 
+\begin_inset Formula $(0,0,0)$
+\end_inset
+
+ 处，桨根及桨尖到该中心点的距离分别为 
+\begin_inset Formula $0.1$
+\end_inset
+
+ 与 
+\begin_inset Formula $1.0$
+\end_inset
+
+，因此桨盘半径为 
+\begin_inset Formula $1.0$
+\end_inset
+
+。旋翼转轴允许指向任意方向，转速为每秒 
+\begin_inset Formula $40$
+\end_inset
+
+ 转。图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_mesh"
+
+\end_inset
+
+ 中的球形区域（即半径为 
+\begin_inset Formula $1.0$
+\end_inset
+
+ 的球体）表示桨叶可能扫过的区域，原则可以在该区域内进一步加密网格，但本节算例并没有对其做特殊处理。
 \end_layout
 
 \begin_layout Standard
@@ -34277,14 +34290,21 @@ name "fig:rotor_mesh"
 
 \end_inset
 
-A schematic mesh for solving problems in Section 
+问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Problems-with-Momentum"
+reference "prob:rotor_upward"
 
 \end_inset
 
-.
+、问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+
+\end_inset
+
+ 所用网格的示意图
 \end_layout
 
 \end_inset
@@ -34295,6 +34315,148 @@ reference "subsec:Problems-with-Momentum"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+桨叶选用单一翼型、弦长为 
+\begin_inset Formula $0.1$
+\end_inset
+
+ 的矩形平直（无预扭、无后掠）桨叶，翼型选用 UH-60A 直升机主旋翼的 SC 1095 翼型，其升力系数、阻力系数曲线分别如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_c_lift"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_c_drag"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所示，用于作图的数据引自文献 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Howlett_1981"
+literal "false"
+
+\end_inset
+
+。对于更一般的翼型，可以通过吹风试验或数值模拟来获得类似的曲线。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../mdpi/figures/airfoil/lift.pdf
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_c_lift"
+
+\end_inset
+
+翼型 SC1095 的升力系数曲线
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Howlett_1981"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../mdpi/figures/airfoil/drag.pdf
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_c_drag"
+
+\end_inset
+
+翼型 SC1095 的阻力系数曲线
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Howlett_1981"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+以上几何参数以及本节剩余部分给出的定解条件，是对真实旋翼风洞试验的较为激进的简化。进行这种简化主要是为了方便后续计算或试验研究复现本节剩余部分给出的算例。实际上
+，对于更一般的风洞截面形状，获得如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_mesh"
+
+\end_inset
+
+ 所示的只含四面体单元的非结构网格，对于网格生成模块而言没有额外的难度；对于更一般的桨叶外形，如非线性的弦长、预扭分布，本文所实现的求解器也已支持对其进行高效处
+理。
 \end_layout
 
 \begin_layout Subsection
@@ -34308,9 +34470,17 @@ name "prob:rotor_upward"
 
 \end_inset
 
-Solve Equation 
+令旋翼转轴指向风洞左侧，即以 
+\begin_inset Formula $(-1,0,0)$
+\end_inset
+
+ 为方向矢量。在时间范围 
+\begin_inset Formula $t\in[0,1]$
+\end_inset
+
+ 内，求满足三维欧拉方程（式 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "eq:euler_system"
 plural "false"
 caps "false"
@@ -34318,19 +34488,14 @@ noprefix "false"
 
 \end_inset
 
- in the surrounding of a rotor, whose rotating axis points to the direction
- of 
-\begin_inset Formula $(-1,0,0)$
-\end_inset
-
-.
- The initial condition is given as a uniform flow:
+）及以下定解条件的广义解。
 \end_layout
 
 \begin_layout Problem
+初始条件设为均匀低速气流：
 \begin_inset Formula 
 \[
-\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 1.0 & 0.0 & 0.0 & 101325.0\end{bmatrix},
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 1.0 & 0.0 & 0.0 & 101325.0\end{bmatrix}.
 \]
 
 \end_inset
@@ -34339,11 +34504,131 @@ noprefix "false"
 \end_layout
 
 \begin_layout Problem
-which is also the background state at the two ends of the wind tunnel.
+边界条件如下：
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+风洞上、下、前、后四面均为固体壁面；
+\end_layout
+
+\begin_layout Itemize
+风洞左端为亚音速入口，状态与初始条件兼容：
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=-3}=\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0};
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+风洞右端为亚音速出口，只给定背景压强：
+\begin_inset Formula 
+\[
+\eval{p}_{x=9}=101325.0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator plain
+Third- and first-order solutions at the same moment (
+\begin_inset Formula $t=1$
+\end_inset
+
+) are shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_upward_p=3"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_upward_p=1"
+
+\end_inset
+
+, respectively, in which density contours and velocity directions are plotted
+ on selected slices.
+ Large-scale flow structures, such as the contraction of airflow near the
+ rotor disk and the rolled-up of airwake, are captured in both figures.
+ However, finer details, such as the ripples generated from the rotor disk
+ and the strong vortex ring in the downstream, are only visible in the third-ord
+er solution.
+ The nearly axisymmetric flow structure is caused by the periodic movement
+ of the rotary wings.
+ The density of air just below the rotor (red) is greater than that above
+ the rotor (blue), which means the rotor is compressing the air flowing
+ across it.
+ According to Newton's third law, the rotor must be experiencing a force
+ in the opposite direction exerted by the air.
+ This is where the rotor thrust comes from.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../mdpi/figures/rotor_in_tunnel/upward_p=1.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_upward_p=1"
+
+\end_inset
+
+First-order solution of Problem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at 
+\begin_inset Formula $t=1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
@@ -34403,96 +34688,6 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ../mdpi/figures/rotor_in_tunnel/upward_p=1.png
-	lyxscale 15
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:rotor_upward_p=1"
-
-\end_inset
-
-First-order solution of Problem 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:rotor_upward"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- at 
-\begin_inset Formula $t=1$
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Third- and first-order solutions at the same moment (
-\begin_inset Formula $t=1$
-\end_inset
-
-) are shown in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:rotor_upward_p=3"
-
-\end_inset
-
- and Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:rotor_upward_p=1"
-
-\end_inset
-
-, respectively, in which density contours and velocity directions are plotted
- on selected slices.
- Large-scale flow structures, such as the contraction of airflow near the
- rotor disk and the rolled-up of airwake, are captured in both figures.
- However, finer details, such as the ripples generated from the rotor disk
- and the strong vortex ring in the downstream, are only visible in the third-ord
-er solution.
- The nearly axisymmetric flow structure is caused by the periodic movement
- of the rotary wings.
- The density of air just below the rotor (red) is greater than that above
- the rotor (blue), which means the rotor is compressing the air flowing
- across it.
- According to Newton's third law, the rotor must be experiencing a force
- in the opposite direction exerted by the air.
- This is where the rotor thrust comes from.
-\end_layout
-
 \begin_layout Subsection
 前飞
 \end_layout
@@ -34504,9 +34699,17 @@ name "prob:rotor_forward"
 
 \end_inset
 
-Solve Equation 
+令旋翼转轴指向风洞顶部，即以 
+\begin_inset Formula $(0,0,1)$
+\end_inset
+
+ 为方向矢量。在时间范围 
+\begin_inset Formula $t\in[0,1]$
+\end_inset
+
+ 内，求满足三维欧拉方程（式 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "eq:euler_system"
 plural "false"
 caps "false"
@@ -34514,19 +34717,14 @@ noprefix "false"
 
 \end_inset
 
- in the surrounding of a rotor, whose rotating axis points to the direction
- of 
-\begin_inset Formula $(0,0,1)$
-\end_inset
-
-.
- The initial condition is given as a uniform flow:
+）及以下定解条件的广义解。
 \end_layout
 
 \begin_layout Problem
+初始条件设为均匀中低速气流：
 \begin_inset Formula 
 \[
-\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 10.0 & 0.0 & 0.0 & 101325.0\end{bmatrix},
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 10.0 & 0.0 & 0.0 & 101325.0\end{bmatrix}.
 \]
 
 \end_inset
@@ -34535,9 +34733,39 @@ noprefix "false"
 \end_layout
 
 \begin_layout Problem
-which is also the background state at the two ends of the wind tunnel.
+边界条件设如下：
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+风洞上、下、前、后四面均为固体壁面；
+\end_layout
+
+\begin_layout Itemize
+风洞左端为亚音速入口，状态与初始条件兼容：
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=-3}=\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0};
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+风洞右端为亚音速出口，只给定背景压强：
+\begin_inset Formula 
+\[
+\eval{p}_{x=9}=101325.0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
