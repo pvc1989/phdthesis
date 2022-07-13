@@ -86,21 +86,23 @@ x = np.linspace(-180.0, 180.0, len(lift))
 
 if __name__ == '__main__':
   from matplotlib import pyplot as plt
-  plt.figure()
 
-  plt.subplot(211)
+  plt.figure()
   plt.plot(x, lift)
   plt.grid()
   plt.xticks(np.arange(-180, 181, step=60))
+  plt.xlabel('Angle of Attack (deg)')
   plt.ylabel(r'$C_L$')
+  plt.tight_layout()
+  # plt.show()
+  plt.savefig('lift.pdf')
 
-  plt.subplot(212)
+  plt.figure()
   plt.plot(x, drag)
   plt.grid()
   plt.xticks(np.arange(-180, 181, step=60))
   plt.xlabel('Angle of Attack (deg)')
   plt.ylabel(r'$C_D$')
-
   plt.tight_layout()
   # plt.show()
-  plt.savefig('sc1095.pdf')
+  plt.savefig('drag.pdf')
