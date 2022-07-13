@@ -25839,8 +25839,8 @@ reference "eq:m-stage_Runge--Kutta"
 算法并行化及其泛型实现
 \end_layout
 
-\begin_layout Section
-算例验证与并行性能评估
+\begin_layout Chapter
+精度验证与性能评估
 \end_layout
 
 \begin_layout Standard
@@ -25851,7 +25851,7 @@ reference "subsec:linear_advection"
 
 \end_inset
 
- 小节外，本节所有算例均为求解由描述无黏可压缩流动的三维欧拉方程
+ 节外，本章所有算例均为求解由描述无黏可压缩流动的三维欧拉方程
 \begin_inset Formula 
 \begin{equation}
 \partial_{t}\begin{bmatrix}\rho\\
@@ -25887,7 +25887,7 @@ reference "subsec:linear_advection"
 与某些初始条件及边界条件所构成的初边值问题。
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 线性平流问题
 \begin_inset CommandInset label
 LatexCommand label
@@ -25933,7 +25933,7 @@ reference "chap:riemann"
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 线性单波方程
 \end_layout
 
@@ -27325,7 +27325,7 @@ diagbox{$p$}{$h$}
 以上结果表明：高阶 RKDG 求解器具有较高的性价比。这里的“性”指全局精度，“价”指运行时间。
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 线性双波方程组
 \end_layout
 
@@ -27772,7 +27772,7 @@ EigenWeno
  限制器。
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 一维流动问题
 \end_layout
 
@@ -27804,7 +27804,7 @@ noprefix "false"
 浮点数表示。若无特别说明，本文剩余部分提到的“精确解”都是指“浮点数范围内的精确解”或“计算机上的精确解”。
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Sod 问题
 \end_layout
 
@@ -28656,7 +28656,7 @@ reference "tab:sod_cost"
  点三角形积分器。因此，本节关于性价比的结论比线性单波方程一节得到的类似结论更加可靠，也更具有实际意义。
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Lax 问题
 \end_layout
 
@@ -29102,7 +29102,7 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 真空问题
 \end_layout
 
@@ -29557,11 +29557,11 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 二维流动问题
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 双马赫反射问题
 \end_layout
 
@@ -30188,7 +30188,7 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 前台阶吹风问题
 \end_layout
 
@@ -31203,7 +31203,7 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 三维流动问题
 \end_layout
 
@@ -31302,7 +31302,7 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 亚声速绕流问题
 \end_layout
 
@@ -31588,7 +31588,7 @@ reference "prob:yf17_subsonic"
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 超声速绕流问题
 \end_layout
 
@@ -31974,11 +31974,11 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 并行性能评估
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 双马赫反射问题
 \end_layout
 
@@ -32884,7 +32884,7 @@ reference "fig:double_mach_efficiency"
  中的并行效率更具有参考价值。
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 超声速绕流问题
 \end_layout
 
@@ -33885,7 +33885,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Chapter
-旋翼空气动力学仿真
+旋翼空气动力学模拟
 \end_layout
 
 \begin_layout Section*
@@ -34653,8 +34653,8 @@ noprefix "false"
 \begin_inset Formula $z=0$
 \end_inset
 
- 平面上画出速度方向，并以当地密度着色；偏左侧的一对同心圆表示桨尖及桨根轨迹。不难发现：桨盘上（左）侧的速度矢量明显在向中心汇聚，密度值在桨盘附近有一个明显的跳
-跃。由等熵条件 
+ 平面上画出速度方向，并以箭头根部密度着色；偏左侧的一对同心圆表示桨尖及桨根轨迹。不难发现：桨盘上（左）侧的速度矢量明显在向中心汇聚，密度值在桨盘附近有一个明显
+的跳跃。由等熵条件 
 \begin_inset Formula $p=C\rho^{\gamma}$
 \end_inset
 
@@ -34973,12 +34973,12 @@ reference "prob:rotor_upward"
 \end_layout
 
 \begin_layout Standard
-比较不同时刻的一阶、三阶近似解可以发现：两种求解器都能捕捉大尺度的涡结构，例如形成于桨盘下（右）侧、随时间推移而向下（右）移动的环状启动涡；但只有三阶求解器才能
-在如此稀疏的网格上捕捉到声波的干涉条纹。这是因为一阶求解器采用分段常数近似，过大的数值耗散容易将流动细节抹平。
+比较不同时刻的一阶、三阶近似解可以发现：两种求解器都能捕捉大尺度的涡结构，例如形成于桨盘下（右）侧、随时间推移而向下（右）移动的环状涡；但只有三阶求解器才能在如
+此稀疏的网格上捕捉到声波的干涉条纹。这是因为一阶求解器采用分段常数近似，过大的数值耗散容易将流动细节抹平。
 \end_layout
 
 \begin_layout Standard
-近似解的数值耗散，还可以通过环状启动涡的涡核清晰度来观察。图 
+近似解的数值耗散，还可以通过环状涡的涡核清晰度来观察。图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:rotor_upward_p=1"
@@ -35003,7 +35003,7 @@ reference "fig:rotor_upward_t=10e-1"
 \begin_inset Formula $x=4.8$
 \end_inset
 
- 平面上的密度分布。可以发现：环状启动涡的涡核在一阶近似解中较为模糊，在三阶近似解中仍十分明显。这再次体现了高阶求解器数值耗散低的优势。
+ 平面上的密度分布。可以发现：环状涡的涡核在一阶近似解中较为模糊，在三阶近似解中仍十分明显。这再次体现了高阶求解器数值耗散低的优势。
 \end_layout
 
 \begin_layout Standard
@@ -35200,6 +35200,114 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+与问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+
+\end_inset
+
+ 相同，这里采用只含 
+\begin_inset Formula $h\approx0.25$
+\end_inset
+
+ 的四面体单元的粗网格求解该问题，并且给出精度较低但物理上可靠的一阶近似解，作为定性验证三阶近似解的正确性的参照对象。
+\end_layout
+
+\begin_layout Standard
+图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_forward_t=2e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_forward_t=4e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_forward_t=6e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_forward_t=8e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_forward_t=10e-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 依次给出了问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=0.2$
+\end_inset
+
+、
+\begin_inset Formula $t=0.4$
+\end_inset
+
+、
+\begin_inset Formula $t=0.6$
+\end_inset
+
+、
+\begin_inset Formula $t=0.8$
+\end_inset
+
+、
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的一阶、三阶 RKDG 近似解。具体的作图方式为：在 
+\begin_inset Formula $x=4$
+\end_inset
+
+ 平面上画出密度分布；在 
+\begin_inset Formula $y=0$
+\end_inset
+
+ 平面上画出速度方向，并以箭头根部密度着色；偏左侧的一对同心圆表示桨尖及桨根轨迹。不难发现：桨盘附近的速度矢量明显向下偏转，这表明旋转的桨叶在为气流提供动量；旋
+翼尾迹（红色区域）向右偏转，这体现了左侧自由来流的驱动作用。
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -35207,7 +35315,18 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../mdpi/figures/rotor_in_tunnel/forward_p=3.png
+	filename figures/forward/p=1/Frame20.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=3/Frame20.png
 	lyxscale 15
 	width 100text%
 
@@ -35222,11 +35341,11 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:rotor_forward_p=3"
+name "fig:rotor_forward_t=2e-1"
 
 \end_inset
 
-Third-order solution of Problem 
+问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:rotor_forward"
@@ -35236,11 +35355,11 @@ noprefix "false"
 
 \end_inset
 
- at 
-\begin_inset Formula $t=1$
+ 在 
+\begin_inset Formula $t=0.2$
 \end_inset
 
-.
+ 时刻的一阶、三阶 RKDG 近似解（一阶在上，三阶在下）
 \end_layout
 
 \end_inset
@@ -35258,6 +35377,749 @@ noprefix "false"
 wide false
 sideways false
 status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=1/Frame40.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=3/Frame40.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_forward_t=4e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=0.4$
+\end_inset
+
+ 时刻的 RKDG 近似解（一阶在上，三阶在下）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=1/Frame60.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=3/Frame60.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_forward_t=6e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=0.6$
+\end_inset
+
+ 时刻的 RKDG 近似解（一阶在上，三阶在下）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=1/Frame80.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=3/Frame80.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_forward_t=8e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=0.8$
+\end_inset
+
+ 时刻的 RKDG 近似解（一阶在上，三阶在下）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=1/Frame100.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=3/Frame100.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_forward_t=10e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 RKDG 近似解（一阶在上，三阶在下）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+与问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+
+\end_inset
+
+ 的结论类似，两种求解器都能捕捉大尺度的涡结构，例如从桨盘拖出、向右下方倾斜的旋翼尾迹；但只有三阶求解器才能在 
+\begin_inset Formula $x=4$
+\end_inset
+
+ 平面上捕捉到一对清晰的涡核（深蓝色区域）。下面采用两种方法来证明这对涡确实存在。
+\end_layout
+
+\begin_layout Standard
+第一种方法基于流线。图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_wake_y_view"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_wake_z_view"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_wake_x_view"
+
+\end_inset
+
+ 分别沿 
+\begin_inset Formula $+y$
+\end_inset
+
+、
+\begin_inset Formula $-z$
+\end_inset
+
+、
+\begin_inset Formula $+x$
+\end_inset
+
+ 方向，画出了由 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的三阶 RKDG 近似解导出的速度流线三视图。可以看出：桨盘两侧的流线在向后延伸的过程中，叠加了绕某个向后延伸的轴线的转动，该轴线恰好穿过图
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_forward_t=10e-1"
+
+\end_inset
+
+ 中的低密度区（即涡核所在位置）。这至少说明，由三阶 RKDG 近似解导出的结果是自洽的。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=3/y+.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_wake_y_view"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的三阶 RKDG 近似解导出的流线（主视图）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=3/z-.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_wake_z_view"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的三阶 RKDG 近似解导出的流线（俯视图）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=3/x+.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_wake_x_view"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的三阶 RKDG 近似解导出的流线（左视图）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+第二种方法基于 
+\begin_inset Formula $Q$
+\end_inset
+
+ 准则，它是一种常用的涡结构可视化方法。图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_Q_y_view"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_Q_z_view"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_Q_x_view"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 分别沿 
+\begin_inset Formula $+y$
+\end_inset
+
+、
+\begin_inset Formula $-z$
+\end_inset
+
+、
+\begin_inset Formula $+x$
+\end_inset
+
+ 方向，画出了由 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的一阶 RKDG 近似解导出的 
+\begin_inset Formula $Q$
+\end_inset
+
+ 等值面三视图。可以看出：桨盘两侧各有一道向后拖出的涡，且其位置与图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_wake_y_view"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_wake_z_view"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_wake_x_view"
+
+\end_inset
+
+ 中流线螺旋延伸的轴线一致。这说明由两种近似解导出的结果是相容的。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=1/Q_y+.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_Q_y_view"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的一阶 RKDG 近似解导出的 
+\begin_inset Formula $Q$
+\end_inset
+
+ 等值面（主视图）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=1/Q_z-.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_Q_z_view"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的一阶 RKDG 近似解导出的 
+\begin_inset Formula $Q$
+\end_inset
+
+ 等值面（俯视图）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=1/Q_x+.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_Q_x_view"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的一阶 RKDG 近似解导出的 
+\begin_inset Formula $Q$
+\end_inset
+
+ 等值面（左视图）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -35280,7 +36142,7 @@ name "fig:rotor_forward_p=1"
 
 \end_inset
 
-First-order solution of Problem 
+问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:rotor_forward"
@@ -35290,11 +36152,11 @@ noprefix "false"
 
 \end_inset
 
- at 
-\begin_inset Formula $t=1$
+ 在 
+\begin_inset Formula $t=1.0$
 \end_inset
 
-.
+ 时刻的一阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -35307,15 +36169,15 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ../mdpi/figures/rotor_in_tunnel/forward_wake_p=3.png
+	filename ../mdpi/figures/rotor_in_tunnel/forward_p=3.png
 	lyxscale 15
 	width 100text%
 
@@ -35330,72 +36192,47 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:rotor_forward_wake"
+name "fig:rotor_forward_p=3"
 
 \end_inset
 
-Streamlines of the solution in Figure 
+问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_forward_p=3"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Just like the climbing problem, we plot the third- and first-order solution
- at the same moment (
-\begin_inset Formula $t=1$
-\end_inset
-
-) in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:rotor_forward_p=3"
+reference "prob:rotor_forward"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
- and Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:rotor_forward_p=1"
-plural "false"
-caps "false"
-noprefix "false"
-
+ 在 
+\begin_inset Formula $t=1.0$
 \end_inset
 
-, respectively.
- As before, both of them can capture large-scaled structures, such as the
- skewed and rolled-up airwakes.
- The rolled-up structure is more clear in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:rotor_forward_wake"
-
-\end_inset
-
-, in which streamlines of are ploted and colorred by the magnitude of velocity.
- The piecewise constant first-order solution is much vaguer and losts many
- details, which shows again the value of developing high-order solvers.
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
-\begin_layout Chapter
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+小结
+\end_layout
+
+\begin_layout Section
 舰载直升机气动干扰
 \end_layout
 
