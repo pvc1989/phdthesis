@@ -23580,7 +23580,7 @@ reference "eq:FEM"
  待定函数矩阵；
 \begin_inset Formula 
 \[
-\underline{R}_{V}\coloneqq\int_{V}\mathopen{\underline{\vec{F}}}\left(\underline{U^{h}}\right)\cdot\begin{bmatrix}\nabla\phi_{1} & \cdots & \nabla\phi_{K}\end{bmatrix}+\int_{V}\begin{bmatrix}\phi_{1} & \cdots & \phi_{K}\end{bmatrix}\mathopen{\underline{H}}\left(\underline{U^{h}}\right)
+\underline{R}_{V_{i}}\coloneqq\int_{V_{i}}\mathopen{\underline{\vec{F}}}\left(\underline{U^{h}}\right)\cdot\begin{bmatrix}\nabla\phi_{1} & \cdots & \nabla\phi_{K}\end{bmatrix}+\int_{V_{i}}\begin{bmatrix}\phi_{1} & \cdots & \phi_{K}\end{bmatrix}\mathopen{\underline{H}}\left(\underline{U^{h}}\right)
 \]
 
 \end_inset
@@ -23592,7 +23592,7 @@ reference "eq:FEM"
  矩阵，表示体积分残差；
 \begin_inset Formula 
 \[
-\underline{R}_{\partial V}\coloneqq\oint_{\partial V}\begin{bmatrix}\phi_{1} & \cdots & \phi_{L}\end{bmatrix}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U^{h}}\right)
+\underline{R}_{\partial V_{i}}\coloneqq\oint_{\partial V_{i}}\begin{bmatrix}\phi_{1} & \cdots & \phi_{L}\end{bmatrix}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U^{h}}\right)
 \]
 
 \end_inset
@@ -33893,12 +33893,550 @@ reference "subsec:Problems-with-Momentum"
 .
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
 \begin_layout Section
 自由尾迹模型
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 非定常动量源模型
+\end_layout
+
+\begin_layout Standard
+前文已经给出了用间断伽辽金有限元法（式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:orthonormal_DG"
+
+\end_inset
+
+）来求解含源项的双曲型方程组（式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:PDE"
+
+\end_inset
+
+）的一般过程。在该方法中，源项只出现在体积分中，具体形式为
+\begin_inset Formula 
+\[
+\int_{V_{i}}\begin{bmatrix}\phi_{1} & \cdots & \phi_{K}\end{bmatrix}\mathopen{\underline{H}}\left(\underline{U^{h}}\right).
+\]
+
+\end_inset
+
+本章不考虑质量源与能量源，故主要任务是计算基函数 
+\begin_inset Formula $\phi_{k}$
+\end_inset
+
+ 与动量源 
+\begin_inset Formula $\vec{b}$
+\end_inset
+
+ 的乘积在 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 上体积分：
+\begin_inset Formula 
+\[
+\int_{V_{i}}\phi_{k}(\vec{r})\,\vec{b}(\vec{r}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+外力密度
+\end_layout
+
+\begin_layout Standard
+直升机旋翼桨叶具有较大的展弦比，其对空气的作用力可以近似为集中于桨叶轴线。为避免混淆，本文以 
+\begin_inset Formula $\vec{b}_{\mathrm{V}}$
+\end_inset
+
+ 表示外力的体密度，以 
+\begin_inset Formula $\vec{b}_{\mathrm{L}}$
+\end_inset
+
+ 表示外力的线密度：
+\end_layout
+
+\begin_layout Itemize
+含动量源的三维欧拉方程可以写成
+\begin_inset Formula 
+\[
+\partial_{t}\begin{bmatrix}\rho\\
+\rho\vec{u}\\
+\rho e_{0}
+\end{bmatrix}+\nabla\cdot\begin{bmatrix}\rho\vec{u}\\
+\rho\vec{u}\vec{u}\\
+\rho h_{0}\vec{u}
+\end{bmatrix}=\begin{bmatrix}0\\
+\vec{b}_{\mathrm{V}}-\nabla p\\
+0
+\end{bmatrix},
+\]
+
+\end_inset
+
+其中，
+\begin_inset Formula $\vec{b}_{\mathrm{V}}$
+\end_inset
+
+ 为单位体积气体所受到的外力，即 
+\begin_inset Formula $\vec{b}_{\mathrm{V}}(\vec{r})$
+\end_inset
+
+ 表示气体所受外力在 
+\begin_inset Formula $\vec{r}$
+\end_inset
+
+ 处的体密度。
+\end_layout
+
+\begin_layout Itemize
+展向弧长 
+\begin_inset Formula $s$
+\end_inset
+
+ 处的微翼段 
+\begin_inset Formula $[s,s+\dd{s})$
+\end_inset
+
+ 所受到的气动力为
+\begin_inset Formula 
+\[
+\begin{bmatrix}L\dd{s}\\
+D\dd{s}
+\end{bmatrix}=\frac{1}{2}\rho(u^{2}+w^{2})\begin{bmatrix}C_{L}(\alpha)\\
+C_{D}(\alpha)
+\end{bmatrix}c\dd{s},
+\]
+
+\end_inset
+
+其中，
+\begin_inset Formula $L$
+\end_inset
+
+ 与 
+\begin_inset Formula $D$
+\end_inset
+
+ 分别为升力与阻力的线密度。根据牛顿第三定律，该气动力的反作用力，就是微翼段对气体的作用力，故
+\begin_inset Formula 
+\[
+\vec{b}_{\mathrm{L}}(\vec{r}(s))=-\begin{bmatrix}\vec{e}_{L}(s) & \vec{e}_{D}(s)\end{bmatrix}\begin{bmatrix}L(s)\\
+D(s)
+\end{bmatrix}
+\]
+
+\end_inset
+
+表示气体所受外力在展向弧长 
+\begin_inset Formula $s$
+\end_inset
+
+ 处的线密度。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+展向积分
+\end_layout
+
+\begin_layout Standard
+设线段 
+\begin_inset Formula $\overrightarrow{PQ}$
+\end_inset
+
+ 与四面体单元 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 的公共部分为线段 
+\begin_inset Formula $\overrightarrow{RS}$
+\end_inset
+
+，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PQ"
+
+\end_inset
+
+ (a) 所示。这里允许 
+\begin_inset Formula $P=R$
+\end_inset
+
+ 或 
+\begin_inset Formula $Q=S$
+\end_inset
+
+，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PQ"
+
+\end_inset
+
+ (b) (c) 所示。
+\begin_inset Formula $\overrightarrow{RS}$
+\end_inset
+
+ 的求法在下一小节给出。
+\end_layout
+
+\begin_layout Standard
+基函数 
+\begin_inset Formula $\phi_{k}(\vec{r})$
+\end_inset
+
+ 定义在单元 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 上，则其与外力体密度的乘积 
+\begin_inset Formula $\phi_{k}\,\vec{b}_{\mathrm{V}}$
+\end_inset
+
+ 在单元 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 上的体积分，可以转化为其与外力线密度的乘积 
+\begin_inset Formula $\phi_{k}\,\vec{b}_{\mathrm{L}}$
+\end_inset
+
+ 在线段 
+\begin_inset Formula $\overrightarrow{RS}$
+\end_inset
+
+ 上的线积分：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\int_{V_{i}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{V}}(\vec{r})=\int_{\overrightarrow{RS}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{L}}(\vec{r}).
+\]
+
+\end_inset
+
+线段 
+\begin_inset Formula $\overrightarrow{RS}$
+\end_inset
+
+ 是可参数化的曲线，故后者可借助曲线参数 
+\begin_inset Formula $\xi$
+\end_inset
+
+ 化为定积分：
+\begin_inset Formula 
+\[
+\int_{\overrightarrow{RS}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{L}}(\vec{r})=\int_{\xi_{R}}^{\xi_{S}}\phi_{k}(\vec{r}(\xi))\,\vec{b}_{\mathrm{L}}(\vec{r}(\xi))\left\Vert \frac{\partial\vec{r}}{\partial\xi}\right\Vert \dd{\xi},
+\]
+
+\end_inset
+
+后者可以用标准的高斯求积公式计算。
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/PQ.pdf
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:PQ"
+
+\end_inset
+
+线段穿过四面体单元的几种常见情形
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+截取线段
+\end_layout
+
+\begin_layout Standard
+求线段 
+\begin_inset Formula $\overrightarrow{PQ}$
+\end_inset
+
+ 与四面体 
+\begin_inset Formula $ABCD$
+\end_inset
+
+ 的公共部分，可以归结为求线段 
+\begin_inset Formula $\overrightarrow{PQ}$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 的公共点。设
+\begin_inset Formula 
+\[
+\overrightarrow{PQ}=\lambda_{A}\overrightarrow{PA}+\lambda_{B}\overrightarrow{PB}+\lambda_{C}\overrightarrow{PC},
+\]
+
+\end_inset
+
+即
+\begin_inset Formula 
+\begin{equation}
+\begin{bmatrix}(PQ)_{x}\\
+(PQ)_{y}\\
+(PQ)_{z}
+\end{bmatrix}=\begin{bmatrix}(PA)_{x} & (PB)_{x} & (PC)_{x}\\
+(PA)_{y} & (PB)_{y} & (PC)_{y}\\
+(PA)_{z} & (PB)_{z} & (PC)_{z}
+\end{bmatrix}\begin{bmatrix}\lambda_{A}\\
+\lambda_{B}\\
+\lambda_{C}
+\end{bmatrix}\label{eq:segment_triangle_intersection}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+若点 
+\begin_inset Formula $P$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 不共面，即
+\begin_inset Formula 
+\[
+\det\begin{bmatrix}(PA)_{x} & (PB)_{x} & (PC)_{x}\\
+(PA)_{y} & (PB)_{y} & (PC)_{y}\\
+(PA)_{z} & (PB)_{z} & (PC)_{z}
+\end{bmatrix}\ne0,
+\]
+
+\end_inset
+
+则关于 
+\begin_inset Formula $\lambda_{A},\lambda_{B},\lambda_{C}$
+\end_inset
+
+ 的方程 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:segment_triangle_intersection"
+
+\end_inset
+
+ 有唯一解。
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+若 
+\begin_inset Formula $\lambda_{A},\lambda_{B},\lambda_{C}$
+\end_inset
+
+ 均为正数，则直线 
+\begin_inset Formula $PQ$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 有唯一的交点 
+\begin_inset Formula $R$
+\end_inset
+
+，且位于 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 内部：
+\begin_inset Formula 
+\[
+\overrightarrow{PR}=\frac{\overrightarrow{PQ}}{\lambda_{A}+\lambda_{B}+\lambda_{C}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+若还有 
+\begin_inset Formula $\lambda_{A}+\lambda_{B}+\lambda_{C}>1$
+\end_inset
+
+，则点 
+\begin_inset Formula $R$
+\end_inset
+
+ 为线段 
+\begin_inset Formula $\overrightarrow{PQ}$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 的交点，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PQ"
+
+\end_inset
+
+ (a) 所示。
+\end_layout
+
+\begin_layout Itemize
+否则，点 
+\begin_inset Formula $R$
+\end_inset
+
+ 位于线段 
+\begin_inset Formula $\overrightarrow{PQ}$
+\end_inset
+
+ 的延长线上，不是线段 
+\begin_inset Formula $\overrightarrow{PQ}$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 的交点。
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+否则，线段 
+\begin_inset Formula $\overrightarrow{PQ}$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 所属平面有唯一的交点，但不在 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 内。
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+否则，判断点 
+\begin_inset Formula $Q$
+\end_inset
+
+ 是否与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 共面。
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+若点 
+\begin_inset Formula $Q$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 不共面，则点 
+\begin_inset Formula $P$
+\end_inset
+
+ 是直线 
+\begin_inset Formula $PQ$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 所属平面的唯一交点。
+\end_layout
+
+\begin_layout Itemize
+否则，直线 
+\begin_inset Formula $PQ$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 共面，但可能与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 没有公共点，需进一步讨论。
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -33952,7 +34490,7 @@ reference "fig:rotor_mesh"
 \begin_inset Formula $1.0$
 \end_inset
 
- 的球体）表示桨叶可能扫过的区域，原则可以在该区域内进一步加密网格，但本节算例并没有对其做特殊处理。
+ 的球体）表示桨叶可能扫过的区域，原则上可以在该区域内进一步加密网格，但本节算例并没有对其做特殊处理。
 \end_layout
 
 \begin_layout Standard
@@ -34014,7 +34552,20 @@ reference "prob:rotor_forward"
 \begin_inset Formula $0.1$
 \end_inset
 
- 的矩形平直（无预扭、无后掠）桨叶，翼型选用 UH-60A 直升机主旋翼的 SC 1095 翼型，其升力系数、阻力系数曲线分别如图 
+ 的矩形平直桨叶，预扭角为 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ang{10}
+\end_layout
+
+\end_inset
+
+；翼型选用 UH-60A 直升机主旋翼的 SC 1095 翼型，其升力系数、阻力系数曲线分别如图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:rotor_c_lift"
