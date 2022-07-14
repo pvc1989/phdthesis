@@ -20618,7 +20618,7 @@ p_{\mathrm{b}}=p_{\mathrm{o}},\qquad\begin{bmatrix}\rho_{\mathrm{b}}\\
 \end_layout
 
 \begin_layout Chapter
-伽辽金型间断有限元
+间断伽辽金有限元法
 \end_layout
 
 \begin_layout Section*
@@ -20995,6 +20995,13 @@ reference "subsec:parallelization"
 
 \begin_layout Section
 空间离散
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:DG"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -23326,22 +23333,26 @@ reference "eq:weak-form"
 
 \end_inset
 
-其中 
-\begin_inset Formula $\underline{\hat{U}}\coloneqq\begin{bmatrix}\underline{\hat{U}}_{1} & \cdots & \underline{\hat{U}}_{K}\end{bmatrix}$
+其中
+\begin_inset Formula 
+\[
+\underline{\hat{U}}(t)\coloneqq\begin{bmatrix}\underline{\hat{U}}_{1}(t) & \cdots & \underline{\hat{U}}_{K}(t)\end{bmatrix}
+\]
+
 \end_inset
 
- 为 
+为 
 \begin_inset Formula $N\times K$
 \end_inset
 
- 待定系数矩阵；
+ 待定函数矩阵；
 \begin_inset Formula 
-\begin{equation}
+\[
 \underline{A}_{V}\coloneqq\begin{bmatrix}\langle\phi_{1}\vert\psi_{1}\rangle_{V} & \cdots & \langle\phi_{1}\vert\psi_{L}\rangle_{V}\\
 \vdots & \ddots & \vdots\\
 \langle\phi_{K}\vert\psi_{1}\rangle_{V} & \cdots & \langle\phi_{K}\vert\psi_{L}\rangle_{V}
-\end{bmatrix}\label{eq:coeff_matrix}
-\end{equation}
+\end{bmatrix}
+\]
 
 \end_inset
 
@@ -23538,8 +23549,77 @@ status open
 
 \end_layout
 
+\begin_layout Standard
+本文采用上述正交归一基函数构造方法，因此式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:FEM"
+
+\end_inset
+
+ 可以简化为
+\begin_inset Formula 
+\begin{equation}
+\dv{\underline{\hat{U}}}{t}=\underline{R}_{V_{i}}-\underline{R}_{\partial V_{i}},\qquad\forall V_{i}\in V_{G(\varOmega)},\label{eq:orthonormal_DG}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+\underline{\hat{U}}(t)\coloneqq\begin{bmatrix}\underline{\hat{U}}_{1}(t) & \cdots & \underline{\hat{U}}_{K}(t)\end{bmatrix}
+\]
+
+\end_inset
+
+为 
+\begin_inset Formula $N\times K$
+\end_inset
+
+ 待定函数矩阵；
+\begin_inset Formula 
+\[
+\underline{R}_{V}\coloneqq\int_{V}\mathopen{\underline{\vec{F}}}\left(\underline{U^{h}}\right)\cdot\begin{bmatrix}\nabla\phi_{1} & \cdots & \nabla\phi_{K}\end{bmatrix}+\int_{V}\begin{bmatrix}\phi_{1} & \cdots & \phi_{K}\end{bmatrix}\mathopen{\underline{H}}\left(\underline{U^{h}}\right)
+\]
+
+\end_inset
+
+为 
+\begin_inset Formula $N\times L$
+\end_inset
+
+ 矩阵，表示体积分残差；
+\begin_inset Formula 
+\[
+\underline{R}_{\partial V}\coloneqq\oint_{\partial V}\begin{bmatrix}\phi_{1} & \cdots & \phi_{L}\end{bmatrix}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U^{h}}\right)
+\]
+
+\end_inset
+
+为 
+\begin_inset Formula $N\times L$
+\end_inset
+
+ 矩阵，表示面积分残差。式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:orthonormal_DG"
+
+\end_inset
+
+ 是一个常微分方程组，它的求解方法将在《
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:RK"
+
+\end_inset
+
+》一节给出。
+\end_layout
+
 \begin_layout Section
-数值振荡
+压制振荡
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:WENO"
@@ -23572,7 +23652,7 @@ name "sec:WENO"
 
 \begin_layout Standard
 关于数值振荡的成因，学界存在多种观点，并有针对性地提出了多种压制策略：偏物理的解释有格式黏性不足、数值色散误差等观点，相应的策略包括人工黏性、群速度控制；偏数学
-的解释有格式单调性、吉布斯现象等，相应的策略有限制器、滤波器、高阶重构等。实际上，这些观点及策略在某种程度上是等价的。本文用吉布斯现象来解释数值振荡的成因，用
+的解释有格式单调性、吉布斯现象等，相应的策略有滤波器、限制器、高阶重构等。实际上，这些观点及策略在某种程度上是等价的。本文用吉布斯现象来解释数值振荡的成因，用
  WENO 重构来压制数值振荡。
 \end_layout
 
@@ -24909,211 +24989,164 @@ u_{z}
 时间推进
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:有限差分：时间推进"
+name "sec:RK"
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsection
-格式分类
-\end_layout
-
 \begin_layout Standard
-时间导数原则上可以像空间导数一样作有限差分近似：
-\end_layout
+《
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sec:DG"
+plural "false"
+caps "false"
+noprefix "false"
 
-\begin_layout Itemize
-如果先对空间变量进行离散，得到一组常微分方程，再选用适当的时间推进格式，则称其为
-\color blue
-半离散 (semi-discretized)
-\color inherit
- 格式，详见节 
+\end_inset
+
+》一节最后给出的式 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:有限差分：时间格式：显示推进"
+reference "eq:orthonormal_DG"
 
 \end_inset
 
-。
-\end_layout
-
-\begin_layout Itemize
-如果同时对时空变量作离散，则称其为
-\color blue
-全离散 (fully discretized)
-\color inherit
- 格式，或时空
-\color blue
-耦合 (coupled)
-\color inherit
- 格式，详见节 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:有限差分：时空耦合"
+ 是一个待求解的常微分方程组，其中右端项依赖于待定未知量，不妨将其记作
+\begin_inset Formula 
+\[
+\frac{\dd}{\dd t}\underline{\hat{U}}=\underline{\hat{R}},\qquad\underline{R}(\underline{\hat{U}}).
+\]
 
 \end_inset
 
-。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-考虑到时间变量 
+其左侧的时间导数原则上可以做有限差分近似；考虑到时间变量 
 \begin_inset Formula $t$
 \end_inset
 
- 是单调递增的，时间格式应当具有单向
-\color blue
-推进 (marching)
-\color inherit
- 的特点：
+ 是单调递增的，时间格式应当具有向前“推进 (marching)”的特点：
 \end_layout
 
 \begin_layout Itemize
-变量在下一时间步 
+变量 
+\begin_inset Formula $\underline{\hat{U}}$
+\end_inset
+
+ 在下一时间步 
 \begin_inset Formula $t_{n+1}$
 \end_inset
 
- 的取值由变量在当前（及之前各）时间步的取值计算而得。
-\end_layout
-
-\begin_layout Itemize
-如果计算过程只需用到 
-\begin_inset Formula $t_{n}$
+ 的值 
+\begin_inset Formula $\underline{\hat{U}}^{n+1}$
 \end_inset
 
- 时刻的变量值，则称其为
-\color blue
-单步 (single step)
-\color inherit
- 格式，否则称之为
-\color blue
-多步 (multi-step)
-\color inherit
- 格式。
+ 由变量在当前及之前各时间步的值计算而得。
 \end_layout
 
 \begin_layout Itemize
-如果计算过程无需解代数方程，则称其为
-\color blue
-显式 (explicit)
-\color inherit
- 格式，否则称之为
-\color blue
-隐式 (implicit)
-\color inherit
- 格式。
+如果计算 
+\begin_inset Formula $\underline{\hat{U}}^{n+1}$
+\end_inset
+
+ 只需用到 
+\begin_inset Formula $\underline{\hat{U}}^{n}$
+\end_inset
+
+，则称其为单步格式，否则称之为多步格式。
 \end_layout
 
+\begin_layout Itemize
+如果计算 
+\begin_inset Formula $\underline{\hat{U}}^{n+1}$
+\end_inset
+
+ 时，右端项不依赖于 
+\begin_inset Formula $\underline{\hat{U}}^{n+1}$
+\end_inset
+
+，则称其为显示推进格式，否则称之为隐式推进格式。
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+显示推进格式可以直接代入公式计算，编程实现更简单，但对时间步长的要求相对苛刻。
+\end_layout
+
+\begin_layout Itemize
+隐式推进格式需要求解关于 
+\begin_inset Formula $\underline{\hat{U}}^{n+1}$
+\end_inset
+
+ 的代数方程组，编程实现更复杂，但对时间步长的要求相对宽松。
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-下面考虑常微分方程组
-\begin_inset Formula 
-\[
-\frac{\dd}{\dd t}\underline{U}=\underline{R}(\underline{U})
-\]
-
-\end_inset
-
-其中 
-\begin_inset Formula $\underline{U},\underline{R}$
-\end_inset
-
- 是由 
-\begin_inset Formula $\left\{ U_{i}(t)\right\} _{i\in I},\left\{ R_{i}(\underline{U},t)\right\} _{i\in I}$
-\end_inset
-
- 构成的矩阵。
 \end_layout
 
 \begin_layout Subsection
-显式推进
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:有限差分：时间格式：显示推进"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Algorithm
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-[Explicit Euler]
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:有限差分： 时间推进：显式 Euler"
-
-\end_inset
-
-这是最简单的显式推进格式，采用
-\color blue
-一阶向前 (forward) 差分
-\color inherit
-近似时间导数：
-\begin_inset Formula 
-\[
-\frac{\underline{U}^{n+1}-\underline{U}^{n}}{h_{t}}\approx\frac{\dd}{\dd t}\underline{U}^{n}=\underline{R}(\underline{U}^{n})
-\]
-
-\end_inset
-
-从而得显式 Euler 推进格式：
-\begin_inset Formula 
-\[
-\underline{U}^{n+1}=\underline{U}^{n}+\underline{R}^{n}h_{t}
-\]
-
-\end_inset
-
-
+一阶格式
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Algorithm
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-[Runge--Kutta]
-\end_layout
+采用一阶向前差分近似时间导数：
+\begin_inset Formula 
+\[
+\frac{\underline{\hat{U}}^{n+1}-\underline{\hat{U}}^{n}}{h_{t}}\approx\frac{\dd}{\dd t}\underline{\hat{U}}^{n}=\underline{\hat{R}}^{n},
+\]
 
 \end_inset
 
-这是一族时间推进格式，最一般的形式为
+就得到显式欧拉格式：
+\begin_inset Formula 
+\[
+\underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n}.
+\]
+
+\end_inset
+
+它是最简单的显式推进格式。
+\end_layout
+
+\begin_layout Standard
+采用一阶向后差分近似时间导数：
+\begin_inset Formula 
+\[
+\frac{\underline{\hat{U}}^{n+1}-\underline{\hat{U}}^{n}}{h_{t}}\approx\frac{\dd}{\dd t}\underline{\hat{U}}^{n+1}=\underline{\hat{R}}^{n+1},
+\]
+
+\end_inset
+
+就得到隐式欧拉格式：
+\begin_inset Formula 
+\[
+\underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n+1}.
+\]
+
+\end_inset
+
+它是最简单的隐式推进格式。
+\end_layout
+
+\begin_layout Standard
+以上两种欧拉格式都只有一阶时间精度。
+\end_layout
+
+\begin_layout Subsection
+高阶格式
+\end_layout
+
+\begin_layout Standard
+显式 Runge–Kutta (RK) 格式是一族高阶推进格式，最一般的形式为
 \begin_inset Formula 
 \begin{equation}
-\underline{U}^{n+i/m}=\sum_{k=0}^{i-1}\left(\alpha_{i,k}\underline{U}^{n+k/m}+\beta_{i,k}\underline{R}^{n+k/m}h_{t}\right),\qquad i=1,\dots,m\label{eq:m-stage_Runge--Kutta}
+\underline{\hat{U}}^{n+i/m}=\sum_{k=0}^{i-1}\left(\alpha_{i,k}\underline{\hat{U}}^{n+k/m}+\beta_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\right),\qquad i=1,\dots,m\label{eq:m-stage_Runge--Kutta}
 \end{equation}
 
 \end_inset
@@ -25126,18 +25159,18 @@ status open
 \begin_inset Formula $i$
 \end_inset
 
- 都成立。在 CFD 中推荐选用以下版本：
+ 都成立。本文选用以下版本：
 \end_layout
 
-\begin_deeper
 \begin_layout Description
 二阶 
 \begin_inset Formula 
-\[
-\begin{aligned}\underline{U}^{n+1/2} & =\underline{U}^{n}+\underline{R}^{n}h_{t}\\
-\underline{U}^{n+1}\equiv\underline{U}^{n+2/2} & =\frac{1}{2}\underline{U}^{n}+\frac{1}{2}\left(\underline{U}^{n+1/2}+\underline{R}^{n+1/2}h_{t}\right)
+\begin{equation}
+\begin{aligned}\underline{\hat{U}}^{n+1/2} & =\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n},\\
+\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+2/2} & =\frac{1}{2}\underline{\hat{U}}^{n}+\frac{1}{2}\left(\underline{\hat{U}}^{n+1/2}+h_{t}\underline{\hat{R}}^{n+1/2}\right);
 \end{aligned}
-\]
+\label{eq:RK2}
+\end{equation}
 
 \end_inset
 
@@ -25147,65 +25180,13 @@ status open
 \begin_layout Description
 三阶 
 \begin_inset Formula 
-\[
-\begin{aligned}\underline{U}^{n+1/3} & =\underline{U}^{n}+\underline{R}^{n}h_{t}\\
-\underline{U}^{n+2/3} & =\frac{3}{4}\underline{U}^{n}+\frac{1}{4}\left(\underline{U}^{n+1/3}+\underline{R}^{n+1/3}h_{t}\right)\\
-\underline{U}^{n+1}\equiv\underline{U}^{n+3/3} & =\frac{1}{3}\underline{U}^{n}+\frac{2}{3}\left(\underline{U}^{n+2/3}+\underline{R}^{n+2/3}h_{t}\right)
+\begin{equation}
+\begin{aligned}\underline{\hat{U}}^{n+1/3} & =\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n},\\
+\underline{\hat{U}}^{n+2/3} & =\frac{3}{4}\underline{\hat{U}}^{n}+\frac{1}{4}\left(\underline{\hat{U}}^{n+1/3}+h_{t}\underline{\hat{R}}^{n+1/3}\right),\\
+\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+3/3} & =\frac{1}{3}\underline{\hat{U}}^{n}+\frac{2}{3}\left(\underline{\hat{U}}^{n+2/3}+h_{t}\underline{\hat{R}}^{n+2/3}\right).
 \end{aligned}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-隐式推进
-\end_layout
-
-\begin_layout Algorithm
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-[Implicit Euler]
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:有限差分： 时间推进：隐式 Euler"
-
-\end_inset
-
-这是最简单的隐式推进格式，采用
-\color blue
-一阶向后 (backward) 差分
-\color inherit
-近似时间导数：
-\begin_inset Formula 
-\[
-\frac{\underline{U}^{n}-\underline{U}^{n-1}}{h_{t}}\approx\frac{\dd}{\dd t}\underline{U}^{n}=\underline{R}(\underline{U}^{n})
-\]
-
-\end_inset
-
-从而得隐式 Euler 推进格式：
-\begin_inset Formula 
-\[
-\underline{U}^{n+1}=\underline{U}^{n}+\underline{R}^{n+1}h_{t}
-\]
+\label{eq:RK3}
+\end{equation}
 
 \end_inset
 
@@ -25223,106 +25204,32 @@ name "alg:有限差分： 时间推进：隐式 Euler"
 强稳定性
 \end_layout
 
-\begin_layout Definition
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-[稳定性]
-\end_layout
-
+\begin_layout Standard
+设 
+\begin_inset Formula $\Vert\cdots\Vert$
 \end_inset
 
-存在非负常数 
+ 是某种矩阵范数。若存在非负常数 
 \begin_inset Formula $C$
 \end_inset
 
  使得
-\end_layout
-
-\begin_layout Definition
 \begin_inset Formula 
 \[
-\Vert\underline{U}^{n}\Vert\le C\Vert\underline{U}^{0}\Vert,\qquad\forall n\in\mathbb{N}.
+\Vert\underline{\hat{U}}^{n}\Vert\le C\Vert\underline{\hat{U}}^{0}\Vert,\qquad\forall n\in\mathbb{N},
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
+则称该格式具有稳定性。若上述 
+\begin_inset Formula $C\le1$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-[强稳定性]
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-\begin_inset Formula 
-\[
-\Vert\underline{U}^{n}\Vert\le\Vert\underline{U}^{0}\Vert,\qquad\forall n\in\mathbb{N}.
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-[强稳定保持]
-\end_layout
-
-\end_inset
-
-“强稳定保持 (strong stability-preserving, SSP)”
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
+，则称该格式具有强稳定性。可以证明：当时间步长足够小时，显式欧拉格式具有强稳定性。若高阶格式可以保持这种强稳定性，则称其为“强稳定保持 (strong
+ stability-preserving, SSP)”格式。
 \end_layout
 
 \begin_layout Lemma
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-[SSP RK]
-\end_layout
-
-\end_inset
-
 若式 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -25331,7 +25238,11 @@ reference "eq:m-stage_Runge--Kutta"
 \end_inset
 
  中的所有 
-\begin_inset Formula $\alpha_{i,k},\beta_{i,k}$
+\begin_inset Formula $\alpha_{i,k}$
+\end_inset
+
+ 和 
+\begin_inset Formula $\beta_{i,k}$
 \end_inset
 
  都非负，且满足
@@ -25342,7 +25253,7 @@ h_{t}\le ch_{t}^{\text{F.E.}},\qquad c=\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}
 
 \end_inset
 
-则其为 SSP RK 格式。
+则其为 SSP 格式。
 \end_layout
 
 \begin_layout Standard
@@ -25354,14 +25265,14 @@ h_{t}\le ch_{t}^{\text{F.E.}},\qquad c=\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}
 
 \begin_layout Proof
 满足上述条件时，每个中间步的 
-\begin_inset Formula $\underline{U}^{n+i/m}$
+\begin_inset Formula $\underline{\hat{U}}^{n+i/m}$
 \end_inset
 
- 都可以分解为若干显式 Euler 推进的凸组合：
+ 都可以分解为若干显式欧拉格式的凸组合：
 \begin_inset Formula 
 \[
-\begin{aligned}\left\Vert \underline{U}^{n+i/m}\right\Vert  & =\left\Vert \sum_{k=0}^{i-1}\alpha_{i,k}\left(\underline{U}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{R}^{n+k/m}\right)\right\Vert \\
- & \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{U}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{R}^{n+k/m}\right\Vert 
+\begin{aligned}\left\Vert \underline{\hat{U}}^{n+i/m}\right\Vert  & =\left\Vert \sum_{k=0}^{i-1}\alpha_{i,k}\left(\underline{\hat{U}}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{\hat{R}}^{n+k/m}\right)\right\Vert \\
+ & \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{\hat{R}}^{n+k/m}\right\Vert 
 \end{aligned}
 \]
 
@@ -25375,10 +25286,10 @@ h_{t}\le ch_{t}^{\text{F.E.}},\qquad c=\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}
 
 \end_inset
 
-满足显式 Euler 强稳定性条件，因此有
+满足显式欧拉格式的强稳定性条件，因此有
 \begin_inset Formula 
 \[
-\left\Vert \underline{U}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{R}^{n+k/m}\right\Vert \le\left\Vert \underline{U}^{n+k/m}\right\Vert ,\qquad\forall k=0,1,\dots,i-1.
+\left\Vert \underline{\hat{U}}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{\hat{R}}^{n+k/m}\right\Vert \le\left\Vert \underline{\hat{U}}^{n+k/m}\right\Vert ,\qquad\forall k=0,1,\dots,i-1.
 \]
 
 \end_inset
@@ -25386,8 +25297,8 @@ h_{t}\le ch_{t}^{\text{F.E.}},\qquad c=\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}
 从而有
 \begin_inset Formula 
 \[
-\begin{aligned}\left\Vert \underline{U}^{n+i/m}\right\Vert  & \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{U}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{R}^{n+k/m}\right\Vert \\
- & \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{U}^{n+k/m}\right\Vert .
+\begin{aligned}\left\Vert \underline{\hat{U}}^{n+i/m}\right\Vert  & \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{\hat{R}}^{n+k/m}\right\Vert \\
+ & \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n+k/m}\right\Vert .
 \end{aligned}
 \]
 
@@ -25396,7 +25307,7 @@ h_{t}\le ch_{t}^{\text{F.E.}},\qquad c=\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}
 据此有
 \begin_inset Formula 
 \[
-\left\Vert \underline{U}^{n+1/m}\right\Vert \le\sum_{k=0}^{0}\alpha_{1,0}\left\Vert \underline{U}^{n+0/m}\right\Vert =\left\Vert \underline{U}^{n}\right\Vert ,
+\left\Vert \underline{\hat{U}}^{n+1/m}\right\Vert \le\sum_{k=0}^{0}\alpha_{1,0}\left\Vert \underline{\hat{U}}^{n+0/m}\right\Vert =\left\Vert \underline{U}^{n}\right\Vert ,
 \]
 
 \end_inset
@@ -25404,7 +25315,7 @@ h_{t}\le ch_{t}^{\text{F.E.}},\qquad c=\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}
 从而可以递归地证明
 \begin_inset Formula 
 \[
-\left\Vert \underline{U}^{n+i/m}\right\Vert \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{U}^{n+k/m}\right\Vert \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{U}^{n}\right\Vert =\left\Vert \underline{U}^{n}\right\Vert .
+\left\Vert \underline{\hat{U}}^{n+i/m}\right\Vert \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n+k/m}\right\Vert \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n}\right\Vert =\left\Vert \underline{\hat{U}}^{n}\right\Vert .
 \]
 
 \end_inset
@@ -25423,7 +25334,7 @@ h_{t}\le ch_{t}^{\text{F.E.}},\qquad c=\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}
 一般的显式 RK 格式
 \begin_inset Formula 
 \[
-\underline{U}^{n+i/m}=\underline{U}^{n}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{R}^{n+k/m},\qquad i=1,2,\dots,m,
+\underline{\hat{U}}^{n+i/m}=\underline{\hat{U}}^{n}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m},\qquad i=1,2,\dots,m,
 \]
 
 \end_inset
@@ -25476,10 +25387,10 @@ reference "eq:m-stage_Runge--Kutta"
 则
 \begin_inset Formula 
 \[
-\begin{aligned}\underline{U}^{n+i/m} & =\underline{U}^{n}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{R}^{n+k/m}=\underbrace{\left(\sum_{k=0}^{i-1}\alpha_{i,k}\right)}_{=1}\underline{U}^{n}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{R}^{n+k/m}\\
- & =\alpha_{i,0}\underline{U}^{n}+\sum_{k=1}^{i-1}\alpha_{i,k}\underbrace{\left(\underline{U}^{n+k/m}-\sum_{l=0}^{k-1}\gamma_{k,l}h_{t}\underline{R}^{n+l/m}\right)}_{=\underline{U}^{n}}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{R}^{n+k/m}\\
- & =\underbrace{\left(\alpha_{i,0}\underline{U}^{n+0/m}+\sum_{k=1}^{i-1}\alpha_{i,k}\underline{U}^{n+k/m}\right)}_{\sum_{k=0}^{i-1}\alpha_{i,k}\underline{U}^{n+k/m}}\\
- & +\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{R}^{n+k/m}-\sum_{k=1}^{i-1}\sum_{l=0}^{k-1}\alpha_{i,k}\gamma_{k,l}h_{t}\underline{R}^{n+l/m},
+\begin{aligned}\underline{\hat{U}}^{n+i/m} & =\underline{\hat{U}}^{n}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}=\underbrace{\left(\sum_{k=0}^{i-1}\alpha_{i,k}\right)}_{=1}\underline{\hat{U}}^{n}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\\
+ & =\alpha_{i,0}\underline{U}^{n}+\sum_{k=1}^{i-1}\alpha_{i,k}\underbrace{\left(\underline{\hat{U}}^{n+k/m}-\sum_{l=0}^{k-1}\gamma_{k,l}h_{t}\underline{\hat{R}}^{n+l/m}\right)}_{=\underline{U}^{n}}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\\
+ & =\underbrace{\left(\alpha_{i,0}\underline{\hat{U}}^{n+0/m}+\sum_{k=1}^{i-1}\alpha_{i,k}\underline{\hat{U}}^{n+k/m}\right)}_{\sum_{k=0}^{i-1}\alpha_{i,k}\underline{U}^{n+k/m}}\\
+ & +\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}-\sum_{k=1}^{i-1}\sum_{l=0}^{k-1}\alpha_{i,k}\gamma_{k,l}h_{t}\underline{\hat{R}}^{n+l/m},
 \end{aligned}
 \]
 
@@ -25488,7 +25399,7 @@ reference "eq:m-stage_Runge--Kutta"
 其中
 \begin_inset Formula 
 \[
-\begin{aligned}\sum_{k=1}^{i-1}\sum_{l=0}^{k-1}\alpha_{i,k}\gamma_{k,l}h_{t}\underline{R}^{n+l/m} & =\sum_{l=0}^{i-2}\sum_{k=l+1}^{i-1}\alpha_{i,k}\gamma_{k,l}h_{t}\underline{R}^{n+l/m}=\sum_{k=0}^{i-2}\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}h_{t}\underline{R}^{n+k/m}\end{aligned}
+\begin{aligned}\sum_{k=1}^{i-1}\sum_{l=0}^{k-1}\alpha_{i,k}\gamma_{k,l}h_{t}\underline{\hat{R}}^{n+l/m} & =\sum_{l=0}^{i-2}\sum_{k=l+1}^{i-1}\alpha_{i,k}\gamma_{k,l}h_{t}\underline{\hat{R}}^{n+l/m}=\sum_{k=0}^{i-2}\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}h_{t}\underline{\hat{R}}^{n+k/m}.\end{aligned}
 \]
 
 \end_inset
@@ -25496,9 +25407,9 @@ reference "eq:m-stage_Runge--Kutta"
 因此
 \begin_inset Formula 
 \[
-\begin{aligned}\underline{U}^{n+i/m} & =\sum_{k=0}^{i-1}\alpha_{i,k}\underline{U}^{n+k/m}-\sum_{k=0}^{i-2}\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}h_{t}\underline{R}^{n+k/m}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{R}^{n+k/m}\\
- & =\sum_{k=0}^{i-2}\left(\alpha_{i,k}\underline{U}^{n+k/m}+\left(\gamma_{i,k}-\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}\right)h_{t}\underline{R}^{n+k/m}\right)\\
- & +\sum_{k=i-1}^{i-1}\left(\alpha_{i,k}\underline{U}^{n+k/m}+\gamma_{i,k}h_{t}\underline{R}^{n+k/m}\right)
+\begin{aligned}\underline{\hat{U}}^{n+i/m} & =\sum_{k=0}^{i-1}\alpha_{i,k}\underline{\hat{U}}^{n+k/m}-\sum_{k=0}^{i-2}\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}h_{t}\underline{\hat{R}}^{n+k/m}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\\
+ & =\sum_{k=0}^{i-2}\left(\alpha_{i,k}\underline{\hat{U}}^{n+k/m}+\left(\gamma_{i,k}-\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}\right)h_{t}\underline{\hat{R}}^{n+k/m}\right)\\
+ & +\sum_{k=i-1}^{i-1}\left(\alpha_{i,k}\underline{\hat{U}}^{n+k/m}+\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\right).
 \end{aligned}
 \]
 
@@ -25514,16 +25425,8 @@ reference "eq:m-stage_Runge--Kutta"
 
 \end_layout
 
-\begin_layout Example
-构造 SSP 四阶 RK 格式必须引入 
-\begin_inset Formula $\underline{R}$
-\end_inset
-
- 的伴随算子 
-\begin_inset Formula $\underline{R^{\dagger}}$
-\end_inset
-
-，详见 
+\begin_layout Standard
+强稳定保持的概念以及上述引理，是由 Shu 等提出并发展的 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "Gottlieb_1998,Gottlieb_2001"
@@ -25531,10 +25434,11 @@ literal "false"
 
 \end_inset
 
-。
+。原始文献中的推导过程较为简略，这里尽量补全了被省去的步骤。
 \end_layout
 
-\begin_layout Example
+\begin_layout Standard
+并非所有 RK 格式都能保持强稳定性。例如：文献 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Hirsch_2007"
@@ -25545,13 +25449,13 @@ literal "false"
  给出的四阶 RK 格式
 \end_layout
 
-\begin_layout Example
+\begin_layout Standard
 \begin_inset Formula 
 \[
-\begin{aligned}\underline{U}^{n+1/4} & =\underline{U}^{n}+\frac{h_{t}}{2}\underline{R}^{n}\\
-\underline{U}^{n+2/4} & =\underline{U}^{n}+\frac{h_{t}}{2}\underline{R}^{n+1/4}\\
-\underline{U}^{n+3/4} & =\underline{U}^{n}+h_{t}\,\underline{R}^{n+2/4}\\
-\underline{U}^{n+1}\equiv\underline{U}^{n+4/4} & =\underline{U}^{n}+\frac{h_{t}}{6}\left(\underline{R}^{n}+2\underline{R}^{n+1/4}+2\underline{R}^{n+2/4}+\underline{R}^{n+3/4}\right)
+\begin{aligned}\underline{\hat{U}}^{n+1/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n},\\
+\underline{\hat{U}}^{n+2/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4},\\
+\underline{\hat{U}}^{n+3/4} & =\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n+2/4},\\
+\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+4/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{6}\left(\underline{\hat{R}}^{n}+2\underline{\hat{R}}^{n+1/4}+2\underline{\hat{R}}^{n+2/4}+\underline{\hat{R}}^{n+3/4}\right),
 \end{aligned}
 \]
 
@@ -25564,25 +25468,63 @@ reference "eq:m-stage_Runge--Kutta"
 
 \end_inset
 
- 的形式后，并非所有 
-\begin_inset Formula $\alpha_{i,k},\beta_{i,k}$
+ 的形式后
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+给出具体形式
+\end_layout
+
+\end_inset
+
+，并非所有 
+\begin_inset Formula $\alpha_{i,k}$
+\end_inset
+
+ 与 
+\begin_inset Formula $\beta_{i,k}$
 \end_inset
 
  都非负，因此不是 SSP 格式。
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator plain
+本文选用式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:RK2"
+
 \end_inset
 
+ 及式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:RK3"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+ 正是因为它们是 SSP 格式。遵循原始文献的习惯，本文把用 (SSP) RK 格式做时间推进、用 DG 做空间离散的方法称为“RKDG 方法”，并称基于
+ RKDG 方法的求解器/近似解为“RKDG 求解器/近似解”。
 \end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
 
 \begin_layout Section
 并行实现
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:parallel"
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
