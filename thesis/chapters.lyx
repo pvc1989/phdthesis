@@ -22288,6 +22288,435 @@ reference "eq:inner-product"
 \end_layout
 
 \begin_layout Subsection
+正交归一化
+\end_layout
+
+\begin_layout Standard
+任取 
+\begin_inset Formula $\mathbb{P}^{<p}(V_{i})$
+\end_inset
+
+ 的一组基函数，总是可以借助式 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:inner-product"
+
+\end_inset
+
+ 所定义的内积，构造出 
+\begin_inset Formula $\mathbb{P}^{<p}(V_{i})$
+\end_inset
+
+ 的一组正交归一化的基函数。不失一般性，可以取
+\begin_inset Formula 
+\[
+\phi_{1}(\vec{r})=1,\qquad\begin{bmatrix}\phi_{2}(\vec{r})\\
+\phi_{3}(\vec{r})\\
+\phi_{4}(\vec{r})
+\end{bmatrix}=\begin{bmatrix}x-x_{0}\\
+y-y_{0}\\
+z-z_{0}
+\end{bmatrix},\qquad\begin{bmatrix}\phi_{5}(\vec{r})\\
+\phi_{6}(\vec{r})\\
+\phi_{7}(\vec{r})\\
+\phi_{8}(\vec{r})\\
+\phi_{9}(\vec{r})\\
+\phi_{10}(\vec{r})
+\end{bmatrix}=\begin{bmatrix}(x-x_{0})(x-x_{0})\\
+(x-x_{0})(y-y_{0})\\
+(x-x_{0})(z-z_{0})\\
+(y-y_{0})(y-y_{0})\\
+(y-y_{0})(z-z_{0})\\
+(z-z_{0})(z-z_{0})
+\end{bmatrix},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{bmatrix}\phi_{11}(\vec{r})\\
+\phi_{12}(\vec{r})\\
+\phi_{13}(\vec{r})\\
+\phi_{14}(\vec{r})\\
+\phi_{15}(\vec{r})\\
+\phi_{16}(\vec{r})\\
+\phi_{17}(\vec{r})\\
+\phi_{18}(\vec{r})\\
+\phi_{19}(\vec{r})\\
+\phi_{20}(\vec{r})
+\end{bmatrix}=\begin{bmatrix}(x-x_{0})(x-x_{0})(x-x_{0})\\
+(x-x_{0})(x-x_{0})(y-y_{0})\\
+(x-x_{0})(x-x_{0})(z-z_{0})\\
+(x-x_{0})(y-y_{0})(y-y_{0})\\
+(x-x_{0})(y-y_{0})(z-z_{0})\\
+(x-x_{0})(z-z_{0})(z-z_{0})\\
+(y-y_{0})(y-y_{0})(y-y_{0})\\
+(y-y_{0})(y-y_{0})(z-z_{0})\\
+(y-y_{0})(z-z_{0})(z-z_{0})\\
+(z-z_{0})(z-z_{0})(z-z_{0})
+\end{bmatrix},\qquad\dots
+\]
+
+\end_inset
+
+其中 
+\begin_inset Formula $(x_{0},y_{0},z_{0})$
+\end_inset
+
+ 是体单元 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 内任意一点。可以证明：
+\begin_inset Formula 
+\[
+\underline{\varPhi}(\vec{r})\coloneqq\begin{bmatrix}\phi_{1}(\vec{r}) & \phi_{2}(\vec{r}) & \cdots & \phi_{n}(\vec{r})\end{bmatrix}^{t},\qquad n=\frac{p}{6}(p+1)(p+2),
+\]
+
+\end_inset
+
+的确是函数空间 
+\begin_inset Formula $\mathbb{P}^{<p}(V_{i})$
+\end_inset
+
+ 的一组基。对其应用 Gram–Schimidt 过程，即得一组正交归一化的基函数：
+\end_layout
+
+\begin_layout Itemize
+首先对 
+\begin_inset Formula $\phi_{1}$
+\end_inset
+
+ 作归一化：
+\begin_inset Formula 
+\[
+e_{1}=\frac{\phi_{1}}{\Vert\phi_{1}\Vert_{V_{i}}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+假设已得出前 
+\begin_inset Formula $m-1$
+\end_inset
+
+ 个正交归一化的基函数 
+\begin_inset Formula $\left\{ e_{k}\right\} _{k=1}^{m-1}$
+\end_inset
+
+，那么构造 
+\begin_inset Formula $e_{m}$
+\end_inset
+
+ 只需先从 
+\begin_inset Formula $\phi_{m}$
+\end_inset
+
+ 中减去其在 
+\begin_inset Formula $\left\{ e_{k}\right\} _{k=1}^{m-1}$
+\end_inset
+
+ 上的投影，再对剩余部分作归一化：
+\begin_inset Formula 
+\begin{equation}
+e_{m}=\frac{\phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle_{V_{i}}}{\left\Vert \phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle_{V_{i}}\right\Vert _{V_{i}}},\qquad m>1.\label{eq:ortho-normal}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如果将所得结果记为
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\underbrace{\begin{bmatrix}e_{1}(\vec{r})\\
+e_{2}(\vec{r})\\
+\vdots\\
+e_{n}(\vec{r})
+\end{bmatrix}}_{\underline{E}}=\underbrace{\begin{bmatrix}s_{11}\\
+s_{21} & s_{22}\\
+\vdots & \vdots & \ddots\\
+s_{n1} & s_{n2} & \cdots & s_{nn}
+\end{bmatrix}}_{\underline{S}}\underbrace{\begin{bmatrix}\phi_{1}(\vec{r})\\
+\phi_{2}(\vec{r})\\
+\vdots\\
+\phi_{n}(\vec{r})
+\end{bmatrix}}_{\underline{\varPhi}},
+\]
+
+\end_inset
+
+那么 
+\begin_inset Formula $\underline{S}$
+\end_inset
+
+ 为下三角阵，其元素可逐行算出
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JYY_2021"
+literal "false"
+
+\end_inset
+
+：
+\end_layout
+
+\begin_layout Itemize
+第一行只需做归一化：
+\begin_inset Formula 
+\[
+s_{11}=\frac{1}{\Vert\phi_{1}\Vert_{V_{i}}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+假设已获得 
+\begin_inset Formula $\underline{S}$
+\end_inset
+
+ 的前 
+\begin_inset Formula $m-1$
+\end_inset
+
+ 行，将已知的
+\begin_inset Formula 
+\begin{equation}
+e_{k}=\sum_{j=1}^{k}s_{kj}\phi_{j},\qquad k=1,2,\dots,m-1,\label{eq:partially_orthonormal}
+\end{equation}
+
+\end_inset
+
+代入式 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ortho-normal"
+
+\end_inset
+
+ 右端的分子，可得
+\begin_inset Formula 
+\[
+\begin{aligned}\phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle_{V_{i}} & =\phi_{m}-\sum_{k=1}^{m-1}\left(\sum_{j=1}^{k}s_{kj}\phi_{j}\right)\ip{\sum_{l=1}^{k}s_{kl}\phi_{l}}{\phi_{m}}_{V_{i}}\\
+ & =\phi_{m}-\sum_{k=1}^{m-1}\left(\sum_{j=1}^{k}s_{kj}\phi_{j}\right)\left(\sum_{l=1}^{k}s_{kl}\langle\phi_{l}\vert\phi_{m}\rangle_{V_{i}}\right)\\
+ & =\sum_{j=1}^{m}a_{j}\phi_{j},
+\end{aligned}
+\]
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\[
+a_{j}=\begin{cases}
+-\sum_{k=1}^{m-1}\left(\sum_{l=1}^{k}s_{kl}\langle\phi_{l}\vert\phi_{m}\rangle_{V_{i}}\right)s_{kj}, & j<m;\\
+1, & j=m.
+\end{cases}
+\]
+
+\end_inset
+
+最后对 
+\begin_inset Formula $\sum_{j=1}^{m}a_{j}\phi_{j}$
+\end_inset
+
+ 作归一化，即得 
+\begin_inset Formula $\underline{S}$
+\end_inset
+
+ 的第 
+\begin_inset Formula $m$
+\end_inset
+
+ 行：
+\begin_inset Formula 
+\[
+s_{mj}=\frac{a_{j}}{\left\Vert \sum_{j=1}^{m}a_{j}\phi_{j}\right\Vert _{V_{i}}}=\frac{a_{j}}{\sqrt{\sum_{j=1}^{m}\sum_{l=1}^{m}a_{j}a_{l}\langle\phi_{j}\vert\phi_{l}\rangle_{V_{i}}}},\qquad j=1,\dots,m.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+含有 
+\begin_inset Formula $m$
+\end_inset
+
+ 个成员的矩阵函数 
+\begin_inset Formula $\underline{U}(\vec{r})=\begin{bmatrix}u_{1}(\vec{r}) & \cdots & u_{m}(\vec{r})\end{bmatrix}^{t}$
+\end_inset
+
+ 可以用其在正交归一基底 
+\begin_inset Formula $\underline{E}(\vec{r})=\begin{bmatrix}e_{1}(\vec{r}) & \cdots & e_{n}(\vec{r})\end{bmatrix}^{t}$
+\end_inset
+
+ 上的投影来近似：
+\begin_inset Formula 
+\begin{equation}
+\underbrace{\begin{bmatrix}u_{1}^{h}(\vec{r})\\
+\vdots\\
+u_{m}^{h}(\vec{r})
+\end{bmatrix}}_{\underline{U^{h}}(\vec{r})}=\underbrace{\begin{bmatrix}\langle u_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle u_{1}\vert e_{n}\rangle_{V_{i}}\\
+\vdots & \ddots & \vdots\\
+\langle u_{m}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle u_{m}\vert e_{n}\rangle_{V_{i}}
+\end{bmatrix}}_{\langle\underline{U}\vert\underline{E}\rangle_{V_{i}}}\underbrace{\begin{bmatrix}e_{1}(\vec{r})\\
+\vdots\\
+e_{n}(\vec{r})
+\end{bmatrix}}_{\underline{E}(\vec{r})}.\label{eq:function_projection}
+\end{equation}
+
+\end_inset
+
+这里的“近似”有两层含义：一是该式中的内积一般不能精确算出，二是有限维的多项式空间不足以精确表达任意函数。如果 
+\begin_inset Formula $\underline{U}$
+\end_inset
+
+ 的成员都是多项式，且计算内积所使用的数值积分器有足够高的代数精度，那么上述投影所得的 
+\begin_inset Formula $\underline{U^{h}}$
+\end_inset
+
+ 就是 
+\begin_inset Formula $\underline{U}$
+\end_inset
+
+ 的精确表示。
+\end_layout
+
+\begin_layout Standard
+如果 
+\begin_inset Formula $\underline{E'}(\vec{r})=\begin{bmatrix}e'_{1}(\vec{r}) & \cdots & e'_{n}(\vec{r})\end{bmatrix}^{t}$
+\end_inset
+
+ 是另一组正交归一化的基底，那么原始基底 
+\begin_inset Formula $\underline{E}$
+\end_inset
+
+ 在新的基底 
+\begin_inset Formula $\underline{E'}$
+\end_inset
+
+ 上的投影为
+\begin_inset Formula 
+\[
+\underbrace{\begin{bmatrix}e_{1}(\vec{r})\\
+\vdots\\
+e_{n}(\vec{r})
+\end{bmatrix}}_{\underline{E^{h}}(\vec{r})}=\underbrace{\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e{}_{1}\vert e'_{n}\rangle_{V_{i}}\\
+\vdots & \ddots & \vdots\\
+\langle e_{n}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{n}\vert e'_{n}\rangle_{V_{i}}
+\end{bmatrix}}_{\langle\underline{E}\vert\underline{E'}\rangle_{V_{i}}}\underbrace{\begin{bmatrix}e'_{1}(\vec{r})\\
+\vdots\\
+e'_{n}(\vec{r})
+\end{bmatrix}}_{\underline{E'}(\vec{r})}.
+\]
+
+\end_inset
+
+原则上，该式中的内积都可以精确算出（被积函数都是多项式），因此该变换可以被视为是精确的（即 
+\begin_inset Formula $\underline{E^{h}}$
+\end_inset
+
+ 的上标 
+\begin_inset Formula $h$
+\end_inset
+
+ 可以省略）。将其代入式 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:function_projection"
+
+\end_inset
+
+ 即得 
+\begin_inset Formula $\underline{U}$
+\end_inset
+
+ 在 
+\begin_inset Formula $\underline{E'}$
+\end_inset
+
+ 上的投影：
+\begin_inset Formula 
+\[
+\underbrace{\begin{bmatrix}u_{1}(\vec{r})\\
+\vdots\\
+u_{m}(\vec{r})
+\end{bmatrix}}_{\underline{U^{h}}(\vec{r})}=\underbrace{\begin{bmatrix}\langle u_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle u_{1}\vert e_{n}\rangle_{V_{i}}\\
+\vdots & \ddots & \vdots\\
+\langle u_{m}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle u_{m}\vert e_{n}\rangle_{V_{i}}
+\end{bmatrix}\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{1}\vert e'_{n}\rangle_{V_{i}}\\
+\vdots & \ddots & \vdots\\
+\langle e_{n}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{n}\vert e'_{n}\rangle_{V_{i}}
+\end{bmatrix}}_{\langle\underline{U}\vert\underline{E'}\rangle_{V_{i}}}\underbrace{\begin{bmatrix}e'_{1}(\vec{r})\\
+\vdots\\
+e'_{n}(\vec{r})
+\end{bmatrix}}_{\underline{E'}(\vec{r})}.
+\]
+
+\end_inset
+
+由此得矩阵函数 
+\begin_inset Formula $\underline{U}(\vec{r})$
+\end_inset
+
+ 在两组正交归一基底上的投影系数之间的变换法则：
+\begin_inset Formula 
+\[
+\underbrace{\begin{bmatrix}\langle u_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle u_{1}\vert e'_{n}\rangle_{V_{i}}\\
+\vdots & \ddots & \vdots\\
+\langle u_{m}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle u_{m}\vert e'_{n}\rangle_{V_{i}}
+\end{bmatrix}}_{\langle\underline{U}\vert\underline{E'}\rangle_{V_{i}}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\underbrace{\begin{bmatrix}\langle u_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle u_{1}\vert e_{n}\rangle_{V_{i}}\\
+\vdots & \ddots & \vdots\\
+\langle u_{m}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle u_{m}\vert e_{n}\rangle_{V_{i}}
+\end{bmatrix}}_{\langle\underline{U}\vert\underline{E}\rangle_{V_{i}}}\underbrace{\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{1}\vert e'_{n}\rangle_{V_{i}}\\
+\vdots & \ddots & \vdots\\
+\langle e_{n}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{n}\vert e'_{n}\rangle_{V_{i}}
+\end{bmatrix}}_{\langle\underline{E}\vert\underline{E'}\rangle_{V_{i}}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 对称弱形式
 \end_layout
 
@@ -22792,427 +23221,6 @@ reference "eq:间断有限元：矩阵方程"
 
 \begin_layout Standard
 \begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-正交归一化
-\end_layout
-
-\begin_layout Standard
-任取 
-\begin_inset Formula $\mathbb{P}^{<p}(V_{i})$
-\end_inset
-
- 的一组基函数，总是可以借助式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:inner-product"
-
-\end_inset
-
- 所定义的内积，构造出 
-\begin_inset Formula $\mathbb{P}^{<p}(V_{i})$
-\end_inset
-
- 的一组正交归一化的基函数。不失一般性，可以取
-\begin_inset Formula 
-\[
-\phi_{1}(\vec{r})=1,\qquad\begin{bmatrix}\phi_{2}(\vec{r})\\
-\phi_{3}(\vec{r})\\
-\phi_{4}(\vec{r})
-\end{bmatrix}=\begin{bmatrix}x-x_{0}\\
-y-y_{0}\\
-z-z_{0}
-\end{bmatrix},\qquad\begin{bmatrix}\phi_{5}(\vec{r})\\
-\phi_{6}(\vec{r})\\
-\phi_{7}(\vec{r})\\
-\phi_{8}(\vec{r})\\
-\phi_{9}(\vec{r})\\
-\phi_{10}(\vec{r})
-\end{bmatrix}=\begin{bmatrix}(x-x_{0})(x-x_{0})\\
-(x-x_{0})(y-y_{0})\\
-(x-x_{0})(z-z_{0})\\
-(y-y_{0})(y-y_{0})\\
-(y-y_{0})(z-z_{0})\\
-(z-z_{0})(z-z_{0})
-\end{bmatrix},
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\begin{bmatrix}\phi_{11}(\vec{r})\\
-\phi_{12}(\vec{r})\\
-\phi_{13}(\vec{r})\\
-\phi_{14}(\vec{r})\\
-\phi_{15}(\vec{r})\\
-\phi_{16}(\vec{r})\\
-\phi_{17}(\vec{r})\\
-\phi_{18}(\vec{r})\\
-\phi_{19}(\vec{r})\\
-\phi_{20}(\vec{r})
-\end{bmatrix}=\begin{bmatrix}(x-x_{0})(x-x_{0})(x-x_{0})\\
-(x-x_{0})(x-x_{0})(y-y_{0})\\
-(x-x_{0})(x-x_{0})(z-z_{0})\\
-(x-x_{0})(y-y_{0})(y-y_{0})\\
-(x-x_{0})(y-y_{0})(z-z_{0})\\
-(x-x_{0})(z-z_{0})(z-z_{0})\\
-(y-y_{0})(y-y_{0})(y-y_{0})\\
-(y-y_{0})(y-y_{0})(z-z_{0})\\
-(y-y_{0})(z-z_{0})(z-z_{0})\\
-(z-z_{0})(z-z_{0})(z-z_{0})
-\end{bmatrix},\qquad\dots
-\]
-
-\end_inset
-
-其中 
-\begin_inset Formula $(x_{0},y_{0},z_{0})$
-\end_inset
-
- 是体单元 
-\begin_inset Formula $V_{i}$
-\end_inset
-
- 的几何中心。可以证明：
-\begin_inset Formula 
-\[
-\underline{\varPhi}(\vec{r})\coloneqq\begin{bmatrix}\phi_{1}(\vec{r}) & \phi_{2}(\vec{r}) & \cdots & \phi_{n}(\vec{r})\end{bmatrix}^{t},\qquad n=\frac{p}{6}(p+1)(p+2),
-\]
-
-\end_inset
-
-的确是函数空间 
-\begin_inset Formula $\mathbb{P}^{<p}(V_{i})$
-\end_inset
-
- 的一组基。对其施以 Gram–Schimidt 过程，即得一组正交归一化的基函数：
-\end_layout
-
-\begin_layout Itemize
-首先对 
-\begin_inset Formula $\phi_{1}$
-\end_inset
-
- 作归一化：
-\begin_inset Formula 
-\[
-e_{1}=\frac{\phi_{1}}{\Vert\phi_{1}\Vert}.
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-假设已得出前 
-\begin_inset Formula $m-1$
-\end_inset
-
- 个正交归一化的基函数 
-\begin_inset Formula $\left\{ e_{k}\right\} _{k=1}^{m-1}$
-\end_inset
-
-，那么构造 
-\begin_inset Formula $e_{m}$
-\end_inset
-
- 只需先从 
-\begin_inset Formula $\phi_{m}$
-\end_inset
-
- 中减去其在 
-\begin_inset Formula $\left\{ e_{k}\right\} _{k=1}^{m-1}$
-\end_inset
-
- 上的投影，再对剩余部分作归一化：
-\begin_inset Formula 
-\begin{equation}
-e_{m}=\frac{\phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle}{\left\Vert \phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle\right\Vert },\qquad m>1.\label{eq:ortho-normal}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-如果将所得结果记为
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\underbrace{\begin{bmatrix}e_{1}(\vec{r})\\
-e_{2}(\vec{r})\\
-\vdots\\
-e_{n}(\vec{r})
-\end{bmatrix}}_{\underline{E}}=\underbrace{\begin{bmatrix}s_{11}\\
-s_{21} & s_{22}\\
-\vdots & \vdots & \ddots\\
-s_{n1} & s_{n2} & \cdots & s_{nn}
-\end{bmatrix}}_{\underline{S}}\underbrace{\begin{bmatrix}\phi_{1}(\vec{r})\\
-\phi_{2}(\vec{r})\\
-\vdots\\
-\phi_{n}(\vec{r})
-\end{bmatrix}}_{\underline{\varPhi}},
-\]
-
-\end_inset
-
-那么 
-\begin_inset Formula $\underline{S}$
-\end_inset
-
- 为下三角阵，其元素可逐行算出
-\begin_inset CommandInset citation
-LatexCommand cite
-key "JYY_2021"
-literal "false"
-
-\end_inset
-
-：
-\end_layout
-
-\begin_layout Itemize
-第一行可直接算出：
-\begin_inset Formula 
-\[
-s_{11}=\frac{1}{\Vert\phi_{1}\Vert}.
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-假设已获得 
-\begin_inset Formula $\underline{S}$
-\end_inset
-
- 的前 
-\begin_inset Formula $m-1$
-\end_inset
-
- 行，将已知的
-\begin_inset Formula 
-\begin{equation}
-e_{k}=\sum_{j=1}^{k}s_{kj}\phi_{j},\qquad k=1,2,\dots,m-1,\label{eq:partially_orthonormal}
-\end{equation}
-
-\end_inset
-
-代入式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:ortho-normal"
-
-\end_inset
-
- 右端的分子，可得
-\begin_inset Formula 
-\[
-\begin{aligned}\phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle & =\phi_{m}-\sum_{k=1}^{m-1}\left(\sum_{j=1}^{k}s_{kj}\phi_{j}\right)\ip{\sum_{l=1}^{k}s_{kl}\phi_{l}}{\phi_{m}}\\
- & =\phi_{m}-\sum_{k=1}^{m-1}\left(\sum_{j=1}^{k}s_{kj}\phi_{j}\right)\left(\sum_{l=1}^{k}s_{kl}\langle\phi_{l}\vert\phi_{m}\rangle\right)\\
- & =\sum_{j=1}^{m}a_{j}\phi_{j},
-\end{aligned}
-\]
-
-\end_inset
-
-其中
-\begin_inset Formula 
-\[
-a_{j}=\begin{cases}
--\sum_{k=1}^{m-1}\left(\sum_{l=1}^{k}s_{kl}\langle\phi_{l}\vert\phi_{m}\rangle\right)s_{kj}, & j<m;\\
-1, & j=m.
-\end{cases}
-\]
-
-\end_inset
-
-最后对 
-\begin_inset Formula $\sum_{j=1}^{m}a_{j}\phi_{j}$
-\end_inset
-
- 作归一化，即得 
-\begin_inset Formula $\underline{S}$
-\end_inset
-
- 的第 
-\begin_inset Formula $m$
-\end_inset
-
- 行：
-\begin_inset Formula 
-\[
-s_{mj}=\frac{a_{j}}{\left\Vert \sum_{j=1}^{m}a_{j}\phi_{j}\right\Vert }=\frac{a_{j}}{\sqrt{\sum_{j=1}^{m}\sum_{l=1}^{m}a_{j}a_{l}\langle\phi_{j}\vert\phi_{l}\rangle}},\qquad j=1,\dots,m.
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-含有 
-\begin_inset Formula $m$
-\end_inset
-
- 个成员的矩阵函数 
-\begin_inset Formula $\underline{U}(\vec{r})=\begin{bmatrix}u_{1}(\vec{r}) & \cdots & u_{m}(\vec{r})\end{bmatrix}^{t}$
-\end_inset
-
- 可以用其在正交归一基底 
-\begin_inset Formula $\underline{E}(\vec{r})=\begin{bmatrix}e_{1}(\vec{r}) & \cdots & e_{n}(\vec{r})\end{bmatrix}^{t}$
-\end_inset
-
- 上的投影来近似：
-\begin_inset Formula 
-\begin{equation}
-\underbrace{\begin{bmatrix}u_{1}(\vec{r})\\
-\vdots\\
-u_{m}(\vec{r})
-\end{bmatrix}}_{\underline{U^{h}}(\vec{r})}=\underbrace{\begin{bmatrix}\langle u_{1}\vert e_{1}\rangle & \cdots & \langle u_{1}\vert e_{n}\rangle\\
-\vdots & \ddots & \vdots\\
-\langle u_{m}\vert e_{1}\rangle & \cdots & \langle u_{m}\vert e_{n}\rangle
-\end{bmatrix}}_{\langle\underline{U}\vert\underline{E}\rangle}\underbrace{\begin{bmatrix}e_{1}(\vec{r})\\
-\vdots\\
-e_{n}(\vec{r})
-\end{bmatrix}}_{\underline{E}(\vec{r})}.\label{eq:function_projection}
-\end{equation}
-
-\end_inset
-
-这里的“近似”有两层含义：一是该式中的内积一般不能精确算出，二是有限维的多项式空间不足以精确表达任意函数。如果 
-\begin_inset Formula $\underline{U}$
-\end_inset
-
- 的成员都是多项式，且计算内积所使用的数值积分器有足够高的代数精度，那么上述投影所得的 
-\begin_inset Formula $\underline{U^{h}}$
-\end_inset
-
- 是 
-\begin_inset Formula $\underline{U}$
-\end_inset
-
- 的精确表示。
-\end_layout
-
-\begin_layout Standard
-如果 
-\begin_inset Formula $\underline{E'}(\vec{r})=\begin{bmatrix}e'_{1}(\vec{r}) & \cdots & e'_{n}(\vec{r})\end{bmatrix}^{t}$
-\end_inset
-
- 是另一组正交归一化的基底，那么原始基底 
-\begin_inset Formula $\underline{E}$
-\end_inset
-
- 在新的基底 
-\begin_inset Formula $\underline{E'}$
-\end_inset
-
- 上的投影为
-\begin_inset Formula 
-\[
-\underbrace{\begin{bmatrix}e_{1}(\vec{r})\\
-\vdots\\
-e_{n}(\vec{r})
-\end{bmatrix}}_{\underline{E^{h}}(\vec{r})}=\underbrace{\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle & \cdots & \langle e{}_{1}\vert e'_{n}\rangle\\
-\vdots & \ddots & \vdots\\
-\langle e_{n}\vert e'_{1}\rangle & \cdots & \langle e_{n}\vert e'_{n}\rangle
-\end{bmatrix}}_{\langle\underline{E}\vert\underline{E'}\rangle}\underbrace{\begin{bmatrix}e'_{1}(\vec{r})\\
-\vdots\\
-e'_{n}(\vec{r})
-\end{bmatrix}}_{\underline{E'}(\vec{r})}.
-\]
-
-\end_inset
-
-原则上，该式中的内积都可以精确算出（被积函数都是多项式），因此该变换可以被视为是精确的（即 
-\begin_inset Formula $\underline{E^{h}}$
-\end_inset
-
- 的上标 
-\begin_inset Formula $h$
-\end_inset
-
- 可以省略）。将其代入式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:function_projection"
-
-\end_inset
-
- 即得 
-\begin_inset Formula $\underline{U}$
-\end_inset
-
- 在 
-\begin_inset Formula $\underline{E'}$
-\end_inset
-
- 上的投影：
-\begin_inset Formula 
-\[
-\underbrace{\begin{bmatrix}u_{1}(\vec{r})\\
-\vdots\\
-u_{m}(\vec{r})
-\end{bmatrix}}_{\underline{U^{h}}(\vec{r})}=\underbrace{\begin{bmatrix}\langle u_{1}\vert e_{1}\rangle & \cdots & \langle u_{1}\vert e_{n}\rangle\\
-\vdots & \ddots & \vdots\\
-\langle u_{m}\vert e_{1}\rangle & \cdots & \langle u_{m}\vert e_{n}\rangle
-\end{bmatrix}\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle & \cdots & \langle e_{1}\vert e'_{n}\rangle\\
-\vdots & \ddots & \vdots\\
-\langle e_{n}\vert e'_{1}\rangle & \cdots & \langle e_{n}\vert e'_{n}\rangle
-\end{bmatrix}}_{\langle\underline{U}\vert\underline{E'}\rangle}\underbrace{\begin{bmatrix}e'_{1}(\vec{r})\\
-\vdots\\
-e'_{n}(\vec{r})
-\end{bmatrix}}_{\underline{E'}(\vec{r})}.
-\]
-
-\end_inset
-
-由此得矩阵函数 
-\begin_inset Formula $\underline{U}(\vec{r})$
-\end_inset
-
- 在两组正交归一基底上的投影系数之间的变换法则：
-\begin_inset Formula 
-\[
-\underbrace{\begin{bmatrix}\langle u_{1}\vert e'_{1}\rangle & \cdots & \langle u_{1}\vert e'_{n}\rangle\\
-\vdots & \ddots & \vdots\\
-\langle u_{m}\vert e'_{1}\rangle & \cdots & \langle u_{m}\vert e'_{n}\rangle
-\end{bmatrix}}_{\langle\underline{U}\vert\underline{E'}\rangle}=\underbrace{\begin{bmatrix}\langle u_{1}\vert e_{1}\rangle & \cdots & \langle u_{1}\vert e_{n}\rangle\\
-\vdots & \ddots & \vdots\\
-\langle u_{m}\vert e_{1}\rangle & \cdots & \langle u_{m}\vert e_{n}\rangle
-\end{bmatrix}}_{\langle\underline{U}\vert\underline{E}\rangle}\underbrace{\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle & \cdots & \langle e_{1}\vert e'_{n}\rangle\\
-\vdots & \ddots & \vdots\\
-\langle e_{n}\vert e'_{1}\rangle & \cdots & \langle e_{n}\vert e'_{n}\rangle
-\end{bmatrix}}_{\langle\underline{E}\vert\underline{E'}\rangle}.
-\]
-
 \end_inset
 
 
