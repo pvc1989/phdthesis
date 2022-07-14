@@ -20994,7 +20994,7 @@ reference "subsec:parallelization"
 \end_layout
 
 \begin_layout Section
-非结构网格上的空间离散
+空间离散
 \end_layout
 
 \begin_layout Subsection
@@ -21843,7 +21843,12 @@ literal "false"
 
 \end_inset
 
-。第 
+。
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+第 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:创建面单元"
@@ -21853,18 +21858,16 @@ reference "subsec:创建面单元"
  节介绍了本文所采用的方案。
 \end_layout
 
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 创建面单元
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:创建面单元"
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -21884,25 +21887,25 @@ name "subsec:创建面单元"
 \begin_inset Formula $G(\varOmega)$
 \end_inset
 
-，可以在任意体单元 
-\begin_inset Formula $V_{i}$
+，在任意体单元 
+\begin_inset Formula $V_{i}\subset\varOmega$
 \end_inset
 
- 上用多项式 
-\begin_inset Formula $u^{h}$
-\end_inset
-
- 对 
+ 上总是可以定义 
 \begin_inset Formula $u$
 \end_inset
 
- 做近似：
+ 在 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 上的多项式近似，记作
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-u(x,y,z)\approx u^{h}(x,y,z)=\sum_{a,b,c}\hat{u}_{a,b,c}x^{a}y^{b}z^{c},
+u^{h}|_{V_{i}}(x,y,z)=\sum_{a,b,c}\hat{u}_{a,b,c}(x-x_{0})^{a}(y-y_{0})^{b}(z-z_{0})^{c},\qquad(x,y,z)\in V_{i},
 \]
 
 \end_inset
@@ -21915,7 +21918,74 @@ u(x,y,z)\approx u^{h}(x,y,z)=\sum_{a,b,c}\hat{u}_{a,b,c}x^{a}y^{b}z^{c},
 \begin_inset Formula $\hat{u}_{a,b,c}$
 \end_inset
 
- 为待定系数。为定量描述 
+ 为常值系数，
+\begin_inset Formula $(x_{0},y_{0},z_{0})$
+\end_inset
+
+ 为 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 内任意一点，
+\begin_inset Formula $h$
+\end_inset
+
+ 表示单元尺寸（棱长平均值或外接球半径）。将 
+\begin_inset Formula $u$
+\end_inset
+
+ 在所有体单元 
+\begin_inset Formula $V(G)$
+\end_inset
+
+ 上的这种多项式近似拼接在一起，就得到一个定义在所有体单元的并集 
+\begin_inset Formula $\bigcup_{i\in I_{V(G)}}V_{i}$
+\end_inset
+
+ 上的函数：
+\begin_inset Formula 
+\begin{equation}
+u^{h}(x,y,z)=\begin{cases}
+u^{h}|_{V_{1}}(x,y,z), & (x,y,z)\in V_{1},\\
+\vdots & \vdots\\
+u^{h}|_{V_{i}}(x,y,z), & (x,y,z)\in V_{i},\\
+\vdots & \vdots\\
+u^{h}|_{V_{N_{V(G)}}}(x,y,z), & (x,y,z)\in V_{N_{V(G)}}.
+\end{cases}\label{eq:piecewise_polynomial}
+\end{equation}
+
+\end_inset
+
+该函数的定义域 
+\begin_inset Formula $\bigcup_{i\in I_{V(G)}}V_{i}$
+\end_inset
+
+ 与被网格 
+\begin_inset Formula $G$
+\end_inset
+
+ 离散的区域 
+\begin_inset Formula $\varOmega$
+\end_inset
+
+ 相比，遗漏了面单元上的点。为了让 
+\begin_inset Formula $u^{h}$
+\end_inset
+
+ 真正成为 
+\begin_inset Formula $u$
+\end_inset
+
+ 在 
+\begin_inset Formula $\varOmega$
+\end_inset
+
+ 上的近似，需要补充其在这些面单元上的值。在间断伽辽金有限元法框架内，这些值可以由精确或近似黎曼求解器给出。本小节暂不对其展开讨论，因为所有面单元的并集在三维空
+间内的测度为零，而零测度集上的值不影响体积分。
+\end_layout
+
+\begin_layout Standard
+为了定量描述 
 \begin_inset Formula $u^{h}$
 \end_inset
 
@@ -21923,43 +21993,186 @@ u(x,y,z)\approx u^{h}(x,y,z)=\sum_{a,b,c}\hat{u}_{a,b,c}x^{a}y^{b}z^{c},
 \begin_inset Formula $u$
 \end_inset
 
- 的近似程度，需要在二者共同所属的函数空间上引入某种“度量 (metric)”。通常的做法是取 
-\begin_inset Formula $V_{i}$
+ 的近似精度，需要在二者共同所属的函数空间上引入某种“度量 (metric)”。通常的做法是取 
+\begin_inset Formula $\varOmega$
 \end_inset
 
  上的平方可积函数空间
 \begin_inset Formula 
-\[
-L^{2}(V_{i})\coloneqq\left\{ \phi:\int_{V_{i}}\vert\phi\vert^{2}<\infty\right\} ,
-\]
+\begin{equation}
+L^{2}(\varOmega)\coloneqq\left\{ \phi:\int_{\varOmega}\vert\phi\vert^{2}<\infty\right\} ,\label{eq:L2-space}
+\end{equation}
 
 \end_inset
 
 并在此空间上定义“内积 (inner-product)”：
 \begin_inset Formula 
 \begin{equation}
-\langle\phi\vert\psi\rangle_{V_{i}}\coloneqq\int_{V_{i}}(\phi\psi),\qquad\forall(\phi,\psi)\in L^{2}(V_{i})\times L^{2}(V_{i}),\label{eq:inner-product}
+\langle\phi\vert\psi\rangle_{\varOmega}\coloneqq\int_{\varOmega}(\phi\psi),\qquad\forall(\phi,\psi)\in L^{2}(\varOmega)\times L^{2}(\varOmega),\label{eq:inner-product}
 \end{equation}
 
 \end_inset
 
 再由其诱导出“范数 (norm)”：
 \begin_inset Formula 
-\[
-\Vert\phi\Vert_{V_{i}}\coloneqq\sqrt{\langle\phi\vert\phi\rangle_{V_{i}}},\qquad\forall\phi\in L^{2}(V_{i}).
-\]
+\begin{equation}
+\Vert\phi\Vert_{\varOmega}\coloneqq\sqrt{\langle\phi\vert\phi\rangle_{\varOmega}},\qquad\forall\phi\in L^{2}(\varOmega).\label{eq:norm}
+\end{equation}
 
 \end_inset
 
-可以证明：以上定义与内积、范数的公理化定义是相容的，且 
-\begin_inset Formula $L^{2}(V_{i})$
+可以证明：式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:inner-product"
+
 \end_inset
 
- 是完备的无穷维内积空间。
+、式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:norm"
+
+\end_inset
+
+ 与内积、范数的公理化定义是相容的，且 
+\begin_inset Formula $L^{2}(\varOmega)$
+\end_inset
+
+ 是完备的无穷维内积空间。有了上述概念，便可以定义误差的“阶数 (order)”：若随着 
+\begin_inset Formula $h\to0$
+\end_inset
+
+，函数 
+\begin_inset Formula $u$
+\end_inset
+
+ 与其多项式近似 
+\begin_inset Formula $u^{h}$
+\end_inset
+
+ 之差的范数是 
+\begin_inset Formula $h$
+\end_inset
+
+ 的 
+\begin_inset Formula $p$
+\end_inset
+
+ 阶无穷小量，即
+\begin_inset Formula 
+\begin{equation}
+\Vert u^{h}-u\Vert_{\varOmega}=\order{h^{p}},\label{eq:accuracy_order}
+\end{equation}
+
+\end_inset
+
+则称 
+\begin_inset Formula $u^{h}$
+\end_inset
+
+ 是 
+\begin_inset Formula $u$
+\end_inset
+
+ 的 
+\begin_inset Formula $p$
+\end_inset
+
+ 阶近似，或 
+\begin_inset Formula $u^{h}$
+\end_inset
+
+ 对 
+\begin_inset Formula $u$
+\end_inset
+
+ 的近似具有 
+\begin_inset Formula $p$
+\end_inset
+
+ 阶精度。若规定多项式 
+\begin_inset Formula $u^{h}$
+\end_inset
+
+ 中任意一项的次数之和小于 
+\begin_inset Formula $p$
+\end_inset
+
+，则对于一般的 
+\begin_inset Formula $u$
+\end_inset
+
+，多项式近似至多具有 
+\begin_inset Formula $p$
+\end_inset
+
+ 阶精度。式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:accuracy_order"
+
+\end_inset
+
+ 所定义的阶数是“后验的 (a posteriori)”，需要得到 
+\begin_inset Formula $u^{h}$
+\end_inset
+
+ 以后才能计算。为了叙述方便，这里定义“先验 (a priori)”或“名义 (nominal)”阶数：若所有 
+\begin_inset Formula $u^{h}|_{V_{i}}$
+\end_inset
+
+ 的次数都等于 
+\begin_inset Formula $p$
+\end_inset
+
+，则称 
+\begin_inset Formula $u^{h}$
+\end_inset
+
+ 对 
+\begin_inset Formula $u$
+\end_inset
+
+ 的近似具有 
+\begin_inset Formula $p+1$
+\end_inset
+
+ 阶（先验或名义）精度。
 \end_layout
 
 \begin_layout Standard
-实际计算不可能取遍整个 
+将式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:L2-space"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:norm"
+
+\end_inset
+
+ 中的 
+\begin_inset Formula $\varOmega$
+\end_inset
+
+ 替换为 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+，就得到函数空间 
+\begin_inset Formula $L^{2}(V_{i})$
+\end_inset
+
+ 及其上的内积与范数。由此可以给出确定 
+\begin_inset Formula $u^{h}|_{V_{i}}$
+\end_inset
+
+ 的一般方法。实际计算不可能取遍整个 
 \begin_inset Formula $L^{2}(V_{i})$
 \end_inset
 
@@ -23353,7 +23566,7 @@ reference "eq:rth-order-gaussian"
 \end_layout
 
 \begin_layout Section
-激波捕捉与 WENO 重构
+激波捕捉
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:WENO"
@@ -25163,7 +25376,7 @@ u_{z}
 \end_layout
 
 \begin_layout Section
-强稳定保持时间推进格式
+时间推进
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:有限差分：时间推进"
@@ -25836,7 +26049,7 @@ reference "eq:m-stage_Runge--Kutta"
 \end_layout
 
 \begin_layout Section
-算法并行化及其泛型实现
+并行实现
 \end_layout
 
 \begin_layout Chapter
@@ -36226,10 +36439,16 @@ noprefix "false"
 \end_inset
 
 
-\end_layout
+\begin_inset Note Note
+status open
 
 \begin_layout Subsection
 小结
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
