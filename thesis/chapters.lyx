@@ -22600,7 +22600,14 @@ e_{n}(\vec{r})
 \begin_inset Formula $\underline{U}$
 \end_inset
 
- 的成员都是多项式，且计算内积所使用的数值积分器有足够高的代数精度，那么上述投影所得的 
+ 的成员都是多项式，且计算内积所使用的数值积分器（见 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:quadrature"
+
+\end_inset
+
+ 小节）有足够高的代数精度，那么上述投影所得的 
 \begin_inset Formula $\underline{U^{h}}$
 \end_inset
 
@@ -22710,6 +22717,370 @@ e'_{n}(\vec{r})
 \langle e_{n}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{n}\vert e'_{n}\rangle_{V_{i}}
 \end{bmatrix}}_{\langle\underline{E}\vert\underline{E'}\rangle_{V_{i}}}.
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+数值积分器
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:quadrature"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+当多项式空间 
+\begin_inset Formula $\mathbb{P}^{<p}(V_{i})$
+\end_inset
+
+ 选定后，基于正交基函数的多项式近似 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:function_projection"
+
+\end_inset
+
+ 的精度就取决于
+\begin_inset Formula 
+\[
+\langle u_{j}\vert e_{k}\rangle=\int_{V_{i}}u_{j}(\vec{r})\,e_{k}(\vec{r}),\qquad\begin{cases}
+j=1,2,\dots,m,\\
+k=1,2,\dots,n,
+\end{cases}
+\]
+
+\end_inset
+
+的计算精度。如果 
+\begin_inset Formula $u_{j}(\vec{r})$
+\end_inset
+
+ 在 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 上为不超过 
+\begin_inset Formula $q$
+\end_inset
+
+ 次的多项式，那么 
+\begin_inset Formula $u_{j}e_{k}$
+\end_inset
+
+ 为 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 上不超过 
+\begin_inset Formula $p+q$
+\end_inset
+
+ 次的多项式，如果此时 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 上的数值积分器有足够高的代数精度，那么有可能给出（浮点数意义下）精确的积分值。
+\end_layout
+
+\begin_layout Standard
+在体单元 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 上构造数值积分器，可以借用常规有限元方法中的等参变换：
+\begin_inset Formula 
+\begin{equation}
+\begin{bmatrix}x(\xi,\eta,\zeta)\\
+y(\xi,\eta,\zeta)\\
+z(\xi,\eta,\zeta)
+\end{bmatrix}=\sum_{\mu}\begin{bmatrix}x_{\mu}\\
+y_{\mu}\\
+z_{\mu}
+\end{bmatrix}N_{\mu}(\xi,\eta,\zeta),\label{eq:isoparametric}
+\end{equation}
+
+\end_inset
+
+其中 
+\begin_inset Formula $(x,y,z)$
+\end_inset
+
+ 为全局坐标，
+\begin_inset Formula $(\xi,\eta,\zeta)$
+\end_inset
+
+ 为局部（参数）坐标；
+\begin_inset Formula $N_{\mu}$
+\end_inset
+
+ 为满足
+\begin_inset Formula 
+\[
+\begin{cases}
+N_{\mu}(\xi_{\nu},\eta_{\nu},\zeta_{\nu})=\mathrm{\delta}_{\mu\nu}, & \forall(\mu,\nu),\\
+\sum_{\mu}N_{\mu}(\xi,\eta,\zeta)=1, & \forall(\xi,\eta,\zeta),
+\end{cases}
+\]
+
+\end_inset
+
+的形函数，他们都是局部坐标 
+\begin_inset Formula $(\xi,\eta,\zeta)$
+\end_inset
+
+ 的多项式，且总数等于 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 的结点总数。式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:isoparametric"
+
+\end_inset
+
+ 定义了一种坐标变换，相应的雅可比矩阵
+\begin_inset Formula 
+\[
+\underline{J}=\begin{bmatrix}\partial x/\partial\xi & \partial x/\partial\eta & \partial x/\partial\zeta\\
+\partial y/\partial\xi & \partial y/\partial\eta & \partial y/\partial\zeta\\
+\partial z/\partial\xi & \partial z/\partial\eta & \partial z/\partial\zeta
+\end{bmatrix}=\sum_{\mu}\begin{bmatrix}x_{\mu}\\
+y_{\mu}\\
+z_{\mu}
+\end{bmatrix}\begin{bmatrix}\dfrac{\partial N_{\mu}}{\partial\xi} & \dfrac{\partial N_{\mu}}{\partial\eta} & \dfrac{\partial N_{\mu}}{\partial\zeta}\end{bmatrix},
+\]
+
+\end_inset
+
+中的每一个偏导数亦为局部坐标 
+\begin_inset Formula $(\xi,\eta,\zeta)$
+\end_inset
+
+ 的多项式。因此，如果 
+\begin_inset Formula $f(x,y,z)$
+\end_inset
+
+ 是全局坐标 
+\begin_inset Formula $(x,y,z)$
+\end_inset
+
+ 的多项式，那么积分恒等式
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}\int_{V_{i}}f(x,y,z) & =\iiint_{V_{i}}f(x,y,z)\dd{x}\dd{y}\dd{z}\\
+ & =\iiint_{V_{i}}f(x(\xi,\eta,\zeta),y(\xi,\eta,\zeta),z(\xi,\eta,\zeta))\det\underline{J}\dd{\xi}\dd{\eta}\dd{\zeta}
+\end{aligned}
+\label{eq:volume_integral}
+\end{equation}
+
+\end_inset
+
+最后一行的被积函数
+\begin_inset Formula 
+\[
+f(x(\xi,\eta,\zeta),y(\xi,\eta,\zeta),z(\xi,\eta,\zeta))\det\underline{J}\eqqcolon F(\xi,\eta,\zeta)
+\]
+
+\end_inset
+
+亦为局部坐标 
+\begin_inset Formula $(\xi,\eta,\zeta)$
+\end_inset
+
+ 的多项式。原则上，只要数值积分器的代数精度足够高，就能精确算出其积分值。下面给出一种构造具有 
+\begin_inset Formula $r$
+\end_inset
+
+ 阶代数精度的 
+\begin_inset Formula $q$
+\end_inset
+
+ 点高斯型求积公式的通用方法。
+\end_layout
+
+\begin_layout Standard
+所谓 
+\begin_inset Formula $q$
+\end_inset
+
+ 点高斯型求积公式，是指将式 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:volume_integral"
+
+\end_inset
+
+ 中的积分用如下的加权求和式近似：
+\begin_inset Formula 
+\begin{equation}
+\iiint_{V_{i}}F(\xi,\eta,\zeta)\dd{\xi}\dd{\eta}\dd{\zeta}\approx\sum_{k=1}^{q}w_{k}F(\xi_{k},\eta_{k},\zeta_{k}),\label{eq:gaussian-quadrature}
+\end{equation}
+
+\end_inset
+
+其中 
+\begin_inset Formula $(\xi_{k},\eta_{k},\zeta_{k})$
+\end_inset
+
+ 为第 
+\begin_inset Formula $k$
+\end_inset
+
+ 个积分点的参数坐标，
+\begin_inset Formula $w_{k}$
+\end_inset
+
+ 为该项对应的权重。如果该式对所有不超过 
+\begin_inset Formula $r$
+\end_inset
+
+ 次的单项式 
+\begin_inset Formula $\xi^{a}\eta^{b}\zeta^{c}$
+\end_inset
+
+ 都能给出精确的积分值，那么称其具有 
+\begin_inset Formula $r$
+\end_inset
+
+ 阶代数精度。假设体单元 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 足够简单，以至于在参数坐标 
+\begin_inset Formula $(\xi,\eta,\zeta)$
+\end_inset
+
+ 下可以将体积分改写为三重积分：
+\begin_inset Formula 
+\begin{equation}
+\iiint_{V_{i}}F(\xi,\eta,\zeta)\dd{\xi}\dd{\eta}\dd{\zeta}=\int_{\xi_{1}}^{\xi_{2}}\dd{\xi}\int_{\gamma(\eta)}^{\delta(\eta)}\dd{\eta}\int_{\alpha(\xi,\eta)}^{\beta(\xi,\eta)}\dd{\zeta}F(\xi,\eta,\zeta),\label{eq:triple-integral}
+\end{equation}
+
+\end_inset
+
+其中 
+\begin_inset Formula $\alpha,\beta,\gamma,\delta$
+\end_inset
+
+ 均为 
+\begin_inset Formula $\xi,\eta$
+\end_inset
+
+ 的多项式。在上述假设下，式 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:triple-integral"
+
+\end_inset
+
+ 中的三重积分总是可以解析地算出。不失一般性，用记号
+\begin_inset Formula 
+\[
+I(a,b,c)\coloneqq\int_{\xi_{1}}^{\xi_{2}}\dd{\xi}\int_{\gamma(\eta)}^{\delta(\eta)}\dd{\eta}\int_{\alpha(\xi,\eta)}^{\beta(\xi,\eta)}\dd{\zeta}\xi^{a}\eta^{b}\zeta^{c}
+\]
+
+\end_inset
+
+表示单项式 
+\begin_inset Formula $\xi^{a}\eta^{b}\zeta^{c}$
+\end_inset
+
+ 在 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 上积分的解析表达式。于是，求积公式 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:gaussian-quadrature"
+
+\end_inset
+
+ 具有 
+\begin_inset Formula $r$
+\end_inset
+
+ 阶代数精度，就可以表示为
+\begin_inset Formula 
+\begin{equation}
+I(a,b,c)=\sum_{k=1}^{q}w_{k}\xi_{k}^{a}\eta_{k}^{b}\zeta_{k}^{c},\qquad\vert a+b+c\vert\le r.\label{eq:rth-order-gaussian}
+\end{equation}
+
+\end_inset
+
+这是一组关于 
+\begin_inset Formula $\left\{ w_{k},\xi_{k},\eta_{k},\zeta_{k}\right\} _{k=1}^{q}$
+\end_inset
+
+ 共 
+\begin_inset Formula $4q$
+\end_inset
+
+ 个未知数的非线性代数方程组。要使其有解，需满足
+\begin_inset Formula 
+\[
+4q\le\binom{r+3}{3}=\frac{(r+3)(r+2)(r+1)}{6},
+\]
+
+\end_inset
+
+不等式右端为方程的个数。方程组 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:rth-order-gaussian"
+
+\end_inset
+
+ 一般没有解析解，通常需要将其转化为以
+\begin_inset Formula 
+\[
+\left.\begin{array}{c}
+w_{k}>0\\
+\xi_{1}<\xi_{k}<\xi_{2}\\
+\gamma(\eta_{k})<\eta_{k}<\delta(\eta_{k})\\
+\alpha(\xi_{k},\eta_{k})<\zeta_{k}<\beta(\xi_{k},\eta_{k})
+\end{array}\right\} ,\qquad k=1,2,\dots,q,
+\]
+
+\end_inset
+
+为约束条件的最小值问题，例如：
+\begin_inset Formula 
+\[
+\min\sum_{a+b+c\le r}\left|I(a,b,c)-\sum_{k=1}^{q}w_{k}\xi_{k}^{a}\eta_{k}^{b}\zeta_{k}^{c}\right|,
+\]
+
+\end_inset
+
+ 或
+\begin_inset Formula 
+\[
+\min\sum_{a+b+c\le r}\left(I(a,b,c)-\sum_{k=1}^{q}w_{k}\xi_{k}^{a}\eta_{k}^{b}\zeta_{k}^{c}\right)^{2}.
+\]
+
+\end_inset
+
+通用的优化算法一般会给出多组极小值解，而非单一的最小值解。但上述目标函数都是非负的，其最小值只能为零。因此，用优化方法寻找方程组 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:rth-order-gaussian"
+
+\end_inset
+
+ 的解，只应保留那些使得目标函数取值为零的极小值解。
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+附录：三角形、四面体积分公式
+\end_layout
 
 \end_inset
 
@@ -23224,353 +23595,6 @@ reference "eq:间断有限元：矩阵方程"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-体积分计算
-\end_layout
-
-\begin_layout Standard
-当多项式空间 
-\begin_inset Formula $\mathbb{P}^{<p}(V_{i})$
-\end_inset
-
- 选定后，基于正交基函数的多项式近似 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:function_projection"
-
-\end_inset
-
- 的精度就取决于
-\begin_inset Formula 
-\[
-\langle u_{j}\vert e_{k}\rangle=\int_{V_{i}}u_{j}(\vec{r})\,e_{k}(\vec{r}),\qquad\begin{cases}
-j=1,2,\dots,m,\\
-k=1,2,\dots,n,
-\end{cases}
-\]
-
-\end_inset
-
-的计算精度。如果 
-\begin_inset Formula $u_{j}(\vec{r})$
-\end_inset
-
- 在 
-\begin_inset Formula $V_{i}$
-\end_inset
-
- 上为不超过 
-\begin_inset Formula $q$
-\end_inset
-
- 次的多项式，那么 
-\begin_inset Formula $u_{j}e_{k}$
-\end_inset
-
- 为 
-\begin_inset Formula $V_{i}$
-\end_inset
-
- 上不超过 
-\begin_inset Formula $p+q$
-\end_inset
-
- 次的多项式，如果此时 
-\begin_inset Formula $V_{i}$
-\end_inset
-
- 上的数值积分器有足够高的代数精度，那么有可能给出（浮点数意义下）精确的积分值。
-\end_layout
-
-\begin_layout Standard
-在体单元 
-\begin_inset Formula $V_{i}$
-\end_inset
-
- 上构造数值积分器，可以借用常规有限元方法中的等参变换：
-\begin_inset Formula 
-\begin{equation}
-\begin{bmatrix}x(\xi,\eta,\zeta)\\
-y(\xi,\eta,\zeta)\\
-z(\xi,\eta,\zeta)
-\end{bmatrix}=\sum_{\mu}\begin{bmatrix}x_{\mu}\\
-y_{\mu}\\
-z_{\mu}
-\end{bmatrix}N_{\mu}(\xi,\eta,\zeta),\label{eq:isoparametric}
-\end{equation}
-
-\end_inset
-
-其中 
-\begin_inset Formula $(x,y,z)$
-\end_inset
-
- 为全局坐标，
-\begin_inset Formula $(\xi,\eta,\zeta)$
-\end_inset
-
- 为局部（参数）坐标；
-\begin_inset Formula $N_{\mu}$
-\end_inset
-
- 为满足
-\begin_inset Formula 
-\[
-\begin{cases}
-N_{\mu}(\xi_{\nu},\eta_{\nu},\zeta_{\nu})=\mathrm{\delta}_{\mu\nu}, & \forall(\mu,\nu),\\
-\sum_{\mu}N_{\mu}(\xi,\eta,\zeta)=1, & \forall(\xi,\eta,\zeta),
-\end{cases}
-\]
-
-\end_inset
-
-的形函数，他们都是局部坐标 
-\begin_inset Formula $(\xi,\eta,\zeta)$
-\end_inset
-
- 的多项式，且总数等于 
-\begin_inset Formula $V_{i}$
-\end_inset
-
- 的结点总数。式 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:isoparametric"
-
-\end_inset
-
- 定义了一种坐标变换，相应的雅可比矩阵
-\begin_inset Formula 
-\[
-\underline{J}=\begin{bmatrix}\partial x/\partial\xi & \partial x/\partial\eta & \partial x/\partial\zeta\\
-\partial y/\partial\xi & \partial y/\partial\eta & \partial y/\partial\zeta\\
-\partial z/\partial\xi & \partial z/\partial\eta & \partial z/\partial\zeta
-\end{bmatrix}=\sum_{\mu}\begin{bmatrix}x_{\mu}\\
-y_{\mu}\\
-z_{\mu}
-\end{bmatrix}\begin{bmatrix}\dfrac{\partial N_{\mu}}{\partial\xi} & \dfrac{\partial N_{\mu}}{\partial\eta} & \dfrac{\partial N_{\mu}}{\partial\zeta}\end{bmatrix},
-\]
-
-\end_inset
-
-中的每一个偏导数亦为局部坐标 
-\begin_inset Formula $(\xi,\eta,\zeta)$
-\end_inset
-
- 的多项式。因此，如果 
-\begin_inset Formula $f(x,y,z)$
-\end_inset
-
- 是全局坐标 
-\begin_inset Formula $(x,y,z)$
-\end_inset
-
- 的多项式，那么积分恒等式
-\begin_inset Formula 
-\begin{equation}
-\begin{aligned}\int_{V_{i}}f(x,y,z) & =\iiint_{V_{i}}f(x,y,z)\dd{x}\dd{y}\dd{z}\\
- & =\iiint_{V_{i}}f(x(\xi,\eta,\zeta),y(\xi,\eta,\zeta),z(\xi,\eta,\zeta))\det\underline{J}\dd{\xi}\dd{\eta}\dd{\zeta}
-\end{aligned}
-\label{eq:volume_integral}
-\end{equation}
-
-\end_inset
-
-最后一行的被积函数
-\begin_inset Formula 
-\[
-f(x(\xi,\eta,\zeta),y(\xi,\eta,\zeta),z(\xi,\eta,\zeta))\det\underline{J}\eqqcolon F(\xi,\eta,\zeta)
-\]
-
-\end_inset
-
-亦为局部坐标 
-\begin_inset Formula $(\xi,\eta,\zeta)$
-\end_inset
-
- 的多项式。原则上，只要数值积分器的代数精度足够高，就能精确算出其积分值。下面给出一种构造具有 
-\begin_inset Formula $r$
-\end_inset
-
- 阶代数精度的 
-\begin_inset Formula $q$
-\end_inset
-
- 点高斯型求积公式的通用方法。
-\end_layout
-
-\begin_layout Standard
-所谓 
-\begin_inset Formula $q$
-\end_inset
-
- 点高斯型求积公式，是指将式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:volume_integral"
-
-\end_inset
-
- 中的积分用如下的加权求和式近似：
-\begin_inset Formula 
-\begin{equation}
-\iiint_{V_{i}}F(\xi,\eta,\zeta)\dd{\xi}\dd{\eta}\dd{\zeta}\approx\sum_{k=1}^{q}w_{k}F(\xi_{k},\eta_{k},\zeta_{k}),\label{eq:gaussian-quadrature}
-\end{equation}
-
-\end_inset
-
-其中 
-\begin_inset Formula $(\xi_{k},\eta_{k},\zeta_{k})$
-\end_inset
-
- 为第 
-\begin_inset Formula $k$
-\end_inset
-
- 个积分点的参数坐标，
-\begin_inset Formula $w_{k}$
-\end_inset
-
- 为该项对应的权重。如果该式对所有不超过 
-\begin_inset Formula $r$
-\end_inset
-
- 次的单项式 
-\begin_inset Formula $\xi^{a}\eta^{b}\zeta^{c}$
-\end_inset
-
- 都能给出精确的积分值，那么称其具有 
-\begin_inset Formula $r$
-\end_inset
-
- 阶代数精度。假设体单元 
-\begin_inset Formula $V_{i}$
-\end_inset
-
- 足够简单，以至于在参数坐标 
-\begin_inset Formula $(\xi,\eta,\zeta)$
-\end_inset
-
- 下可以将体积分改写为三重积分：
-\begin_inset Formula 
-\begin{equation}
-\iiint_{V_{i}}F(\xi,\eta,\zeta)\dd{\xi}\dd{\eta}\dd{\zeta}=\int_{\xi_{1}}^{\xi_{2}}\dd{\xi}\int_{\gamma(\eta)}^{\delta(\eta)}\dd{\eta}\int_{\alpha(\xi,\eta)}^{\beta(\xi,\eta)}\dd{\zeta}F(\xi,\eta,\zeta),\label{eq:triple-integral}
-\end{equation}
-
-\end_inset
-
-其中 
-\begin_inset Formula $\alpha,\beta,\gamma,\delta$
-\end_inset
-
- 均为 
-\begin_inset Formula $\xi,\eta$
-\end_inset
-
- 的多项式。在上述假设下，式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:triple-integral"
-
-\end_inset
-
- 中的三重积分总是可以解析地算出。不失一般性，用记号
-\begin_inset Formula 
-\[
-I(a,b,c)\coloneqq\int_{\xi_{1}}^{\xi_{2}}\dd{\xi}\int_{\gamma(\eta)}^{\delta(\eta)}\dd{\eta}\int_{\alpha(\xi,\eta)}^{\beta(\xi,\eta)}\dd{\zeta}\xi^{a}\eta^{b}\zeta^{c}
-\]
-
-\end_inset
-
-表示单项式 
-\begin_inset Formula $\xi^{a}\eta^{b}\zeta^{c}$
-\end_inset
-
- 在 
-\begin_inset Formula $V_{i}$
-\end_inset
-
- 上积分的解析表达式。于是，求积公式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:gaussian-quadrature"
-
-\end_inset
-
- 具有 
-\begin_inset Formula $r$
-\end_inset
-
- 阶代数精度，就可以表示为
-\begin_inset Formula 
-\begin{equation}
-I(a,b,c)=\sum_{k=1}^{q}w_{k}\xi_{k}^{a}\eta_{k}^{b}\zeta_{k}^{c},\qquad\vert a+b+c\vert\le r.\label{eq:rth-order-gaussian}
-\end{equation}
-
-\end_inset
-
-这是一组关于 
-\begin_inset Formula $\left\{ w_{k},\xi_{k},\eta_{k},\zeta_{k}\right\} _{k=1}^{q}$
-\end_inset
-
- 共 
-\begin_inset Formula $4q$
-\end_inset
-
- 个未知数的非线性代数方程组。要使其有解，需满足
-\begin_inset Formula 
-\[
-4q\le\binom{r+3}{3}=\frac{(r+3)(r+2)(r+1)}{6},
-\]
-
-\end_inset
-
-不等式右端为方程的个数。方程组 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:rth-order-gaussian"
-
-\end_inset
-
- 一般没有解析解，通常需要将其转化为以
-\begin_inset Formula 
-\[
-\left.\begin{array}{c}
-w_{k}>0\\
-\xi_{1}<\xi_{k}<\xi_{2}\\
-\gamma(\eta_{k})<\eta_{k}<\delta(\eta_{k})\\
-\alpha(\xi_{k},\eta_{k})<\zeta_{k}<\beta(\xi_{k},\eta_{k})
-\end{array}\right\} ,\qquad k=1,2,\dots,q,
-\]
-
-\end_inset
-
-为约束条件的最小值问题，例如：
-\begin_inset Formula 
-\[
-\min\sum_{a+b+c\le r}\left|I(a,b,c)-\sum_{k=1}^{q}w_{k}\xi_{k}^{a}\eta_{k}^{b}\zeta_{k}^{c}\right|,
-\]
-
-\end_inset
-
- 或
-\begin_inset Formula 
-\[
-\min\sum_{a+b+c\le r}\left(I(a,b,c)-\sum_{k=1}^{q}w_{k}\xi_{k}^{a}\eta_{k}^{b}\zeta_{k}^{c}\right)^{2}.
-\]
-
-\end_inset
-
-通用的优化算法一般会给出多组极小值解，而非单一的最小值解。但上述目标函数都是非负的，其最小值只能为零。因此，用优化方法寻找方程组 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:rth-order-gaussian"
-
-\end_inset
-
- 的解，只应保留那些使得目标函数取值为零的极小值解。
 \end_layout
 
 \begin_layout Section
