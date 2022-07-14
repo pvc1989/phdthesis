@@ -22379,7 +22379,7 @@ z-z_{0}
  内任意一点。可以证明：
 \begin_inset Formula 
 \[
-\underline{\varPhi}(\vec{r})\coloneqq\begin{bmatrix}\phi_{1}(\vec{r}) & \phi_{2}(\vec{r}) & \cdots & \phi_{n}(\vec{r})\end{bmatrix}^{t},\qquad n=\frac{p}{6}(p+1)(p+2),
+\underline{\phi}(\vec{r})\coloneqq\begin{bmatrix}\phi_{1}(\vec{r}) & \phi_{2}(\vec{r}) & \cdots & \phi_{n}(\vec{r})\end{bmatrix}^{t},\qquad n=\frac{p}{6}(p+1)(p+2),
 \]
 
 \end_inset
@@ -22457,15 +22457,15 @@ e_{m}=\frac{\phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle_{V_{
 e_{2}(\vec{r})\\
 \vdots\\
 e_{n}(\vec{r})
-\end{bmatrix}}_{\underline{E}}=\underbrace{\begin{bmatrix}s_{11}\\
-s_{21} & s_{22}\\
+\end{bmatrix}}_{\underline{e}}=\underbrace{\begin{bmatrix}S_{11}\\
+S_{21} & S_{22}\\
 \vdots & \vdots & \ddots\\
-s_{n1} & s_{n2} & \cdots & s_{nn}
+S_{n1} & S_{n2} & \cdots & S_{nn}
 \end{bmatrix}}_{\underline{S}}\underbrace{\begin{bmatrix}\phi_{1}(\vec{r})\\
 \phi_{2}(\vec{r})\\
 \vdots\\
 \phi_{n}(\vec{r})
-\end{bmatrix}}_{\underline{\varPhi}},
+\end{bmatrix}}_{\underline{\phi}},
 \]
 
 \end_inset
@@ -22489,7 +22489,7 @@ literal "false"
 第一行只需做归一化：
 \begin_inset Formula 
 \[
-s_{11}=\frac{1}{\Vert\phi_{1}\Vert_{V_{i}}}.
+S_{11}=\frac{1}{\Vert\phi_{1}\Vert_{V_{i}}}.
 \]
 
 \end_inset
@@ -22509,7 +22509,7 @@ s_{11}=\frac{1}{\Vert\phi_{1}\Vert_{V_{i}}}.
  行，将已知的
 \begin_inset Formula 
 \begin{equation}
-e_{k}=\sum_{j=1}^{k}s_{kj}\phi_{j},\qquad k=1,2,\dots,m-1,\label{eq:partially_orthonormal}
+e_{k}=\sum_{j=1}^{k}S_{kj}\phi_{j},\qquad k=1,2,\dots,m-1,\label{eq:partially_orthonormal}
 \end{equation}
 
 \end_inset
@@ -22524,8 +22524,8 @@ reference "eq:ortho-normal"
  右端的分子，可得
 \begin_inset Formula 
 \[
-\begin{aligned}\phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle_{V_{i}} & =\phi_{m}-\sum_{k=1}^{m-1}\left(\sum_{j=1}^{k}s_{kj}\phi_{j}\right)\ip{\sum_{l=1}^{k}s_{kl}\phi_{l}}{\phi_{m}}_{V_{i}}\\
- & =\phi_{m}-\sum_{k=1}^{m-1}\left(\sum_{j=1}^{k}s_{kj}\phi_{j}\right)\left(\sum_{l=1}^{k}s_{kl}\langle\phi_{l}\vert\phi_{m}\rangle_{V_{i}}\right)\\
+\begin{aligned}\phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle_{V_{i}} & =\phi_{m}-\sum_{k=1}^{m-1}\left(\sum_{j=1}^{k}S_{kj}\phi_{j}\right)\ip{\sum_{l=1}^{k}S_{kl}\phi_{l}}{\phi_{m}}_{V_{i}}\\
+ & =\phi_{m}-\sum_{k=1}^{m-1}\left(\sum_{j=1}^{k}S_{kj}\phi_{j}\right)\left(\sum_{l=1}^{k}S_{kl}\langle\phi_{l}\vert\phi_{m}\rangle_{V_{i}}\right)\\
  & =\sum_{j=1}^{m}a_{j}\phi_{j},
 \end{aligned}
 \]
@@ -22536,7 +22536,7 @@ reference "eq:ortho-normal"
 \begin_inset Formula 
 \[
 a_{j}=\begin{cases}
--\sum_{k=1}^{m-1}\left(\sum_{l=1}^{k}s_{kl}\langle\phi_{l}\vert\phi_{m}\rangle_{V_{i}}\right)s_{kj}, & j<m;\\
+-\sum_{k=1}^{m-1}\left(\sum_{l=1}^{k}S_{kl}\langle\phi_{l}\vert\phi_{m}\rangle_{V_{i}}\right)S_{kj}, & j<m;\\
 1, & j=m.
 \end{cases}
 \]
@@ -22558,7 +22558,7 @@ a_{j}=\begin{cases}
  行：
 \begin_inset Formula 
 \[
-s_{mj}=\frac{a_{j}}{\left\Vert \sum_{j=1}^{m}a_{j}\phi_{j}\right\Vert _{V_{i}}}=\frac{a_{j}}{\sqrt{\sum_{j=1}^{m}\sum_{l=1}^{m}a_{j}a_{l}\langle\phi_{j}\vert\phi_{l}\rangle_{V_{i}}}},\qquad j=1,\dots,m.
+S_{mj}=\frac{a_{j}}{\left\Vert \sum_{j=1}^{m}a_{j}\phi_{j}\right\Vert _{V_{i}}}=\frac{a_{j}}{\sqrt{\sum_{j=1}^{m}\sum_{l=1}^{m}a_{j}a_{l}\langle\phi_{j}\vert\phi_{l}\rangle_{V_{i}}}},\qquad j=1,\dots,m.
 \]
 
 \end_inset
@@ -22579,26 +22579,26 @@ s_{mj}=\frac{a_{j}}{\left\Vert \sum_{j=1}^{m}a_{j}\phi_{j}\right\Vert _{V_{i}}}=
 \end_inset
 
  个成员的矩阵函数 
-\begin_inset Formula $\underline{U}(\vec{r})=\begin{bmatrix}u_{1}(\vec{r}) & \cdots & u_{m}(\vec{r})\end{bmatrix}^{t}$
+\begin_inset Formula $\underline{U}(\vec{r})=\begin{bmatrix}U_{1}(\vec{r}) & \cdots & U_{m}(\vec{r})\end{bmatrix}^{t}$
 \end_inset
 
  可以用其在正交归一基底 
-\begin_inset Formula $\underline{E}(\vec{r})=\begin{bmatrix}e_{1}(\vec{r}) & \cdots & e_{n}(\vec{r})\end{bmatrix}^{t}$
+\begin_inset Formula $\underline{e}(\vec{r})=\begin{bmatrix}e_{1}(\vec{r}) & \cdots & e_{n}(\vec{r})\end{bmatrix}^{t}$
 \end_inset
 
  上的投影来近似：
 \begin_inset Formula 
 \begin{equation}
-\underbrace{\begin{bmatrix}u_{1}^{h}(\vec{r})\\
+\underbrace{\begin{bmatrix}U_{1}^{h}(\vec{r})\\
 \vdots\\
-u_{m}^{h}(\vec{r})
-\end{bmatrix}}_{\underline{U^{h}}(\vec{r})}=\underbrace{\begin{bmatrix}\langle u_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle u_{1}\vert e_{n}\rangle_{V_{i}}\\
+U_{m}^{h}(\vec{r})
+\end{bmatrix}}_{\underline{U^{h}}(\vec{r})}=\underbrace{\begin{bmatrix}\langle U_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{1}\vert e_{n}\rangle_{V_{i}}\\
 \vdots & \ddots & \vdots\\
-\langle u_{m}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle u_{m}\vert e_{n}\rangle_{V_{i}}
-\end{bmatrix}}_{\langle\underline{U}\vert\underline{E}\rangle_{V_{i}}}\underbrace{\begin{bmatrix}e_{1}(\vec{r})\\
+\langle U_{m}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{m}\vert e_{n}\rangle_{V_{i}}
+\end{bmatrix}}_{\langle\underline{U}\vert\underline{e}\rangle_{V_{i}}}\underbrace{\begin{bmatrix}e_{1}(\vec{r})\\
 \vdots\\
 e_{n}(\vec{r})
-\end{bmatrix}}_{\underline{E}(\vec{r})}.\label{eq:function_projection}
+\end{bmatrix}}_{\underline{e}(\vec{r})}.\label{eq:function_projection}
 \end{equation}
 
 \end_inset
@@ -22627,7 +22627,7 @@ reference "subsec:quadrature"
 
 \begin_layout Standard
 如果 
-\begin_inset Formula $\underline{E'}(\vec{r})=\begin{bmatrix}e'_{1}(\vec{r}) & \cdots & e'_{n}(\vec{r})\end{bmatrix}^{t}$
+\begin_inset Formula $\underline{e'}(\vec{r})=\begin{bmatrix}e'_{1}(\vec{r}) & \cdots & e'_{n}(\vec{r})\end{bmatrix}^{t}$
 \end_inset
 
  是另一组正交归一化的基底，那么原始基底 
@@ -22644,19 +22644,19 @@ reference "subsec:quadrature"
 \underbrace{\begin{bmatrix}e_{1}(\vec{r})\\
 \vdots\\
 e_{n}(\vec{r})
-\end{bmatrix}}_{\underline{E^{h}}(\vec{r})}=\underbrace{\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e{}_{1}\vert e'_{n}\rangle_{V_{i}}\\
+\end{bmatrix}}_{\underline{e^{h}}(\vec{r})}=\underbrace{\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e{}_{1}\vert e'_{n}\rangle_{V_{i}}\\
 \vdots & \ddots & \vdots\\
 \langle e_{n}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{n}\vert e'_{n}\rangle_{V_{i}}
-\end{bmatrix}}_{\langle\underline{E}\vert\underline{E'}\rangle_{V_{i}}}\underbrace{\begin{bmatrix}e'_{1}(\vec{r})\\
+\end{bmatrix}}_{\langle\underline{e}\vert\underline{e'}\rangle_{V_{i}}}\underbrace{\begin{bmatrix}e'_{1}(\vec{r})\\
 \vdots\\
 e'_{n}(\vec{r})
-\end{bmatrix}}_{\underline{E'}(\vec{r})}.
+\end{bmatrix}}_{\underline{e'}(\vec{r})}.
 \]
 
 \end_inset
 
 原则上，该式中的内积都可以精确算出（被积函数都是多项式），因此该变换可以被视为是精确的（即 
-\begin_inset Formula $\underline{E^{h}}$
+\begin_inset Formula $\underline{e^{h}}$
 \end_inset
 
  的上标 
@@ -22675,25 +22675,25 @@ reference "eq:function_projection"
 \end_inset
 
  在 
-\begin_inset Formula $\underline{E'}$
+\begin_inset Formula $\underline{e'}$
 \end_inset
 
  上的投影：
 \begin_inset Formula 
 \[
-\underbrace{\begin{bmatrix}u_{1}(\vec{r})\\
+\underbrace{\begin{bmatrix}U_{1}(\vec{r})\\
 \vdots\\
-u_{m}(\vec{r})
-\end{bmatrix}}_{\underline{U^{h}}(\vec{r})}=\underbrace{\begin{bmatrix}\langle u_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle u_{1}\vert e_{n}\rangle_{V_{i}}\\
+U_{m}(\vec{r})
+\end{bmatrix}}_{\underline{U^{h}}(\vec{r})}=\underbrace{\begin{bmatrix}\langle U_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{1}\vert e_{n}\rangle_{V_{i}}\\
 \vdots & \ddots & \vdots\\
-\langle u_{m}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle u_{m}\vert e_{n}\rangle_{V_{i}}
+\langle U_{m}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{m}\vert e_{n}\rangle_{V_{i}}
 \end{bmatrix}\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{1}\vert e'_{n}\rangle_{V_{i}}\\
 \vdots & \ddots & \vdots\\
 \langle e_{n}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{n}\vert e'_{n}\rangle_{V_{i}}
-\end{bmatrix}}_{\langle\underline{U}\vert\underline{E'}\rangle_{V_{i}}}\underbrace{\begin{bmatrix}e'_{1}(\vec{r})\\
+\end{bmatrix}}_{\langle\underline{U}\vert\underline{e'}\rangle_{V_{i}}}\underbrace{\begin{bmatrix}e'_{1}(\vec{r})\\
 \vdots\\
 e'_{n}(\vec{r})
-\end{bmatrix}}_{\underline{E'}(\vec{r})}.
+\end{bmatrix}}_{\underline{e'}(\vec{r})}.
 \]
 
 \end_inset
@@ -22705,10 +22705,10 @@ e'_{n}(\vec{r})
  在两组正交归一基底上的投影系数之间的变换法则：
 \begin_inset Formula 
 \[
-\underbrace{\begin{bmatrix}\langle u_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle u_{1}\vert e'_{n}\rangle_{V_{i}}\\
+\underbrace{\begin{bmatrix}\langle U_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle U_{1}\vert e'_{n}\rangle_{V_{i}}\\
 \vdots & \ddots & \vdots\\
-\langle u_{m}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle u_{m}\vert e'_{n}\rangle_{V_{i}}
-\end{bmatrix}}_{\langle\underline{U}\vert\underline{E'}\rangle_{V_{i}}}
+\langle U_{m}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle U_{m}\vert e'_{n}\rangle_{V_{i}}
+\end{bmatrix}}_{\langle\underline{U}\vert\underline{e'}\rangle_{V_{i}}}
 \]
 
 \end_inset
@@ -22716,13 +22716,13 @@ e'_{n}(\vec{r})
 
 \begin_inset Formula 
 \[
-=\underbrace{\begin{bmatrix}\langle u_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle u_{1}\vert e_{n}\rangle_{V_{i}}\\
+=\underbrace{\begin{bmatrix}\langle U_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{1}\vert e_{n}\rangle_{V_{i}}\\
 \vdots & \ddots & \vdots\\
-\langle u_{m}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle u_{m}\vert e_{n}\rangle_{V_{i}}
-\end{bmatrix}}_{\langle\underline{U}\vert\underline{E}\rangle_{V_{i}}}\underbrace{\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{1}\vert e'_{n}\rangle_{V_{i}}\\
+\langle U_{m}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{m}\vert e_{n}\rangle_{V_{i}}
+\end{bmatrix}}_{\langle\underline{U}\vert\underline{e}\rangle_{V_{i}}}\underbrace{\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{1}\vert e'_{n}\rangle_{V_{i}}\\
 \vdots & \ddots & \vdots\\
 \langle e_{n}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{n}\vert e'_{n}\rangle_{V_{i}}
-\end{bmatrix}}_{\langle\underline{E}\vert\underline{E'}\rangle_{V_{i}}}.
+\end{bmatrix}}_{\langle\underline{e}\vert\underline{e'}\rangle_{V_{i}}}.
 \]
 
 \end_inset
@@ -22927,7 +22927,7 @@ reference "eq:volume_integral"
  中的积分用如下的加权求和式近似：
 \begin_inset Formula 
 \begin{equation}
-\iiint_{V_{i}}F(\xi,\eta,\zeta)\dd{\xi}\dd{\eta}\dd{\zeta}\approx\sum_{k=1}^{q}w_{k}F(\xi_{k},\eta_{k},\zeta_{k}),\label{eq:gaussian-quadrature}
+\iiint_{V_{i}}F(\xi,\eta,\zeta)\dd{\xi}\dd{\eta}\dd{\zeta}\approx\sum_{k=1}^{q}w_{k}\,F(\xi_{k},\eta_{k},\zeta_{k}),\label{eq:gaussian-quadrature}
 \end{equation}
 
 \end_inset
