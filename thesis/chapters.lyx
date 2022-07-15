@@ -2225,12 +2225,12 @@ literal "false"
 \end_inset
 
 中类似方法研究了悬停状态桨尖涡几何结构的稳定性。 计算结果显示，悬停状态时，桨尖涡几何结构的周期性条件只对前几圈桨叶适用，后几圈的桨尖涡几何结构表现出明细的时间
-非周期性。 由于采用了数值稳定的隐式Adams–Moulton格式，并且在步长小于
-\begin_inset Formula $4~\deg$
+非周期性。 由于采用了数值稳定的隐式Adams–Moulton格式，并且在步长小于 
+\begin_inset Formula $\ang{4}$
 \end_inset
 
-时可以给出足够精确的结果， 作者认为，物理不稳定是导致悬停状态桨尖涡远场尾迹非周期结构的主要原因，而非算法的数值稳定性问题。 这与Bagai和Leishman（
-1995）
+ 时可以给出足够精确的结果， 作者认为，物理不稳定是导致悬停状态桨尖涡远场尾迹非周期结构的主要原因，而非算法的数值稳定性问题。 这与Bagai和Leishman
+（1995）
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bagai1995,Bagai1995a,Bagai1996"
@@ -3719,17 +3719,17 @@ literal "false"
 \begin_inset Formula $1/54$
 \end_inset
 
-的直升机缩比模型上进行的，模型直升机的旋翼也进行了简化，气动载荷通过安装在机身内的六分量天平来测量。 实验模拟了船头正面迎风与
-\begin_inset Formula $45~\deg$
+的直升机缩比模型上进行的，模型直升机的旋翼也进行了简化，气动载荷通过安装在机身内的六分量天平来测量。 实验模拟了船头正面迎风与 
+\begin_inset Formula $\ang{45}$
 \end_inset
 
-侧风两种来流条件，沿直升机着舰机动飞行路径选取了几个固定点，测量了直升机在这几个点上的非定常气动载荷。 结果表明，船头正面迎风时，直升机着舰过程中存在“拉力不足
-”（thrust-deficit）的区域； 而在
-\begin_inset Formula $45~\deg$
+ 侧风两种来流条件，沿直升机着舰机动飞行路径选取了几个固定点，测量了直升机在这几个点上的非定常气动载荷。 结果表明，船头正面迎风时，直升机着舰过程中存在“拉力不
+足”（thrust-deficit）的区域； 而在 
+\begin_inset Formula $\ang{45}$
 \end_inset
 
-侧风条件下，存在“压力墙”（pressure-wall）区域。 作者认为，这是由船体空气尾流中的速度梯度引起的，通过对船体空气尾流进行非定常CFD分析，解释了上
-述实验观察到的现象。 尽管该实验是在固定直升机的条件下进行的，仍不能完全反映直升机着舰过程的真实载荷特征，但可作为验证计算模型的参照对象。
+ 侧风条件下，存在“压力墙”（pressure-wall）区域。 作者认为，这是由船体空气尾流中的速度梯度引起的，通过对船体空气尾流进行非定常CFD分析，解释了
+上述实验观察到的现象。 尽管该实验是在固定直升机的条件下进行的，仍不能完全反映直升机着舰过程的真实载荷特征，但可作为验证计算模型的参照对象。
 \end_layout
 
 \begin_layout Standard
@@ -29263,7 +29263,7 @@ noprefix "false"
 \end_inset
 
  马赫的激波迎头撞击一个 
-\begin_inset Formula $60\deg$
+\begin_inset Formula $\ang{60}$
 \end_inset
 
  楔形障碍物的流动图象，边界条件及初始条件如图 
@@ -34458,35 +34458,39 @@ reference "fig:rotor_mesh"
 
 \end_inset
 
- 所示的网格，模拟孤立旋翼在低速风洞中的吹风试验，并约定以米 (m) 为长度单位，以秒 (s) 为时间单位。风洞外形由三维区间 
-\begin_inset Formula $[-3,9]\times[-3,3]\times[-3,3]$
+ 所示的网格，模拟孤立旋翼在低速风洞中的吹风试验。风洞外形由三维区间 
+\begin_inset Formula $[\SI{-3}{m},\SI{9}{m}]\times[\SI{-3}{m},\SI{3}{m}]\times[\SI{-3}{m},\SI{3}{m}]$
 \end_inset
 
  表示，在其内部嵌套一个较小的三维区间 
-\begin_inset Formula $[-2,8]\times[-2,2]\times[-2,2]$
+\begin_inset Formula $[\SI{-2}{m},\SI{8}{m}]\times[\SI{-2}{m},\SI{2}{m}]\times[\SI{-2}{m},\SI{2}{m}]$
 \end_inset
 
-，用以表示旋翼及其尾迹附近网格需要加密的区域。旋翼桨盘中心固定于点 
-\begin_inset Formula $(0,0,0)$
-\end_inset
-
- 处，桨根及桨尖到该中心点的距离分别为 
-\begin_inset Formula $0.1$
+，用以表示旋翼及其尾迹附近网格需要加密的区域。旋翼桨盘中心固定于坐标原点处，桨根及桨尖到该中心点的距离分别为 
+\begin_inset Formula $\SI{0.1}{m}$
 \end_inset
 
  与 
-\begin_inset Formula $1.0$
+\begin_inset Formula $\SI{1.0}{m}$
 \end_inset
 
-，因此桨盘半径为 
-\begin_inset Formula $1.0$
+，因此桨盘直径为 
+\begin_inset Formula $\SI{2.0}{m}$
 \end_inset
 
 。旋翼转轴允许指向任意方向，转速为每秒 
 \begin_inset Formula $40$
 \end_inset
 
- 转。图 
+ 转，桨尖速率约为 
+\begin_inset Formula $0.74$
+\end_inset
+
+ 马赫（声速取 
+\begin_inset Formula $\SI{340}{m/s}$
+\end_inset
+
+）。图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:rotor_mesh"
@@ -34494,7 +34498,7 @@ reference "fig:rotor_mesh"
 \end_inset
 
  中的球形区域（即半径为 
-\begin_inset Formula $1.0$
+\begin_inset Formula $\SI{1.0}{m}$
 \end_inset
 
  的球体）表示桨叶可能扫过的区域，原则上可以在该区域内进一步加密网格，但本节算例并没有对其做特殊处理。
@@ -34556,20 +34560,11 @@ reference "prob:rotor_forward"
 
 \begin_layout Standard
 桨叶选用单一翼型、弦长为 
-\begin_inset Formula $0.1$
+\begin_inset Formula $\SI{0.1}{m}$
 \end_inset
 
  的矩形平直桨叶，预扭角为 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-ang{10}
-\end_layout
-
+\begin_inset Formula $\ang{10}$
 \end_inset
 
 ；翼型选用 UH-60A 直升机主旋翼的 SC 1095 翼型，其升力系数、阻力系数曲线分别如图 
@@ -37101,27 +37096,35 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-本文首先对旋翼空气动力学、舰载直升机气动干扰、高精度 CFD 方法的国内外研究现状进行了文献调研。在此基础上，以舰载直升机气动干扰的高效高精度数值模拟为目标，提
-出了一种既能处理船体复杂几何外形、又能高效模拟旋翼对流场扰动的“动量源–有限元”混合方法，并给出了该方法的一种支持分布式并行计算的代码实现。
+本文首先对旋翼空气动力学、舰载直升机气动干扰、高精度计算流体动力学 (CFD) 方法的国内外研究现状进行了文献调研。在此基础上，以舰载直升机气动干扰的高效高精度
+数值模拟为目标，提出了一种既能处理船体复杂几何外形、又能高效模拟旋翼对流场扰动的“动量源–有限元”混合方法，并给出了该方法的一种支持分布式并行计算的代码实现。
 \end_layout
 
-\begin_layout Standard
-数值试验结果表明：
+\begin_layout Subparagraph
+本文的主要结论如下：
 \end_layout
 
-\begin_layout Itemize
-适用于三维非结构网格的 RKDG 求解器，能够处理具有复杂几何外形的边界，从而适用于航空航天领域的工程问题。
+\begin_layout Enumerate
+适用于三维非结构网格的
+\bar under
+龙格–库塔间断伽辽金 (RKDG)
+\bar default
+ 求解器，能够处理具有复杂几何外形的边界，从而适用于航空航天领域的工程问题。
 \end_layout
 
-\begin_layout Itemize
-基于邻接单元的 WENO 重构过程，能够有效地压制间断附近的数值振荡，同时保持 RKDG 方法的紧致性、可并行性。
+\begin_layout Enumerate
+基于邻接单元的
+\bar under
+加权基本无振荡 (WENO)
+\bar default
+ 重构过程，能够有效地压制间断附近的数值振荡，同时保持 RKDG 方法的紧致性、可并行性。
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 高阶 RKDG 求解器的数值耗散较低，能够在相对较粗的非结构网格上捕获复杂的流动细节，具有更高的性价比。
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 非定常动量源模型与高阶 RKDG 求解器配合使用，能够在静态网格上高效、高精度地模拟旋翼对流场的扰动，避免了传统旋翼空气动力学数值模拟方法对动态网格、滑动网格、
 重叠网格等高级网格技术的依赖。
 \end_layout
@@ -37133,22 +37136,26 @@ literal "false"
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subparagraph
 本文的主要创新点如下：
 \end_layout
 
 \begin_layout Enumerate
-本文基于现代 C++ 的标准库、类机制、模板机制，以类模板的形式给出了一种 RKDG 方法的代码实现。该模板通过解除空间离散、时间推进、数值通量之间的相互依赖，
+基于现代 C++ 的标准库、类机制、模板机制，以类模板的形式给出了一种 RKDG 方法的通用代码实现。该模板通过解除空间离散、时间推进、数值通量之间的相互依赖，
 允许这些模块各自独立开发、任意组合，提高了代码复用率、可维护性和可扩展性。
 \end_layout
 
 \begin_layout Enumerate
-本文提出并实现了一种高效、高精度的旋翼空气动力学模拟方法。该方法在上述 RKDG 求解器中，嵌入了一种非定常动量源模型，用于模拟旋翼对流场的扰动。所得结果被成功
-地应用于旋翼数值风洞试验与舰载直升机气动干扰问题的研究。
+提出并实现了一种高效、高精度的旋翼空气动力学模拟方法。该方法在上述通用 RKDG 求解器中，嵌入了一种
+\bar under
+非定常动量源 (UMS)
+\bar default
+ 模型，用于模拟旋翼对流场的扰动。所得的 UMS–RKDG 求解器被成功地应用于旋翼数值风洞试验与舰载直升机气动干扰问题的研究。
 \end_layout
 
 \begin_layout Enumerate
-本文给出了上述求解器的并行化实现，使其能够更充分地利用现有计算资源来加速程序的运行，从而缩短数值模拟在实际应用中的迭代周期。
+给出了上述通用 RKDG 求解器及其旋翼适配版 UMS–RKDG 求解器的并行化实现，使其能够更充分地利用现有计算资源来加速程序的运行，从而缩短数值模拟在实际应
+用中的迭代周期。
 \end_layout
 
 \begin_layout Standard
@@ -37158,14 +37165,17 @@ literal "false"
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subparagraph
 以下几点可以作为进一步研究的方向：
 \end_layout
 
 \begin_layout Enumerate
 支持处理高阶导数项，如耗散项、黏性项。对线性单波而言，这意味着用线性对流–扩散方程，替换本文中求解的线性平流方程；对流体力学而言，这意味着用纳维–斯托克斯方程，
-替换本文中求解的欧拉方程。一种可能的方案是采用“局部间断伽辽金 (local discontinuous Galerkin, LDG)”方法，将高阶偏微分方程化
-为一阶偏微分方程组，再为新引入的未知量设计数值通量，从而使 RKDG 方法的数据结构本地化、高度可并行化等优点得以保持。
+替换本文中求解的欧拉方程。一种可能的方案是采用
+\bar under
+局部间断伽辽金 (LDG)
+\bar default
+ 方法，将高阶偏微分方程化为一阶偏微分方程组，再为新引入的未知量设计数值通量，从而使 RKDG 方法的数据结构本地化、高度可并行化等优点得以保持。
 \end_layout
 
 \begin_layout Enumerate
