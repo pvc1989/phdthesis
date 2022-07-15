@@ -1,4 +1,5 @@
 % !Mode:: "TeX:UTF-8"
+\PassOptionsToPackage{draft}{graphicx}
 \documentclass[doctor,openright,twoside,color,AutoFakeBold=true]{buaathesis}
 
 % 参考文献
@@ -83,6 +84,9 @@
 \theoremstyle{definition}
 \newtheorem{condition}[thm]{\protect\conditionname}
 
+\def\th@plain{%
+	\hwkaiti % body font
+}
 \def\th@definition{%
 	\fangsong % body font
 }
@@ -213,7 +217,7 @@ SmallCapsFeatures={Numbers=OldStyle}
 % 前言页眉页脚样式
 \pagestyle{frontmatter}
 % 摘要
-\include{data/abstract}
+\include{abstract}
 % 目录、插图目录、表格目录
 \tableofcontents
 \listoffigures
@@ -239,7 +243,7 @@ SmallCapsFeatures={Numbers=OldStyle}
 
 % 附录
 \appendix
-\include{data/appendix2-contactus}
+%\include{data/appendix2-contactus}
 
 % 附页标题样式
 \backmatter

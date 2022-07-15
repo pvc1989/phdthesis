@@ -1,0 +1,38 @@
+% !Mode:: "TeX:UTF-8"
+
+% 中英文摘要
+\begin{cabstract}
+舰载直升机空气动力学以旋翼空气动力学为基础，侧重于研究旋翼与船体及海面之间的气动干扰问题。
+随着计算机硬件性能的提高，特别是高性能计算平台的普及，数值模拟正日益称为包括旋翼空气动力学在内的复杂工程物理问题的重要研究手段。
+现有的旋翼空气动力学数值模拟方法，要么基于简化的物理模型，如：自由尾迹模型、涡粒子模型；要么基于高级的网格技术，如：动态网格、滑动网格、嵌套网格。
+前者计算效率虽高，但对于固体壁面通常以镜像法做处理，难以处理具有复杂几何外形的流场边界，从而不适合于研究舰载直升机气动干扰问题。
+后者虽能处理几何外形更复杂的固体边界，但频繁重构网格，或者在不同网格之间频繁交换数据，所增加的计算成本都是日常研究难以承受的。
+
+本文的研究目标，是提供一种既能处理复杂船体外形，又能在较粗的非结构网格上保持较高精度，还能高效地捕捉旋翼对流场非定常扰动的数值模拟工具。
+为此，本文开展了以下工作：
+\begin{itemize}
+\item 推导并实现一种适用于三维非结构网格、能够有效压制数值振荡、支持分布式并行计算的间断伽辽金有限元方法。基于现代 C++ 的标准库、类机制、模板机制，编写出一个满足上述需求的 RKDG 求解器的类模板，并以此模板生成不同精度阶数、不同物理背景的 RKDG 求解器实例。
+\item 利用具有解析解或精确解的一维标准算例，定量验证上述 RKDG 求解器的正确性和精度阶数。利用拥有公认数值解的二维标准算例，定性验证上述求解器捕捉复杂流动图象的能力。在此基础上，以数学上等价于经典有限体积解、物理上较为可靠的一阶 RKDG近似解为参照，定性验证三阶 RKDG 近似解的正确性和高精度优势。在此过程中，对三阶 RKDG 求解器的并行性能进行了测量和评估。
+\item 将一种非定常动量源模型 (UMS) 植入上述经过验证的 RKDG 求解器，以支持对旋翼空气动力学问题的高效高精度模拟。用此 UMS—RKDG 求解器，开展爬升、前飞两种工况的旋翼数值风洞试验。最后，将此 UMS—RKDG 求解器，应用于舰载直升机气动干扰问题的研究中。
+\end{itemize}
+
+本文的研究成果，即支持分布式并行计算的 UMS—RKDG 求解器，实现了预期的研究目标，为舰载直升机气动干扰问题的研究，提供了一种高效且具有高阶精度的数值模拟工具。
+\end{cabstract}
+
+\begin{eabstract}
+Based on rotor aerodynamics, shipborne helicopter aerodynamics focuses on the aerodynamic interference between rotor, hull and sea surface.
+With the improvement of computer hardware performance, especially the popularization of high-performance computing (HPC) platforms, numerical simulation is increasingly becoming an important research method for complex engineering physics problems including rotor aerodynamics.
+Existing numerical simulation methods of rotor aerodynamics are either based on simplified physical models, such as free wake model, vortex particle model; or based on advanced mesh techniques, such as dynamic mesh, sliding mesh, overset mesh.
+Although the former has high computational efficiency, it usually handles solid walls by the mirror method, which is difficult to deal with the flow field boundary with complex geometric shapes, so it is not suitable for studying the aerodynamic interference problem of shipborne helicopters.
+Although the latter can handle solid boundaries with more complex geometric shapes, frequent reconstruction of grids or frequent exchange of data between different grids results in an unbearable increase of computational cost for daily research.
+
+The research goal of this thesis is to provide a numerical simulation tool that can handle complex hull shapes, maintain high accuracy on coarse unstructured grids, and efficiently capture the unsteady disturbance of a rotor to the flow field.
+To this end, the following works are conducted in this thesis:
+\begin{itemize}
+\item A discontinuous Galerkin finite element method suitable for 3D unstructured grids is derived and implemented, which can effectively suppress numerical oscillations and support distributed parallel computing. Based on the standard library, class mechanism and template mechanism of modern C++, a class template of RKDG solvers that meets the above requirements is written, and RKDG solver instances with different accuracy orders and different physical backgrounds are generated from this template.
+\item The correctness and accuracy order of the above RKDG solvers are quantitatively verified, using standard 1D problems with analytical or exact solutions. The ability of the above solvers to capture complex flow images is qualitatively verified using standard 2D  problems with widely accepted numerical solutions. On this basis, the correctness and high accuracy order of the third-order RKDG approximate solution are qualitatively verified with reference to the first-order RKDG approximate solution, which is mathematically equivalent to the classical finite volume solution and is physically more reliable. During this process, the parallel performance of the third-order RKDG solver was measured and evaluated.
+\item An unsteady momentum source (UMS) model is embedded into the validated RKDG solvers described above, to support efficient and high-accuracy simulation of rotor aerodynamic problems. Using these UMS-RKDG solvers, two numerical wind tunnel tests of a rotor are carried out in two conditions --- climb and forward flight. Finally, these UMS-RKDG solvers are applied to the study of the aerodynamic interference problem of a shipborne helicopter.
+\end{itemize}
+
+Results of this thesis, i.e., the UMS-RKDG solvers that support distributed parallel computing, achieve the expected research goal, which is to provide an efficient and high-order numerical simulation tool for the study of the aerodynamic interference problem of shipborne helicopters.
+\end{eabstract}
