@@ -34441,6 +34441,13 @@ reference "fig:PQ"
 
 \begin_layout Section
 旋翼数值风洞试验
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:rotor_in_tunnel"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -36482,7 +36489,185 @@ status open
 \end_layout
 
 \begin_layout Section
-舰载直升机气动干扰
+旋翼–舰体–海面气动干扰
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:rotor_over_ship"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+本节在图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ship_mesh"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所示的非结构网格上，模拟舰载直升机的旋翼–舰体–海面之间的气动干扰。该网格使用了图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ship_geometry"
+
+\end_inset
+
+ 所示的简化版护卫舰模型，其中灰色长方体为文献 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Thedin_2020"
+literal "false"
+
+\end_inset
+
+ 对网格进行加密的区域。本文将加密区域适当前移并令其底部与海面接触，以罩住舰体后半部分。该网格相当粗糙：远场单元尺度约为 
+\begin_inset Formula $\SI{40}{ft}$
+\end_inset
+
+，加密区域内最小单元尺度约为 
+\begin_inset Formula $\SI{5}{ft}$
+\end_inset
+
+， 为甲板距离海面的高度的三分之一。后面将会看到，在如此粗糙的网格上，高阶 RKDG 近似解依然能捕捉到许多经典有限体积解不可能捕捉到的流动细节。
+\end_layout
+
+\begin_layout Standard
+旋翼桨盘中心固定于点 
+\begin_inset Formula $(\SI{-45}{ft},\SI{22.5}{ft},\SI{40}{ft})$
+\end_inset
+
+ 处，桨根及桨尖到该中心点的距离分别为 
+\begin_inset Formula $\SI{0.1}{m}$
+\end_inset
+
+ 与 
+\begin_inset Formula $\SI{10}{m}$
+\end_inset
+
+，其他几何参数与 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:rotor_in_tunnel"
+
+\end_inset
+
+ 节中的桨叶相同。旋翼转轴指向 
+\begin_inset Formula $+z$
+\end_inset
+
+ 方向，转速为每秒 
+\begin_inset Formula $4$
+\end_inset
+
+ 转，桨尖速率约为 
+\begin_inset Formula $0.74$
+\end_inset
+
+ 马赫（声速取 
+\begin_inset Formula $\SI{340}{m/s}$
+\end_inset
+
+）。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/ship/grid.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_mesh"
+
+\end_inset
+
+本文 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:rotor_over_ship"
+
+\end_inset
+
+ 节算例所使用的网格
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/ship/simple_frigate.jpeg
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_geometry"
+
+\end_inset
+
+文献 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Thedin_2020"
+literal "false"
+
+\end_inset
+
+ 使用的简化版护卫舰几何模型
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter*
