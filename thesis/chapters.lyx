@@ -34802,14 +34802,14 @@ noprefix "false"
  的四面体单元的粗网格求解该问题。图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_upward_t=2e-1"
+reference "fig:upward_t=2e-1_p=3"
 
 \end_inset
 
 、图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_upward_t=4e-1"
+reference "fig:upward_t=4e-1_p=3"
 plural "false"
 caps "false"
 noprefix "false"
@@ -34819,7 +34819,7 @@ noprefix "false"
 、图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_upward_t=6e-1"
+reference "fig:upward_t=6e-1_p=3"
 plural "false"
 caps "false"
 noprefix "false"
@@ -34829,7 +34829,7 @@ noprefix "false"
 、图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_upward_t=8e-1"
+reference "fig:upward_t=8e-1_p=3"
 plural "false"
 caps "false"
 noprefix "false"
@@ -34839,7 +34839,7 @@ noprefix "false"
 、图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_upward_t=10e-1"
+reference "fig:upward_t=10e-1_p=3"
 plural "false"
 caps "false"
 noprefix "false"
@@ -34881,14 +34881,14 @@ reference "prob:rotor_upward"
 图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_upward_t=2e-1"
+reference "fig:upward_t=2e-1_p=3"
 
 \end_inset
 
 –
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_upward_t=10e-1"
+reference "fig:upward_t=10e-1_p=3"
 plural "false"
 caps "false"
 noprefix "false"
@@ -34930,6 +34930,46 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:upward_t=2e-1_p=1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=0.2$
+\end_inset
+
+ 时刻的一阶 RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Graphics
 	filename figures/upward/p=3/Frame20.png
 	lyxscale 15
@@ -34946,7 +34986,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:rotor_upward_t=2e-1"
+name "fig:upward_t=2e-1_p=3"
 
 \end_inset
 
@@ -34961,7 +35001,7 @@ reference "prob:rotor_upward"
 \begin_inset Formula $t=0.2$
 \end_inset
 
- 时刻的一阶、三阶 RKDG 近似解（一阶在上，三阶在下）
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -34992,6 +35032,46 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:upward_t=4e-1_p=1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=0.4$
+\end_inset
+
+ 时刻的一阶 RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Graphics
 	filename figures/upward/p=3/Frame40.png
 	lyxscale 15
@@ -35008,7 +35088,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:rotor_upward_t=4e-1"
+name "fig:upward_t=4e-1_p=3"
 
 \end_inset
 
@@ -35023,7 +35103,7 @@ reference "prob:rotor_upward"
 \begin_inset Formula $t=0.4$
 \end_inset
 
- 时刻的 RKDG 近似解（一阶在上，三阶在下）
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -35054,6 +35134,46 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:upward_t=6e-1_p=1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=0.6$
+\end_inset
+
+ 时刻的一阶 RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Graphics
 	filename figures/upward/p=3/Frame60.png
 	lyxscale 15
@@ -35070,7 +35190,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:rotor_upward_t=6e-1"
+name "fig:upward_t=6e-1_p=3"
 
 \end_inset
 
@@ -35085,7 +35205,7 @@ reference "prob:rotor_upward"
 \begin_inset Formula $t=0.6$
 \end_inset
 
- 时刻的 RKDG 近似解（一阶在上，三阶在下）
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -35116,6 +35236,46 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:upward_t=8e-1_p=1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=0.8$
+\end_inset
+
+ 时刻的一阶 RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Graphics
 	filename figures/upward/p=3/Frame80.png
 	lyxscale 15
@@ -35132,7 +35292,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:rotor_upward_t=8e-1"
+name "fig:upward_t=8e-1_p=3"
 
 \end_inset
 
@@ -35147,7 +35307,58 @@ reference "prob:rotor_upward"
 \begin_inset Formula $t=0.8$
 \end_inset
 
- 时刻的 RKDG 近似解（一阶在上，三阶在下）
+ 时刻的三阶 RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/upward/p=1/Frame100.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:upward_t=10e-1_p=1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_upward"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的一阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -35194,7 +35405,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:rotor_upward_t=10e-1"
+name "fig:upward_t=10e-1_p=3"
 
 \end_inset
 
@@ -35209,7 +35420,7 @@ reference "prob:rotor_upward"
 \begin_inset Formula $t=1.0$
 \end_inset
 
- 时刻的 RKDG 近似解（一阶在上，三阶在下）
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -35231,21 +35442,21 @@ reference "prob:rotor_upward"
 近似解的数值耗散，还可以通过环状涡的涡核清晰度来观察。图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_upward_p=1"
+reference "fig:upward_p=1"
 
 \end_inset
 
 、图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_upward_p=3"
+reference "fig:upward_p=3"
 
 \end_inset
 
  在图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_upward_t=10e-1"
+reference "fig:upward_t=10e-1_p=3"
 
 \end_inset
 
@@ -35279,7 +35490,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:rotor_upward_p=1"
+name "fig:upward_p=1"
 
 \end_inset
 
@@ -35333,7 +35544,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:rotor_upward_p=3"
+name "fig:upward_p=3"
 
 \end_inset
 
@@ -35468,7 +35679,7 @@ reference "prob:rotor_upward"
 图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_forward_t=2e-1"
+reference "fig:forward_t=2e-1_p=3"
 plural "false"
 caps "false"
 noprefix "false"
@@ -35478,7 +35689,7 @@ noprefix "false"
 、图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_forward_t=4e-1"
+reference "fig:forward_t=4e-1_p=3"
 plural "false"
 caps "false"
 noprefix "false"
@@ -35488,7 +35699,7 @@ noprefix "false"
 、图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_forward_t=6e-1"
+reference "fig:forward_t=6e-1_p=3"
 plural "false"
 caps "false"
 noprefix "false"
@@ -35498,7 +35709,7 @@ noprefix "false"
 、图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_forward_t=8e-1"
+reference "fig:forward_t=8e-1_p=3"
 plural "false"
 caps "false"
 noprefix "false"
@@ -35508,7 +35719,7 @@ noprefix "false"
 、图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_forward_t=10e-1"
+reference "fig:forward_t=10e-1_p=3"
 plural "false"
 caps "false"
 noprefix "false"
@@ -35575,23 +35786,12 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Graphics
-	filename figures/forward/p=3/Frame20.png
-	lyxscale 15
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:rotor_forward_t=2e-1"
+name "fig:forward_t=2e-1_p=1"
 
 \end_inset
 
@@ -35609,7 +35809,61 @@ noprefix "false"
 \begin_inset Formula $t=0.2$
 \end_inset
 
- 时刻的一阶、三阶 RKDG 近似解（一阶在上，三阶在下）
+ 时刻的一阶 RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=3/Frame20.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_t=2e-1_p=3"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=0.2$
+\end_inset
+
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -35640,23 +35894,12 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Graphics
-	filename figures/forward/p=3/Frame40.png
-	lyxscale 15
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:rotor_forward_t=4e-1"
+name "fig:forward_t=4e-1_p=1"
 
 \end_inset
 
@@ -35674,7 +35917,61 @@ noprefix "false"
 \begin_inset Formula $t=0.4$
 \end_inset
 
- 时刻的 RKDG 近似解（一阶在上，三阶在下）
+ 时刻的一阶 RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=3/Frame40.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_t=4e-1_p=3"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=0.4$
+\end_inset
+
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -35705,23 +36002,12 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Graphics
-	filename figures/forward/p=3/Frame60.png
-	lyxscale 15
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:rotor_forward_t=6e-1"
+name "fig:forward_t=6e-1_p=1"
 
 \end_inset
 
@@ -35739,7 +36025,61 @@ noprefix "false"
 \begin_inset Formula $t=0.6$
 \end_inset
 
- 时刻的 RKDG 近似解（一阶在上，三阶在下）
+ 时刻的一阶 RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=3/Frame60.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_t=6e-1_p=3"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=0.6$
+\end_inset
+
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -35770,23 +36110,12 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Graphics
-	filename figures/forward/p=3/Frame80.png
-	lyxscale 15
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:rotor_forward_t=8e-1"
+name "fig:forward_t=8e-1_p=1"
 
 \end_inset
 
@@ -35804,7 +36133,61 @@ noprefix "false"
 \begin_inset Formula $t=0.8$
 \end_inset
 
- 时刻的 RKDG 近似解（一阶在上，三阶在下）
+ 时刻的一阶 RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=3/Frame80.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_t=8e-1_p=3"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=0.8$
+\end_inset
+
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -35835,23 +36218,12 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Graphics
-	filename figures/forward/p=3/Frame100.png
-	lyxscale 15
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:rotor_forward_t=10e-1"
+name "fig:forward_t=10e-1_p=1"
 
 \end_inset
 
@@ -35869,7 +36241,61 @@ noprefix "false"
 \begin_inset Formula $t=1.0$
 \end_inset
 
- 时刻的 RKDG 近似解（一阶在上，三阶在下）
+ 时刻的一阶 RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/forward/p=3/Frame100.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_t=10e-1_p=3"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:rotor_forward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的三阶 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -35939,7 +36365,7 @@ reference "fig:forward_wake_x_view"
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:rotor_forward_t=10e-1"
+reference "fig:forward_t=10e-1_p=3"
 
 \end_inset
 
@@ -36369,7 +36795,7 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -36388,7 +36814,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:rotor_forward_p=1"
+name "fig:forward_p=1"
 
 \end_inset
 
@@ -36423,7 +36849,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -36442,7 +36868,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:rotor_forward_p=3"
+name "fig:forward_p=3"
 
 \end_inset
 
