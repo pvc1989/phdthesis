@@ -1,5 +1,5 @@
 % !Mode:: "TeX:UTF-8"
-\PassOptionsToPackage{draft}{graphicx}
+%\PassOptionsToPackage{draft}{graphicx}
 \documentclass[doctor,openright,twoside,color,AutoFakeBold=true]{buaathesis}
 
 % 参考文献
@@ -209,8 +209,79 @@ SmallCapsFeatures={Numbers=OldStyle}
 \begin{document}
 
 % 用户信息
-\include{data/com_info}
-\include{data/master/master_info}
+% !Mode:: "TeX:UTF-8"
+
+% 学院中英文名，中文不需要“学院”二字
+% 院系英文名可从以下导航页面进入各个学院的主页查看
+% https://www.buaa.edu.cn/jgsz/yxsz.htm
+\school
+{航空科学与工程学院}{School of Aeronautic Science and Engineering}
+
+% 专业中英文名
+\major
+{飞行器设计}{Aircraft Design}
+
+% 论文中英文标题
+\thesistitle
+{舰载直升机气动干扰研究}
+{}
+{Study on Aerodynamic Interference of Shipborne Helicopter}
+{}
+
+% 作者中英文名
+\thesisauthor
+{裴为诚}{Pei, Weicheng}
+
+% 导师中英文名
+\teacher
+{李书}{Li, Shu}
+% 副导师中英文名
+% 注：慎用‘副导师’，见北航研究生毕业论文规范
+%\subteacher{(副导师姓名)}{(Name of Subteacher)}
+
+% 中图分类号，可在 http://www.ztflh.com/ 查询
+\category{(中图分类号)}
+
+% 本科生为毕设开始时间；研究生为学习开始时间
+\thesisbegin{2014}{9}{1}
+
+% 本科生为毕设结束时间；研究生为学习结束时间
+\thesisend{2022}{8}{20}
+
+% 毕设答辩时间
+\defense{2022}{8}{(日)}
+
+% 中文摘要关键字
+\ckeyword{舰载直升机，气动干扰，旋翼空气动力学，间断伽辽金有限元法，加权基本无振荡重构，非定常动量源模型}
+
+% 英文摘要关键字
+\ekeyword{shipborne helicopter, aerodynamic interference, rotor aerodynamics, discontinuous Galerkin (DG) finite element method, weighted essentially non-oscillatory (WENO) reconstruction, unsteady momentum source (UMS) model}
+
+% !Mode:: "TeX:UTF-8"
+
+% 研究方向
+\direction{直升机气动}
+
+% 导师职称中英文
+\teacherdegree{教授}{Professor}
+% 副导师职称中英文
+% 注：慎用‘副导师’，见北航研究生毕业论文规范
+%\subteacherdegree{(副导师职称)}{(Subteacher Degree)}
+
+% 保密等级 保密期限，注：非保密论文时不需要此项
+%\mibao{(保密等级)}{(保密期限)}
+
+%申请学位级别
+\applydegree{博士}
+
+% 论文编号，由10006+学号组成
+\thesisID{10006BY1405156}
+
+% 论文提交时间
+\commit{2022}{7}{15}
+
+% 学位授予日期
+\award{2022}{(月)}{(日)}
 
 % 中英封面、提名页、授权书
 \maketitle
@@ -223,7 +294,7 @@ SmallCapsFeatures={Numbers=OldStyle}
 \listoffigures
 \listoftables
 % 符号表
-\include{data/master/denotation}
+%\include{data/master/denotation}
 
 % 正文页码样式
 \mainmatter
@@ -250,7 +321,23 @@ SmallCapsFeatures={Numbers=OldStyle}
 \backmatter
 
 % 附页
-% \include{data/master/back1-achievement}
+\chapter{攻读博士学位期间取得的学术成果}
+\noindent 发表论文：
+\begin{enumerate}
+\item
+Pei Weicheng, Jiang Yuyan and Li Shu. An Efficient Parallel Implementation of the Runge–Kutta Discontinuous Galerkin Method with Weighted Essentially Non-Oscillatory Limiters on Three-Dimensional Unstructured Meshes. Applied Sciences 2022, issue 12, no. 9: 4228. https://doi.org/10.3390/app12094228 (JCR Q2)
+\item
+Pei Weicheng, Jiang Yuyan and Li Shu. High-Order CFD Solvers on Three-Dimensional Unstructured Meshes: Parallel Implementation of RKDG Method with WENO Limiter and Momentum Sources. Aerospace 2022, issue 9, no. 7: 372. https://doi.org/10.3390/aerospace9070372  (JCR Q1)
+\end{enumerate}
+
 \include{data/master/back2-acknowledgement}
-\include{data/master/back3-aboutauthor}
+
+\chapter{作者简介}
+裴为诚，男，汉族，1989 年 8 月 29 日出生于江苏省南通市。
+2008 年 8 月考入浙江大学航空航天学院工程力学专业，2012 年 6 月本科毕业并获得工学学士学位。
+2012 年 9 月免试推荐至北京航空航天大学航空科学与工程学院攻读硕士学位。
+2014 年 9 月获得硕博连读资格继续攻读博士学位。
+在攻读博士学位期间，主要从事直升机空气动力学方向的研究工作。
+2022 年完成题为《舰载直升机气动干扰研究》的博士学位论文，申请博士学位答辩。
+
 \end{document}

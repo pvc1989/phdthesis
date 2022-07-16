@@ -107,7 +107,7 @@ theorems-chap
 \begin_layout Standard
 直升机以其特有的垂直起降（Vertical Take-Off and Landing, VTOL）、悬停和低空低速飞行能力，特别适合于在军舰、科考船、海上钻井平
 台等起降条件和飞行环境较差的平台上执行任务。 舰载直升机能够有效扩大舰船作业半径、丰富海上作业科目、提升应对海上突发情况的能力。 发展舰载直升机对于保障舰船航行
-安全、维护海洋权益具有重要意义。 世界各海洋大国和航空大国历来重视舰载直升机的发展，相继研制出各种不同构型的舰载直升机（见表
+安全、维护海洋权益具有重要意义。 世界各海洋大国和航空大国历来重视舰载直升机的发展，相继研制出各种不同构型的舰载直升机，如表 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Marine-Helicopter"
@@ -117,7 +117,7 @@ noprefix "false"
 
 \end_inset
 
-）。 我国海军正处于“近海防御型向近海防御与远海护卫型结合转变”
+ 所示。 我国海军正处于“近海防御型向近海防御与远海护卫型结合转变”
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PRC2015"
@@ -129,7 +129,7 @@ literal "false"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1752,7 +1752,7 @@ C_{\mathrm{M}}
 
 \end_inset
 
-文献
+文献 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Chen1989"
@@ -1760,7 +1760,7 @@ literal "false"
 
 \end_inset
 
-对截至到上世纪80年代末的各种静态和动态入流模型作了详细的综述。
+ 对截至到上世纪80年代末的各种静态和动态入流模型作了详细的综述。
 \end_layout
 
 \begin_layout Standard
@@ -23803,7 +23803,7 @@ reference "rem:TVB-scheme"
 \end_layout
 
 \begin_layout Subsection
-适用于 FDM 的标量重构
+适用于高阶有限差分法的标量重构
 \end_layout
 
 \begin_layout Standard
@@ -23962,7 +23962,7 @@ f_{i+2}
 \end_layout
 
 \begin_layout Standard
-文献
+文献 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jiang_1996"
@@ -23970,7 +23970,7 @@ literal "false"
 
 \end_inset
 
-给出了一种满足上述性质的方案：
+ 给出了一种满足上述性质的方案：
 \end_layout
 
 \begin_layout Enumerate
@@ -24155,7 +24155,7 @@ w_{k}=w_{k}^{\star}+\order{h^{4}}\impliedby w_{k}^{\beta}=\frac{w_{k}^{\star}}{(
 \end_layout
 
 \begin_layout Subsection
-适用于 DGM 的标量重构
+适用于间断伽辽金方法的标量重构
 \end_layout
 
 \begin_layout Standard
@@ -24456,7 +24456,7 @@ f_{K}
 \end_layout
 
 \begin_layout Subsection
-适用于 DGM 的特征重构
+适用于间断伽辽金方法的特征重构
 \end_layout
 
 \begin_layout Standard
@@ -37433,6 +37433,64 @@ reference "prob:ship_a=0"
 
 \begin_layout Subsection
 侧面迎风
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[侧面迎风]
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:ship_a=45"
+
+\end_inset
+
+在时间范围 
+\begin_inset Formula $t\in[0,10]$
+\end_inset
+
+ 内，求满足三维欧拉方程（式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+）及以下定解条件的广义解。
+\end_layout
+
+\begin_layout Problem
+初始条件设为与呈 
+\begin_inset Formula $\ang{45}$
+\end_inset
+
+ 夹角的均匀气流：
+\begin_inset Formula 
+\[
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 2.5\sqrt{2} & 2.5\sqrt{2} & 0.0 & 101325.0\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
 \end_layout
 
 \end_body
