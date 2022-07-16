@@ -33848,7 +33848,7 @@ reference "prob:rotor_forward"
 \begin_inset Formula $\ang{10}$
 \end_inset
 
-；翼型选用 UH-60A 直升机主旋翼的 SC 1095 翼型，其升力系数、阻力系数曲线分别如图 
+；翼型选用 UH-60A 直升机主旋翼的 SC-1095 翼型，其升力系数、阻力系数曲线分别如图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:rotor_c_lift"
@@ -33906,7 +33906,7 @@ name "fig:rotor_c_lift"
 
 \end_inset
 
-SC 1095 翼型的升力系数曲线
+SC-1095 翼型的升力系数曲线
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Howlett_1981"
@@ -33957,7 +33957,7 @@ name "fig:rotor_c_drag"
 
 \end_inset
 
-SC 1095 翼型的阻力系数曲线
+SC-1095 翼型的阻力系数曲线
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Howlett_1981"
