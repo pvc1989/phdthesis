@@ -33911,7 +33911,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-前文已经给出了用间断伽辽金有限元法（式 
+前文已经给出了用 RKDG 方法（式 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:orthonormal_DG"
@@ -33953,7 +33953,11 @@ reference "eq:PDE"
 
 \end_inset
 
-
+本节给出将体现旋翼气动效应的一种
+\bar under
+非定常动量源 (unsteady momentum source, UMS)
+\bar default
+ 模型嵌入既有的 RKDG 求解器，从而获得 UMS–RKDG 求解器的具体过程。
 \end_layout
 
 \begin_layout Subsection
@@ -36954,7 +36958,7 @@ literal "false"
 \begin_inset Formula $\SI{5}{ft}$
 \end_inset
 
-， 为甲板距离海面的高度的三分之一。后面将会看到，在如此粗糙的网格上，高阶 RKDG 近似解依然能捕捉到许多经典有限体积解不可能捕捉到的流动细节。
+， 为甲板距离海面的高度的三分之一。后面将会看到，在如此粗糙的网格上，高阶 UMS–RKDG 近似解依然能捕捉到许多经典有限体积解不可能捕捉到的流动细节。
 \end_layout
 
 \begin_layout Standard
@@ -37092,7 +37096,7 @@ literal "false"
 \end_layout
 
 \begin_layout Subsection
-正面迎风
+船头正面迎风
 \end_layout
 
 \begin_layout Problem
@@ -37101,7 +37105,7 @@ status open
 
 \begin_layout Plain Layout
 
-[正面迎风]
+[船头正面迎风]
 \end_layout
 
 \end_inset
@@ -37172,8 +37176,8 @@ noprefix "false"
 \end_inset
 
  清楚地显示了旋翼尾迹的形成过程。计时开始后，一个启动涡在旋翼后缘形成，并随来流向后（右）运动，运动轨迹大致对应旋翼尾迹后缘。该尾迹后缘不受船体阻挡，正常向后向
-下延伸，直到触及海面。与之相反，尾迹前缘明显受到船尾甲板阻挡，气流撞击甲板形成高压、高密度区。相应地，旋翼前缘感受到来自甲板的托举力，其机理类似于地面效应。因此
-，舰载直升机在船头正面迎风船尾甲板上起降时，驾驶员（或自动控制系统）需调整操作，以克服向后翻滚的俯仰力矩。
+下延伸，直到触及海面。与之相反，尾迹前缘明显受到船尾甲板阻挡，气流撞击甲板形成高压、高密度区。相应地，旋翼前缘感受到来自甲板的托举力，其机理类似于直升机贴近平地
+飞行时所产生的地面效应。因此，在船头正面迎风的情形下，实施船尾甲板起降任务的舰载直升机驾驶员（或自动控制系统）需修正桨距输入，以克服使直升机向后翻滚的俯仰力矩。
 \end_layout
 
 \begin_layout Standard
@@ -37214,7 +37218,7 @@ reference "prob:ship_a=0"
 \begin_inset Formula $t=2$
 \end_inset
 
- 时刻的三阶 RKDG 近似解
+ 时刻的三阶 UMS–RKDG 近似解
 \end_layout
 
 \end_inset
@@ -37265,7 +37269,7 @@ reference "prob:ship_a=0"
 \begin_inset Formula $t=4$
 \end_inset
 
- 时刻的三阶 RKDG 近似解
+ 时刻的三阶 UMS–RKDG 近似解
 \end_layout
 
 \end_inset
@@ -37316,7 +37320,7 @@ reference "prob:ship_a=0"
 \begin_inset Formula $t=6$
 \end_inset
 
- 时刻的三阶 RKDG 近似解
+ 时刻的三阶 UMS–RKDG 近似解
 \end_layout
 
 \end_inset
@@ -37367,7 +37371,7 @@ reference "prob:ship_a=0"
 \begin_inset Formula $t=8$
 \end_inset
 
- 时刻的三阶 RKDG 近似解
+ 时刻的三阶 UMS–RKDG 近似解
 \end_layout
 
 \end_inset
@@ -37418,7 +37422,7 @@ reference "prob:ship_a=0"
 \begin_inset Formula $t=10$
 \end_inset
 
- 时刻的三阶 RKDG 近似解
+ 时刻的三阶 UMS–RKDG 近似解
 \end_layout
 
 \end_inset
@@ -37432,7 +37436,7 @@ reference "prob:ship_a=0"
 \end_layout
 
 \begin_layout Subsection
-侧面迎风
+船头侧面迎风
 \end_layout
 
 \begin_layout Problem
@@ -37441,7 +37445,7 @@ status open
 
 \begin_layout Plain Layout
 
-[侧面迎风]
+[船头侧面迎风]
 \end_layout
 
 \end_inset
@@ -37488,6 +37492,515 @@ noprefix "false"
 
 \begin_layout Standard
 \begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ship_a=45_t=11e-1_p=3"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ship_a=45_t=99e-1_p=3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 给出了三阶 UMS–RKDG 求解器给出的旋翼尾迹的形成过程。可以看到：在船头侧面迎风的条件下，形成于船尾甲板正上方的旋翼尾迹，受海面自由来流的影响向右后方发
+展，并且因受到甲板的阻挡而发生变形。与船头正面迎风的情形类似，此时旋翼的受力情况也与平地起降时同等操纵输入的情况不一样。因此，在船头侧面迎风的情形下，实施船尾甲
+板起降任务的舰载直升机驾驶员（或自动控制系统）需修正桨距输入，以克服使直升机向右后方翻滚的俯仰和滚转力矩。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/ship/a=45_p=3/Frame11.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_a=45_t=11e-1_p=3"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:ship_a=45"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=1.1$
+\end_inset
+
+ 时刻的三阶 UMS–RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/ship/a=45_p=3/Frame22.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_a=45_t=22e-1_p=3"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:ship_a=45"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=2.2$
+\end_inset
+
+ 时刻的三阶 UMS–RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/ship/a=45_p=3/Frame33.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_a=45_t=33e-1_p=3"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:ship_a=45"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=3.3$
+\end_inset
+
+ 时刻的三阶 UMS–RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/ship/a=45_p=3/Frame44.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_a=45_t=44e-1_p=3"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:ship_a=45"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=4.4$
+\end_inset
+
+ 时刻的三阶 UMS–RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/ship/a=45_p=3/Frame55.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_a=45_t=55e-1_p=3"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:ship_a=45"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=5.5$
+\end_inset
+
+ 时刻的三阶 UMS–RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/ship/a=45_p=3/Frame66.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_a=45_t=66e-1_p=3"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:ship_a=45"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=6.6$
+\end_inset
+
+ 时刻的三阶 UMS–RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/ship/a=45_p=3/Frame77.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_a=45_t=77e-1_p=3"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:ship_a=45"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=7.7$
+\end_inset
+
+ 时刻的三阶 UMS–RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/ship/a=45_p=3/Frame88.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_a=45_t=88e-1_p=3"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:ship_a=45"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=8.8$
+\end_inset
+
+ 时刻的三阶 UMS–RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/ship/a=45_p=3/Frame99.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_a=45_t=99e-1_p=3"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:ship_a=45"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=9.9$
+\end_inset
+
+ 时刻的三阶 UMS–RKDG 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
