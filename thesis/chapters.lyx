@@ -5098,11 +5098,7 @@ name "prob:微分方程：双曲型：单波：线性"
 \begin_inset Formula $u(x,t)$
 \end_inset
 
-，使其满足常系数
-\color blue
-线性平流 (linear advection)
-\color inherit
- 方程
+，使其满足常系数线性平流 (linear advection) 方程
 \begin_inset Index idx
 status collapsed
 
@@ -5164,27 +5160,11 @@ reference "eq:微分方程：双曲型：单波：线性"
 
 \end_inset
 
- 描述了单个微扰波的运动规律，有时也被称作线性
-\color blue
-单波 (single wave)
-\color inherit
- 方程。常系数 
+ 描述了单个微扰波的运动规律，有时也被称作线性单波 (single wave) 方程。常系数 
 \begin_inset Formula $a$
 \end_inset
 
- 具有
-\color blue
-速率 (speed)
-\color inherit
- 的量纲，下面将会看到，它是
-\color blue
-波包 (wave packet)
-\color inherit
- 的移动速度，因此通常称其为
-\color blue
-波速 (wave speed)
-\color inherit
-。
+ 具有速率 (speed) 的量纲，下面将会看到，它是波包 (wave packet) 的移动速度，因此通常称其为波速 (wave speed)。
 \end_layout
 
 \begin_layout Standard
@@ -5273,11 +5253,7 @@ noprefix "false"
 
 \end_inset
 
- 的
-\color blue
-特征线 (characteristic curves)
-\color inherit
-
+ 的特征线 (characteristic curves)
 \begin_inset Index idx
 status collapsed
 
@@ -5366,19 +5342,11 @@ C(x_{0})\coloneqq\left\{ (x,t)\mid\phi(x,t>t_{0})=\phi(x_{0},t_{0})=0\right\}
 \begin_inset Formula $x$
 \end_inset
 
- 表示
-\color blue
-变量
-\color inherit
-，等号右端的 
+ 表示变量，等号右端的 
 \begin_inset Formula $x$
 \end_inset
 
- 表示
-\color blue
-函数
-\color inherit
-。于是上述关于 
+ 表示函数。于是上述关于 
 \begin_inset Formula $\phi(x,t)$
 \end_inset
 
@@ -5619,9 +5587,7 @@ reference "eq:微分方程：双曲型：单波：线性：特征线"
 \begin_inset Formula $(t-t_{0})$
 \end_inset
 
- 的乘积，为避免与
-\color blue
-函数 
+ 的乘积，为避免与函数 
 \begin_inset Formula $a$
 \end_inset
 
@@ -5633,8 +5599,6 @@ reference "eq:微分方程：双曲型：单波：线性：特征线"
 \begin_inset Formula $a(t)$
 \end_inset
 
-
-\color inherit
  混淆，这里不应省略 
 \begin_inset Formula $a$
 \end_inset
@@ -5752,11 +5716,7 @@ status open
 
 \end_inset
 
-这个解的物理含义为：
-\color blue
-波包 (wave packet)
-\color inherit
- 以恒定的速率 
+这个解的物理含义为：波包 (wave packet) 以恒定的速率 
 \begin_inset Formula $a$
 \end_inset
 
@@ -5764,15 +5724,7 @@ status open
 \begin_inset Formula $x$
 \end_inset
 
- 轴移动，并且保持
-\color blue
-波形 (wave shape)
-\color inherit
- 不变。这种运动被称为
-\color blue
-平流 (advection)
-\color inherit
- 。
+ 轴移动，并且保持波形 (wave shape) 不变。这种运动被称为平流 (advection) 。
 \end_layout
 
 \begin_layout Standard
@@ -5811,15 +5763,11 @@ noprefix "false"
 \begin_inset Formula $a$
 \end_inset
 
- 放宽为
-\color blue
-关于 
+ 放宽为关于 
 \begin_inset Formula $t$
 \end_inset
 
- 的连续函数
-\color inherit
-，则由点 
+ 的连续函数，则由点 
 \begin_inset Formula $(x_{0},t_{0})$
 \end_inset
 
@@ -5895,15 +5843,11 @@ status open
 \begin_inset Formula $a$
 \end_inset
 
- 进一步放宽为
-\color blue
-关于 
+ 进一步放宽为关于 
 \begin_inset Formula $x,t$
 \end_inset
 
- 的光滑函数
-\color inherit
-，则关于 
+ 的光滑函数，则关于 
 \begin_inset Formula $x(t)$
 \end_inset
 
@@ -6018,11 +5962,7 @@ status open
 
 \end_inset
 
-经过以上推广，方程依然是线性的，它的特征线完全由方程的系数决定，而与方程的解无关。在寻找特征线的过程中，已经出现了
-\color blue
-特征线法
-\color inherit
-的影子：将关于 
+经过以上推广，方程依然是线性的，它的特征线完全由方程的系数决定，而与方程的解无关。在寻找特征线的过程中，已经出现了特征线法的影子：将关于 
 \begin_inset Formula $\phi(x,t)$
 \end_inset
 
@@ -6030,15 +5970,8 @@ status open
 \begin_inset Formula $x(t)$
 \end_inset
 
- 的常微分方程初值问题。对于含两个自变量的双曲型偏微分方程初值问题，总是可以利用特征线将其转化为
-\color blue
-沿特征线的常微分方程初值问题
-\color inherit
-，后者的求解往往更加简单，这便是
-\color blue
-特征线法
-\color inherit
-的主要思想。
+ 的常微分方程初值问题。对于含两个自变量的双曲型偏微分方程初值问题，总是可以利用特征线将其转化为沿特征线的常微分方程初值问题，后者的求解往往更加简单，这便是特征
+线法的主要思想。
 \end_layout
 
 \begin_layout Standard
@@ -6074,11 +6007,7 @@ name "prob:微分方程：双曲型：单波：拟线性"
 \begin_inset Formula $u(x,t)$
 \end_inset
 
-，使其满足
-\color blue
-拟线性 (quasi-linear)
-\color inherit
- 单波方程
+，使其满足拟线性 (quasi-linear) 单波方程
 \begin_inset Index idx
 status collapsed
 
@@ -6158,11 +6087,7 @@ reference "eq:微分方程：双曲型：单波：拟线性"
 
 \end_inset
 
- 变为
-\color blue
-无黏 Burgers
-\color inherit
- 方程
+ 变为无黏 Burgers 方程
 \begin_inset Index idx
 status collapsed
 
@@ -6176,19 +6101,11 @@ PDE!Burgers equation!inviscid ~
 \begin_inset Formula $u$
 \end_inset
 
- 不一定代表
-\color blue
-速率
-\color inherit
-，但 
+ 不一定代表速率，但 
 \begin_inset Formula $ku$
 \end_inset
 
- 必须具有
-\color blue
-速率
-\color inherit
-的量纲，故不应省略 
+ 必须具有速率的量纲，故不应省略 
 \begin_inset Formula $k$
 \end_inset
 
@@ -6319,11 +6236,7 @@ noprefix "false"
 
 \end_inset
 
-它是一阶可微的函数，因此被称为
-\color blue
-光滑解 (smooth solution)
-\color inherit
-。
+它是一阶可微的函数，因此被称为光滑解 (smooth solution)。
 \end_layout
 
 \begin_layout Standard
@@ -6372,11 +6285,7 @@ reference "eq:微分方程：双曲型：单波：拟线性：光滑解"
 \begin_inset Formula $[t_{0},t_{*})$
 \end_inset
 
- 内不会相交。本节将讨论
-\color blue
-充分小
-\color inherit
-的确切含义，亦即 
+ 内不会相交。本节将讨论充分小的确切含义，亦即 
 \begin_inset Formula $t_{*}$
 \end_inset
 
@@ -6467,11 +6376,7 @@ reference "eq:微分方程：双曲型：单波：拟线性：光滑解"
 \end_layout
 
 \begin_layout Standard
-利用
-\color blue
-链式求导法则
-\color inherit
-
+利用链式求导法则
 \begin_inset Formula 
 \begin{equation}
 \dv{a(u_{0}(x_{0}))}{x_{0}}=\dv{a(u_{0})}{u_{0}}\dv{u_{0}(x_{0})}{x_{0}}\label{eq:微分方程：双曲型：单波：链式求导}
@@ -6999,11 +6904,7 @@ noprefix "false"
 \begin_inset Formula $\varOmega$
 \end_inset
 
- 的）光滑解的
-\color blue
-破裂时刻 (breaking moment)
-\color inherit
-：
+ 的）光滑解的破裂时刻 (breaking moment)：
 \begin_inset Formula 
 \[
 t_{\mathrm{br}}(\varOmega)\coloneqq\inf_{p_{0},q_{0}}\left\{ t_{*}(p_{0},q_{0})\mid(p_{0},q_{0})\in\varOmega\times\varOmega,\ p_{0}<q_{0}\right\} 
@@ -7036,11 +6937,7 @@ status open
 \begin_inset Formula $t_{\mathrm{br}}$
 \end_inset
 
- 的值。考虑到光滑解破裂的实质是
-\color blue
-函数值发生跳跃
-\color inherit
-，这意味着 
+ 的值。考虑到光滑解破裂的实质是函数值发生跳跃，这意味着 
 \begin_inset Formula $\pdv*{u}{x}\to\infty$
 \end_inset
 
@@ -7052,11 +6949,7 @@ status open
 \begin_inset Formula $\pdv*{u}{x}\to\infty$
 \end_inset
 
- 的条件。为此，先用
-\color blue
-隐函数求导法则
-\color inherit
-计算光滑解的偏导数：
+ 的条件。为此，先用隐函数求导法则计算光滑解的偏导数：
 \begin_inset Formula 
 \[
 \pdv{u(x,t)}{x}=\left(1-\dv{a(u)}{u}\pdv{u(x,t)}{x}\left(x-x_{0}\right)\right)\dv{u_{0}}{x_{0}}
@@ -7144,11 +7037,7 @@ status open
 
 \end_inset
 
-一维无限长均匀弹性弦的横向微幅振动是由
-\color blue
-二阶线性波动方程
-\color inherit
-描述的：
+一维无限长均匀弹性弦的横向微幅振动是由二阶线性波动方程描述的：
 \begin_inset Formula 
 \begin{equation}
 \left(\frac{\partial^{2}}{\partial t^{2}}-a^{2}\frac{\partial^{2}}{\partial x^{2}}\right)u=0\qquad(x,t)\in(-\infty,\infty)\times(0,\infty)\label{eq:微分方程：双曲型：双波}
@@ -7156,15 +7045,7 @@ status open
 
 \end_inset
 
-相应的初始条件由
-\color blue
-初始位移
-\color inherit
-和
-\color blue
-初始速度
-\color inherit
-共同构成：
+相应的初始条件由初始位移和初始速度共同构成：
 \begin_inset Formula 
 \begin{equation}
 u(x,t=0)=u_{0}(x)\qquad\frac{\partial u(x,t=0)}{\partial t}=v_{0}(x)\label{eq:微分方程：双曲型：双波：初值}
@@ -7193,11 +7074,7 @@ noprefix "false"
 
 \end_inset
 
- 中的二阶微分算符可以分解为两个一阶微分算符的
-\color blue
-乘积
-\color inherit
-：
+ 中的二阶微分算符可以分解为两个一阶微分算符的乘积：
 \begin_inset Formula 
 \[
 \frac{\partial^{2}}{\partial t^{2}}-a^{2}\frac{\partial^{2}}{\partial x^{2}}=\left(\frac{\partial}{\partial t}-a\frac{\partial}{\partial x}\right)\left(\frac{\partial}{\partial t}+a\frac{\partial}{\partial x}\right)
@@ -7259,11 +7136,7 @@ noprefix "false"
 
 \end_inset
 
- 化为
-\color blue
-标准形式 (canonical form)
-\color inherit
-：
+ 化为标准形式 (canonical form)：
 \begin_inset Formula 
 \[
 \partial_{\xi}\partial_{\eta}u=0
@@ -7404,15 +7277,7 @@ name "sec:微分方程：双曲型：多波：线性"
 \end_layout
 
 \begin_layout Standard
-前一节已经导出了
-\color blue
-线性双波
-\color inherit
-的矩阵记法，作为推广，更一般
-\color blue
-线性多波
-\color inherit
-通常由关于 
+前一节已经导出了线性双波的矩阵记法，作为推广，更一般线性多波通常由关于 
 \begin_inset Formula $n$
 \end_inset
 
@@ -7505,11 +7370,7 @@ name "prob:微分方程：双曲型：多波：线性"
 \begin_inset Formula $\left\{ U_{i}(x,t)\right\} _{i=1}^{n}$
 \end_inset
 
-，使其满足
-\color blue
-常系数
-\color inherit
-线性偏微分方程组：
+，使其满足常系数线性偏微分方程组：
 \begin_inset Formula 
 \begin{equation}
 \left(\frac{\partial}{\partial t}+\underline{A}\,\frac{\partial}{\partial x}\right)\vert U\rangle=\vert0\rangle\qquad(x,t)\in(-\infty,\infty)\times(t_{0},\infty)\label{eq:微分方程：双曲型：多波：线性}
@@ -7600,11 +7461,7 @@ status open
 \begin_inset Formula $\underline{A}$
 \end_inset
 
- 的
-\color blue
-特征值 (eigenvalue)
-\color inherit
-
+ 的特征值 (eigenvalue)
 \begin_inset Index idx
 status collapsed
 
@@ -7625,11 +7482,7 @@ eigen!~value
 \begin_inset Formula $\lambda_{i}$
 \end_inset
 
- 的
-\color blue
-左特征向量 (left eigenvector)
-\color inherit
-
+ 的左特征向量 (left eigenvector)
 \begin_inset Index idx
 status collapsed
 
@@ -7650,11 +7503,7 @@ eigen!~vector!left ~
 \begin_inset Formula $\lambda_{i}$
 \end_inset
 
- 的
-\color blue
-右特征向量 (right eigenvector)
-\color inherit
-
+ 的右特征向量 (right eigenvector)
 \begin_inset Index idx
 status collapsed
 
@@ -7769,11 +7618,7 @@ noprefix "false"
 \begin_inset Formula $t$
 \end_inset
 
- 轴）
-\color blue
-严格双曲型的 (strictly hyperbolic)
-\color inherit
-。
+ 轴）严格双曲型的 (strictly hyperbolic)。
 \end_layout
 
 \begin_layout Itemize
@@ -7797,11 +7642,7 @@ noprefix "false"
 \begin_inset Formula $t$
 \end_inset
 
- 轴）
-\color blue
-双曲型的 (weakly hyperbolic)
-\color inherit
-。
+ 轴）双曲型的 (weakly hyperbolic)。
 \end_layout
 
 \end_deeper
@@ -7958,11 +7799,7 @@ reference "lem:微分方程：双曲型：特征向量正交性"
 \begin_inset Formula $n$
 \end_inset
 
- 个
-\color blue
-特征变量 (characteristic variables)
-\color inherit
-：
+ 个特征变量 (characteristic variables)：
 \begin_inset Formula 
 \[
 \vert V(x,t)\rangle\coloneqq\begin{bmatrix}V_{1}(x,t)\\
@@ -8199,8 +8036,6 @@ reference "eq:微分方程：双曲型：多波：解耦"
 \end_inset
 
  的过程中，用到了
-\color blue
-
 \begin_inset Formula $\underline{L}$
 \end_inset
 
@@ -8208,29 +8043,19 @@ reference "eq:微分方程：双曲型：多波：解耦"
 \begin_inset Formula $\underline{R}$
 \end_inset
 
- 都是常数矩阵
-\color inherit
-，它是 
-\color blue
-
+ 都是常数矩阵，它是 
 \begin_inset Formula $\underline{A}$
 \end_inset
 
- 为常数矩阵
-\color inherit
-的推论。若将 
+ 为常数矩阵的推论。若将 
 \begin_inset Formula $\underline{A}$
 \end_inset
 
- 放宽为
-\color blue
-显式依赖于 
+ 放宽为显式依赖于 
 \begin_inset Formula $x,t$
 \end_inset
 
- 的方阵
-\color inherit
-：
+ 的方阵：
 \begin_inset Formula 
 \[
 \left(\frac{\partial}{\partial t}+\underline{A}(x,t)\frac{\partial}{\partial x}\right)\vert U\rangle=\vert0\rangle
@@ -8323,11 +8148,7 @@ reference "eq:微分方程：双曲型：多波：解耦"
 \begin_inset Formula $\left\{ U_{i}(x,t)\right\} _{i=1}^{n}$
 \end_inset
 
-，使其满足
-\color blue
-拟线性 (quasilinear)
-\color inherit
- 偏微分方程组：
+，使其满足拟线性 (quasilinear) 偏微分方程组：
 \begin_inset Formula 
 \begin{equation}
 \left(\frac{\partial}{\partial t}+\underline{A}(\underline{U})\frac{\partial}{\partial x}\right)\vert U\rangle=\vert Q(\underline{U})\rangle\label{eq:微分方程：双曲型：拟线性}
@@ -8430,11 +8251,7 @@ noprefix "false"
 \begin_inset Formula $i$
 \end_inset
 
- 族
-\color blue
-特征相容条件 (characteristic compatibility condition)
-\color inherit
-
+ 族特征相容条件 (characteristic compatibility condition)
 \begin_inset Index idx
 status collapsed
 
@@ -8562,11 +8379,7 @@ noprefix "false"
 
 \end_inset
 
- 的
-\color blue
-特征型 (characteristic form)
-\color inherit
-。若存在这样的 
+ 的特征型 (characteristic form)。若存在这样的 
 \begin_inset Formula $\vert V\rangle$
 \end_inset
 
@@ -8580,11 +8393,7 @@ noprefix "false"
 
 \end_inset
 
- 的
-\color blue
-特征变量 (characteristic variables)
-\color inherit
-。
+ 的特征变量 (characteristic variables)。
 \end_layout
 
 \begin_layout Standard
@@ -8624,11 +8433,7 @@ name "def:微分方程：双曲型：特征场"
 \begin_inset Formula $\mathbb{R}^{n}(\underline{U})$
 \end_inset
 
- 中定义了一个
-\color blue
-标量场 (scalar field)
-\color inherit
-，
+ 中定义了一个标量场 (scalar field)，
 \noun on
 称作
 \noun default
@@ -8643,11 +8448,7 @@ reference "eq:微分方程：双曲型：拟线性"
 \begin_inset Formula $i$
 \end_inset
 
- 族
-\color blue
-特征场 (characteristic field)
-\color inherit
-
+ 族特征场 (characteristic field)
 \begin_inset Index idx
 status collapsed
 
@@ -8657,11 +8458,7 @@ characteristic!~ field
 
 \end_inset
 
-。特征场可以按其
-\color blue
-梯度
-\color inherit
-
+。特征场可以按其梯度
 \begin_inset Formula 
 \[
 \left\langle \nabla\!_{\underline{U}}\lambda_{i}(\underline{U})\right\vert \coloneqq\begin{bmatrix}\pdv*{\lambda_{i}}{U_{1}} & \cdots & \pdv*{\lambda_{i}}{U_{n}}\end{bmatrix}
@@ -8669,11 +8466,7 @@ characteristic!~ field
 
 \end_inset
 
-与相应的
-\color blue
-右特征向量
-\color inherit
-是否正交分为
+与相应的右特征向量是否正交分为
 \end_layout
 
 \begin_deeper
@@ -8814,11 +8607,7 @@ reference "eq:微分方程：双曲型：拟线性"
 \begin_inset Formula $i$
 \end_inset
 
- 族
-\color blue
-广义 Riemann 不变量 (generalized Riemann invariant)
-\color inherit
-
+ 族广义 Riemann 不变量 (generalized Riemann invariant)
 \begin_inset Index idx
 status collapsed
 
@@ -8876,11 +8665,7 @@ reference "eq:微分方程：双曲型：拟线性"
 \begin_inset Formula $i$
 \end_inset
 
- 族
-\color blue
-狭义 Riemann 不变量 (specialized Riemann invariant)
-\color inherit
-
+ 族狭义 Riemann 不变量 (specialized Riemann invariant)
 \begin_inset Index idx
 status collapsed
 
@@ -8905,23 +8690,15 @@ Riemann!~ invariant!specialized ~
 \begin_inset Formula $i\ne k$
 \end_inset
 
-，则所有
-\color blue
-第 
+，则所有第 
 \begin_inset Formula $i$
 \end_inset
 
- 族狭义 Riemann 不变量
-\color inherit
-都是一个
-\color blue
-第 
+ 族狭义 Riemann 不变量都是一个第 
 \begin_inset Formula $k$
 \end_inset
 
- 族广义 Riemann 不变量
-\color inherit
-。
+ 族广义 Riemann 不变量。
 \end_layout
 
 \begin_layout Standard
@@ -8940,11 +8717,7 @@ Riemann!~ invariant!specialized ~
 \begin_inset Formula $\vert R_{i}\rangle$
 \end_inset
 
- 的
-\color blue
-迹线 (trajectory curve)
-\color inherit
- 为常量。
+ 的迹线 (trajectory curve) 为常量。
 \end_layout
 
 \begin_layout Standard
@@ -8971,11 +8744,7 @@ Riemann!~ invariant!specialized ~
 \begin_inset Formula $\vert R_{i}\rangle$
 \end_inset
 
- 的
-\color blue
-方向导数
-\color inherit
-。因此，在无穷小微段 
+ 的方向导数。因此，在无穷小微段 
 \begin_inset Formula $\ket{\dd U}=\vert R_{i}\rangle\dd{\xi}$
 \end_inset
 
@@ -9064,11 +8833,7 @@ Riemann!~ invariant!specialized ~
 \begin_inset Formula $(n-1)$
 \end_inset
 
- 维
-\color blue
-超曲面 (hypersurface)
-\color inherit
-：
+ 维超曲面 (hypersurface)：
 \begin_inset Formula 
 \[
 S\coloneqq\left\{ \underline{U}\in\mathbb{R}^{n}(\underline{U})\mid\phi(\underline{U})=0\right\} 
@@ -9096,11 +8861,7 @@ S\coloneqq\left\{ \underline{U}\in\mathbb{R}^{n}(\underline{U})\mid\phi(\underli
 \begin_inset Formula $(n-m)$
 \end_inset
 
- 维
-\color blue
-流形 (manifold)
-\color inherit
-，并且以 
+ 维流形 (manifold)，并且以 
 \begin_inset Formula $\vert R_{i}\rangle$
 \end_inset
 
@@ -9215,19 +8976,6 @@ reference "eq:微分方程：双曲型：二元方程对"
 \end_inset
 
 及广义 Riemann 不变量的定义
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
 \begin_inset Formula 
 \[
 \ip{\nabla{\phi}_{1}}{R_{1}}=\ip{\nabla{\phi}_{2}}{R_{2}}=0
@@ -9235,16 +8983,6 @@ reference "eq:微分方程：双曲型：二元方程对"
 
 \end_inset
 
-
-\family default
-\series default
-\shape default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
 可以导出以下平行关系：
 \begin_inset Formula 
 \[
@@ -9893,31 +9631,8 @@ reference "sec:微分方程：双曲型：光滑解的破裂"
 
 \end_inset
 
-》一节已指出：即使定解条件光滑，双曲型方程的光滑解也有可能
-\color blue
-破裂 (break)
-\color inherit
-，其实质是数学工具不足以描述物理过程。为了研究
-\color blue
-光滑解破裂后，物理过程如何发展
-\color inherit
-，必须将
-\color blue
-双曲型方程组
-\color inherit
-收窄为
-\color blue
-守恒律方程组
-\color inherit
-，并将
-\color blue
-光滑解
-\color inherit
-放宽为
-\color blue
-广义解
-\color inherit
-。
+》一节已指出：即使定解条件光滑，双曲型方程的光滑解也有可能破裂 (break)，其实质是数学工具不足以描述物理过程。为了研究光滑解破裂后，物理过程如何发展，必须
+将双曲型方程组收窄为守恒律方程组，并将光滑解放宽为广义解。
 \end_layout
 
 \begin_layout Subsection
@@ -9935,15 +9650,7 @@ conservation!~ law!~ in integral form
 \end_layout
 
 \begin_layout Standard
-关于单个未知函数的守恒律称作
-\color blue
-标量守恒律 (scalar conservation law)
-\color inherit
-。最一般的
-\color blue
-标量守恒律
-\color inherit
-可以写成以下两种形式之一：
+关于单个未知函数的守恒律称作标量守恒律 (scalar conservation law)。最一般的标量守恒律可以写成以下两种形式之一：
 \begin_inset Formula 
 \begin{equation}
 \begin{gathered}\dv{t}\int_{\varOmega}U\dd{\varOmega}+\oint_{\partial\varOmega}\vec{\nu}\cdot\left(\vec{F}-\vec{u}_{\mathrm{CS}}U\right)\dd(\partial\varOmega)=0\\
@@ -9961,11 +9668,7 @@ conservation!~ law!~ in integral form
 \begin_inset Formula $\varOmega$
 \end_inset
 
- 表示空间中的某个（开）区域，称作
-\color blue
-控制体 (Control Volume, CV)
-\color inherit
-
+ 表示空间中的某个（开）区域，称作控制体 (Control Volume, CV)
 \begin_inset Index idx
 status collapsed
 
@@ -9986,11 +9689,7 @@ control!~ volume
 \begin_inset Formula $\varOmega$
 \end_inset
 
- 的边界，称作
-\color blue
-控制面 (Control Surface, CS)
-\color inherit
-
+ 的边界，称作控制面 (Control Surface, CS)
 \begin_inset Index idx
 status collapsed
 
@@ -10047,22 +9746,14 @@ status open
 \begin_inset Formula $U$
 \end_inset
 
- 表示
-\color blue
-守恒变量 (conservation variable)
-\color inherit
-，通常为单位体积内某物理量的总和。
+ 表示守恒变量 (conservation variable)，通常为单位体积内某物理量的总和。
 \end_layout
 
 \begin_layout Itemize
 \begin_inset Formula $\vec{F}$
 \end_inset
 
- 表示
-\color blue
-通量 (flux)
-\color inherit
-，通常为单位时间内穿过单位面积（固定）控制面的某物理量的总和。它可以分解为 
+ 表示通量 (flux)，通常为单位时间内穿过单位面积（固定）控制面的某物理量的总和。它可以分解为 
 \begin_inset Formula $\vec{F}=\sum_{k=1}^{n}\vec{e}_{k}F_{k}$
 \end_inset
 
@@ -10081,26 +9772,15 @@ status open
 \end_layout
 
 \begin_layout Standard
-关于单个向量的守恒律称作
-\color blue
-向量守恒律 (vector conservation law)
-\color inherit
-。更一般的，有
-\color blue
-守恒律方程组 (system of conservation laws)
-\color inherit
-，它含有若干个（标量或向量）守恒律。为了强调方程组属性：
+关于单个向量的守恒律称作向量守恒律 (vector conservation law)。更一般的，有守恒律方程组 (system of conservation
+ laws)，它含有若干个（标量或向量）守恒律。为了强调方程组属性：
 \end_layout
 
 \begin_layout Description
-守恒变量 可以用
-\color blue
-列矩阵 (column matrix) 
+守恒变量 可以用列矩阵 (column matrix) 
 \begin_inset Formula $\vert U\rangle$
 \end_inset
 
-
-\color inherit
  表示，其第 
 \begin_inset Formula $i$
 \end_inset
@@ -10117,14 +9797,10 @@ status open
 \end_layout
 
 \begin_layout Description
-通量 可以用
-\color blue
-列矩阵向量 (vector of column matrices) 
+通量 可以用列矩阵向量 (vector of column matrices) 
 \begin_inset Formula $\vec{\vert F\rangle}\coloneqq\sum_{k=1}^{n}\vec{e}_{k}\vert F_{k}\rangle$
 \end_inset
 
-
-\color inherit
  表示，其中 
 \begin_inset Formula $\vert F_{k}\rangle$
 \end_inset
@@ -10182,26 +9858,14 @@ status open
 \begin_inset Formula $\vec{x}$
 \end_inset
 
- 可微，则
-\color blue
-积分型守恒律
-\color inherit
- 
+ 可微，则积分型守恒律 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:微分方程：守恒律：标量：积分型"
 
 \end_inset
 
- 可借助 
-\color blue
-Gauss's 散度定理
-\color inherit
-化为
-\color blue
-微分型守恒律
-\color inherit
-
+ 可借助 Gauss's 散度定理化为微分型守恒律
 \begin_inset Index idx
 status collapsed
 
@@ -10226,11 +9890,7 @@ reference "eq:微分方程：守恒律：标量：积分型"
 
 \end_inset
 
-，而是将上述微分方程
-\color blue
-定义
-\color inherit
-为守恒律；在光滑性要求无法被满足的地方，需将导数理解为广义导数。
+，而是将上述微分方程定义为守恒律；在光滑性要求无法被满足的地方，需将导数理解为广义导数。
 \end_layout
 
 \begin_layout Remark*
@@ -10390,15 +10050,7 @@ name "eq:微分方程：守恒律：跳跃条件"
 \begin_inset Formula $\vec{e}_{\tau}$
 \end_inset
 
- 分别为该点处的
-\color blue
-单位法向量
-\color inherit
-与
-\color blue
-单位切向量
-\color inherit
-，则满足守恒律 
+ 分别为该点处的单位法向量与单位切向量，则满足守恒律 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:微分方程：守恒律：方程组：动体"
@@ -10420,15 +10072,7 @@ noprefix "false"
 \begin_inset Formula $S$
 \end_inset
 
- 两侧的值满足如下
-\color blue
-跳跃条件 (jump condition)
-\color inherit
-（又名 
-\color blue
-Rankine–Hugoniot 条件
-\color inherit
-）
+ 两侧的值满足如下跳跃条件 (jump condition)（又名 Rankine–Hugoniot 条件）
 \begin_inset Index idx
 status collapsed
 
@@ -10662,11 +10306,7 @@ reference "eq:微分方程：守恒律：标量：微分型：一维"
 
 \end_inset
 
- 及
-\color blue
-分段光滑的 (piecewise smooth)
-\color inherit
- 初始条件
+ 及分段光滑的 (piecewise smooth) 初始条件
 \begin_inset Formula 
 \[
 U(x_{0},t_{0})=U_{0}(x_{0})\qquad x_{0}\in(-\infty,\infty)
@@ -10682,11 +10322,7 @@ U(x_{0},t_{0})=U_{0}(x_{0})\qquad x_{0}\in(-\infty,\infty)
 \begin_inset Formula $U(x,t)$
 \end_inset
 
- 对任意
-\color blue
-紧支的 (compact supported)
-\color inherit
- 光滑函数 
+ 对任意紧支的 (compact supported) 光滑函数 
 \begin_inset Formula $\phi(x,t)$
 \end_inset
 
@@ -10702,11 +10338,7 @@ U(x_{0},t_{0})=U_{0}(x_{0})\qquad x_{0}\in(-\infty,\infty)
 \begin_inset Formula $U(x,t)$
 \end_inset
 
- 为该初值问题的一个
-\color blue
-弱解 (weak solution)
-\color inherit
-
+ 为该初值问题的一个弱解 (weak solution)
 \begin_inset Index idx
 status collapsed
 
@@ -11030,15 +10662,7 @@ noprefix "false"
 
 \end_inset
 
-。为了从众多弱解中挑出真实的
-\color blue
-物理解
-\color inherit
-，Peter Lax 给出了以下
-\color blue
-几何熵条件
-\color inherit
-
+。为了从众多弱解中挑出真实的物理解，Peter Lax 给出了以下几何熵条件
 \begin_inset Index idx
 status collapsed
 
@@ -11069,11 +10693,7 @@ condition!entropy ~!Lax's ~
 \begin_inset Formula $U_{+}$
 \end_inset
 
- 总是使特征线
-\color blue
-汇入 (run into)
-\color inherit
- 或平行于间断轨迹：
+ 总是使特征线汇入 (run into) 或平行于间断轨迹：
 \begin_inset Formula 
 \[
 \lambda(U_{-})\ge s\ge\lambda(U_{+})
@@ -11140,11 +10760,7 @@ condition!entropy ~!Lax's ~
 \end_layout
 
 \begin_layout Definition
-借用气体动力学的术语，可以将弱解中的
-\color blue
-强间断
-\color inherit
-分类为
+借用气体动力学的术语，可以将弱解中的强间断分类为
 \end_layout
 
 \begin_deeper
@@ -11167,11 +10783,7 @@ discontinuity!shock wave
 
 \end_inset
 
-几何上表现为特征线
-\color blue
-汇入
-\color inherit
-间断轨迹，物理上有物质（质量、动量、能量）穿过间断面，并伴有熵增。
+几何上表现为特征线汇入间断轨迹，物理上有物质（质量、动量、能量）穿过间断面，并伴有熵增。
 \end_layout
 
 \begin_layout Description
@@ -11193,11 +10805,7 @@ discontinuity!contact ~
 
 \end_inset
 
-几何上表现为特征线（微元）
-\color blue
-平行
-\color inherit
-于间断轨迹（微元），物理上没有物质（质量、动量、能量）穿过间断面。
+几何上表现为特征线（微元）平行于间断轨迹（微元），物理上没有物质（质量、动量、能量）穿过间断面。
 \end_layout
 
 \end_deeper
@@ -11234,23 +10842,9 @@ status open
 
 \end_inset
 
-
-\color blue
-Riemann 问题 (Riemann Problem, RP)
-\color inherit
- 是一类特殊的守恒律方程组
-\color blue
-初值问题 (Initial Value Problem, IVP)
-\color inherit
-：守恒变量的初始分布是分段光滑函数。特别地，若
-\color blue
-初始条件 (Initial Condition, IC)
-\color inherit
- 只依赖于一个空间自变量、只含有一个间断点、在间断点两侧为常值，则称这样的 RP 为
-\color blue
-经典 (classical)
-\color inherit
- Riemann 问题。
+Riemann 问题 (Riemann Problem, RP) 是一类特殊的守恒律方程组初值问题 (Initial Value Problem,
+ IVP)：守恒变量的初始分布是分段光滑函数。特别地，若初始条件 (Initial Condition, IC) 只依赖于一个空间自变量、只含有一个间断点、在间
+断点两侧为常值，则称这样的 RP 为经典 (classical) Riemann 问题。
 \end_layout
 
 \begin_layout Standard
@@ -11432,11 +11026,7 @@ status open
 
 \end_inset
 
-而变化，则称该初值问题是
-\color blue
-自相似的 (self-similar)
-\color inherit
-。
+而变化，则称该初值问题是自相似的 (self-similar)。
 \end_layout
 
 \begin_layout Standard
@@ -11514,11 +11104,7 @@ reference "prob:微分方程：标量守恒律 Riemann 问题"
 
 \end_inset
 
-中，取偏微分方程为
-\color blue
-线性单波方程
-\color inherit
-
+中，取偏微分方程为线性单波方程
 \begin_inset Index idx
 status collapsed
 
@@ -11551,11 +11137,7 @@ PDE!linear advection equation
 \end_layout
 
 \begin_layout Solution*
-分段应用
-\color blue
-特征线法
-\color inherit
-即得
+分段应用特征线法即得
 \begin_inset Formula 
 \[
 U(x,t)=\begin{cases}
@@ -11570,15 +11152,7 @@ U_{+} & x/t>\lambda
 \begin_inset Formula $x/t=\lambda$
 \end_inset
 
- 上不满足偏微分方程，但满足
-\color blue
-跳跃关系
-\color inherit
-及
-\color blue
-临界熵条件
-\color inherit
-：
+ 上不满足偏微分方程，但满足跳跃关系及临界熵条件：
 \begin_inset Formula 
 \[
 s=\frac{F_{+}-F_{-}}{U_{+}-U_{-}}=\lambda\qquad\lambda(U_{-})=s=\lambda(U_{+})
@@ -11638,11 +11212,7 @@ reference "prob:微分方程：守恒律方程组 Riemann 问题"
 
 \end_inset
 
-中，取偏微分方程组为
-\color blue
-一阶线性方程组
-\color inherit
-
+中，取偏微分方程组为一阶线性方程组
 \begin_inset Formula 
 \[
 \left(\frac{\partial}{\partial t}+\underline{A}\,\frac{\partial}{\partial x}\right)\vert U\rangle=0\qquad\underline{A}\in\mathbb{R}^{n\times n}
@@ -11723,11 +11293,7 @@ reference "prob:微分方程：守恒律方程组 Riemann 问题"
 \begin_inset Formula $n$
 \end_inset
 
- 个
-\color blue
-线性单波 RP
-\color inherit
-：
+ 个线性单波 RP：
 \begin_inset Formula 
 \[
 \pdv{V_{i}}{t}+\lambda_{i}\pdv{V_{i}}{x}=0\qquad V_{i}(x,t=0)=\begin{cases}
@@ -11753,11 +11319,7 @@ V_{i}(x,t)=\begin{cases}
 \begin_inset Formula $n$
 \end_inset
 
- 个单波的
-\color blue
-线性叠加 (linear superposition)
-\color inherit
-。注意到第 
+ 个单波的线性叠加 (linear superposition)。注意到第 
 \begin_inset Formula $i$
 \end_inset
 
@@ -12134,26 +11696,8 @@ discontinuity!expansion wave
 \begin_inset Formula $\lambda_{-}<\lambda_{+}$
 \end_inset
 
-，即始于原点两侧的特征线相互
-\color blue
-发散 (diverge)
-\color inherit
-，则受扰动区域会形成一道
-\color blue
-扇形膨胀波 (fan-shaped expansion wave)
-\color inherit
- 或
-\color blue
-中心稀疏波 (centered rarefraction)
-\color inherit
-。此扇形的右侧与左侧边界分别是
-\color blue
-波头 (wave head)
-\color inherit
- 与
-\color blue
-波尾 (wave tail)
-\color inherit
+，即始于原点两侧的特征线相互发散 (diverge)，则受扰动区域会形成一道扇形膨胀波 (fan-shaped expansion wave)
+ 或中心稀疏波 (centered rarefraction)。此扇形的右侧与左侧边界分别是波头 (wave head) 与波尾 (wave tail)
  的轨迹，其斜率 
 \begin_inset Formula $\lambda_{+}$
 \end_inset
@@ -12162,15 +11706,7 @@ discontinuity!expansion wave
 \begin_inset Formula $\lambda_{-}$
 \end_inset
 
- 分别为
-\color blue
-波头速度
-\color inherit
-与
-\color blue
-波尾速度
-\color inherit
-。在扇形区域内，
+ 分别为波头速度与波尾速度。在扇形区域内，
 \begin_inset Formula $U(x,t)$
 \end_inset
 
@@ -12393,15 +11929,8 @@ discontinuity!shock wave
 \begin_inset Formula $\lambda_{-}>\lambda_{+}$
 \end_inset
 
-，即始于原点两侧的特征线相互
-\color blue
-汇聚 (converge)
-\color inherit
-，则两族特征线汇聚的地方会形成一道
-\color blue
-激波 (shock wave)
-\color inherit
-，它的轨迹也是始于原点的射线其斜率满足跳跃条件 
+，即始于原点两侧的特征线相互汇聚 (converge)，则两族特征线汇聚的地方会形成一道激波 (shock wave)，它的轨迹也是始于原点的射线其斜率满足跳跃
+条件 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:微分方程：守恒律：跳跃条件：一维：标量"
@@ -12627,15 +12156,7 @@ discontinuity!contact ~
 \begin_inset Formula $F(\underline{U})$
 \end_inset
 
- 既非
-\color blue
-严格凸函数
-\color inherit
-又非
-\color blue
-严格凹函数
-\color inherit
-的情况下，可能在 
+ 既非严格凸函数又非严格凹函数的情况下，可能在 
 \begin_inset Formula $U_{-}\ne U_{+}$
 \end_inset
 
@@ -12643,11 +12164,7 @@ discontinuity!contact ~
 \begin_inset Formula $\lambda_{-}=\lambda_{+}$
 \end_inset
 
-，这对应于
-\color blue
-接触间断 (contact discontinuity)
-\color inherit
-，即没有物质穿透的间断，其传播速度满足跳跃条件 
+，这对应于接触间断 (contact discontinuity)，即没有物质穿透的间断，其传播速度满足跳跃条件 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:微分方程：守恒律：跳跃条件：一维：标量"
@@ -12862,11 +12379,7 @@ reference "prob:微分方程：守恒律：拟线性多波 Riemann 问题"
 
 \end_inset
 
-中，初始间断同样只能以这三种形式传播，因此可以将它们统称为
-\color blue
-基本波 (elementary waves)
-\color inherit
-。
+中，初始间断同样只能以这三种形式传播，因此可以将它们统称为基本波 (elementary waves)。
 \end_layout
 
 \begin_layout Standard
@@ -13012,16 +12525,10 @@ status open
 
 \begin_layout Itemize
 解的光滑部分只有两种可能：
-\color blue
-
 \begin_inset Formula $\vert U\rangle$
 \end_inset
 
- 为常值
-\color inherit
-或 
-\color blue
-
+ 为常值或 
 \begin_inset Formula $\dv{\alpha}\vert U\rangle$
 \end_inset
 
@@ -13029,9 +12536,7 @@ status open
 \begin_inset Formula $\underline{A}(\underline{U})$
 \end_inset
 
- 的右特征向量
-\color inherit
-。
+ 的右特征向量。
 \end_layout
 
 \end_deeper
@@ -13058,15 +12563,7 @@ status open
 
 \end_inset
 
-于是
-\color blue
-偏微分方程组
-\color inherit
-可以被改写为
-\color blue
-特征值问题
-\color inherit
-的形式：
+于是偏微分方程组可以被改写为特征值问题的形式：
 \begin_inset Formula 
 \[
 \left(\underline{A}-\alpha\underline{1}\right)\dv{\vert U\rangle}{\alpha}=\vert0\rangle
@@ -13112,23 +12609,7 @@ status open
 \begin_inset Formula $k$
 \end_inset
 
- 道基本波的
-\color blue
-右边界
-\color inherit
-与
-\color blue
-左边界
-\color inherit
-的
-\color blue
-传播速度
-\color inherit
-（同时也是各自轨迹的
-\color blue
-斜率
-\color inherit
-）分别用 
+ 道基本波的右边界与左边界的传播速度（同时也是各自轨迹的斜率）分别用 
 \begin_inset Formula $\alpha_{k+}$
 \end_inset
 
@@ -13165,11 +12646,7 @@ status open
 \begin_inset Formula $k$
 \end_inset
 
- 个
-\color blue
-特征场 (characteristic fields)
-\color inherit
-，即第 
+ 个特征场 (characteristic fields)，即第 
 \begin_inset Formula $k$
 \end_inset
 
@@ -13186,19 +12663,7 @@ status open
 
 \begin_deeper
 \begin_layout Itemize
-
-\color blue
-激波
-\color inherit
-或
-\color blue
-膨胀波
-\color inherit
-对应于
-\color blue
-真正非线性的 (genuinely nonlinear)
-\color inherit
- 特征场
+激波或膨胀波对应于真正非线性的 (genuinely nonlinear) 特征场
 \begin_inset Index idx
 status collapsed
 
@@ -13220,15 +12685,7 @@ characteristic!~ field!genuinely nonlinear ~
 \end_layout
 
 \begin_layout Itemize
-
-\color blue
-接触间断
-\color inherit
-对应于
-\color blue
-线性退化的 (linearly degenerate)
-\color inherit
- 特征场
+接触间断对应于线性退化的 (linearly degenerate) 特征场
 \begin_inset Index idx
 status open
 
@@ -13545,15 +13002,11 @@ status open
 \begin_inset Formula $(n-1)$
 \end_inset
 
- 个
-\color blue
-第 
+ 个第 
 \begin_inset Formula $k$
 \end_inset
 
- 族广义 Riemann 不变量
-\color inherit
-：
+ 族广义 Riemann 不变量：
 \begin_inset Formula 
 \[
 \dv{\phi}{\alpha}=\ip{\nabla{\phi}}{\dv{U}{\alpha}}=\ip{\nabla{\phi}}{R_{k}}=0
@@ -13671,30 +13124,18 @@ e+p/\rho
 \begin_inset Formula $\vert U\rangle$
 \end_inset
 
- 及其分量被称作
-\color blue
-守恒变量 (conservative variables)
-\color inherit
-，用它写出的方程 
+ 及其分量被称作守恒变量 (conservative variables)，用它写出的方程 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:激波管：一维：守恒型"
 
 \end_inset
 
- 被称作
-\color blue
-守恒型
-\color inherit
-一维 Euler 方程；而初始条件通常由可以被直接测量的物理量 
+ 被称作守恒型一维 Euler 方程；而初始条件通常由可以被直接测量的物理量 
 \begin_inset Formula $\rho,u,p$
 \end_inset
 
- 给出，它们被称作
-\color blue
-原始变量 (primitive variables)
-\color inherit
-。表 
+ 给出，它们被称作原始变量 (primitive variables)。表 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:激波管：典型算例"
@@ -13838,15 +13279,6 @@ No.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
 \begin_inset Formula $\rho_{-}$
 \end_inset
 
@@ -13987,15 +13419,6 @@ num{1}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
 \begin_inset Formula $\rho_{+}$
 \end_inset
 
@@ -14416,15 +13839,6 @@ num{+4}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
 \begin_inset Formula $p_{-}$
 \end_inset
 
@@ -14565,15 +13979,6 @@ num{.4}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
 \begin_inset Formula $p_{+}$
 \end_inset
 
@@ -14854,15 +14259,6 @@ num{.1}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
 \begin_inset Formula $p_{2}$
 \end_inset
 
@@ -15143,15 +14539,6 @@ num{0}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
 \begin_inset Formula $\rho_{2-}$
 \end_inset
 
@@ -15292,15 +14679,6 @@ num{0}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
 \begin_inset Formula $\rho_{2+}$
 \end_inset
 
@@ -15838,11 +15216,7 @@ reference "eq:激波管：一维：守恒型"
 
 \end_inset
 
- 可以改写为
-\color blue
-非守恒型
-\color inherit
-：
+ 可以改写为非守恒型：
 \begin_inset Formula 
 \begin{equation}
 \left(\partial_{t}+\underline{A'}(\underline{U'})\,\partial_{x}\right)\vert U'\rangle=\vert0\rangle\qquad\vert U'\rangle=\begin{bmatrix}\rho\\
@@ -15884,19 +15258,7 @@ noprefix "false"
 
 \end_inset
 
- 给出的法则作变换。下面将会看到：用
-\color blue
-非守恒型
-\color inherit
-方程作特征场分析，远比用
-\color blue
-守恒型
-\color inherit
-方程来得简单；但在分析激波速度时，必须用
-\color blue
-守恒型
-\color inherit
-方程。
+ 给出的法则作变换。下面将会看到：用非守恒型方程作特征场分析，远比用守恒型方程来得简单；但在分析激波速度时，必须用守恒型方程。
 \end_layout
 
 \begin_layout Standard
@@ -16000,15 +15362,6 @@ name "tab:激波管：一维：特征场"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
 特征值 
 \begin_inset Formula $\lambda_{i}$
 \end_inset
@@ -16346,15 +15699,7 @@ reference "tab:激波管：一维：特征场"
 \begin_inset Formula $h_{0}$
 \end_inset
 
- 分别表示
-\color blue
-声速
-\color inherit
-与
-\color blue
-总焓
-\color inherit
-：
+ 分别表示声速与总焓：
 \begin_inset Formula 
 \[
 a^{2}=\gamma RT=\frac{\gamma p}{\rho}\qquad h_{0}=e_{0}+\frac{p}{\rho}=\frac{a^{2}}{\gamma^{-}}+\frac{u^{2}}{2}
@@ -16918,11 +16263,7 @@ discontinuity!contact ~
 \begin_inset Formula $\vert U_{k*}(x/t)\rangle$
 \end_inset
 
- 在其
-\color blue
-内部
-\color inherit
-的值是无法定义的。在画图时，可以取两侧的平均值：
+ 在其内部的值是无法定义的。在画图时，可以取两侧的平均值：
 \begin_inset Formula 
 \[
 \vert U_{k*}(x/t)\rangle=\tfrac{1}{2}\ket{U(\alpha_{k-})}+\tfrac{1}{2}\ket{U(\alpha_{k+})}
@@ -16995,11 +16336,7 @@ discontinuity!contact ~
 \end_layout
 
 \begin_layout Itemize
-第二基本波两侧的区域又被称为
-\color blue
-星区 (star region)
-\color inherit
-，其中的基本变量记作 
+第二基本波两侧的区域又被称为星区 (star region)，其中的基本变量记作 
 \begin_inset Formula $\rho_{*\pm},u_{*},p_{*}$
 \end_inset
 
@@ -17297,15 +16634,7 @@ reference "prob:激波管：一维"
 \end_layout
 
 \begin_layout Notation
-下标 A 表示
-\color blue
-波后 (After the wave)
-\color inherit
- 物理量，下标 B 表示
-\color blue
-波前 (Before the wave)
-\color inherit
- 物理量。
+下标 A 表示波后 (After the wave) 物理量，下标 B 表示波前 (Before the wave) 物理量。
 \end_layout
 
 \begin_layout Standard
@@ -17388,11 +16717,7 @@ reference "eq:激波管：一维：跳跃条件"
 \begin_inset Formula $h=e+p/\rho$
 \end_inset
 
- 为
-\color blue
-比焓 (specific enthalpy)
-\color inherit
-。
+ 为比焓 (specific enthalpy)。
 \end_layout
 
 \begin_layout Standard
@@ -17418,11 +16743,7 @@ u_{\mathrm{A}}-u_{\mathrm{B}}=v_{\mathrm{A}}-v_{\mathrm{B}}=\frac{p_{\mathrm{A}}
 \begin_inset Formula $m\coloneqq(\rho v)_{\mathrm{A}}=(\rho v)_{\mathrm{B}}$
 \end_inset
 
- 为
-\color blue
-质量流率 (mass flow rate)
-\color inherit
-，
+ 为质量流率 (mass flow rate)，
 \begin_inset Formula $P\coloneqq\left((p_{\mathrm{A}}+p_{\mathrm{B}})\gamma+(p_{\mathrm{A}}-p_{\mathrm{B}})\right)/2$
 \end_inset
 
@@ -17676,11 +16997,7 @@ s_{\mathrm{B}}<s_{\mathrm{A}}\qquad p_{\mathrm{B}}<p_{\mathrm{A}}\qquad\rho_{\ma
 \begin_inset Formula $M=\abs{v}/a$
 \end_inset
 
- 为
-\color blue
-相对马赫数 (relative Mach number)
-\color inherit
-
+ 为相对马赫数 (relative Mach number)
 \begin_inset Index idx
 status collapsed
 
@@ -17701,11 +17018,7 @@ number!Mach ~!relative ~
 \end_layout
 
 \begin_layout Corollary
-左侧为波前的激波称为
-\color blue
-左行 (left-running)
-\color inherit
- 激波，它只可能是第一特征场（
+左侧为波前的激波称为左行 (left-running) 激波，它只可能是第一特征场（
 \begin_inset Formula $\lambda_{1}=u-a$
 \end_inset
 
@@ -17731,11 +17044,7 @@ number!Mach ~!relative ~
 \end_layout
 
 \begin_layout Corollary
-右侧为波前的激波称为
-\color blue
-右行 (right-running)
-\color inherit
- 激波，它只可能是第三特征场（
+右侧为波前的激波称为右行 (right-running) 激波，它只可能是第三特征场（
 \begin_inset Formula $\lambda_{3}=u+a$
 \end_inset
 
@@ -18371,7 +17680,6 @@ noprefix "false"
 
  被称为
 \noun on
-\color blue
 真空条件
 \noun default
  (vacuum condition)
@@ -18384,8 +17692,6 @@ condition!vacuum ~
 
 \end_inset
 
-
-\color inherit
 。在此条件下，
 \begin_inset Formula $C_{2}\cup E_{2}\cup C_{3}$
 \end_inset
@@ -19459,8 +18765,6 @@ noprefix "false"
 \end_inset
 
  的 
-\color blue
-
 \begin_inset Formula $x$
 \end_inset
 
@@ -19468,9 +18772,7 @@ noprefix "false"
 \begin_inset Formula $x$
 \end_inset
 
--split form)
-\color inherit
-。与一维 Euler 方程 
+-split form)。与一维 Euler 方程 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:激波管：一维：守恒型"
@@ -19480,11 +18782,7 @@ noprefix "false"
 
 \end_inset
 
- 类似，它也可以改写为
-\color blue
-非守恒型
-\color inherit
-：
+ 类似，它也可以改写为非守恒型：
 \begin_inset Formula 
 \begin{equation}
 \begin{gathered}\left(\partial_{t}+\underline{A'}(\underline{U'})\,\partial_{x}\right)\vert U'\rangle=\vert0\rangle\qquad(x,y,t)\in(-\infty,\infty)^{2}\times(0,\infty)\\
@@ -19695,15 +18993,6 @@ name "tab:激波管：二维：x 分裂：特征场"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
 特征值 
 \begin_inset Formula $\lambda_{i}$
 \end_inset
@@ -20132,15 +19421,6 @@ No.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
 特征值 
 \begin_inset Formula $\lambda_{i}$
 \end_inset
@@ -26660,19 +25940,6 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
 2.858
 \end_layout
 
@@ -26682,19 +25949,6 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
 2.095
 \end_layout
 
@@ -26704,19 +25958,6 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
 1.524
 \end_layout
 
@@ -26726,19 +25967,6 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
 1.108
 \end_layout
 
@@ -26768,19 +25996,6 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
 0.771
 \end_layout
 
@@ -26819,19 +26034,6 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
 1.021
 \end_layout
 
@@ -26841,19 +26043,6 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
 0.590
 \end_layout
 
@@ -26863,19 +26052,6 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
 0.341
 \end_layout
 
@@ -26958,33 +26134,7 @@ reference "tab:linear_cost"
 \begin_inset Formula $h\approx1/32$
 \end_inset
 
-) 网格上的所消耗的运行时间 (
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-306.293
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- s 或按 
+) 网格上的所消耗的运行时间 (306.293 s 或按 
 \begin_inset Formula $1/24$
 \end_inset
 
@@ -27118,19 +26268,6 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
 0.373
 \end_layout
 
@@ -27140,19 +26277,6 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
 1.129
 \end_layout
 
@@ -27162,19 +26286,6 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
 16.533
 \end_layout
 
@@ -27184,19 +26295,6 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
 306.293
 \end_layout
 
@@ -27226,19 +26324,6 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
 14.894
 \end_layout
 
@@ -27277,19 +26362,6 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
 4.147
 \end_layout
 
@@ -27299,19 +26371,6 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
 61.425
 \end_layout
 
@@ -27321,19 +26380,6 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
 906.914
 \end_layout
 
