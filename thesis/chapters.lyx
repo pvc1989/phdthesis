@@ -21839,16 +21839,5 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Standard
-\start_of_appendix
-\begin_inset CommandInset include
-LatexCommand include
-filename "hyperbolic.lyx"
-
-\end_inset
-
-
-\end_layout
-
 \end_body
 \end_document
