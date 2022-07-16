@@ -2814,7 +2814,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-涡量输运方程和Navier–Stokes方程耦合模型
+涡量输运方程与 Navier–Stokes 方程耦合模型示意图
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Whitehouse2007"
@@ -2856,7 +2856,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-由涡量输运方程和Navier–Stokes方程耦合模型计算得到的前飞状态涡量分布
+由涡量输运方程与 Navier–Stokes 方程耦合模型计算得到的前飞状态涡量分布
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Whitehouse2007"
@@ -5907,9 +5907,6 @@ name "subsec:创建面单元"
 \end_inset
 
  上的多项式近似，记作
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 u^{h}|_{V_{i}}(x,y,z)=\sum_{a,b,c}\hat{u}_{a,b,c}(x-x_{0})^{a}(y-y_{0})^{b}(z-z_{0})^{c},\qquad(x,y,z)\in V_{i},
@@ -6455,9 +6452,6 @@ e_{m}=\frac{\phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle_{V_{
 
 \begin_layout Standard
 如果将所得结果记为
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 \underbrace{\begin{bmatrix}e_{1}(\vec{r})\\
@@ -9447,9 +9441,6 @@ literal "false"
 \end_inset
 
  给出的四阶 RK 格式
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 \begin{aligned}\underline{\hat{U}}^{n+1/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n},\\
@@ -9626,13 +9617,24 @@ reference "chap:riemann"
 \end_layout
 
 \begin_layout Subsection
-线性单波方程
+线性单波平流
 \end_layout
 
 \begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[线性单波平流]
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
-name "prob:linear_scalar"
+name "prob:线性单波平流"
 
 \end_inset
 
@@ -9689,7 +9691,7 @@ U(x,y,z,t=0)=U_{L}
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:linear_scalar"
+reference "prob:线性单波平流"
 
 \end_inset
 
@@ -9809,14 +9811,14 @@ name "fig:linear_scalar_p=3_h=2^-3"
 \begin_inset Formula $h\approx2^{-3}$
 \end_inset
 
- 的四面体网格上得到的问题 
+ 的四面体网格上得到的
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:linear_scalar"
+LatexCommand nameref
+reference "prob:线性单波平流"
 
 \end_inset
 
- 在 
+问题 在 
 \begin_inset Formula $t=0.2$
 \end_inset
 
@@ -9870,7 +9872,7 @@ name "fig:linear_scalar_p=1_h=2^-4"
  的四面体网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:linear_scalar"
+reference "prob:线性单波平流"
 
 \end_inset
 
@@ -9928,7 +9930,7 @@ name "fig:linear_scalar_p=1_h=2^-5"
  的四面体网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:linear_scalar"
+reference "prob:线性单波平流"
 
 \end_inset
 
@@ -9986,7 +9988,7 @@ name "fig:linear_scalar_p=3_h=2^-2"
  的四面体网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:linear_scalar"
+reference "prob:线性单波平流"
 
 \end_inset
 
@@ -10073,7 +10075,7 @@ name "fig:linear_scalar_h_vary"
 同一求解器在不同网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:linear_scalar"
+reference "prob:线性单波平流"
 
 \end_inset
 
@@ -10127,7 +10129,7 @@ name "fig:linear_scalar_p_vary"
 不同求解器在同一网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:linear_scalar"
+reference "prob:线性单波平流"
 
 \end_inset
 
@@ -10802,13 +10804,24 @@ diagbox{$p$}{$h$}
 \end_layout
 
 \begin_layout Subsection
-线性双波方程组
+线性双波平流
 \end_layout
 
 \begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[线性双波平流]
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
-name "prob:linear_system"
+name "prob:线性双波平流"
 
 \end_inset
 
@@ -10962,7 +10975,7 @@ V_{1}^{\star}(x,y,z,t)=\begin{cases}
 在此基础上，问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:linear_system"
+reference "prob:线性双波平流"
 
 \end_inset
 
@@ -11084,7 +11097,7 @@ name "fig:linear_double_wave_contour"
  的四面体网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:linear_system"
+reference "prob:线性双波平流"
 plural "false"
 caps "false"
 noprefix "false"
@@ -11155,7 +11168,7 @@ name "fig:linear_double_wave_sample"
 不同求解器–限制器组合在同一网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:linear_system"
+reference "prob:线性双波平流"
 plural "false"
 caps "false"
 noprefix "false"
@@ -11313,7 +11326,7 @@ status open
 
 \begin_inset CommandInset label
 LatexCommand label
-name "prob:sod"
+name "prob:Sod"
 
 \end_inset
 
@@ -11384,7 +11397,7 @@ noprefix "false"
  的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:sod"
+reference "prob:Sod"
 plural "false"
 caps "false"
 noprefix "false"
@@ -11450,7 +11463,7 @@ name "fig:sod_hexa"
  的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:sod"
+reference "prob:Sod"
 plural "false"
 caps "false"
 noprefix "false"
@@ -11511,7 +11524,7 @@ name "fig:sod_hexa_p_vary"
  的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:sod"
+reference "prob:Sod"
 plural "false"
 caps "false"
 noprefix "false"
@@ -11543,7 +11556,7 @@ noprefix "false"
  的四面体单元的非结构网格上再次求解了问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:sod"
+reference "prob:Sod"
 plural "false"
 caps "false"
 noprefix "false"
@@ -11590,7 +11603,7 @@ noprefix "false"
  比较，不难发现：无论采用何种单元，只要网格足够精细，问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:sod"
+reference "prob:Sod"
 plural "false"
 caps "false"
 noprefix "false"
@@ -11637,7 +11650,7 @@ name "fig:sod_tetra"
  的四面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:sod"
+reference "prob:Sod"
 plural "false"
 caps "false"
 noprefix "false"
@@ -11698,7 +11711,7 @@ name "fig:sod_tetra_p_vary"
  的四面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:sod"
+reference "prob:Sod"
 plural "false"
 caps "false"
 noprefix "false"
@@ -11800,7 +11813,7 @@ name "fig:sod_error"
 ) 组合对问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:sod"
+reference "prob:Sod"
 plural "false"
 caps "false"
 noprefix "false"
@@ -11852,7 +11865,7 @@ name "tab:sod_cost"
 ) 组合对问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:sod"
+reference "prob:Sod"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12180,7 +12193,7 @@ status open
 
 \begin_inset CommandInset label
 LatexCommand label
-name "prob:lax"
+name "prob:Lax"
 
 \end_inset
 
@@ -12237,7 +12250,7 @@ noprefix "false"
 与问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:sod"
+reference "prob:Sod"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12248,7 +12261,7 @@ noprefix "false"
 断与激波的跳跃幅度远大于问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:sod"
+reference "prob:Sod"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12262,7 +12275,7 @@ noprefix "false"
 与问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:sod"
+reference "prob:Sod"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12283,7 +12296,7 @@ reference "fig:lax_hexa"
  的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:lax"
+reference "prob:Lax"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12345,7 +12358,7 @@ name "fig:lax_hexa"
  的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:lax"
+reference "prob:Lax"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12406,7 +12419,7 @@ name "fig:lax_hexa_p_vary"
  的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:lax"
+reference "prob:Lax"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12438,7 +12451,7 @@ noprefix "false"
  的四面体单元的非结构网格上再次求解了问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:lax"
+reference "prob:Lax"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12488,7 +12501,7 @@ noprefix "false"
  比较，不难发现：无论采用何种单元，只要网格足够精细，问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:lax"
+reference "prob:Lax"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12535,7 +12548,7 @@ name "fig:lax_tetra"
  的四面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:lax"
+reference "prob:Lax"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12596,7 +12609,7 @@ name "fig:lax_tetra_p_vary"
  的四面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:lax"
+reference "prob:Lax"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12638,7 +12651,7 @@ status open
 
 \begin_inset CommandInset label
 LatexCommand label
-name "prob:vacuum"
+name "prob:真空"
 
 \end_inset
 
@@ -12695,7 +12708,7 @@ noprefix "false"
 该问题只含膨胀波这种导数值间断，不含激波、接触间断这类函数值间断，因此对限制器的要求比问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:sod"
+reference "prob:Sod"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12705,7 +12718,7 @@ noprefix "false"
  及问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:lax"
+reference "prob:Lax"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12781,7 +12794,7 @@ noprefix "false"
  的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:vacuum"
+reference "prob:真空"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12842,7 +12855,7 @@ name "fig:vacuum_hexa"
  的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:vacuum"
+reference "prob:真空"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12903,7 +12916,7 @@ name "fig:vacuum_hexa_p_vary"
  的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:vacuum"
+reference "prob:真空"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12935,7 +12948,7 @@ noprefix "false"
  的四面体单元的非结构网格上再次求解了问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:vacuum"
+reference "prob:真空"
 plural "false"
 caps "false"
 noprefix "false"
@@ -13002,7 +13015,7 @@ name "fig:vacuum_tetra"
  的四面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:vacuum"
+reference "prob:真空"
 plural "false"
 caps "false"
 noprefix "false"
@@ -13063,7 +13076,7 @@ name "fig:vacuum_tetra_p_vary"
  的四面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:vacuum"
+reference "prob:真空"
 plural "false"
 caps "false"
 noprefix "false"
@@ -13314,7 +13327,7 @@ name "fig:double_mach_sketch"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:double_mach"
+reference "prob:双马赫反射"
 
 \end_inset
 
@@ -13344,9 +13357,20 @@ literal "true"
 \end_layout
 
 \begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[双马赫反射]
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
-name "prob:double_mach"
+name "prob:双马赫反射"
 
 \end_inset
 
@@ -13529,7 +13553,7 @@ noprefix "false"
  依次为问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:double_mach"
+reference "prob:双马赫反射"
 plural "false"
 caps "false"
 noprefix "false"
@@ -13581,7 +13605,7 @@ name "fig:double_mach_p=1_h=5e-3"
  的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:double_mach"
+reference "prob:双马赫反射"
 plural "false"
 caps "false"
 noprefix "false"
@@ -13642,7 +13666,7 @@ name "fig:double_mach_p=2_h=5e-3"
  的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:double_mach"
+reference "prob:双马赫反射"
 plural "false"
 caps "false"
 noprefix "false"
@@ -13703,7 +13727,7 @@ name "fig:double_mach_p=3_h=5e-3"
  的六面体单元的非结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:double_mach"
+reference "prob:双马赫反射"
 plural "false"
 caps "false"
 noprefix "false"
@@ -13728,7 +13752,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Subsection
-前台阶吹风问题
+前向台阶问题
 \end_layout
 
 \begin_layout Standard
@@ -13737,9 +13761,20 @@ noprefix "false"
 \end_layout
 
 \begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[前向台阶]
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
-name "prob:forward_step"
+name "prob:前向台阶"
 
 \end_inset
 
@@ -13896,7 +13931,7 @@ name "fig:forward_step_domain"
 用于求解问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:forward_step"
+reference "prob:前向台阶"
 plural "false"
 caps "false"
 noprefix "false"
@@ -14009,7 +14044,7 @@ name "fig:forward_step_p=3_t=02e-1"
  的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:forward_step"
+reference "prob:前向台阶"
 plural "false"
 caps "false"
 noprefix "false"
@@ -14070,7 +14105,7 @@ name "fig:forward_step_p=3_t=04e-1"
  的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:forward_step"
+reference "prob:前向台阶"
 plural "false"
 caps "false"
 noprefix "false"
@@ -14169,7 +14204,7 @@ name "fig:forward_step_p=3_t=06e-1"
  的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:forward_step"
+reference "prob:前向台阶"
 plural "false"
 caps "false"
 noprefix "false"
@@ -14230,7 +14265,7 @@ name "fig:forward_step_p=3_t=08e-1"
  的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:forward_step"
+reference "prob:前向台阶"
 plural "false"
 caps "false"
 noprefix "false"
@@ -14291,7 +14326,7 @@ name "fig:forward_step_p=3_t=10e-1"
  的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:forward_step"
+reference "prob:前向台阶"
 plural "false"
 caps "false"
 noprefix "false"
@@ -14367,7 +14402,7 @@ name "fig:forward_step_p=3_t=12e-1"
  的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:forward_step"
+reference "prob:前向台阶"
 plural "false"
 caps "false"
 noprefix "false"
@@ -14443,7 +14478,7 @@ name "fig:forward_step_p=3_t=20e-1"
  的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:forward_step"
+reference "prob:前向台阶"
 plural "false"
 caps "false"
 noprefix "false"
@@ -14515,7 +14550,7 @@ name "fig:forward_step_p=3_t=24e-1"
  的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:forward_step"
+reference "prob:前向台阶"
 plural "false"
 caps "false"
 noprefix "false"
@@ -14591,7 +14626,7 @@ name "fig:forward_step_p=3_t=28e-1"
  的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:forward_step"
+reference "prob:前向台阶"
 plural "false"
 caps "false"
 noprefix "false"
@@ -14693,7 +14728,7 @@ name "fig:forward_step_p=3_t=32e-1"
  的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:forward_step"
+reference "prob:前向台阶"
 plural "false"
 caps "false"
 noprefix "false"
@@ -14754,7 +14789,7 @@ name "fig:forward_step_p=3_t=40e-1"
  的六面体单元的伪结构网格上得到的问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:forward_step"
+reference "prob:前向台阶"
 plural "false"
 caps "false"
 noprefix "false"
@@ -14853,14 +14888,14 @@ name "fig:yf17_mesh"
 用于求解问题
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:yf17_subsonic"
+reference "prob:YF-17 亚声速绕流"
 
 \end_inset
 
 、问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:yf17_supersonic"
+reference "prob:YF-17 超声速绕流"
 plural "false"
 caps "false"
 noprefix "false"
@@ -14881,13 +14916,24 @@ noprefix "false"
 \end_layout
 
 \begin_layout Subsection
-亚声速绕流问题
+YF-17 亚声速绕流问题
 \end_layout
 
 \begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[YF-17 亚声速绕流]
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
-name "prob:yf17_subsonic"
+name "prob:YF-17 亚声速绕流"
 
 \end_inset
 
@@ -15022,7 +15068,7 @@ name "fig:yf17_subsonic_p=1"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:yf17_subsonic"
+reference "prob:YF-17 亚声速绕流"
 
 \end_inset
 
@@ -15080,7 +15126,7 @@ name "fig:yf17_subsonic_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:yf17_subsonic"
+reference "prob:YF-17 亚声速绕流"
 
 \end_inset
 
@@ -15154,7 +15200,7 @@ name "fig:yf17_subsonic_rho"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:yf17_subsonic"
+reference "prob:YF-17 亚声速绕流"
 
 \end_inset
 
@@ -15176,13 +15222,24 @@ reference "prob:yf17_subsonic"
 \end_layout
 
 \begin_layout Subsection
-超声速绕流问题
+YF-17 超声速绕流问题
 \end_layout
 
 \begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+YF-17 超声速绕流
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
-name "prob:yf17_supersonic"
+name "prob:YF-17 超声速绕流"
 
 \end_inset
 
@@ -15256,7 +15313,7 @@ noprefix "false"
 与问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:yf17_subsonic"
+reference "prob:YF-17 亚声速绕流"
 
 \end_inset
 
@@ -15355,7 +15412,7 @@ name "fig:yf17_supersonic_p=1"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:yf17_supersonic"
+reference "prob:YF-17 超声速绕流"
 plural "false"
 caps "false"
 noprefix "false"
@@ -15412,7 +15469,7 @@ name "fig:yf17_supersonic_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:yf17_supersonic"
+reference "prob:YF-17 超声速绕流"
 plural "false"
 caps "false"
 noprefix "false"
@@ -15492,7 +15549,7 @@ name "fig:yf17_supersonic_top"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:yf17_supersonic"
+reference "prob:YF-17 超声速绕流"
 plural "false"
 caps "false"
 noprefix "false"
@@ -15549,7 +15606,7 @@ name "fig:yf17_supersonic_bottom"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:yf17_supersonic"
+reference "prob:YF-17 超声速绕流"
 plural "false"
 caps "false"
 noprefix "false"
@@ -15585,7 +15642,7 @@ noprefix "false"
 虽然我们在求解双马赫反射问题（问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:double_mach"
+reference "prob:双马赫反射"
 plural "false"
 caps "false"
 noprefix "false"
@@ -15776,7 +15833,7 @@ reference "tab:double_mach_cost"
  列出了该求解器以不同进程数量并行求解问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:double_mach"
+reference "prob:双马赫反射"
 plural "false"
 caps "false"
 noprefix "false"
@@ -15851,7 +15908,7 @@ name "tab:double_mach_cost"
 三阶 RKDG 求解器以不同进程数量并行求解问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:double_mach"
+reference "prob:双马赫反射"
 plural "false"
 caps "false"
 noprefix "false"
@@ -16380,7 +16437,7 @@ name "fig:double_mach_speedup"
 三阶 RKDG 求解器以不同进程数量并行求解问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:double_mach"
+reference "prob:双马赫反射"
 plural "false"
 caps "false"
 noprefix "false"
@@ -16433,7 +16490,7 @@ name "fig:double_mach_efficiency"
 三阶 RKDG 求解器以不同进程数量并行求解问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:double_mach"
+reference "prob:双马赫反射"
 plural "false"
 caps "false"
 noprefix "false"
@@ -16510,7 +16567,7 @@ reference "fig:yf17_mesh"
  所示，求解 YF-17 战斗机超声速绕流问题（问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:yf17_supersonic"
+reference "prob:YF-17 超声速绕流"
 plural "false"
 caps "false"
 noprefix "false"
@@ -16715,7 +16772,7 @@ reference "tab:yf17_cost"
  给出了三阶 RKDG 求解器以不同进程数量并行求解问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:yf17_supersonic"
+reference "prob:YF-17 超声速绕流"
 
 \end_inset
 
@@ -16781,7 +16838,7 @@ name "tab:yf17_cost"
 三阶 RKDG 求解器以不同进程数量并行求解问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:yf17_supersonic"
+reference "prob:YF-17 超声速绕流"
 
 \end_inset
 
@@ -17434,7 +17491,7 @@ name "fig:yf17_speedup"
 三阶 RKDG 求解器以不同进程数量并行求解问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:yf17_supersonic"
+reference "prob:YF-17 超声速绕流"
 plural "false"
 caps "false"
 noprefix "false"
@@ -17487,7 +17544,7 @@ name "fig:yf17_efficiency"
 三阶 RKDG 求解器以不同进程数量并行求解问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:yf17_supersonic"
+reference "prob:YF-17 超声速绕流"
 plural "false"
 caps "false"
 noprefix "false"
@@ -17752,9 +17809,6 @@ reference "fig:PQ"
 \end_inset
 
  上的线积分：
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 \int_{V_{i}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{V}}(\vec{r})=\int_{\overrightarrow{RS}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{L}}(\vec{r}).
@@ -18162,14 +18216,14 @@ name "fig:rotor_mesh"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_upward"
+reference "prob:孤立旋翼轴向吹风"
 
 \end_inset
 
 、问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 
 \end_inset
 
@@ -18339,13 +18393,24 @@ reference "fig:rotor_mesh"
 \end_layout
 
 \begin_layout Subsection
-爬升
+孤立旋翼轴向吹风问题
 \end_layout
 
 \begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[孤立旋翼轴向吹风]
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
-name "prob:rotor_upward"
+name "prob:孤立旋翼轴向吹风"
 
 \end_inset
 
@@ -18478,7 +18543,7 @@ noprefix "false"
  依次给出了问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_upward"
+reference "prob:孤立旋翼轴向吹风"
 
 \end_inset
 
@@ -18574,7 +18639,7 @@ name "fig:upward_t=2e-1_p=1"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_upward"
+reference "prob:孤立旋翼轴向吹风"
 
 \end_inset
 
@@ -18628,7 +18693,7 @@ name "fig:upward_t=2e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_upward"
+reference "prob:孤立旋翼轴向吹风"
 
 \end_inset
 
@@ -18682,7 +18747,7 @@ name "fig:upward_t=4e-1_p=1"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_upward"
+reference "prob:孤立旋翼轴向吹风"
 
 \end_inset
 
@@ -18736,7 +18801,7 @@ name "fig:upward_t=4e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_upward"
+reference "prob:孤立旋翼轴向吹风"
 
 \end_inset
 
@@ -18790,7 +18855,7 @@ name "fig:upward_t=6e-1_p=1"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_upward"
+reference "prob:孤立旋翼轴向吹风"
 
 \end_inset
 
@@ -18844,7 +18909,7 @@ name "fig:upward_t=6e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_upward"
+reference "prob:孤立旋翼轴向吹风"
 
 \end_inset
 
@@ -18898,7 +18963,7 @@ name "fig:upward_t=8e-1_p=1"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_upward"
+reference "prob:孤立旋翼轴向吹风"
 
 \end_inset
 
@@ -18952,7 +19017,7 @@ name "fig:upward_t=8e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_upward"
+reference "prob:孤立旋翼轴向吹风"
 
 \end_inset
 
@@ -19006,7 +19071,7 @@ name "fig:upward_t=10e-1_p=1"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_upward"
+reference "prob:孤立旋翼轴向吹风"
 
 \end_inset
 
@@ -19060,7 +19125,7 @@ name "fig:upward_t=10e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_upward"
+reference "prob:孤立旋翼轴向吹风"
 
 \end_inset
 
@@ -19148,7 +19213,7 @@ name "fig:upward_p=1"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_upward"
+reference "prob:孤立旋翼轴向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -19205,7 +19270,7 @@ name "fig:upward_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_upward"
+reference "prob:孤立旋翼轴向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -19230,13 +19295,24 @@ noprefix "false"
 \end_layout
 
 \begin_layout Subsection
-前飞
+孤立旋翼径向吹风问题
 \end_layout
 
 \begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[孤立旋翼径向吹风]
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
-name "prob:rotor_forward"
+name "prob:孤立旋翼径向吹风"
 
 \end_inset
 
@@ -19318,7 +19394,7 @@ noprefix "false"
 与问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_upward"
+reference "prob:孤立旋翼轴向吹风"
 
 \end_inset
 
@@ -19383,7 +19459,7 @@ noprefix "false"
  依次给出了问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -19455,7 +19531,7 @@ name "fig:forward_t=2e-1_p=1"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -19512,7 +19588,7 @@ name "fig:forward_t=2e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -19569,7 +19645,7 @@ name "fig:forward_t=4e-1_p=1"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -19626,7 +19702,7 @@ name "fig:forward_t=4e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -19683,7 +19759,7 @@ name "fig:forward_t=6e-1_p=1"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -19740,7 +19816,7 @@ name "fig:forward_t=6e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -19797,7 +19873,7 @@ name "fig:forward_t=8e-1_p=1"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -19854,7 +19930,7 @@ name "fig:forward_t=8e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -19911,7 +19987,7 @@ name "fig:forward_t=10e-1_p=1"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -19968,7 +20044,7 @@ name "fig:forward_t=10e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -19996,7 +20072,7 @@ noprefix "false"
 与问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_upward"
+reference "prob:孤立旋翼轴向吹风"
 
 \end_inset
 
@@ -20089,7 +20165,7 @@ name "fig:forward_wake_y_view"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -20146,7 +20222,7 @@ name "fig:forward_wake_z_view"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -20203,7 +20279,7 @@ name "fig:forward_wake_x_view"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -20339,7 +20415,7 @@ name "fig:forward_Q_y_view"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -20400,7 +20476,7 @@ name "fig:forward_Q_z_view"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -20461,7 +20537,7 @@ name "fig:forward_Q_x_view"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -20526,7 +20602,7 @@ name "fig:forward_p=1"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -20583,7 +20659,7 @@ name "fig:forward_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:rotor_forward"
+reference "prob:孤立旋翼径向吹风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -20828,7 +20904,7 @@ status open
 
 \begin_inset CommandInset label
 LatexCommand label
-name "prob:ship_a=0"
+name "prob:船头正面迎风"
 
 \end_inset
 
@@ -20928,7 +21004,7 @@ name "fig:ship_a=0_t=2_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:ship_a=0"
+reference "prob:船头正面迎风"
 
 \end_inset
 
@@ -20982,7 +21058,7 @@ name "fig:ship_a=0_t=4_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:ship_a=0"
+reference "prob:船头正面迎风"
 
 \end_inset
 
@@ -21036,7 +21112,7 @@ name "fig:ship_a=0_t=6_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:ship_a=0"
+reference "prob:船头正面迎风"
 
 \end_inset
 
@@ -21090,7 +21166,7 @@ name "fig:ship_a=0_t=8_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:ship_a=0"
+reference "prob:船头正面迎风"
 
 \end_inset
 
@@ -21144,7 +21220,7 @@ name "fig:ship_a=0_t=10_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:ship_a=0"
+reference "prob:船头正面迎风"
 
 \end_inset
 
@@ -21183,7 +21259,7 @@ status open
 
 \begin_inset CommandInset label
 LatexCommand label
-name "prob:ship_a=45"
+name "prob:船头侧面迎风"
 
 \end_inset
 
@@ -21283,7 +21359,7 @@ name "fig:ship_a=45_t=11e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:ship_a=45"
+reference "prob:船头侧面迎风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -21340,7 +21416,7 @@ name "fig:ship_a=45_t=22e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:ship_a=45"
+reference "prob:船头侧面迎风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -21397,7 +21473,7 @@ name "fig:ship_a=45_t=33e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:ship_a=45"
+reference "prob:船头侧面迎风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -21454,7 +21530,7 @@ name "fig:ship_a=45_t=44e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:ship_a=45"
+reference "prob:船头侧面迎风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -21511,7 +21587,7 @@ name "fig:ship_a=45_t=55e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:ship_a=45"
+reference "prob:船头侧面迎风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -21568,7 +21644,7 @@ name "fig:ship_a=45_t=66e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:ship_a=45"
+reference "prob:船头侧面迎风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -21625,7 +21701,7 @@ name "fig:ship_a=45_t=77e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:ship_a=45"
+reference "prob:船头侧面迎风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -21682,7 +21758,7 @@ name "fig:ship_a=45_t=88e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:ship_a=45"
+reference "prob:船头侧面迎风"
 plural "false"
 caps "false"
 noprefix "false"
@@ -21739,7 +21815,7 @@ name "fig:ship_a=45_t=99e-1_p=3"
 问题 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prob:ship_a=45"
+reference "prob:船头侧面迎风"
 plural "false"
 caps "false"
 noprefix "false"
