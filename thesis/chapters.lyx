@@ -102,6 +102,16 @@ theorems-chap
 
 \begin_layout Chapter
 引言
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+统稿
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -994,29 +1004,33 @@ Alligator
 在舰载直升机的设计、使用和维护过程中，存在大量亟待解决的科学和工程问题。 其中，既有旋翼飞行器所共有的一般性问题，也有直升机执行海上作业任务所带来的特殊问题。
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
 \begin_layout Section
 旋翼飞行器综合分析
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 旋翼（Rotor）是以直升机（Helicopter）为代表的旋翼飞行器（Rotorcraft）区别于其他航空飞行器（Aircraft/Aerocraft）的标志
 性部件。 从力学研究的角度来看，旋翼系统（以及旋翼-机体耦合系统）属于复杂的刚柔耦合多体动力学系统。 与其他复杂系统一样，对旋翼系统（以及旋翼-机体耦合系统）的
-研究大致可以分为实验和计算两大类。
+研究大致可以分为试验和计算两大类。
 \end_layout
 
-\begin_layout Standard
-实验研究，是人们对科学和工程问题所有理性认识的主要来源，也是检验一切物理模型和计算方法合理性的重要依据。 对旋翼飞行器的实验研究， 按实验对象可以分为缩比模型实
-验、全尺寸样机实验； 按实验环境可以分为风洞实验、试飞实验。 由于代价昂贵，只有少数大型研究机构和企业有能力对旋翼飞行器开展系统的实验研究。
+\begin_layout Plain Layout
+试验研究，是人们对科学和工程问题所有理性认识的主要来源，也是检验一切物理模型和计算方法合理性的重要依据。 对旋翼飞行器的试验研究， 按试验对象可以分为缩比模型试
+验、全尺寸样机试验； 按试验环境可以分为风洞试验、试飞试验。 由于代价昂贵，只有少数大型研究机构和企业有能力对旋翼飞行器开展系统的试验研究。
 \end_layout
 
-\begin_layout Standard
-计算研究，是对实验研究的重要补充，有时也被称为数值实验。 它是指从运动学、动力学、空气动力学等学科的基础理论出发，利用计算机，对直升机（特别是旋翼）的力学行为进
-行分析计算。 相对于模型或样机实验，数值实验拥有巨大的成本优势，这是驱动计算研究不断发展的主要动力。 对于新的设计方案，数值实验能够先于模型或样机实验对其性能指
-标进行评价，这也是其相对于模型或样机实验所具有的优势。 另外，对于飞行事故等模型或样机实验难以复现的过程，数值实验也是不可替代的研究手段。 可以预见，随着计算机
-硬件和分析软件水平的不断提高，数值实验将在直升机设计、使用和维护过程中扮演越来越重要的角色。
+\begin_layout Plain Layout
+计算研究，是对试验研究的重要补充，有时也被称为数值试验。 它是指从运动学、动力学、空气动力学等学科的基础理论出发，利用计算机，对直升机（特别是旋翼）的力学行为进
+行分析计算。 相对于模型或样机试验，数值试验拥有巨大的成本优势，这是驱动计算研究不断发展的主要动力。 对于新的设计方案，数值试验能够先于模型或样机试验对其性能指
+标进行评价，这也是其相对于模型或样机试验所具有的优势。 另外，对于飞行事故等模型或样机试验难以复现的过程，数值试验也是不可替代的研究手段。 可以预见，随着计算机
+硬件和分析软件水平的不断提高，数值试验将在直升机设计、使用和维护过程中扮演越来越重要的角色。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 直升机界于1980年左右提出了“综合分析（Comprehensive Analysis）”的概念。 美国直升机界的权威专家、著名直升机综合分析软件CAMRAD
 \begin_inset Foot
 status collapsed
@@ -1059,7 +1073,7 @@ literal "false"
 通用性 综合分析应当贯穿于直升机设计和改进过程的每个阶段。 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 要实现上述综合分析，必须首先解决空气动力学、动力学分析的若干关键技术。 过去几十年，这些学科各自独立的分析方法都得到了不同程度的发展，并且已经开发出许多通用的大
 型分析软件。 理想的综合分析是在现有的认识水平下，采用各学科最先进的分析技术，以达到尽可能高的计算精度。 然而，由于理论和分析技术的发展水平参差不齐，目前尚无法
 将各学科最先进技术的分析技术很好地整合在一起。 建立真正体现多物理场耦合的综合分析平台，始终是各国直升机界共同的奋斗目标。
@@ -1069,12 +1083,12 @@ literal "false"
 旋翼空气动力学
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 在综合分析所涉及的几个主要学科中，空气动力学被认为是制约上述目标实现的主要瓶颈。 事实上，旋翼空气动力学也是流体力学研究的难点和热点，这主要是因为旋翼所处气流环
 境具有非定常、非线性的特点。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 非定常主要表现在以下两个方面： 首先，由于旋翼始终相对机身运动，即使在悬停状态，旋翼-机身系统所处的气流环境也是随桨叶方位变化而变化的； 其次，随着旋翼高速旋转
 ，桨叶当地迎角剧烈变化，局部会出现大迎角甚至反流状态，桨叶剖面的动态失速特性十分明显
 \begin_inset CommandInset citation
@@ -1087,12 +1101,12 @@ literal "false"
 。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 非线性主要体现在以下两个方面： 其一，气动力与当地迎角、马赫数、雷诺数的关系，在较大的迎角、马赫数范围内没有线性的（甚至也没有解析的）表达式；
  其二，旋翼尾迹由桨尖涡主导，机身、固定翼面尾迹与旋翼桨尖涡之间存在复杂的非线性自诱导和互诱导现象。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 非定常气动力、动态失速、空气压缩性 、桨尖涡主导的旋翼尾迹分析构成了旋翼空气动力学的主要研究内容
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1101,18 +1115,18 @@ literal "false"
 
 \end_inset
 
-。 研究方法大致分为实验和数值计算两大类。 实验研究包含定性流动显示实验、测力实验、测速实验、定量流动显示实验。 其中，基于三维粒子成像测速技术的高分辨率定量流
-动显示实验的是该领域的研究热点。 数值计算研究包含旋翼入流模型、涡线尾迹模型、黏性涡粒子方法、基于欧拉观点的涡量输运方程、计算流体动力学（Computation
-al Fluid Dynamics, CFD）等方法。 其中，CFD方法又分为雷诺平均Navier-Stokes方程、大涡模拟、直接数值模拟等几个层次。
+。 研究方法大致分为试验和数值计算两大类。 试验研究包含定性流动显示试验、测力试验、测速试验、定量流动显示试验。 其中，基于三维粒子成像测速技术的高分辨率定量流
+动显示试验的是该领域的研究热点。 数值计算研究包含旋翼入流模型、涡线尾迹模型、黏性涡粒子方法、基于欧拉观点的涡量输运方程、计算流体动力学（Computation
+al Fluid Dynamics, CFD）等方法。 其中，CFD方法又分为雷诺平均Navier–Stokes方程、大涡模拟、直接数值模拟等几个层次。
  尽管直接数值模拟被认为是流体力学数值计算研究的终点，但旋翼流场飞行这一复杂流动问题的多尺度特性决定了该方法短时间内还难以应用于解决实际工程问题。
  基于流动特征的混合方法、自适应网格加密技术、高性能并行计算等，是目前较为可行的替代手段。
 \end_layout
 
 \begin_layout Subsection
-动力学
+结构动力学
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 动力学问题最基本、最一般的表述已由Hamilton原理给出。 
 \begin_inset Formula 
 \begin{equation}
@@ -1136,7 +1150,7 @@ al Fluid Dynamics, CFD）等方法。 其中，CFD方法又分为雷诺平均Nav
 为非保守力的功。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 旋翼系统、旋翼-机体系统的动能、势能（包括重力势能和弹性势能）、能量耗散函数、外力功的表达式原则上都可以按部就班地推出，但具体实施起来相当繁琐。
  针对某种特定构型，建立相应的动力学模型原则上并不困难。 如何使建模方法具有通用性和扩展性，则是该领域的研究热点。 为使推导过程尽可能具有通用性，尽可能减少手动
 推导的工作量，需引入多体系统动力学的思想和方法
@@ -1150,15 +1164,15 @@ literal "false"
 。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 早期的旋翼动力学分析采用小挥舞角、小摆振角、小变形假设，为的是得到线性或局部线性的表达式，以便于通过解析的方法进行分析计算。 但这样得出的动力学关系式并不能真实
 反映旋翼系统的动力学特性。 进入21世纪，计算机性能相对于几十年前已经获得了很大程度的提高，以往被认为无法承受的计算量，现在已经能够在高性能工作站或集群上进行处
 理。 另一方面，整个综合分析的计算量主要集中在气动分析方面，如果动力学模块的算法设计得合理，考虑几何非线性一般不会明显增加计算量。 但几何非线性给动力学分析带来
-了新的问题，例如结构动力学分析中常用的有限元方法（Finite Element Method, FEM），在处理大变形问题时会出现网格畸变，从而影响计算效果和计
-算效率。
+了新的问题，例如结构动力学分析中常用的有限元法（Finite Element Method, FEM），在处理大变形问题时会出现网格畸变，从而影响计算效果和计算
+效率。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 动力学方程的规范列式和相应的数值求解方法，以及对非线性耦合效应的处理，是综合分析在动力学方面需要解决的关键问题
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1174,22 +1188,22 @@ literal "false"
 舰载直升机
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 以上所列举的旋翼飞行器所共有的一般性问题，是研究舰载直升机空气动力学、结构动力学、飞行动力学问题的基础。 海面、舰面特有的气流、动力学环境，则为舰载直升机设计、
 使用及维护带来了一些新的问题。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 舰船在海面航行时，船体结构对海面气流的扰动使得直升机起降平台附近的气流环境较为复杂，增加了直升机完成起降飞行任务的难度。 海面的风速和风向、舰船的航速和航向都是
 影响上述船体空气尾流（Ship Airwake）的重要因素。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 海浪和海风引起的船体起伏、俯仰、滚转运动，使舰载直升机舰面动力学问题的复杂程度，大大高于直升机在地面和空中飞行时所对应的动力学问题。 直升机旋翼尾迹与船体空气尾
 流之间存在复杂的相互作用，进一步增加了上述问题的复杂程度。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 建立合适的海风模型、船体空气尾流模型、气动干扰模型，是舰载直升机空气动力学研究的主要任务； 研究舰载直升机在各种海浪和海风条件下的动力学稳定性，是舰载直升机结构
 动力学研究的主要内容； 确定舰载直升机在各种海风条件和舰船航行状态下的安全飞行路径和操纵策略，则是舰载直升机飞行动力学、导航及控制方法研究的重点和难点。
 \end_layout
@@ -1198,27 +1212,32 @@ literal "false"
 小结
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 在舰载直升机设计和使用所面临的各种科学和工程问题中，空气动力学是其中最核心、最关键的问题。 国内外众多学者在这方面开展了大量研究工作，积累了丰富的研究方法和研究
 成果。 本文对旋翼空气动力学、舰船空气动力学以及计算空气动力学新方法的研究现状进行了综述，介绍了与舰载直升机相关的一些应用问题，并总结了该领域在未来一段时间内的
 发展趋势。
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
-旋翼空气动力学（实验研究）
+旋翼空气动力学试验
 \end_layout
 
 \begin_layout Standard
-对旋翼流场的实验研究始终伴随和促进着旋翼飞行器的发展，拓展着人们对旋翼空气动力学理解的深度和广度，不断为物理模型和计算方法的验证提供新的数据支持。
- 得益于实验技术的不断进步，对旋翼空气动力学的实验研究经历了从定性到定量，从总体力学参数测量到高分辨率流动细节捕捉的发展过程。
+对旋翼流场的试验研究始终伴随和促进着旋翼飞行器的发展，拓展着人们对旋翼空气动力学理解的深度和广度，不断为物理模型和计算方法的验证提供新的数据支持。得益于试验技术
+的不断进步，对旋翼空气动力学的试验研究经历了从定性到定量，从总体力学参数测量到高分辨率流动细节捕捉的发展过程。
 \end_layout
 
 \begin_layout Subsection
-定性实验
+定性试验
 \end_layout
 
 \begin_layout Standard
-最简单的旋翼空气动力学“实验”并不需要经过人为的设计，也不需要使用任何实验设备。 当空气的温度、湿度、气压满足一定的条件时，旋翼桨尖涡周围会出现自然凝结（Nat
+最简单的旋翼空气动力学“试验”并不需要经过人为的设计，也不需要使用任何试验设备。 当空气的温度、湿度、气压满足一定的条件时，旋翼桨尖涡周围会出现自然凝结（Nat
 ural Condensation）现象，从而很容易让人们观察到桨尖涡的存在。 基于这种观察，人们对旋翼流场有了最基本和最直观的理性认识，发现了旋翼尾迹由桨尖涡
 主导、尾迹收缩等重要物理事实。 
 \begin_inset Float figure
@@ -1281,7 +1300,7 @@ literal "false"
 
 \end_inset
 
- 较早地利用该方法开展了旋翼流场的流动显示实验。 该实验通过在风洞引入喷烟装置，获得了直升机在悬停、前飞、下降等状态下旋翼附近的流动图像，并重点研究了旋翼处于涡
+ 较早地利用该方法开展了旋翼流场的流动显示试验。 该试验通过在风洞引入喷烟装置，获得了直升机在悬停、前飞、下降等状态下旋翼附近的流动图像，并重点研究了旋翼处于涡
 环状态（Vortex Ring State, VRS）时的流动图像。
 \begin_inset Float figure
 wide false
@@ -1292,7 +1311,7 @@ status open
 \begin_inset Graphics
 	filename ../review/figures/tip-vortex.jpg
 	lyxscale 50
-	width 100text%
+	height 30pheight%
 
 \end_inset
 
@@ -1331,7 +1350,8 @@ status open
 \begin_inset Graphics
 	filename ../review/figures/shadow.png
 	lyxscale 50
-	width 100text%
+	height 30pheight%
+	rotateAngle 90
 
 \end_inset
 
@@ -1387,26 +1407,26 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-定性实验虽然没有给出描述流场的各物理量的具体数值，但给出了各种飞行状态下的旋翼尾迹结构的物理图像，并初步验证了一些早期旋翼空气动力学理论（如滑流理论）的结论。
- 随着测量技术的进步，一些定性实验方法后来发展成为定量实验方法，或发展成为定量实验的一个前置环节。
+定性试验虽然没有给出描述流场的各物理量的具体数值，但给出了各种飞行状态下的旋翼尾迹结构的物理图像，并初步验证了一些早期旋翼空气动力学理论（如滑流理论）的结论。
+ 随着测量技术的进步，一些定性试验方法后来发展成为定量试验方法，或发展成为定量试验的一个前置环节。
 \end_layout
 
 \begin_layout Subsection
-定量实验
+定量试验
 \end_layout
 
 \begin_layout Standard
-根据所测量的物理量以及对流场的刻画程度，可以将旋翼空气动力学定量实验大致分为两大类： 
+根据所测量的物理量以及对流场的刻画程度，可以将旋翼空气动力学定量试验大致分为两大类： 
 \end_layout
 
 \begin_layout Description
-测力实验 此类实验主要用于反映气流对旋翼影响的宏观效果。 利用六分量天平、扭矩天平等仪器设备，可以对旋翼中心或全机参考点处的三个力分量和三个力矩分量进行测量。
- 由于实验原理和实验设备都比较简单，所得的实验数据经过简单处理即可应用于结构动力学和飞行动力学分析，因此这类实验至今仍受到许多研究机构的重视。
+测力试验 此类试验主要用于反映气流对旋翼影响的宏观效果。 利用六分量天平、扭矩天平等仪器设备，可以对旋翼中心或全机参考点处的三个力分量和三个力矩分量进行测量。
+ 由于试验原理和试验设备都比较简单，所得的试验数据经过简单处理即可应用于结构动力学和飞行动力学分析，因此这类试验至今仍受到许多研究机构的重视。
  
 \end_layout
 
 \begin_layout Description
-测速实验 此类实验主要用于研究流场的流动细节。 根据测量对象的范围，测速实验又可分为单点测量和多点测量两类。 早期的单点测量实验主要采用热线测速仪（Hot
+测速试验 此类试验主要用于研究流场的流动细节。 根据测量对象的范围，测速试验又可分为单点测量和多点测量两类。 早期的单点测量试验主要采用热线测速仪（Hot
  Wire Anemometer）等介入式测量设备，测速探头本身对流场会造成一定干扰，因此测量结果不能完全反映真实流动情况。 这一弊端后来被激光多普勒测速技术（
 Laser Doppler Velocimetry, LDV）所克服，但LDV仍属于单点测量技术。 同属于非介入式测量技术的粒子成像测速技术（Particle
  Image Velocimetry, PIV），解决了多点同步测量的难题，能够实现对流场（流速）的高分辨率测量， 目前已成为流体力学新发现的重要来源，也是验证
@@ -1432,7 +1452,7 @@ literal "false"
 
 \end_inset
 
- 通过若干实验，研究了直升机低空低速飞行时地面效应对其气动性能的影响。 该组实验包括基于喷烟法的定性流动显示实验和基于热线测速仪的模型旋翼诱导速度分布定量测量试
+ 通过若干试验，研究了直升机低空低速飞行时地面效应对其气动性能的影响。 该组试验包括基于喷烟法的定性流动显示试验和基于热线测速仪的模型旋翼诱导速度分布定量测量试
 验。 结果显示，直升机低空低速飞行时，自由来流和地面将使旋翼尾迹向上卷起，从而显著影响旋翼气动载荷特性。 当卷起的尾迹接近桨盘平面并处于旋翼下方时，桨盘前侧诱导
 速度分布将发生较大幅度的不规则变化，从而引起旋翼气动力和气动力矩的不规则剧烈变化。
 \end_layout
@@ -1451,7 +1471,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-在国内，南航、北航等航空院校也开展了一些旋翼空气动力学方面的定量实验。
+在国内，南航、北航等航空院校也开展了一些旋翼空气动力学方面的定量试验。
 \end_layout
 
 \begin_layout Standard
@@ -1476,20 +1496,20 @@ literal "false"
 
 \end_inset
 
- 采用二维PIV，在水洞中对共轴式双旋翼悬停及不同前飞速度下的流场进行了测量，并对上下两副旋翼的气动干扰特性作了定量研究。 该实验测量了流场的瞬时涡量和速度分布
+ 采用二维PIV，在水洞中对共轴式双旋翼悬停及不同前飞速度下的流场进行了测量，并对上下两副旋翼的气动干扰特性作了定量研究。 该试验测量了流场的瞬时涡量和速度分布
 、桨尖涡结构和脱落轨迹、尾迹边界等。 测量结果显示，共轴双旋翼悬停流场由上旋翼所主导；与单旋翼相比，双旋翼的尾迹结构更加不稳定。
 \end_layout
 
 \begin_layout Standard
-以上定量实验结果，为旋翼气动设计提供了重要参考信息，也为验证分析模型和计算方法提供了参照对象。
+以上定量试验结果，为旋翼气动设计提供了重要参考信息，也为验证分析模型和计算方法提供了参照对象。
 \end_layout
 
 \begin_layout Subsection
-小结
+由试验得出的结论
 \end_layout
 
 \begin_layout Standard
-实验研究表明，旋翼流场具有以下关键特征
+试验研究表明，旋翼流场具有以下关键特征
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Leishman2006,Johnson2013"
@@ -1509,9 +1529,9 @@ literal "false"
 
 \end_inset
 
-， 但是无论根据何种定义，从实验事实中总能一致地识别出旋翼桨尖涡的存在。 实验观测和数值计算都显示，旋翼高速旋转时，每片桨叶的桨尖和桨根处会各拖出一条集中涡。
+， 但是无论根据何种定义，从试验事实中总能一致地识别出旋翼桨尖涡的存在。 试验观测和数值计算都显示，旋翼高速旋转时，每片桨叶的桨尖和桨根处会各拖出一条集中涡。
  其中，桨根涡自生成后会迅速耗散并失去规则的涡结构，而桨尖涡自生成后则能在较长时间内保持强度和涡结构，因而主导着旋翼流场。 定量研究进一步表明，桨尖涡的涡核半径
-很小，涡核内速度梯度较大，涡核外则接近无旋流动。 这一流动特征对实验观测和数值计算在分辨率的空间配置上提出了不同的需求。 
+很小，涡核内速度梯度较大，涡核外则接近无旋流动。 这一流动特征对试验观测和数值计算在分辨率的空间配置上提出了不同的需求。 
 \end_layout
 
 \begin_layout Description
@@ -1650,7 +1670,7 @@ name "brownout"
 \end_layout
 
 \begin_layout Description
-旋翼-舰面干扰 对于舰载直升机，旋翼与舰面和水面之间也存在类似于地面效应的气动干扰现象。 舰面与水面的高度差造成二者对旋翼干扰程度的不同，会使得旋翼经过甲板边缘
+旋翼-船体干扰 对于舰载直升机，旋翼与舰面和水面之间也存在类似于地面效应的气动干扰现象。 舰面与水面的高度差造成二者对旋翼干扰程度的不同，会使得旋翼经过甲板边缘
 时，桨盘上升力分布发生突变，从而改变直升机的姿态。 此外，当海面风速较大或舰艇高速航行时，舰桥等结构对自由来流的扰动，会在直升机起降平台上产生紊乱的空气尾流，从
 而增加直升机起降的难度。 由于直升机在舰面起降时相对速度较低，旋翼尾迹与船体空气尾流相互影响，舰面气流对其飞行的影响较之固定翼飞机显得更加突出。
  
@@ -1662,7 +1682,7 @@ name "brownout"
 \end_layout
 
 \begin_layout Section
-旋翼空气动力学（数值计算）
+旋翼空气动力学计算
 \end_layout
 
 \begin_layout Subsection
@@ -1738,16 +1758,16 @@ v=v_{0}+v_{\mathrm{c}}r\cos\psi+v_{\mathrm{s}}r\sin\psi
 之间的关系，可以写成状态空间形式： 
 \begin_inset Formula 
 \begin{equation}
-\begin{bmatrix}M\end{bmatrix}\overset{*}{\begin{pmatrix}v_{\mathrm{0}}\\
+\underline{M}\dv{t}\begin{bmatrix}v_{\mathrm{0}}\\
 v_{\mathrm{s}}\\
 v_{\mathrm{c}}
-\end{pmatrix}}+\begin{bmatrix}L\end{bmatrix}^{-1}\begin{pmatrix}v_{\mathrm{0}}\\
+\end{bmatrix}+\underline{L}^{-1}\begin{bmatrix}v_{\mathrm{0}}\\
 v_{\mathrm{s}}\\
 v_{\mathrm{c}}
-\end{pmatrix}=\begin{pmatrix}C_{\mathrm{T}}\\
+\end{bmatrix}=\begin{bmatrix}C_{\mathrm{T}}\\
 C_{\mathrm{L}}\\
 C_{\mathrm{M}}
-\end{pmatrix}
+\end{bmatrix}
 \end{equation}
 
 \end_inset
@@ -1868,8 +1888,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-预定尾迹（Prescribed Wake）模型在刚性尾迹模型的基础上，根据一些特殊旋翼在特殊状态下的实验结果，引入一些参数对刚性尾迹的几何形状进行修正。
- 美国陆军航空机动研究与发展实验室
+预定尾迹（Prescribed Wake）模型在刚性尾迹模型的基础上，根据一些特殊旋翼在特殊状态下的试验结果，引入一些参数对刚性尾迹的几何形状进行修正。
+ 美国陆军航空机动研究与发展试验室
 \begin_inset Foot
 status collapsed
 
@@ -1888,7 +1908,7 @@ literal "false"
 
 \end_inset
 
-通过水洞试验，提出了一种半经验的旋翼尾迹模型。 但该模型的适用性严重依赖于根据个别实验确定的经验参数，普适性较差，并没有从根本上解决刚性尾迹模型无法准确描述尾迹
+通过水洞试验，提出了一种半经验的旋翼尾迹模型。 但该模型的适用性严重依赖于根据个别试验确定的经验参数，普适性较差，并没有从根本上解决刚性尾迹模型无法准确描述尾迹
 几何结构的问题。
 \end_layout
 
@@ -2105,6 +2125,8 @@ status open
 	filename ../review/figures/free-wake.png
 	lyxscale 50
 	width 100text%
+	height 30theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -2204,7 +2226,7 @@ literal "false"
 \end_inset
 
  采用升力线理论对桨叶进行建模，采用时间步进（Time-Stepping）自由涡方法对桨尖涡运动进行计算。 在做时间步进积分时，此文采用了数值稳定的四阶隐式Ad
-ams–Moulton格式。 基于上述方法，作者通过数值计算研究了在实验中观察到的两条桨尖涡之间相互缠绕的现象。
+ams–Moulton格式。 基于上述方法，作者通过数值计算研究了在试验中观察到的两条桨尖涡之间相互缠绕的现象。
 \end_layout
 
 \begin_layout Standard
@@ -2259,7 +2281,7 @@ literal "false"
 
 \end_inset
 
-中类似的Adams-Moulton格式。 计算结果与佐治亚理工的实验数据进行了对比，验证了算法的可行性。
+中类似的Adams-Moulton格式。 计算结果与佐治亚理工的试验数据进行了对比，验证了算法的可行性。
 \end_layout
 
 \begin_layout Standard
@@ -2360,7 +2382,7 @@ name "Viscous-Vortex-Particle-Method"
 \end_layout
 
 \begin_layout Standard
-旋翼尾迹流场属于低亚声速流动，通常可以对空气采用各项同性、不可压缩、正压等理想化假设。 基于这些假设，可以将Navier-Stokes方程（详见
+旋翼尾迹流场属于低亚声速流动，通常可以对空气采用各项同性、不可压缩、正压等理想化假设。 基于这些假设，可以将Navier–Stokes方程（详见
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Navier-Stokes-Equation"
@@ -2470,7 +2492,7 @@ literal "false"
 
  利用黏性涡粒子方法研究了旋翼尾迹中涡量的输运和扩散现象。 该方法避免了基于欧拉观点的数值离散方法所引入的数值耗散。 为提高计算效率，采用了TreeCode加速
 算法和快速多级子方法推高计算效率。 计算结果显示： 黏性涡粒子模型可以精确模拟旋翼尾迹在悬停、前飞等状态下的动态变化； 不借助经验参数，很好地捕捉到了尾迹收缩、
-桨尖涡卷起、涡量扩散等物理现象； 尾迹对总距突增操纵的动态响应计算结果与实验吻合很好。 此文中的旋翼尾迹初始涡量由升力线模型获得。 作者指出了用CFD方法替代该
+桨尖涡卷起、涡量扩散等物理现象； 尾迹对总距突增操纵的动态响应计算结果与试验吻合很好。 此文中的旋翼尾迹初始涡量由升力线模型获得。 作者指出了用CFD方法替代该
 模型的可能性，但没有进一步给出具体实施方法和计算结果。
 \end_layout
 
@@ -2502,7 +2524,7 @@ status open
 \begin_inset Graphics
 	filename ../review/figures/vortex-particle.png
 	lyxscale 50
-	width 100text%
+	height 20theight%
 
 \end_inset
 
@@ -2510,6 +2532,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "vortex-particle"
+
+\end_inset
+
 利用黏性涡方法计算得到的涡元分布
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2524,13 +2552,6 @@ literal "false"
 \end_inset
 
 
-\begin_inset CommandInset label
-LatexCommand label
-name "vortex-particle"
-
-\end_inset
-
- 
 \end_layout
 
 \end_inset
@@ -2575,9 +2596,9 @@ literal "false"
 
 \end_inset
 
- 将雷诺平均Navier-Stokes方程方法（Reynolds-Averaged Navier-Stokes, RANS）与基于粒子的涡量输运方法（Parti
+ 将雷诺平均Navier–Stokes方程方法（Reynolds-Averaged Navier–Stokes, RANS）与基于粒子的涡量输运方法（Parti
 cle-based Vorticity Transport Method, PVTM）进行耦合， 用于分析固定孤立机翼低速飞行时的气动性能和尾迹特性，并通过与风
-动实验数据进行对比，对该计算模型进行了验证。 该耦合方法将流场按主要流动特性，分为近壁面和远场区域，分别用三维可压缩RANS方法和PVTM方法进行求解。
+动试验数据进行对比，对该计算模型进行了验证。 该耦合方法将流场按主要流动特性，分为近壁面和远场区域，分别用三维可压缩RANS方法和PVTM方法进行求解。
  计算结果显示，该耦合方法可以对机翼翼梢的三维流动效应进行合理的模拟，并且有效解决了常规RANS方法存在的数值耗散问题。 但也有研究人员认为，耦合方法本身及不同
 计算区域数据交换带来的复杂性，可能会抵消一部分涡粒子模型对计算效率的提升
 \begin_inset CommandInset citation
@@ -2591,7 +2612,7 @@ literal "false"
 \end_layout
 
 \begin_layout Subsection
-基于欧拉观点的涡量输运模型
+涡量输运方程
 \end_layout
 
 \begin_layout Standard
@@ -2644,7 +2665,7 @@ literal "false"
 
 \end_inset
 
- 采用基于欧拉网格的涡量守恒形式的Navier–Stokes方程（即涡量输运方程），计算了孤立旋翼和共轴双旋翼周围的非定常气动环境，并与实验数据进行了验证。
+ 采用基于欧拉网格的涡量守恒形式的Navier–Stokes方程（即涡量输运方程），计算了孤立旋翼和共轴双旋翼周围的非定常气动环境，并与试验数据进行了验证。
  由于涡量输运方程不能直接处理壁面边界条件，此文通过升力线方法给出尾迹初始涡量。
 \end_layout
 
@@ -2696,6 +2717,8 @@ status open
 	filename ../review/figures/vtm.jpg
 	lyxscale 20
 	width 100text%
+	height 30theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -2750,10 +2773,13 @@ literal "false"
 
 \end_inset
 
- 将涡量输运方程与Navier-Stokes方程相结合，建立了一种更加接近物理真实的旋翼空气动力学分析模型。 该模型采用基于原始变量（速度、压力）的Navier
--Stokes方程对桨叶附近的流动情况进行描述，可以体现这一区域存在的空气黏性、压缩性等势流模型无法很好处理的流动特性； 对涡流主导的尾迹部分则采用基于欧拉观点
+ 将涡量输运方程与Navier–Stokes方程相结合，建立了一种更加接近物理真实的旋翼空气动力学分析模型。 该模型采用基于原始变量（速度、压力）的Navier
+–Stokes方程对桨叶附近的流动情况进行描述，可以体现这一区域存在的空气黏性、压缩性等势流模型无法很好处理的流动特性； 对涡流主导的尾迹部分则采用基于欧拉观点
 的涡量输运方程进行描述，可以有效降低常规CFD方法造成的涡量非物理扩散。 利用该耦合模型，此文给出了一些固定翼、钝体、直升机上的算例，在流动特性捕捉和非定常载荷
 计算方面都给出了较好的结果。 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -2764,6 +2790,8 @@ status open
 	filename ../review/figures/whitehouse.png
 	lyxscale 50
 	width 100text%
+	height 30theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -2771,7 +2799,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-涡量输运方程和Navier-Stokes方程耦合模型
+涡量输运方程和Navier–Stokes方程耦合模型
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Whitehouse2007"
@@ -2803,6 +2831,8 @@ status open
 	filename ../review/figures/whitehouse1.png
 	lyxscale 50
 	width 100text%
+	height 30theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -2810,7 +2840,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-由涡量输运方程和Navier-Stokes方程耦合模型计算得到的前飞状态涡量分布
+由涡量输运方程和Navier–Stokes方程耦合模型计算得到的前飞状态涡量分布
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Whitehouse2007"
@@ -2849,7 +2879,7 @@ literal "false"
 \end_layout
 
 \begin_layout Subsection
-Navier-Stokes方程
+Navier–Stokes 方程
 \end_layout
 
 \begin_layout Standard
@@ -2859,10 +2889,10 @@ name "Navier-Stokes-Equation"
 
 \end_inset
 
- Navier-Stokes方程
+ Navier–Stokes方程
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Landau2013"
+key "Landau_1987"
 literal "false"
 
 \end_inset
@@ -2871,7 +2901,7 @@ literal "false"
 \series bold
 连续介质
 \series default
-假设下，描述流体运动最精确的物理模型。 将动量定理应用于连续介质流体，可以得到一般形式的Navier-Stokes方程（动量方程）： 
+假设下，描述流体运动最精确的物理模型。 将动量定理应用于连续介质流体，可以得到一般形式的Navier–Stokes方程（动量方程）： 
 \begin_inset Formula 
 \begin{equation}
 \rho\frac{\dd u_{i}}{\dd t}=\rho\left(\frac{\partial u_{i}}{\partial t}+u_{j}\frac{\partial u_{i}}{\partial x_{j}}\right)=\rho f_{i}+\frac{\partial\sigma_{ij}}{\partial x_{j}}\label{Navier-Stokes-General}
@@ -2887,7 +2917,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-一般形式的Navier-Stokes方程过于复杂，难以求解。 因此，有必要对流体模型（即本构关系模型）进行简化，由此演化出不同层次的分析模型。
+一般形式的Navier–Stokes方程过于复杂，难以求解。 因此，有必要对流体模型（即本构关系模型）进行简化，由此演化出不同层次的分析模型。
  常用的流体模型包括：无黏流体、牛顿流体、各项同性流体、常黏度流体、不可压缩流体、Stokes流体。 之前提到的各种计算模型都是以
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2914,7 +2944,7 @@ noprefix "false"
 
 \end_inset
 
-无黏流体的Navier-Stokes方程退化为欧拉方程： 
+无黏流体的Navier–Stokes方程退化为欧拉方程： 
 \begin_inset Formula 
 \begin{equation}
 \rho\left(\frac{\partial u_{i}}{\partial t}+u_{j}\frac{\partial u_{i}}{\partial x_{j}}\right)=\rho f_{i}-\frac{\partial p}{\partial x_{i}}
@@ -3077,7 +3107,7 @@ noprefix "false"
 
 \end_inset
 
-将上述本构关系代入一般形式的动量方程， 得到描述各项同性牛顿流体动量守恒关系的Navier-Stokes方程： 
+将上述本构关系代入一般形式的动量方程， 得到描述各项同性牛顿流体动量守恒关系的Navier–Stokes方程： 
 \begin_inset Formula 
 \begin{equation}
 \begin{split}\rho\left(\frac{\partial u_{i}}{\partial t}+u_{j}\frac{\partial u_{i}}{\partial x_{j}}\right)=\rho f_{i} & -\frac{\partial p}{\partial x_{i}}\\
@@ -3186,7 +3216,7 @@ literal "false"
 
 \end_inset
 
- 基于三维定常不可压缩Navier-Stokes方程，研究了旋翼受地面效应影响的流动情况。 通过动量源模型
+ 基于三维定常不可压缩Navier–Stokes方程，研究了旋翼受地面效应影响的流动情况。 通过动量源模型
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Rajagopalan1991,Rajagopalan1991a"
@@ -3195,7 +3225,7 @@ literal "false"
 \end_inset
 
 来体现旋翼对流场的扰动，计算并分析了尾迹畸变、地面涡的形成、桨盘平面诱导速度分布、不同旋翼离地高度及前进比下的地面效应。 通过将计算得到的流动图像和旋翼诱导速度
-与实验值进行对比，验证了算法的适用性。 此后，作者又将该方法用于分析共轴式和纵列式两种双旋翼构型的地面效应问题研究中
+与试验值进行对比，验证了算法的适用性。 此后，作者又将该方法用于分析共轴式和纵列式两种双旋翼构型的地面效应问题研究中
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kang2000"
@@ -3273,7 +3303,7 @@ Stokes流体
 
 \end_inset
 
-许多可压缩流动的研究以此假设为出发点。 但实验研究表明，该假设并不成立
+许多可压缩流动的研究以此假设为出发点。 但试验研究表明，该假设并不成立
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Dukhin2009"
@@ -3365,7 +3395,7 @@ literal "false"
 \begin_layout Standard
 近些年，网格生成技术的发展已落后于数值算法和计算机硬件的发展，日益成为制约计算流体动力学发展和工程应用的瓶颈。 目前，许多网格生成技术的自动化水平较低，网格质量
 过度依赖研究者的操作经验，并且生成网格需要耗费大量人工劳动时间； 而已有的自动化网格生成方法在处理复杂几何外形时，计算效果并不理想。 解决网格生成问题的一种方案
-是采用无网格方法。
+是采用无网格法。
 \end_layout
 
 \begin_layout Standard
@@ -3377,9 +3407,9 @@ literal "false"
 
 \end_inset
 
- 提出了一种基于局部弱形式的无网格方法（Meshless Local Petrov-Galerkin method, MLPG）。 该方法在进行插值和积分时，不
-再像传统方法（有限差分法、有限元法、边界元法等）那样依赖不重叠的连续网格，因而是一种真正的无网格方法。 该方法已经在固体力学、结构力学、拓扑优化等领域获得了成功
-应用。
+ 提出了一种基于局部弱形式的无网格法（Meshless Local Petrov-Galerkin method, MLPG）。 该方法在进行插值和积分时，不再
+像传统方法（有限差分法、有限元法、边界元法等）那样依赖不重叠的连续网格，因而是一种真正的无网格法。 该方法已经在固体力学、结构力学、拓扑优化等领域获得了成功应用
+。
 \end_layout
 
 \begin_layout Standard
@@ -3405,7 +3435,7 @@ literal "false"
 \begin_inset Formula $Re$
 \end_inset
 
-的对流扩散问题时，此文将迎风格式（Upwind scheme）引入到MLPG方法中，解决了解的非物理振荡问题。 在求解不可压缩Navier-Stokes方程时，
+的对流扩散问题时，此文将迎风格式（Upwind scheme）引入到MLPG方法中，解决了解的非物理振荡问题。 在求解不可压缩Navier–Stokes方程时，
 此文也将迎风格式与MLPG方法相结合，得到了很好的结果。 但此文中的算例比较简单，都是一维、二维问题，对于更加复杂、工程实践中更有意义的三维问题，作者只给出了对
 于该方法应用前景的乐观预期。 尽管如此，MLPG方法的确解决了网格生成困难这一计算力学领域日益突出的问题，因而有希望在今后得到更广泛的应用。
 \end_layout
@@ -3419,8 +3449,8 @@ literal "false"
 
 \end_inset
 
- 提出了一种适用于计算流体动力学的无网格方法，并与传统的基于网格的有限体积法进行了对比。 对于二维跨声速、超声速、黏性流动问题（翼型绕流问题），此文提出的无网格
-算法在计算精度和效率上与大多数有限体积法相当。 此外，把无网格方法应用到重叠网格的无缝连接中，计算结果好于传统的在不同网格之间进行插值的处理方法。
+ 提出了一种适用于计算流体动力学的无网格法，并与传统的基于网格的有限体积法进行了对比。 对于二维跨声速、超声速、黏性流动问题（翼型绕流问题），此文提出的无网格算
+法在计算精度和效率上与大多数有限体积法相当。 此外，把无网格法应用到重叠网格的无缝连接中，计算结果好于传统的在不同网格之间进行插值的处理方法。
  然而， 这里所用的无网格法仍然属于非守恒的算法，因而不能取代基于网格的传统方法。 此文也没有提出具体的计算点生成方法，因而并没有解决传统方法中网格生成难的问题
 。 Katz认为，无网格法并不会取代传统方法，而只会作为传统的方法在处理一些问题时的补充手段，例如重叠网格的无缝连接问题。 此文只用无网格法求解了二维问题，将其
 推广到三维问题是该方法未来的发展方向之一。
@@ -3445,8 +3475,8 @@ literal "false"
 
 \end_inset
 
- 提出了一种隐式无网格方法，将其用于求解具有复杂几何边界的三维可压缩流动问题，给出了三维机翼、直升机机身绕流等算例，证实了无网格法在流体工程问题分析中的应用潜力
-。 
+ 提出了一种隐式无网格法，将其用于求解具有复杂几何边界的三维可压缩流动问题，给出了三维机翼、直升机机身绕流等算例，证实了无网格法在流体工程问题分析中的应用潜力。
+ 
 \begin_inset Float figure
 wide false
 sideways false
@@ -3486,7 +3516,7 @@ literal "false"
 \end_layout
 
 \begin_layout Subsection
-其他新方法
+其他方法
 \end_layout
 
 \begin_layout Standard
@@ -3531,17 +3561,17 @@ literal "false"
 \end_layout
 
 \begin_layout Section
-舰载直升机舰面空气动力学
+舰载直升机气动干扰
 \end_layout
 
 \begin_layout Standard
 舰载直升机所特有的空气动力学问题，主要表现为海面自由来流和舰船空气尾流与旋翼尾迹的相互作用。 起飞和着陆过程中，海面和舰面阻挡旋翼尾迹向下游移动，引起的“地”面
 效应，也是影响直升机飞行安全的重要因素。 研究海面、舰面与旋翼之间的气动干扰，是舰载直升机舰面空气动力学的主要任务。 与旋翼空气动力学类似，该领域的研究方法也分
-为实验和计算两大类。
+为试验和计算两大类。
 \end_layout
 
 \begin_layout Subsection
-实验研究
+试验研究
 \end_layout
 
 \begin_layout Standard
@@ -3581,8 +3611,8 @@ literal "false"
 \begin_inset Formula $7\times10~\mathrm{ft}$
 \end_inset
 
-风洞中开展吹风实验。 另外，该模型还被用于研究旋翼飞行器与大型建筑物以及地面的气动干扰问题。 该项目对倾转旋翼机、纵列式直升机、单主旋翼直升机三种构型都进行了缩
-比模型实验。 获得的结果可用于指导全尺寸直升机舰上操纵以及编队飞行的研究。
+风洞中开展吹风试验。 另外，该模型还被用于研究旋翼飞行器与大型建筑物以及地面的气动干扰问题。 该项目对倾转旋翼机、纵列式直升机、单主旋翼直升机三种构型都进行了缩
+比模型试验。 获得的结果可用于指导全尺寸直升机舰上操纵以及编队飞行的研究。
 \end_layout
 
 \begin_layout Standard
@@ -3594,7 +3624,7 @@ literal "false"
 
 \end_inset
 
- 通过实验研究了利用柱状涡流发生器（Columnar Vortex Generator, CVG）对船体空气尾流进行控制的可行性。 作者希望该技术能够应用于改善
+ 通过试验研究了利用柱状涡流发生器（Columnar Vortex Generator, CVG）对船体空气尾流进行控制的可行性。 作者希望该技术能够应用于改善
 舰载机（包括直升机）的起降环境。 
 \begin_inset Float figure
 wide false
@@ -3645,7 +3675,7 @@ Office National d'Etudes et de Recherches Aerospatiales, ONERA
 
 \end_inset
 
-的Herry 和荷兰国家航空航天实验室
+的Herry 和荷兰国家航空航天试验室
 \begin_inset Foot
 status collapsed
 
@@ -3671,7 +3701,7 @@ literal "false"
 \begin_inset Formula $1/100$
 \end_inset
 
-真实外形军舰缩比模型两种船体的空气尾流。 实验结果对于理解船体无侧滑航行时，船体结构后方气流的双稳定（bi-stable）现象，特别是二者之间的临界情况有很大帮
+真实外形军舰缩比模型两种船体的空气尾流。 试验结果对于理解船体无侧滑航行时，船体结构后方气流的双稳定（bi-stable）现象，特别是二者之间的临界情况有很大帮
 助。
 \end_layout
 
@@ -3715,11 +3745,11 @@ literal "false"
 
 \end_inset
 
- 通过开展水洞实验，研究了直升机处于舰体空气尾流中时的气动载荷特征。 该实验是在一个
+ 通过开展水洞试验，研究了直升机处于舰体空气尾流中时的气动载荷特征。 该试验是在一个
 \begin_inset Formula $1/54$
 \end_inset
 
-的直升机缩比模型上进行的，模型直升机的旋翼也进行了简化，气动载荷通过安装在机身内的六分量天平来测量。 实验模拟了船头正面迎风与 
+的直升机缩比模型上进行的，模型直升机的旋翼也进行了简化，气动载荷通过安装在机身内的六分量天平来测量。 试验模拟了船头正面迎风与 
 \begin_inset Formula $\ang{45}$
 \end_inset
 
@@ -3729,7 +3759,7 @@ literal "false"
 \end_inset
 
  侧风条件下，存在“压力墙”（pressure-wall）区域。 作者认为，这是由船体空气尾流中的速度梯度引起的，通过对船体空气尾流进行非定常CFD分析，解释了
-上述实验观察到的现象。 尽管该实验是在固定直升机的条件下进行的，仍不能完全反映直升机着舰过程的真实载荷特征，但可作为验证计算模型的参照对象。
+上述试验观察到的现象。 尽管该试验是在固定直升机的条件下进行的，仍不能完全反映直升机着舰过程的真实载荷特征，但可作为验证计算模型的参照对象。
 \end_layout
 
 \begin_layout Standard
@@ -3765,16 +3795,16 @@ literal "false"
 \begin_inset Formula $32.9~\mathrm{m}$
 \end_inset
 
-）实验船后甲板上的模型直升机，研究了船体空气尾流与直升机旋翼尾迹的相互影响。 通过安置在旋翼周围的风速计，测量了实验船静止、无侧风航行、侧风航行等条件下的流场信
-息。 尽管该实验是在固定直升机的条件下进行的，但已将实验环境从室内转移到了真实的船只上，因而更接近舰载直升机的真实工作环境。
+）试验船后甲板上的模型直升机，研究了船体空气尾流与直升机旋翼尾迹的相互影响。 通过安置在旋翼周围的风速计，测量了试验船静止、无侧风航行、侧风航行等条件下的流场信
+息。 尽管该试验是在固定直升机的条件下进行的，但已将试验环境从室内转移到了真实的船只上，因而更接近舰载直升机的真实工作环境。
 \end_layout
 
 \begin_layout Subsection
-数值计算
+数值模拟
 \end_layout
 
 \begin_layout Standard
-美国海军研究实验室
+美国海军研究试验室
 \begin_inset Foot
 status collapsed
 
@@ -3799,7 +3829,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-荷兰国家航空航天实验室的Muijden等
+荷兰国家航空航天试验室的Muijden等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Muijden2013"
@@ -3807,7 +3837,7 @@ literal "false"
 
 \end_inset
 
- 基于结构网格，求解RANS方程和RANS-LES混合方法两种物理模型，分析了船体空气尾流，并与实验数据进行了比较。 结果表明，RANS方程的计算结果很好地反映
+ 基于结构网格，求解RANS方程和RANS-LES混合方法两种物理模型，分析了船体空气尾流，并与试验数据进行了比较。 结果表明，RANS方程的计算结果很好地反映
 了船体空气尾流的时间平均特征，而RANS-LES混合方法则进一步给出了更加接近物理真实的流场波动特征。 上述计算结果已被用到直升机飞行模拟器中，并且得到了经验丰
 富的飞行员给出的积极评价。 但此文只计算了船体空气尾流，并没有将直升机（特别是旋翼）包括在计算模型中，因此没有体现船体空气尾流与旋翼空气尾流的耦合效应。
 \end_layout
@@ -3823,7 +3853,7 @@ literal "false"
 
  基于结构网格，利用作用盘方法对旋翼在船体影响下的入流特征进行了静态计算。 作用盘方法的结果表明，当旋翼接近船体时，其入流会受到船体的显著影响，这种影响是非线性
 的，因而叠加法不再适用。 为突破作用盘方法只能描述旋翼整体入流特征的限制，作者通过求解非定常RANS方程获得了每片桨叶的流场信息。 通过该方法得到的旋翼拉力的计
-算结果与实验结果吻合较好，验证了方法的有效性。 作者希望此文的计算方法有助于确定直升机着舰过程的安全飞行包线，但并没有给出具体的结论。 就算例而言，此文也只给出
+算结果与试验结果吻合较好，验证了方法的有效性。 作者希望此文的计算方法有助于确定直升机着舰过程的安全飞行包线，但并没有给出具体的结论。 就算例而言，此文也只给出
 了孤立旋翼与船体在气动方面的相互影响，没有考虑机身对气流的影响，也没有考虑旋翼动力学方面的问题。
 \end_layout
 
@@ -3845,7 +3875,7 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-旋翼尾迹由有限状态入流模型描述，船体空气尾流由CFD或实验数据描述； 
+旋翼尾迹由有限状态入流模型描述，船体空气尾流由CFD或试验数据描述； 
 \end_layout
 
 \begin_layout Itemize
@@ -3870,11 +3900,15 @@ literal "false"
 ，作者对Peters-He有限状态入流模型进行了推广，使其适用于实时仿真。
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
 \begin_layout Section
 舰载直升机相关应用问题简介
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 除了空气动力学以外，舰载直升机的应用还面临许多舰面动力学、飞行动力学、导航和飞行控制等方面的问题。
 \end_layout
 
@@ -3882,7 +3916,7 @@ literal "false"
 舰面动力学
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 美国卡曼航空航天公司
 \begin_inset Foot
 status collapsed
@@ -3903,10 +3937,10 @@ literal "false"
 
  分析了SH-2F型直升机在预定的甲板运动、甲板摩擦、定常风条件下的舰面动力学特性，用以确定该型直升机安全着舰和离舰的条件。 对处于工作状态的旋翼、处于非工作状
 态的旋翼、折叠起来的旋翼以及机身分别进行了建模，以研究这四种情况的空气动力学特性。 利用能量法推导了船体运动的动力学方程，包含三个线位移、两个角位移（滚转、俯仰
-）共五个自由度。 此外，作者还分析了不同甲板摩擦条件对直升机舰面动力学特性的影响。 基于上述分析模型，此文给出了一些定性和定量的安全指标，但有待实验数据的验证。
+）共五个自由度。 此外，作者还分析了不同甲板摩擦条件对直升机舰面动力学特性的影响。 基于上述分析模型，此文给出了一些定性和定量的安全指标，但有待试验数据的验证。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 加拿大卡尔顿大学
 \begin_inset Foot
 status collapsed
@@ -3926,15 +3960,15 @@ literal "false"
 \end_inset
 
  研究了舰载直升机着舰和离舰过程中桨叶特有的气弹问题。 在海上风速较大且旋翼转速较低时，桨叶容易出现较大变形，这是由桨叶的动力学特性、船体运动、船体空气尾流等因
-素共同作用所引起的。 作者将柔性桨叶离散为若干刚性的微段，用以表现非线性的桨叶弯曲变形； 基于实验数据对船体空气尾流进行建模，体现了甲板上方气流随时间、空间变化
-的非定常、非均匀的特征。 此文反映了影响桨叶气弹响应的各种因素之间相互作用关系的复杂性，但分析所用气动模型依赖实验数据，可考虑用更一般的CFD方法代替。
+素共同作用所引起的。 作者将柔性桨叶离散为若干刚性的微段，用以表现非线性的桨叶弯曲变形； 基于试验数据对船体空气尾流进行建模，体现了甲板上方气流随时间、空间变化
+的非定常、非均匀的特征。 此文反映了影响桨叶气弹响应的各种因素之间相互作用关系的复杂性，但分析所用气动模型依赖试验数据，可考虑用更一般的CFD方法代替。
 \end_layout
 
 \begin_layout Subsection
 飞行动力学
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 美国NASA Ames研究中心的Paulk Jr.等
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3946,7 +3980,7 @@ literal "false"
  通过仿真研究发现，紊乱的舰面气流是影响直升机着舰飞行最关键的环境因素。 为保证飞行性能，需采用高度指令补偿系统。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 美国系统技术公司
 \begin_inset Foot
 status collapsed
@@ -3975,10 +4009,10 @@ Naval Air Development Center
 
 \end_inset
 
-支持的实验研究。 该项研究的目的是在直升机操稳参数、舰面操纵流程、环境条件等方面，对飞行品质规范修订提出建议。
+支持的试验研究。 该项研究的目的是在直升机操稳参数、舰面操纵流程、环境条件等方面，对飞行品质规范修订提出建议。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 此后，该公司的Clement等
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3991,7 +4025,7 @@ literal "false"
 于实时仿真。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 美国佐治亚理工学院的Zhang等
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -4000,7 +4034,7 @@ literal "false"
 
 \end_inset
 
- 利用全尺寸海上实验数据，识别出一个关于船体空气尾流速度垂直分量的功率谱模型。 基于上述半经验的船体空气尾流模型和一个简化的旋翼气动模型，作者研究了船体空气尾流
+ 利用全尺寸海上试验数据，识别出一个关于船体空气尾流速度垂直分量的功率谱模型。 基于上述半经验的船体空气尾流模型和一个简化的旋翼气动模型，作者研究了船体空气尾流
 对旋翼拉力和滚转、俯仰力矩的影响。 此后，作者又建立了一种用于模拟直升机与船体气动干扰并考虑地面效应的实时仿真模型。 该模型中，船体由板块表示，旋翼尾迹由固定尾
 迹和预定尾迹模型表示，海面的影响（地面效应）通过镜像法体现。 基于以上模型，将旋翼入流表示成有限状态形式，以便于进行实时仿真。 该模型只适用于直升机在甲板上方悬
 停的配平问题。 此后，作者还直升机与船体气动干扰问题中的地面效应问题进行了研究
@@ -4014,7 +4048,7 @@ literal "false"
 。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 加拿大NTI公司
 \begin_inset Foot
 status collapsed
@@ -4069,7 +4103,7 @@ literal "false"
 
 \end_inset
 
-中的一些观点提出了质疑。 Zan认为，特殊算例的CFD计算结果与实验数据进行的对比，并不能证明该CFD方法在更一般的条件下下仍然有效。 实验和基于Navier-
+中的一些观点提出了质疑。 Zan认为，特殊算例的CFD计算结果与试验数据进行的对比，并不能证明该CFD方法在更一般的条件下下仍然有效。 试验和基于Navier–
 Stokes方程的计算结果都显示，在某些情况下，船体空气尾流是由涡流主导的，并且存在强烈的流动分离现象。 因此，
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -4081,7 +4115,7 @@ literal "false"
 中基于Euler方程得到的结论并不可靠。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 美国宾夕法尼亚州立大学
 \begin_inset Foot
 status collapsed
@@ -4113,7 +4147,7 @@ literal "false"
 中，Lee等引入了一种随机船体空气尾流模型 ，用以提高仿真的效率。 该模型可用于优化飞行控制系统，以提高飞行器抗扰性能。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 荷兰代尔夫特理工大学
 \begin_inset Foot
 status collapsed
@@ -4137,7 +4171,7 @@ rs动态入流模型进行建模，通过引入四个状态变量来体现尾迹
 没有考虑船体空气尾流对旋翼的影响。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 澳大利亚棱镜防务公司的Forrest，英国林肯大学的Owen，英国利物浦大学的Padfield以及英国BAE系统公司
 \begin_inset Foot
 status collapsed
@@ -4161,7 +4195,7 @@ literal "false"
 体空气尾流对旋翼尾迹的影响，但仍可应用于舰载直升机飞行员的日常训练。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 美国弗吉尼亚理工学院
 \begin_inset Foot
 status collapsed
@@ -4186,7 +4220,7 @@ literal "false"
 态入流模型，并不能体现旋翼与船体在气动方面的相互影响。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 美国联合学院和大学
 \begin_inset Foot
 status collapsed
@@ -4205,9 +4239,9 @@ literal "false"
 
 \end_inset
 
- 基于FLIGHTLAB旋翼飞行器综合分析软件，对舰载直升机舰面操纵进行了建模和分析，并将仿真结果与实验数据进行了比较。 作者采用叶素法、有限状态尾迹和自由尾迹
+ 基于FLIGHTLAB旋翼飞行器综合分析软件，对舰载直升机舰面操纵进行了建模和分析，并将仿真结果与试验数据进行了比较。 作者采用叶素法、有限状态尾迹和自由尾迹
 对旋翼进行建模，基于CFD对船体空气尾流进行模拟，引入地面涡（Ground Vortex）模拟甲板和海面引起的地面效应。 计算结果表明，船的航行速度、航向、旋翼
-转速、海况对直升机的舰面操纵具有显著影响，并且得到了实验数据的验证。 但此文中的建模工作过于依赖软件提供的功能，因而不具有一般性，也不易引入更精细的气动或动力学
+转速、海况对直升机的舰面操纵具有显著影响，并且得到了试验数据的验证。 但此文中的建模工作过于依赖软件提供的功能，因而不具有一般性，也不易引入更精细的气动或动力学
 模型。
 \end_layout
 
@@ -4215,7 +4249,7 @@ literal "false"
 导航与飞行控制
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 美国Lear Siegler公司
 \begin_inset Foot
 status collapsed
@@ -4238,7 +4272,7 @@ literal "false"
 用于全自动和远程人在回路仿真。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 以色列理工学院
 \begin_inset Foot
 status collapsed
@@ -4257,11 +4291,11 @@ literal "false"
 
 \end_inset
 
- 介绍了一种用于手动执行直升机在移动甲板上方低空悬停任务的叠加显示技术。 分析和实验结果表明，将惯性参考系中的位置信息提供给飞行员，有助于提高直升机在移动甲板上
+ 介绍了一种用于手动执行直升机在移动甲板上方低空悬停任务的叠加显示技术。 分析和试验结果表明，将惯性参考系中的位置信息提供给飞行员，有助于提高直升机在移动甲板上
 方执行悬停任务的质量。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 美国加州大学戴维斯分校
 \begin_inset Foot
 status collapsed
@@ -4282,6 +4316,692 @@ literal "false"
 
  基于简化的船体运动和直升机飞行动力学模型，提出了一种适用于旋翼飞行器全包线飞行控制系统设计的方法，并将该方法应用于直升机在高速航行的舰船甲板附近执行位置保持任
 务。
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+间断伽辽金有限元法
+\end_layout
+
+\begin_layout Standard
+Most of the computational fluid dynamics (CFD) solvers currently used in
+ aerospace engineering are based on schemes using finite volume (FV) methods,
+ which are more suitable than schemes using finite difference (FD) methods
+ for unstructured meshes.
+ However, FV schemes usually have only second-order spatial accuracy, due
+ to the difficulty of handling irregular local stencils, whose sizes grows
+ rapidly as the order of accuracy increases.
+ In high-order FV schemes, the local stencil of a cell is made up of the
+ cell and the cell's neighbors, and the neighbors' neighbors, and so on.
+ To ease the development of high-order schemes for unstructured meshes,
+ it is better to use finite element (FE) methods whose local stencils are
+ much more compact than those of FV schemes.
+ One family of such compact high-order schemes suitable for unstructured
+ meshes are called the discontinuous Galerkin (DG) methods, which assume
+ continuous approximation in each cell (like classic FE methods), but allow
+ discontinuities to exist on cell boundaries (like classic FV methods).
+ Such an assumption gives scheme designers more freedom on choosing the
+ basis for each cell, such as orthogonal functions which lead to modal DG
+ methods, and Lagrange polynomials which lead to nodal DG methods 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hesthaven_2008"
+literal "false"
+
+\end_inset
+
+.
+ The original DG method was introduced by Reed and Hill 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Reed_1973"
+literal "false"
+
+\end_inset
+
+ for solving the neutron transport equation, which is a linear problem contains
+ only first-order spatial derivatives.
+ For nonlinear conservation laws, Chavent and Salzano 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chavent_1982"
+literal "false"
+
+\end_inset
+
+ made the first attempt of using a DG method to discretize in space and
+ using the explicit Euler method for time discretization.
+ This scheme is second-order accurate in space but only first-order accurate
+ in time.
+ To improve the accuracy of time discretization, Cockburn and Shu 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1988"
+literal "false"
+
+\end_inset
+
+ replace the first-order Euler method with a special second-order Runge–Kutta
+ (RK) method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shu_1988,Shu_1989"
+literal "false"
+
+\end_inset
+
+, which is explicit and total variation diminishing (TVD).
+ This is the first successful Runge–Kutta discontinuous Galerkin (RKDG)
+ method, which is high-order accurate both in space and time, for scalar
+ conservation laws.
+ This RKDG method was soon extended to one-dimensional system case 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1989"
+literal "true"
+
+\end_inset
+
+, multi-dimensional scalar case 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1990"
+literal "false"
+
+\end_inset
+
+ and multi-dimensional system case 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cockburn_1998"
+literal "false"
+
+\end_inset
+
+, which includes the Euler system that models inviscid compressible flows.
+ Nearly the same time (late 1990s), the DG methods were also extended to
+ the Navier–Stokes system that governs viscous flows.
+ Bassi and Rebay 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bassi_1997"
+literal "false"
+
+\end_inset
+
+ made the first attempt to apply the DG idea to both the unknowns and their
+ gradients for solving the Navier–Stokes equations.
+ This method was then generalized by Cockburn and Shu 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cockburn_1998b"
+literal "false"
+
+\end_inset
+
+ to the family of local discontinuous Galerkin (LDG) methods, which extends
+ the RKDG methods from conversation laws to convection-dominated problems.
+ One may refer to 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_2001"
+literal "false"
+
+\end_inset
+
+, which is a comprehensive review article on this topic.
+ In the rest of this article, we will only study the RKDG methods for conservati
+on laws that are purely hyperbolic.
+ In Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:spatial_discretization"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:temporal_discretization"
+
+\end_inset
+
+, we will give a matrix formed formulation of the RKDG method for solving
+ three-dimensional conservation law systems.
+\end_layout
+
+\begin_layout Standard
+When solving hyperbolic problems, limiting procedures, or limiters for short,
+ are necessary for suppressing numerical oscillations that might occur near
+ discontinuities (known as the Gibbs phenomenon 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gottlieb_1997"
+literal "false"
+
+\end_inset
+
+).
+ For FD and FV schemes, there is the monotonic upstream-centered scheme
+ for conservation laws (MUSCL) 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Van_Leer_1977,Van_Leer_1977a,van_Leer_1979,van_Leer_2021"
+literal "false"
+
+\end_inset
+
+, which could achieve third-order accuracy when used with caution.
+ However, it is not directly applicable to FE schemes.
+ Besides the RKDG formulations, there is another important contribution
+ made by 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1990,Cockburn_1998"
+literal "false"
+
+\end_inset
+
+, which is proposing the generalized slope limiters for multi-dimensional
+ problems.
+ These minmod type limiters, together with TVD RK methods, makes the high-order
+ solutions free from non-physical oscillation, but tend to reduce the order
+ of accuracy in smooth regions.
+ To overcome this drawback, the essentially non-oscillatory (ENO) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Harten_1997"
+literal "false"
+
+\end_inset
+
+ and weighted ENO (WENO) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jiang_1996"
+literal "false"
+
+\end_inset
+
+ limiting procedures were introduced.
+ Both of them can maintain high-order accuracy in smooth regions but essentially
+ suppress spurious oscillations near discontinuities.
+ The first attempt of making such limiters suitable for unstructured meshes
+ was to incorporate a WENO reconstruction procedure into high-order FV schemes
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Hu_1999"
+literal "false"
+
+\end_inset
+
+.
+ Similar ideas were later adopted for DG methods 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Qiu_2005,Zhu_2008"
+literal "false"
+
+\end_inset
+
+ at the cost of sacrificing the compactness of DG methods.
+ Compact versions of WENO limiters suitable for DG methods only occurred
+ in the last ten years 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhong_2013,Zhu_2013,Mazaheri_2019"
+literal "true"
+
+\end_inset
+
+ and most of them are only formulated for two-dimensional meshes.
+ In Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:limiting_procedures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we will give a unified formulation of some compact WENO limiters for both
+ two- and three-dimensional RKDG methods on unstructured meshes.
+\end_layout
+
+\begin_layout Standard
+The two-dimensional version of the algorithms described in Sections 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:spatial_discretization"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:temporal_discretization"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ has been proposed for nearly ten years, but few three-dimensional or real
+ engineering applications have been reported so far.
+ One reason is that the amount of computational resources cost by each cell
+ grows rapidly as the order of accuracy or the dimension of space increases.
+ Fortunately, both RKDG methods and WENO limiters use highly compact stencils
+ and there is no global algebraic equation to be solved (as in FD and FV
+ schemes).
+ Based on these facts, parallel computing using domain decomposition can
+ be applied for accelerating computation in a very natural way.
+ Currently, we have not seen any parallel implementation of RKDG methods
+ with WENO limiters for three-dimensional unstructured meshes.
+ However, there are some frequently referenced works existing in the literature,
+ which measured the parallel efficiencies of their DG methods.
+ Biswas, Devine and Flaherty 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Biswas_1994"
+literal "false"
+
+\end_inset
+
+ performed some tests of their one- and two-dimensional DG solvers for linear
+ scalar problems on uniform structured meshes.
+ They achieved excellent parallel efficiencies, which were over 
+\begin_inset Formula $99\%$
+\end_inset
+
+ for pure solution time (without I/O) and at least 
+\begin_inset Formula $89\%$
+\end_inset
+
+ for total running time.
+ Bey, Patra and Oden 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bey_1995"
+literal "false"
+
+\end_inset
+
+ tested their DG solvers for linear conservation laws on both structured
+ (uniform) and unstructured (
+\begin_inset Formula $hp$
+\end_inset
+
+-adaptive) meshes.
+ They got nearly optimal speedups when the number of interior elements is
+ sufficiently larger than that of subdomain boundary elements.
+ Recently, Chalmers et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chalmers_2019"
+literal "false"
+
+\end_inset
+
+ implemented their DG solver for two-dimensional Navier–Stokes equations
+ using MPI/OpenMP hybrid parallelism and achieved good scalability on a
+ uniform mesh with only quadrilateral elements.
+ None of them show the parallel performance of DG solvers on three-dimensional
+ unstructured meshes.
+ In this article, we incorporate unstructured mesh partitioning and message
+ passing into the algorithms and implement them on top of publicly available
+ libraries to support parallel execution.
+ To partition a three-dimensional unstructured mesh, we use the application
+ programming interface (API) provided by the 
+\shape smallcaps
+Metis
+\shape default
+ library 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Karypis_1998"
+literal "false"
+
+\end_inset
+
+.
+ To send and receive messages, we use the message passing interface (MPI)
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MPIF_2021"
+literal "false"
+
+\end_inset
+
+, which is the de facto industry standard of distributed memory parallelization.
+ We will give the details of these parallel programming techniques in Section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:parallelization"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+CFD solvers widely used in aerospace engineering are based either on finite
+ difference (FD) schemes or on finite volume (FV) schemes.
+ However, FD schemes are restricted on structured meshes, while most FV
+ schemes have only first- or second-order accuracy.
+ One way to develop higher-order schemes suitable for unstructured meshes
+ is to use the discontinuous Galerkin (DG) finite element (FE) methods.
+ Like other FE methods, DG methods assume continuous approximation in each
+ element (a.k.a.
+ cell).
+ However, they allow discontinuities to exist on intercell boundaries.
+ Such discontinuities are then resolved by numerical fluxes, e.g.
+ exact or approximate Riemann solvers, just like Godunov-type schemes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Harten_1983"
+literal "true"
+
+\end_inset
+
+.
+ The original DG scheme was not proposed for CFD but for solving the linear
+ neutron transport equation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Reed_1973"
+literal "false"
+
+\end_inset
+
+.
+ For nonlinear conservation laws, Chavent and Salzano 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chavent_1982"
+literal "false"
+
+\end_inset
+
+ designed an explicit Euler DG cheme, which is second-order accurate in
+ space but only first-order accurate in time.
+ To improve the accuracy of time discretization, Cockburn and Shu 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1988"
+literal "false"
+
+\end_inset
+
+ replaced the first-order forward Euler method with high-order Runge–Kutta
+ (RK) methods, which led to the family of RKDG schemes for scalar conservation
+ laws 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shu_1988,Shu_1989"
+literal "false"
+
+\end_inset
+
+, for one-dimensional conservation law systems 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1989"
+literal "true"
+
+\end_inset
+
+, for multi-dimensional scalar conservation laws 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1990"
+literal "false"
+
+\end_inset
+
+ and for multi-dimensional conservation law systems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cockburn_1998"
+literal "false"
+
+\end_inset
+
+.
+ The last case includes the Euler system that depicts inviscid compressible
+ flows, which is the first application of RKDG in CFD.
+ We will give a concise derivation of this scheme in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:spatial_discretization"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:temporal_discretization"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The Euler system is hyperbolic, which might have discontinuities in its
+ solutions.
+ Appoximating such solutions with finite terms of continuous functions would
+ generate numerical oscillations near discontinuities (known as the Gibbs
+ phenomenon 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gottlieb_1997"
+literal "false"
+
+\end_inset
+
+).
+ Therefore, any useful high-order scheme must incorporate some mechanism
+ for suppressing such spurious oscillations.
+ For second-order FD and FV schemes, there are slope and flux limiters 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sweby_1984"
+literal "false"
+
+\end_inset
+
+.
+ These limiters work well on shock capturing but might reduce the order
+ of accuracy when used in smooth regions.
+ Furthermore, they are not applicable to higher-order schemes.
+ To overcome these drawbacks, the essentially non-oscillatory (ENO) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Harten_1997"
+literal "false"
+
+\end_inset
+
+ and weighted ENO (WENO) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jiang_1996"
+literal "false"
+
+\end_inset
+
+ limiters for high-order FD schemes, which can essentially suppress spurious
+ oscillations and maintain high-order accuracy in smooth regions, were developed.
+ Similar ideas were later incorporated into FV 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Hu_1999"
+literal "false"
+
+\end_inset
+
+ and DG 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Qiu_2005,Zhu_2008"
+literal "false"
+
+\end_inset
+
+ schemes, which are suitable for unstructured meshes.
+ However, such early versions of unstructured WENO limiters have to query
+ not only a cell's immediate neighbors, but also the neighbors' neighbors,
+ and so on.
+ To preserve the compactness of RKDG schemes, Zhong 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhong_2013"
+literal "true"
+
+\end_inset
+
+ and Zhu 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhu_2013"
+literal "true"
+
+\end_inset
+
+ proposed a compact WENO limter for two-dimensional structured and unstructrued
+ meshes.
+ In our early work 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Pei_2022"
+literal "false"
+
+\end_inset
+
+, we extended it to three-dimensional and presented an efficient parallel
+ implementation.
+ We will summarize the key steps of this compact WENO limiter in Section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:limiting_procedures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The parallel implementation of the RKDG scheme with a compact WENO limiter
+ can be used for solving many practical problems in aerospace engineering.
+ However, for problems with moving boundaries (such as rotary wings on a
+ helicopter or blades on a wind turbine), advanced meshing techniques (such
+ as dynamic meshing, overset meshes or adaptive mesh refinement) have to
+ be applied.
+ On the other hand, typical lifting bodies (such as rotary wings) have been
+ successfully modelled as various momentum sources in FD/FV schemes.
+ Rajagopalan and Mathur 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rajagopalan_1989,Rajagopalan_1993"
+literal "false"
+
+\end_inset
+
+ proposed the first FD/FV based momentum source model, which models the
+ time-averaged effect of a rotor as an actuator disk.
+ Such a steady model was used by Kang and Sun 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kang_1997,Kang_2000"
+literal "false"
+
+\end_inset
+
+ for solving the flow fields of rotors in ground effect.
+ Shi 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shi_2017"
+literal "false"
+
+\end_inset
+
+ compared this model with an unsteady overset mesh method, and found that
+ the steady momentum source model can predict complex aerodynamic interactions
+ between a rotor and a flight deck at a much cheaper cost.
+ Shen 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shen_2009"
+literal "false"
+
+\end_inset
+
+ and Kim 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kim_2015"
+literal "false"
+
+\end_inset
+
+ refined the model by replacing the actuator disk for the entire rotor with
+ an actuator surface for each blade of the rotor, so that unsteady effects
+ of rotary wings can be captured.
+ Such early works are either over simplified by ignoring unsteady effects
+ (such as 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Rajagopalan_1989,Rajagopalan_1993,Kang_1997,Kang_2000"
+literal "false"
+
+\end_inset
+
+), or restricted to structured meshes (such as 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Shen_2009,Shi_2017"
+literal "false"
+
+\end_inset
+
+).
+ To overcome these drawbacks, our parallel RKDG solvers are augmented with
+ an unsteady actuator line model, which successfully capture unsteady effects
+ of a rotor on unstructured meshes.
+ The formulation of this finite-element/momentum-source hybrid method will
+ be given in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:The-Momentum-Source"
+
+\end_inset
+
+.
+ Some demonstrative results are presented in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Problems-with-Momentum"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -4305,13 +5025,13 @@ literal "false"
 舰载直升机空气动力学研究，既包含所有旋翼飞行器共有的一般性问题（即通常意义下，旋翼空气动力学所包含的研究内容），也有海面和船体与旋翼相互影响所带来的特殊问题。
  旋翼空气动力学研究的主要任务是，认识旋翼流场的特点和规律，为旋翼飞行器的设计、使用和维护提供支持。 舰载直升机舰面空气动力学研究的主要任务则是，深入理解旋翼尾
 迹和船体空气尾流的流动特点， 把握海面、船体与旋翼之间的气动干扰规律，为舰载直升机舰面动力学、飞行动力学、导航和飞行控制方法研究提供支持。 这两大类问题的研究方
-法均可分为实验和计算两类。
+法均可分为试验和计算两类。
 \end_layout
 
 \begin_layout Standard
-对旋翼空气动力学的实验研究经历了从定性到定量，从宏观到微观的发展过程。 最开始，人们通过自然凝结现象，观察到了旋翼桨尖涡的存在，并认识到旋翼流场由桨尖涡主导的重
-要事实。 此后，喷烟法、阴影法、纹影法等流动显示方法不断被引入旋翼空气动力学的定性实验研究中。 定量实验方面，包含测力实验和测速实验两类。 伴随实验技术的进步，
-测速实验经历了侵入式热线测速技术、非侵入式单点LDV技术、非侵入式多点PIV技术的发展过程。 目前，三维PIV技术已经能够对旋翼流场进行高分辨率测量，可以预见，
+对旋翼空气动力学的试验研究经历了从定性到定量，从宏观到微观的发展过程。 最开始，人们通过自然凝结现象，观察到了旋翼桨尖涡的存在，并认识到旋翼流场由桨尖涡主导的重
+要事实。 此后，喷烟法、阴影法、纹影法等流动显示方法不断被引入旋翼空气动力学的定性试验研究中。 定量试验方面，包含测力试验和测速试验两类。 伴随试验技术的进步，
+测速试验经历了侵入式热线测速技术、非侵入式单点LDV技术、非侵入式多点PIV技术的发展过程。 目前，三维PIV技术已经能够对旋翼流场进行高分辨率测量，可以预见，
 该技术在未来一段时间里仍将是旋翼空气动力学研究的重要工具。
 \end_layout
 
@@ -4319,13 +5039,13 @@ literal "false"
 数值计算是旋翼空气动力学的另一类重要的研究方法。 旋翼流场的非定常、非线性特征决定了问题的复杂性。 为了真实还原旋翼流场的流动特征，必须解决好转捩、附面层分离、
 涡核粘性耗散、涡结构失稳破裂等复杂的流体力学问题。 在连续介质力学框架内，只有直接数值模拟技术可以完全实现上述目标。 受限于计算机硬件和软件发展水平，将DNS技
 术直接应用到旋翼空气动力学计算上，目前看来还很不现实。 因此，有必要寻找切实可行的替代方法。 旋翼入流模型、涡线尾迹模型、黏性涡粒子模型、基于欧拉观点的涡量输运
-模型、雷诺平均Navier-Stokes方程模型等，都已经被直升机工程界所采用。 为了解决网格离散带来的涡量非物理耗散问题，网格自适应加密技术、涡量约束方法等新
+模型、雷诺平均Navier–Stokes方程模型等，都已经被直升机工程界所采用。 为了解决网格离散带来的涡量非物理耗散问题，网格自适应加密技术、涡量约束方法等新
 兴的流体力学计算方法正成为该领域的研究热点。 而无网格法以其处理复杂几何边界的灵活性，也逐渐引起了计算流体力学界的关注。
 \end_layout
 
 \begin_layout Standard
 除上述旋翼空气动力学的一般性问题外，舰载直升机还有一些海上作业、舰面起降所带来的特殊空气动力学问题。 这类特殊问题主要表现为海面自由来流、舰船空气尾流与旋翼尾迹
-的相互作用，即气动干扰问题。 美国、法国、荷兰等国在该领域开展了许多实验和计算方法研究，一些分析方法已经实现商业化，并成功应用到飞行仿真、导航和飞行控制系统设计
+的相互作用，即气动干扰问题。 美国、法国、荷兰等国在该领域开展了许多试验和计算方法研究，一些分析方法已经实现商业化，并成功应用到飞行仿真、导航和飞行控制系统设计
 等应用领域。 相比之下，我国在这方面开展的研究工作十分有限。 研究舰载直升机空气动力学，特别是海面、舰船与旋翼之间的复杂气动干扰问题， 对于确定直升机舰面起降的
 环境条件，制定和完善直升机舰面起降作业规程，提高舰载直升机的安全性和作业效率具有重要意义。
 \end_layout
@@ -20621,378 +21341,6 @@ p_{\mathrm{b}}=p_{\mathrm{o}},\qquad\begin{bmatrix}\rho_{\mathrm{b}}\\
 间断伽辽金有限元法
 \end_layout
 
-\begin_layout Section*
-Introduction
-\end_layout
-
-\begin_layout Standard
-Most of the computational fluid dynamics (CFD) solvers currently used in
- aerospace engineering are based on schemes using finite volume (FV) methods,
- which are more suitable than schemes using finite difference (FD) methods
- for unstructured meshes.
- However, FV schemes usually have only second-order spatial accuracy, due
- to the difficulty of handling irregular local stencils, whose sizes grows
- rapidly as the order of accuracy increases.
- In high-order FV schemes, the local stencil of a cell is made up of the
- cell and the cell's neighbors, and the neighbors' neighbors, and so on.
- To ease the development of high-order schemes for unstructured meshes,
- it is better to use finite element (FE) methods whose local stencils are
- much more compact than those of FV schemes.
- One family of such compact high-order schemes suitable for unstructured
- meshes are called the discontinuous Galerkin (DG) methods, which assume
- continuous approximation in each cell (like classic FE methods), but allow
- discontinuities to exist on cell boundaries (like classic FV methods).
- Such an assumption gives scheme designers more freedom on choosing the
- basis for each cell, such as orthogonal functions which lead to modal DG
- methods, and Lagrange polynomials which lead to nodal DG methods 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Hesthaven_2008"
-literal "false"
-
-\end_inset
-
-.
- The original DG method was introduced by Reed and Hill 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Reed_1973"
-literal "false"
-
-\end_inset
-
- for solving the neutron transport equation, which is a linear problem contains
- only first-order spatial derivatives.
- For nonlinear conservation laws, Chavent and Salzano 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chavent_1982"
-literal "false"
-
-\end_inset
-
- made the first attempt of using a DG method to discretize in space and
- using the explicit Euler method for time discretization.
- This scheme is second-order accurate in space but only first-order accurate
- in time.
- To improve the accuracy of time discretization, Cockburn and Shu 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cockburn_1988"
-literal "false"
-
-\end_inset
-
- replace the first-order Euler method with a special second-order Runge–Kutta
- (RK) method 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Shu_1988,Shu_1989"
-literal "false"
-
-\end_inset
-
-, which is explicit and total variation diminishing (TVD).
- This is the first successful Runge–Kutta discontinuous Galerkin (RKDG)
- method, which is high-order accurate both in space and time, for scalar
- conservation laws.
- This RKDG method was soon extended to one-dimensional system case 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cockburn_1989"
-literal "true"
-
-\end_inset
-
-, multi-dimensional scalar case 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cockburn_1990"
-literal "false"
-
-\end_inset
-
- and multi-dimensional system case 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Cockburn_1998"
-literal "false"
-
-\end_inset
-
-, which includes the Euler system that models inviscid compressible flows.
- Nearly the same time (late 1990s), the DG methods were also extended to
- the Navier–Stokes system that governs viscous flows.
- Bassi and Rebay 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Bassi_1997"
-literal "false"
-
-\end_inset
-
- made the first attempt to apply the DG idea to both the unknowns and their
- gradients for solving the Navier–Stokes equations.
- This method was then generalized by Cockburn and Shu 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Cockburn_1998b"
-literal "false"
-
-\end_inset
-
- to the family of local discontinuous Galerkin (LDG) methods, which extends
- the RKDG methods from conversation laws to convection-dominated problems.
- One may refer to 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cockburn_2001"
-literal "false"
-
-\end_inset
-
-, which is a comprehensive review article on this topic.
- In the rest of this article, we will only study the RKDG methods for conservati
-on laws that are purely hyperbolic.
- In Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:spatial_discretization"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:temporal_discretization"
-
-\end_inset
-
-, we will give a matrix formed formulation of the RKDG method for solving
- three-dimensional conservation law systems.
-\end_layout
-
-\begin_layout Standard
-When solving hyperbolic problems, limiting procedures, or limiters for short,
- are necessary for suppressing numerical oscillations that might occur near
- discontinuities (known as the Gibbs phenomenon 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Gottlieb_1997"
-literal "false"
-
-\end_inset
-
-).
- For FD and FV schemes, there is the monotonic upstream-centered scheme
- for conservation laws (MUSCL) 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Van_Leer_1977,Van_Leer_1977a,van_Leer_1979,van_Leer_2021"
-literal "false"
-
-\end_inset
-
-, which could achieve third-order accuracy when used with caution.
- However, it is not directly applicable to FE schemes.
- Besides the RKDG formulations, there is another important contribution
- made by 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cockburn_1990,Cockburn_1998"
-literal "false"
-
-\end_inset
-
-, which is proposing the generalized slope limiters for multi-dimensional
- problems.
- These minmod type limiters, together with TVD RK methods, makes the high-order
- solutions free from non-physical oscillation, but tend to reduce the order
- of accuracy in smooth regions.
- To overcome this drawback, the essentially non-oscillatory (ENO) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Harten_1997"
-literal "false"
-
-\end_inset
-
- and weighted ENO (WENO) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Jiang_1996"
-literal "false"
-
-\end_inset
-
- limiting procedures were introduced.
- Both of them can maintain high-order accuracy in smooth regions but essentially
- suppress spurious oscillations near discontinuities.
- The first attempt of making such limiters suitable for unstructured meshes
- was to incorporate a WENO reconstruction procedure into high-order FV schemes
- 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Hu_1999"
-literal "false"
-
-\end_inset
-
-.
- Similar ideas were later adopted for DG methods 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Qiu_2005,Zhu_2008"
-literal "false"
-
-\end_inset
-
- at the cost of sacrificing the compactness of DG methods.
- Compact versions of WENO limiters suitable for DG methods only occurred
- in the last ten years 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Zhong_2013,Zhu_2013,Mazaheri_2019"
-literal "true"
-
-\end_inset
-
- and most of them are only formulated for two-dimensional meshes.
- In Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:limiting_procedures"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, we will give a unified formulation of some compact WENO limiters for both
- two- and three-dimensional RKDG methods on unstructured meshes.
-\end_layout
-
-\begin_layout Standard
-The two-dimensional version of the algorithms described in Sections 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:spatial_discretization"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:temporal_discretization"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- has been proposed for nearly ten years, but few three-dimensional or real
- engineering applications have been reported so far.
- One reason is that the amount of computational resources cost by each cell
- grows rapidly as the order of accuracy or the dimension of space increases.
- Fortunately, both RKDG methods and WENO limiters use highly compact stencils
- and there is no global algebraic equation to be solved (as in FD and FV
- schemes).
- Based on these facts, parallel computing using domain decomposition can
- be applied for accelerating computation in a very natural way.
- Currently, we have not seen any parallel implementation of RKDG methods
- with WENO limiters for three-dimensional unstructured meshes.
- However, there are some frequently referenced works existing in the literature,
- which measured the parallel efficiencies of their DG methods.
- Biswas, Devine and Flaherty 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Biswas_1994"
-literal "false"
-
-\end_inset
-
- performed some tests of their one- and two-dimensional DG solvers for linear
- scalar problems on uniform structured meshes.
- They achieved excellent parallel efficiencies, which were over 
-\begin_inset Formula $99\%$
-\end_inset
-
- for pure solution time (without I/O) and at least 
-\begin_inset Formula $89\%$
-\end_inset
-
- for total running time.
- Bey, Patra and Oden 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Bey_1995"
-literal "false"
-
-\end_inset
-
- tested their DG solvers for linear conservation laws on both structured
- (uniform) and unstructured (
-\begin_inset Formula $hp$
-\end_inset
-
--adaptive) meshes.
- They got nearly optimal speedups when the number of interior elements is
- sufficiently larger than that of subdomain boundary elements.
- Recently, Chalmers et al.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chalmers_2019"
-literal "false"
-
-\end_inset
-
- implemented their DG solver for two-dimensional Navier–Stokes equations
- using MPI/OpenMP hybrid parallelism and achieved good scalability on a
- uniform mesh with only quadrilateral elements.
- None of them show the parallel performance of DG solvers on three-dimensional
- unstructured meshes.
- In this article, we incorporate unstructured mesh partitioning and message
- passing into the algorithms and implement them on top of publicly available
- libraries to support parallel execution.
- To partition a three-dimensional unstructured mesh, we use the application
- programming interface (API) provided by the 
-\shape smallcaps
-Metis
-\shape default
- library 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Karypis_1998"
-literal "false"
-
-\end_inset
-
-.
- To send and receive messages, we use the message passing interface (MPI)
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "MPIF_2021"
-literal "false"
-
-\end_inset
-
-, which is the de facto industry standard of distributed memory parallelization.
- We will give the details of these parallel programming techniques in Section
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:parallelization"
-
-\end_inset
-
-.
-\end_layout
-
 \begin_layout Section
 空间离散
 \begin_inset CommandInset label
@@ -22807,7 +23155,7 @@ k=1,2,\dots,n,
 \begin_inset Formula $V_{i}$
 \end_inset
 
- 上构造数值积分器，可以借用常规有限元方法中的等参变换：
+ 上构造数值积分器，可以借用常规有限元法中的等参变换：
 \begin_inset Formula 
 \begin{equation}
 \begin{bmatrix}x(\xi,\eta,\zeta)\\
@@ -23107,7 +23455,7 @@ status open
 
 \begin_layout Standard
 以上各小节已经给出了寻找给定函数在给定非结构网格上的分段多项式近似的一般方法。在实际应用中，更有价值的是寻找满足给定微分方程及定解条件的未知函数，在给定非结构网
-格上的分段多项式近似。本小节就来推导求解双曲型方程定解问题的间断伽辽金有限元方法，该方法的并行实现（详见 
+格上的分段多项式近似。本小节就来推导求解双曲型方程定解问题的间断伽辽金有限元法，该方法的并行实现（详见 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:parallel"
@@ -23420,7 +23768,7 @@ reference "eq:weak-form"
 \begin_inset Formula $V_{i}$
 \end_inset
 
- 上充分光滑。根据基函数取法的不同，可以将有限元方法作如下分类：
+ 上充分光滑。根据基函数取法的不同，可以将有限元法作如下分类：
 \end_layout
 
 \begin_layout Itemize
@@ -24305,7 +24653,7 @@ w_{k\to i}^{\star}=\begin{cases}
 
 \end_inset
 
-数值实验表明：较大的 
+数值试验表明：较大的 
 \begin_inset Formula $w_{i\to i}^{\star}$
 \end_inset
 
@@ -26578,8 +26926,8 @@ reference "tab:linear_cost"
 
 \end_inset
 
- 中的数据夸大了低阶 RKDG 求解器的运行时间，这是因为就间断伽辽金有限元方法而言，低阶 RKDG 求解器本可以采用与之相对应的低阶数值积分器。但为了公平地计
-算式 
+ 中的数据夸大了低阶 RKDG 求解器的运行时间，这是因为就间断伽辽金有限元法而言，低阶 RKDG 求解器本可以采用与之相对应的低阶数值积分器。但为了公平地计算
+式 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:global-error"
@@ -33577,320 +33925,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Chapter
-旋翼空气动力学模拟
-\end_layout
-
-\begin_layout Section*
-Introduction
-\end_layout
-
-\begin_layout Standard
-CFD solvers widely used in aerospace engineering are based either on finite
- difference (FD) schemes or on finite volume (FV) schemes.
- However, FD schemes are restricted on structured meshes, while most FV
- schemes have only first- or second-order accuracy.
- One way to develop higher-order schemes suitable for unstructured meshes
- is to use the discontinuous Galerkin (DG) finite element (FE) methods.
- Like other FE methods, DG methods assume continuous approximation in each
- element (a.k.a.
- cell).
- However, they allow discontinuities to exist on intercell boundaries.
- Such discontinuities are then resolved by numerical fluxes, e.g.
- exact or approximate Riemann solvers, just like Godunov-type schemes 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Harten_1983"
-literal "true"
-
-\end_inset
-
-.
- The original DG scheme was not proposed for CFD but for solving the linear
- neutron transport equation 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Reed_1973"
-literal "false"
-
-\end_inset
-
-.
- For nonlinear conservation laws, Chavent and Salzano 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chavent_1982"
-literal "false"
-
-\end_inset
-
- designed an explicit Euler DG cheme, which is second-order accurate in
- space but only first-order accurate in time.
- To improve the accuracy of time discretization, Cockburn and Shu 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cockburn_1988"
-literal "false"
-
-\end_inset
-
- replaced the first-order forward Euler method with high-order Runge–Kutta
- (RK) methods, which led to the family of RKDG schemes for scalar conservation
- laws 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Shu_1988,Shu_1989"
-literal "false"
-
-\end_inset
-
-, for one-dimensional conservation law systems 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cockburn_1989"
-literal "true"
-
-\end_inset
-
-, for multi-dimensional scalar conservation laws 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cockburn_1990"
-literal "false"
-
-\end_inset
-
- and for multi-dimensional conservation law systems 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Cockburn_1998"
-literal "false"
-
-\end_inset
-
-.
- The last case includes the Euler system that depicts inviscid compressible
- flows, which is the first application of RKDG in CFD.
- We will give a concise derivation of this scheme in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:spatial_discretization"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:temporal_discretization"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-The Euler system is hyperbolic, which might have discontinuities in its
- solutions.
- Appoximating such solutions with finite terms of continuous functions would
- generate numerical oscillations near discontinuities (known as the Gibbs
- phenomenon 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Gottlieb_1997"
-literal "false"
-
-\end_inset
-
-).
- Therefore, any useful high-order scheme must incorporate some mechanism
- for suppressing such spurious oscillations.
- For second-order FD and FV schemes, there are slope and flux limiters 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sweby_1984"
-literal "false"
-
-\end_inset
-
-.
- These limiters work well on shock capturing but might reduce the order
- of accuracy when used in smooth regions.
- Furthermore, they are not applicable to higher-order schemes.
- To overcome these drawbacks, the essentially non-oscillatory (ENO) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Harten_1997"
-literal "false"
-
-\end_inset
-
- and weighted ENO (WENO) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Jiang_1996"
-literal "false"
-
-\end_inset
-
- limiters for high-order FD schemes, which can essentially suppress spurious
- oscillations and maintain high-order accuracy in smooth regions, were developed.
- Similar ideas were later incorporated into FV 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Hu_1999"
-literal "false"
-
-\end_inset
-
- and DG 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Qiu_2005,Zhu_2008"
-literal "false"
-
-\end_inset
-
- schemes, which are suitable for unstructured meshes.
- However, such early versions of unstructured WENO limiters have to query
- not only a cell's immediate neighbors, but also the neighbors' neighbors,
- and so on.
- To preserve the compactness of RKDG schemes, Zhong 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Zhong_2013"
-literal "true"
-
-\end_inset
-
- and Zhu 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Zhu_2013"
-literal "true"
-
-\end_inset
-
- proposed a compact WENO limter for two-dimensional structured and unstructrued
- meshes.
- In our early work 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Pei_2022"
-literal "false"
-
-\end_inset
-
-, we extended it to three-dimensional and presented an efficient parallel
- implementation.
- We will summarize the key steps of this compact WENO limiter in Section
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:limiting_procedures"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-The parallel implementation of the RKDG scheme with a compact WENO limiter
- can be used for solving many practical problems in aerospace engineering.
- However, for problems with moving boundaries (such as rotary wings on a
- helicopter or blades on a wind turbine), advanced meshing techniques (such
- as dynamic meshing, overset meshes or adaptive mesh refinement) have to
- be applied.
- On the other hand, typical lifting bodies (such as rotary wings) have been
- successfully modelled as various momentum sources in FD/FV schemes.
- Rajagopalan and Mathur 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Rajagopalan_1989,Rajagopalan_1993"
-literal "false"
-
-\end_inset
-
- proposed the first FD/FV based momentum source model, which models the
- time-averaged effect of a rotor as an actuator disk.
- Such a steady model was used by Kang and Sun 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Kang_1997,Kang_2000"
-literal "false"
-
-\end_inset
-
- for solving the flow fields of rotors in ground effect.
- Shi 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Shi_2017"
-literal "false"
-
-\end_inset
-
- compared this model with an unsteady overset mesh method, and found that
- the steady momentum source model can predict complex aerodynamic interactions
- between a rotor and a flight deck at a much cheaper cost.
- Shen 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Shen_2009"
-literal "false"
-
-\end_inset
-
- and Kim 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Kim_2015"
-literal "false"
-
-\end_inset
-
- refined the model by replacing the actuator disk for the entire rotor with
- an actuator surface for each blade of the rotor, so that unsteady effects
- of rotary wings can be captured.
- Such early works are either over simplified by ignoring unsteady effects
- (such as 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Rajagopalan_1989,Rajagopalan_1993,Kang_1997,Kang_2000"
-literal "false"
-
-\end_inset
-
-), or restricted to structured meshes (such as 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Shen_2009,Shi_2017"
-literal "false"
-
-\end_inset
-
-).
- To overcome these drawbacks, our parallel RKDG solvers are augmented with
- an unsteady actuator line model, which successfully capture unsteady effects
- of a rotor on unstructured meshes.
- The formulation of this finite-element/momentum-source hybrid method will
- be given in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:The-Momentum-Source"
-
-\end_inset
-
-.
- Some demonstrative results are presented in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Problems-with-Momentum"
-
-\end_inset
-
-.
+旋翼空气动力学计算
 \end_layout
 
 \begin_layout Standard
