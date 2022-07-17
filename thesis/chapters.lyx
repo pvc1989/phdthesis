@@ -1251,7 +1251,7 @@ status open
 	filename ../review/figures/natural-condensation.png
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -1579,7 +1579,7 @@ status open
 	filename ../review/figures/aero-interaction.jpg
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -1643,7 +1643,7 @@ status open
 	filename ../review/figures/brownout.png
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -2137,7 +2137,7 @@ status open
 	filename ../review/figures/free-wake.png
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -2537,7 +2537,7 @@ status open
 \begin_inset Graphics
 	filename ../review/figures/vortex-particle.png
 	lyxscale 50
-	height 20theight%
+	height 26theight%
 
 \end_inset
 
@@ -2731,7 +2731,7 @@ status open
 	filename ../review/figures/vtm.jpg
 	lyxscale 20
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -2805,7 +2805,7 @@ status open
 	filename ../review/figures/whitehouse.png
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -2847,7 +2847,7 @@ status open
 	filename ../review/figures/whitehouse1.png
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -3352,7 +3352,7 @@ status open
 	filename ../review/figures/adaptive.jpg
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -3507,7 +3507,7 @@ status open
 	filename ../review/figures/meshless.jpg
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -3659,7 +3659,7 @@ status open
 	filename ../review/figures/modifying.png
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -9789,7 +9789,7 @@ status open
 	filename ../mdpi/figures/linear_scalar/p=3_h=2^-3.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -9847,7 +9847,7 @@ status open
 	filename ../mdpi/figures/linear_scalar/p=1_h=2^-4.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -9905,7 +9905,7 @@ status open
 	filename ../mdpi/figures/linear_scalar/p=1_h=2^-5.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -9963,7 +9963,7 @@ status open
 	filename ../mdpi/figures/linear_scalar/p=3_h=2^-2.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -10054,7 +10054,7 @@ status open
 	filename ../mdpi/figures/linear_scalar/h_vary.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -10108,7 +10108,7 @@ status open
 	filename ../mdpi/figures/linear_scalar/p_vary.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -11072,7 +11072,7 @@ status open
 	filename ../mdpi/figures/linear_system/u_1_contour.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -11086,7 +11086,7 @@ status open
 	filename ../mdpi/figures/linear_system/u_2_contour.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -11147,7 +11147,7 @@ status open
 	filename ../mdpi/figures/linear_system/u_1.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -11161,7 +11161,7 @@ status open
 	filename ../mdpi/figures/linear_system/u_2.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -11240,7 +11240,7 @@ status open
 	filename ../mdpi/figures/linear_system/error.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -11456,7 +11456,7 @@ status open
 	filename ../mdpi/figures/shock_tubes/sod/contour.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -11517,7 +11517,7 @@ status open
 	filename ../mdpi/figures/shock_tubes/sod/result.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -11643,7 +11643,7 @@ status open
 	filename ../mdpi/figures/shock_tubes/sod/contour_tetra.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -11704,7 +11704,7 @@ status open
 	filename ../mdpi/figures/shock_tubes/sod/result_tetra.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -11802,7 +11802,7 @@ status open
 	filename ../mdpi/figures/shock_tubes/sod/h_vary_tetra.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -12351,7 +12351,7 @@ status open
 	filename ../mdpi/figures/shock_tubes/lax/contour.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -12412,7 +12412,7 @@ status open
 	filename ../mdpi/figures/shock_tubes/lax/result.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -12541,7 +12541,7 @@ status open
 	filename ../mdpi/figures/shock_tubes/lax/contour_tetra.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -12602,7 +12602,7 @@ status open
 	filename ../mdpi/figures/shock_tubes/lax/result_tetra.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -12849,7 +12849,7 @@ status open
 	filename ../mdpi/figures/shock_tubes/vacuum/contour.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -12910,7 +12910,7 @@ status open
 	filename ../mdpi/figures/shock_tubes/vacuum/result.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -13009,7 +13009,7 @@ status open
 	filename ../mdpi/figures/shock_tubes/vacuum/contour_tetra.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -13070,7 +13070,7 @@ status open
 	filename ../mdpi/figures/shock_tubes/vacuum/result_tetra.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -13599,7 +13599,7 @@ status open
 	filename ../mdpi/figures/double_mach/p=1_h=5e-3.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -13660,7 +13660,7 @@ status open
 	filename ../mdpi/figures/double_mach/p=2_h=5e-3.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -13721,7 +13721,7 @@ status open
 	filename ../mdpi/figures/double_mach/p=3_h=5e-3.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -13929,7 +13929,7 @@ status open
 	filename ../mdpi/figures/forward_step/mesh.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -14038,7 +14038,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=02e-1.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -14099,7 +14099,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=04e-1.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -14198,7 +14198,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=06e-1.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -14259,7 +14259,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=08e-1.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -14320,7 +14320,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=10e-1.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -14396,7 +14396,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=12e-1.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -14472,7 +14472,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=20e-1.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -14544,7 +14544,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=24e-1.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -14620,7 +14620,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=28e-1.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -14722,7 +14722,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=32e-1.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -14783,7 +14783,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=40e-1.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -14886,7 +14886,7 @@ status open
 	filename ../mdpi/figures/yf17/mesh.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -15067,7 +15067,7 @@ status open
 	filename ../mdpi/figures/yf17/streamlines_p=1.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -15125,7 +15125,7 @@ status open
 	filename ../mdpi/figures/yf17/streamlines_p=3.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -15199,7 +15199,7 @@ status open
 	filename ../mdpi/figures/yf17/rho_subsonic.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -15411,7 +15411,7 @@ status open
 	filename ../mdpi/figures/yf17/rho_p=1.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -15468,7 +15468,7 @@ status open
 	filename ../mdpi/figures/yf17/rho_p=3.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -15548,7 +15548,7 @@ status open
 	filename ../mdpi/figures/yf17/supersonic_top_view.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -15605,7 +15605,7 @@ status open
 	filename ../mdpi/figures/yf17/supersonic_bottom_view.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -15743,7 +15743,7 @@ status open
 	filename ../mdpi/figures/double_mach/partition.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -15800,7 +15800,7 @@ status open
 	filename ../mdpi/figures/double_mach/balance.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -15818,14 +15818,24 @@ name "fig:double_mach_balance"
 
 \end_inset
 
-图 
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:双马赫反射"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题网格分块结果（图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:double_mach_partition"
 
 \end_inset
 
- 所示分块结果的单元分布情况
+）的单元分布情况
 \end_layout
 
 \end_inset
@@ -16432,7 +16442,7 @@ status open
 	filename ../mdpi/figures/double_mach/speedup.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -16485,7 +16495,7 @@ status open
 	filename ../mdpi/figures/double_mach/efficiency.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -16682,7 +16692,7 @@ status open
 	filename ../mdpi/figures/yf17/partition.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -16739,7 +16749,7 @@ status open
 	filename ../mdpi/figures/yf17/balance.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -17489,7 +17499,7 @@ status open
 	filename ../mdpi/figures/yf17/speedup.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -17542,7 +17552,7 @@ status open
 	filename ../mdpi/figures/yf17/efficiency.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -17863,7 +17873,7 @@ status open
 	filename figures/PQ.pdf
 	lyxscale 50
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -18214,7 +18224,7 @@ status open
 	filename ../mdpi/figures/rotor_in_tunnel/mesh.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -18308,7 +18318,7 @@ status open
 	filename ../mdpi/figures/airfoil/lift.pdf
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -18359,7 +18369,7 @@ status open
 	filename ../mdpi/figures/airfoil/drag.pdf
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -18637,7 +18647,7 @@ status open
 	filename figures/upward/p=1/Frame20.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -18691,7 +18701,7 @@ status open
 	filename figures/upward/p=3/Frame20.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -18745,7 +18755,7 @@ status open
 	filename figures/upward/p=1/Frame40.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -18799,7 +18809,7 @@ status open
 	filename figures/upward/p=3/Frame40.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -18853,7 +18863,7 @@ status open
 	filename figures/upward/p=1/Frame60.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -18907,7 +18917,7 @@ status open
 	filename figures/upward/p=3/Frame60.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -18961,7 +18971,7 @@ status open
 	filename figures/upward/p=1/Frame80.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -19015,7 +19025,7 @@ status open
 	filename figures/upward/p=3/Frame80.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -19069,7 +19079,7 @@ status open
 	filename figures/upward/p=1/Frame100.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -19123,7 +19133,7 @@ status open
 	filename figures/upward/p=3/Frame100.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -19211,7 +19221,7 @@ status open
 	filename ../mdpi/figures/rotor_in_tunnel/upward_p=1.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -19265,7 +19275,7 @@ status open
 	filename ../mdpi/figures/rotor_in_tunnel/upward_p=3.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -19523,7 +19533,7 @@ status open
 	filename figures/forward/p=1/Frame20.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -19580,7 +19590,7 @@ status open
 	filename figures/forward/p=3/Frame20.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -19637,7 +19647,7 @@ status open
 	filename figures/forward/p=1/Frame40.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -19694,7 +19704,7 @@ status open
 	filename figures/forward/p=3/Frame40.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -19751,7 +19761,7 @@ status open
 	filename figures/forward/p=1/Frame60.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -19808,7 +19818,7 @@ status open
 	filename figures/forward/p=3/Frame60.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -19865,7 +19875,7 @@ status open
 	filename figures/forward/p=1/Frame80.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -19922,7 +19932,7 @@ status open
 	filename figures/forward/p=3/Frame80.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -19979,7 +19989,7 @@ status open
 	filename figures/forward/p=1/Frame100.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -20036,7 +20046,7 @@ status open
 	filename figures/forward/p=3/Frame100.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -20157,7 +20167,7 @@ status open
 	filename figures/forward/p=3/y+.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -20214,7 +20224,7 @@ status open
 	filename figures/forward/p=3/z-.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -20271,7 +20281,7 @@ status open
 	filename figures/forward/p=3/x+.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -20407,7 +20417,7 @@ status open
 	filename figures/forward/p=1/Q_y+.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -20468,7 +20478,7 @@ status open
 	filename figures/forward/p=1/Q_z-.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -20529,7 +20539,7 @@ status open
 	filename figures/forward/p=1/Q_x+.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -20594,7 +20604,7 @@ status open
 	filename ../mdpi/figures/rotor_in_tunnel/forward_p=1.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -20651,7 +20661,7 @@ status open
 	filename ../mdpi/figures/rotor_in_tunnel/forward_p=3.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -20810,7 +20820,7 @@ status open
 	filename figures/ship/grid.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -20860,7 +20870,7 @@ status open
 	filename figures/ship/simple_frigate.jpeg
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -20996,7 +21006,7 @@ status open
 	filename figures/ship/a=0_p=3/Frame20.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -21050,7 +21060,7 @@ status open
 	filename figures/ship/a=0_p=3/Frame40.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -21104,7 +21114,7 @@ status open
 	filename figures/ship/a=0_p=3/Frame60.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -21158,7 +21168,7 @@ status open
 	filename figures/ship/a=0_p=3/Frame80.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -21212,7 +21222,7 @@ status open
 	filename figures/ship/a=0_p=3/Frame100.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -21351,7 +21361,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame11.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -21408,7 +21418,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame22.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -21465,7 +21475,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame33.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -21522,7 +21532,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame44.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -21579,7 +21589,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame55.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -21636,7 +21646,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame66.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -21693,7 +21703,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame77.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -21750,7 +21760,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame88.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
@@ -21807,7 +21817,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame99.png
 	lyxscale 15
 	width 100text%
-	height 28theight%
+	height 26theight%
 	keepAspectRatio
 
 \end_inset
