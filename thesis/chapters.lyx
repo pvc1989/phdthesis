@@ -5664,17 +5664,17 @@ Point
 \begin_layout Standard
 从几何的角度看，网格应恰好填满整个区域，即
 \begin_inset Formula 
-\[
+\begin{equation}
 \varOmega=\bigcup_{i\in I_{V(G)}}\overline{V_{i}},
-\]
+\end{equation}
 
 \end_inset
 
 且相邻体单元之交的体积为零，即
 \begin_inset Formula 
-\[
+\begin{equation}
 \int_{V_{i}\cap V_{k}}1=\mathrm{\delta}_{ik}\int_{V_{i}}1,\qquad\forall(i,k)\in I_{V(G)}\times I_{V(G)},
-\]
+\end{equation}
 
 \end_inset
 
@@ -5731,9 +5731,9 @@ Point
 
  个控制体，即
 \begin_inset Formula 
-\[
+\begin{equation}
 \varOmega\coloneqq[a,b],\qquad P(G)=\left\{ P_{i}\coloneqq x_{i}\right\} _{i=1}^{N_{P}},\qquad V(G)=\left\{ V_{i}\coloneqq(x_{i},x_{i+1})\right\} _{i=1}^{N_{V}},
-\]
+\end{equation}
 
 \end_inset
 
@@ -5764,9 +5764,9 @@ Point
 
  的长度（一维体积）可以记为
 \begin_inset Formula 
-\[
+\begin{equation}
 h_{i}\coloneqq\vert V_{i}\vert\coloneqq\int_{V_{i}}1=\int_{x_{i-1/2}}^{x_{i+1/2}}1\dd{x}=x_{i+1/2}-x_{i-1/2}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -5908,9 +5908,9 @@ name "subsec:创建面单元"
 
  上的多项式近似，记作
 \begin_inset Formula 
-\[
+\begin{equation}
 u^{h}|_{V_{i}}(x,y,z)=\sum_{a,b,c}\hat{u}_{a,b,c}(x-x_{0})^{a}(y-y_{0})^{b}(z-z_{0})^{c},\qquad(x,y,z)\in V_{i},
-\]
+\end{equation}
 
 \end_inset
 
@@ -6194,9 +6194,9 @@ reference "eq:norm"
 
  的最优近似：
 \begin_inset Formula 
-\[
+\begin{equation}
 \min_{u^{h}\in X}\Vert u-u^{h}\Vert_{V_{i}}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -6214,17 +6214,17 @@ reference "eq:norm"
 
  的多项式所张成的线性空间，记作
 \begin_inset Formula 
-\[
+\begin{equation}
 \mathbb{P}^{<p}(V_{i})\coloneqq\mathrm{span}\left\{ x^{a}y^{b}z^{c}:\vert a+b+c\vert<p\right\} .
-\]
+\end{equation}
 
 \end_inset
 
 可以证明：该空间的其维数为
 \begin_inset Formula 
-\[
+\begin{equation}
 n=\binom{p+2}{3}=\frac{(p+2)(p+1)p}{6},
-\]
+\end{equation}
 
 \end_inset
 
@@ -6257,9 +6257,9 @@ reference "eq:inner-product"
 
  个待定系数的最小值问题：
 \begin_inset Formula 
-\[
+\begin{equation}
 \min_{\hat{u}_{a,b,c}\in\mathbb{R}}\int_{V_{i}}\left(u-\sum_{\vert a+b+c\vert<p}\hat{u}_{a,b,c}x^{a}y^{b}z^{c}\right)^{2}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -6320,7 +6320,7 @@ reference "eq:inner-product"
 
  的一组正交归一化的基函数。不失一般性，可以取
 \begin_inset Formula 
-\[
+\begin{equation}
 \phi_{1}(\vec{r})=1,\qquad\begin{bmatrix}\phi_{2}(\vec{r})\\
 \phi_{3}(\vec{r})\\
 \phi_{4}(\vec{r})
@@ -6340,13 +6340,13 @@ z-z_{0}
 (y-y_{0})(z-z_{0})\\
 (z-z_{0})(z-z_{0})
 \end{bmatrix},
-\]
+\end{equation}
 
 \end_inset
 
 
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\phi_{11}(\vec{r})\\
 \phi_{12}(\vec{r})\\
 \phi_{13}(\vec{r})\\
@@ -6368,7 +6368,7 @@ z-z_{0}
 (y-y_{0})(z-z_{0})(z-z_{0})\\
 (z-z_{0})(z-z_{0})(z-z_{0})
 \end{bmatrix},\qquad\dots
-\]
+\end{equation}
 
 \end_inset
 
@@ -6382,9 +6382,9 @@ z-z_{0}
 
  内任意一点。可以证明：
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{\phi}(\vec{r})\coloneqq\begin{bmatrix}\phi_{1}(\vec{r}) & \phi_{2}(\vec{r}) & \cdots & \phi_{n}(\vec{r})\end{bmatrix}^{t},\qquad n=\frac{p}{6}(p+1)(p+2),
-\]
+\end{equation}
 
 \end_inset
 
@@ -6402,9 +6402,9 @@ z-z_{0}
 
  作归一化：
 \begin_inset Formula 
-\[
+\begin{equation}
 e_{1}=\frac{\phi_{1}}{\Vert\phi_{1}\Vert_{V_{i}}}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -6453,7 +6453,7 @@ e_{m}=\frac{\phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle_{V_{
 \begin_layout Standard
 如果将所得结果记为
 \begin_inset Formula 
-\[
+\begin{equation}
 \underbrace{\begin{bmatrix}e_{1}(\vec{r})\\
 e_{2}(\vec{r})\\
 \vdots\\
@@ -6467,7 +6467,7 @@ S_{n1} & S_{n2} & \cdots & S_{nn}
 \vdots\\
 \phi_{n}(\vec{r})
 \end{bmatrix}}_{\underline{\phi}},
-\]
+\end{equation}
 
 \end_inset
 
@@ -6489,9 +6489,9 @@ literal "false"
 \begin_layout Itemize
 第一行只需做归一化：
 \begin_inset Formula 
-\[
+\begin{equation}
 S_{11}=\frac{1}{\Vert\phi_{1}\Vert_{V_{i}}}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -6524,23 +6524,23 @@ reference "eq:ortho-normal"
 
  右端的分子，可得
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{aligned}\phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle_{V_{i}} & =\phi_{m}-\sum_{k=1}^{m-1}\left(\sum_{j=1}^{k}S_{kj}\phi_{j}\right)\ip{\sum_{l=1}^{k}S_{kl}\phi_{l}}{\phi_{m}}_{V_{i}}\\
  & =\phi_{m}-\sum_{k=1}^{m-1}\left(\sum_{j=1}^{k}S_{kj}\phi_{j}\right)\left(\sum_{l=1}^{k}S_{kl}\langle\phi_{l}\vert\phi_{m}\rangle_{V_{i}}\right)\\
  & =\sum_{j=1}^{m}a_{j}\phi_{j},
 \end{aligned}
-\]
+\end{equation}
 
 \end_inset
 
 其中
 \begin_inset Formula 
-\[
+\begin{equation}
 a_{j}=\begin{cases}
 -\sum_{k=1}^{m-1}\left(\sum_{l=1}^{k}S_{kl}\langle\phi_{l}\vert\phi_{m}\rangle_{V_{i}}\right)S_{kj}, & j<m;\\
 1, & j=m.
 \end{cases}
-\]
+\end{equation}
 
 \end_inset
 
@@ -6558,9 +6558,9 @@ a_{j}=\begin{cases}
 
  行：
 \begin_inset Formula 
-\[
+\begin{equation}
 S_{mj}=\frac{a_{j}}{\left\Vert \sum_{j=1}^{m}a_{j}\phi_{j}\right\Vert _{V_{i}}}=\frac{a_{j}}{\sqrt{\sum_{j=1}^{m}\sum_{l=1}^{m}a_{j}a_{l}\langle\phi_{j}\vert\phi_{l}\rangle_{V_{i}}}},\qquad j=1,\dots,m.
-\]
+\end{equation}
 
 \end_inset
 
@@ -6641,7 +6641,7 @@ reference "subsec:quadrature"
 
  上的投影为
 \begin_inset Formula 
-\[
+\begin{equation}
 \underbrace{\begin{bmatrix}e_{1}(\vec{r})\\
 \vdots\\
 e_{n}(\vec{r})
@@ -6652,7 +6652,7 @@ e_{n}(\vec{r})
 \vdots\\
 e'_{n}(\vec{r})
 \end{bmatrix}}_{\underline{e'}(\vec{r})}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -6681,7 +6681,7 @@ reference "eq:function_projection"
 
  上的投影：
 \begin_inset Formula 
-\[
+\begin{equation}
 \underbrace{\begin{bmatrix}U_{1}(\vec{r})\\
 \vdots\\
 U_{m}(\vec{r})
@@ -6695,7 +6695,7 @@ U_{m}(\vec{r})
 \vdots\\
 e'_{n}(\vec{r})
 \end{bmatrix}}_{\underline{e'}(\vec{r})}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -6705,18 +6705,18 @@ e'_{n}(\vec{r})
 
  在两组正交归一基底上的投影系数之间的变换法则：
 \begin_inset Formula 
-\[
+\begin{equation}
 \underbrace{\begin{bmatrix}\langle U_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle U_{1}\vert e'_{n}\rangle_{V_{i}}\\
 \vdots & \ddots & \vdots\\
 \langle U_{m}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle U_{m}\vert e'_{n}\rangle_{V_{i}}
 \end{bmatrix}}_{\langle\underline{U}\vert\underline{e'}\rangle_{V_{i}}}
-\]
+\end{equation}
 
 \end_inset
 
 
 \begin_inset Formula 
-\[
+\begin{equation}
 =\underbrace{\begin{bmatrix}\langle U_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{1}\vert e_{n}\rangle_{V_{i}}\\
 \vdots & \ddots & \vdots\\
 \langle U_{m}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{m}\vert e_{n}\rangle_{V_{i}}
@@ -6724,7 +6724,7 @@ e'_{n}(\vec{r})
 \vdots & \ddots & \vdots\\
 \langle e_{n}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{n}\vert e'_{n}\rangle_{V_{i}}
 \end{bmatrix}}_{\langle\underline{e}\vert\underline{e'}\rangle_{V_{i}}}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -6756,12 +6756,12 @@ reference "eq:function_projection"
 
  的精度就取决于
 \begin_inset Formula 
-\[
+\begin{equation}
 \langle u_{j}\vert e_{k}\rangle=\int_{V_{i}}u_{j}(\vec{r})\,e_{k}(\vec{r}),\qquad\begin{cases}
 j=1,2,\dots,m,\\
 k=1,2,\dots,n,
 \end{cases}
-\]
+\end{equation}
 
 \end_inset
 
@@ -6829,12 +6829,12 @@ z_{\mu}
 
  为满足
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{cases}
 N_{\mu}(\xi_{\nu},\eta_{\nu},\zeta_{\nu})=\mathrm{\delta}_{\mu\nu}, & \forall(\mu,\nu),\\
 \sum_{\mu}N_{\mu}(\xi,\eta,\zeta)=1, & \forall(\xi,\eta,\zeta),
 \end{cases}
-\]
+\end{equation}
 
 \end_inset
 
@@ -6855,7 +6855,7 @@ reference "eq:isoparametric"
 
  定义了一种坐标变换，相应的雅可比矩阵
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{J}=\begin{bmatrix}\partial x/\partial\xi & \partial x/\partial\eta & \partial x/\partial\zeta\\
 \partial y/\partial\xi & \partial y/\partial\eta & \partial y/\partial\zeta\\
 \partial z/\partial\xi & \partial z/\partial\eta & \partial z/\partial\zeta
@@ -6863,7 +6863,7 @@ reference "eq:isoparametric"
 y_{\mu}\\
 z_{\mu}
 \end{bmatrix}\begin{bmatrix}\dfrac{\partial N_{\mu}}{\partial\xi} & \dfrac{\partial N_{\mu}}{\partial\eta} & \dfrac{\partial N_{\mu}}{\partial\zeta}\end{bmatrix},
-\]
+\end{equation}
 
 \end_inset
 
@@ -6892,9 +6892,9 @@ z_{\mu}
 
 最后一行的被积函数
 \begin_inset Formula 
-\[
+\begin{equation}
 f(x(\xi,\eta,\zeta),y(\xi,\eta,\zeta),z(\xi,\eta,\zeta))\det\underline{J}\eqqcolon F(\xi,\eta,\zeta)
-\]
+\end{equation}
 
 \end_inset
 
@@ -6990,9 +6990,9 @@ reference "eq:triple-integral"
 
  中的三重积分总是可以解析地算出。不失一般性，用记号
 \begin_inset Formula 
-\[
+\begin{equation}
 I(a,b,c)\coloneqq\int_{\xi_{1}}^{\xi_{2}}\dd{\xi}\int_{\gamma(\eta)}^{\delta(\eta)}\dd{\eta}\int_{\alpha(\xi,\eta)}^{\beta(\xi,\eta)}\dd{\zeta}\xi^{a}\eta^{b}\zeta^{c}
-\]
+\end{equation}
 
 \end_inset
 
@@ -7033,9 +7033,9 @@ I(a,b,c)=\sum_{k=1}^{q}w_{k}\xi_{k}^{a}\eta_{k}^{b}\zeta_{k}^{c},\qquad\vert a+b
 
  个未知数的非线性代数方程组。要使其有解，需满足
 \begin_inset Formula 
-\[
+\begin{equation}
 4q\le\binom{r+3}{3}=\frac{(r+3)(r+2)(r+1)}{6},
-\]
+\end{equation}
 
 \end_inset
 
@@ -7048,30 +7048,30 @@ reference "eq:rth-order-gaussian"
 
  一般没有解析解，通常需要将其转化为以
 \begin_inset Formula 
-\[
+\begin{equation}
 \left.\begin{array}{c}
 w_{k}>0\\
 \xi_{1}<\xi_{k}<\xi_{2}\\
 \gamma(\eta_{k})<\eta_{k}<\delta(\eta_{k})\\
 \alpha(\xi_{k},\eta_{k})<\zeta_{k}<\beta(\xi_{k},\eta_{k})
 \end{array}\right\} ,\qquad k=1,2,\dots,q,
-\]
+\end{equation}
 
 \end_inset
 
 为约束条件的最小值问题，例如：
 \begin_inset Formula 
-\[
+\begin{equation}
 \min\sum_{a+b+c\le r}\left|I(a,b,c)-\sum_{k=1}^{q}w_{k}\xi_{k}^{a}\eta_{k}^{b}\zeta_{k}^{c}\right|,
-\]
+\end{equation}
 
 \end_inset
 
  或
 \begin_inset Formula 
-\[
+\begin{equation}
 \min\sum_{a+b+c\le r}\left(I(a,b,c)-\sum_{k=1}^{q}w_{k}\xi_{k}^{a}\eta_{k}^{b}\zeta_{k}^{c}\right)^{2}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -7130,9 +7130,9 @@ reference "sec:parallel"
 
 等价于微分–积分方程
 \begin_inset Formula 
-\[
+\begin{equation}
 \int_{V}\left(\partial_{t}\underline{U}+\nabla\cdot\underline{\vec{F}}\right)\psi=\int_{V}\psi\,\underline{H}
-\]
+\end{equation}
 
 \end_inset
 
@@ -7193,9 +7193,9 @@ reference "eq:PDE"
 
  可以分别近似为
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{U}(\vec{r},t)\approx\underline{U^{h}}(\vec{r},t)=\sum_{k=1}^{K}\underline{\hat{U}}_{k}(t)\,\phi_{k}(\vec{r})\qquad\psi(\vec{r})\approx\psi^{h}(\vec{r})=\sum_{l=1}^{L}\hat{\psi}_{l}\,\psi_{l}(\vec{r})
-\]
+\end{equation}
 
 \end_inset
 
@@ -7309,9 +7309,9 @@ reference "eq:weak-form"
 
  个方程：
 \begin_inset Formula 
-\[
+\begin{equation}
 \sum_{k}\dv{\underline{\hat{U}}_{k}}{t}\langle\phi_{k}\vert\psi_{l}\rangle_{V}-\int_{V}\left(\nabla\psi_{l}\right)\cdot\mathopen{\underline{\vec{F}}}\left(\underline{U^{h}}\right)+\oint_{\partial V}\psi_{l}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U^{h}}\right)=\int_{V}\psi_{l}\,\mathopen{\underline{H}}\left(\underline{U^{h}}\right).
-\]
+\end{equation}
 
 \end_inset
 
@@ -7321,17 +7321,17 @@ reference "eq:weak-form"
 
  列，可以整理为矩阵方程：
 \begin_inset Formula 
-\[
+\begin{equation}
 \dv{\underline{\hat{U}}}{t}\,\underline{A}_{V}=\underline{R}_{V}-\underline{R}_{\partial V},
-\]
+\end{equation}
 
 \end_inset
 
 其中
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{\hat{U}}(t)\coloneqq\begin{bmatrix}\underline{\hat{U}}_{1}(t) & \cdots & \underline{\hat{U}}_{K}(t)\end{bmatrix}
-\]
+\end{equation}
 
 \end_inset
 
@@ -7341,12 +7341,12 @@ reference "eq:weak-form"
 
  待定函数矩阵；
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{A}_{V}\coloneqq\begin{bmatrix}\langle\phi_{1}\vert\psi_{1}\rangle_{V} & \cdots & \langle\phi_{1}\vert\psi_{L}\rangle_{V}\\
 \vdots & \ddots & \vdots\\
 \langle\phi_{K}\vert\psi_{1}\rangle_{V} & \cdots & \langle\phi_{K}\vert\psi_{L}\rangle_{V}
 \end{bmatrix}
-\]
+\end{equation}
 
 \end_inset
 
@@ -7356,9 +7356,9 @@ reference "eq:weak-form"
 
  常系数矩阵；
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{R}_{V}\coloneqq\int_{V}\mathopen{\underline{\vec{F}}}\left(\underline{U^{h}}\right)\cdot\begin{bmatrix}\nabla\psi_{1} & \cdots & \nabla\psi_{L}\end{bmatrix}+\int_{V}\begin{bmatrix}\psi_{1} & \cdots & \psi_{L}\end{bmatrix}\mathopen{\underline{H}}\left(\underline{U^{h}}\right)
-\]
+\end{equation}
 
 \end_inset
 
@@ -7368,9 +7368,9 @@ reference "eq:weak-form"
 
  矩阵，表示体积分残差；
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{R}_{\partial V}\coloneqq\oint_{\partial V}\begin{bmatrix}\psi_{1} & \cdots & \psi_{L}\end{bmatrix}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U^{h}}\right)
-\]
+\end{equation}
 
 \end_inset
 
@@ -7475,9 +7475,9 @@ reference "eq:coeff_matrix"
 
  上的正交基，即
 \begin_inset Formula 
-\[
+\begin{equation}
 \ip{\phi_{k}}{\phi_{l}}\coloneqq\int_{V_{i}}\phi_{k}\,\phi_{l}=\ip{\phi_{k}}{\phi_{k}}\mathrm{\delta}_{kl},\qquad\forall k,\forall l,
-\]
+\end{equation}
 
 \end_inset
 
@@ -7495,9 +7495,9 @@ reference "eq:coeff_matrix"
 
  取为归一化的正交基，即
 \begin_inset Formula 
-\[
+\begin{equation}
 \ip{\phi_{k}}{\phi_{l}}\coloneqq\int_{V_{i}}\phi_{k}\,\phi_{l}=\mathrm{\delta}_{kl}\qquad\forall k,\forall l,
-\]
+\end{equation}
 
 \end_inset
 
@@ -7561,9 +7561,9 @@ reference "eq:FEM"
 
 其中
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{\hat{U}}(t)\coloneqq\begin{bmatrix}\underline{\hat{U}}_{1}(t) & \cdots & \underline{\hat{U}}_{K}(t)\end{bmatrix}
-\]
+\end{equation}
 
 \end_inset
 
@@ -7573,9 +7573,9 @@ reference "eq:FEM"
 
  待定函数矩阵；
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{R}_{V_{i}}\coloneqq\int_{V_{i}}\mathopen{\underline{\vec{F}}}\left(\underline{U^{h}}\right)\cdot\begin{bmatrix}\nabla\phi_{1} & \cdots & \nabla\phi_{K}\end{bmatrix}+\int_{V_{i}}\begin{bmatrix}\phi_{1} & \cdots & \phi_{K}\end{bmatrix}\mathopen{\underline{H}}\left(\underline{U^{h}}\right)
-\]
+\end{equation}
 
 \end_inset
 
@@ -7585,9 +7585,9 @@ reference "eq:FEM"
 
  矩阵，表示体积分残差；
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{R}_{\partial V_{i}}\coloneqq\oint_{\partial V_{i}}\begin{bmatrix}\phi_{1} & \cdots & \phi_{L}\end{bmatrix}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U^{h}}\right)
-\]
+\end{equation}
 
 \end_inset
 
@@ -7803,17 +7803,17 @@ reference "rem:TVB-scheme"
 \begin_layout Standard
 为求解一维标量守恒律
 \begin_inset Formula 
-\[
+\begin{equation}
 \frac{\partial u}{\partial t}+\frac{\partial f(u)}{\partial x}=0,\qquad a(u)=\frac{\partial f(u)}{\partial u},
-\]
+\end{equation}
 
 \end_inset
 
 在等距网格上引入守恒型差分格式
 \begin_inset Formula 
-\[
+\begin{equation}
 \left(\partial_{x}f\right)_{i}\equiv\eval{\pdv{f}{x}}_{i}\approx\frac{f_{i+1/2}-f_{i-1/2}}{h}
-\]
+\end{equation}
 
 \end_inset
 
@@ -7851,17 +7851,17 @@ reference "rem:TVB-scheme"
 
  时，含有五个点的大模板（用下标偏移量表示）
 \begin_inset Formula 
-\[
+\begin{equation}
 S=\begin{bmatrix}-2 & -1 & 0 & +1 & +2\end{bmatrix}
-\]
+\end{equation}
 
 \end_inset
 
 被分解为三个各含三个点且部分重叠的小模板：
 \begin_inset Formula 
-\[
+\begin{equation}
 S_{1}=\begin{bmatrix}-2 & -1 & 0\end{bmatrix}\qquad S_{2}=\begin{bmatrix}-1 & 0 & +1\end{bmatrix}\qquad S_{3}=\begin{bmatrix}0 & +1 & +2\end{bmatrix}
-\]
+\end{equation}
 
 \end_inset
 
@@ -7871,7 +7871,7 @@ S_{1}=\begin{bmatrix}-2 & -1 & 0\end{bmatrix}\qquad S_{2}=\begin{bmatrix}-1 & 0 
 
  的三阶近似，相应的数值通量分别为
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}f_{i+1/2}^{[1]}\\
 f_{i+1/2}^{[2]}\\
 f_{i+1/2}^{[3]}
@@ -7884,18 +7884,18 @@ f_{i}\\
 f_{i+1}\\
 f_{i+2}
 \end{bmatrix}
-\]
+\end{equation}
 
 \end_inset
 
 对三者取加权平均即得大模板上的数值通量：
 \begin_inset Formula 
-\[
+\begin{equation}
 f_{i+1/2}=\begin{bmatrix}w_{1} & w_{2} & w_{3}\end{bmatrix}\begin{bmatrix}f_{i+1/2}^{[1]}\\
 f_{i+1/2}^{[2]}\\
 f_{i+1/2}^{[3]}
 \end{bmatrix}
-\]
+\end{equation}
 
 \end_inset
 
@@ -7921,22 +7921,22 @@ f_{i+1/2}^{[3]}
 
  应当逼近（五点）大模板上的（五阶）理想格式：
 \begin_inset Formula 
-\[
+\begin{equation}
 f_{i+1/2}^{S}=\frac{\begin{bmatrix}2 & -13 & 47 & 27 & -3\end{bmatrix}}{60}\begin{bmatrix}f_{i-2}\\
 f_{i-1}\\
 f_{i}\\
 f_{i+1}\\
 f_{i+2}
 \end{bmatrix}
-\]
+\end{equation}
 
 \end_inset
 
 这可以通过取理想权重来实现：
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}w_{1} & w_{2} & w_{3}\end{bmatrix}=\begin{bmatrix}w_{1}^{\star} & w_{2}^{\star} & w_{3}^{\star}\end{bmatrix}\coloneqq\frac{\begin{bmatrix}1 & 6 & 3\end{bmatrix}}{10}
-\]
+\end{equation}
 
 \end_inset
 
@@ -7986,9 +7986,9 @@ literal "false"
 
  的近似：
 \begin_inset Formula 
-\[
+\begin{equation}
 Q_{i}^{[k]}(x)=f_{i}+\eval{\pdv{f}{x}}_{i}^{[k]}(x-x_{i})+\eval{\pdv[2]{f}{x}}_{i}^{[k]}\frac{(x-x_{i})^{2}}{2}
-\]
+\end{equation}
 
 \end_inset
 
@@ -8018,7 +8018,7 @@ Q_{i}^{[k]}(x)=f_{i}+\eval{\pdv{f}{x}}_{i}^{[k]}(x-x_{i})+\eval{\pdv[2]{f}{x}}_{
 
  处的近似值：
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\left(\partial_{x}f\right)_{i}^{[1]}\\
 \left(\partial_{x}f\right)_{i}^{[2]}\\
 \left(\partial_{x}f\right)_{i}^{[3]}
@@ -8031,13 +8031,13 @@ f_{i}\\
 f_{i+1}\\
 f_{i+2}
 \end{bmatrix}
-\]
+\end{equation}
 
 \end_inset
 
 
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\left(\partial_{x}^{2}f\right)_{i}^{[1]}\\
 \left(\partial_{x}^{2}f\right)_{i}^{[2]}\\
 \left(\partial_{x}^{2}f\right)_{i}^{[3]}
@@ -8050,7 +8050,7 @@ f_{i}\\
 f_{i+1}\\
 f_{i+2}
 \end{bmatrix}
-\]
+\end{equation}
 
 \end_inset
 
@@ -8068,9 +8068,9 @@ f_{i+2}
 
  上的光滑程度
 \begin_inset Formula 
-\[
+\begin{equation}
 \beta_{i}^{[k]}\coloneqq\int_{x_{i-1/2}}^{x_{i+1/2}}\sum_{p=1}^{2}\left(\dv[p]{Q_{i}^{[k]}}{x}\right)^{2}h^{2p-1}\dd{x}=\left(\eval{\pdv{f}{x}}_{i}^{[k]}h\right)^{2}+\frac{13}{12}\left(\eval{\pdv[2]{f}{x}}_{i}^{[k]}h^{2}\right)^{2}
-\]
+\end{equation}
 
 \end_inset
 
@@ -8080,9 +8080,9 @@ f_{i+2}
 
 ，且两两之差为六阶小量：
 \begin_inset Formula 
-\[
+\begin{equation}
 \beta_{i}^{[k]}=\beta_{i}^{\star}+\order{h^{6}}\qquad\beta_{i}^{\star}\coloneqq\left(\eval{\pdv{f}{x}}_{i}h\right)^{2}+\frac{13}{12}\left(\eval{\pdv[2]{f}{x}}_{i}h^{2}\right)^{2}
-\]
+\end{equation}
 
 \end_inset
 
@@ -8100,9 +8100,9 @@ f_{i+2}
 
  处的特例展开式较多，因此
 \begin_inset Formula 
-\[
+\begin{equation}
 \beta_{i}^{[k]}=\order{1}\gg\order{h^{2}}
-\]
+\end{equation}
 
 \end_inset
 
@@ -8112,17 +8112,17 @@ f_{i+2}
 \begin_layout Enumerate
 计算非线性权重
 \begin_inset Formula 
-\[
+\begin{equation}
 w_{k}=\frac{w_{k}^{\beta}}{w_{3}^{\beta}+w_{2}^{\beta}+w_{3}^{\beta}}\qquad w_{k}^{\beta}=\frac{w_{k}^{\star}}{\left(\varepsilon+\beta_{i}^{[k]}\right)^{2}}\qquad\varepsilon=10^{-6}
-\]
+\end{equation}
 
 \end_inset
 
 在光滑区域，上述非线性权重接近理想权重：
 \begin_inset Formula 
-\[
+\begin{equation}
 w_{k}=w_{k}^{\star}+\order{h^{4}}\impliedby w_{k}^{\beta}=\frac{w_{k}^{\star}}{(\beta_{i}^{\star})^{2}+\order{h^{8}}}
-\]
+\end{equation}
 
 \end_inset
 
@@ -8183,9 +8183,9 @@ literal "false"
 
  上的限制简记为
 \begin_inset Formula 
-\[
+\begin{equation}
 u_{i}(\vec{r})\coloneqq u\vert_{V_{i}}(\vec{r}),\qquad\vec{r}\in V_{i},
-\]
+\end{equation}
 
 \end_inset
 
@@ -8195,9 +8195,9 @@ u_{i}(\vec{r})\coloneqq u\vert_{V_{i}}(\vec{r}),\qquad\vec{r}\in V_{i},
 
  及与之邻接的那些体单元的下标集（即局部模板）记为
 \begin_inset Formula 
-\[
+\begin{equation}
 K_{i}\coloneqq\left\{ k:\partial V_{i}\cap\partial V_{k}\ne\varnothing\right\} .
-\]
+\end{equation}
 
 \end_inset
 
@@ -8254,9 +8254,9 @@ K_{i}\coloneqq\left\{ k:\partial V_{i}\cap\partial V_{k}\ne\varnothing\right\} .
 
  上的均值：
 \begin_inset Formula 
-\[
+\begin{equation}
 u_{k\to i}(\vec{r})\coloneqq u_{k}(\vec{r})-\langle u_{k}\rangle_{i}+\langle u_{i}\rangle_{i},\qquad\vec{r}\in V_{i},
-\]
+\end{equation}
 
 \end_inset
 
@@ -8274,9 +8274,9 @@ u_{k\to i}(\vec{r})\coloneqq u_{k}(\vec{r})-\langle u_{k}\rangle_{i}+\langle u_{
 
  上的均值：
 \begin_inset Formula 
-\[
+\begin{equation}
 \langle u_{k}\rangle_{i}\coloneqq\frac{\int_{V_{i}}u_{k}(\vec{r})}{\vert V_{i}\vert},\qquad\vert V_{i}\vert\coloneqq\int_{V_{i}}1.
-\]
+\end{equation}
 
 \end_inset
 
@@ -8290,12 +8290,12 @@ u_{k\to i}(\vec{r})\coloneqq u_{k}(\vec{r})-\langle u_{k}\rangle_{i}+\langle u_{
 
  分配理想权重：
 \begin_inset Formula 
-\[
+\begin{equation}
 w_{k\to i}^{\star}=\begin{cases}
 0.001, & k\ne i,\\
 1-\sum_{k\in K_{i}\setminus\left\{ i\right\} }w_{k\to i}^{\star}, & k=i,
 \end{cases}
-\]
+\end{equation}
 
 \end_inset
 
@@ -8321,9 +8321,9 @@ w_{k\to i}^{\star}=\begin{cases}
 
  上的光滑程度：
 \begin_inset Formula 
-\[
+\begin{equation}
 \beta_{k\to i}=\sum_{\vert\alpha\vert=1}^{p}\frac{\vert V_{i}\vert^{2\vert\alpha\vert/3-1}}{(\vert\alpha\vert!)^{2}}\int_{V_{i}}\left(\frac{\partial^{\vert\alpha\vert}u_{k\to i}}{\partial x^{\alpha_{x}}\partial y^{\alpha_{y}}\partial z^{\alpha_{z}}}\right)^{2},\qquad\vert\alpha\vert\coloneqq\alpha_{x}+\alpha_{y}+\alpha_{z},
-\]
+\end{equation}
 
 \end_inset
 
@@ -8353,9 +8353,9 @@ literal "false"
 \begin_layout Itemize
 计算非线性权重：
 \begin_inset Formula 
-\[
+\begin{equation}
 w_{k\to i}=\frac{w_{k\to i}^{\beta}}{\sum_{k\in K_{i}}w_{k\to i}^{\beta}},\qquad w_{k\to i}^{\beta}\coloneqq\frac{w_{k\to i}^{\star}}{\left(10^{-6}+\beta_{k\to i}\right)^{2}},
-\]
+\end{equation}
 
 \end_inset
 
@@ -8381,9 +8381,9 @@ w_{k\to i}=\frac{w_{k\to i}^{\beta}}{\sum_{k\in K_{i}}w_{k\to i}^{\beta}},\qquad
 
 ：
 \begin_inset Formula 
-\[
+\begin{equation}
 u_{i}^{\mathrm{new}}(\vec{r})\coloneqq\sum_{k\in K_{i}}w_{k\to i}\,u_{k\to i}(\vec{r}),\qquad\vec{x}\in V_{i}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -8397,7 +8397,7 @@ status collapsed
 \begin_layout Plain Layout
 借助（向量）函数的投影表示法
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}f_{1}(x,y)\\
 \vdots\\
 f_{K}(x,y)
@@ -8408,13 +8408,13 @@ y-y_{0}\\
 (x-x_{0})(y-y_{0})\\
 (y-y_{0})(y-y_{0})
 \end{bmatrix}_{N\times1}
-\]
+\end{equation}
 
 \end_inset
 
 可以将其偏导数表示为
 \begin_inset Formula 
-\[
+\begin{equation}
 \underbrace{\begin{bmatrix}\dfrac{\partial}{\partial x}\begin{bmatrix}f_{1}\\
 \vdots\\
 f_{K}
@@ -8437,7 +8437,7 @@ f_{K}
 0 & 0 & 0 & 1\\
 0 & 2(y-y_{0}) & 0 & 0 & 2
 \end{bmatrix}}_{N\times(N-1)}
-\]
+\end{equation}
 
 \end_inset
 
@@ -8472,9 +8472,9 @@ f_{K}
 
  上的限制记为
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{U}_{i}(\vec{r},t)\coloneqq\underline{U}\vert_{V_{i}}(\vec{r},t),\qquad\vec{r}\in V_{i}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -8520,9 +8520,9 @@ f_{K}
 
  上的平均值：
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{U^{h}}_{k\to i}(\vec{r},t)\coloneqq\underline{U^{h}}_{k}(\vec{r},t)-\langle\underline{U^{h}}_{k}\rangle_{i}+\langle\underline{U^{h}}_{i}\rangle_{i},\qquad\vec{r}\in V_{i}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -8536,9 +8536,9 @@ f_{K}
 
  上的平均值是重构不变量，即
 \begin_inset Formula 
-\[
+\begin{equation}
 \langle\underline{U^{h}}_{k\to i}\rangle_{i}=\langle\underline{U^{h}}_{i}\rangle_{i}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -8571,9 +8571,9 @@ reference "eq:hyperbolic_system"
 
  的法向分裂形式
 \begin_inset Formula 
-\[
+\begin{equation}
 \partial_{t}\underline{U}+\partial_{\nu_{k}}\underline{F^{\nu_{k}}}=\underline{H},\qquad\underline{F^{\nu_{k}}}\coloneqq\vec{\nu}_{k}\cdot\vec{\underline{F}},\qquad,\underline{A^{\nu_{k}}}\coloneqq\partial\underline{F^{\nu_{k}}}/\partial\underline{U},
-\]
+\end{equation}
 
 \end_inset
 
@@ -8599,9 +8599,9 @@ reference "eq:hyperbolic_system"
 
  的近似值：
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{A^{\nu_{k}}}(\underline{U})\approx\underline{A^{\nu_{k}}}\qty(\langle\underline{U^{h}}_{i}\rangle_{i})\eqqcolon\underline{A}_{i|k}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -8643,9 +8643,9 @@ reference "eq:hyperbolic_system"
 
  定义特征变量：
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{W}_{i|k}\coloneqq\underline{L}_{i|k}\,\underline{U}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -8683,9 +8683,9 @@ reference "eq:hyperbolic_system"
 
  将其变换回守恒变量：
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{U^{h}}_{i|k}^{\mathrm{new}}\coloneqq\underline{R}_{i|k}\,\underline{W^{h}}_{i|k}^{\mathrm{new}}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -8703,9 +8703,9 @@ reference "eq:hyperbolic_system"
 
  作加权平均：
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{U^{h}}_{i}^{\mathrm{new}}\coloneqq\frac{\sum_{k\in K_{i}\setminus\left\{ i\right\} }\vert V_{k}\vert\,\underline{U^{h}}_{i|k}^{\mathrm{new}}}{\sum_{k\in K_{i}\setminus\left\{ i\right\} }\vert V_{k}\vert}
-\]
+\end{equation}
 
 \end_inset
 
@@ -8747,7 +8747,7 @@ reference "eq:eigen-decomposition"
 \begin_layout Standard
 三维欧拉方程的法向分裂形式
 \begin_inset Formula 
-\[
+\begin{equation}
 \frac{\partial}{\partial t}\begin{bmatrix}\rho\\
 \rho\vec{u}\\
 \rho e_{0}
@@ -8758,7 +8758,7 @@ reference "eq:eigen-decomposition"
 \vec{0}\\
 0
 \end{bmatrix}
-\]
+\end{equation}
 
 \end_inset
 
@@ -8772,7 +8772,7 @@ reference "eq:eigen-decomposition"
 
  坐标系下的展开式分别为
 \begin_inset Formula 
-\[
+\begin{equation}
 \frac{\partial}{\partial t}\begin{bmatrix}\rho\\
 \rho u_{x}\\
 \rho u_{y}\\
@@ -8789,13 +8789,13 @@ reference "eq:eigen-decomposition"
 0\\
 0
 \end{bmatrix},
-\]
+\end{equation}
 
 \end_inset
 
 
 \begin_inset Formula 
-\[
+\begin{equation}
 \frac{\partial}{\partial t}\begin{bmatrix}\rho\\
 \rho u_{\nu}\\
 \rho u_{\sigma}\\
@@ -8812,54 +8812,54 @@ reference "eq:eigen-decomposition"
 0\\
 0
 \end{bmatrix}.
-\]
+\end{equation}
 
 \end_inset
 
 后者的特征值及右特征矩阵分别为
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{\varLambda'}=\begin{bmatrix}u_{\nu}-a\\
  & u_{\nu}\\
  &  & u_{\nu}\\
  &  &  & u_{\nu}\\
  &  &  &  & u_{\nu}+a
 \end{bmatrix},
-\]
+\end{equation}
 
 \end_inset
 
 
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{R'}=\begin{bmatrix}1 & 1 & 0 & 0 & 1\\
 u_{\nu}-a & u_{\nu} & 0 & 0 & u_{\nu}+a\\
 u_{\sigma} & u_{\sigma} & 1 & 0 & u_{\sigma}\\
 u_{\pi} & u_{\pi} & 0 & 1 & u_{\pi}\\
 h_{0}-u_{\nu}a & \frac{u_{\nu}^{2}+u_{\sigma}^{2}+u_{\pi}^{2}}{2} & u_{\sigma} & u_{\pi} & h_{0}+u_{\nu}a
 \end{bmatrix}.
-\]
+\end{equation}
 
 \end_inset
 
 利用符号运算可得左特征矩阵：
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{L'}=(\underline{R'})^{-1}=\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}+1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{-1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}\\
 1-B_{2} & B_{1}u_{\nu} & B_{1}u_{\sigma} & B_{1}u_{\pi} & -B_{1}\\
 -u_{\sigma} & 0 & 1 & 0 & 0\\
 -u_{\pi} & 0 & 0 & 1 & 0\\
 \frac{1}{2}\left(B_{2}-u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}-1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{-1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}
 \end{bmatrix},
-\]
+\end{equation}
 
 \end_inset
 
 其中
 \begin_inset Formula 
-\[
+\begin{equation}
 B_{1}\coloneqq\frac{\gamma^{-}}{a^{2}},\qquad B_{2}\coloneqq B_{1}\frac{u_{\nu}^{2}+u_{\sigma}^{2}+u_{\pi}^{2}}{2}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -8869,7 +8869,7 @@ B_{1}\coloneqq\frac{\gamma^{-}}{a^{2}},\qquad B_{2}\coloneqq B_{1}\frac{u_{\nu}^
 \begin_layout Standard
 利用变量替换关系
 \begin_inset Formula 
-\[
+\begin{equation}
 \underbrace{\begin{bmatrix}\rho\\
 \rho u_{x}\\
 \rho u_{y}\\
@@ -8891,7 +8891,7 @@ B_{1}\coloneqq\frac{\gamma^{-}}{a^{2}},\qquad B_{2}\coloneqq B_{1}\frac{u_{\nu}^
 \rho u_{\pi}\\
 \rho e_{0}
 \end{bmatrix}}_{\underline{U'}}
-\]
+\end{equation}
 
 \end_inset
 
@@ -8901,20 +8901,20 @@ B_{1}\coloneqq\frac{\gamma^{-}}{a^{2}},\qquad B_{2}\coloneqq B_{1}\frac{u_{\nu}^
 
  坐标系下的表达式：
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{R}=\underline{J}_{\underline{U}\to\underline{U'}}\,\underline{R'}=\begin{bmatrix}1 & 1 & 0 & 0 & 1\\
 u_{x}-a\nu_{x} & u_{x} & \sigma_{x} & \pi_{x} & u_{x}+a\nu_{x}\\
 u_{y}-a\nu_{y} & u_{y} & \sigma_{y} & \pi_{y} & u_{y}+a\nu_{y}\\
 u_{z}-a\nu_{z} & u_{z} & \sigma_{z} & \pi_{z} & u_{z}+a\nu_{z}\\
 h_{0}-u_{\nu}a & \frac{u_{x}^{2}+u_{y}^{2}+u_{z}^{2}}{2} & u_{\sigma} & u_{\pi} & h_{0}+u_{\nu}a
 \end{bmatrix},
-\]
+\end{equation}
 
 \end_inset
 
 这里用
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}u_{\nu}\\
 u_{\sigma}\\
 u_{\pi}
@@ -8925,7 +8925,7 @@ u_{\pi}
 u_{y}\\
 u_{z}
 \end{bmatrix}
-\]
+\end{equation}
 
 \end_inset
 
@@ -8939,15 +8939,15 @@ u_{z}
 
  坐标系下的表达式：
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{L}=\underline{L'}\,\underline{J}_{\underline{U}\to\underline{U'}}^{-1}
-\]
+\end{equation}
 
 \end_inset
 
 
 \begin_inset Formula 
-\[
+\begin{equation}
 =\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}+1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{-1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}\\
 1-B_{2} & B_{1}u_{\nu} & B_{1}u_{\sigma} & B_{1}u_{\pi} & -B_{1}\\
 -u_{\sigma} & 0 & 1 & 0 & 0\\
@@ -8959,20 +8959,20 @@ u_{z}
  & \pi_{x} & \pi_{y} & \pi_{z}\\
  &  &  &  & 1
 \end{bmatrix}
-\]
+\end{equation}
 
 \end_inset
 
 
 \begin_inset Formula 
-\[
+\begin{equation}
 =\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{x}+\nu_{x}/a\right) & \frac{-1}{2}\left(B_{1}u_{y}+\nu_{y}/a\right) & \frac{-1}{2}\left(B_{1}u_{z}+\nu_{z}/a\right) & \frac{1}{2}B_{1}\\
 1-B_{2} & B_{1}u_{x} & B_{1}u_{y} & B_{1}u_{z} & -B_{1}\\
 -u_{\sigma} & \sigma_{x} & \sigma_{y} & \sigma_{z} & 0\\
 -u_{\pi} & \pi_{x} & \pi_{y} & \pi_{z} & 0\\
 \frac{1}{2}\left(B_{2}-u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{x}-\nu_{x}/a\right) & \frac{-1}{2}\left(B_{1}u_{y}-\nu_{y}/a\right) & \frac{-1}{2}\left(B_{1}u_{z}-\nu_{z}/a\right) & \frac{1}{2}B_{1}
 \end{bmatrix}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -9010,9 +9010,9 @@ reference "eq:orthonormal_DG"
 
  是一个待求解的常微分方程组，其中右端项依赖于待定未知量，不妨将其记作
 \begin_inset Formula 
-\[
+\begin{equation}
 \frac{\dd}{\dd t}\underline{\hat{U}}=\underline{\hat{R}},\qquad\underline{R}(\underline{\hat{U}}).
-\]
+\end{equation}
 
 \end_inset
 
@@ -9091,17 +9091,17 @@ reference "eq:orthonormal_DG"
 \begin_layout Standard
 采用一阶向前差分近似时间导数：
 \begin_inset Formula 
-\[
+\begin{equation}
 \frac{\underline{\hat{U}}^{n+1}-\underline{\hat{U}}^{n}}{h_{t}}\approx\frac{\dd}{\dd t}\underline{\hat{U}}^{n}=\underline{\hat{R}}^{n},
-\]
+\end{equation}
 
 \end_inset
 
 就得到显式欧拉格式：
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -9111,17 +9111,17 @@ reference "eq:orthonormal_DG"
 \begin_layout Standard
 采用一阶向后差分近似时间导数：
 \begin_inset Formula 
-\[
+\begin{equation}
 \frac{\underline{\hat{U}}^{n+1}-\underline{\hat{U}}^{n}}{h_{t}}\approx\frac{\dd}{\dd t}\underline{\hat{U}}^{n+1}=\underline{\hat{R}}^{n+1},
-\]
+\end{equation}
 
 \end_inset
 
 就得到隐式欧拉格式：
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n+1}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -9209,9 +9209,9 @@ reference "eq:orthonormal_DG"
 
  使得
 \begin_inset Formula 
-\[
+\begin{equation}
 \Vert\underline{\hat{U}}^{n}\Vert\le C\Vert\underline{\hat{U}}^{0}\Vert,\qquad\forall n\in\mathbb{N},
-\]
+\end{equation}
 
 \end_inset
 
@@ -9241,9 +9241,9 @@ reference "eq:m-stage_Runge--Kutta"
 
  都非负，且满足
 \begin_inset Formula 
-\[
+\begin{equation}
 h_{t}\le ch_{t}^{\text{F.E.}},\qquad c=\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}},
-\]
+\end{equation}
 
 \end_inset
 
@@ -9264,53 +9264,53 @@ h_{t}\le ch_{t}^{\text{F.E.}},\qquad c=\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}
 
  都可以分解为若干显式欧拉格式的凸组合：
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{aligned}\left\Vert \underline{\hat{U}}^{n+i/m}\right\Vert  & =\left\Vert \sum_{k=0}^{i-1}\alpha_{i,k}\left(\underline{\hat{U}}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{\hat{R}}^{n+k/m}\right)\right\Vert \\
  & \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{\hat{R}}^{n+k/m}\right\Vert 
 \end{aligned}
-\]
+\end{equation}
 
 \end_inset
 
 其中
 \begin_inset Formula 
-\[
+\begin{equation}
 \frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\le\frac{\beta_{i,k}}{\alpha_{i,k}}ch_{t}^{\text{F.E.}}\le\frac{\beta_{i,k}}{\alpha_{i,k}}\frac{\alpha_{i,k}}{\beta_{i,k}}h_{t}^{\text{F.E.}}=h_{t}^{\text{F.E.}},\qquad\forall(i,k),
-\]
+\end{equation}
 
 \end_inset
 
 满足显式欧拉格式的强稳定性条件，因此有
 \begin_inset Formula 
-\[
+\begin{equation}
 \left\Vert \underline{\hat{U}}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{\hat{R}}^{n+k/m}\right\Vert \le\left\Vert \underline{\hat{U}}^{n+k/m}\right\Vert ,\qquad\forall k=0,1,\dots,i-1.
-\]
+\end{equation}
 
 \end_inset
 
 从而有
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{aligned}\left\Vert \underline{\hat{U}}^{n+i/m}\right\Vert  & \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{\hat{R}}^{n+k/m}\right\Vert \\
  & \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n+k/m}\right\Vert .
 \end{aligned}
-\]
+\end{equation}
 
 \end_inset
 
 据此有
 \begin_inset Formula 
-\[
+\begin{equation}
 \left\Vert \underline{\hat{U}}^{n+1/m}\right\Vert \le\sum_{k=0}^{0}\alpha_{1,0}\left\Vert \underline{\hat{U}}^{n+0/m}\right\Vert =\left\Vert \underline{U}^{n}\right\Vert ,
-\]
+\end{equation}
 
 \end_inset
 
 从而可以递归地证明
 \begin_inset Formula 
-\[
+\begin{equation}
 \left\Vert \underline{\hat{U}}^{n+i/m}\right\Vert \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n+k/m}\right\Vert \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n}\right\Vert =\left\Vert \underline{\hat{U}}^{n}\right\Vert .
-\]
+\end{equation}
 
 \end_inset
 
@@ -9327,9 +9327,9 @@ h_{t}\le ch_{t}^{\text{F.E.}},\qquad c=\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}
 \begin_layout Lemma
 一般的显式 RK 格式
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{\hat{U}}^{n+i/m}=\underline{\hat{U}}^{n}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m},\qquad i=1,2,\dots,m,
-\]
+\end{equation}
 
 \end_inset
 
@@ -9346,12 +9346,12 @@ reference "eq:m-stage_Runge--Kutta"
 
  且
 \begin_inset Formula 
-\[
+\begin{equation}
 \alpha_{i,k}\ge0,\qquad\beta_{i,k}=\begin{cases}
 \gamma_{i,k}-\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}, & k=0,1,\dots,i-2;\\
 \gamma_{i,k} & k=i-1.
 \end{cases}
-\]
+\end{equation}
 
 \end_inset
 
@@ -9372,40 +9372,40 @@ reference "eq:m-stage_Runge--Kutta"
 
  且
 \begin_inset Formula 
-\[
+\begin{equation}
 \alpha_{i,k}\ge0,\qquad k=0,1,\dots,i-1.
-\]
+\end{equation}
 
 \end_inset
 
 则
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{aligned}\underline{\hat{U}}^{n+i/m} & =\underline{\hat{U}}^{n}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}=\underbrace{\left(\sum_{k=0}^{i-1}\alpha_{i,k}\right)}_{=1}\underline{\hat{U}}^{n}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\\
  & =\alpha_{i,0}\underline{U}^{n}+\sum_{k=1}^{i-1}\alpha_{i,k}\underbrace{\left(\underline{\hat{U}}^{n+k/m}-\sum_{l=0}^{k-1}\gamma_{k,l}h_{t}\underline{\hat{R}}^{n+l/m}\right)}_{=\underline{U}^{n}}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\\
  & =\underbrace{\left(\alpha_{i,0}\underline{\hat{U}}^{n+0/m}+\sum_{k=1}^{i-1}\alpha_{i,k}\underline{\hat{U}}^{n+k/m}\right)}_{\sum_{k=0}^{i-1}\alpha_{i,k}\underline{U}^{n+k/m}}\\
  & +\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}-\sum_{k=1}^{i-1}\sum_{l=0}^{k-1}\alpha_{i,k}\gamma_{k,l}h_{t}\underline{\hat{R}}^{n+l/m},
 \end{aligned}
-\]
+\end{equation}
 
 \end_inset
 
 其中
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{aligned}\sum_{k=1}^{i-1}\sum_{l=0}^{k-1}\alpha_{i,k}\gamma_{k,l}h_{t}\underline{\hat{R}}^{n+l/m} & =\sum_{l=0}^{i-2}\sum_{k=l+1}^{i-1}\alpha_{i,k}\gamma_{k,l}h_{t}\underline{\hat{R}}^{n+l/m}=\sum_{k=0}^{i-2}\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}h_{t}\underline{\hat{R}}^{n+k/m}.\end{aligned}
-\]
+\end{equation}
 
 \end_inset
 
 因此
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{aligned}\underline{\hat{U}}^{n+i/m} & =\sum_{k=0}^{i-1}\alpha_{i,k}\underline{\hat{U}}^{n+k/m}-\sum_{k=0}^{i-2}\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}h_{t}\underline{\hat{R}}^{n+k/m}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\\
  & =\sum_{k=0}^{i-2}\left(\alpha_{i,k}\underline{\hat{U}}^{n+k/m}+\left(\gamma_{i,k}-\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}\right)h_{t}\underline{\hat{R}}^{n+k/m}\right)\\
  & +\sum_{k=i-1}^{i-1}\left(\alpha_{i,k}\underline{\hat{U}}^{n+k/m}+\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\right).
 \end{aligned}
-\]
+\end{equation}
 
 \end_inset
 
@@ -9442,13 +9442,13 @@ literal "false"
 
  给出的四阶 RK 格式
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{aligned}\underline{\hat{U}}^{n+1/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n},\\
 \underline{\hat{U}}^{n+2/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4},\\
 \underline{\hat{U}}^{n+3/4} & =\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n+2/4},\\
 \underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+4/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{6}\left(\underline{\hat{R}}^{n}+2\underline{\hat{R}}^{n+1/4}+2\underline{\hat{R}}^{n+2/4}+\underline{\hat{R}}^{n+3/4}\right),
 \end{aligned}
-\]
+\end{equation}
 
 \end_inset
 
@@ -9607,9 +9607,9 @@ reference "chap:riemann"
 
  轴的边界均以“法向导数为零”为边界条件，即
 \begin_inset Formula 
-\[
+\begin{equation}
 \frac{\partial U}{\partial\nu}=0,\qquad(y-0)(y-1)(z-0)(z-0.5)=0.
-\]
+\end{equation}
 
 \end_inset
 
@@ -9647,33 +9647,33 @@ reference "eq:linear_system"
 
  中，令
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{U}(x,y,z,t)=\begin{bmatrix}U(x,y,z,t)\end{bmatrix},\qquad\underline{A^{x}}=\begin{bmatrix}-10\end{bmatrix},\qquad\underline{A^{y}}=\underline{A^{z}}=\begin{bmatrix}0\end{bmatrix},
-\]
+\end{equation}
 
 \end_inset
 
 即得线性单波方程
 \begin_inset Formula 
-\[
+\begin{equation}
 \left(\partial_{t}-10\partial_{x}\right)U=0.
-\]
+\end{equation}
 
 \end_inset
 
 求满足此方程与边界条件
 \begin_inset Formula 
-\[
+\begin{equation}
 U(x=0,y,z,t)=-10\eqqcolon U_{L},\qquad U(x=4,y,z,t)=+10\eqqcolon U_{R},
-\]
+\end{equation}
 
 \end_inset
 
 及初始条件
 \begin_inset Formula 
-\[
+\begin{equation}
 U(x,y,z,t=0)=U_{L}
-\]
+\end{equation}
 
 \end_inset
 
@@ -9697,12 +9697,12 @@ reference "prob:线性单波平流"
 
  的解析解为
 \begin_inset Formula 
-\[
+\begin{equation}
 U^{\star}(x,y,z,t)=\begin{cases}
 U_{L}, & x-4<-10t;\\
 U_{R}, & x-4>-10t.
 \end{cases}
-\]
+\end{equation}
 
 \end_inset
 
@@ -10848,7 +10848,7 @@ reference "eq:linear_system"
 
  中，令
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{U}(\vec{x},t)=\begin{bmatrix}U_{1}(x,y,z,t)\\
 U_{2}(x,y,z,t)
 \end{bmatrix},\qquad\underline{A^{x}}=\begin{bmatrix}6 & -2\\
@@ -10856,7 +10856,7 @@ U_{2}(x,y,z,t)
 \end{bmatrix},\qquad\underline{A^{y}}=\underline{A^{z}}=\begin{bmatrix}0 & 0\\
 0 & 0
 \end{bmatrix},
-\]
+\end{equation}
 
 \end_inset
 
@@ -10873,21 +10873,21 @@ U_{2}(x,y,z,t)
 
 求满足此方程组与边界条件
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{U}(x=0,y,z,t)=\begin{bmatrix}0\\
 0
 \end{bmatrix}\eqqcolon\underline{U}_{\mathrm{L}},\qquad\underline{U}(x=4,y,z,t)=\begin{bmatrix}12\\
 -4
 \end{bmatrix}\eqqcolon\underline{U}_{\mathrm{R}},
-\]
+\end{equation}
 
 \end_inset
 
 及初始条件
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{U}(x,y,z,t=0)=\underline{U}_{\mathrm{R}}
-\]
+\end{equation}
 
 \end_inset
 
@@ -10908,7 +10908,7 @@ U_{2}(x,y,z,t)
 
  作特征分解，得到
 \begin_inset Formula 
-\[
+\begin{equation}
 \underbrace{\begin{bmatrix}6 & -2\\
 -2 & 6
 \end{bmatrix}}_{\underline{A^{x}}}=\underbrace{\begin{bmatrix}1 & 1\\
@@ -10918,7 +10918,7 @@ U_{2}(x,y,z,t)
 \end{bmatrix}}_{\underline{\varLambda^{x}}}\underbrace{\begin{bmatrix}1/2 & -1/2\\
 1/2 & 1/2
 \end{bmatrix}}_{\underline{L^{x}}}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -10928,7 +10928,7 @@ U_{2}(x,y,z,t)
 
 ，即
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}V_{1}\\
 V_{2}
 \end{bmatrix}\coloneqq\begin{bmatrix}1/2 & -1/2\\
@@ -10938,19 +10938,19 @@ U_{2}
 \end{bmatrix}=\frac{1}{2}\begin{bmatrix}U_{1}-U_{2}\\
 U_{1}+U_{2}
 \end{bmatrix},
-\]
+\end{equation}
 
 \end_inset
 
 可以将边界条件转化为
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{V}_{\mathrm{L}}=\underline{L^{x}}\,\underline{U}_{\mathrm{L}}=\begin{bmatrix}0\\
 0
 \end{bmatrix},\qquad\underline{V}_{\mathrm{R}}=\underline{L^{x}}\,\underline{U}_{\mathrm{R}}=\begin{bmatrix}8\\
 4
 \end{bmatrix},
-\]
+\end{equation}
 
 \end_inset
 
@@ -10963,18 +10963,18 @@ reference "eq:linear_double_wave"
 
  解耦为
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{cases}
 \left(\partial_{t}+8\partial_{x}\right)V_{1}=0,\\
 \left(\partial_{t}+4\partial_{x}\right)V_{2}=0.
 \end{cases}
-\]
+\end{equation}
 
 \end_inset
 
 由此得到两个独立的初边值问题，它们的解析解分别为
 \begin_inset Formula 
-\[
+\begin{equation}
 V_{1}^{\star}(x,y,z,t)=\begin{cases}
 0 & x<8t\\
 8 & x>8t
@@ -10982,7 +10982,7 @@ V_{1}^{\star}(x,y,z,t)=\begin{cases}
 0 & x<4t\\
 4 & x>4t
 \end{cases}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -11013,7 +11013,7 @@ V_{2}^{\star}-V_{1}^{\star}
 
 其中
 \begin_inset Formula 
-\[
+\begin{equation}
 \underline{U}_{\mathrm{L}}=\begin{bmatrix}0\\
 0
 \end{bmatrix},\qquad\underline{U}_{\mathrm{M}}=\begin{bmatrix}4\\
@@ -11021,7 +11021,7 @@ V_{2}^{\star}-V_{1}^{\star}
 \end{bmatrix},\qquad\underline{U}_{\mathrm{R}}=\begin{bmatrix}12\\
 -4
 \end{bmatrix}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -11219,9 +11219,9 @@ noprefix "false"
 
  比较了以上四种数值解的绝对误差。这里的“绝对误差”定义为
 \begin_inset Formula 
-\[
+\begin{equation}
 \varepsilon(x)=\left(|U_{1}^{h}-U_{1}^{\star}|+|U_{2}^{h}-U_{2}^{\star}|\right)_{y=0.5,\,z=0.25,\,t=0.3}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -11364,12 +11364,12 @@ noprefix "false"
 
 ）及边界条件
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}=\begin{cases}
 \begin{bmatrix}1 & 0 & 0 & 0 & 1\end{bmatrix}, & x=0,\\
 \begin{bmatrix}\frac{1}{8} & 0 & 0 & 0 & \frac{1}{10}\end{bmatrix}, & x=5,
 \end{cases}
-\]
+\end{equation}
 
 \end_inset
 
@@ -11378,12 +11378,12 @@ noprefix "false"
 
 \begin_layout Problem
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{cases}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=0}, & x<2.5,\\
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=5}, & x>2.5,
 \end{cases}
-\]
+\end{equation}
 
 \end_inset
 
@@ -12231,12 +12231,12 @@ noprefix "false"
 
 ）及边界条件
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}=\begin{cases}
 \begin{bmatrix}0.445 & 0.698 & 0.000 & 0.000 & 3.528\end{bmatrix}, & x=0,\\
 \begin{bmatrix}0.500 & 0.000 & 0.000 & 0.000 & 0.571\end{bmatrix}, & x=5,
 \end{cases}
-\]
+\end{equation}
 
 \end_inset
 
@@ -12245,12 +12245,12 @@ noprefix "false"
 
 \begin_layout Problem
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{cases}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=0}, & x<2.5,\\
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=5}, & x>2.5,
 \end{cases}
-\]
+\end{equation}
 
 \end_inset
 
@@ -12689,12 +12689,12 @@ noprefix "false"
 
 ）及边界条件
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}=\begin{cases}
 \begin{bmatrix}1.0 & -4.0 & 0.0 & 0.0 & 0.4\end{bmatrix}, & x=0,\\
 \begin{bmatrix}1.0 & +4.0 & 0.0 & 0.0 & 0.4\end{bmatrix}, & x=5,
 \end{cases}
-\]
+\end{equation}
 
 \end_inset
 
@@ -12703,12 +12703,12 @@ noprefix "false"
 
 \begin_layout Problem
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{cases}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=0}, & x<2.5,\\
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=5}, & x>2.5,
 \end{cases}
-\]
+\end{equation}
 
 \end_inset
 
@@ -12773,9 +12773,9 @@ literal "true"
 
  是未定义的；另一方面，真空区域的边界恰好是膨胀波的波尾，因此其上的速率值可以由穿过膨胀波的黎曼不变量求得，即
 \begin_inset Formula 
-\[
+\begin{equation}
 u_{*L}=u_{L}+\frac{2a_{L}}{\gamma-1},\qquad u_{*R}=u_{R}-\frac{2a_{R}}{\gamma-1}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -13276,11 +13276,11 @@ noprefix "false"
 
 其中
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{aligned}\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{A} & =\begin{bmatrix}8.0 & 4.125\sqrt{3} & -4.125 & 0.0 & 116.5\end{bmatrix},\\
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{B} & =\begin{bmatrix}1.4 & 0.0 & 0.0 & 0.0 & 1.0\end{bmatrix},
 \end{aligned}
-\]
+\end{equation}
 
 \end_inset
 
@@ -13349,12 +13349,12 @@ noprefix "false"
 
 ）兼容：
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}=\begin{cases}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{A}, & x-(\delta+4.125\sqrt{3}t)<\sqrt{1/3},\\
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{B}, & x-(\delta+4.125\sqrt{3}t)>\sqrt{1/3}.
 \end{cases}
-\]
+\end{equation}
 
 \end_inset
 
@@ -13671,17 +13671,17 @@ noprefix "false"
 
 ）及初始条件
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 3.0 & 0.0 & 0.0 & 1.0\end{bmatrix}
-\]
+\end{equation}
 
 \end_inset
 
 与边界条件
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=0}=\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}
-\]
+\end{equation}
 
 \end_inset
 
@@ -14814,9 +14814,9 @@ noprefix "false"
 \begin_layout Problem
 初始条件设为 20 deg 迎角、0.3 马赫的亚声速气流：
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 0.2819 & 0.0 & 0.1026 & 1.0\end{bmatrix}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -14847,9 +14847,9 @@ noprefix "false"
 \begin_layout Itemize
 尾喷管出口为（外流场的）超声速入口：
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\text{尾喷口}}=\begin{bmatrix}1.4 & 2.4 & 0.0 & 0.0 & 1.44\end{bmatrix}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -15121,9 +15121,9 @@ noprefix "false"
 \begin_layout Problem
 初始条件设为 0 deg 迎角、2.0 马赫的超声速气流：
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 2.0 & 0.0 & 0.0 & 1.0\end{bmatrix}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -15150,9 +15150,9 @@ noprefix "false"
 \begin_layout Itemize
 进气道入口为（外流场的）超声速出口，状态无需预设；尾喷管出口为（外流场的）超声速入口：
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{\text{尾喷口}}=\begin{bmatrix}1.4 & 2.4 & 0.0 & 0.0 & 1.44\end{bmatrix}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -17469,9 +17469,9 @@ reference "eq:PDE"
 
 ）的一般过程。在该方法中，源项只出现在体积分中，具体形式为
 \begin_inset Formula 
-\[
+\begin{equation}
 \int_{V_{i}}\begin{bmatrix}\phi_{1} & \cdots & \phi_{K}\end{bmatrix}\mathopen{\underline{H}}\left(\underline{U^{h}}\right).
-\]
+\end{equation}
 
 \end_inset
 
@@ -17489,9 +17489,9 @@ reference "eq:PDE"
 
  上体积分：
 \begin_inset Formula 
-\[
+\begin{equation}
 \int_{V_{i}}\phi_{k}(\vec{r})\,\vec{b}(\vec{r}).
-\]
+\end{equation}
 
 \end_inset
 
@@ -17521,7 +17521,7 @@ reference "eq:PDE"
 \begin_layout Itemize
 含动量源的三维欧拉方程可以写成
 \begin_inset Formula 
-\[
+\begin{equation}
 \partial_{t}\begin{bmatrix}\rho\\
 \rho\vec{u}\\
 \rho e_{0}
@@ -17532,7 +17532,7 @@ reference "eq:PDE"
 \vec{b}_{\mathrm{V}}-\nabla p\\
 0
 \end{bmatrix},
-\]
+\end{equation}
 
 \end_inset
 
@@ -17562,13 +17562,13 @@ reference "eq:PDE"
 
  所受到的气动力为
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}L\dd{s}\\
 D\dd{s}
 \end{bmatrix}=\frac{1}{2}\rho(u^{2}+w^{2})\begin{bmatrix}C_{L}(\alpha)\\
 C_{D}(\alpha)
 \end{bmatrix}c\dd{s},
-\]
+\end{equation}
 
 \end_inset
 
@@ -17582,11 +17582,11 @@ C_{D}(\alpha)
 
  分别为升力与阻力的线密度。根据牛顿第三定律，该气动力的反作用力，就是微翼段对气体的作用力，故
 \begin_inset Formula 
-\[
+\begin{equation}
 \vec{b}_{\mathrm{L}}(\vec{r}(s))=-\begin{bmatrix}\vec{e}_{L}(s) & \vec{e}_{D}(s)\end{bmatrix}\begin{bmatrix}L(s)\\
 D(s)
 \end{bmatrix}
-\]
+\end{equation}
 
 \end_inset
 
@@ -17677,9 +17677,9 @@ reference "fig:PQ"
 
  上的线积分：
 \begin_inset Formula 
-\[
+\begin{equation}
 \int_{V_{i}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{V}}(\vec{r})=\int_{\overrightarrow{RS}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{L}}(\vec{r}).
-\]
+\end{equation}
 
 \end_inset
 
@@ -17693,9 +17693,9 @@ reference "fig:PQ"
 
  化为定积分：
 \begin_inset Formula 
-\[
+\begin{equation}
 \int_{\overrightarrow{RS}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{L}}(\vec{r})=\int_{\xi_{R}}^{\xi_{S}}\phi_{k}(\vec{r}(\xi))\,\vec{b}_{\mathrm{L}}(\vec{r}(\xi))\left\Vert \frac{\partial\vec{r}}{\partial\xi}\right\Vert \dd{\xi},
-\]
+\end{equation}
 
 \end_inset
 
@@ -17765,9 +17765,9 @@ name "fig:PQ"
 
  的公共点。设
 \begin_inset Formula 
-\[
+\begin{equation}
 \overrightarrow{PQ}=\lambda_{A}\overrightarrow{PA}+\lambda_{B}\overrightarrow{PB}+\lambda_{C}\overrightarrow{PC},
-\]
+\end{equation}
 
 \end_inset
 
@@ -17802,12 +17802,12 @@ name "fig:PQ"
 
  不共面，即
 \begin_inset Formula 
-\[
+\begin{equation}
 \det\begin{bmatrix}(PA)_{x} & (PB)_{x} & (PC)_{x}\\
 (PA)_{y} & (PB)_{y} & (PC)_{y}\\
 (PA)_{z} & (PB)_{z} & (PC)_{z}
 \end{bmatrix}\ne0,
-\]
+\end{equation}
 
 \end_inset
 
@@ -17849,9 +17849,9 @@ reference "eq:segment_triangle_intersection"
 
  内部：
 \begin_inset Formula 
-\[
+\begin{equation}
 \overrightarrow{PR}=\frac{\overrightarrow{PQ}}{\lambda_{A}+\lambda_{B}+\lambda_{C}}
-\]
+\end{equation}
 
 \end_inset
 
@@ -18305,9 +18305,9 @@ noprefix "false"
 \begin_layout Problem
 初始条件设为均匀低速气流：
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 1.0 & 0.0 & 0.0 & 101325.0\end{bmatrix}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -18326,9 +18326,9 @@ noprefix "false"
 \begin_layout Itemize
 风洞左端为亚声速入口，状态与初始条件兼容：
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=-3}=\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0};
-\]
+\end{equation}
 
 \end_inset
 
@@ -18338,9 +18338,9 @@ noprefix "false"
 \begin_layout Itemize
 风洞右端为亚声速出口，只给定背景压强：
 \begin_inset Formula 
-\[
+\begin{equation}
 \eval{p}_{x=9}=101325.0.
-\]
+\end{equation}
 
 \end_inset
 
@@ -19201,9 +19201,9 @@ noprefix "false"
 \begin_layout Problem
 初始条件设为均匀中低速气流：
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 10.0 & 0.0 & 0.0 & 101325.0\end{bmatrix}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -19222,9 +19222,9 @@ noprefix "false"
 \begin_layout Itemize
 风洞左端为亚声速入口，状态与初始条件兼容：
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=-3}=\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0};
-\]
+\end{equation}
 
 \end_inset
 
@@ -19234,9 +19234,9 @@ noprefix "false"
 \begin_layout Itemize
 风洞右端为亚声速出口，只给定背景压强：
 \begin_inset Formula 
-\[
+\begin{equation}
 \eval{p}_{x=9}=101325.0.
-\]
+\end{equation}
 
 \end_inset
 
@@ -20793,9 +20793,9 @@ noprefix "false"
 
  夹角的均匀气流：
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 5.0 & 0.0 & 0.0 & 101325.0\end{bmatrix}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -21148,9 +21148,9 @@ noprefix "false"
 
  夹角的均匀气流：
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 2.5\sqrt{2} & 2.5\sqrt{2} & 0.0 & 101325.0\end{bmatrix}.
-\]
+\end{equation}
 
 \end_inset
 
