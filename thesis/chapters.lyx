@@ -13144,7 +13144,7 @@ reference "fig:double_mach_sketch"
 \end_inset
 
  所示，其中 
-\begin_inset Formula $x_{0}=1/6$
+\begin_inset Formula $\delta=1/6$
 \end_inset
 
 ，黑色细实线表示固体壁面，红色粗实线表示初始激波。
@@ -13158,175 +13158,13 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{tikzpicture}[scale=3, rotate=30]
-\end_layout
-
-\begin_layout Plain Layout
-
-% axes
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-draw[->] (4,0) -- +(0.2,0) node[below] {$x$};
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-draw[->] (0,1) -- +(0,.2) node[above] {$y$};
-\end_layout
-
-\begin_layout Plain Layout
-
-% ticks
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-foreach 
-\backslash
-i in {0,...,4}
-\end_layout
-
-\begin_layout Plain Layout
-
-  
-\backslash
-draw (
-\backslash
-i,0) -- +(0,-.05) node[below] {$
-\backslash
-i$};
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-foreach 
-\backslash
-i in {0,1}
-\end_layout
-
-\begin_layout Plain Layout
-
-  
-\backslash
-draw (0,
-\backslash
-i) -- +(-.04,0) node[left] {$
-\backslash
-i$};
-\end_layout
-
-\begin_layout Plain Layout
-
-% lines and nodes
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-draw[ultra thick, red!80!black] (0.25,0) coordinate (x0) -- +(60:3) coordinate
- (us);
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-draw[ultra thick, red!80!black] (x0) -- +(-120:0.5) coordinate (ut);
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-draw[dashed] (0,0) rectangle (4,1);
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-path (us) -- (x0 -| us) coordinate (xs);
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-draw[->] (us) -- +(-30:.3) node[right] {$u_
-\backslash
-perp=8.25$};
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-draw[->] (ut) -- +(-30:.3) node[right] {$u_
-\backslash
-perp=8.25$};
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-draw[thick] (4,0) -- (x0) -- +(-60:.5) coordinate (xt);
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-path node[left] at (x0) {$x_0$};
-\end_layout
-
-\begin_layout Plain Layout
-
-% angle
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-draw pic[draw,pic text=$
-\backslash
-pi/3$, angle eccentricity=1.8, angle radius=.6cm] {angle=xs--x0--us};
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-draw pic[draw,pic text=$
-\backslash
-pi/3$, angle eccentricity=2.0, angle radius=.6cm] {angle=xt--x0--xs};
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tikzpicture}
-\end_layout
+\align center
+\begin_inset Graphics
+	filename figures/double_mach.pdf
+	lyxscale 50
+	width 100theight%
+	height 33theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -13476,7 +13314,7 @@ noprefix "false"
 \end_inset
 
  且 
-\begin_inset Formula $x<x_{0}$
+\begin_inset Formula $x<\delta$
 \end_inset
 
 ) 为超声速出口（无需设置状态）；
@@ -13488,7 +13326,7 @@ noprefix "false"
 \end_inset
 
  且 
-\begin_inset Formula $x<x_{0}$
+\begin_inset Formula $x<\delta$
 \end_inset
 
 ) 为固体壁面；
@@ -13513,8 +13351,8 @@ noprefix "false"
 \begin_inset Formula 
 \[
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}=\begin{cases}
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{A}, & x-(x_{0}+4.125\sqrt{3}t)<\sqrt{3}/3,\\
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{B}, & x-(x_{0}+4.125\sqrt{3}t)>\sqrt{3}/3.
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{A}, & x-(\delta+4.125\sqrt{3}t)<\sqrt{1/3},\\
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{B}, & x-(\delta+4.125\sqrt{3}t)>\sqrt{1/3}.
 \end{cases}
 \]
 
