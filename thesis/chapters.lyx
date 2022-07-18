@@ -9478,6 +9478,16 @@ status open
 \end_inset
 
  都非负，因此不是 SSP 格式。
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+给出反例
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -10039,8 +10049,12 @@ reference "fig:PQ"
 
 \end_layout
 
+\begin_layout Section
+小结
+\end_layout
+
 \begin_layout Chapter
-精度验证与性能评估
+程序实现与算例验证
 \end_layout
 
 \begin_layout Standard
@@ -10087,24 +10101,12 @@ reference "subsec:linear_advection"
 与某些初始条件及边界条件所构成的初边值问题。
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
 \begin_layout Section
-并行实现
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:parallel"
-
-\end_inset
-
-
+泛型编程
 \end_layout
 
-\end_inset
-
-
+\begin_layout Section
+并行编程
 \end_layout
 
 \begin_layout Section
@@ -16026,6 +16028,2470 @@ noprefix "false"
 \end_layout
 
 \begin_layout Section
+孤立旋翼问题
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:rotor_in_tunnel"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+本节用图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_mesh"
+
+\end_inset
+
+ 所示的网格，模拟孤立旋翼在低速风洞中的吹风试验。风洞外形由三维区间 
+\begin_inset Formula $[\SI{-3}{m},\SI{9}{m}]\times[\SI{-3}{m},\SI{3}{m}]\times[\SI{-3}{m},\SI{3}{m}]$
+\end_inset
+
+ 表示，在其内部嵌套一个较小的三维区间 
+\begin_inset Formula $[\SI{-2}{m},\SI{8}{m}]\times[\SI{-2}{m},\SI{2}{m}]\times[\SI{-2}{m},\SI{2}{m}]$
+\end_inset
+
+，用以表示旋翼及其尾迹附近网格需要加密的区域。旋翼桨盘中心固定于坐标原点处，桨根及桨尖到该中心点的距离分别为 
+\begin_inset Formula $\SI{0.1}{m}$
+\end_inset
+
+ 与 
+\begin_inset Formula $\SI{1.0}{m}$
+\end_inset
+
+，因此桨盘直径为 
+\begin_inset Formula $\SI{2.0}{m}$
+\end_inset
+
+。旋翼转轴允许指向任意方向，转速为每秒 
+\begin_inset Formula $40$
+\end_inset
+
+ 转，桨尖速率约为 
+\begin_inset Formula $0.74$
+\end_inset
+
+ 马赫（声速取 
+\begin_inset Formula $\SI{340}{m/s}$
+\end_inset
+
+）。图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_mesh"
+
+\end_inset
+
+ 中的球形区域（即半径为 
+\begin_inset Formula $\SI{1.0}{m}$
+\end_inset
+
+ 的球体）表示桨叶可能扫过的区域，原则上可以在该区域内进一步加密网格，但本节算例并没有对其做特殊处理。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/rotor_in_tunnel/mesh.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_mesh"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:孤立旋翼爬升"
+
+\end_inset
+
+、问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:孤立旋翼前飞"
+
+\end_inset
+
+ 所用网格的示意图
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+桨叶选用单一翼型、弦长为 
+\begin_inset Formula $\SI{0.1}{m}$
+\end_inset
+
+ 的矩形平直桨叶，预扭角为 
+\begin_inset Formula $\ang{10}$
+\end_inset
+
+；翼型选用 UH-60A 直升机主旋翼的 SC-1095 翼型，其升力系数、阻力系数曲线分别如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_c_lift"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_c_drag"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所示，用于作图的数据引自文献 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Howlett_1981"
+literal "false"
+
+\end_inset
+
+。对于更一般的翼型，可以通过吹风试验或数值模拟来获得类似的曲线。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/airfoil/lift.pdf
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_c_lift"
+
+\end_inset
+
+SC-1095 翼型的升力系数曲线
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Howlett_1981"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/airfoil/drag.pdf
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rotor_c_drag"
+
+\end_inset
+
+SC-1095 翼型的阻力系数曲线
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Howlett_1981"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+以上几何参数以及本节剩余部分给出的定解条件，是对真实旋翼风洞试验的较为激进的简化。进行这种简化主要是为了方便后续计算或试验研究复现本节剩余部分给出的算例。实际上
+，对于更一般的风洞截面形状，获得如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rotor_mesh"
+
+\end_inset
+
+ 所示的只含四面体单元的非结构网格，对于网格生成模块而言没有额外的难度；对于更一般的桨叶外形，如非线性的弦长、预扭分布，本文所实现的求解器也已支持对其进行高效处
+理。
+\end_layout
+
+\begin_layout Subsection
+孤立旋翼爬升问题
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[孤立旋翼爬升]
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:孤立旋翼爬升"
+
+\end_inset
+
+令旋翼转轴指向风洞左侧，即以 
+\begin_inset Formula $(-1,0,0)$
+\end_inset
+
+ 为方向矢量。在时间范围 
+\begin_inset Formula $t\in[0,1]$
+\end_inset
+
+ 内，求满足三维欧拉方程（式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+）及以下定解条件的广义解。
+\end_layout
+
+\begin_layout Problem
+初始条件设为均匀低速气流：
+\begin_inset Formula 
+\begin{equation}
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 1.0 & 0.0 & 0.0 & 101325.0\end{bmatrix}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+边界条件如下：
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+风洞上、下、前、后四面均为固体壁面；
+\end_layout
+
+\begin_layout Itemize
+风洞左端为亚声速入口，状态与初始条件兼容：
+\begin_inset Formula 
+\begin{equation}
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=-3}=\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0};
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+风洞右端为亚声速出口，只给定背景压强：
+\begin_inset Formula 
+\begin{equation}
+\eval{p}_{x=9}=101325.0.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+为了体现高阶求解器在粗网格上的优势，这里采用只含 
+\begin_inset Formula $h\approx0.25$
+\end_inset
+
+ 的四面体单元的粗网格求解该问题。图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:upward_t=2e-1_p=3"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:upward_t=10e-1_p=3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 分别给出了问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:孤立旋翼爬升"
+
+\end_inset
+
+ 在若干时刻的 RK1/DG1、 RK3/DG3 近似解。这里给出精度较低的 RK1/DG1 近似解，是因为 RK1/DG1 求解器无需限制器，其给出的结果在物
+理上较为可靠，可以用来定性地验证高阶近似解的正确性。由于缺少试验数据，本文的所有含旋翼的算例都将采用这种方式来验证。
+\end_layout
+
+\begin_layout Standard
+图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:upward_t=2e-1_p=3"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:upward_t=10e-1_p=3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 采取了相同的作图方式：在 
+\begin_inset Formula $y=0$
+\end_inset
+
+ 平面上画出密度分布；在 
+\begin_inset Formula $z=0$
+\end_inset
+
+ 平面上画出速度方向，并以箭头根部密度着色；偏左侧的一对同心圆表示桨尖及桨根轨迹。不难发现：桨盘上（左）侧的速度矢量明显在向中心汇聚，密度值在桨盘附近有一个明显
+的跳跃。由等熵条件 
+\begin_inset Formula $p=C\rho^{\gamma}$
+\end_inset
+
+ 可以推知，压强在桨盘附近也有一跳跃，且下（右）侧值大于上（左）侧值。这说明流经桨盘平面的气体，正在被桨叶压缩做功；根据牛顿第三定律，桨叶必然受到气体对其施加的
+反作用力，这正是旋翼升力的来源。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/upward/p=1/Frame20.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:upward_t=2e-1_p=1"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼爬升"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=0.2$
+\end_inset
+
+ 时刻的 UMS–RK1/DG1 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/upward/p=3/Frame20.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:upward_t=2e-1_p=3"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼爬升"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=0.2$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/upward/p=1/Frame40.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:upward_t=4e-1_p=1"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼爬升"
+
+\end_inset
+
+问题 在 
+\begin_inset Formula $t=0.4$
+\end_inset
+
+ 时刻的 UMS–RK1/DG1 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/upward/p=3/Frame40.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:upward_t=4e-1_p=3"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼爬升"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=0.4$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/upward/p=1/Frame60.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:upward_t=6e-1_p=1"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼爬升"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=0.6$
+\end_inset
+
+ 时刻的 UMS–RK1/DG1 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/upward/p=3/Frame60.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:upward_t=6e-1_p=3"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼爬升"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=0.6$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/upward/p=1/Frame80.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:upward_t=8e-1_p=1"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼爬升"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=0.8$
+\end_inset
+
+ 时刻的 UMS–RK1/DG1 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/upward/p=3/Frame80.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:upward_t=8e-1_p=3"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼爬升"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=0.8$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/upward/p=1/Frame100.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:upward_t=10e-1_p=1"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼爬升"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 UMS–RK1/DG1 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/upward/p=3/Frame100.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:upward_t=10e-1_p=3"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼爬升"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+比较不同时刻的 RK1/DG1、 RK3/DG3 近似解可以发现：两种求解器都能捕捉大尺度的涡结构，例如形成于桨盘下（右）侧、随时间推移而向下（右）移动的环状涡
+；但只有 RK3/DG3 求解器才能在如此稀疏的网格上捕捉到声波的干涉条纹。这是因为 RK1/DG1 求解器采用分段常数近似，过大的数值耗散容易将流动细节抹平。
+\end_layout
+
+\begin_layout Standard
+近似解的数值耗散，还可以通过环状涡的涡核清晰度来观察。图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:upward_p=1"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:upward_p=3"
+
+\end_inset
+
+ 在图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:upward_t=10e-1_p=3"
+
+\end_inset
+
+ 的基础上，补充显示了 
+\begin_inset Formula $x=4.8$
+\end_inset
+
+ 平面上的密度分布。可以发现：环状涡的涡核在 RK1/DG1 近似解中较为模糊，在 RK3/DG3 近似解中仍十分明显。这再次体现了高阶求解器数值耗散低的优势。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/rotor_in_tunnel/upward_p=1.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:upward_p=1"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼爬升"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 UMS–RK1/DG1 近似解（补充显示启动涡）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/rotor_in_tunnel/upward_p=3.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:upward_p=3"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼爬升"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解（补充显示启动涡）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+孤立旋翼前飞问题
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[孤立旋翼前飞]
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:孤立旋翼前飞"
+
+\end_inset
+
+令旋翼转轴指向风洞顶部，即以 
+\begin_inset Formula $(0,0,1)$
+\end_inset
+
+ 为方向矢量。在时间范围 
+\begin_inset Formula $t\in[0,1]$
+\end_inset
+
+ 内，求满足三维欧拉方程（式 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler_system"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+）及以下定解条件的广义解。
+\end_layout
+
+\begin_layout Problem
+初始条件设为均匀中低速气流：
+\begin_inset Formula 
+\begin{equation}
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 10.0 & 0.0 & 0.0 & 101325.0\end{bmatrix}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+边界条件设如下：
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+风洞上、下、前、后四面均为固体壁面；
+\end_layout
+
+\begin_layout Itemize
+风洞左端为亚声速入口，状态与初始条件兼容：
+\begin_inset Formula 
+\begin{equation}
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=-3}=\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0};
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+风洞右端为亚声速出口，只给定背景压强：
+\begin_inset Formula 
+\begin{equation}
+\eval{p}_{x=9}=101325.0.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+与问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:孤立旋翼爬升"
+
+\end_inset
+
+ 相同，这里采用只含 
+\begin_inset Formula $h\approx0.25$
+\end_inset
+
+ 的四面体单元的粗网格求解该问题，并且给出精度较低但物理上可靠的 RK1/DG1 近似解，作为定性验证 RK3/DG3 近似解的正确性的参照对象。
+\end_layout
+
+\begin_layout Standard
+图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_t=2e-1_p=3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_t=10e-1_p=3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 依次给出了问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在若干时刻的 RK1/DG1、 RK3/DG3 近似解。具体的作图方式为：在 
+\begin_inset Formula $x=4$
+\end_inset
+
+ 平面上画出密度分布；在 
+\begin_inset Formula $y=0$
+\end_inset
+
+ 平面上画出速度方向，并以箭头根部密度着色；偏左侧的一对同心圆表示桨尖及桨根轨迹。不难发现：桨盘附近的速度矢量明显向下偏转，这表明旋转的桨叶在为气流提供动量；旋
+翼尾迹（红色区域）向右偏转，这体现了左侧自由来流的驱动作用。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/forward/p=1/Frame20.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_t=2e-1_p=1"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=0.2$
+\end_inset
+
+ 时刻的 UMS–RK1/DG1 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/forward/p=3/Frame20.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_t=2e-1_p=3"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=0.2$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/forward/p=1/Frame40.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_t=4e-1_p=1"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=0.4$
+\end_inset
+
+ 时刻的 UMS–RK1/DG1 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/forward/p=3/Frame40.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_t=4e-1_p=3"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=0.4$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/forward/p=1/Frame60.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_t=6e-1_p=1"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=0.6$
+\end_inset
+
+ 时刻的 UMS–RK1/DG1 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/forward/p=3/Frame60.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_t=6e-1_p=3"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=0.6$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/forward/p=1/Frame80.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_t=8e-1_p=1"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=0.8$
+\end_inset
+
+ 时刻的 UMS–RK1/DG1 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/forward/p=3/Frame80.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_t=8e-1_p=3"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=0.8$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/forward/p=1/Frame100.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_t=10e-1_p=1"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 UMS–RK1/DG1 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/forward/p=3/Frame100.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_t=10e-1_p=3"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+与问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:孤立旋翼爬升"
+
+\end_inset
+
+ 的结论类似，两种求解器都能捕捉大尺度的涡结构，例如从桨盘拖出、向右下方倾斜的旋翼尾迹；但只有三阶求解器才能在 
+\begin_inset Formula $x=4$
+\end_inset
+
+ 平面上捕捉到一对清晰的涡核（深蓝色区域）。下面采用两种方法来证明这对涡确实存在。
+\end_layout
+
+\begin_layout Standard
+第一种方法基于流线。图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_wake_y_view"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_wake_z_view"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_wake_x_view"
+
+\end_inset
+
+ 分别沿 
+\begin_inset Formula $+y$
+\end_inset
+
+、
+\begin_inset Formula $-z$
+\end_inset
+
+、
+\begin_inset Formula $+x$
+\end_inset
+
+ 方向，画出了由 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 RK3/DG3 近似解导出的速度流线三视图。可以看出：桨盘两侧的流线在向后延伸的过程中，叠加了绕某个向后延伸的轴线的转动，该轴线恰好穿过图
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_t=10e-1_p=3"
+
+\end_inset
+
+ 中的低密度区（即涡核所在位置）。这至少说明，由 RK3/DG3 近似解导出的结果是自洽的。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/forward/p=3/y+.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_wake_y_view"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解导出的流线（主视图）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/forward/p=3/z-.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_wake_z_view"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解导出的流线（俯视图）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/forward/p=3/x+.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_wake_x_view"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解导出的流线（左视图）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+第二种方法基于 
+\begin_inset Formula $Q$
+\end_inset
+
+ 准则，它是一种常用的涡结构可视化方法。图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_Q_y_view"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_Q_z_view"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_Q_x_view"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 分别沿 
+\begin_inset Formula $+y$
+\end_inset
+
+、
+\begin_inset Formula $-z$
+\end_inset
+
+、
+\begin_inset Formula $+x$
+\end_inset
+
+ 方向，画出了由 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 RK1/DG1 近似解导出的 
+\begin_inset Formula $Q$
+\end_inset
+
+ 等值面三视图。可以看出：桨盘两侧各有一道向后拖出的涡，且其位置与图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_wake_y_view"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_wake_z_view"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_wake_x_view"
+
+\end_inset
+
+ 中流线螺旋延伸的轴线一致。这说明由两种近似解导出的结果是相容的。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/forward/p=1/Q_y+.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_Q_y_view"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 UMS–RK1/DG1 近似解导出的 
+\begin_inset Formula $Q$
+\end_inset
+
+ 等值面（主视图）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/forward/p=1/Q_z-.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_Q_z_view"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 UMS–RK1/DG1 近似解导出的 
+\begin_inset Formula $Q$
+\end_inset
+
+ 等值面（俯视图）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/forward/p=1/Q_x+.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_Q_x_view"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 UMS–RK1/DG1 近似解导出的 
+\begin_inset Formula $Q$
+\end_inset
+
+ 等值面（左视图）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/rotor_in_tunnel/forward_p=1.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_p=1"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 UMS–RK1/DG1 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/rotor_in_tunnel/forward_p=3.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_p=3"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼前飞"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=1.0$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 并行性能评估
 \end_layout
 
@@ -17968,2595 +20434,12 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Chapter
-旋翼空气动力学计算
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
 \begin_layout Section
-自由尾迹模型
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-孤立旋翼数值风洞试验
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:rotor_in_tunnel"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-本节用图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:rotor_mesh"
-
-\end_inset
-
- 所示的网格，模拟孤立旋翼在低速风洞中的吹风试验。风洞外形由三维区间 
-\begin_inset Formula $[\SI{-3}{m},\SI{9}{m}]\times[\SI{-3}{m},\SI{3}{m}]\times[\SI{-3}{m},\SI{3}{m}]$
-\end_inset
-
- 表示，在其内部嵌套一个较小的三维区间 
-\begin_inset Formula $[\SI{-2}{m},\SI{8}{m}]\times[\SI{-2}{m},\SI{2}{m}]\times[\SI{-2}{m},\SI{2}{m}]$
-\end_inset
-
-，用以表示旋翼及其尾迹附近网格需要加密的区域。旋翼桨盘中心固定于坐标原点处，桨根及桨尖到该中心点的距离分别为 
-\begin_inset Formula $\SI{0.1}{m}$
-\end_inset
-
- 与 
-\begin_inset Formula $\SI{1.0}{m}$
-\end_inset
-
-，因此桨盘直径为 
-\begin_inset Formula $\SI{2.0}{m}$
-\end_inset
-
-。旋翼转轴允许指向任意方向，转速为每秒 
-\begin_inset Formula $40$
-\end_inset
-
- 转，桨尖速率约为 
-\begin_inset Formula $0.74$
-\end_inset
-
- 马赫（声速取 
-\begin_inset Formula $\SI{340}{m/s}$
-\end_inset
-
-）。图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:rotor_mesh"
-
-\end_inset
-
- 中的球形区域（即半径为 
-\begin_inset Formula $\SI{1.0}{m}$
-\end_inset
-
- 的球体）表示桨叶可能扫过的区域，原则上可以在该区域内进一步加密网格，但本节算例并没有对其做特殊处理。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/rotor_in_tunnel/mesh.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:rotor_mesh"
-
-\end_inset
-
-问题 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:孤立旋翼爬升"
-
-\end_inset
-
-、问题 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:孤立旋翼前飞"
-
-\end_inset
-
- 所用网格的示意图
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-桨叶选用单一翼型、弦长为 
-\begin_inset Formula $\SI{0.1}{m}$
-\end_inset
-
- 的矩形平直桨叶，预扭角为 
-\begin_inset Formula $\ang{10}$
-\end_inset
-
-；翼型选用 UH-60A 直升机主旋翼的 SC-1095 翼型，其升力系数、阻力系数曲线分别如图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:rotor_c_lift"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:rotor_c_drag"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 所示，用于作图的数据引自文献 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Howlett_1981"
-literal "false"
-
-\end_inset
-
-。对于更一般的翼型，可以通过吹风试验或数值模拟来获得类似的曲线。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/airfoil/lift.pdf
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:rotor_c_lift"
-
-\end_inset
-
-SC-1095 翼型的升力系数曲线
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Howlett_1981"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/airfoil/drag.pdf
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:rotor_c_drag"
-
-\end_inset
-
-SC-1095 翼型的阻力系数曲线
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Howlett_1981"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-以上几何参数以及本节剩余部分给出的定解条件，是对真实旋翼风洞试验的较为激进的简化。进行这种简化主要是为了方便后续计算或试验研究复现本节剩余部分给出的算例。实际上
-，对于更一般的风洞截面形状，获得如图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:rotor_mesh"
-
-\end_inset
-
- 所示的只含四面体单元的非结构网格，对于网格生成模块而言没有额外的难度；对于更一般的桨叶外形，如非线性的弦长、预扭分布，本文所实现的求解器也已支持对其进行高效处
-理。
-\end_layout
-
-\begin_layout Subsection
-孤立旋翼爬升问题
-\end_layout
-
-\begin_layout Problem
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-[孤立旋翼爬升]
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "prob:孤立旋翼爬升"
-
-\end_inset
-
-令旋翼转轴指向风洞左侧，即以 
-\begin_inset Formula $(-1,0,0)$
-\end_inset
-
- 为方向矢量。在时间范围 
-\begin_inset Formula $t\in[0,1]$
-\end_inset
-
- 内，求满足三维欧拉方程（式 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:euler_system"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-）及以下定解条件的广义解。
-\end_layout
-
-\begin_layout Problem
-初始条件设为均匀低速气流：
-\begin_inset Formula 
-\begin{equation}
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 1.0 & 0.0 & 0.0 & 101325.0\end{bmatrix}.
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Problem
-边界条件如下：
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-风洞上、下、前、后四面均为固体壁面；
-\end_layout
-
-\begin_layout Itemize
-风洞左端为亚声速入口，状态与初始条件兼容：
-\begin_inset Formula 
-\begin{equation}
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=-3}=\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0};
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-风洞右端为亚声速出口，只给定背景压强：
-\begin_inset Formula 
-\begin{equation}
-\eval{p}_{x=9}=101325.0.
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-为了体现高阶求解器在粗网格上的优势，这里采用只含 
-\begin_inset Formula $h\approx0.25$
-\end_inset
-
- 的四面体单元的粗网格求解该问题。图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:upward_t=2e-1_p=3"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:upward_t=4e-1_p=3"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:upward_t=6e-1_p=3"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:upward_t=8e-1_p=3"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:upward_t=10e-1_p=3"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 依次给出了问题 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:孤立旋翼爬升"
-
-\end_inset
-
- 在 
-\begin_inset Formula $t=0.2$
-\end_inset
-
-、
-\begin_inset Formula $t=0.4$
-\end_inset
-
-、
-\begin_inset Formula $t=0.6$
-\end_inset
-
-、
-\begin_inset Formula $t=0.8$
-\end_inset
-
-、
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 RK1/DG1、 RK3/DG3 近似解。这里给出精度较低的 RK1/DG1 近似解，是因为 RK1/DG1 求解器无需限制器，其给出的结果在物理上较
-为可靠，可以用来定性地验证高阶近似解的正确性。由于缺少试验数据，本文的所有含旋翼的算例都将采用这种方式来验证。
-\end_layout
-
-\begin_layout Standard
-图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:upward_t=2e-1_p=3"
-
-\end_inset
-
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:upward_t=10e-1_p=3"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 采取了相同的作图方式：在 
-\begin_inset Formula $y=0$
-\end_inset
-
- 平面上画出密度分布；在 
-\begin_inset Formula $z=0$
-\end_inset
-
- 平面上画出速度方向，并以箭头根部密度着色；偏左侧的一对同心圆表示桨尖及桨根轨迹。不难发现：桨盘上（左）侧的速度矢量明显在向中心汇聚，密度值在桨盘附近有一个明显
-的跳跃。由等熵条件 
-\begin_inset Formula $p=C\rho^{\gamma}$
-\end_inset
-
- 可以推知，压强在桨盘附近也有一跳跃，且下（右）侧值大于上（左）侧值。这说明流经桨盘平面的气体，正在被桨叶压缩做功；根据牛顿第三定律，桨叶必然受到气体对其施加的
-反作用力，这正是旋翼升力的来源。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/upward/p=1/Frame20.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:upward_t=2e-1_p=1"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼爬升"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=0.2$
-\end_inset
-
- 时刻的 UMS–RK1/DG1 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/upward/p=3/Frame20.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:upward_t=2e-1_p=3"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼爬升"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=0.2$
-\end_inset
-
- 时刻的 UMS–RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/upward/p=1/Frame40.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:upward_t=4e-1_p=1"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼爬升"
-
-\end_inset
-
-问题 在 
-\begin_inset Formula $t=0.4$
-\end_inset
-
- 时刻的 UMS–RK1/DG1 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/upward/p=3/Frame40.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:upward_t=4e-1_p=3"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼爬升"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=0.4$
-\end_inset
-
- 时刻的 UMS–RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/upward/p=1/Frame60.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:upward_t=6e-1_p=1"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼爬升"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=0.6$
-\end_inset
-
- 时刻的 UMS–RK1/DG1 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/upward/p=3/Frame60.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:upward_t=6e-1_p=3"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼爬升"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=0.6$
-\end_inset
-
- 时刻的 UMS–RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/upward/p=1/Frame80.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:upward_t=8e-1_p=1"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼爬升"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=0.8$
-\end_inset
-
- 时刻的 UMS–RK1/DG1 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/upward/p=3/Frame80.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:upward_t=8e-1_p=3"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼爬升"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=0.8$
-\end_inset
-
- 时刻的 UMS–RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/upward/p=1/Frame100.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:upward_t=10e-1_p=1"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼爬升"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 UMS–RK1/DG1 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/upward/p=3/Frame100.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:upward_t=10e-1_p=3"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼爬升"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 UMS–RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-比较不同时刻的 RK1/DG1、 RK3/DG3 近似解可以发现：两种求解器都能捕捉大尺度的涡结构，例如形成于桨盘下（右）侧、随时间推移而向下（右）移动的环状涡
-；但只有 RK3/DG3 求解器才能在如此稀疏的网格上捕捉到声波的干涉条纹。这是因为 RK1/DG1 求解器采用分段常数近似，过大的数值耗散容易将流动细节抹平。
-\end_layout
-
-\begin_layout Standard
-近似解的数值耗散，还可以通过环状涡的涡核清晰度来观察。图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:upward_p=1"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:upward_p=3"
-
-\end_inset
-
- 在图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:upward_t=10e-1_p=3"
-
-\end_inset
-
- 的基础上，补充显示了 
-\begin_inset Formula $x=4.8$
-\end_inset
-
- 平面上的密度分布。可以发现：环状涡的涡核在 RK1/DG1 近似解中较为模糊，在 RK3/DG3 近似解中仍十分明显。这再次体现了高阶求解器数值耗散低的优势。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/rotor_in_tunnel/upward_p=1.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:upward_p=1"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼爬升"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 UMS–RK1/DG1 近似解（补充显示启动涡）
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/rotor_in_tunnel/upward_p=3.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:upward_p=3"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼爬升"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 UMS–RK3/DG3 近似解（补充显示启动涡）
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-孤立旋翼前飞问题
-\end_layout
-
-\begin_layout Problem
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-[孤立旋翼前飞]
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "prob:孤立旋翼前飞"
-
-\end_inset
-
-令旋翼转轴指向风洞顶部，即以 
-\begin_inset Formula $(0,0,1)$
-\end_inset
-
- 为方向矢量。在时间范围 
-\begin_inset Formula $t\in[0,1]$
-\end_inset
-
- 内，求满足三维欧拉方程（式 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:euler_system"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-）及以下定解条件的广义解。
-\end_layout
-
-\begin_layout Problem
-初始条件设为均匀中低速气流：
-\begin_inset Formula 
-\begin{equation}
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 10.0 & 0.0 & 0.0 & 101325.0\end{bmatrix}.
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Problem
-边界条件设如下：
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-风洞上、下、前、后四面均为固体壁面；
-\end_layout
-
-\begin_layout Itemize
-风洞左端为亚声速入口，状态与初始条件兼容：
-\begin_inset Formula 
-\begin{equation}
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=-3}=\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0};
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-风洞右端为亚声速出口，只给定背景压强：
-\begin_inset Formula 
-\begin{equation}
-\eval{p}_{x=9}=101325.0.
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-与问题 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:孤立旋翼爬升"
-
-\end_inset
-
- 相同，这里采用只含 
-\begin_inset Formula $h\approx0.25$
-\end_inset
-
- 的四面体单元的粗网格求解该问题，并且给出精度较低但物理上可靠的 RK1/DG1 近似解，作为定性验证 RK3/DG3 近似解的正确性的参照对象。
-\end_layout
-
-\begin_layout Standard
-图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_t=2e-1_p=3"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_t=4e-1_p=3"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_t=6e-1_p=3"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_t=8e-1_p=3"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_t=10e-1_p=3"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 依次给出了问题 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 在 
-\begin_inset Formula $t=0.2$
-\end_inset
-
-、
-\begin_inset Formula $t=0.4$
-\end_inset
-
-、
-\begin_inset Formula $t=0.6$
-\end_inset
-
-、
-\begin_inset Formula $t=0.8$
-\end_inset
-
-、
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 RK1/DG1、 RK3/DG3 近似解。具体的作图方式为：在 
-\begin_inset Formula $x=4$
-\end_inset
-
- 平面上画出密度分布；在 
-\begin_inset Formula $y=0$
-\end_inset
-
- 平面上画出速度方向，并以箭头根部密度着色；偏左侧的一对同心圆表示桨尖及桨根轨迹。不难发现：桨盘附近的速度矢量明显向下偏转，这表明旋转的桨叶在为气流提供动量；旋
-翼尾迹（红色区域）向右偏转，这体现了左侧自由来流的驱动作用。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=1/Frame20.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_t=2e-1_p=1"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=0.2$
-\end_inset
-
- 时刻的 UMS–RK1/DG1 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=3/Frame20.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_t=2e-1_p=3"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=0.2$
-\end_inset
-
- 时刻的 UMS–RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=1/Frame40.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_t=4e-1_p=1"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=0.4$
-\end_inset
-
- 时刻的 UMS–RK1/DG1 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=3/Frame40.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_t=4e-1_p=3"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=0.4$
-\end_inset
-
- 时刻的 UMS–RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=1/Frame60.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_t=6e-1_p=1"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=0.6$
-\end_inset
-
- 时刻的 UMS–RK1/DG1 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=3/Frame60.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_t=6e-1_p=3"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=0.6$
-\end_inset
-
- 时刻的 UMS–RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=1/Frame80.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_t=8e-1_p=1"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=0.8$
-\end_inset
-
- 时刻的 UMS–RK1/DG1 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=3/Frame80.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_t=8e-1_p=3"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=0.8$
-\end_inset
-
- 时刻的 UMS–RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=1/Frame100.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_t=10e-1_p=1"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 UMS–RK1/DG1 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=3/Frame100.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_t=10e-1_p=3"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 UMS–RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-与问题 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:孤立旋翼爬升"
-
-\end_inset
-
- 的结论类似，两种求解器都能捕捉大尺度的涡结构，例如从桨盘拖出、向右下方倾斜的旋翼尾迹；但只有三阶求解器才能在 
-\begin_inset Formula $x=4$
-\end_inset
-
- 平面上捕捉到一对清晰的涡核（深蓝色区域）。下面采用两种方法来证明这对涡确实存在。
-\end_layout
-
-\begin_layout Standard
-第一种方法基于流线。图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_wake_y_view"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_wake_z_view"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_wake_x_view"
-
-\end_inset
-
- 分别沿 
-\begin_inset Formula $+y$
-\end_inset
-
-、
-\begin_inset Formula $-z$
-\end_inset
-
-、
-\begin_inset Formula $+x$
-\end_inset
-
- 方向，画出了由 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 RK3/DG3 近似解导出的速度流线三视图。可以看出：桨盘两侧的流线在向后延伸的过程中，叠加了绕某个向后延伸的轴线的转动，该轴线恰好穿过图
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_t=10e-1_p=3"
-
-\end_inset
-
- 中的低密度区（即涡核所在位置）。这至少说明，由 RK3/DG3 近似解导出的结果是自洽的。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=3/y+.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_wake_y_view"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 UMS–RK3/DG3 近似解导出的流线（主视图）
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=3/z-.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_wake_z_view"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 UMS–RK3/DG3 近似解导出的流线（俯视图）
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=3/x+.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_wake_x_view"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 UMS–RK3/DG3 近似解导出的流线（左视图）
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-第二种方法基于 
-\begin_inset Formula $Q$
-\end_inset
-
- 准则，它是一种常用的涡结构可视化方法。图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_Q_y_view"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_Q_z_view"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_Q_x_view"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 分别沿 
-\begin_inset Formula $+y$
-\end_inset
-
-、
-\begin_inset Formula $-z$
-\end_inset
-
-、
-\begin_inset Formula $+x$
-\end_inset
-
- 方向，画出了由 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 RK1/DG1 近似解导出的 
-\begin_inset Formula $Q$
-\end_inset
-
- 等值面三视图。可以看出：桨盘两侧各有一道向后拖出的涡，且其位置与图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_wake_y_view"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_wake_z_view"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_wake_x_view"
-
-\end_inset
-
- 中流线螺旋延伸的轴线一致。这说明由两种近似解导出的结果是相容的。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=1/Q_y+.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_Q_y_view"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 UMS–RK1/DG1 近似解导出的 
-\begin_inset Formula $Q$
-\end_inset
-
- 等值面（主视图）
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=1/Q_z-.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_Q_z_view"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 UMS–RK1/DG1 近似解导出的 
-\begin_inset Formula $Q$
-\end_inset
-
- 等值面（俯视图）
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=1/Q_x+.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_Q_x_view"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 UMS–RK1/DG1 近似解导出的 
-\begin_inset Formula $Q$
-\end_inset
-
- 等值面（左视图）
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/rotor_in_tunnel/forward_p=1.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_p=1"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 UMS–RK1/DG1 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/rotor_in_tunnel/forward_p=3.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_p=3"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 UMS–RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Subsection
 小结
 \end_layout
 
-\end_inset
-
-
+\begin_layout Chapter
+舰载直升机气动干扰
 \end_layout
 
 \begin_layout Section
@@ -21698,6 +21581,10 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+小结
 \end_layout
 
 \end_body
