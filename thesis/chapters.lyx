@@ -101,7 +101,7 @@ theorems-chap
 \begin_body
 
 \begin_layout Chapter
-引言
+绪论
 \begin_inset Note Note
 status open
 
@@ -4994,7 +4994,7 @@ reference "subsec:Problems-with-Momentum"
 \end_layout
 
 \begin_layout Section
-空间离散
+基于正交归一基的 DG 空间离散
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:DG"
@@ -7613,7 +7613,7 @@ reference "sec:RK"
 \end_layout
 
 \begin_layout Section
-压制振荡
+数值振荡与 WENO 限制器
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:WENO"
@@ -7667,49 +7667,52 @@ name "sec:WENO"
 \begin_inset Formula $u$
 \end_inset
 
- 的间断处会发生数值振荡。代码 
+ 的间断处会发生数值振荡。图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "Gibbs"
-plural "false"
-caps "false"
-noprefix "false"
+reference "fig:Gibbs"
 
 \end_inset
 
- 演示了吉布斯现象的图象，以及数值振荡不随项数增多而衰减的事实。
+ 演示了吉布斯现象的图象，以及数值振荡幅值不随网格加密而衰减的事实。
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/linear_scalar/h_vary.pdf
+	lyxscale 50
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
 
 
-\backslash
-begin{listing}
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gibbs"
+
+\end_inset
+
+间断函数的 DG3 近似在间断附近发生数值振荡
 \end_layout
 
 \end_inset
 
 
-\begin_inset CommandInset include
-LatexCommand inputminted
-filename "gibbs.py"
-lstparams "language=Python,linenos=true,caption={吉布斯现象演示},label={Gibbs}"
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{listing}
 \end_layout
 
 \end_inset
@@ -8980,7 +8983,7 @@ u_{z}
 \end_layout
 
 \begin_layout Section
-时间推进
+强稳定保持高阶 RK 时间推进格式
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:RK"
@@ -10053,6 +10056,14 @@ reference "fig:PQ"
 小结
 \end_layout
 
+\begin_layout Standard
+适用于三维非结构网格的 Runge–Kutta 间断伽辽金 (RKDG) 求解器，能够处理具有复杂几何外形的边界，从而适用于航空航天领域的工程问题。
+\end_layout
+
+\begin_layout Standard
+基于邻接单元的加权基本无振荡 (WENO) 重构过程，能够有效地压制间断附近的数值振荡，同时保持 RKDG 方法的紧致性、可并行性。
+\end_layout
+
 \begin_layout Chapter
 程序实现与算例验证
 \end_layout
@@ -11111,7 +11122,7 @@ reference "prob:线性单波平流"
 
 \end_inset
 
-问题的运行时间（单位：s）
+问题的运行时间
 \end_layout
 
 \end_inset
@@ -11213,7 +11224,7 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.373
+0.373 s
 \end_layout
 
 \end_inset
@@ -11222,7 +11233,7 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.129
+1.129 s
 \end_layout
 
 \end_inset
@@ -11231,7 +11242,7 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-16.533
+16.533 s
 \end_layout
 
 \end_inset
@@ -11240,7 +11251,7 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-306.293
+306.293 s
 \end_layout
 
 \end_inset
@@ -11260,7 +11271,7 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.580
+1.580 s
 \end_layout
 
 \end_inset
@@ -11269,7 +11280,7 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-14.894
+14.894 s
 \end_layout
 
 \end_inset
@@ -11278,7 +11289,7 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-253.821
+253.821 s
 \end_layout
 
 \end_inset
@@ -11287,7 +11298,7 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-4986.391
+4986.391 s
 \end_layout
 
 \end_inset
@@ -11307,7 +11318,7 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.147
+4.147 s
 \end_layout
 
 \end_inset
@@ -11316,7 +11327,7 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-61.425
+61.425 s
 \end_layout
 
 \end_inset
@@ -11325,7 +11336,7 @@ diagbox{$p$}{$h$}
 \begin_inset Text
 
 \begin_layout Plain Layout
-906.914
+906.914 s
 \end_layout
 
 \end_inset
@@ -20436,6 +20447,15 @@ noprefix "false"
 
 \begin_layout Section
 小结
+\end_layout
+
+\begin_layout Standard
+高阶 RKDG 求解器的数值耗散较低，能够在相对较粗的非结构网格上捕获复杂的流动细节，具有更高的性价比。 
+\end_layout
+
+\begin_layout Standard
+非定常动量源模型与高阶 RKDG 求解器配合使用，能够在静态网格上高效、高精度地模拟旋翼对流场的扰动，避免了传统旋翼空气动力学数值模拟方法对动态网格、滑动网格、
+重叠网格等高级网格技术的依赖。
 \end_layout
 
 \begin_layout Chapter
