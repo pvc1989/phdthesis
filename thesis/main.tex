@@ -1,5 +1,5 @@
 % !Mode:: "TeX:UTF-8"
-%\PassOptionsToPackage{draft}{graphicx}
+\PassOptionsToPackage{draft}{graphicx}
 \documentclass[doctor,openright,twoside,color,AutoFakeBold=true]{buaathesis}
 
 % 参考文献
@@ -84,12 +84,8 @@
 \theoremstyle{definition}
 \newtheorem{condition}[thm]{\protect\conditionname}
 
-\def\th@plain{%
-	\hwkaiti % body font
-}
-\def\th@definition{%
-	\fangsong % body font
-}
+\def\th@plain{ \hwkaiti }
+\def\th@definition{ \fangsong }
 
 \makeatother
 
@@ -206,6 +202,8 @@ SmallCapsFeatures={Numbers=OldStyle}
 % `physics` and `unicode-math` treat `\div` differently:
 \let\divg\divergence  % define another abbr for `\divergence`.
 
+\AtBeginEnvironment{tabular}{\linespread{1.0}\selectfont}
+
 \begin{document}
 
 % 用户信息
@@ -291,8 +289,13 @@ SmallCapsFeatures={Numbers=OldStyle}
 \include{abstract}
 % 目录、插图目录、表格目录
 \tableofcontents
+
+\begingroup
+\renewcommand\citet[2][]{}
+\renewcommand\upcite[2][]{}
 \listoffigures
 \listoftables
+\endgroup
 % 符号表
 %\include{data/master/denotation}
 
