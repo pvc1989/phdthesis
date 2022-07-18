@@ -120,7 +120,7 @@ status open
 安全、维护海洋权益具有重要意义。 世界各海洋大国和航空大国历来重视舰载直升机的发展，相继研制出各种不同构型的舰载直升机，如表 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "Marine-Helicopter"
+reference "tab:shipborne-helicopter"
 plural "false"
 caps "false"
 noprefix "false"
@@ -145,14 +145,13 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-国外主要舰载直升机
 \begin_inset CommandInset label
 LatexCommand label
-name "Marine-Helicopter"
+name "tab:shipborne-helicopter"
 
 \end_inset
 
-
+国外主要舰载直升机
 \end_layout
 
 \end_inset
@@ -1606,63 +1605,7 @@ literal "false"
 
 \begin_layout Description
 旋翼-地面干扰 当直升机从地面起飞或贴地低空飞行时，地面的阻挡将改变旋翼尾迹的流向。 一般而言，地面效应会使旋翼拉力、悬停气动效率等总体性能指标有所提升；
- 但在地面存在大量砂石等颗粒物的条件下，地面效应会进一步引发沙盲现象（图
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "brownout"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-），导致飞行员视线受到遮挡，从而影响飞行安全。 
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../review/figures/brownout.png
-	lyxscale 50
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
- 
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-沙盲现象示意图
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Syal2012"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "brownout"
-
-\end_inset
-
- 
-\end_layout
-
-\end_inset
-
-
+ 但在地面存在大量砂石等颗粒物的条件下，地面效应会进一步引发沙盲现象，导致飞行员视线受到遮挡，从而影响飞行安全。 
 \end_layout
 
 \begin_layout Description
@@ -1754,10 +1697,7 @@ v=v_{0}+v_{\mathrm{c}}r\cos\psi+v_{\mathrm{s}}r\sin\psi
 之间的关系，可以写成状态空间形式： 
 \begin_inset Formula 
 \begin{equation}
-\underline{M}\dv{t}\begin{bmatrix}v_{\mathrm{0}}\\
-v_{\mathrm{s}}\\
-v_{\mathrm{c}}
-\end{bmatrix}+\underline{L}^{-1}\begin{bmatrix}v_{\mathrm{0}}\\
+\left(\underline{M}\,\dv{t}+\underline{L}^{-1}\right)\begin{bmatrix}v_{\mathrm{0}}\\
 v_{\mathrm{s}}\\
 v_{\mathrm{c}}
 \end{bmatrix}=\begin{bmatrix}C_{\mathrm{T}}\\
@@ -1768,7 +1708,7 @@ C_{\mathrm{M}}
 
 \end_inset
 
-文献 
+文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Chen1989"
@@ -1917,7 +1857,7 @@ literal "false"
 （流体微团）的运动仍然受流体力学基本原理支配。 “涡元像流体微团一样在流场中自由运动”即是指涡元运动满足如下关系： 
 \begin_inset Formula 
 \begin{equation}
-\frac{\dd\vec{r}}{\dd t}=\vec{u}=\vec{u}_{\mathrm{\infty}}+\vec{u}_{\mathrm{ind}}\label{ODE}
+\frac{\dd\vec{r}}{\dd t}=\vec{u}=\vec{u}_{\mathrm{\infty}}+\vec{u}_{\mathrm{ind}}\label{eq:vortex_element}
 \end{equation}
 
 \end_inset
@@ -1966,17 +1906,17 @@ literal "false"
 
 \end_inset
 
-引入涡线模型离散后，
+引入涡线模型离散后，式 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "ODE"
+LatexCommand eqref
+reference "eq:vortex_element"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-式变为一个高度非线性的常微分方程系统，求解的难度来源于非线性的诱导速度项
+ 变为一个高度非线性的常微分方程系统，求解的难度来源于非线性的诱导速度项
 \begin_inset Formula $\vec{u}_{\mathrm{ind}}$
 \end_inset
 
@@ -2131,6 +2071,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:free-wake"
+
+\end_inset
+
 利用自由尾迹模型计算得到的纵列式双旋翼尾迹
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2145,13 +2091,6 @@ literal "false"
 \end_inset
 
 
-\begin_inset CommandInset label
-LatexCommand label
-name "free-wake"
-
-\end_inset
-
- 
 \end_layout
 
 \end_inset
@@ -2235,7 +2174,7 @@ literal "false"
 
 \end_inset
 
- 采用与
+ 采用与文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jain2000"
@@ -2243,8 +2182,8 @@ literal "false"
 
 \end_inset
 
-中类似方法研究了悬停状态桨尖涡几何结构的稳定性。 计算结果显示，悬停状态时，桨尖涡几何结构的周期性条件只对前几圈桨叶适用，后几圈的桨尖涡几何结构表现出明细的时间
-非周期性。 由于采用了数值稳定的隐式Adams–Moulton格式，并且在步长小于 
+ 中类似方法研究了悬停状态桨尖涡几何结构的稳定性。 计算结果显示，悬停状态时，桨尖涡几何结构的周期性条件只对前几圈桨叶适用，后几圈的桨尖涡几何结构表现出明细的时
+间非周期性。 由于采用了数值稳定的隐式Adams–Moulton格式，并且在步长小于 
 \begin_inset Formula $\ang{4}$
 \end_inset
 
@@ -2270,7 +2209,7 @@ literal "false"
 \end_inset
 
  基于时间步进自由尾迹方法研究了地面效应影响下的直升机气动特性。 其中，旋翼尾迹通过自由涡方法进行建模，桨叶气动力由升力面理论给出，地面则采用镜像法进行处理。
- 时间步进算法采用与
+ 时间步进算法采用与文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jain2000,Kini2002"
@@ -2278,7 +2217,7 @@ literal "false"
 
 \end_inset
 
-中类似的Adams-Moulton格式。 计算结果与佐治亚理工的试验数据进行了对比，验证了算法的可行性。
+ 中类似的Adams-Moulton格式。 计算结果与佐治亚理工的试验数据进行了对比，验证了算法的可行性。
 \end_layout
 
 \begin_layout Standard
@@ -2341,17 +2280,18 @@ literal "false"
 
 \begin_layout Subsection
 黏性涡粒子模型
-\end_layout
-
-\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
-name "Viscous-Vortex-Particle-Method"
+name "sec:Viscous-Vortex-Particle-Method"
 
 \end_inset
 
- 黏性涡粒子模型（Vortex Particle Model, VPM）与自由尾迹模型类似，也属于基于拉格朗日观点的分析模型。 所不同的是该模型用涡粒子代替了涡
-线，每个涡粒子由位置
+
+\end_layout
+
+\begin_layout Standard
+黏性涡粒子模型（Vortex Particle Model, VPM）与自由尾迹模型类似，也属于基于拉格朗日观点的分析模型。 所不同的是该模型用涡粒子代替了涡线
+，每个涡粒子由位置
 \begin_inset Formula $\vec{x}$
 \end_inset
 
@@ -2363,10 +2303,10 @@ name "Viscous-Vortex-Particle-Method"
 \begin_inset Formula $\vec{x}$
 \end_inset
 
-的变化规律与自由尾迹模型一样，由如下简单的运动学关系描述： 
+的变化规律与自由尾迹模型一样，由如下简单的运动学关系描述：
 \begin_inset Formula 
 \begin{equation}
-\frac{\dd\vec{x}}{\dd t}=\vec{u}\label{}
+\frac{\dd\vec{x}}{\dd t}=\vec{u}
 \end{equation}
 
 \end_inset
@@ -2379,20 +2319,21 @@ name "Viscous-Vortex-Particle-Method"
 \end_layout
 
 \begin_layout Standard
-旋翼尾迹流场属于低亚声速流动，通常可以对空气采用各项同性、不可压缩、正压等理想化假设。 基于这些假设，可以将Navier–Stokes方程（详见
+旋翼尾迹流场属于低亚声速流动，通常可以对空气采用各项同性、不可压缩、正压等理想化假设。 基于这些假设，可以将 Navier–Stokes 方程（详见
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "Navier-Stokes-Equation"
+reference "sec:Navier-Stokes-Equation"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-）简化为： 
+ 小节）简化为： 
 \begin_inset Formula 
 \begin{equation}
-\frac{\dd\vec{u}}{\dd t}=\frac{\partial\vec{u}}{\partial t}+\left(\vec{u}\cdot\nabla\right)\vec{u}=-\frac{1}{\rho}\nabla p+\nu\nabla^{2}\vec{u}+\vec{f}\label{}
+\frac{\dd\vec{u}}{\dd t}=\frac{\partial\vec{u}}{\partial t}+\left(\vec{u}\cdot\nabla\right)\vec{u}=-\frac{1}{\rho}\nabla p+\nu\nabla^{2}\vec{u}+\vec{f}
 \end{equation}
 
 \end_inset
@@ -2532,7 +2473,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "vortex-particle"
+name "fig:vortex-particle"
 
 \end_inset
 
@@ -2611,18 +2552,19 @@ literal "false"
 
 \begin_layout Subsection
 涡量输运方程
-\end_layout
-
-\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
-name "Vorticity-Transport-Model"
+name "sec:Vorticity-Transport-Model"
 
 \end_inset
 
- 该方法基于欧拉观点（场观点），直接对涡量输运方程（
+
+\end_layout
+
+\begin_layout Standard
+该方法基于欧拉观点（场观点），直接对涡量输运方程 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "Vorticity-Transport-Equation"
 plural "false"
 caps "false"
@@ -2630,8 +2572,8 @@ noprefix "false"
 
 \end_inset
 
-式）进行数值求解。 从离散方法的角度看，该方法属于有限体积法，但描述流场的变量为涡量。 由于采用了涡量形式的问题表述形式，该方法能够有效地减小数值耗散引起的涡量
-非物理扩散。 涡量输运方法的主要弊端是难以处理壁面边界条件，无法考虑空气压缩性，因而必须引入其他方法（升力线、升力面、CFD等）作为补充。
+ 进行数值求解。 从离散方法的角度看，该方法属于有限体积法，但描述流场的变量为涡量。 由于采用了涡量形式的问题表述形式，该方法能够有效地减小数值耗散引起的涡量非
+物理扩散。 涡量输运方法的主要弊端是难以处理壁面边界条件，无法考虑空气压缩性，因而必须引入其他方法（升力线、升力面、CFD等）作为补充。
 \end_layout
 
 \begin_layout Standard
@@ -2725,6 +2667,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:VTM"
+
+\end_inset
+
 由涡量输运方法计算得到的涡量分布
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2739,13 +2687,6 @@ literal "false"
 \end_inset
 
 
-\begin_inset CommandInset label
-LatexCommand label
-name "vtm"
-
-\end_inset
-
- 
 \end_layout
 
 \end_inset
@@ -2881,16 +2822,17 @@ literal "false"
 
 \begin_layout Subsection
 Navier–Stokes 方程
-\end_layout
-
-\begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
-name "Navier-Stokes-Equation"
+name "sec:Navier-Stokes-Equation"
 
 \end_inset
 
- Navier–Stokes方程
+
+\end_layout
+
+\begin_layout Standard
+Navier–Stokes方程
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Landau_1987"
@@ -2905,7 +2847,7 @@ literal "false"
 假设下，描述流体运动最精确的物理模型。 将动量定理应用于连续介质流体，可以得到一般形式的Navier–Stokes方程（动量方程）： 
 \begin_inset Formula 
 \begin{equation}
-\rho\frac{\dd u_{i}}{\dd t}=\rho\left(\frac{\partial u_{i}}{\partial t}+u_{j}\frac{\partial u_{i}}{\partial x_{j}}\right)=\rho f_{i}+\frac{\partial\sigma_{ij}}{\partial x_{j}}\label{Navier-Stokes-General}
+\rho\frac{\dd u_{i}}{\dd t}=\rho\left(\frac{\partial u_{i}}{\partial t}+u_{j}\frac{\partial u_{i}}{\partial x_{j}}\right)=\rho f_{i}+\frac{\partial\sigma_{ij}}{\partial x_{j}}\label{eq:Navier-Stokes-General}
 \end{equation}
 
 \end_inset
@@ -2919,17 +2861,17 @@ literal "false"
 
 \begin_layout Standard
 一般形式的Navier–Stokes方程过于复杂，难以求解。 因此，有必要对流体模型（即本构关系模型）进行简化，由此演化出不同层次的分析模型。
- 常用的流体模型包括：无黏流体、牛顿流体、各项同性流体、常黏度流体、不可压缩流体、Stokes流体。 之前提到的各种计算模型都是以
+ 常用的流体模型包括：无黏流体、牛顿流体、各项同性流体、常黏度流体、不可压缩流体、Stokes流体。 之前提到的各种计算模型都是以式 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "Navier-Stokes-General"
+LatexCommand nameref
+reference "eq:Navier-Stokes-General"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-式为出发点，通过引入不可压缩、无黏、正压等假设，对物理模型进行简化，再经过一定的数学处理而得到的计算模型。
+ 为出发点，通过引入不可压缩、无黏、正压等假设，对物理模型进行简化，再经过一定的数学处理而得到的计算模型。
 \end_layout
 
 \begin_layout Subsubsection
@@ -2997,7 +2939,7 @@ literal "false"
 ，其本构关系用笛卡尔张量记法可以写为如下线性形式： 
 \begin_inset Formula 
 \begin{equation}
-\sigma_{ij}=-p\delta_{ij}+{D}_{ijkl}e_{kl}\label{Newtonian-Fluid}
+\sigma_{ij}=-p\delta_{ij}+D_{ijkl}e_{kl}\label{eq:Newtonian-Fluid}
 \end{equation}
 
 \end_inset
@@ -3010,10 +2952,10 @@ literal "false"
 \begin_inset Formula $e_{kl}$
 \end_inset
 
-为应变率张量： 
+ 为应变率张量： 
 \begin_inset Formula 
 \begin{equation}
-e_{ij}=\frac{1}{2}\left(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}}\right)\label{geometry}
+e_{ij}=\frac{1}{2}\left(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}}\right)\label{eq:strain_rate}
 \end{equation}
 
 \end_inset
@@ -3022,7 +2964,7 @@ e_{ij}=\frac{1}{2}\left(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{
 \begin_inset Formula ${D}_{ijkl}$
 \end_inset
 
-为黏性系数张量，对于
+ 为黏性系数张量，对于
 \series bold
 各项同性流体
 \series default
@@ -3041,7 +2983,7 @@ e_{ij}=\frac{1}{2}\left(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{
 ： 
 \begin_inset Formula 
 \begin{equation}
-{D}_{ijkl}=\lambda\delta_{ij}\delta_{kl}+\mu\left(\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}\right)\label{isotropic}
+D_{ijkl}=\lambda\delta_{ij}\delta_{kl}+\mu\left(\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}\right)\label{eq:isotropic}
 \end{equation}
 
 \end_inset
@@ -3059,51 +3001,51 @@ e_{ij}=\frac{1}{2}\left(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{
 \end_inset
 
 称为动力学黏度或剪切黏度，
-\begin_inset Formula $\nu=\frac{\mu}{\rho}$
+\begin_inset Formula $\nu=\mu/\rho$
 \end_inset
 
-称为运动学黏度，而将
+ 称为运动学黏度，而将
 \begin_inset Formula $\zeta=\lambda+\frac{2}{3}\mu$
 \end_inset
 
-称为第二黏度或体积黏度。 一般而言，它们都是温度和压力的函数。 将
+称为第二黏度或体积黏度。 一般而言，它们都是温度和压力的函数。 将式 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "geometry"
+LatexCommand eqref
+reference "eq:strain_rate"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-式和
+ 和式 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "isotropic"
+LatexCommand eqref
+reference "eq:isotropic"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-式代入
+ 代入式 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "Newtonian-Fluid"
+LatexCommand eqref
+reference "eq:Newtonian-Fluid"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-式，得到各项同性流体的本构关系： 
+，得到各项同性流体的本构关系： 
 \begin_inset Formula 
 \begin{equation}
 \begin{split}\sigma_{ij} & =-p\delta_{ij}+\lambda\delta_{ij}e_{kk}+2\mu e_{ij}\\
  & =-p\delta_{ij}+\lambda\delta_{ij}\frac{\partial u_{k}}{\partial x_{k}}+\mu\left(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}}\right)\\
  & =-p\delta_{ij}+\mu\left(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}}-\frac{2}{3}\delta_{ij}\frac{\partial u_{k}}{\partial x_{k}}\right)+\zeta\delta_{ij}\frac{\partial u_{k}}{\partial x_{k}}
 \end{split}
-\label{Isotropic-Fluid}
+\label{eq:Isotropic-Fluid}
 \end{equation}
 
 \end_inset
@@ -3115,7 +3057,7 @@ noprefix "false"
  & +\frac{\partial}{\partial x_{j}}\left(\mu\left(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}}-\frac{2}{3}\delta_{ij}\frac{\partial u_{k}}{\partial x_{k}}\right)\right)\\
  & +\frac{\partial}{\partial x_{i}}\left(\zeta\frac{\partial u_{k}}{\partial x_{k}}\right)
 \end{split}
-\label{Navier-Stokes}
+\label{eq:Navier-Stokes}
 \end{equation}
 
 \end_inset
@@ -3154,7 +3096,7 @@ noprefix "false"
 ，可以将其改写成与坐标系无关的矢量形式： 
 \begin_inset Formula 
 \begin{equation}
-\rho\left(\frac{\partial\vec{u}}{\partial t}+\left(\vec{u}\cdot\nabla\right)\vec{u}\right)=\rho\vec{f}-\nabla p+\mu\Delta\vec{u}+\left(\frac{\mu}{3}+\zeta\right)\nabla\left(\nabla\cdot\vec{u}\right)\label{Navier-Stokes-Vector}
+\rho\left(\frac{\partial\vec{u}}{\partial t}+\left(\vec{u}\cdot\nabla\right)\vec{u}\right)=\rho\vec{f}-\nabla p+\mu\Delta\vec{u}+\left(\frac{\mu}{3}+\zeta\right)\nabla\left(\nabla\cdot\vec{u}\right)\label{eq:Navier-Stokes-Vector}
 \end{equation}
 
 \end_inset
@@ -3167,17 +3109,17 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-若不考虑压缩性，
+若不考虑压缩性，式 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "Navier-Stokes-Vector"
+LatexCommand eqref
+reference "eq:Navier-Stokes-Vector"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-式可以简化为： 
+ 可以简化为： 
 \begin_inset Formula 
 \begin{equation}
 \frac{\partial\vec{u}}{\partial t}+\left(\vec{u}\cdot\nabla\right)\vec{u}=\vec{f}-\frac{1}{\rho}\nabla p+\nu\Delta\vec{u}
@@ -3185,27 +3127,24 @@ noprefix "false"
 
 \end_inset
 
-之前提到的黏性涡粒子模型（参见
+之前提到的
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "Viscous-Vortex-Particle-Method"
+LatexCommand nameref
+reference "sec:Viscous-Vortex-Particle-Method"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-）、涡量输运方法（参见
+、
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "Vorticity-Transport-Model"
-plural "false"
-caps "false"
-noprefix "false"
+LatexCommand nameref
+reference "sec:Vorticity-Transport-Model"
 
 \end_inset
 
-）均以此方程为出发点。 显然，不可压缩流体模型不能用于压缩效应明显的高亚声速、跨声速流动区域。
+均以此方程为出发点。显然，不可压缩流体模型不能用于压缩效应明显的高亚声速、跨声速流动区域。
 \end_layout
 
 \begin_layout Standard
@@ -3243,16 +3182,17 @@ Stokes流体
 \end_layout
 
 \begin_layout Standard
+式 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "Isotropic-Fluid"
+LatexCommand eqref
+reference "eq:Isotropic-Fluid"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-式中的
+ 中的
 \begin_inset Formula $e_{kk}=e_{11}+e_{22}+e_{33}$
 \end_inset
 
@@ -3267,7 +3207,7 @@ noprefix "false"
 也有第一不变量： 
 \begin_inset Formula 
 \begin{equation}
-\sigma_{kk}=\sigma_{11}+\sigma_{22}+\sigma_{33}=-3p+\left(3\lambda+2\mu\right)e_{kk}\label{}
+\sigma_{kk}=\sigma_{11}+\sigma_{22}+\sigma_{33}=-3p+\left(3\lambda+2\mu\right)e_{kk}
 \end{equation}
 
 \end_inset
@@ -3283,7 +3223,7 @@ Stokes假设主应力平均值
 无关： 
 \begin_inset Formula 
 \begin{equation}
-3\lambda+2\mu=0\label{}
+3\lambda+2\mu=0
 \end{equation}
 
 \end_inset
@@ -3299,7 +3239,7 @@ Stokes流体
 ，其本构关系为： 
 \begin_inset Formula 
 \begin{equation}
-\sigma_{ij}=-p\delta_{ij}-\frac{2}{3}\mu e_{kk}\delta_{ij}+2\mu e_{ij}\label{Stokes-Fluid}
+\sigma_{ij}=-p\delta_{ij}-\frac{2}{3}\mu e_{kk}\delta_{ij}+2\mu e_{ij}\label{eq:Stokes-Fluid}
 \end{equation}
 
 \end_inset
@@ -4105,7 +4045,7 @@ literal "false"
 
 \end_inset
 
-对
+对文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bogstad2002"
@@ -4113,8 +4053,8 @@ literal "false"
 
 \end_inset
 
-中的一些观点提出了质疑。 Zan认为，特殊算例的CFD计算结果与试验数据进行的对比，并不能证明该CFD方法在更一般的条件下下仍然有效。 试验和基于Navier–
-Stokes方程的计算结果都显示，在某些情况下，船体空气尾流是由涡流主导的，并且存在强烈的流动分离现象。 因此，
+ 中的一些观点提出了质疑。 Zan认为，特殊算例的CFD计算结果与试验数据进行的对比，并不能证明该CFD方法在更一般的条件下下仍然有效。 试验和基于Navier
+–Stokes方程的计算结果都显示，在某些情况下，船体空气尾流是由涡流主导的，并且存在强烈的流动分离现象。 因此，文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bogstad2002"
@@ -4122,7 +4062,7 @@ literal "false"
 
 \end_inset
 
-中基于Euler方程得到的结论并不可靠。
+ 中基于Euler方程得到的结论并不可靠。
 \end_layout
 
 \begin_layout Plain Layout
@@ -4146,7 +4086,7 @@ literal "false"
 
  基于非结构网格，利用定常和时间精确（非定常）无黏CFD计算得到船体空气尾流，并将其引入到GENHEL直升机飞行仿真程序中。 基于此模型，作者针对特定的直升机着
 舰和离舰飞行轨迹，设计了最优控制算法。 结果表明，船体空气尾流的非定常性对于直升机着舰和离舰操纵具有显著影响，这正是舰载直升机与舰载固定翼飞机明细不同的地方。
- 此文中的CFD计算模型没有考虑空气黏性，因而可能没有丢失了一些真实船体空气尾流的特征。 在
+ 此文中的CFD计算模型没有考虑空气黏性，因而可能没有丢失了一些真实船体空气尾流的特征。 在文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Lee2004"
@@ -4154,7 +4094,7 @@ literal "false"
 
 \end_inset
 
-中，Lee等引入了一种随机船体空气尾流模型 ，用以提高仿真的效率。 该模型可用于优化飞行控制系统，以提高飞行器抗扰性能。
+ 中，Lee等引入了一种随机船体空气尾流模型 ，用以提高仿真的效率。 该模型可用于优化飞行控制系统，以提高飞行器抗扰性能。
 \end_layout
 
 \begin_layout Plain Layout
@@ -4458,7 +4398,7 @@ literal "false"
 \bar under
 局部 DG (local DG, LDG)
 \bar default
- 法，将 RKDG 方法从守恒律推广到对流占优问题，具体推广过程可参考文献 
+ 法，将 RKDG 方法从守恒律推广到对流占优问题，具体推广过程可参考文献-
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Cockburn_2001"
@@ -4700,21 +4640,6 @@ literal "false"
 .
  The last case includes the Euler system that depicts inviscid compressible
  flows, which is the first application of RKDG in CFD.
- We will give a concise derivation of this scheme in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:spatial_discretization"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:temporal_discretization"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Plain Layout
@@ -4811,18 +4736,6 @@ literal "false"
 
 , we extended it to three-dimensional and presented an efficient parallel
  implementation.
- We will summarize the key steps of this compact WENO limiter in Section
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:limiting_procedures"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Plain Layout
@@ -4904,23 +4817,6 @@ literal "false"
  To overcome these drawbacks, our parallel RKDG solvers are augmented with
  an unsteady actuator line model, which successfully capture unsteady effects
  of a rotor on unstructured meshes.
- The formulation of this finite-element/momentum-source hybrid method will
- be given in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:The-Momentum-Source"
-
-\end_inset
-
-.
- Some demonstrative results are presented in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Problems-with-Momentum"
-
-\end_inset
-
-.
 \end_layout
 
 \end_inset
@@ -4999,7 +4895,7 @@ name "sec:DG"
 。记录所有单元及结点信息的数据结构被称为“网格 (mesh/grid)”。为方便叙述，表 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:网格术语"
+reference "tab:mesh"
 
 \end_inset
 
@@ -5020,7 +4916,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:网格术语"
+name "tab:mesh"
 
 \end_inset
 
@@ -5839,26 +5735,8 @@ literal "false"
 \begin_inset Note Note
 status open
 
-\begin_layout Plain Layout
-第 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:创建面单元"
-
-\end_inset
-
- 节介绍了本文所采用的方案。
-\end_layout
-
 \begin_layout Subsection
 创建面单元
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:创建面单元"
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -6017,7 +5895,7 @@ reference "eq:inner-product"
 
 \end_inset
 
-、式 
+–
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:norm"
@@ -6280,7 +6158,7 @@ reference "eq:inner-product"
 正交归一化
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:正交归一化"
+name "subsec:orthonormal"
 
 \end_inset
 
@@ -6732,7 +6610,7 @@ name "subsec:quadrature"
 \begin_inset Formula $\mathbb{P}^{<p}(V_{i})$
 \end_inset
 
- 选定后，基于正交基函数的多项式近似 
+ 选定后，基于正交基函数的多项式近似，即式 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:function_projection"
@@ -7330,7 +7208,7 @@ reference "eq:weak-form"
 \underline{A}_{V}\coloneqq\begin{bmatrix}\langle\phi_{1}\vert\psi_{1}\rangle_{V} & \cdots & \langle\phi_{1}\vert\psi_{L}\rangle_{V}\\
 \vdots & \ddots & \vdots\\
 \langle\phi_{K}\vert\psi_{1}\rangle_{V} & \cdots & \langle\phi_{K}\vert\psi_{L}\rangle_{V}
-\end{bmatrix}
+\end{bmatrix}\label{eq:coeff_matrix}
 \end{equation}
 
 \end_inset
@@ -7500,7 +7378,7 @@ reference "eq:FEM"
  中省去。前文（
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:正交归一化"
+reference "subsec:orthonormal"
 
 \end_inset
 
@@ -7666,7 +7544,7 @@ reference "fig:Gibbs"
 
 \end_inset
 
- 演示了吉布斯现象的图象，以及数值振荡幅值不随网格加密而衰减的事实。
+ 展示了吉布斯现象的图象，以及数值振荡幅值不随网格加密而衰减的事实。
 \end_layout
 
 \begin_layout Standard
@@ -7713,7 +7591,7 @@ name "fig:Gibbs"
 \end_layout
 
 \begin_layout Standard
-“基本无振荡 (essentially non-oscillatory, ENO)” 重构方法最早出现于文献 
+“基本无振荡 (essentially non-oscillatory, ENO)” 重构方法最早出现于文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Harten_1997"
@@ -7750,44 +7628,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-(W)ENO 格式虽不能完全消除数值振荡
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-（故不是 
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "def:TVD-scheme"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-）
-\end_layout
-
-\end_inset
-
-，但可以让数值振荡的幅值随网格加密而衰减
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-（因此是 
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "rem:TVB-scheme"
-
-\end_inset
-
-）
-\end_layout
-
-\end_inset
-
-，同时还能够避免近似解的精度在光滑极值点附近降阶，因此特别适合于既含间断（激波、接触间断、膨胀波）、又含复杂光滑结构（湍流、涡系）的问题。
+(W)ENO 格式虽不能完全消除数值振荡，但可以让数值振荡的幅值随网格加密而衰减，同时还能够避免近似解的精度在光滑极值点附近降阶，因此特别适合于既含间断（激波、
+接触间断、膨胀波）、又含复杂光滑结构（湍流、涡系）的问题。
 \end_layout
 
 \begin_layout Subsection
@@ -7950,7 +7792,7 @@ f_{i+2}
 \end_layout
 
 \begin_layout Standard
-文献 
+文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jiang_1996"
@@ -8325,7 +8167,7 @@ w_{k\to i}^{\star}=\begin{cases}
 \begin_inset Formula $\vert V_{i}\vert^{2\vert\alpha\vert/3-1}/(\vert\alpha\vert!)^{2}$
 \end_inset
 
- 的分子用于无量纲化，分母用于避免高阶导数的占比过多。文献 
+ 的分子用于无量纲化，分母用于避免高阶导数的占比过多。文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Zhu_2013"
@@ -9094,7 +8936,7 @@ reference "eq:orthonormal_DG"
 就得到显式欧拉格式：
 \begin_inset Formula 
 \begin{equation}
-\underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n}.
+\underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n}.\label{eq:Euler}
 \end{equation}
 
 \end_inset
@@ -9134,7 +8976,7 @@ reference "eq:orthonormal_DG"
 显式 Runge–Kutta (RK) 格式是一族高阶推进格式，最一般的形式为
 \begin_inset Formula 
 \begin{equation}
-\underline{\hat{U}}^{n+i/m}=\sum_{k=0}^{i-1}\left(\alpha_{i,k}\underline{\hat{U}}^{n+k/m}+\beta_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\right),\qquad i=1,\dots,m\label{eq:m-stage_Runge--Kutta}
+\underline{\hat{U}}^{n+i/m}=\sum_{k=0}^{i-1}\left(\alpha_{i,k}\underline{\hat{U}}^{n+k/m}+\beta_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\right),\qquad i=1,\dots,m\label{eq:RKm}
 \end{equation}
 
 \end_inset
@@ -9148,6 +8990,18 @@ reference "eq:orthonormal_DG"
 \end_inset
 
  都成立。本文选用以下版本：
+\end_layout
+
+\begin_layout Description
+一阶 
+\begin_inset Formula 
+\begin{equation}
+\underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n};\label{eq:RK1}
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Description
@@ -9221,7 +9075,7 @@ reference "eq:orthonormal_DG"
 若式 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:m-stage_Runge--Kutta"
+reference "eq:RKm"
 
 \end_inset
 
@@ -9330,7 +9184,7 @@ h_{t}\le ch_{t}^{\text{F.E.}},\qquad c=\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}
 可以改写为式 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:m-stage_Runge--Kutta"
+reference "eq:RKm"
 
 \end_inset
 
@@ -9426,7 +9280,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-并非所有 RK 格式都能保持强稳定性。例如：文献 
+并非所有 RK 格式都能保持强稳定性。例如：文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Hirsch_2007"
@@ -9449,7 +9303,7 @@ literal "false"
 改写为式 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:m-stage_Runge--Kutta"
+reference "eq:RKm"
 
 \end_inset
 
@@ -9488,11 +9342,14 @@ status open
 本文选用式 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:RK2"
+reference "eq:RK1"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
- 及式 
+–
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:RK3"
@@ -9550,21 +9407,21 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-前文已经给出了用 RKDG 方法（式 
+前文已经给出了用 RKDG 方法 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:orthonormal_DG"
 
 \end_inset
 
-）来求解含源项的双曲型方程组（式 
+ 来求解含源项的双曲型方程组 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:PDE"
 
 \end_inset
 
-）的一般过程。在该方法中，源项只出现在体积分中，具体形式为
+ 的一般过程。在该方法中，源项只出现在体积分中，具体形式为
 \begin_inset Formula 
 \begin{equation}
 \int_{V_{i}}\begin{bmatrix}\phi_{1} & \cdots & \phi_{K}\end{bmatrix}\mathopen{\underline{H}}\left(\underline{U^{h}}\right).
@@ -10106,7 +9963,7 @@ reference "subsec:linear_advection"
 
 \end_inset
 
- 节外，本章所有算例均为求解由描述无黏可压缩流动的三维欧拉方程
+ 小节外，本章所有算例均为求解由描述无黏可压缩流动的三维欧拉方程
 \begin_inset Formula 
 \begin{equation}
 \partial_{t}\begin{bmatrix}\rho\\
@@ -10148,6 +10005,13 @@ reference "subsec:linear_advection"
 
 \begin_layout Section
 并行编程
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:parallel"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -10170,14 +10034,15 @@ name "subsec:linear_advection"
 
 \end_inset
 
-的初边值问题。这组问题的解析解可以由第 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:riemann"
+的初边值问题。这组问题的解析解可以由文献-
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Toro_2009"
+literal "false"
 
 \end_inset
 
- 章介绍的方法获得，因而很适合被用于数值求解器性能的定量评估。本节所有问题都是在三维区间 
+ 介绍的方法获得，因而很适合被用于数值求解器性能的定量评估。本节所有问题都是在三维区间 
 \begin_inset Formula $[0,4]\times[0,1]\times[0,0.5]$
 \end_inset
 
@@ -10268,14 +10133,7 @@ U(x,y,z,t=0)=U_{L}
 \end_layout
 
 \begin_layout Standard
-问题 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:线性单波平流"
-
-\end_inset
-
- 的解析解为
+该问题的解析解为
 \begin_inset Formula 
 \begin{equation}
 U^{\star}(x,y,z,t)=\begin{cases}
@@ -11573,7 +11431,7 @@ V_{1}^{\star}(x,y,z,t)=\begin{cases}
 
 \end_inset
 
-在此基础上，问题 
+在此基础上，原问题 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prob:线性双波平流"
@@ -11899,18 +11757,16 @@ EigenWeno
 \begin_inset Formula $x$
 \end_inset
 
- 轴的边界均设为固体壁面。尽管这些问题没有封闭形式的解析解，但基于第 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:riemann"
-plural "false"
-caps "false"
-noprefix "false"
+ 轴的边界均设为固体壁面。尽管这些问题没有封闭形式的解析解，但基于文献-
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Toro_2009"
+literal "false"
 
 \end_inset
 
- 章的方法，辅之以精度充分高的非线性代数方程求解器，仍然可以得到精度任意高的近似解。这种近似解的精度可以充分高，以至于其与实数范围内的精确解具有相同的（有限位）
-浮点数表示。若无特别说明，本文剩余部分提到的“精确解”都是指“浮点数范围内的精确解”或“计算机上的精确解”。
+ 介绍的方法，辅之以精度充分高的非线性代数方程求解器，仍然可以得到精度任意高的近似解。这种近似解的精度可以充分高，以至于其与实数范围内的精确解具有相同的（有限位
+）浮点数表示。若无特别说明，本文剩余部分提到的“精确解”都是指“浮点数范围内的精确解”或“计算机上的精确解”。
 \end_layout
 
 \begin_layout Subsection
@@ -11939,7 +11795,7 @@ name "prob:Sod-激波管"
 \begin_inset Formula $t\in[0.0,1.0]$
 \end_inset
 
- 内，求满足三维欧拉方程（式 
+ 内，求满足三维欧拉方程 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:euler_system"
@@ -11949,7 +11805,7 @@ noprefix "false"
 
 \end_inset
 
-）及边界条件
+ 及边界条件
 \begin_inset Formula 
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}=\begin{cases}
@@ -11999,18 +11855,8 @@ noprefix "false"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的六面体单元的非结构网格上得到的问题 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prob:Sod-激波管"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 的 RK3/DG3 近似解。由此图中的四个间断（两个导数值间断、两个函数值间断）处的光滑过渡可知：高阶格式在间断附近引起的数值振荡得到了有效压制。这种光滑过渡
-在图 
+ 的六面体单元的非结构网格上得到的该问题的 RK3/DG3 近似解。由此图中的四个间断（两个导数值间断、两个函数值间断）处的光滑过渡可知：高阶格式在间断附近引起
+的数值振荡得到了有效压制。这种光滑过渡在图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:sod_hexa_p_vary"
@@ -12158,9 +12004,9 @@ noprefix "false"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的四面体单元的非结构网格上再次求解了问题 
+ 的四面体单元的非结构网格上再次求解了 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:Sod-激波管"
 plural "false"
 caps "false"
@@ -12168,7 +12014,7 @@ noprefix "false"
 
 \end_inset
 
-，所得结果如图 
+问题，所得结果如图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:sod_tetra"
@@ -12205,9 +12051,9 @@ noprefix "false"
 
 \end_inset
 
- 比较，不难发现：无论采用何种单元，只要网格足够精细，问题 
+ 比较，不难发现：无论采用何种单元，只要网格足够精细，
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:Sod-激波管"
 plural "false"
 caps "false"
@@ -12215,7 +12061,7 @@ noprefix "false"
 
 \end_inset
 
- 的各阶 RKDG 近似解均能收敛到精确解。
+问题的各阶 RKDG 近似解均能收敛到精确解。
 \end_layout
 
 \begin_layout Standard
@@ -12807,7 +12653,7 @@ name "prob:Lax-激波管"
 \begin_inset Formula $t\in[0.0,0.6]$
 \end_inset
 
- 内，求满足三维欧拉方程（式 
+ 内，求满足三维欧拉方程 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:euler_system"
@@ -12817,7 +12663,7 @@ noprefix "false"
 
 \end_inset
 
-）及边界条件
+ 及边界条件
 \begin_inset Formula 
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}=\begin{cases}
@@ -12853,9 +12699,9 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-与问题 
+与 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:Sod-激波管"
 plural "false"
 caps "false"
@@ -12863,10 +12709,10 @@ noprefix "false"
 
 \end_inset
 
- 类似，该问题的精确解也含有激波、接触间断、膨胀波这三种间断。相对而言，该问题的求解难度更大，这是因为其精确解的各个分量均含有超出其初始值范围的部分，并且接触间
-断与激波的跳跃幅度远大于问题 
+问题类似，该问题的精确解也含有激波、接触间断、膨胀波这三种间断。相对而言，该问题的求解难度更大，这是因为其精确解的各个分量均含有超出其初始值范围的部分，并且接触
+间断与激波的跳跃幅度远大于 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:Sod-激波管"
 plural "false"
 caps "false"
@@ -12874,13 +12720,13 @@ noprefix "false"
 
 \end_inset
 
- 中的值（无论是相对值还是绝对值）。
+问题中的值（无论是相对值还是绝对值）。
 \end_layout
 
 \begin_layout Standard
-与问题 
+与 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:Sod-激波管"
 plural "false"
 caps "false"
@@ -12888,7 +12734,7 @@ noprefix "false"
 
 \end_inset
 
- 类似，图 
+问题类似，图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:lax_hexa"
@@ -12899,9 +12745,9 @@ reference "fig:lax_hexa"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的六面体单元的非结构网格上得到的问题 
+ 的六面体单元的非结构网格上得到的 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:Lax-激波管"
 plural "false"
 caps "false"
@@ -12909,7 +12755,7 @@ noprefix "false"
 
 \end_inset
 
- 的 RK3/DG3 近似解。图 
+问题的 RK3/DG3 近似解。图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:lax_hexa_p_vary"
@@ -13054,9 +12900,9 @@ noprefix "false"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的四面体单元的非结构网格上再次求解了问题 
+ 的四面体单元的非结构网格上再次求解了 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:Lax-激波管"
 plural "false"
 caps "false"
@@ -13064,7 +12910,7 @@ noprefix "false"
 
 \end_inset
 
-，所得结果如图 
+问题，所得结果如图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:lax_tetra"
@@ -13104,9 +12950,9 @@ noprefix "false"
 
 \end_inset
 
- 比较，不难发现：无论采用何种单元，只要网格足够精细，问题 
+ 比较，不难发现：无论采用何种单元，只要网格足够精细，
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:Lax-激波管"
 plural "false"
 caps "false"
@@ -13114,7 +12960,7 @@ noprefix "false"
 
 \end_inset
 
- 的各阶 RKDG 近似解均能收敛到精确解。
+问题的各阶 RKDG 近似解均能收敛到精确解。
 \end_layout
 
 \begin_layout Standard
@@ -13265,7 +13111,7 @@ name "prob:真空管"
 \begin_inset Formula $t\in[0.0,0.4]$
 \end_inset
 
- 内，求满足三维欧拉方程（式 
+ 内，求满足三维欧拉方程 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:euler_system"
@@ -13275,7 +13121,7 @@ noprefix "false"
 
 \end_inset
 
-）及边界条件
+ 及边界条件
 \begin_inset Formula 
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}=\begin{cases}
@@ -13331,7 +13177,7 @@ noprefix "false"
 
 \end_inset
 
-问题更低。然而，该问题的精确解中含有一段连续的真空区域，这是求解前两个问题的过程中没有遇到过的现象。文献 
+问题更低。然而，该问题的精确解中含有一段连续的真空区域，这是求解前两个问题的过程中没有遇到过的现象。文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Toro_2009"
@@ -13397,9 +13243,9 @@ noprefix "false"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的六面体单元的非结构网格上得到的问题 
+ 的六面体单元的非结构网格上得到的
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:真空管"
 plural "false"
 caps "false"
@@ -13407,7 +13253,7 @@ noprefix "false"
 
 \end_inset
 
- 的 RK3/DG3 近似解，图 
+问题的 RK3/DG3 近似解，图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:vacuum_hexa_p_vary"
@@ -13461,7 +13307,7 @@ name "fig:vacuum_hexa"
 
  的六面体单元的非结构网格上得到的
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:真空管"
 plural "false"
 caps "false"
@@ -13522,7 +13368,7 @@ name "fig:vacuum_hexa_p_vary"
 
  的六面体单元的非结构网格上得到的
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:真空管"
 plural "false"
 caps "false"
@@ -13552,9 +13398,9 @@ noprefix "false"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的四面体单元的非结构网格上再次求解了问题 
+ 的四面体单元的非结构网格上再次求解了
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:真空管"
 plural "false"
 caps "false"
@@ -13562,7 +13408,7 @@ noprefix "false"
 
 \end_inset
 
-，所得结果如图 
+问题，所得结果如图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:vacuum_tetra"
@@ -13621,7 +13467,7 @@ name "fig:vacuum_tetra"
 
  的四面体单元的非结构网格上得到的
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:真空管"
 plural "false"
 caps "false"
@@ -13682,7 +13528,7 @@ name "fig:vacuum_tetra_p_vary"
 
  的四面体单元的非结构网格上得到的
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:真空管"
 plural "false"
 caps "false"
@@ -13790,7 +13636,7 @@ reference "prob:双马赫反射"
 \end_layout
 
 \begin_layout Standard
-以文献 
+以文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Woodward_1984"
@@ -13837,7 +13683,7 @@ noprefix "false"
 \begin_inset Formula $Z$
 \end_inset
 
- 为任意有限值）内，求满足三维欧拉方程（式 
+ 为任意有限值）内，求满足三维欧拉方程 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:euler_system"
@@ -13847,7 +13693,7 @@ noprefix "false"
 
 \end_inset
 
-）及如下定解条件的广义解。
+ 及如下定解条件的广义解。
 \end_layout
 
 \begin_layout Problem
@@ -13925,7 +13771,7 @@ noprefix "false"
 \begin_inset Formula $y=1$
 \end_inset
 
-) 状态随时间变化，并且与式 
+) 状态随时间变化，并且与初始条件 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:double_mach_ic"
@@ -13935,7 +13781,7 @@ noprefix "false"
 
 \end_inset
 
- 所给的初始条件兼容：
+ 兼容：
 \begin_inset Formula 
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}=\begin{cases}
@@ -13958,7 +13804,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-该问题的解具有自相似性，因此只需要画出某一时刻的计算结果。为了方便对比，这里仿照文献 
+该问题的解具有自相似性，因此只需要画出某一时刻的计算结果。为了方便对比，这里仿照文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Woodward_1984,Zhong_2013,Zhu_2013"
@@ -13995,9 +13841,9 @@ noprefix "false"
 
 \end_inset
 
- 依次为问题 
+ 依次为
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:双马赫反射"
 plural "false"
 caps "false"
@@ -14005,7 +13851,7 @@ noprefix "false"
 
 \end_inset
 
- 在只含 
+问题在只含 
 \begin_inset Formula $h\approx1/200$
 \end_inset
 
@@ -14247,7 +14093,7 @@ name "prob:前向台阶"
 \begin_inset Formula $t\in[0.0,4.0]$
 \end_inset
 
- 内，求满足三维欧拉方程（式 
+ 内，求满足三维欧拉方程 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:euler_system"
@@ -14257,7 +14103,7 @@ noprefix "false"
 
 \end_inset
 
-）及初始条件
+ 及初始条件
 \begin_inset Formula 
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 3.0 & 0.0 & 0.0 & 1.0\end{bmatrix}
@@ -14401,7 +14247,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-由于该问题的解在上述时间范围内剧烈变化，最理想的呈现计算结果的方式应当是动画。本节仿照文献 
+由于该问题的解在上述时间范围内剧烈变化，最理想的呈现计算结果的方式应当是动画。本节仿照文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Woodward_1984"
@@ -15124,7 +14970,7 @@ noprefix "false"
 
 \end_inset
 
- 所示。文献 
+ 所示。文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Woodward_1984"
@@ -15386,7 +15232,7 @@ name "prob:YF-17_亚声速绕流"
 \begin_inset Formula $t\in[0,10]$
 \end_inset
 
- 内，求满足三维欧拉方程（式 
+ 内，求满足三维欧拉方程 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:euler_system"
@@ -15396,7 +15242,7 @@ noprefix "false"
 
 \end_inset
 
-）及以下定解条件的广义解。
+ 及以下定解条件的广义解。
 \end_layout
 
 \begin_layout Problem
@@ -15693,7 +15539,7 @@ name "prob:YF-17_超声速绕流"
 \begin_inset Formula $t\in[0,10]$
 \end_inset
 
- 内，求满足三维欧拉方程（式 
+ 内，求满足三维欧拉方程 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:euler_system"
@@ -15703,7 +15549,7 @@ noprefix "false"
 
 \end_inset
 
-）及以下定解条件的广义解。
+ 及以下定解条件的广义解。
 \end_layout
 
 \begin_layout Problem
@@ -15756,14 +15602,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-与问题 
+与 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:YF-17_亚声速绕流"
 
 \end_inset
 
- 类似，这里采用 RK1/DG1、RK3/DG3 求解器分别求解该问题，所得结果分别如图 
+问题类似，这里采用 RK1/DG1、RK3/DG3 求解器分别求解该问题，所得结果分别如图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:yf17_supersonic_p=1"
@@ -16171,21 +16017,21 @@ name "fig:rotor_mesh"
 
 \end_inset
 
-问题 
+
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:孤立旋翼爬升"
 
 \end_inset
 
-、问题 
+、
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:孤立旋翼前飞"
 
 \end_inset
 
- 所用网格的示意图
+问题所用网格的示意图
 \end_layout
 
 \end_inset
@@ -16224,7 +16070,7 @@ noprefix "false"
 
 \end_inset
 
- 所示，用于作图的数据引自文献 
+ 所示，用于作图的数据引自文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Howlett_1981"
@@ -16380,7 +16226,7 @@ name "prob:孤立旋翼爬升"
 \begin_inset Formula $t\in[0,1]$
 \end_inset
 
- 内，求满足三维欧拉方程（式 
+ 内，求满足三维欧拉方程 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:euler_system"
@@ -16390,7 +16236,7 @@ noprefix "false"
 
 \end_inset
 
-）及以下定解条件的广义解。
+ 及以下定解条件的广义解。
 \end_layout
 
 \begin_layout Problem
@@ -16468,15 +16314,15 @@ noprefix "false"
 
 \end_inset
 
- 分别给出了问题 
+ 分别给出了 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:孤立旋翼爬升"
 
 \end_inset
 
- 在若干时刻的 RK1/DG1、 RK3/DG3 近似解。这里给出精度较低的 RK1/DG1 近似解，是因为 RK1/DG1 求解器无需限制器，其给出的结果在物
-理上较为可靠，可以用来定性地验证高阶近似解的正确性。由于缺少试验数据，本文的所有含旋翼的算例都将采用这种方式来验证。
+问题在若干时刻的 RK1/DG1、 RK3/DG3 近似解。这里给出精度较低的 RK1/DG1 近似解，是因为 RK1/DG1 求解器无需限制器，其给出的结果在
+物理上较为可靠，可以用来定性地验证高阶近似解的正确性。由于缺少试验数据，本文的所有含旋翼的算例都将采用这种方式来验证。
 \end_layout
 
 \begin_layout Standard
@@ -17226,7 +17072,7 @@ name "prob:孤立旋翼前飞"
 \begin_inset Formula $t\in[0,1]$
 \end_inset
 
- 内，求满足三维欧拉方程（式 
+ 内，求满足三维欧拉方程 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:euler_system"
@@ -17236,7 +17082,7 @@ noprefix "false"
 
 \end_inset
 
-）及以下定解条件的广义解。
+ 及以下定解条件的广义解。
 \end_layout
 
 \begin_layout Problem
@@ -17293,14 +17139,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-与问题 
+与
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:孤立旋翼爬升"
 
 \end_inset
 
- 相同，这里采用只含 
+问题相同，这里采用只含 
 \begin_inset Formula $h\approx0.25$
 \end_inset
 
@@ -17328,9 +17174,9 @@ noprefix "false"
 
 \end_inset
 
- 依次给出了问题 
+ 依次给出了
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:孤立旋翼前飞"
 plural "false"
 caps "false"
@@ -17338,7 +17184,7 @@ noprefix "false"
 
 \end_inset
 
- 在若干时刻的 RK1/DG1、 RK3/DG3 近似解。具体的作图方式为：在 
+问题在若干时刻的 RK1/DG1、 RK3/DG3 近似解。具体的作图方式为：在 
 \begin_inset Formula $x=4$
 \end_inset
 
@@ -17921,14 +17767,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-与问题 
+与
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:孤立旋翼爬升"
 
 \end_inset
 
- 的结论类似，两种求解器都能捕捉大尺度的涡结构，例如从桨盘拖出、向右下方倾斜的旋翼尾迹；但只有三阶求解器才能在 
+问题的结论类似，两种求解器都能捕捉大尺度的涡结构，例如从桨盘拖出、向右下方倾斜的旋翼尾迹；但只有三阶求解器才能在 
 \begin_inset Formula $x=4$
 \end_inset
 
@@ -19439,7 +19285,7 @@ reference "fig:double_mach_efficiency"
 \begin_inset Formula $90\%$
 \end_inset
 
- 附近波动，这比文献 
+ 附近波动，这比文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Biswas_1994"
@@ -19481,9 +19327,9 @@ reference "fig:yf17_mesh"
 
 \end_inset
 
- 所示，求解 YF-17 战斗机超声速绕流问题（问题 
+ 所示，求解 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:YF-17_超声速绕流"
 plural "false"
 caps "false"
@@ -19491,7 +19337,7 @@ noprefix "false"
 
 \end_inset
 
-）的网格是高度非结构、非均匀的，因此基于几何分割的简单分块方法难以实现负载均衡。如前所述，本文通过调用第三方库 
+问题的网格是高度非结构、非均匀的，因此基于几何分割的简单分块方法难以实现负载均衡。如前所述，本文通过调用第三方库 
 \shape smallcaps
 Metis
 \shape default
@@ -19535,14 +19381,7 @@ reference "fig:double_mach_balance"
 \begin_inset Formula $99\%$
 \end_inset
 
- 的并行效率（式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:speedup"
-
-\end_inset
-
-）：
+ 的并行效率：
 \begin_inset Formula 
 \begin{equation}
 \begin{aligned}E & =\frac{T_{\text{serial}}}{PT_{\text{parallel}}}\times100\%\approx\frac{\sum_{i}N_{i}}{P\cdot\max_{i}N_{i}}\times100\%\\
@@ -19686,14 +19525,14 @@ reference "tab:yf17_cost"
 
 \end_inset
 
- 给出了 RK3/DG3 求解器以不同进程数量并行求解问题 
+ 给出了 RK3/DG3 求解器以不同进程数量并行求解 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand nameref
 reference "prob:YF-17_超声速绕流"
 
 \end_inset
 
- 所消耗的时间，以及换算后得到的单步核时。基于此表，可以画出加速比与并行效率随进程数量的变换趋势，如如图 
+问题所消耗的时间，以及换算后得到的单步核时。基于此表，可以画出加速比与并行效率随进程数量的变换趋势，如如图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:yf17_speedup"
@@ -20531,7 +20370,7 @@ reference "fig:ship_geometry"
 
 \end_inset
 
- 所示的简化版护卫舰模型，其中灰色长方体为文献 
+ 所示的简化版护卫舰模型，其中灰色长方体为文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Thedin_2020"
@@ -20669,7 +20508,7 @@ name "fig:ship_geometry"
 
 \end_inset
 
-文献 
+简化的护卫舰几何模型
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Thedin_2020"
@@ -20677,7 +20516,7 @@ literal "false"
 
 \end_inset
 
- 使用的简化版护卫舰几何模型
+
 \end_layout
 
 \end_inset
@@ -20716,7 +20555,7 @@ name "prob:船头正面迎风"
 \begin_inset Formula $t\in[0,10]$
 \end_inset
 
- 内，求满足三维欧拉方程（式 
+ 内，求满足三维欧拉方程 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:euler_system"
@@ -20726,7 +20565,7 @@ noprefix "false"
 
 \end_inset
 
-）及以下定解条件的广义解。
+ 及以下定解条件的广义解。
 \end_layout
 
 \begin_layout Problem
@@ -21071,7 +20910,7 @@ name "prob:船头侧面迎风"
 \begin_inset Formula $t\in[0,10]$
 \end_inset
 
- 内，求满足三维欧拉方程（式 
+ 内，求满足三维欧拉方程 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:euler_system"
@@ -21081,7 +20920,7 @@ noprefix "false"
 
 \end_inset
 
-）及以下定解条件的广义解。
+ 及以下定解条件的广义解。
 \end_layout
 
 \begin_layout Problem
