@@ -89,6 +89,10 @@
 
 \makeatother
 
+\usepackage[intoc]{nomencl}
+\makenomenclature
+\renewcommand{\nomname}{主要符号对照表}
+
 \usepackage[chapter]{minted}
 \setminted{style=xcode,
 	frame=leftline,
@@ -297,6 +301,7 @@ SmallCapsFeatures={Numbers=OldStyle}
 \listoftables
 \endgroup
 % 符号表
+\printnomenclature
 %\include{data/master/denotation}
 
 % 正文页码样式

@@ -7298,6 +7298,16 @@ reference "eq:weak-form"
 
 \begin_layout Standard
 英文文献通常将“间断伽辽金”简记作 DG (discontinuous Galerkin)。
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+prefix "DG"
+symbol "DG"
+description "discontinuous Galerkin"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7591,7 +7601,17 @@ name "fig:Gibbs"
 \end_layout
 
 \begin_layout Standard
-“基本无振荡 (essentially non-oscillatory, ENO)” 重构方法最早出现于文献-
+“基本无振荡 (essentially non-oscillatory, ENO)” 重构方法
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+prefix "ENO"
+symbol "ENO"
+description "essentially non-oscillatory"
+literal "false"
+
+\end_inset
+
+最早出现于文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Harten_1997"
