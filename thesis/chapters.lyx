@@ -3090,7 +3090,7 @@ noprefix "false"
 \end_inset
 
 注意到
-\begin_inset Formula $\partial_{ji}^{2}u_{j}=\partial_{ij}^{2}u_{j}=\partial_{ik}^{2}u_{k}$
+\begin_inset Formula $\partial_{j}\partial_{i}u_{j}=\partial_{i}\partial_{j}u_{j}=\partial_{i}\partial_{k}u_{k}$
 \end_inset
 
 ，可以将其改写成与坐标系无关的矢量形式： 
@@ -4871,7 +4871,7 @@ literal "false"
 \end_layout
 
 \begin_layout Chapter
-间断伽辽金有限元法
+适合舰载直升机气动干扰模拟的数值方法
 \end_layout
 
 \begin_layout Section
@@ -9952,7 +9952,7 @@ reference "fig:PQ"
 \end_layout
 
 \begin_layout Chapter
-程序实现与算例验证
+算法的泛型与并行实现及求解器性能测试
 \end_layout
 
 \begin_layout Standard
@@ -20338,14 +20338,10 @@ noprefix "false"
 \end_layout
 
 \begin_layout Chapter
-舰载直升机气动干扰
-\end_layout
-
-\begin_layout Section
-旋翼–舰体–海面气动干扰
+单旋翼–舰体–海面气动干扰问题数值模拟
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:rotor_over_ship"
+name "chap:rotor_over_ship"
 
 \end_inset
 
@@ -20353,7 +20349,7 @@ name "sec:rotor_over_ship"
 \end_layout
 
 \begin_layout Standard
-本节在图 
+本章在图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:ship_mesh"
@@ -20458,10 +20454,10 @@ name "fig:ship_mesh"
 
 \end_inset
 
-
+本文
 \begin_inset CommandInset ref
 LatexCommand nameref
-reference "sec:rotor_over_ship"
+reference "chap:rotor_over_ship"
 
 \end_inset
 
@@ -20529,7 +20525,7 @@ literal "false"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 船头正面迎风
 \end_layout
 
@@ -20884,7 +20880,7 @@ reference "prob:船头正面迎风"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 船头侧面迎风
 \end_layout
 
