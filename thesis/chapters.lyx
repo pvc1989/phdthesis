@@ -6810,7 +6810,7 @@ S_{mj}=\frac{a_{j}}{\left\Vert \sum_{j=1}^{m}a_{j}\phi_{j}\right\Vert _{V_{i}}}=
 \underbrace{\begin{bmatrix}U_{1}^{h}(\vec{r})\\
 \vdots\\
 U_{m}^{h}(\vec{r})
-\end{bmatrix}}_{\underline{U^{h}}(\vec{r})}=\underbrace{\begin{bmatrix}\langle U_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{1}\vert e_{n}\rangle_{V_{i}}\\
+\end{bmatrix}}_{\underline{U}^{h}(\vec{r})}=\underbrace{\begin{bmatrix}\langle U_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{1}\vert e_{n}\rangle_{V_{i}}\\
 \vdots & \ddots & \vdots\\
 \langle U_{m}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{m}\vert e_{n}\rangle_{V_{i}}
 \end{bmatrix}}_{\langle\underline{U}\vert\underline{e}\rangle_{V_{i}}}\underbrace{\begin{bmatrix}e_{1}(\vec{r})\\
@@ -6833,7 +6833,7 @@ reference "subsec:quadrature"
 \end_inset
 
  小节）有足够高的代数精度，那么上述投影所得的 
-\begin_inset Formula $\underline{U^{h}}$
+\begin_inset Formula $\underline{U}^{h}$
 \end_inset
 
  就是 
@@ -6902,7 +6902,7 @@ reference "eq:function_projection"
 \underbrace{\begin{bmatrix}U_{1}(\vec{r})\\
 \vdots\\
 U_{m}(\vec{r})
-\end{bmatrix}}_{\underline{U^{h}}(\vec{r})}=\underbrace{\begin{bmatrix}\langle U_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{1}\vert e_{n}\rangle_{V_{i}}\\
+\end{bmatrix}}_{\underline{U}^{h}(\vec{r})}=\underbrace{\begin{bmatrix}\langle U_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{1}\vert e_{n}\rangle_{V_{i}}\\
 \vdots & \ddots & \vdots\\
 \langle U_{m}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{m}\vert e_{n}\rangle_{V_{i}}
 \end{bmatrix}\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{1}\vert e'_{n}\rangle_{V_{i}}\\
@@ -7391,7 +7391,7 @@ literal "true"
  都成立。经过一次分部积分并利用高斯散度定理可得
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$\\underline{F^\\nu}$"
+symbol "$\\underline{F}^{\\nu}$"
 description "表示法向通量列矩阵"
 literal "true"
 
@@ -7447,7 +7447,7 @@ reference "eq:PDE"
  可以分别近似为
 \begin_inset Formula 
 \begin{equation}
-\underline{U}(\vec{r},t)\approx\underline{U^{h}}(\vec{r},t)=\sum_{k=1}^{K}\underline{\hat{U}}_{k}(t)\,\phi_{k}(\vec{r})\qquad\psi(\vec{r})\approx\psi^{h}(\vec{r})=\sum_{l=1}^{L}\hat{\psi}_{l}\,\psi_{l}(\vec{r})
+\underline{U}(\vec{r},t)\approx\underline{U}^{h}(\vec{r},t)=\sum_{k=1}^{K}\underline{\hat{U}}_{k}(t)\,\phi_{k}(\vec{r})\qquad\psi(\vec{r})\approx\psi^{h}(\vec{r})=\sum_{l=1}^{L}\hat{\psi}_{l}\,\psi_{l}(\vec{r})
 \end{equation}
 
 \end_inset
@@ -7461,7 +7461,7 @@ reference "eq:PDE"
 \end_inset
 
  为任意常数。将 
-\begin_inset Formula $\underline{U^{h}}$
+\begin_inset Formula $\underline{U}^{h}$
 \end_inset
 
  与 
@@ -7478,7 +7478,7 @@ reference "eq:weak-form"
  可得
 \begin_inset Formula 
 \begin{equation}
-\int_{V}\psi\,\partial_{t}\underline{U}\approx\int_{V}\psi^{h}\,\partial_{t}\underline{U^{h}}=\sum_{l}\hat{\psi}_{l}\left[\sum_{k}\langle\psi_{l}\vert\phi_{k}\rangle_{V}\dv{\underline{\hat{U}}_{k}}{t}\right],\label{eq:changing-rate}
+\int_{V}\psi\,\partial_{t}\underline{U}\approx\int_{V}\psi^{h}\,\partial_{t}\underline{U}^{h}=\sum_{l}\hat{\psi}_{l}\left[\sum_{k}\langle\psi_{l}\vert\phi_{k}\rangle_{V}\dv{\underline{\hat{U}}_{k}}{t}\right],\label{eq:changing-rate}
 \end{equation}
 
 \end_inset
@@ -7486,7 +7486,7 @@ reference "eq:weak-form"
 
 \begin_inset Formula 
 \begin{equation}
-\int_{V}\underline{\vec{F}}\cdot\nabla\psi\approx\int_{V}\mathopen{\underline{\vec{F}}}\left(\underline{U^{h}}\right)\cdot\nabla\psi^{h}=\sum_{l}\hat{\psi}_{l}\left[\int_{V}\mathopen{\underline{\vec{F}}}\left(\underline{U^{h}}\right)\cdot\nabla\psi_{l}\right],\label{eq:internal-flux}
+\int_{V}\underline{\vec{F}}\cdot\nabla\psi\approx\int_{V}\mathopen{\underline{\vec{F}}}\left(\underline{U}^{h}\right)\cdot\nabla\psi^{h}=\sum_{l}\hat{\psi}_{l}\left[\int_{V}\mathopen{\underline{\vec{F}}}\left(\underline{U}^{h}\right)\cdot\nabla\psi_{l}\right],\label{eq:internal-flux}
 \end{equation}
 
 \end_inset
@@ -7494,7 +7494,7 @@ reference "eq:weak-form"
 
 \begin_inset Formula 
 \begin{equation}
-\oint_{\partial V}\psi\,\underline{F^{\nu}}\approx\oint_{\partial V}\psi^{h}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U^{h}}\right)=\sum_{l}\hat{\psi}_{l}\left[\oint_{\partial V}\psi_{l}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U^{h}}\right)\right],\label{eq:boundary-flux}
+\oint_{\partial V}\psi\,\underline{F^{\nu}}\approx\oint_{\partial V}\psi^{h}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U}^{h}\right)=\sum_{l}\hat{\psi}_{l}\left[\oint_{\partial V}\psi_{l}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U}^{h}\right)\right],\label{eq:boundary-flux}
 \end{equation}
 
 \end_inset
@@ -7502,13 +7502,13 @@ reference "eq:weak-form"
 
 \begin_inset Formula 
 \begin{equation}
-\int_{V}\underline{H}\,\psi\approx\int_{V}\psi^{h}\,\mathopen{\underline{H}}\left(\underline{U^{h}}\right)=\sum_{l}\hat{\psi}_{l}\left[\int_{V}\psi_{l}\,\mathopen{\underline{H}}\left(\underline{U^{h}}\right)\right],\label{eq:source-term}
+\int_{V}\underline{H}\,\psi\approx\int_{V}\psi^{h}\,\mathopen{\underline{H}}\left(\underline{U}^{h}\right)=\sum_{l}\hat{\psi}_{l}\left[\int_{V}\psi_{l}\,\mathopen{\underline{H}}\left(\underline{U}^{h}\right)\right],\label{eq:source-term}
 \end{equation}
 
 \end_inset
 
 其中 
-\begin_inset Formula $\mathopen{\underline{F^{\nu}}}\left(\underline{U^{h}}\right)$
+\begin_inset Formula $\mathopen{\underline{F^{\nu}}}\left(\underline{U}^{h}\right)$
 \end_inset
 
  为法向通量 
@@ -7563,7 +7563,7 @@ reference "eq:weak-form"
  个方程：
 \begin_inset Formula 
 \begin{equation}
-\sum_{k}\dv{\underline{\hat{U}}_{k}}{t}\langle\phi_{k}\vert\psi_{l}\rangle_{V}-\int_{V}\left(\nabla\psi_{l}\right)\cdot\mathopen{\underline{\vec{F}}}\left(\underline{U^{h}}\right)+\oint_{\partial V}\psi_{l}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U^{h}}\right)=\int_{V}\psi_{l}\,\mathopen{\underline{H}}\left(\underline{U^{h}}\right).
+\sum_{k}\dv{\underline{\hat{U}}_{k}}{t}\langle\phi_{k}\vert\psi_{l}\rangle_{V}-\int_{V}\left(\nabla\psi_{l}\right)\cdot\mathopen{\underline{\vec{F}}}\left(\underline{U}^{h}\right)+\oint_{\partial V}\psi_{l}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U}^{h}\right)=\int_{V}\psi_{l}\,\mathopen{\underline{H}}\left(\underline{U}^{h}\right).
 \end{equation}
 
 \end_inset
@@ -7610,7 +7610,7 @@ reference "eq:weak-form"
  常系数矩阵；
 \begin_inset Formula 
 \begin{equation}
-\underline{R}_{V}\coloneqq\int_{V}\mathopen{\underline{\vec{F}}}\left(\underline{U^{h}}\right)\cdot\begin{bmatrix}\nabla\psi_{1} & \cdots & \nabla\psi_{L}\end{bmatrix}+\int_{V}\begin{bmatrix}\psi_{1} & \cdots & \psi_{L}\end{bmatrix}\mathopen{\underline{H}}\left(\underline{U^{h}}\right)
+\underline{R}_{V}\coloneqq\int_{V}\mathopen{\underline{\vec{F}}}\left(\underline{U}^{h}\right)\cdot\begin{bmatrix}\nabla\psi_{1} & \cdots & \nabla\psi_{L}\end{bmatrix}+\int_{V}\begin{bmatrix}\psi_{1} & \cdots & \psi_{L}\end{bmatrix}\mathopen{\underline{H}}\left(\underline{U}^{h}\right)
 \end{equation}
 
 \end_inset
@@ -7631,7 +7631,7 @@ literal "true"
 ；
 \begin_inset Formula 
 \begin{equation}
-\underline{R}_{\partial V}\coloneqq\oint_{\partial V}\begin{bmatrix}\psi_{1} & \cdots & \psi_{L}\end{bmatrix}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U^{h}}\right)
+\underline{R}_{\partial V}\coloneqq\oint_{\partial V}\begin{bmatrix}\psi_{1} & \cdots & \psi_{L}\end{bmatrix}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U}^{h}\right)
 \end{equation}
 
 \end_inset
@@ -7855,7 +7855,7 @@ reference "eq:FEM"
  待定函数矩阵；
 \begin_inset Formula 
 \begin{equation}
-\underline{R}_{V_{i}}\coloneqq\int_{V_{i}}\mathopen{\underline{\vec{F}}}\left(\underline{U^{h}}\right)\cdot\begin{bmatrix}\nabla\phi_{1} & \cdots & \nabla\phi_{K}\end{bmatrix}+\int_{V_{i}}\begin{bmatrix}\phi_{1} & \cdots & \phi_{K}\end{bmatrix}\mathopen{\underline{H}}\left(\underline{U^{h}}\right)
+\underline{R}_{V_{i}}\coloneqq\int_{V_{i}}\mathopen{\underline{\vec{F}}}\left(\underline{U}^{h}\right)\cdot\begin{bmatrix}\nabla\phi_{1} & \cdots & \nabla\phi_{K}\end{bmatrix}+\int_{V_{i}}\begin{bmatrix}\phi_{1} & \cdots & \phi_{K}\end{bmatrix}\mathopen{\underline{H}}\left(\underline{U}^{h}\right)
 \end{equation}
 
 \end_inset
@@ -7867,7 +7867,7 @@ reference "eq:FEM"
  矩阵，表示体积分残差；
 \begin_inset Formula 
 \begin{equation}
-\underline{R}_{\partial V_{i}}\coloneqq\oint_{\partial V_{i}}\begin{bmatrix}\phi_{1} & \cdots & \phi_{L}\end{bmatrix}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U^{h}}\right)
+\underline{R}_{\partial V_{i}}\coloneqq\oint_{\partial V_{i}}\begin{bmatrix}\phi_{1} & \cdots & \phi_{L}\end{bmatrix}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U}^{h}\right)
 \end{equation}
 
 \end_inset
@@ -9013,13 +9013,13 @@ f_{K}
 \end_inset
 
 用 
-\begin_inset Formula $\underline{U^{h}}_{i}$
+\begin_inset Formula $\underline{U}_{i}^{h}$
 \end_inset
 
  表示其近似解
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$\\underline{U^{h}}_{i}$"
+symbol "$\\underline{U}^{h}_{i}$"
 description "表示双曲型方程组在单元 $V_i$ 上的近似解"
 literal "true"
 
@@ -9028,7 +9028,7 @@ literal "true"
 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$\\underline{U^{h}}$"
+symbol "$\\underline{U}^{h}$"
 description "表示矩阵函数 $\\underline{U}$ 在尺度为 $h$ 的网格上的多项式近似"
 literal "true"
 
@@ -9047,7 +9047,7 @@ literal "true"
 \end_inset
 
 ，将各邻接单元上的 
-\begin_inset Formula $\underline{U^{h}}_{k}$
+\begin_inset Formula $\underline{U}_{k}^{h}$
 \end_inset
 
  延拓到 
@@ -9055,7 +9055,7 @@ literal "true"
 \end_inset
 
  上，并对函数值作适当平移，使所得的 
-\begin_inset Formula $\underline{U^{h}}_{k\to i}$
+\begin_inset Formula $\underline{U}_{k\to i}^{h}$
 \end_inset
 
  在 
@@ -9063,7 +9063,7 @@ literal "true"
 \end_inset
 
  上的平均值等于 
-\begin_inset Formula $\underline{U^{h}}_{i}$
+\begin_inset Formula $\underline{U}_{i}^{h}$
 \end_inset
 
  在 
@@ -9073,8 +9073,8 @@ literal "true"
  上的平均值
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$\\underline{U^{h}}_{k\\to i}$"
-description "表示将矩阵函数 $\\underline{U^{h}}_{k}$ 延拓到 $V_{i}$ 上，并对函数值作适当平移（使其在 $V_{i}$ 上的均值等于 $\\underline{U^{h}}_{i}$ 在 $V_{i}$ 上的均值）所得的函数"
+symbol "$\\underline{U}^{h}_{k\\to i}$"
+description "表示将矩阵函数 $\\underline{U}^{h}_{k}$ 延拓到 $V_{i}$ 上，并对函数值作适当平移（使其在 $V_{i}$ 上的均值等于 $\\underline{U}^{h}_{i}$ 在 $V_{i}$ 上的均值）所得的函数"
 literal "true"
 
 \end_inset
@@ -9082,13 +9082,13 @@ literal "true"
 ：
 \begin_inset Formula 
 \begin{equation}
-\underline{U^{h}}_{k\to i}(\vec{r},t)\coloneqq\underline{U^{h}}_{k}(\vec{r},t)-\langle\underline{U^{h}}_{k}\rangle_{i}+\langle\underline{U^{h}}_{i}\rangle_{i},\qquad\vec{r}\in V_{i}.
+\underline{U}_{k\to i}^{h}(\vec{r},t)\coloneqq\underline{U}_{k}^{h}(\vec{r},t)-\langle\underline{U}_{k}^{h}\rangle_{i}+\langle\underline{U}_{i}^{h}\rangle_{i},\qquad\vec{r}\in V_{i}.
 \end{equation}
 
 \end_inset
 
 不难证明：
-\begin_inset Formula $\underline{U^{h}}_{i}$
+\begin_inset Formula $\underline{U}_{i}^{h}$
 \end_inset
 
  在 
@@ -9098,7 +9098,7 @@ literal "true"
  上的平均值是重构不变量，即
 \begin_inset Formula 
 \begin{equation}
-\langle\underline{U^{h}}_{k\to i}\rangle_{i}=\langle\underline{U^{h}}_{i}\rangle_{i}.
+\langle\underline{U}_{k\to i}^{h}\rangle_{i}=\langle\underline{U}_{i}^{h}\rangle_{i}.
 \end{equation}
 
 \end_inset
@@ -9142,7 +9142,7 @@ literal "true"
  的法向分裂形式
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$\\underline{F^{\\nu_{k}}}$"
+symbol "$\\underline{F}^{\\nu_{k}}$"
 description "表示  $\\underline{\\vec{F}}$ 在 $\\vec{\\nu}_{k}$ 上投影所得的法向通量"
 literal "true"
 
@@ -9151,8 +9151,8 @@ literal "true"
 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$\\underline{A^{\\nu_{k}}}$"
-description "表示  $\\underline{F^{\\nu_{k}}}$ 关于 $\\underline{U}$ 的雅可比矩阵"
+symbol "$\\underline{A}^{\\nu_{k}}$"
+description "表示  $\\underline{F}^{\\nu_{k}}$ 关于 $\\underline{U}$ 的雅可比矩阵"
 literal "true"
 
 \end_inset
@@ -9160,7 +9160,7 @@ literal "true"
 
 \begin_inset Formula 
 \begin{equation}
-\partial_{t}\underline{U}+\partial_{\nu_{k}}\underline{F^{\nu_{k}}}=\underline{H},\qquad\underline{F^{\nu_{k}}}\coloneqq\vec{\nu}_{k}\cdot\vec{\underline{F}},\qquad\underline{A^{\nu_{k}}}\coloneqq\partial\underline{F^{\nu_{k}}}/\partial\underline{U},
+\partial_{t}\underline{U}+\partial_{\nu_{k}}\underline{F}^{\nu_{k}}=\underline{H},\qquad\underline{F}^{\nu_{k}}\coloneqq\vec{\nu}_{k}\cdot\vec{\underline{F}},\qquad\underline{A}^{\nu_{k}}\coloneqq\partial\underline{F}^{\nu_{k}}/\partial\underline{U},
 \end{equation}
 
 \end_inset
@@ -9170,11 +9170,11 @@ literal "true"
 
 \begin_layout Itemize
 用重构不变量 
-\begin_inset Formula $\langle\underline{U^{h}}_{i}\rangle_{i}$
+\begin_inset Formula $\langle\underline{U}_{i}^{h}\rangle_{i}$
 \end_inset
 
 ，即 
-\begin_inset Formula $\underline{U^{h}}_{i}$
+\begin_inset Formula $\underline{U}_{i}^{h}$
 \end_inset
 
  在 
@@ -9182,14 +9182,14 @@ literal "true"
 \end_inset
 
  上的均值，计算 
-\begin_inset Formula $\underline{A^{\nu_{k}}}(\underline{U}_{i})$
+\begin_inset Formula $\underline{A}^{\nu_{k}}(\underline{U}_{i})$
 \end_inset
 
  所得的近似值
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "$\\underline{A}_{i\\vert k}$"
-description "表示用 $\\underline{U^{h}}_{i}$ 在 $V_{i}$ 上的均值计算 $\\underline{A^{\\nu_{k}}}(\\underline{U}_{i})$ 所得的近似值"
+description "表示用 $\\underline{U}^{h}_{i}$ 在 $V_{i}$ 上的均值计算 $\\underline{A}^{\\nu_{k}}(\\underline{U}_{i})$ 所得的近似值"
 literal "true"
 
 \end_inset
@@ -9197,7 +9197,7 @@ literal "true"
 ：
 \begin_inset Formula 
 \begin{equation}
-\underline{A^{\nu_{k}}}(\underline{U})\approx\underline{A^{\nu_{k}}}\qty(\langle\underline{U^{h}}_{i}\rangle_{i})\eqqcolon\underline{A}_{i\vert k}.
+\underline{A}^{\nu_{k}}(\underline{U})\approx\underline{A}^{\nu_{k}}\qty(\langle\underline{U}_{i}^{h}\rangle_{i})\eqqcolon\underline{A}_{i\vert k}.
 \end{equation}
 
 \end_inset
@@ -9274,7 +9274,7 @@ literal "true"
 \end_inset
 
 将 
-\begin_inset Formula $\underline{U^{h}}_{k\to i}$
+\begin_inset Formula $\underline{U}_{k\to i}^{h}$
 \end_inset
 
  代入右端，得到 
@@ -9282,7 +9282,7 @@ literal "true"
 \end_inset
 
  的近似值，记为 
-\begin_inset Formula $\underline{W^{h}}_{i\vert k}$
+\begin_inset Formula $\underline{W}_{i\vert k}^{h}$
 \end_inset
 
 。该近似值可能含有数值振荡。
@@ -9294,13 +9294,13 @@ literal "true"
 \end_inset
 
  的每一行视为独立变量，对其调用标量重构算法，用 
-\begin_inset Formula $\underline{W^{h}}_{i\vert k}^{\mathrm{new}}$
+\begin_inset Formula $\underline{W}_{i\vert k}^{h,\mathrm{new}}$
 \end_inset
 
  表示重构后的、基本无振荡的特征变量近似值。
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$\\underline{W^{h}}_{i\\vert k}^{\\mathrm{new}}$"
+symbol "$\\underline{W}_{i\\vert k}^{h,\\mathrm{new}}$"
 description "表示 $\\underline{W}^h_{i\\vert k}$ 经过 WENO 重构所得的新函数"
 literal "true"
 
@@ -9317,7 +9317,7 @@ literal "true"
  将其变换回守恒变量：
 \begin_inset Formula 
 \begin{equation}
-\underline{U^{h}}_{i\vert k}^{\mathrm{new}}\coloneqq\underline{R}_{i\vert k}\,\underline{W^{h}}_{i\vert k}^{\mathrm{new}}.
+\underline{U}_{i\vert k}^{h,\mathrm{new}}\coloneqq\underline{R}_{i\vert k}\,\underline{W}_{i\vert k}^{h,\mathrm{new}}.
 \end{equation}
 
 \end_inset
@@ -9338,13 +9338,13 @@ literal "true"
 \end_inset
 
  的体积对 
-\begin_inset Formula $\underline{U^{h}}_{i\vert k}^{\mathrm{new}}$
+\begin_inset Formula $\underline{U}_{i\vert k}^{h,\mathrm{new}}$
 \end_inset
 
  作加权平均：
 \begin_inset Formula 
 \begin{equation}
-\underline{U^{h}}_{i}^{\mathrm{new}}\coloneqq\frac{\sum_{k\in K_{i}\setminus\left\{ i\right\} }\vert V_{k}\vert\,\underline{U^{h}}_{i\vert k}^{\mathrm{new}}}{\sum_{k\in K_{i}\setminus\left\{ i\right\} }\vert V_{k}\vert}
+\underline{U}_{i}^{h,\mathrm{new}}\coloneqq\frac{\sum_{k\in K_{i}\setminus\left\{ i\right\} }\vert V_{k}\vert\,\underline{U}_{i\vert k}^{h,\mathrm{new}}}{\sum_{k\in K_{i}\setminus\left\{ i\right\} }\vert V_{k}\vert}
 \end{equation}
 
 \end_inset
@@ -9356,7 +9356,7 @@ literal "true"
  的新近似解。
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$\\underline{U^{h}}_{i}^{\\mathrm{new}}$"
+symbol "$\\underline{U}^{h,\\mathrm{new}}_{i}$"
 description "表示 $\\underline{U}^h_{i}$ 经过 WENO 重构所得的新函数"
 literal "true"
 
@@ -9514,7 +9514,7 @@ literal "true"
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "$\\underline{R'}$"
-description "表示 $\\underline{A^\\nu}$ 的右特征矩阵在法向坐标系中的表达式"
+description "表示 $\\underline{A}^{\\nu}$ 的右特征矩阵在法向坐标系中的表达式"
 literal "true"
 
 \end_inset
@@ -9549,7 +9549,7 @@ h_{0}-u_{\nu}a & \frac{u_{\nu}^{2}+u_{\sigma}^{2}+u_{\pi}^{2}}{2} & u_{\sigma} &
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "$\\underline{L'}$"
-description "表示 $\\underline{A^\\nu}$ 的左特征矩阵在法向坐标系中的表达式"
+description "表示 $\\underline{A}^{\\nu}$ 的左特征矩阵在法向坐标系中的表达式"
 literal "true"
 
 \end_inset
@@ -9615,7 +9615,7 @@ B_{1}\coloneqq\frac{\gamma^{-}}{a^{2}},\qquad B_{2}\coloneqq B_{1}\frac{u_{\nu}^
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "$\\underline{R}$"
-description "表示 $\\underline{A^\\nu}$ 的右特征矩阵在全局坐标系中的表达式"
+description "表示 $\\underline{A}^{\\nu}$ 的右特征矩阵在全局坐标系中的表达式"
 literal "true"
 
 \end_inset
@@ -9662,7 +9662,7 @@ u_{z}
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "$\\underline{L}$"
-description "表示 $\\underline{A^\\nu}$ 的左特征矩阵在全局坐标系中的表达式"
+description "表示 $\\underline{A}^{\\nu}$ 的左特征矩阵在全局坐标系中的表达式"
 literal "true"
 
 \end_inset
@@ -10394,7 +10394,7 @@ reference "eq:PDE"
  的一般过程。在该方法中，源项只出现在体积分中，具体形式为
 \begin_inset Formula 
 \begin{equation}
-\int_{V_{i}}\begin{bmatrix}\phi_{1} & \cdots & \phi_{K}\end{bmatrix}\mathopen{\underline{H}}\left(\underline{U^{h}}\right).
+\int_{V_{i}}\begin{bmatrix}\phi_{1} & \cdots & \phi_{K}\end{bmatrix}\mathopen{\underline{H}}\left(\underline{U}^{h}\right).
 \end{equation}
 
 \end_inset
