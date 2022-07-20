@@ -5122,6 +5122,15 @@ Grid
 \begin_inset Formula $G_{\varOmega}$
 \end_inset
 
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$G(\\varOmega)$ 或 $G_{\\varOmega}$"
+description "表示覆盖区域 $\\varOmega$ 的网格"
+literal "true"
+
+\end_inset
+
  
 \end_layout
 
@@ -5181,6 +5190,15 @@ Index
 
  或 
 \begin_inset Formula $I_{X}$
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$I(X)$ 或 $I_{X}$"
+description "表示对象 $X$ 中所有成员编号之集"
+literal "true"
+
 \end_inset
 
 
@@ -5245,6 +5263,15 @@ Number
 \end_inset
 
 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$N(X)$ 或 $N_{X}$"
+description "表示对象 $X$ 中所有成员的数量"
+literal "true"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5299,6 +5326,15 @@ Volume element
 
 \begin_layout Plain Layout
 \begin_inset Formula $V(X,i)$
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$V(X,i)$ 或 $V_{i}$"
+description "表示对象 $X$ 中的第 $i$ 号体单元"
+literal "true"
+
 \end_inset
 
 
@@ -5367,6 +5403,15 @@ Volume element
 \end_inset
 
 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$V(X)$ 或 $V_{X}$"
+description "表示对象 $X$ 中的所有体单元"
+literal "true"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5421,6 +5466,15 @@ Surface element
 
 \begin_layout Plain Layout
 \begin_inset Formula $S(X,i)$
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$S(X,i)$"
+description "表示对象 $X$ 中的第 $i$ 号面单元"
+literal "true"
+
 \end_inset
 
 
@@ -5489,6 +5543,15 @@ Surface element
 \end_inset
 
 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$S(X)$ 或 $S_{X}$"
+description "表示对象 $X$ 中的所有面单元"
+literal "true"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5543,6 +5606,15 @@ Point
 
 \begin_layout Plain Layout
 \begin_inset Formula $P(X,i)$
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$P(X,i)$"
+description "表示对象 $X$ 中的第 $i$ 号结点"
+literal "true"
+
 \end_inset
 
 
@@ -5611,6 +5683,15 @@ Point
 \end_inset
 
 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$P(X)$ 或 $P_{X}$"
+description "表示对象 $X$ 中的所有结点"
+literal "true"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5655,6 +5736,15 @@ Point
 
 \begin_layout Standard
 从几何的角度看，网格应恰好填满整个区域，即
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\varOmega$"
+description "表示计算区域"
+literal "true"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \varOmega=\bigcup_{i\in I_{V(G)}}\overline{V_{i}},
@@ -5663,6 +5753,15 @@ Point
 \end_inset
 
 且相邻体单元之交的体积为零，即
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\mathrm{\\delta}_{ik}$"
+description "表示 Kronecker 记号，$i=k$ 时取值为 $1$，否则取值为 $0$"
+literal "true"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \int_{V_{i}\cap V_{k}}1=\mathrm{\delta}_{ik}\int_{V_{i}}1,\qquad\forall(i,k)\in I_{V(G)}\times I_{V(G)},
@@ -5678,7 +5777,25 @@ Point
 \begin_inset Formula $V_{i}$
 \end_inset
 
- 之“闭包 (closure)”。如无特殊说明，本文所称“体单元”均指开集。
+ 之“闭包 (closure)”。
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\overline{V_{i}}$"
+description "表示体单元 $V_{i}$ 的闭包"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\partial V_{i}$"
+description "表示体单元 $V_{i}$ 的边界"
+literal "true"
+
+\end_inset
+
+如无特殊说明，本文所称“体单元”均指开集。
 \end_layout
 
 \begin_layout Standard
@@ -5750,7 +5867,34 @@ Point
 \begin_inset Formula $V_{i}$
 \end_inset
 
- 两端点的坐标值。按此记法，
+ 两端点的坐标值。
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$x_{i-1/2}$"
+description "表示一维网格中第 $i$ 号单元的左端点"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$x_{i+1/2}$"
+description "表示一维网格中第 $i$ 号单元的右端点"
+literal "true"
+
+\end_inset
+
+按此记法，
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\vert V_{i}\\vert$"
+description "表示单元 $V_{i}$ 的测度（线单元的长度、面单元的面积、体单元的体积）"
+literal "true"
+
+\end_inset
+
+
 \begin_inset Formula $V_{i}$
 \end_inset
 
@@ -5880,7 +6024,25 @@ status open
 \begin_inset Formula $V_{i}$
 \end_inset
 
- 上的多项式近似，记作
+ 上的多项式近似
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$u^{h}|_{V_{i}}$"
+description "表示标量函数 $u$ 在体单元 $V_{i}$ 上的多项式近似"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$u^{h}$"
+description "表示标量函数 $u$ 在尺度为 $h$ 的网格上的多项式近似"
+literal "true"
+
+\end_inset
+
+，记作
 \begin_inset Formula 
 \begin{equation}
 u^{h}|_{V_{i}}(x,y,z)=\sum_{a,b,c}\hat{u}_{a,b,c}(x-x_{0})^{a}(y-y_{0})^{b}(z-z_{0})^{c},\qquad(x,y,z)\in V_{i},
@@ -5896,7 +6058,16 @@ u^{h}|_{V_{i}}(x,y,z)=\sum_{a,b,c}\hat{u}_{a,b,c}(x-x_{0})^{a}(y-y_{0})^{b}(z-z_
 \begin_inset Formula $\hat{u}_{a,b,c}$
 \end_inset
 
- 为常值系数，
+ 为常值系数
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\hat{u}_{a,b,c}$"
+description "表示多项式 $u^{h}|_{V_{i}}$ 以 $(x_{0},y_{0},z_{0})$ 为中心的展开式中 $(x-x_{0})^{a}(y-y_{0})^{b}(z-z_{0})^{c}$ 的系数"
+literal "true"
+
+\end_inset
+
+，
 \begin_inset Formula $(x_{0},y_{0},z_{0})$
 \end_inset
 
@@ -5908,7 +6079,16 @@ u^{h}|_{V_{i}}(x,y,z)=\sum_{a,b,c}\hat{u}_{a,b,c}(x-x_{0})^{a}(y-y_{0})^{b}(z-z_
 \begin_inset Formula $h$
 \end_inset
 
- 表示单元尺寸（棱长平均值或外接球半径）。将 
+ 表示单元尺寸（棱长平均值或外接球半径）
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$h$"
+description "表示单元的尺寸（棱长平均值或外接球半径）"
+literal "true"
+
+\end_inset
+
+。将 
 \begin_inset Formula $u$
 \end_inset
 
@@ -5976,6 +6156,15 @@ u^{h}|_{V_{N_{V(G)}}}(x,y,z), & (x,y,z)\in V_{N_{V(G)}}.
 \end_inset
 
  上的平方可积函数空间
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$L^{2}(\\varOmega)$"
+description "表示 $\\varOmega$ 上的平方可积函数空间"
+literal "true"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 L^{2}(\varOmega)\coloneqq\left\{ \phi:\int_{\varOmega}\vert\phi\vert^{2}<\infty\right\} ,\label{eq:L2-space}
@@ -5984,6 +6173,15 @@ L^{2}(\varOmega)\coloneqq\left\{ \phi:\int_{\varOmega}\vert\phi\vert^{2}<\infty\
 \end_inset
 
 并在此空间上定义“内积 (inner-product)”：
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\langle\\phi\\vert\\psi\\rangle_{\\varOmega}$"
+description "表示 $L^{2}(\\varOmega)$ 上的内积"
+literal "true"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \langle\phi\vert\psi\rangle_{\varOmega}\coloneqq\int_{\varOmega}(\phi\psi),\qquad\forall(\phi,\psi)\in L^{2}(\varOmega)\times L^{2}(\varOmega),\label{eq:inner-product}
@@ -5992,6 +6190,15 @@ L^{2}(\varOmega)\coloneqq\left\{ \phi:\int_{\varOmega}\vert\phi\vert^{2}<\infty\
 \end_inset
 
 再由其诱导出“范数 (norm)”：
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\Vert\\phi\\Vert_{\\varOmega}$"
+description "表示 $L^{2}(\\varOmega)$ 上的范数"
+literal "true"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \Vert\phi\Vert_{\varOmega}\coloneqq\sqrt{\langle\phi\vert\phi\rangle_{\varOmega}},\qquad\forall\phi\in L^{2}(\varOmega).\label{eq:norm}
@@ -6142,11 +6349,38 @@ reference "eq:norm"
 \begin_inset Formula $V_{i}$
 \end_inset
 
-，就得到函数空间 
+，就得到
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$L^{2}(V_i)$"
+description "表示 $V_i$ 上的平方可积函数空间"
+literal "true"
+
+\end_inset
+
+函数空间 
 \begin_inset Formula $L^{2}(V_{i})$
 \end_inset
 
- 及其上的内积与范数。由此可以给出确定 
+ 及其上的内积
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\langle\\phi\\vert\\psi\\rangle_{V_i}$"
+description "表示 $L^{2}(V_i)$ 上的内积"
+literal "true"
+
+\end_inset
+
+与范数
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\Vert\\phi\\Vert_{V_i}$"
+description "表示 $L^{2}(V_i)$ 上的范数"
+literal "true"
+
+\end_inset
+
+。由此可以给出确定 
 \begin_inset Formula $u^{h}|_{V_{i}}$
 \end_inset
 
@@ -6187,6 +6421,15 @@ reference "eq:norm"
 \end_inset
 
  的多项式所张成的线性空间，记作
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\mathbb{P}^{<p}(V_{i})$"
+description "表示定义在 $V_{i}$ 上的次数低于 $p$ 的多项式所张成的线性空间"
+literal "true"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \mathbb{P}^{<p}(V_{i})\coloneqq\mathrm{span}\left\{ x^{a}y^{b}z^{c}:\vert a+b+c\vert<p\right\} .
@@ -7095,6 +7338,33 @@ reference "sec:parallel"
 \end_inset
 
  个未知量的双曲型偏微分方程组
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{U}$"
+description "表示双曲型方程组中的未知量列矩阵"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{\\vec{F}}$"
+description "表示双曲型方程组中的以列矩阵为分量的通量向量"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{H}$"
+description "表示双曲型方程组中的源项列矩阵"
+literal "true"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \partial_{t}\underline{U}+\nabla\cdot\underline{\vec{F}}=\underline{H}\label{eq:PDE}
@@ -7119,6 +7389,15 @@ reference "sec:parallel"
 \end_inset
 
  都成立。经过一次分部积分并利用高斯散度定理可得
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{F^\\nu}$"
+description "表示法向通量列矩阵"
+literal "true"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \int_{V}\left(\psi\,\partial_{t}\underline{U}-\underline{\vec{F}}\cdot\nabla\psi\right)+\oint_{\partial V}\psi\,\underbrace{\vec{\nu}\cdot\underline{\vec{F}}}_{\underline{F^{\nu}}}=\int_{V}\psi\,\underline{H},\label{eq:weak-form}
@@ -7340,7 +7619,16 @@ reference "eq:weak-form"
 \begin_inset Formula $N\times L$
 \end_inset
 
- 矩阵，表示体积分残差；
+ 矩阵，表示体积分残差
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{R}_{V}$"
+description "表示 $V$ 上的体积分残差"
+literal "true"
+
+\end_inset
+
+；
 \begin_inset Formula 
 \begin{equation}
 \underline{R}_{\partial V}\coloneqq\oint_{\partial V}\begin{bmatrix}\psi_{1} & \cdots & \psi_{L}\end{bmatrix}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U^{h}}\right)
@@ -7352,7 +7640,16 @@ reference "eq:weak-form"
 \begin_inset Formula $N\times L$
 \end_inset
 
- 矩阵，表示面积分残差。令 
+ 矩阵，表示面积分残差
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{R}_{\\partial V}$"
+description "表示 $V$ 上的面积分残差"
+literal "true"
+
+\end_inset
+
+。令 
 \begin_inset Formula $V$
 \end_inset
 
@@ -7712,17 +8009,16 @@ name "fig:Gibbs"
 \end_layout
 
 \begin_layout Standard
-“基本无振荡 (essentially non-oscillatory, ENO)” 重构方法
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 prefix "ENO"
 symbol "ENO"
 description "essentially non-oscillatory"
-literal "false"
+literal "true"
 
 \end_inset
 
-最早出现于文献-
+“基本无振荡 (essentially non-oscillatory, ENO)” 重构方法最早出现于文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Harten_1997"
@@ -7746,8 +8042,16 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-在近似解充分光滑的区域，各候选多项式的光滑程度通常也很接近，只保留其中一个显然是对计算资源的一种浪费。为了充分利用所有已知信息，加权基本无振荡
- (Weighted ENO, WENO) 方法将 ENO 方法的最后一步替换为：
+在近似解充分光滑的区域，各候选多项式的光滑程度通常也很接近，只保留其中一个显然是对计算资源的一种浪费。为了充分利用所有已知信息，
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "WENO"
+description "weighted essentially non-oscillatory"
+literal "true"
+
+\end_inset
+
+“加权基本无振荡 (Weighted ENO, WENO)”方法将 ENO 方法的最后一步替换为：
 \end_layout
 
 \begin_layout Itemize
@@ -7779,7 +8083,7 @@ literal "false"
 在等距网格上引入守恒型差分格式
 \begin_inset Formula 
 \begin{equation}
-\left(\partial_{x}f\right)_{i}\equiv\eval{\pdv{f}{x}}_{i}\approx\frac{f_{i+1/2}-f_{i-1/2}}{h}
+\left(\partial_{x}f\right)_{i}\equiv\eval{\pdv{f}{x}}_{i}\approx\frac{f_{i+1/2}-f_{i-1/2}}{h},
 \end{equation}
 
 \end_inset
@@ -7788,7 +8092,16 @@ literal "false"
 \begin_inset Formula $f_{i\pm1/2}$
 \end_inset
 
- 为下面将要构造的数值通量。不失一般性，这里只考虑 
+ 为下面将要构造的数值通量
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$f_{i+1/2}$"
+description "表示 $ x_{i+1/2} $ 处的数值通量"
+literal "true"
+
+\end_inset
+
+。不失一般性，这里只考虑 
 \begin_inset Formula $a(u_{i})>0$
 \end_inset
 
@@ -7827,7 +8140,7 @@ S=\begin{bmatrix}-2 & -1 & 0 & +1 & +2\end{bmatrix}
 被分解为三个各含三个点且部分重叠的小模板：
 \begin_inset Formula 
 \begin{equation}
-S_{1}=\begin{bmatrix}-2 & -1 & 0\end{bmatrix}\qquad S_{2}=\begin{bmatrix}-1 & 0 & +1\end{bmatrix}\qquad S_{3}=\begin{bmatrix}0 & +1 & +2\end{bmatrix}
+S_{1}=\begin{bmatrix}-2 & -1 & 0\end{bmatrix},\qquad S_{2}=\begin{bmatrix}-1 & 0 & +1\end{bmatrix},\qquad S_{3}=\begin{bmatrix}0 & +1 & +2\end{bmatrix}.
 \end{equation}
 
 \end_inset
@@ -7837,6 +8150,15 @@ S_{1}=\begin{bmatrix}-2 & -1 & 0\end{bmatrix}\qquad S_{2}=\begin{bmatrix}-1 & 0 
 \end_inset
 
  的三阶近似，相应的数值通量分别为
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$f^{[k]}_{i+1/2}$"
+description "表示在第 $k$ 号小模板上获得的 $ x_{i+1/2} $ 处的数值通量"
+literal "true"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \begin{bmatrix}f_{i+1/2}^{[1]}\\
@@ -7850,7 +8172,7 @@ f_{i-1}\\
 f_{i}\\
 f_{i+1}\\
 f_{i+2}
-\end{bmatrix}
+\end{bmatrix}.
 \end{equation}
 
 \end_inset
@@ -7861,7 +8183,7 @@ f_{i+2}
 f_{i+1/2}=\begin{bmatrix}w_{1} & w_{2} & w_{3}\end{bmatrix}\begin{bmatrix}f_{i+1/2}^{[1]}\\
 f_{i+1/2}^{[2]}\\
 f_{i+1/2}^{[3]}
-\end{bmatrix}
+\end{bmatrix},
 \end{equation}
 
 \end_inset
@@ -7878,7 +8200,16 @@ f_{i+1/2}^{[3]}
 \begin_inset Formula $\begin{bmatrix}S_{1} & S_{2} & S_{3}\end{bmatrix}$
 \end_inset
 
- 上的光滑程度构造的非线性权重：
+ 上的光滑程度构造的非线性权重
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$w_k$"
+description "表示第 $k$ 号小模板的非线性权重"
+literal "true"
+
+\end_inset
+
+：
 \end_layout
 
 \begin_layout Itemize
@@ -7894,15 +8225,24 @@ f_{i-1}\\
 f_{i}\\
 f_{i+1}\\
 f_{i+2}
-\end{bmatrix}
+\end{bmatrix}.
 \end{equation}
 
 \end_inset
 
-这可以通过取理想权重来实现：
+这可以通过取理想权重来实现
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$w_k^{\\star}$"
+description "表示第 $k$ 号小模板的理想权重"
+literal "true"
+
+\end_inset
+
+：
 \begin_inset Formula 
 \begin{equation}
-\begin{bmatrix}w_{1} & w_{2} & w_{3}\end{bmatrix}=\begin{bmatrix}w_{1}^{\star} & w_{2}^{\star} & w_{3}^{\star}\end{bmatrix}\coloneqq\frac{\begin{bmatrix}1 & 6 & 3\end{bmatrix}}{10}
+\begin{bmatrix}w_{1} & w_{2} & w_{3}\end{bmatrix}=\begin{bmatrix}w_{1}^{\star} & w_{2}^{\star} & w_{3}^{\star}\end{bmatrix}\coloneqq\frac{\begin{bmatrix}1 & 6 & 3\end{bmatrix}}{10}.
 \end{equation}
 
 \end_inset
@@ -7951,10 +8291,19 @@ literal "false"
 \begin_inset Formula $f$
 \end_inset
 
- 的近似：
+ 的近似
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$Q^{[k]}_{i}$"
+description "表示在第 $k$ 号小模板构造的二次多项式近似"
+literal "true"
+
+\end_inset
+
+：
 \begin_inset Formula 
 \begin{equation}
-Q_{i}^{[k]}(x)=f_{i}+\eval{\pdv{f}{x}}_{i}^{[k]}(x-x_{i})+\eval{\pdv[2]{f}{x}}_{i}^{[k]}\frac{(x-x_{i})^{2}}{2}
+Q_{i}^{[k]}(x)=f_{i}+\eval{\pdv{f}{x}}_{i}^{[k]}(x-x_{i})+\eval{\pdv[2]{f}{x}}_{i}^{[k]}\frac{(x-x_{i})^{2}}{2},
 \end{equation}
 
 \end_inset
@@ -7997,7 +8346,7 @@ f_{i-1}\\
 f_{i}\\
 f_{i+1}\\
 f_{i+2}
-\end{bmatrix}
+\end{bmatrix},
 \end{equation}
 
 \end_inset
@@ -8016,7 +8365,7 @@ f_{i-1}\\
 f_{i}\\
 f_{i+1}\\
 f_{i+2}
-\end{bmatrix}
+\end{bmatrix}.
 \end{equation}
 
 \end_inset
@@ -8036,7 +8385,7 @@ f_{i+2}
  上的光滑程度
 \begin_inset Formula 
 \begin{equation}
-\beta_{i}^{[k]}\coloneqq\int_{x_{i-1/2}}^{x_{i+1/2}}\sum_{p=1}^{2}\left(\dv[p]{Q_{i}^{[k]}}{x}\right)^{2}h^{2p-1}\dd{x}=\left(\eval{\pdv{f}{x}}_{i}^{[k]}h\right)^{2}+\frac{13}{12}\left(\eval{\pdv[2]{f}{x}}_{i}^{[k]}h^{2}\right)^{2}
+\beta_{i}^{[k]}\coloneqq\int_{x_{i-1/2}}^{x_{i+1/2}}\sum_{p=1}^{2}\left(\dv[p]{Q_{i}^{[k]}}{x}\right)^{2}h^{2p-1}\dd{x}=\left(\eval{\pdv{f}{x}}_{i}^{[k]}h\right)^{2}+\frac{13}{12}\left(\eval{\pdv[2]{f}{x}}_{i}^{[k]}h^{2}\right)^{2}.
 \end{equation}
 
 \end_inset
@@ -8048,7 +8397,7 @@ f_{i+2}
 ，且两两之差为六阶小量：
 \begin_inset Formula 
 \begin{equation}
-\beta_{i}^{[k]}=\beta_{i}^{\star}+\order{h^{6}}\qquad\beta_{i}^{\star}\coloneqq\left(\eval{\pdv{f}{x}}_{i}h\right)^{2}+\frac{13}{12}\left(\eval{\pdv[2]{f}{x}}_{i}h^{2}\right)^{2}
+\beta_{i}^{[k]}=\beta_{i}^{\star}+\order{h^{6}},\qquad\beta_{i}^{\star}\coloneqq\left(\eval{\pdv{f}{x}}_{i}h\right)^{2}+\frac{13}{12}\left(\eval{\pdv[2]{f}{x}}_{i}h^{2}\right)^{2}.
 \end{equation}
 
 \end_inset
@@ -8068,7 +8417,7 @@ f_{i+2}
  处的特例展开式较多，因此
 \begin_inset Formula 
 \begin{equation}
-\beta_{i}^{[k]}=\order{1}\gg\order{h^{2}}
+\beta_{i}^{[k]}=\order{1}\gg\order{h^{2}}.
 \end{equation}
 
 \end_inset
@@ -8080,7 +8429,7 @@ f_{i+2}
 计算非线性权重
 \begin_inset Formula 
 \begin{equation}
-w_{k}=\frac{w_{k}^{\beta}}{w_{3}^{\beta}+w_{2}^{\beta}+w_{3}^{\beta}}\qquad w_{k}^{\beta}=\frac{w_{k}^{\star}}{\left(\varepsilon+\beta_{i}^{[k]}\right)^{2}}\qquad\varepsilon=10^{-6}
+w_{k}=\frac{w_{k}^{\beta}}{w_{3}^{\beta}+w_{2}^{\beta}+w_{3}^{\beta}},\qquad w_{k}^{\beta}=\frac{w_{k}^{\star}}{\left(10^{-6}+\beta_{i}^{[k]}\right)^{2}}.
 \end{equation}
 
 \end_inset
@@ -8088,7 +8437,7 @@ w_{k}=\frac{w_{k}^{\beta}}{w_{3}^{\beta}+w_{2}^{\beta}+w_{3}^{\beta}}\qquad w_{k
 在光滑区域，上述非线性权重接近理想权重：
 \begin_inset Formula 
 \begin{equation}
-w_{k}=w_{k}^{\star}+\order{h^{4}}\impliedby w_{k}^{\beta}=\frac{w_{k}^{\star}}{(\beta_{i}^{\star})^{2}+\order{h^{8}}}
+w_{k}=w_{k}^{\star}+\order{h^{4}}\impliedby w_{k}^{\beta}=\frac{w_{k}^{\star}}{(\beta_{i}^{\star})^{2}+\order{h^{8}}}.
 \end{equation}
 
 \end_inset
@@ -8149,6 +8498,15 @@ literal "false"
 \end_inset
 
  上的限制简记为
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$u_{i}$"
+description "表示标量函数 $u$ 在体单元 $V_{i}$ 上的限制"
+literal "true"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 u_{i}(\vec{r})\coloneqq u\vert_{V_{i}}(\vec{r}),\qquad\vec{r}\in V_{i},
@@ -8161,6 +8519,15 @@ u_{i}(\vec{r})\coloneqq u\vert_{V_{i}}(\vec{r}),\qquad\vec{r}\in V_{i},
 \end_inset
 
  及与之邻接的那些体单元的下标集（即局部模板）记为
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$K_{i}$"
+description "表示体单元 $V_{i}$ 及与之邻接的那些体单元的下标集（即局部模板）"
+literal "true"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 K_{i}\coloneqq\left\{ k:\partial V_{i}\cap\partial V_{k}\ne\varnothing\right\} .
@@ -8203,7 +8570,16 @@ K_{i}\coloneqq\left\{ k:\partial V_{i}\cap\partial V_{k}\ne\varnothing\right\} .
 \begin_inset Formula $V_{i}$
 \end_inset
 
- 上，并对函数值作适当平移，使所得的 
+ 上，并对函数值作适当平移，
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$u_{k\\to i}$"
+description "表示将标量函数 $u_{k}$ 延拓到 $V_{i}$ 上，并对函数值作适当平移（使其在 $V_{i}$ 上的均值等于 $u_{i}$ 在 $V_{i}$ 上的均值）所得的函数"
+literal "true"
+
+\end_inset
+
+使所得的 
 \begin_inset Formula $u_{k\to i}$
 \end_inset
 
@@ -8239,7 +8615,16 @@ u_{k\to i}(\vec{r})\coloneqq u_{k}(\vec{r})-\langle u_{k}\rangle_{i}+\langle u_{
 \begin_inset Formula $V_{i}$
 \end_inset
 
- 上的均值：
+ 上的均值
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\langle u_{k}\\rangle_{i}$"
+description "表示标量函数 $u_{k}$ 在单元 $V_{i}$ 上的均值"
+literal "true"
+
+\end_inset
+
+：
 \begin_inset Formula 
 \begin{equation}
 \langle u_{k}\rangle_{i}\coloneqq\frac{\int_{V_{i}}u_{k}(\vec{r})}{\vert V_{i}\vert},\qquad\vert V_{i}\vert\coloneqq\int_{V_{i}}1.
@@ -8286,7 +8671,16 @@ w_{k\to i}^{\star}=\begin{cases}
 \begin_inset Formula $V_{i}$
 \end_inset
 
- 上的光滑程度：
+ 上的光滑程度
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\beta_{k\\to i}$"
+description "表示标量函数函数 $u_{k\\to i}$ 在 $V_{i}$ 上的光滑程度"
+literal "true"
+
+\end_inset
+
+：
 \begin_inset Formula 
 \begin{equation}
 \beta_{k\to i}=\sum_{\vert\alpha\vert=1}^{p}\frac{\vert V_{i}\vert^{2\vert\alpha\vert/3-1}}{(\vert\alpha\vert!)^{2}}\int_{V_{i}}\left(\frac{\partial^{\vert\alpha\vert}u_{k\to i}}{\partial x^{\alpha_{x}}\partial y^{\alpha_{y}}\partial z^{\alpha_{z}}}\right)^{2},\qquad\vert\alpha\vert\coloneqq\alpha_{x}+\alpha_{y}+\alpha_{z},
@@ -8334,11 +8728,27 @@ w_{k\to i}=\frac{w_{k\to i}^{\beta}}{\sum_{k\in K_{i}}w_{k\to i}^{\beta}},\qquad
 \end_layout
 
 \begin_layout Standard
-按上述非线性权重对 
-\begin_inset Formula $\left\{ u_{k}:k\in K_{i}\right\} $
+\begin_inset Separator plain
 \end_inset
 
- 作平均，以所得的新函数 
+
+\end_layout
+
+\begin_layout Standard
+按上述非线性权重对 
+\begin_inset Formula $\left\{ u_{k\to i}:k\in K_{i}\right\} $
+\end_inset
+
+ 作平均，
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$u_{i}^{\\mathrm{new}}$"
+description "表示 $u_{i}$ 经过 WENO 重构所得的新函数"
+literal "true"
+
+\end_inset
+
+以所得的新函数 
 \begin_inset Formula $u_{i}^{\mathrm{new}}$
 \end_inset
 
@@ -8449,7 +8859,25 @@ f_{K}
 \begin_inset Formula $\underline{U^{h}}_{i}$
 \end_inset
 
- 表示其近似解。
+ 表示其近似解
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{U^{h}}_{i}$"
+description "表示双曲型方程组在单元 $V_i$ 上的近似解"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{U^{h}}$"
+description "表示矩阵函数 $\\underline{U}$ 在尺度为 $h$ 的网格上的多项式近似"
+literal "true"
+
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Standard
@@ -8485,7 +8913,16 @@ f_{K}
 \begin_inset Formula $V_{i}$
 \end_inset
 
- 上的平均值：
+ 上的平均值
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{U^{h}}_{k\\to i}$"
+description "表示将矩阵函数 $\\underline{U^{h}}_{k}$ 延拓到 $V_{i}$ 上，并对函数值作适当平移（使其在 $V_{i}$ 上的均值等于 $\\underline{U^{h}}_{i}$ 在 $V_{i}$ 上的均值）所得的函数"
+literal "true"
+
+\end_inset
+
+：
 \begin_inset Formula 
 \begin{equation}
 \underline{U^{h}}_{k\to i}(\vec{r},t)\coloneqq\underline{U^{h}}_{k}(\vec{r},t)-\langle\underline{U^{h}}_{k}\rangle_{i}+\langle\underline{U^{h}}_{i}\rangle_{i},\qquad\vec{r}\in V_{i}.
@@ -8513,7 +8950,7 @@ f_{K}
 \end_layout
 
 \begin_layout Standard
-遍历 
+再次遍历 
 \begin_inset Formula $V_{i}$
 \end_inset
 
@@ -8532,14 +8969,41 @@ reference "eq:hyperbolic_system"
 \begin_inset Formula $\partial V_{i}\cap\partial V_{k}$
 \end_inset
 
- 的法向量 
+ 的
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\vec{\\nu}_{k}$"
+description "表示体单元 $V_{i}$ 与 $V_{k}$ 的公共边界 $\\partial V_{i}\\cap\\partial V_{k}$ 上的单位法向量"
+literal "true"
+
+\end_inset
+
+法向量 
 \begin_inset Formula $\vec{\nu}_{k}$
 \end_inset
 
  的法向分裂形式
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{F^{\\nu_{k}}}$"
+description "表示  $\\underline{\\vec{F}}$ 在 $\\vec{\\nu}_{k}$ 上投影所得的法向通量"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{A^{\\nu_{k}}}$"
+description "表示  $\\underline{\\vec{F}}$ 关于 $\\underline{U}$ 的雅可比矩阵"
+literal "true"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
-\partial_{t}\underline{U}+\partial_{\nu_{k}}\underline{F^{\nu_{k}}}=\underline{H},\qquad\underline{F^{\nu_{k}}}\coloneqq\vec{\nu}_{k}\cdot\vec{\underline{F}},\qquad,\underline{A^{\nu_{k}}}\coloneqq\partial\underline{F^{\nu_{k}}}/\partial\underline{U},
+\partial_{t}\underline{U}+\partial_{\nu_{k}}\underline{F^{\nu_{k}}}=\underline{H},\qquad\underline{F^{\nu_{k}}}\coloneqq\vec{\nu}_{k}\cdot\vec{\underline{F}},\qquad\underline{A^{\nu_{k}}}\coloneqq\partial\underline{F^{\nu_{k}}}/\partial\underline{U},
 \end{equation}
 
 \end_inset
@@ -8564,7 +9028,16 @@ reference "eq:hyperbolic_system"
 \begin_inset Formula $\underline{A^{\nu_{k}}}(\underline{U}_{i})$
 \end_inset
 
- 的近似值：
+ 所得的近似值
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{A}_{i|k}$"
+description "表示用 $\\underline{U^{h}}_{i}$\\\\在 $V_{i}$ 上的均值计算 $\\underline{A^{\\nu_{k}}}(\\underline{U}_{i})$ 所得的近似值"
+literal "true"
+
+\end_inset
+
+：
 \begin_inset Formula 
 \begin{equation}
 \underline{A^{\nu_{k}}}(\underline{U})\approx\underline{A^{\nu_{k}}}\qty(\langle\underline{U^{h}}_{i}\rangle_{i})\eqqcolon\underline{A}_{i|k}.
@@ -8592,7 +9065,25 @@ reference "eq:hyperbolic_system"
 \begin_inset Formula $\underline{A}_{i|k}$
 \end_inset
 
- 做特征分解：
+ 做特征分解
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{R}_{i|k}$"
+description "表示 $\\underline{R}_{i|k}$ 的右特征矩阵"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{L}_{i|k}$"
+description "表示 $\\underline{L}_{i|k}$ 的左特征矩阵"
+literal "true"
+
+\end_inset
+
+：
 \begin_inset Formula 
 \begin{equation}
 \underline{A}_{i|k}\,\underline{R}_{i|k}=\underline{R}_{i|k}\,\underline{\varLambda}_{i|k},\qquad\underline{L}_{i|k}\coloneqq(\underline{R}_{i|k})^{-1}.\label{eq:eigen-decomposition}
@@ -8608,7 +9099,16 @@ reference "eq:hyperbolic_system"
 \begin_inset Formula $\underline{L}_{i|k}$
 \end_inset
 
- 定义特征变量：
+ 定义特征变量
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{W}_{i|k}$"
+description "表示利用 $\\underline{L}_{i|k}$ 构造的特征变量"
+literal "true"
+
+\end_inset
+
+：
 \begin_inset Formula 
 \begin{equation}
 \underline{W}_{i|k}\coloneqq\underline{L}_{i|k}\,\underline{U}.
@@ -8641,6 +9141,15 @@ reference "eq:hyperbolic_system"
 \end_inset
 
  表示重构后的、基本无振荡的特征变量近似值。
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{W^{h}}_{i|k}^{\\mathrm{new}}$"
+description "表示 $\\underline{W}^h_{i|k}$ 经过 WENO 重构所得的新函数"
+literal "true"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -8654,6 +9163,13 @@ reference "eq:hyperbolic_system"
 \underline{U^{h}}_{i|k}^{\mathrm{new}}\coloneqq\underline{R}_{i|k}\,\underline{W^{h}}_{i|k}^{\mathrm{new}}.
 \end{equation}
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
 \end_inset
 
 
@@ -8681,6 +9197,15 @@ reference "eq:hyperbolic_system"
 \end_inset
 
  的新近似解。
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{U^{h}}_{i}^{\\mathrm{new}}$"
+description "表示 $\\underline{U}^h_{i}$ 经过 WENO 重构所得的新函数"
+literal "true"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -8708,11 +9233,56 @@ reference "eq:eigen-decomposition"
 
 \end_inset
 
- 所示特征分解可以通过符号运算提前做好。本节给出该结果的推导。
+ 所示特征分解可以通过符号运算提前做好。本节给出该结果的推导过程。
 \end_layout
 
 \begin_layout Standard
 三维欧拉方程的法向分裂形式
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\rho$"
+description "表示气体密度"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$p$"
+description "表示气体压强"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$e_0$"
+description "表示气体比总能"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$h_0$"
+description "表示气体比总焓"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\vec{u}$"
+description "表示气体速度"
+literal "true"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \frac{\partial}{\partial t}\begin{bmatrix}\rho\\
@@ -8783,7 +9353,16 @@ reference "eq:eigen-decomposition"
 
 \end_inset
 
-后者的特征值及右特征矩阵分别为
+后者的特征值及右特征矩阵
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{R'}$"
+description "表示 $\\underline{A^\\nu}$ 的右特征向量在法向坐标系中的表达式"
+literal "true"
+
+\end_inset
+
+分别为
 \begin_inset Formula 
 \begin{equation}
 \underline{\varLambda'}=\begin{bmatrix}u_{\nu}-a\\
@@ -8809,7 +9388,16 @@ h_{0}-u_{\nu}a & \frac{u_{\nu}^{2}+u_{\sigma}^{2}+u_{\pi}^{2}}{2} & u_{\sigma} &
 
 \end_inset
 
-利用符号运算可得左特征矩阵：
+利用符号运算可得左特征矩阵
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{L'}$"
+description "表示 $\\underline{A^\\nu}$ 的左特征向量在法向坐标系中的表达式"
+literal "true"
+
+\end_inset
+
+：
 \begin_inset Formula 
 \begin{equation}
 \underline{L'}=(\underline{R'})^{-1}=\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}+1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{-1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}\\
@@ -8866,7 +9454,16 @@ B_{1}\coloneqq\frac{\gamma^{-}}{a^{2}},\qquad B_{2}\coloneqq B_{1}\frac{u_{\nu}^
 \begin_inset Formula $(x,y,z)$
 \end_inset
 
- 坐标系下的表达式：
+ 坐标系下的表达式
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{R}$"
+description "表示 $\\underline{A^\\nu}$ 的右特征向量在全局坐标系中的表达式"
+literal "true"
+
+\end_inset
+
+：
 \begin_inset Formula 
 \begin{equation}
 \underline{R}=\underline{J}_{\underline{U}\to\underline{U'}}\,\underline{R'}=\begin{bmatrix}1 & 1 & 0 & 0 & 1\\
@@ -8904,7 +9501,16 @@ u_{z}
 \begin_inset Formula $(x,y,z)$
 \end_inset
 
- 坐标系下的表达式：
+ 坐标系下的表达式
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{L}$"
+description "表示 $\\underline{A^\\nu}$ 的左特征向量在全局坐标系中的表达式"
+literal "true"
+
+\end_inset
+
+：
 \begin_inset Formula 
 \begin{equation}
 \underline{L}=\underline{L'}\,\underline{J}_{\underline{U}\to\underline{U'}}^{-1}
@@ -9011,11 +9617,33 @@ reference "eq:orthonormal_DG"
 \begin_inset Formula $\underline{\hat{U}}^{n+1}$
 \end_inset
 
- 只需用到 
+ 只需用到当前时间步 
+\begin_inset Formula $t_{n}$
+\end_inset
+
+ 的值 
 \begin_inset Formula $\underline{\hat{U}}^{n}$
 \end_inset
 
 ，则称其为单步格式，否则称之为多步格式。
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{\\hat{U}}^{n}$"
+description "表示 $\\underline{\\hat{U}}$ 第 $n$ 时间步的值"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{\\hat{R}}^{n}$"
+description "表示 $\\underline{R}(\\underline{\\hat{U}})$ 在第 $n$ 时间步的值"
+literal "true"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -9065,6 +9693,15 @@ reference "eq:orthonormal_DG"
 \end_inset
 
 就得到显式欧拉格式：
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$h_t$"
+description "表示时间步长"
+literal "true"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n}.\label{eq:Euler}
@@ -9104,7 +9741,16 @@ reference "eq:orthonormal_DG"
 \end_layout
 
 \begin_layout Standard
-显式 Runge–Kutta (RK) 格式是一族高阶推进格式，最一般的形式为
+显式 Runge–Kutta (RK) 格式
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "RK"
+description "Runge–Kutta"
+literal "true"
+
+\end_inset
+
+是一族高阶推进格式，最一般的形式为
 \begin_inset Formula 
 \begin{equation}
 \underline{\hat{U}}^{n+i/m}=\sum_{k=0}^{i-1}\left(\alpha_{i,k}\underline{\hat{U}}^{n+k/m}+\beta_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\right),\qquad i=1,\dots,m\label{eq:RKm}
@@ -9124,7 +9770,7 @@ reference "eq:orthonormal_DG"
 \end_layout
 
 \begin_layout Description
-一阶 
+一阶 同显式欧拉格式，即
 \begin_inset Formula 
 \begin{equation}
 \underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n};\label{eq:RK1}
@@ -9199,7 +9845,16 @@ reference "eq:orthonormal_DG"
 \end_inset
 
 ，则称该格式具有强稳定性。可以证明：当时间步长足够小时，显式欧拉格式具有强稳定性。若高阶格式可以保持这种强稳定性，则称其为“强稳定保持 (strong
- stability-preserving, SSP)”格式。
+ stability preserving, SSP)”格式。
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "SSP"
+description "strong stability preserving"
+literal "true"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Lemma
@@ -9221,12 +9876,21 @@ reference "eq:RKm"
  都非负，且满足
 \begin_inset Formula 
 \begin{equation}
-h_{t}\le ch_{t}^{\text{F.E.}},\qquad c=\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}},
+h_{t}\le ch_{t}^{\mathrm{E.E.}},\qquad c=\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}},
 \end{equation}
 
 \end_inset
 
 则其为 SSP 格式。
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$h_{t}^{\\mathrm{E.E.}}$"
+description "表示显示欧拉格式的时间步长"
+literal "true"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -9254,7 +9918,7 @@ h_{t}\le ch_{t}^{\text{F.E.}},\qquad c=\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}
 其中
 \begin_inset Formula 
 \begin{equation}
-\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\le\frac{\beta_{i,k}}{\alpha_{i,k}}ch_{t}^{\text{F.E.}}\le\frac{\beta_{i,k}}{\alpha_{i,k}}\frac{\alpha_{i,k}}{\beta_{i,k}}h_{t}^{\text{F.E.}}=h_{t}^{\text{F.E.}},\qquad\forall(i,k),
+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\le\frac{\beta_{i,k}}{\alpha_{i,k}}ch_{t}^{\mathrm{E.E.}}\le\frac{\beta_{i,k}}{\alpha_{i,k}}\frac{\alpha_{i,k}}{\beta_{i,k}}h_{t}^{\mathrm{E.E.}}=h_{t}^{\mathrm{E.E.}},\qquad\forall(i,k),
 \end{equation}
 
 \end_inset
@@ -9399,7 +10063,7 @@ reference "eq:RKm"
 \end_layout
 
 \begin_layout Standard
-强稳定保持的概念以及上述引理，是由 Shu 等提出并发展的 
+强稳定保持的概念以及上述引理，是由 Shu 等提出并发展的
 \begin_inset CommandInset citation
 LatexCommand citet
 key "Gottlieb_1998,Gottlieb_2001"
@@ -9531,6 +10195,24 @@ noprefix "false"
 \end_inset
 
  阶 RKDG”（格式、求解器、近似解）。
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "RKDG"
+description "Runge--Kutta discontinuous Galerkin"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "RK$p$/DG$q$"
+description "$p$th order Runge–Kutta and $q$th order discontinuous Galerkin"
+literal "true"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -9596,11 +10278,29 @@ reference "eq:PDE"
 \begin_inset Formula $\vec{b}_{\mathrm{V}}$
 \end_inset
 
- 表示外力的体密度，以 
+ 表示外力的体密度
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\vec{b}_{\\mathrm{V}}$"
+description "表示单位体积气体所受到的外力"
+literal "true"
+
+\end_inset
+
+，以 
 \begin_inset Formula $\vec{b}_{\mathrm{L}}$
 \end_inset
 
- 表示外力的线密度：
+ 表示外力的线密度
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\vec{b}_{\\mathrm{L}}$"
+description "表示单位长度气体所受到的外力"
+literal "true"
+
+\end_inset
+
+：
 \end_layout
 
 \begin_layout Itemize
@@ -9611,7 +10311,7 @@ reference "eq:PDE"
 \rho\vec{u}\\
 \rho e_{0}
 \end{bmatrix}+\nabla\cdot\begin{bmatrix}\rho\vec{u}\\
-\rho\vec{u}\vec{u}\\
+\rho\vec{u}\otimes\vec{u}\\
 \rho h_{0}\vec{u}
 \end{bmatrix}=\begin{bmatrix}0\\
 \vec{b}_{\mathrm{V}}-\nabla p\\
@@ -9646,6 +10346,15 @@ reference "eq:PDE"
 \end_inset
 
  所受到的气动力为
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$s$"
+description "表示桨叶弦长参数"
+literal "true"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \begin{bmatrix}L\dd{s}\\
@@ -9665,7 +10374,25 @@ C_{D}(\alpha)
 \begin_inset Formula $D$
 \end_inset
 
- 分别为升力与阻力的线密度。根据牛顿第三定律，该气动力的反作用力，就是微翼段对气体的作用力，故
+ 分别为升力与阻力的线密度
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$C_L$"
+description "表示翼型升力系数"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$C_D$"
+description "表示翼型阻力系数"
+literal "true"
+
+\end_inset
+
+。根据牛顿第三定律，该气动力的反作用力，就是微翼段对气体的作用力，故
 \begin_inset Formula 
 \begin{equation}
 \vec{b}_{\mathrm{L}}(\vec{r}(s))=-\begin{bmatrix}\vec{e}_{L}(s) & \vec{e}_{D}(s)\end{bmatrix}\begin{bmatrix}L(s)\\
@@ -9694,11 +10421,24 @@ D(s)
 \end_layout
 
 \begin_layout Standard
-设线段 
+设
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\overrightarrow{PQ}$"
+description "表示点 $P$ 到点 $Q$ 的有向线段"
+literal "true"
+
+\end_inset
+
+线段 
 \begin_inset Formula $\overrightarrow{PQ}$
 \end_inset
 
- 与四面体单元 
+ 与顶点为 
+\begin_inset Formula $ABCD$
+\end_inset
+
+ 的四面体单元 
 \begin_inset Formula $V_{i}$
 \end_inset
 
