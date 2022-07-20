@@ -6027,7 +6027,7 @@ status open
  上的多项式近似
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$u^{h}|_{V_{i}}$"
+symbol "$u^{h}\\vert_{V_{i}}$"
 description "表示标量函数 $u$ 在体单元 $V_{i}$ 上的多项式近似"
 literal "true"
 
@@ -6062,7 +6062,7 @@ u^{h}|_{V_{i}}(x,y,z)=\sum_{a,b,c}\hat{u}_{a,b,c}(x-x_{0})^{a}(y-y_{0})^{b}(z-z_
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "$\\hat{u}_{a,b,c}$"
-description "表示多项式 $u^{h}|_{V_{i}}$ 以 $(x_{0},y_{0},z_{0})$ 为中心的展开式中 $(x-x_{0})^{a}(y-y_{0})^{b}(z-z_{0})^{c}$ 的系数"
+description "表示多项式 $u^{h}\\vert_{V_{i}}$ 以 $(x_{0},y_{0},z_{0})$ 为中心的展开式中 $(x-x_{0})^{a}(y-y_{0})^{b}(z-z_{0})^{c}$ 的系数"
 literal "true"
 
 \end_inset
@@ -9152,7 +9152,7 @@ literal "true"
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "$\\underline{A^{\\nu_{k}}}$"
-description "表示  $\\underline{\\vec{F}}$ 关于 $\\underline{U}$ 的雅可比矩阵"
+description "表示  $\\underline{F^{\\nu_{k}}}$ 关于 $\\underline{U}$ 的雅可比矩阵"
 literal "true"
 
 \end_inset
@@ -9188,8 +9188,8 @@ literal "true"
  所得的近似值
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$\\underline{A}_{i|k}$"
-description "表示用 $\\underline{U^{h}}_{i}$\\\\在 $V_{i}$ 上的均值计算 $\\underline{A^{\\nu_{k}}}(\\underline{U}_{i})$ 所得的近似值"
+symbol "$\\underline{A}_{i\\vert k}$"
+description "表示用 $\\underline{U^{h}}_{i}$ 在 $V_{i}$ 上的均值计算 $\\underline{A^{\\nu_{k}}}(\\underline{U}_{i})$ 所得的近似值"
 literal "true"
 
 \end_inset
@@ -9197,13 +9197,13 @@ literal "true"
 ：
 \begin_inset Formula 
 \begin{equation}
-\underline{A^{\nu_{k}}}(\underline{U})\approx\underline{A^{\nu_{k}}}\qty(\langle\underline{U^{h}}_{i}\rangle_{i})\eqqcolon\underline{A}_{i|k}.
+\underline{A^{\nu_{k}}}(\underline{U})\approx\underline{A^{\nu_{k}}}\qty(\langle\underline{U^{h}}_{i}\rangle_{i})\eqqcolon\underline{A}_{i\vert k}.
 \end{equation}
 
 \end_inset
 
 下标里的 
-\begin_inset Formula $i|k$
+\begin_inset Formula $i\vert k$
 \end_inset
 
  表示它是在 
@@ -9219,14 +9219,14 @@ literal "true"
 
 \begin_layout Itemize
 对所得的 
-\begin_inset Formula $\underline{A}_{i|k}$
+\begin_inset Formula $\underline{A}_{i\vert k}$
 \end_inset
 
  做特征分解
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$\\underline{R}_{i|k}$"
-description "表示 $\\underline{R}_{i|k}$ 的右特征矩阵"
+symbol "$\\underline{R}_{i\\vert k}$"
+description "表示 $\\underline{A}_{i\\vert k}$ 的右特征矩阵"
 literal "true"
 
 \end_inset
@@ -9234,8 +9234,8 @@ literal "true"
 
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$\\underline{L}_{i|k}$"
-description "表示 $\\underline{L}_{i|k}$ 的左特征矩阵"
+symbol "$\\underline{L}_{i\\vert k}$"
+description "表示 $\\underline{A}_{i\\vert k}$ 的左特征矩阵"
 literal "true"
 
 \end_inset
@@ -9243,7 +9243,7 @@ literal "true"
 ：
 \begin_inset Formula 
 \begin{equation}
-\underline{A}_{i|k}\,\underline{R}_{i|k}=\underline{R}_{i|k}\,\underline{\varLambda}_{i|k},\qquad\underline{L}_{i|k}\coloneqq(\underline{R}_{i|k})^{-1}.\label{eq:eigen-decomposition}
+\underline{A}_{i\vert k}\,\underline{R}_{i\vert k}=\underline{R}_{i\vert k}\,\underline{\varLambda}_{i\vert k},\qquad\underline{L}_{i\vert k}\coloneqq(\underline{R}_{i\vert k})^{-1}.\label{eq:eigen-decomposition}
 \end{equation}
 
 \end_inset
@@ -9253,14 +9253,14 @@ literal "true"
 
 \begin_layout Itemize
 用左特征矩阵 
-\begin_inset Formula $\underline{L}_{i|k}$
+\begin_inset Formula $\underline{L}_{i\vert k}$
 \end_inset
 
  定义特征变量
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$\\underline{W}_{i|k}$"
-description "表示利用 $\\underline{L}_{i|k}$ 构造的特征变量"
+symbol "$\\underline{W}_{i\\vert k}$"
+description "表示利用 $\\underline{L}_{i\\vert k}$ 构造的特征变量"
 literal "true"
 
 \end_inset
@@ -9268,7 +9268,7 @@ literal "true"
 ：
 \begin_inset Formula 
 \begin{equation}
-\underline{W}_{i|k}\coloneqq\underline{L}_{i|k}\,\underline{U}.
+\underline{W}_{i\vert k}\coloneqq\underline{L}_{i\vert k}\,\underline{U}.
 \end{equation}
 
 \end_inset
@@ -9278,11 +9278,11 @@ literal "true"
 \end_inset
 
  代入右端，得到 
-\begin_inset Formula $\underline{W}_{i|k}$
+\begin_inset Formula $\underline{W}_{i\vert k}$
 \end_inset
 
  的近似值，记为 
-\begin_inset Formula $\underline{W^{h}}_{i|k}$
+\begin_inset Formula $\underline{W^{h}}_{i\vert k}$
 \end_inset
 
 。该近似值可能含有数值振荡。
@@ -9290,18 +9290,18 @@ literal "true"
 
 \begin_layout Itemize
 将 
-\begin_inset Formula $\underline{W}_{i|k}$
+\begin_inset Formula $\underline{W}_{i\vert k}$
 \end_inset
 
  的每一行视为独立变量，对其调用标量重构算法，用 
-\begin_inset Formula $\underline{W^{h}}_{i|k}^{\mathrm{new}}$
+\begin_inset Formula $\underline{W^{h}}_{i\vert k}^{\mathrm{new}}$
 \end_inset
 
  表示重构后的、基本无振荡的特征变量近似值。
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$\\underline{W^{h}}_{i|k}^{\\mathrm{new}}$"
-description "表示 $\\underline{W}^h_{i|k}$ 经过 WENO 重构所得的新函数"
+symbol "$\\underline{W^{h}}_{i\\vert k}^{\\mathrm{new}}$"
+description "表示 $\\underline{W}^h_{i\\vert k}$ 经过 WENO 重构所得的新函数"
 literal "true"
 
 \end_inset
@@ -9311,13 +9311,13 @@ literal "true"
 
 \begin_layout Itemize
 用右特征矩阵 
-\begin_inset Formula $\underline{R}_{i|k}$
+\begin_inset Formula $\underline{R}_{i\vert k}$
 \end_inset
 
  将其变换回守恒变量：
 \begin_inset Formula 
 \begin{equation}
-\underline{U^{h}}_{i|k}^{\mathrm{new}}\coloneqq\underline{R}_{i|k}\,\underline{W^{h}}_{i|k}^{\mathrm{new}}.
+\underline{U^{h}}_{i\vert k}^{\mathrm{new}}\coloneqq\underline{R}_{i\vert k}\,\underline{W^{h}}_{i\vert k}^{\mathrm{new}}.
 \end{equation}
 
 \end_inset
@@ -9338,13 +9338,13 @@ literal "true"
 \end_inset
 
  的体积对 
-\begin_inset Formula $\underline{U^{h}}_{i|k}^{\mathrm{new}}$
+\begin_inset Formula $\underline{U^{h}}_{i\vert k}^{\mathrm{new}}$
 \end_inset
 
  作加权平均：
 \begin_inset Formula 
 \begin{equation}
-\underline{U^{h}}_{i}^{\mathrm{new}}\coloneqq\frac{\sum_{k\in K_{i}\setminus\left\{ i\right\} }\vert V_{k}\vert\,\underline{U^{h}}_{i|k}^{\mathrm{new}}}{\sum_{k\in K_{i}\setminus\left\{ i\right\} }\vert V_{k}\vert}
+\underline{U^{h}}_{i}^{\mathrm{new}}\coloneqq\frac{\sum_{k\in K_{i}\setminus\left\{ i\right\} }\vert V_{k}\vert\,\underline{U^{h}}_{i\vert k}^{\mathrm{new}}}{\sum_{k\in K_{i}\setminus\left\{ i\right\} }\vert V_{k}\vert}
 \end{equation}
 
 \end_inset
@@ -9514,7 +9514,7 @@ literal "true"
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "$\\underline{R'}$"
-description "表示 $\\underline{A^\\nu}$ 的右特征向量在法向坐标系中的表达式"
+description "表示 $\\underline{A^\\nu}$ 的右特征矩阵在法向坐标系中的表达式"
 literal "true"
 
 \end_inset
@@ -9549,7 +9549,7 @@ h_{0}-u_{\nu}a & \frac{u_{\nu}^{2}+u_{\sigma}^{2}+u_{\pi}^{2}}{2} & u_{\sigma} &
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "$\\underline{L'}$"
-description "表示 $\\underline{A^\\nu}$ 的左特征向量在法向坐标系中的表达式"
+description "表示 $\\underline{A^\\nu}$ 的左特征矩阵在法向坐标系中的表达式"
 literal "true"
 
 \end_inset
@@ -9615,7 +9615,7 @@ B_{1}\coloneqq\frac{\gamma^{-}}{a^{2}},\qquad B_{2}\coloneqq B_{1}\frac{u_{\nu}^
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "$\\underline{R}$"
-description "表示 $\\underline{A^\\nu}$ 的右特征向量在全局坐标系中的表达式"
+description "表示 $\\underline{A^\\nu}$ 的右特征矩阵在全局坐标系中的表达式"
 literal "true"
 
 \end_inset
@@ -9662,7 +9662,7 @@ u_{z}
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "$\\underline{L}$"
-description "表示 $\\underline{A^\\nu}$ 的左特征向量在全局坐标系中的表达式"
+description "表示 $\\underline{A^\\nu}$ 的左特征矩阵在全局坐标系中的表达式"
 literal "true"
 
 \end_inset
