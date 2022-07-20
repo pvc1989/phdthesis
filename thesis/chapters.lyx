@@ -7909,19 +7909,176 @@ name "sec:WENO"
 \end_layout
 
 \begin_layout Description
-激波 可以用厚度为零的控制体表示；物理量在其两侧的值有跳跃，因此是一种强间断；熵的值在其两侧有跳跃。
+激波 可以用厚度为零的控制体表示；物理量在其两侧的值有跳跃，因此是一种强间断；熵的值在其两侧有跳跃。一维激波的特征线呈汇聚状，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:shock"
+
+\end_inset
+
+ 所示。
 \end_layout
 
 \begin_layout Description
-膨胀波 可以用有限厚度的控制体表示；物理量在其内部光滑，在其边界两侧的值连续，但导数值有跳跃，因此是一种弱间断；熵的值在其两侧相等。
+膨胀波 可以用有限厚度的控制体表示；物理量在其内部光滑，在其边界两侧的值连续，但导数值有跳跃，因此是一种弱间断；熵的值在其两侧相等。一维膨胀波的特征线呈发散状，
+如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:expansion"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所示。
 \end_layout
 
 \begin_layout Description
-接触间断 上述两种间断的临界情形：既可以看作熵变为零的激波，又可以看作厚度为零的膨胀波。
+接触间断 上述两种间断的临界情形：既可以看作熵变为零的激波，又可以看作厚度为零的膨胀波。一维接触间断的特征线相互平行，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:contact"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所示。
 \end_layout
 
 \begin_layout Standard
 \begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/shock.pdf
+	lyxscale 50
+	width 100theight%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:shock"
+
+\end_inset
+
+一维激波的特征线呈汇聚状
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/expansion.pdf
+	lyxscale 50
+	width 100theight%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:expansion"
+
+\end_inset
+
+一维膨胀波的特征线呈发散状
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/contact.pdf
+	lyxscale 50
+	width 100theight%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:contact"
+
+\end_inset
+
+一维接触间断的特征线相互平行
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
