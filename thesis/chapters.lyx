@@ -4283,557 +4283,6 @@ literal "false"
 \end_layout
 
 \begin_layout Section
-间断伽辽金有限元法
-\end_layout
-
-\begin_layout Subsection
-离散方法
-\end_layout
-
-\begin_layout Standard
-目前在航空航天工程中使用的大多数
-\bar under
-计算流体动力学 (computational fluid dynamics, CFD)
-\bar default
- 求解器都是基于使用
-\bar under
-有限体积 (finite volume, FV)
-\bar default
- 法的格式。FV 格式可以在非结构网格上构造，因此比
-\bar under
-有限差分 (finite, difference, FD)
-\bar default
- 格式更容易处理具有复杂几何外形的流场边界。然而，FV 格式通常只有二阶空间精度，这是由于不规则局部模板的尺寸随着精度的阶数增加而迅速增长。在高阶
- FV 格式中，单元的本地模板由单元和单元的邻居、邻居的邻居等组成。为了简化非结构网格的高阶格式的设计，最好使用局部模板比 FV 格式更紧致的
-\bar under
-有限元 (finite element, FE)
-\bar default
- 法，如：
-\bar under
-间断 Galerkin (DG)
-\bar default
- 有限元法。DG 法在每个单元内部用连续函数做近似（这一点更像经典 FE 法），但允许在单元边界上存在间断（这一点更像经典 FV 法）。这样的假设使格式设计者在
-为每个单元选择基函数时有更大的自由度，例如：基于正交基函数的模态 (modal) DG 法，基于拉格朗日多项式的节点 (nodal) DG 法
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Hesthaven_2008"
-literal "false"
-
-\end_inset
-
-。
-\end_layout
-
-\begin_layout Standard
-最早的 DG 格式由 Reed & Hill
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Reed_1973"
-literal "false"
-
-\end_inset
-
- 引入，用于求解中子输运方程。这是一个仅包含一阶空间导数的线性问题。对于非线性守恒律，Chavent & Salzano
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chavent_1982"
-literal "false"
-
-\end_inset
-
- 首次尝试使用 DG 法进行空间离散，并使用显式 Euler 格式进行时间离散。该格式在空间上是二阶精度的，但在时间上只有一阶精度。为了提高时间离散的精度，Co
-ckburn & Shu
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cockburn_1988"
-literal "false"
-
-\end_inset
-
- 将一阶 Euler 格式替换为某种特殊的二阶 Runge–Kutta (RK) 格式
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Shu_1988,Shu_1989"
-literal "false"
-
-\end_inset
-
-，所得格式是
-\bar under
-总变差递减的 ( total variation diminishing, TVD)
-\bar default
-。它是第一个取得成功的 RKDG 格式，该格式在空间和时间上都具有高阶精度，适用于标量守恒定律。这种方法很快被推广到一维守恒律方程组
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cockburn_1989"
-literal "true"
-
-\end_inset
-
-、高维标量守恒律
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cockburn_1990"
-literal "false"
-
-\end_inset
-
-以及高维守恒律方程组
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Cockburn_1998"
-literal "false"
-
-\end_inset
-
-，包括描述无黏可压流的 Euler 方程。几乎在同一时期（1990 年代后期），DG 法也被扩展到控制粘性流动的 Navier–Stokes 方程。
- Bassi & Rebay
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Bassi_1997"
-literal "false"
-
-\end_inset
-
- 首次尝试将 DG 离散应用于未知量及其梯度，以求解 Navier–Stokes 方程。该方法随后被 Cockburn & Shu
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Cockburn_1998b"
-literal "false"
-
-\end_inset
-
- 推广为
-\bar under
-局部 DG (local DG, LDG)
-\bar default
- 法，将 RKDG 方法从守恒律推广到对流占优问题，具体推广过程可参考文献-
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cockburn_2001"
-literal "false"
-
-\end_inset
-
-。
-\end_layout
-
-\begin_layout Subsection
-限制器
-\end_layout
-
-\begin_layout Standard
-在用高阶格式求解双曲型问题时，必须用限制器重构技术压制可能在间断附近出现的数值振荡（数学界称之为吉布斯现象
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Gottlieb_1997"
-literal "false"
-
-\end_inset
-
-）。对于 FD 或 FV 格式，有 van Leer
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Van_Leer_1977,Van_Leer_1977a,van_Leer_1979,van_Leer_2021"
-literal "false"
-
-\end_inset
-
- 提出的 MUSCL (monotonic upstream-centered scheme for conservation laws)，谨慎使用可以达到三阶
-精度，但它并不能直接应用于 DG 格式。除了推导 RKDG 之外，Cockburn
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cockburn_1990,Cockburn_1998"
-literal "false"
-
-\end_inset
-
- 的另一个重要贡献，是提出了适用于高维问题的广义斜率限制器。这些 minmod 类型的限制器，结合具有 TVD 性质的 RK 格式，能够使高阶
- DG 近似解没有非物理振荡，但往往会降低光滑区域的精度阶数。为了克服这一缺点，Harten 等
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Harten_1997"
-literal "false"
-
-\end_inset
-
-设计出了 ENO (essentially non-oscillatory) 格式。该格式后来发展为 WENO (weighted ENO) 重构技术
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Jiang_1996"
-literal "false"
-
-\end_inset
-
-。ENO 格式和 WENO 重构技术都可以在光滑区域保持高阶精度，但在间断处能够将数值振荡压制到基本可以忽略的程度。WENO 重构技术后来被引入到高阶
- FV 格式
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Hu_1999"
-literal "false"
-
-\end_inset
-
-中，使其适用于非结构网格。类似的想法后来被应用于 RKDG 格式
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Qiu_2005,Zhu_2008"
-literal "false"
-
-\end_inset
-
-，但代价是牺牲了 RKDG 格式的紧致性。适用于 RKDG 格式且保持其紧致特性的 WENO 重构技术
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Zhong_2013,Zhu_2013,Mazaheri_2019"
-literal "true"
-
-\end_inset
-
-，大约在 2013 年前后才开始出现，并且大多数只给出了二维版本。
-\end_layout
-
-\begin_layout Subsection
-并行实现
-\end_layout
-
-\begin_layout Standard
-带有紧致 WENO 限制器的 RKDG 格式自提出以来，很少有三维或实际工程应用的报道。一个重要原因是每个单元所消耗的计算资源，随着精度阶数或空间维度的增加而迅
-速增长。幸运的是，显式 RKDG 格式和紧致 WENO 限制器的大多数计算都可以在本地进行，并且不需要求解全局代数方程组。基于这些事实，基于区域分解的分布式并行
-计算可以很自然地用来加速计算。目前（2022 年初），对于带有紧致 WENO 限制器的 RKDG 格式，还没有公开发表的并行实现。但有一些其他
- DG 格式的并行化案例被公开发表过：
-\end_layout
-
-\begin_layout Itemize
-Biswas 等
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Biswas_1994"
-literal "false"
-
-\end_inset
-
- 在均匀结构网格上，测量了其一维、二维线性标量问题 DG 求解器的并行性能。他们获得了接近理想情形的并行效率：纯求解时间（无 I/O）超过 99%，总运行时间至
-少 89%。
-\end_layout
-
-\begin_layout Itemize
-Bey 等
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Bey_1995"
-literal "false"
-
-\end_inset
-
- 在均匀（结构）和 
-\begin_inset Formula $hp$
-\end_inset
-
--自适应（非结构）网格上，测试了其线性守恒律 DG 求解器的性能。当内部单元的数量远超边界单元的数量时，他们获得了几乎最优的并行效率。
-\end_layout
-
-\begin_layout Itemize
-Chalmers 等
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chalmers_2019"
-literal "false"
-
-\end_inset
-
-使用 MPI/OpenMP 混合并行，实现了二维 Navier–Stokes 方程 DG 格式的并行化，并在只有四边形单元的均匀网格上实现了良好的可扩展性。
-\end_layout
-
-\begin_layout Standard
-它们都没有给出显式 DG 求解器在三维非结构网格上的并行性能。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-在本文中，我们将非结构化网格划分和消息传递合并到算法中，并在公开可用的库之上实现它们以支持并行执行。为了划分三维非结构化网格，我们使用 Metis
- 库 [Karypis_1998] 提供的应用程序编程接口 (API)。为了发送和接收消息，我们使用消息传递接口 (MPI) [MPIF_2021]，它是分布式
-内存并行化的事实行业标准。我们将在 [subsec:parallelization] 节中详细介绍这些并行编程技术。
-\end_layout
-
-\begin_layout Subsubsection*
-Introduction
-\end_layout
-
-\begin_layout Plain Layout
-CFD solvers widely used in aerospace engineering are based either on finite
- difference (FD) schemes or on finite volume (FV) schemes.
- However, FD schemes are restricted on structured meshes, while most FV
- schemes have only first- or second-order accuracy.
- One way to develop higher-order schemes suitable for unstructured meshes
- is to use the discontinuous Galerkin (DG) finite element (FE) methods.
- Like other FE methods, DG methods assume continuous approximation in each
- element (a.k.a.
- cell).
- However, they allow discontinuities to exist on intercell boundaries.
- Such discontinuities are then resolved by numerical fluxes, e.g.
- exact or approximate Riemann solvers, just like Godunov-type schemes 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Harten_1983"
-literal "true"
-
-\end_inset
-
-.
- The original DG scheme was not proposed for CFD but for solving the linear
- neutron transport equation 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Reed_1973"
-literal "false"
-
-\end_inset
-
-.
- For nonlinear conservation laws, Chavent and Salzano 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chavent_1982"
-literal "false"
-
-\end_inset
-
- designed an explicit Euler DG cheme, which is second-order accurate in
- space but only first-order accurate in time.
- To improve the accuracy of time discretization, Cockburn and Shu 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cockburn_1988"
-literal "false"
-
-\end_inset
-
- replaced the first-order forward Euler method with high-order Runge–Kutta
- (RK) methods, which led to the family of RKDG schemes for scalar conservation
- laws 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Shu_1988,Shu_1989"
-literal "false"
-
-\end_inset
-
-, for one-dimensional conservation law systems 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cockburn_1989"
-literal "true"
-
-\end_inset
-
-, for multi-dimensional scalar conservation laws 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Cockburn_1990"
-literal "false"
-
-\end_inset
-
- and for multi-dimensional conservation law systems 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Cockburn_1998"
-literal "false"
-
-\end_inset
-
-.
- The last case includes the Euler system that depicts inviscid compressible
- flows, which is the first application of RKDG in CFD.
-\end_layout
-
-\begin_layout Plain Layout
-The Euler system is hyperbolic, which might have discontinuities in its
- solutions.
- Appoximating such solutions with finite terms of continuous functions would
- generate numerical oscillations near discontinuities (known as the Gibbs
- phenomenon 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Gottlieb_1997"
-literal "false"
-
-\end_inset
-
-).
- Therefore, any useful high-order scheme must incorporate some mechanism
- for suppressing such spurious oscillations.
- For second-order FD and FV schemes, there are slope and flux limiters 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sweby_1984"
-literal "false"
-
-\end_inset
-
-.
- These limiters work well on shock capturing but might reduce the order
- of accuracy when used in smooth regions.
- Furthermore, they are not applicable to higher-order schemes.
- To overcome these drawbacks, the essentially non-oscillatory (ENO) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Harten_1997"
-literal "false"
-
-\end_inset
-
- and weighted ENO (WENO) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Jiang_1996"
-literal "false"
-
-\end_inset
-
- limiters for high-order FD schemes, which can essentially suppress spurious
- oscillations and maintain high-order accuracy in smooth regions, were developed.
- Similar ideas were later incorporated into FV 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Hu_1999"
-literal "false"
-
-\end_inset
-
- and DG 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Qiu_2005,Zhu_2008"
-literal "false"
-
-\end_inset
-
- schemes, which are suitable for unstructured meshes.
- However, such early versions of unstructured WENO limiters have to query
- not only a cell's immediate neighbors, but also the neighbors' neighbors,
- and so on.
- To preserve the compactness of RKDG schemes, Zhong 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Zhong_2013"
-literal "true"
-
-\end_inset
-
- and Zhu 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Zhu_2013"
-literal "true"
-
-\end_inset
-
- proposed a compact WENO limter for two-dimensional structured and unstructrued
- meshes.
- In our early work 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Pei_2022"
-literal "false"
-
-\end_inset
-
-, we extended it to three-dimensional and presented an efficient parallel
- implementation.
-\end_layout
-
-\begin_layout Plain Layout
-The parallel implementation of the RKDG scheme with a compact WENO limiter
- can be used for solving many practical problems in aerospace engineering.
- However, for problems with moving boundaries (such as rotary wings on a
- helicopter or blades on a wind turbine), advanced meshing techniques (such
- as dynamic meshing, overset meshes or adaptive mesh refinement) have to
- be applied.
- On the other hand, typical lifting bodies (such as rotary wings) have been
- successfully modelled as various momentum sources in FD/FV schemes.
- Rajagopalan and Mathur 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Rajagopalan_1989,Rajagopalan_1993"
-literal "false"
-
-\end_inset
-
- proposed the first FD/FV based momentum source model, which models the
- time-averaged effect of a rotor as an actuator disk.
- Such a steady model was used by Kang and Sun 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Kang_1997,Kang_2000"
-literal "false"
-
-\end_inset
-
- for solving the flow fields of rotors in ground effect.
- Shi 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Shi_2017"
-literal "false"
-
-\end_inset
-
- compared this model with an unsteady overset mesh method, and found that
- the steady momentum source model can predict complex aerodynamic interactions
- between a rotor and a flight deck at a much cheaper cost.
- Shen 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Shen_2009"
-literal "false"
-
-\end_inset
-
- and Kim 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Kim_2015"
-literal "false"
-
-\end_inset
-
- refined the model by replacing the actuator disk for the entire rotor with
- an actuator surface for each blade of the rotor, so that unsteady effects
- of rotary wings can be captured.
- Such early works are either over simplified by ignoring unsteady effects
- (such as 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Rajagopalan_1989,Rajagopalan_1993,Kang_1997,Kang_2000"
-literal "false"
-
-\end_inset
-
-), or restricted to structured meshes (such as 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Shen_2009,Shi_2017"
-literal "false"
-
-\end_inset
-
-).
- To overcome these drawbacks, our parallel RKDG solvers are augmented with
- an unsteady actuator line model, which successfully capture unsteady effects
- of a rotor on unstructured meshes.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
 小结
 \end_layout
 
@@ -5038,7 +4487,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Chapter
-舰载直升机气动干扰模拟方法
+含动量源的间断伽辽金方法
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:算法"
@@ -5048,8 +4497,176 @@ name "chap:算法"
 
 \end_layout
 
+\begin_layout Standard
+目前在航空航天工程中使用的大多数 CFD 求解器都是基于使用有限体积格式。有限体积格式可以在非结构网格上构造，因此比有限差分格式更容易处理具有复杂几何外形的流场
+边界。然而，有限体积格式通常只有二阶空间精度，这是由于不规则局部模板的尺寸随着精度的阶数增加而迅速增长。在高阶有限体积格式中，单元的本地模板由单元和单元的邻居、
+邻居的邻居等组成。为了简化非结构网格的高阶格式的设计，最好使用局部模板比有限体积格式更紧致的有限单元法，如：“间断伽辽金 (discontinuous
+ Galerkin, DG)”法。DG 法在每个单元内部用连续函数做近似（这一点更像经典有限元法），但允许在单元边界上存在间断（这一点更像经典有限体积法）。这样
+的假设使格式设计者在为每个单元选择基函数时有更大的自由度，例如：基于正交基函数的模态型 DG 法，基于拉格朗日多项式的节点型 DG 法
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hesthaven_2008"
+literal "false"
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+最早的 DG 格式由 Reed & Hill
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Reed_1973"
+literal "false"
+
+\end_inset
+
+ 引入，用于求解中子输运方程。这是一个仅包含一阶空间导数的线性问题。对于非线性守恒律，Chavent & Salzano
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chavent_1982"
+literal "false"
+
+\end_inset
+
+ 首次尝试使用 DG 法进行空间离散，并使用显式 Euler 格式进行时间离散。该格式在空间上是二阶精度的，但在时间上只有一阶精度。为了提高时间离散的精度，Co
+ckburn & Shu
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1988"
+literal "false"
+
+\end_inset
+
+ 将一阶 Euler 格式替换为某种特殊的二阶 Runge–Kutta (RK) 格式
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shu_1988,Shu_1989"
+literal "false"
+
+\end_inset
+
+，所得格式是“总变差递减的 ( total variation diminishing, TVD)”。它是第一个取得成功的 RKDG 格式，该格式在空间和时间上
+都具有高阶精度，适用于标量守恒定律。这种方法很快被推广到一维守恒律方程组
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1989"
+literal "true"
+
+\end_inset
+
+、高维标量守恒律
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1990"
+literal "false"
+
+\end_inset
+
+以及高维守恒律方程组
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cockburn_1998"
+literal "false"
+
+\end_inset
+
+，包括描述无黏可压流的 Euler 方程。几乎在同一时期（1990 年代后期），DG 法也被扩展到控制粘性流动的 Navier–Stokes 方程。Bassi
+ & Rebay
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bassi_1997"
+literal "false"
+
+\end_inset
+
+ 首次尝试将 DG 离散应用于未知量及其梯度，以求解 Navier–Stokes 方程。该方法随后被 Cockburn & Shu
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cockburn_1998b"
+literal "false"
+
+\end_inset
+
+ 推广为局部 DG 法，将 RKDG 方法从守恒律推广到对流占优问题，具体推广过程可参考文献-
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_2001"
+literal "false"
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+RKDG 方法虽然能在非结构网格上构造出高阶格式，但对于含有移动边界（如：旋翼桨叶）的问题，通常需要使用动态级网格技术（例如变形网格、滑动网格、重叠网格）。另一
+方面，在有限差分及有限体积法中，典型的升力体（如：旋翼）已成功地被建模为各种形式的动量源。Rajagopalan & Mathur 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rajagopalan_1989,Rajagopalan_1993"
+literal "false"
+
+\end_inset
+
+ 提出了第一个基于有限差分及有限体积的动量源模型，该模型将旋翼的时间平均效应建模为作用盘。北航的康宁和孙茂
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kang_1997,Kang_2000"
+literal "false"
+
+\end_inset
+
+用这种时间平均的动量源模型，模拟了处于地面效应中的旋翼的流场。南航的史勇杰等
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shi_2017"
+literal "false"
+
+\end_inset
+
+将该模型与非定常重叠网格方法进行了比较，发现定常动量源模型能够以更低的计算成本模拟旋翼和飞行甲板之间的复杂气动干扰。Shen
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shen_2009"
+literal "false"
+
+\end_inset
+
+ 和 Kim
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kim_2015"
+literal "false"
+
+\end_inset
+
+用代表各片桨叶的作用面模型，，捕获了旋翼流场的非定常效应。此类早期工作要么通过忽略非定常效应而过度简化（如文献-
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Rajagopalan_1989,Rajagopalan_1993,Kang_1997,Kang_2000"
+literal "false"
+
+\end_inset
+
+），要么仅限于结构网格（如文献-
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Shen_2009,Shi_2017"
+literal "false"
+
+\end_inset
+
+）。
+\end_layout
+
+\begin_layout Standard
+本章将前人为解决守恒律问题而提出的 RKDG 方法，推广为含有源项双曲型方程组的求解方法，并在最后一节给出一种特殊的源项，用以模拟旋翼对流场的非定常扰动。
+\end_layout
+
 \begin_layout Section
-使用基于正交归一基的 DG 空间离散
+使用正交归一基的 DG 空间离散
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:DG"
@@ -7957,7 +7574,7 @@ reference "sec:RK"
 \end_layout
 
 \begin_layout Section
-数值振荡与 WENO 限制器
+数值振荡与 WENO 重构技术
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:WENO"
@@ -8149,17 +7766,17 @@ name "fig:contact"
 
 \begin_layout Standard
 无论是以上那种情形，间断解的存在都给高阶求解器的设计带来了麻烦。这其中最致命的问题是存在于间断附近、幅值不随网格加密而衰减的“数值振荡 (numerical
- oscillation)”。
-\end_layout
+ oscillation)”。关于数值振荡的成因，学界存在多种观点，并有针对性地提出了多种压制策略：偏物理的解释有格式黏性不足、数值色散误差等观点，相应的策略包
+括人工黏性、群速度控制；偏数学的解释有格式单调性、吉布斯现象等，相应的策略有滤波器、限制器、高阶重构等。实际上，这些观点及策略在某种程度上是等价的。本文选用吉布
+斯现象
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gottlieb_1997"
+literal "false"
 
-\begin_layout Standard
-关于数值振荡的成因，学界存在多种观点，并有针对性地提出了多种压制策略：偏物理的解释有格式黏性不足、数值色散误差等观点，相应的策略包括人工黏性、群速度控制；偏数学
-的解释有格式单调性、吉布斯现象等，相应的策略有滤波器、限制器、高阶重构等。实际上，这些观点及策略在某种程度上是等价的。本文用吉布斯现象来解释数值振荡的成因，用
- WENO 重构来压制数值振荡。
-\end_layout
+\end_inset
 
-\begin_layout Standard
-吉布斯现象是指：用有限项连续函数的线性组合 
+来解释数值振荡的成因，它是指：用有限项连续函数的线性组合 
 \begin_inset Formula $u^{h}$
 \end_inset
 
@@ -8229,20 +7846,39 @@ name "fig:Gibbs"
 \end_layout
 
 \begin_layout Standard
+为了压制数值振荡，本文选用 WENO 重构技术。对于有限差分或有限体积格式，可以用 van Leer
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Van_Leer_1977,Van_Leer_1977a,van_Leer_1979,van_Leer_2021"
+literal "false"
+
+\end_inset
+
+ 提出的 MUSCL (monotonic upstream-centered scheme for conservation laws) 来压制数值振荡。该方
+法谨慎使用可以达到三阶精度，但不能直接应用于 DG 格式。除了推导 RKDG 之外，Cockburn
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1990,Cockburn_1998"
+literal "false"
+
+\end_inset
+
+ 的另一个重要贡献，是提出了适用于高维问题的广义斜率限制器。这些 minmod 型限制器，结合具有 TVD 性质的 RK 格式，能够使高阶 DG
+ 近似解不含非物理振荡，但往往会降低光滑区域的精度阶数。为了克服这一缺点，Harten 等
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Harten_1997"
+literal "false"
+
+\end_inset
+
+提出了 ENO (essentially non-oscillatory) 格式
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 prefix "ENO"
 symbol "ENO"
 description "essentially non-oscillatory"
 literal "true"
-
-\end_inset
-
-“基本无振荡 (essentially non-oscillatory, ENO)” 重构方法最早出现于文献-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Harten_1997"
-literal "false"
 
 \end_inset
 
@@ -8271,7 +7907,15 @@ literal "true"
 
 \end_inset
 
-“加权基本无振荡 (Weighted ENO, WENO)”方法将 ENO 方法的最后一步替换为：
+“加权基本无振荡 (Weighted ENO, WENO)”重构技术
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jiang_1996"
+literal "false"
+
+\end_inset
+
+将 ENO 格式的最后一步替换为：
 \end_layout
 
 \begin_layout Itemize
@@ -8283,8 +7927,33 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-(W)ENO 格式虽不能完全消除数值振荡，但可以让数值振荡的幅值随网格加密而衰减，同时还能够避免近似解的精度在光滑极值点附近降阶，因此特别适合于既含间断（激波、
-接触间断、膨胀波）、又含复杂光滑结构（湍流、涡系）的问题。
+ENO 格式和 WENO 重构技术都可以在光滑区域保持高阶精度，但在间断处能够将数值振荡压制到基本可以忽略的程度。此后，WENO 重构技术被引入到高阶有限体积格
+式
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Hu_1999"
+literal "false"
+
+\end_inset
+
+中，从而适用于非结构网格。类似的想法后来被应用于 RKDG 格式
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Qiu_2005,Zhu_2008"
+literal "false"
+
+\end_inset
+
+，但代价是牺牲了 RKDG 格式的紧致性。适用于 RKDG 格式且保持其紧致特性的 WENO 重构技术
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhong_2013,Zhu_2013,Mazaheri_2019"
+literal "true"
+
+\end_inset
+
+，大约在 2013 年前后才开始出现，并且大多数只给出了二维版本。(W)ENO 格式虽不能完全消除数值振荡，但可以让数值振荡的幅值随网格加密而衰减，同时还能够避
+免近似解的精度在光滑极值点附近降阶，因此特别适合于既含间断（激波、接触间断、膨胀波）、又含复杂流动结构（湍流、涡系）的问题。
 \end_layout
 
 \begin_layout Subsection
@@ -9773,7 +9442,7 @@ literal "true"
 \end_layout
 
 \begin_layout Section
-强稳定保持的 RK 时间推进格式
+保强稳定的 RK 时间推进格式
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:RK"
@@ -10064,7 +9733,7 @@ literal "true"
 \begin_inset Formula $C\le1$
 \end_inset
 
-，则称该格式具有强稳定性。可以证明：当时间步长足够小时，显式欧拉格式具有强稳定性。若高阶格式可以保持这种强稳定性，则称其为“强稳定保持 (strong
+，则称该格式具有强稳定性。可以证明：当时间步长足够小时，显式欧拉格式具有强稳定性。若高阶格式可以保持这种强稳定性，则称其为“保强稳定 (strong
  stability preserving, SSP)”格式。
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
@@ -10437,6 +10106,13 @@ literal "true"
 
 \begin_layout Section
 非定常动量源模型
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:UMS"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -10462,7 +10138,7 @@ reference "eq:PDE"
 
 \end_inset
 
-本章不考虑质量源与能量源，故主要任务是计算基函数 
+本文不考虑质量源与能量源，故该式实际需要计算的是计算基函数 
 \begin_inset Formula $\phi_{k}$
 \end_inset
 
@@ -10482,11 +10158,16 @@ reference "eq:PDE"
 
 \end_inset
 
-本节给出将体现旋翼气动效应的一种
-\bar under
-非定常动量源 (unsteady momentum source, UMS)
-\bar default
- 模型嵌入既有的 RKDG 求解器，从而获得 UMS–RKDG 求解器的具体过程。
+本节给出将体现旋翼气动效应的一种“非定常动量源 (unsteady momentum source, UMS)”模型
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "unsteady momentum source"
+description "UMS"
+literal "true"
+
+\end_inset
+
+嵌入既有的 RKDG 求解器，从而获得 UMS–RKDG 求解器的具体过程。
 \end_layout
 
 \begin_layout Subsection
@@ -10637,7 +10318,7 @@ D(s)
 \end_layout
 
 \begin_layout Subsection
-展向积分
+沿桨叶展向积分
 \end_layout
 
 \begin_layout Standard
@@ -10788,7 +10469,7 @@ name "fig:PQ"
 \end_layout
 
 \begin_layout Subsection
-截取线段
+桨叶与体单元求交
 \end_layout
 
 \begin_layout Standard
@@ -11035,18 +10716,290 @@ reference "fig:PQ"
 \end_layout
 
 \begin_layout Standard
-适用于三维非结构网格的 Runge–Kutta 间断伽辽金 (RKDG) 求解器，能够处理具有复杂几何外形的边界，从而适用于航空航天领域的工程问题。
-\end_layout
-
-\begin_layout Standard
-基于邻接单元的加权基本无振荡 (WENO) 重构过程，能够有效地压制间断附近的数值振荡，同时保持 RKDG 方法的紧致性、可并行性。
+适用于三维非结构网格的 Runge–Kutta 间断 Galerkin (RKDG) 求解器，能够处理具有复杂几何外形的边界，从而适用于航空航天领域的工程问题。
+基于邻接单元的加权基本无振荡 (WENO) 重构过程，能够有效地压制间断附近的数值振荡，同时保持 RKDG 格式的紧致性、可并行性。非定常动量源
+ (UMS) 模型，能够无缝嵌入高阶 RKDG 求解器，实现对旋翼气动的高精度、高效模拟，避免了对动态网格技术的依赖。
 \end_layout
 
 \begin_layout Chapter
-算法的泛型实现与精度验证
+算法的并行实现与精度验证
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:泛型"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+并行实现
+\end_layout
+
+\begin_layout Standard
+带有紧致 WENO 限制器的 RKDG 格式自提出以来，很少有三维或实际工程应用的报道。一个重要原因是每个单元所消耗的计算资源，随着精度阶数或空间维度的增加而迅
+速增长。幸运的是，显式 RKDG 格式和紧致 WENO 限制器的大多数计算都可以在本地进行，并且不需要求解全局代数方程组。基于这些事实，基于区域分解的分布式并行
+计算可以很自然地用来加速计算。目前（2022 年初），对于带有紧致 WENO 限制器的 RKDG 格式，还没有公开发表的并行实现。但有一些其他
+ DG 格式的并行化案例被公开发表过：
+\end_layout
+
+\begin_layout Itemize
+Biswas 等
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Biswas_1994"
+literal "false"
+
+\end_inset
+
+ 在均匀结构网格上，测量了其一维、二维线性标量问题 DG 求解器的并行性能。他们获得了接近理想情形的并行效率：纯求解时间（无 I/O）超过 99%，总运行时间至
+少 89%。
+\end_layout
+
+\begin_layout Itemize
+Bey 等
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bey_1995"
+literal "false"
+
+\end_inset
+
+ 在均匀（结构）和 
+\begin_inset Formula $hp$
+\end_inset
+
+-自适应（非结构）网格上，测试了其线性守恒律 DG 求解器的性能。当内部单元的数量远超边界单元的数量时，他们获得了几乎最优的并行效率。
+\end_layout
+
+\begin_layout Itemize
+Chalmers 等
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chalmers_2019"
+literal "false"
+
+\end_inset
+
+使用 MPI/OpenMP 混合并行，实现了二维 Navier–Stokes 方程 DG 格式的并行化，并在只有四边形单元的均匀网格上实现了良好的可扩展性。
+\end_layout
+
+\begin_layout Standard
+它们都没有给出显式 DG 求解器在三维非结构网格上的并行性能。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+在本文中，我们将非结构化网格划分和消息传递合并到算法中，并在公开可用的库之上实现它们以支持并行执行。为了划分三维非结构化网格，我们使用 Metis
+ 库 [Karypis_1998] 提供的应用程序编程接口 (API)。为了发送和接收消息，我们使用消息传递接口 (MPI) [MPIF_2021]，它是分布式
+内存并行化的事实行业标准。我们将在 [subsec:parallelization] 节中详细介绍这些并行编程技术。
+\end_layout
+
+\begin_layout Subsubsection*
+Introduction
+\end_layout
+
+\begin_layout Plain Layout
+CFD solvers widely used in aerospace engineering are based either on finite
+ difference (FD) schemes or on finite volume (FV) schemes.
+ However, FD schemes are restricted on structured meshes, while most FV
+ schemes have only first- or second-order accuracy.
+ One way to develop higher-order schemes suitable for unstructured meshes
+ is to use the discontinuous Galerkin (DG) finite element (FE) methods.
+ Like other FE methods, DG methods assume continuous approximation in each
+ element (a.k.a.
+ cell).
+ However, they allow discontinuities to exist on intercell boundaries.
+ Such discontinuities are then resolved by numerical fluxes, e.g.
+ exact or approximate Riemann solvers, just like Godunov-type schemes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Harten_1983"
+literal "true"
+
+\end_inset
+
+.
+ The original DG scheme was not proposed for CFD but for solving the linear
+ neutron transport equation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Reed_1973"
+literal "false"
+
+\end_inset
+
+.
+ For nonlinear conservation laws, Chavent and Salzano 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chavent_1982"
+literal "false"
+
+\end_inset
+
+ designed an explicit Euler DG cheme, which is second-order accurate in
+ space but only first-order accurate in time.
+ To improve the accuracy of time discretization, Cockburn and Shu 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1988"
+literal "false"
+
+\end_inset
+
+ replaced the first-order forward Euler method with high-order Runge–Kutta
+ (RK) methods, which led to the family of RKDG schemes for scalar conservation
+ laws 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shu_1988,Shu_1989"
+literal "false"
+
+\end_inset
+
+, for one-dimensional conservation law systems 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1989"
+literal "true"
+
+\end_inset
+
+, for multi-dimensional scalar conservation laws 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Cockburn_1990"
+literal "false"
+
+\end_inset
+
+ and for multi-dimensional conservation law systems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cockburn_1998"
+literal "false"
+
+\end_inset
+
+.
+ The last case includes the Euler system that depicts inviscid compressible
+ flows, which is the first application of RKDG in CFD.
+\end_layout
+
+\begin_layout Plain Layout
+The Euler system is hyperbolic, which might have discontinuities in its
+ solutions.
+ Appoximating such solutions with finite terms of continuous functions would
+ generate numerical oscillations near discontinuities (known as the Gibbs
+ phenomenon 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gottlieb_1997"
+literal "false"
+
+\end_inset
+
+).
+ Therefore, any useful high-order scheme must incorporate some mechanism
+ for suppressing such spurious oscillations.
+ For second-order FD and FV schemes, there are slope and flux limiters 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sweby_1984"
+literal "false"
+
+\end_inset
+
+.
+ These limiters work well on shock capturing but might reduce the order
+ of accuracy when used in smooth regions.
+ Furthermore, they are not applicable to higher-order schemes.
+ To overcome these drawbacks, the essentially non-oscillatory (ENO) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Harten_1997"
+literal "false"
+
+\end_inset
+
+ and weighted ENO (WENO) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jiang_1996"
+literal "false"
+
+\end_inset
+
+ limiters for high-order FD schemes, which can essentially suppress spurious
+ oscillations and maintain high-order accuracy in smooth regions, were developed.
+ Similar ideas were later incorporated into FV 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Hu_1999"
+literal "false"
+
+\end_inset
+
+ and DG 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Qiu_2005,Zhu_2008"
+literal "false"
+
+\end_inset
+
+ schemes, which are suitable for unstructured meshes.
+ However, such early versions of unstructured WENO limiters have to query
+ not only a cell's immediate neighbors, but also the neighbors' neighbors,
+ and so on.
+ To preserve the compactness of RKDG schemes, Zhong 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhong_2013"
+literal "true"
+
+\end_inset
+
+ and Zhu 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Zhu_2013"
+literal "true"
+
+\end_inset
+
+ proposed a compact WENO limter for two-dimensional structured and unstructrued
+ meshes.
+ In our early work 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Pei_2022"
+literal "false"
+
+\end_inset
+
+, we extended it to three-dimensional and presented an efficient parallel
+ implementation.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+基于 C++ 的泛型实现
+\end_layout
+
+\begin_layout Section
+基于 MPI 的并行加速
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:parallel"
 
 \end_inset
 
@@ -11095,10 +11048,6 @@ reference "subsec:linear_advection"
 \end_inset
 
 与某些初始条件及边界条件所构成的初边值问题。
-\end_layout
-
-\begin_layout Section
-基于 C++ 的泛型实现
 \end_layout
 
 \begin_layout Section
@@ -16196,17 +16145,6 @@ noprefix "false"
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:并行"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-基于 MPI 的并行加速
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:parallel"
 
 \end_inset
 
