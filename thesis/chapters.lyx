@@ -116,9 +116,9 @@ name "chap:绪论"
 \end_layout
 
 \begin_layout Standard
-直升机以其特有的垂直起降 (vertical take-off and landing, VTOL)、悬停和低空低速飞行能力，特别适合于在军舰、科考船、海上钻井
-平台等起降条件和飞行环境较差的平台上执行任务。舰载直升机能够有效扩大舰船作业半径、丰富海上作业科目、提升应对海上突发情况的能力。发展舰载直升机对于保障舰船航行安
-全、维护海洋权益具有重要意义。世界各海洋大国和航空大国历来重视舰载直升机的发展，相继研制出各种不同构型的舰载直升机，如表 
+直升机以其特有的“垂直起降 (vertical take-off and landing, VTOL)”、悬停和低空低速飞行能力，特别适合于在军舰、科考船、海上
+钻井平台等起降条件和飞行环境较差的平台上执行任务。舰载直升机能够有效扩大舰船作业半径、丰富海上作业科目、提升应对海上突发情况的能力。发展舰载直升机对于保障舰船航
+行安全、维护海洋权益具有重要意义。世界各海洋大国和航空大国历来重视舰载直升机的发展，相继研制出各种不同构型的舰载直升机，如表 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:shipborne-helicopter"
@@ -988,8 +988,8 @@ Alligator
 \begin_layout Standard
 在舰载直升机的设计、使用和维护过程中，存在大量亟待解决的科学和工程问题。其中，既有旋翼飞行器所共有的一般性问题，也有直升机执行海上作业任务所带来的特殊问题。海面
 、舰面特有的气流、动力学环境，则为舰载直升机设计、使用及维护带来了一些新的问题，空气动力学是其中最核心、最关键的问题。舰船在海面航行时，船体结构对海面气流的扰动
-使得直升机起降平台附近的气流环境较为复杂，增加了直升机完成起降飞行任务的难度。海面的风速和风向、舰船的航速和航向都是影响上述船体空气尾流 (ship
- airwake) 的重要因素。直升机旋翼尾迹与船体空气尾流之间存在复杂的相互作用，进一步增加了上述问题的复杂程度。研究舰载直升机空气动力学，特别是海面、船体与
+使得直升机起降平台附近的气流环境较为复杂，增加了直升机完成起降飞行任务的难度。海面的风速和风向、舰船的航速和航向都是影响上述“船体空气尾流 (ship
+ airwake)”的重要因素。直升机旋翼尾迹与船体空气尾流之间存在复杂的相互作用，进一步增加了上述问题的复杂程度。研究舰载直升机空气动力学，特别是海面、船体与
 旋翼之间的气动干扰问题，对于确定直升机舰面起降的环境条件，制定和完善直升机舰面起降作业规程，提高舰载直升机的安全性和作业效率具有重要意义。
 \end_layout
 
@@ -1210,6 +1210,10 @@ literal "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+国内外研究现状
 \end_layout
 
 \begin_layout Section
@@ -4876,11 +4880,41 @@ literal "false"
 \end_layout
 
 \begin_layout Section
-文献综述
+研究内容
 \end_layout
 
-\begin_layout Section
-研究内容
+\begin_layout Subsection
+旋翼尾迹计算
+\end_layout
+
+\begin_layout Subsection
+船体空气尾流计算
+\end_layout
+
+\begin_layout Subsection
+算法的并行加速
+\end_layout
+
+\begin_layout Standard
+舰载直升机气动干扰问题属于复杂流动问题，需要消耗大量的计算资源。为了提高问题的求解效率，扩大问题的求解规模，必须对算法做并行化改进。为了评估加速效果，需要在具体
+的计算设备上进行测试，以确定性能瓶颈和进一步改进的方向。
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "MPI"
+description "message passing interface"
+literal "true"
+
+\end_inset
+
+消息传递接口 (message passing interface, MPI) 是目前最主流的并行计算标准，几乎所有高性能计算平台上都部署了该标准的某种具体实现
+。它能够将计算任务发送到各个计算节点（核心）上做并行处理，从而扩大求解规模，提高计算效率。MPI 技术基于大粒度的进程级并行，具有良好的可移植性和可扩展性。
+\end_layout
+
+\begin_layout Standard
+利用 MPI 技术实现对 RKDG 求解器的并行加速，是本文对前人工作的一大改进。
 \end_layout
 
 \begin_layout Section
@@ -4910,7 +4944,7 @@ reference "chap:算法"
 
 \end_inset
 
-章推导一种适用于三维非结构网格、能够有效压制数值振荡的两个龙格–库塔间断伽辽金 (RKDG) 有限元方法。在此基础上，将一种非定常动量源模型 (UMS)
+章推导一种适用于三维非结构网格、能够有效压制数值振荡的龙格–库塔间断伽辽金 (RKDG) 有限元方法。在此基础上，将一种非定常动量源模型 (UMS)
  与该方法相结合，提出一种支持对旋翼空气动力学问题进行高效、高精度数值模拟的 UMS–RKDG 方法。
 \end_layout
 
@@ -4941,7 +4975,7 @@ noprefix "false"
 \end_inset
 
 章对上述求解器做了并行加速，以支持高性能计算平台上的分布式并行计算。基于并行化的 RKDG 求解器，在具有复杂几何外形边界的非结构网格上，定性验证
- RK3/DG3 近似解的正确性和高精度优势。基于并行化的 UMS–RKDG 求解器，开展爬升、前飞两种工况的旋翼数值风洞试验，定性验证 UMS–RK3DG3
+ RK3/DG3 近似解的正确性和高精度优势。基于并行化的 UMS–RKDG 求解器，开展爬升、前飞两种工况的旋翼数值风洞试验，定性验证 UMS–RK3/DG3
  近似解的正确性和高精度优势。在此过程中，对上述求解器的并行性能进行了测量和评估。
 \end_layout
 
@@ -4976,7 +5010,7 @@ name "chap:算法"
 \end_layout
 
 \begin_layout Section
-基于正交归一基的 DG 空间离散
+使用基于正交归一基的 DG 空间离散
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:DG"
