@@ -116,9 +116,9 @@ name "chap:绪论"
 \end_layout
 
 \begin_layout Standard
-直升机以其特有的“垂直起降 (vertical take-off and landing, VTOL)”、悬停和低空低速飞行能力，特别适合于在军舰、科考船、海上
-钻井平台等起降条件和飞行环境较差的平台上执行任务。舰载直升机能够有效扩大舰船作业半径、丰富海上作业科目、提升应对海上突发情况的能力。发展舰载直升机对于保障舰船航
-行安全、维护海洋权益具有重要意义。世界各海洋大国和航空大国历来重视舰载直升机的发展，相继研制出各种不同构型的舰载直升机，如表 
+直升机以其特有的垂直起降、悬停和低空低速飞行能力，特别适合于在军舰、科考船、海上钻井平台等起降条件和飞行环境较差的平台上执行任务。舰载直升机能够有效扩大舰船作业
+半径、丰富海上作业科目、提升应对海上突发情况的能力。发展舰载直升机对于保障舰船航行安全、维护海洋权益具有重要意义。世界各海洋大国和航空大国历来重视舰载直升机的发
+展，相继研制出各种不同构型的舰载直升机，如表 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:shipborne-helicopter"
@@ -140,7 +140,7 @@ literal "false"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1164,7 +1164,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename figures/landing.jpg
-	lyxscale 15
+	lyxscale 30
 	width 100text%
 	height 30theight%
 	keepAspectRatio
@@ -1428,6 +1428,27 @@ literal "false"
 国内外研究现状
 \end_layout
 
+\begin_layout Standard
+旋翼是直升机最主要的气动部件，其对流场的周期性扰动使得直升机外流场具有显著不同于定翼机外流场的特征。因此，旋翼空气动力学构成了直升机空气动力学的主体（后者还包括
+旋翼与机身、地面的气动干扰），从而也构成了舰载直升机空气动力学（侧重于研究旋翼尾迹与海面气流、船体空气尾流之间的气动干扰）的基础。旋翼空气动力学的研究方法包括试
+验和计算两大类，前者可分为定性试验与定量试验，后者包括基于拉格朗日观点的涡方法、基于欧拉观点的
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "CFD"
+description "computational fluid dynamics"
+literal "true"
+
+\end_inset
+
+“计算流体动力学 (computational fluid dynamics, CFD)”方法以及兼具二者优势的混合方法。
+\end_layout
+
+\begin_layout Standard
+舰载直升机所特有的空气动力学问题，主要表现为海面自由来流和舰船空气尾流与旋翼尾迹的相互作用。起飞和着舰过程中，海面和舰面阻挡旋翼尾迹向下游移动，引起的“地”面效
+应，也是影响直升机飞行安全的重要因素。研究海面、舰面与旋翼之间的气动干扰，是舰载直升机舰面空气动力学的主要任务。与旋翼空气动力学类似，该领域的研究方法也分为试验
+和计算两大类。
+\end_layout
+
 \begin_layout Subsection
 旋翼空气动力学试验
 \end_layout
@@ -1442,13 +1463,19 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-最简单的旋翼空气动力学“试验”并不需要经过人为的设计，也不需要使用任何试验设备。 当空气的温度、湿度、气压满足一定的条件时，旋翼桨尖涡周围会出现自然凝结（Nat
-ural Condensation）现象，从而很容易让人们观察到桨尖涡的存在。 基于这种观察，人们对旋翼流场有了最基本和最直观的理性认识，发现了旋翼尾迹由桨尖涡
-主导、尾迹收缩等重要物理事实。 
+最简单的旋翼空气动力学“试验”并不需要经过人为的设计，也不需要使用任何试验设备。当空气的温度、湿度、气压满足一定的条件时，旋翼桨尖涡周围会出现自然凝结现象（如图
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:natural-condensation"
+
+\end_inset
+
+ 所示），从而很容易让人们观察到桨尖涡的存在。基于这种观察，人们对旋翼流场有了最基本和最直观的理性认识，发现了旋翼尾迹由桨尖涡主导、尾迹收缩等重要物理事实。
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1468,6 +1495,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:natural-condensation"
+
+\end_inset
+
 通过自然凝结现象观察到的旋翼桨尖涡
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1490,17 +1523,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-为了在不具备自然凝结条件的时候也能对旋翼尾迹进行观察，喷烟法被引入旋翼空气动力学的研究中。 荷兰国家航空研究院
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-National Aeronautical Research Institute
-\end_layout
-
-\end_inset
-
-的Drees等（1951）
+为了在不具备自然凝结条件的时候也能对旋翼尾迹进行观察，喷烟法被引入旋翼空气动力学的研究中。1951年，Drees 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Drees1951"
@@ -1508,12 +1531,116 @@ literal "false"
 
 \end_inset
 
- 较早地利用该方法开展了旋翼流场的流动显示试验。 该试验通过在风洞引入喷烟装置，获得了直升机在悬停、前飞、下降等状态下旋翼附近的流动图像，并重点研究了旋翼处于涡
-环状态（Vortex Ring State, VRS）时的流动图像。
+利用这种方法开展了旋翼流场的流动显示试验。该试验通过在风洞引入喷烟装置，获得了直升机在悬停、前飞、下降等状态下旋翼附近的流动图像，并重点研究了旋翼处于“涡环状态
+ (vortex ring state, VRS)”时的流动图像。
+\end_layout
+
+\begin_layout Standard
+桨尖涡涡核区与背景流场的空气密度的差别，对折射率等光学特性有显著影响。基于该原理和频闪摄影技术，人们发明了纹影法和阴影法，并将其引入旋翼空气动力学的研究中。19
+93年，Bagai & Leishman
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bagai1993"
+literal "false"
+
+\end_inset
+
+利用该方法研究了螺旋桨和旋翼桨尖涡的几何结构，观察到了旋翼尾迹的不稳定（非周期）现象。
+\end_layout
+
+\begin_layout Standard
+定性试验虽然没有给出描述流场的各物理量的具体数值，但给出了各种飞行状态下的旋翼尾迹结构的物理图像，并初步验证了一些早期旋翼空气动力学理论（如滑流理论）的结论。随
+着测量技术的进步，一些定性试验方法后来发展成为定量试验方法，或发展成为定量试验的一个前置环节。
+\end_layout
+
+\begin_layout Subsubsection
+定量试验
+\end_layout
+
+\begin_layout Standard
+根据所测量的物理量以及对流场刻画的精细程度，可以将旋翼空气动力学定量试验大致分为两大类。： 
+\end_layout
+
+\begin_layout Description
+测力试验 主要用于反映气流对旋翼影响的宏观效果。利用六分量天平、扭矩天平等仪器设备，可以对旋翼中心或全机参考点处的三个力分量和三个力矩分量进行测量。由于试验原理
+和试验设备都比较简单，所得的试验数据经过简单处理即可应用于结构动力学和飞行动力学分析，因此这类试验至今仍受到许多研究机构的重视。
+\end_layout
+
+\begin_layout Description
+测速试验 主要用于研究流场的流动细节。根据测量对象的范围，测速试验又可分为单点测量和多点测量两类。早期的单点测量试验主要采用
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "HWA"
+description "hot wire anemometer"
+literal "true"
+
+\end_inset
+
+“热线测速仪 (hot wire anemometer, HWA)”等介入式测量设备，测速探头本身对流场会造成一定干扰，因此测量结果不能完全反映真实流动情况。这
+一弊端后来被
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "LDV"
+description "laser doppler velocimetry"
+literal "true"
+
+\end_inset
+
+“激光多普勒测速技术 (laser doppler velocimetry, LDV)”技术所克服，但 LDV 仍属于单点测量技术。同属于非介入式测量技术的
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "PIV"
+description "particle image velocimetry"
+literal "true"
+
+\end_inset
+
+“粒子成像测速 (particle image velocimetry, PIV)”技术，解决了多点同步测量的难题，能够实现对流场（流速）的高分辨率测量，目前已
+成为流体力学新发现的重要来源，也是验证数值计算方法的重要依据。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1983 年， Sun & Curtiss
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sun1983,Sun1989"
+literal "false"
+
+\end_inset
+
+ 利用 HWA 定量测量了模型旋翼的诱导速度分布，研究了直升机低空低速飞行时地面效应对其气动性能的影响。结果显示：直升机低空低速飞行时，自由来流和地面将使旋翼尾
+迹向上卷起，从而显著影响旋翼气动载荷特性；当卷起的尾迹接近桨盘平面并处于旋翼下方时，桨盘前侧诱导速度分布将发生较大幅度的不规则变化，从而引起旋翼气动力和气动力矩
+的不规则剧烈变化。
+\end_layout
+
+\begin_layout Standard
+1996–1998年，Leishman 等
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Leishman1996,Leishman1998a"
+literal "false"
+
+\end_inset
+
+利用 LDV 对桨尖涡切向和轴向速度、环量、黏性引起的涡核增大进行了测量，研究了旋翼尾迹的三维速度场；对桨尖涡涡核位置（如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tip-vortex-core"
+
+\end_inset
+
+ 所示）进行了测量，研究了悬停状态桨尖涡的非周期现象。
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1531,6 +1658,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tip-vortex-core"
+
+\end_inset
+
 利用喷烟法观察到的旋翼桨尖涡
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1553,98 +1686,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-桨尖涡涡核区与背景流场的空气密度存在差别，对其光学特性（如折射率）有显著影响。 基于该原理和频闪摄影技术，人们发明了纹影法和阴影法，并将其引入旋翼空气动力学的研
-究中。 美国马里兰大学帕克分校
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-University of Maryland, College Park
-\end_layout
-
-\end_inset
-
-的Bagai和Leishman（1993）
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Bagai1993"
-literal "false"
-
-\end_inset
-
- 利用该方法研究了螺旋桨和旋翼桨尖涡的几何结构，观察到了旋翼尾迹的不稳定（非周期）现象。
-\end_layout
-
-\begin_layout Standard
-定性试验虽然没有给出描述流场的各物理量的具体数值，但给出了各种飞行状态下的旋翼尾迹结构的物理图像，并初步验证了一些早期旋翼空气动力学理论（如滑流理论）的结论。
- 随着测量技术的进步，一些定性试验方法后来发展成为定量试验方法，或发展成为定量试验的一个前置环节。
-\end_layout
-
-\begin_layout Subsubsection
-定量试验
-\end_layout
-
-\begin_layout Standard
-根据所测量的物理量以及对流场的刻画程度，可以将旋翼空气动力学定量试验大致分为两大类： 
-\end_layout
-
-\begin_layout Description
-测力试验 此类试验主要用于反映气流对旋翼影响的宏观效果。 利用六分量天平、扭矩天平等仪器设备，可以对旋翼中心或全机参考点处的三个力分量和三个力矩分量进行测量。
- 由于试验原理和试验设备都比较简单，所得的试验数据经过简单处理即可应用于结构动力学和飞行动力学分析，因此这类试验至今仍受到许多研究机构的重视。
- 
-\end_layout
-
-\begin_layout Description
-测速试验 此类试验主要用于研究流场的流动细节。 根据测量对象的范围，测速试验又可分为单点测量和多点测量两类。 早期的单点测量试验主要采用热线测速仪（Hot
- Wire Anemometer）等介入式测量设备，测速探头本身对流场会造成一定干扰，因此测量结果不能完全反映真实流动情况。 这一弊端后来被激光多普勒测速技术（
-Laser Doppler Velocimetry, LDV）所克服，但LDV仍属于单点测量技术。 同属于非介入式测量技术的粒子成像测速技术（Particle
- Image Velocimetry, PIV），解决了多点同步测量的难题，能够实现对流场（流速）的高分辨率测量， 目前已成为流体力学新发现的重要来源，也是验证
-数值计算方法的重要依据。 
-\end_layout
-
-\begin_layout Standard
-美国普林斯顿大学
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Princeton University
-\end_layout
-
-\end_inset
-
-的孙茂和Curtiss（1983）
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sun1983,Sun1989"
-literal "false"
-
-\end_inset
-
- 通过若干试验，研究了直升机低空低速飞行时地面效应对其气动性能的影响。 该组试验包括基于喷烟法的定性流动显示试验和基于热线测速仪的模型旋翼诱导速度分布定量测量试
-验。 结果显示，直升机低空低速飞行时，自由来流和地面将使旋翼尾迹向上卷起，从而显著影响旋翼气动载荷特性。 当卷起的尾迹接近桨盘平面并处于旋翼下方时，桨盘前侧诱导
-速度分布将发生较大幅度的不规则变化，从而引起旋翼气动力和气动力矩的不规则剧烈变化。
-\end_layout
-
-\begin_layout Standard
-美国马里兰大学帕克分校的Leishman等（1996, 1998）
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Leishman1996,Leishman1998a"
-literal "false"
-
-\end_inset
-
- 基于LDV，对桨尖涡切向和轴向速度、环量、黏性引起的涡核增大进行了测量，研究了旋翼尾迹的三维速度场； 对桨尖涡涡核位置进行了测量，研究了悬停状态桨尖涡的非周期
-现象。
-\end_layout
-
-\begin_layout Standard
-在国内，南航、北航等航空院校也开展了一些旋翼空气动力学方面的定量试验。
-\end_layout
-
-\begin_layout Standard
-南京航空航天大学的唐正飞、高正等（1997, 1998）
+同一时期，南京航空航天大学的唐正飞、高正等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Tang1997,Tang1998"
@@ -1652,12 +1694,12 @@ literal "false"
 
 \end_inset
 
- 利用三维LDV，测量了共轴式双旋翼悬停状态的流场；为了对比，对单旋翼流场也进行了测量。 测量的物理量包括诱导速度沿三个方向（轴向、径向和周向）的分量，得到了两
-副旋翼尾迹相互交汇、干扰下的流动图像。
+利用三维 LDV 测量了共轴式双旋翼悬停状态的流场；为了对比，他们对单旋翼流场也进行了测量。测量的物理量包括诱导速度沿三个方向（轴向、径向和周向）的分量，得到了
+两副旋翼的尾迹相互交汇、干扰的流动图像。
 \end_layout
 
 \begin_layout Standard
-北京航空航天大学的邓彦敏等（2007, 2012）
+2007年，北京航空航天大学的邓彦敏等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Yu2007,Ma2012"
@@ -1665,8 +1707,8 @@ literal "false"
 
 \end_inset
 
- 采用二维PIV，在水洞中对共轴式双旋翼悬停及不同前飞速度下的流场进行了测量，并对上下两副旋翼的气动干扰特性作了定量研究。 该试验测量了流场的瞬时涡量和速度分布
-、桨尖涡结构和脱落轨迹、尾迹边界等。 测量结果显示，共轴双旋翼悬停流场由上旋翼所主导；与单旋翼相比，双旋翼的尾迹结构更加不稳定。
+利用二维 PIV 技术，在水洞中对共轴式双旋翼悬停及不同前飞速度下的流场进行了测量，并对上下两副旋翼的气动干扰特性作了定量研究。该试验测量了流场的瞬时涡量和速度
+分布、桨尖涡结构和脱落轨迹、尾迹边界等。结果显示：共轴双旋翼悬停流场由上旋翼所主导；与单旋翼相比，双旋翼的尾迹结构更加不稳定。
 \end_layout
 
 \begin_layout Standard
@@ -1690,7 +1732,7 @@ literal "false"
 \end_layout
 
 \begin_layout Description
-桨尖涡主导 虽然流体力学界对于“涡”（vortex）的定义仍存在分歧
+桨尖涡主导 虽然流体力学界对于“涡 (vortex)”的定义仍存在分歧
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Tong2009"
@@ -1698,44 +1740,49 @@ literal "false"
 
 \end_inset
 
-， 但是无论根据何种定义，从试验事实中总能一致地识别出旋翼桨尖涡的存在。 试验观测和数值计算都显示，旋翼高速旋转时，每片桨叶的桨尖和桨根处会各拖出一条集中涡。
- 其中，桨根涡自生成后会迅速耗散并失去规则的涡结构，而桨尖涡自生成后则能在较长时间内保持强度和涡结构，因而主导着旋翼流场。 定量研究进一步表明，桨尖涡的涡核半径
-很小，涡核内速度梯度较大，涡核外则接近无旋流动。 这一流动特征对试验观测和数值计算在分辨率的空间配置上提出了不同的需求。 
+， 但是无论根据何种定义，从试验事实中总能一致地识别出旋翼桨尖涡的存在。试验观测和数值计算都显示，旋翼高速旋转时，每片桨叶的桨尖和桨根处会各拖出一条集中涡。其中
+，桨根涡自生成后会迅速耗散并失去规则的涡结构，而桨尖涡自生成后则能在较长时间内保持强度和涡结构，因而主导着旋翼流场。定量研究进一步表明，桨尖涡的涡核半径很小，涡
+核内速度梯度较大，涡核外则接近无旋流动。这一流动特征对试验观测和数值计算在分辨率的空间配置上提出了不同的需求。 
 \end_layout
 
 \begin_layout Description
-非定常 桨叶的固体表面对于空气流场而言，属于移动的壁面边界。 通常，桨叶绕旋翼轴作周期运动时，描述其周围流场的各物理量的也随时间近似按周期变化。
- 即使是悬停状态，虽然桨叶附近的空气流动接近定常状态，但是远离桨盘的桨尖涡也会因系统不稳定而表现出空间和时间的随机性。 因此，非定常性是旋翼流场固有的特征，这决
-定了与旋翼相关的流动问题的研究难度往往要高于固定翼所对应的问题。 
+非定常 桨叶的固体表面对于空气流场而言，属于移动的固壁边界。通常，桨叶绕旋翼轴作周期运动时，描述其周围流场的各物理量的也随时间近似按周期变化。即使是悬停状态，虽
+然桨叶附近的空气流动接近定常状态，但是远离桨盘的桨尖涡也会因系统不稳定而表现出空间和时间的随机性。因此，非定常性是旋翼流场固有的特征，这决定了与旋翼相关的流动问
+题的研究难度往往要高于固定翼所对应的问题。 
 \end_layout
 
 \begin_layout Description
-动态失速 通过简单的运动学分析可知，直升机处于前飞状态时，后行侧桨叶剖面的迎角大于前行侧，容易发生失速。 另一方面，桨叶剖面的迎角随旋翼转动而周期变化，这种迎角
-的周期变化会导致翼型气动力出现时滞效应。 这种动态失速现象，使得许多对固定翼行之有效的定常或准定常分析方法对旋翼不再适用。 
+动态失速 通过简单的运动学分析可知，直升机处于前飞状态时，后行侧桨叶剖面的迎角大于前行侧，容易发生失速。另一方面，桨叶剖面的迎角随旋翼转动而周期变化，这种迎角的
+周期变化会导致翼型气动力出现时滞效应。 这种动态失速现象，使得许多对固定翼行之有效的定常或准定常分析方法对旋翼不再适用。
 \end_layout
 
 \begin_layout Description
-局部可压缩 直升机旋翼桨尖速度的设计值通常为
-\begin_inset Formula $0.7\sim0.9~M$
-\end_inset
-
-，属于高亚声速范围，压缩性已较为明显。 随着前飞速度增大，在前行侧桨叶桨尖处可能会出现局部跨声速区，甚至产生激波。 桨叶的旋转又使得可压缩区域与低速不可压缩区域
-之间没有固定的、显著的界线。 这一流动特征使得原本在固定翼空气动力学中已经形成的分别适用于不可压缩和可压缩流动的分析方法，需经过特殊处理才能应用于旋翼空气动力学
-的研究。 
+局部可压缩 直升机旋翼桨尖速度的设计值通常为 0.7–0.9 马赫，属于高亚声速范围，压缩性已较为明显。随着前飞速度增大，在前行侧桨叶桨尖处可能会出现局部跨声速区，
+甚至产生激波。桨叶的旋转又使得可压缩区域与低速不可压缩区域之间没有固定的、显著的界线。这一流动特征使得原本在固定翼空气动力学中已经形成的分别适用于不可压缩和可压
+缩流动的分析方法，需经过特殊处理才能应用于旋翼空气动力学的研究。 
 \end_layout
 
 \begin_layout Standard
-上述旋翼流场所固有的流动特征，使得旋翼空气动力学的研究难度明显大于固定翼空气动力学。 除此之外，以下在直升机各种常见工作状态中普遍存在的气动干扰现象也增加了问题
-的复杂程度： 
+\begin_inset Separator plain
+\end_inset
+
+
 \end_layout
 
-\begin_layout Description
-桨-涡干扰 在下降、俯冲、大机动等飞行条件下，或对于桨盘面积有重叠的双旋翼构型，桨尖涡与桨叶之间不可避免地会发生碰撞。 桨尖涡经过桨叶时，桨叶表面的压力分布受到
-强烈扰动，从而成为旋翼振动和噪声的重要来源。 
+\begin_layout Standard
+上述旋翼流场所固有的流动特征，使得旋翼空气动力学的研究难度明显大于固定翼空气动力学。除此之外，以下在直升机各种常见工作状态中普遍存在的气动干扰现象（如图
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:helicopter-aerodynamic-interference"
+
+\end_inset
+
+ 所示）也增加了问题的复杂程度：
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1752,6 +1799,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:helicopter-aerodynamic-interference"
+
+\end_inset
+
 直升机气动干扰示意图
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1774,30 +1827,35 @@ literal "false"
 \end_layout
 
 \begin_layout Description
-旋翼-机身干扰 通常，直升机机身处于旋翼的下游区域，对旋翼尾迹起阻挡作用。 旋翼拉力、悬停气动效率这些重要的总体性能指标将受到影响。 另一方面，桨尖涡以一定频率
-与机身发生碰撞，使得机身表明的压力分布受到扰动，从而成为机体振动的重要来源。 
+桨-涡干扰 在下降、俯冲、大机动等飞行条件下，或对于桨盘面积有重叠的双旋翼构型，桨尖涡与桨叶之间不可避免地会发生碰撞。桨尖涡经过桨叶时，桨叶表面的压力分布受到强
+烈扰动，从而成为旋翼振动和噪声的重要来源。
 \end_layout
 
 \begin_layout Description
-旋翼-固定翼干扰 直升机上除了旋翼以外，一般还有水平尾翼、垂直尾翼等固定翼面，用于增加飞行稳定性，或提供额外的操纵面。 当这些固定翼面受到旋翼尾迹扰动时，其上感
-知的气动力有别于相应孤立部件在相同自由来流条件下所感知的气动力，从而会影响全机的配平和稳定性。 
+旋翼-机身干扰 通常，直升机机身处于旋翼的下游区域，对旋翼尾迹起阻挡作用。旋翼拉力、悬停气动效率这些重要的总体性能指标将受到影响。另一方面，桨尖涡以一定频率与机
+身发生碰撞，使得机身表明的压力分布受到扰动，从而成为机体振动的重要来源。 
 \end_layout
 
 \begin_layout Description
-旋翼-地面干扰 当直升机从地面起飞或贴地低空飞行时，地面的阻挡将改变旋翼尾迹的流向。 一般而言，地面效应会使旋翼拉力、悬停气动效率等总体性能指标有所提升；
- 但在地面存在大量砂石等颗粒物的条件下，地面效应会进一步引发沙盲现象，导致飞行员视线受到遮挡，从而影响飞行安全。 
+旋翼-固定翼干扰 直升机上除了旋翼以外，一般还有水平尾翼、垂直尾翼等固定翼面，用于增加飞行稳定性，或提供额外的操纵面。当这些固定翼面受到旋翼尾迹扰动时，其上感知
+的气动力有别于相应孤立部件在相同自由来流条件下所感知的气动力，从而会影响全机的配平和稳定性。
 \end_layout
 
 \begin_layout Description
-旋翼-船体干扰 对于舰载直升机，旋翼与舰面和水面之间也存在类似于地面效应的气动干扰现象。 舰面与水面的高度差造成二者对旋翼干扰程度的不同，会使得旋翼经过甲板边缘
-时，桨盘上升力分布发生突变，从而改变直升机的姿态。 此外，当海面风速较大或舰艇高速航行时，舰桥等结构对自由来流的扰动，会在直升机起降平台上产生紊乱的空气尾流，从
-而增加直升机起降的难度。 由于直升机在舰面起降时相对速度较低，旋翼尾迹与船体空气尾流相互影响，舰面气流对其飞行的影响较之固定翼飞机显得更加突出。
- 
+旋翼-地面干扰 当直升机从地面起飞或贴地低空飞行时，地面的阻挡将改变旋翼尾迹的流向。一般而言，地面效应会使旋翼拉力、悬停气动效率等总体性能指标有所提升；但在地面
+存在大量砂石等颗粒物的条件下，地面效应会进一步引发沙盲现象，导致飞行员视线受到遮挡，从而影响飞行安全。 
 \end_layout
 
 \begin_layout Standard
-以上旋翼流场特有的关键特征和直升机特有的气动干扰现象，始终是旋翼空气动力学研究的关键问题。 许多在固定翼空气动力学中得到成功应用的方法，在应用到旋翼空气动力学研
-究之前，必须经过适当的改造； 旋翼空气动力学本身也产生了一些特有的分析模型和数值计算方法，并且还在不断发展和改进。
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+以上旋翼流场特有的关键特征和直升机特有的气动干扰现象，始终是旋翼空气动力学研究的关键问题。许多在固定翼空气动力学中得到成功应用的方法，在应用到旋翼空气动力学研究
+之前，必须经过适当的改造；旋翼空气动力学本身也产生了一些特有的分析模型和数值计算方法，并且还在不断发展和改进。
 \end_layout
 
 \begin_layout Subsection
@@ -1809,11 +1867,11 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-入流（Inflow）模型描述的是旋翼尾迹在桨盘平面处的诱导速度（入流）与旋翼气动力之间的数量关系。
+入流模型描述的是旋翼尾迹在桨盘平面处的诱导速度与旋翼气动力之间的数量关系。
 \end_layout
 
 \begin_layout Standard
-滑流理论，又称动量理论，是最早的也是最简单的入流模型。 该理论基于作用盘（Actuator Disk）模型和动量定理，给出的悬停状态下桨盘平面的诱导速度为
+滑流理论，又称动量理论，是最早也是最简单的入流模型。该理论基于作用盘模型和动量定理，给出的悬停状态下桨盘平面的诱导速度为
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Johnson1994"
@@ -1821,68 +1879,65 @@ literal "false"
 
 \end_inset
 
-： 
+：
 \begin_inset Formula 
 \begin{equation}
-v_{\mathrm{0}}=\sqrt{\frac{C_{\mathrm{T}}}{2}}
+v_{\mathrm{0}}=\sqrt{\frac{C_{T}}{2}}
 \end{equation}
 
 \end_inset
 
 其中，
-\begin_inset Formula $C_{\mathrm{T}}$
+\begin_inset Formula $C_{T}$
 \end_inset
 
-是旋翼拉力系数，
+ 是旋翼拉力系数，
 \begin_inset Formula $v_{\mathrm{0}}$
 \end_inset
 
-是无量纲诱导速度。 该模型只给出了沿桨盘平面均匀分布的诱导速度场，并且属于静态（准定常）入流模型，所以通常只在初步设计阶段用来进行旋翼性能估算。
+ 是无量纲诱导速度。该模型只给出了沿桨盘平面均匀分布的诱导速度场，并且属于静态（准定常）入流模型，所以通常只在初步设计阶段被用来进行旋翼性能估算。此后，各种改进
+的静态入流模型不断被提出，桨盘平面诱导速度分布的非均匀性得以体现。
 \end_layout
 
 \begin_layout Standard
-此后，各种改进的静态入流模型不断被提出，桨盘平面诱导速度分布的非均匀性得以体现。 在此基础上，出现了一阶状态空间方程形式的动态入流模型，以考虑旋翼气动力与入流关
-系的非定常性，其中最具代表性的是Pitt-Peters动态入流模型。 该模型包含三个无量纲诱导入流分量：均匀入流分量
-\begin_inset Formula $v_{\mathrm{0}}$
+在此基础上，出现了一阶状态空间方程形式的动态入流模型，以考虑旋翼气动力与入流关系的非定常性，其中最具代表性的是 Pitt–Peters 动态入流模型。在该模型中
+，桨盘上任意一点的无量纲诱导速度 
+\begin_inset Formula $v$
 \end_inset
 
-，横向入流分量
-\begin_inset Formula $v_{\mathrm{s}}$
-\end_inset
-
-和纵向入流分量
-\begin_inset Formula $v_{\mathrm{c}}$
-\end_inset
-
-。 桨盘上任意一点的无量纲诱导速度可以写为无量纲展向位置
+ 可以写为无量纲展向位置 
 \begin_inset Formula $r$
 \end_inset
 
- 和气流方位角
+ 和气流方位角 
 \begin_inset Formula $\psi$
 \end_inset
 
- 的函数： 
+ 的函数：
 \begin_inset Formula 
 \begin{equation}
-v=v_{0}+v_{\mathrm{c}}r\cos\psi+v_{\mathrm{s}}r\sin\psi
+v=v_{0}+v_{\mathrm{c}}r\cos\psi+v_{\mathrm{s}}r\sin\psi,
 \end{equation}
 
 \end_inset
 
-这三个无量纲诱导速度分量和它们的无量纲时间导数，与桨盘的三个无量纲气动力
-\begin_inset Formula $C_{\mathrm{T}},C_{\mathrm{L}},C_{\mathrm{M}}$
+其中 
+\begin_inset Formula $v_{\mathrm{0}},v_{\mathrm{s}},v_{\mathrm{c}}$
 \end_inset
 
-之间的关系，可以写成状态空间形式： 
+ 分别为均匀入流分量、横向入流分量、纵向入流分量。这三个无量纲诱导速度分量和它们的无量纲时间导数，与桨盘的三个无量纲气动力 
+\begin_inset Formula $C_{T},C_{L},C_{M}$
+\end_inset
+
+ 之间的关系，呗写成状态空间形式：
 \begin_inset Formula 
 \begin{equation}
 \left(\underline{M}\,\dv{t}+\underline{L}^{-1}\right)\begin{bmatrix}v_{\mathrm{0}}\\
 v_{\mathrm{s}}\\
 v_{\mathrm{c}}
-\end{bmatrix}=\begin{bmatrix}C_{\mathrm{T}}\\
-C_{\mathrm{L}}\\
-C_{\mathrm{M}}
+\end{bmatrix}=\begin{bmatrix}C_{T}\\
+C_{L}\\
+C_{M}
 \end{bmatrix}
 \end{equation}
 
@@ -1896,21 +1951,11 @@ literal "false"
 
 \end_inset
 
- 对截至到上世纪80年代末的各种静态和动态入流模型作了详细的综述。
+ 对截至 1980 年代末的各种静态、动态入流模型作了详细的综述。
 \end_layout
 
 \begin_layout Standard
-1989年，美国佐治亚理工学院
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Georgia Institute of Technology
-\end_layout
-
-\end_inset
-
-的He（1989）
+1989年，He
 \begin_inset CommandInset citation
 LatexCommand cite
 key "He1989,Peters1995"
@@ -1918,12 +1963,9 @@ literal "false"
 
 \end_inset
 
- 基于势流理论，又提出了广义动态尾迹模型（Peters-He有限状态入流模型），将状态变量个数推广到任意多，进一步体现了高阶谐波的影响。
-\end_layout
-
-\begin_layout Standard
-值得注意的是，经典的动量理论模型被作为准静态情况的特例包含在Pitt-Peters动态入流模型之中， Pitt-Peters动态入流模型又是Peters-He有
-限状态入流模型在状态变量取到一阶时的特例。
+ 基于势流理论，提出了广义动态尾迹模型，又称 Peters–He 有限状态入流模型。该模型将状态变量个数推广到任意多，进一步体现了高阶谐波的影响。值得注意的是，
+经典的动量理论模型是 Pitt–Peters 动态入流模型在准静态情况下的特例，Pitt–Peters 动态入流模型又是 Peters–He 有限状态入流模型只
+取一阶状态变量时的特例。
 \end_layout
 
 \begin_layout Standard
@@ -1947,8 +1989,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-但是，所有的入流模型都是从作用盘模型出发，引入尾迹形状规则且无限延伸等理想化假设，最后得到气动力与入流系数的关系。 显然，这种简单的物理模型无法真实反映旋翼流场
-由桨尖涡主导、局部可压缩等特性，也无法处理存在复杂气动干扰的问题，目前正逐步被更接近物理真实的自由尾迹模型取代。
+但是，以上所有入流模型都是从作用盘模型出发，引入尾迹形状规则且无限延伸等理想化假设，最后得到气动力与入流系数的关系。显然，这种简单的物理模型无法真实反映旋翼流场
+由桨尖涡主导、局部可压缩等特性，也无法处理存在复杂气动干扰的问题，已经逐步被更接近物理真实的自由尾迹模型取代。
 \end_layout
 
 \begin_layout Subsubsection
@@ -1956,8 +1998,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-涡线尾迹模型是用于描述旋翼尾迹中涡量空间分布情况的物理模型，在一些文献中也用来指代该物理模型所对应的数值计算方法。 该模型的基本思想是用直线或曲线涡元（涡线单元
-）对涡量场进行离散，通过研究涡线单元的运动和演化来描述涡量场，属于连续介质力学中的拉格朗日观点（质点系观点）
+涡线尾迹模型是用于描述旋翼尾迹中涡量空间分布情况的物理模型，在一些文献中也用来指代该物理模型所对应的数值计算方法。该模型的基本思想是用直线或曲线涡元（涡线单元）
+对涡量场进行离散，通过研究涡线单元的运动和演化来描述涡量场，属于连续介质力学
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Fung1994"
@@ -1965,11 +2007,8 @@ literal "false"
 
 \end_inset
 
-。 得到涡量场后，再利用Biot-Savart定律对涡量场进行积分，从而得到诱导速度场。
-\end_layout
-
-\begin_layout Standard
-从发展历程来看，涡线尾迹模型经历了刚性尾迹，预定尾迹和自由尾迹三个阶段。
+中的拉格朗日观点（质点系观点）。得到涡量场后，再利用 Biot–Savart 定律对涡量场进行积分，从而得到诱导速度场。从发展历程来看，尾迹模型经历了刚性尾迹，
+预定尾迹和自由尾迹三个阶段。
 \end_layout
 
 \begin_layout Paragraph
@@ -1977,13 +2016,12 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-刚性尾迹（Rigid Wake，又译“固定尾迹”）模型假设旋翼尾迹中的涡量集中分布在以桨盘为底面的直圆柱面或斜圆柱面上，或集中分布在从桨尖拖出的螺旋线上。
- 此模型中，涡系的几何形状只受自由来流和平均入流的驱动，不因涡系自诱导和互诱导而发生变形，因而被称为“刚性（Rigid）”尾迹。 由于刚性尾迹的几何形状简单，经
-过一些数学推导，有时可以得出初等函数、特殊函数或级数形式的解。
+刚性尾迹模型假设旋翼尾迹中的涡量集中分布在以桨盘为底面的直圆柱面或斜圆柱面上，或集中分布在从桨尖拖出的螺旋线上。在此模型中，涡系的几何形状只受自由来流和平均入流
+的驱动，不因涡系自诱导和互诱导而发生变形，故而得名“刚性尾迹”。
 \end_layout
 
 \begin_layout Standard
-北京航空航天大学的陈铭（2004）
+由于刚性尾迹的几何形状简单，经过一些数学推导，有时可以得出初等函数、特殊函数或级数形式的解。2004 年，北京航空航天大学的陈铭
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Chen2003,Chen2004,Chen2005"
@@ -1991,12 +2029,12 @@ literal "false"
 
 \end_inset
 
- 利用刚性尾迹模型，将旋翼用与无限片桨叶等效的作用盘代替，对共轴双旋翼前飞气动特性进行了研究，得到了解析形式的诱导速度解。
+利用刚性尾迹模型，将旋翼用作用盘代替，对共轴双旋翼前飞气动特性进行了研究，得到了解析形式的诱导速度解。
 \end_layout
 
 \begin_layout Standard
-虽然根据刚性尾迹模型得出的解析形式的解在计算机上能够快速得出数值结果，但其所假设的尾迹几何结构与实际情况相差较大。 尤其是在大机动、贴地飞行等条件下，尾迹畸变严
-重，刚性尾迹模型不再适用。 目前，刚性尾迹模型只被用于对计算机时要求极高的实时仿真程序，或用于为自由尾迹模型、CFD计算程序提供迭代初值。
+虽然根据刚性尾迹模型得出的解析形式的解能够快速给出计算结果，但其所假设的尾迹几何结构与实际情况相差较大。尤其是在大机动、贴地飞行等条件下，尾迹畸变严重，刚性尾迹
+模型不再适用。目前，刚性尾迹模型只被用于对实时性要求极高的飞行仿真程序，或用于为自由尾迹模型、CFD 求解器提供迭代初值。
 \end_layout
 
 \begin_layout Paragraph
@@ -2004,19 +2042,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-预定尾迹（Prescribed Wake）模型在刚性尾迹模型的基础上，根据一些特殊旋翼在特殊状态下的试验结果，引入一些参数对刚性尾迹的几何形状进行修正。
- 美国陆军航空机动研究与发展试验室
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-U.S.
- Army Air Mobility Research and Development Laboratory
-\end_layout
-
-\end_inset
-
- 的Landgrebe（1971）
+预定尾迹模型在刚性尾迹模型的基础上，根据一些特殊旋翼在特殊状态下的试验结果，引入一些参数对刚性尾迹的几何形状进行修正。1971 年，Landgrebe
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Landgrebe1971"
@@ -2024,7 +2050,7 @@ literal "false"
 
 \end_inset
 
-通过水洞试验，提出了一种半经验的旋翼尾迹模型。 但该模型的适用性严重依赖于根据个别试验确定的经验参数，普适性较差，并没有从根本上解决刚性尾迹模型无法准确描述尾迹
+基于水洞试验，提出了一种半经验的旋翼尾迹模型。 但该模型的适用性严重依赖于根据个别试验确定的经验参数，普适性较差，并没有从根本上解决刚性尾迹模型无法准确描述尾迹
 几何结构的问题。
 \end_layout
 
@@ -2033,8 +2059,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-自由尾迹（Free Wake）模型允许涡元像流体微团一样在流场中自由运动。 这里的“自由”是指相对于刚性尾迹和预定尾迹，自由尾迹不再对尾迹几何结构进行限制，涡元
-（流体微团）的运动仍然受流体力学基本原理支配。 “涡元像流体微团一样在流场中自由运动”即是指涡元运动满足如下关系： 
+自由尾迹模型允许涡元像流体微团一样在流场中自由运动。这里的“自由”是指相对于刚性尾迹和预定尾迹，自由尾迹不再对尾迹几何结构进行限制，涡元（流体微团）的运动仍然受
+流体力学基本原理支配。该模型所依据的“涡元像流体微团一样在流场中自由运动”是指涡元运动满足如下关系： 
 \begin_inset Formula 
 \begin{equation}
 \frac{\dd\vec{r}}{\dd t}=\vec{u}=\vec{u}_{\mathrm{\infty}}+\vec{u}_{\mathrm{ind}}\label{eq:vortex_element}
@@ -2046,15 +2072,15 @@ literal "false"
 \begin_inset Formula $\vec{r}$
 \end_inset
 
-是涡元位置，
+ 是涡元位置，
 \begin_inset Formula $\vec{u}_{\mathrm{\infty}}$
 \end_inset
 
-是自由来流速度，
+ 是自由来流速度，
 \begin_inset Formula $\vec{u}_{\mathrm{ind}}$
 \end_inset
 
-是旋翼涡系对该点的诱导速度。 该诱导速度需根据Biot-Savart定律
+ 是旋翼涡系对该点的诱导速度。该诱导速度需根据 Biot–Savart定律
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Anderson_2017"
@@ -2062,23 +2088,19 @@ literal "false"
 
 \end_inset
 
-计算得到。 考虑
-\begin_inset Formula $A$
+计算得到。考虑 
+\begin_inset Formula $A,B$
 \end_inset
 
-、
-\begin_inset Formula $B$
-\end_inset
-
-两点之间一段强度为
+ 两点之间一段强度为 
 \begin_inset Formula $\Gamma$
 \end_inset
 
-的涡线，它对空间任意一点
+ 的涡线，它对空间任意一点 
 \begin_inset Formula $C$
 \end_inset
 
-的诱导速度由以下积分给出： 
+ 的诱导速度由以下积分给出：
 \begin_inset Formula 
 \begin{equation}
 \vec{u}_{\mathrm{ind}}^{C}=\int_{A}^{B}\frac{\Gamma}{4\pi}\frac{\dd\vec{l}\times\vec{r}}{r^{3}}
@@ -2096,15 +2118,18 @@ noprefix "false"
 
 \end_inset
 
- 变为一个高度非线性的常微分方程系统，求解的难度来源于非线性的诱导速度项
-\begin_inset Formula $\vec{u}_{\mathrm{ind}}$
-\end_inset
-
-。
+ 变为一个高度非线性的常微分方程组。
 \end_layout
 
 \begin_layout Standard
-自由尾迹模型所依据的“涡元像流体微团一样在流场中自由运动”， 实际上是Kelvin定理
+式 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:vortex_element"
+
+\end_inset
+
+ 所表示的“涡元像流体微团一样在流场中自由运动”，实际上是 Kelvin 定理
 \begin_inset Foot
 status collapsed
 
@@ -2122,8 +2147,8 @@ literal "false"
 
 \end_inset
 
-应用到理想流体时的一个推论， 因而自由尾迹模型的成立条件是流体无黏、正压且外力有势。 在旋翼尾迹问题中，外力（重力）可以忽略，流体（空气）满足正压条件，但黏性通
-常不可忽略，为此需引入黏性涡核模型
+应用到理想流体时的一个推论，因而自由尾迹模型的成立条件是流体无黏、正压且外力有势。在旋翼尾迹问题中，外力（重力）可以忽略，流体（空气）满足正压条件，但黏性通常不
+可忽略，为此需引入黏性涡核模型
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Leishman2006"
@@ -2131,22 +2156,12 @@ literal "false"
 
 \end_inset
 
-进行修正。 该模型可进一步分有限涡核模型和涡核演化模型两部分。 简单的集中涡线模型存在奇异性，为消除这种奇异性，通常以一个截面半径为有限值的涡管代替截面半径为零
-的集中涡线。 在有限涡核模型的基础上，令涡核半径随涡龄的增长而变大，以此来体现空气粘性引起的涡量耗散效应，涡核以外的流体则认为是无粘的。
+进行修正。该模型可进一步分有限涡核模型和涡核演化模型两部分。简单的集中涡线模型存在奇异性，为消除这种奇异性，通常以一个截面半径为有限值的涡管代替截面半径为零的集
+中涡线。在有限涡核模型的基础上，令涡核半径随涡龄的增长而变大，以此来体现空气黏性引起的涡量耗散，涡核以外的流体则认为是无黏的。
 \end_layout
 
 \begin_layout Standard
-最早尝试利用自由尾迹模型对旋翼流场进行建模的有 美国麻省理工学院
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Massachusetts Institute of Technology
-\end_layout
-
-\end_inset
-
-的Scully（1967, 1975）
+最早尝试利用自由尾迹模型对旋翼流场进行建模的有 Scully
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Scully1967,Scully1975"
@@ -2154,7 +2169,7 @@ literal "false"
 
 \end_inset
 
-， 美国陆军的Landgrebe（1969）
+、Landgrebe
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Landgrebe1969"
@@ -2162,11 +2177,11 @@ literal "false"
 
 \end_inset
 
-等。 早期的自由尾迹算法普遍存在收敛性差的问题，此后一段时间，许多学者在改善该模型的收敛性方面做了大量工作。
+等。这些早期的自由尾迹算法普遍存在收敛性差的问题，此后一段时间，许多学者在改善该模型的收敛性方面做了大量工作。
 \end_layout
 
 \begin_layout Standard
-美国普林斯顿大学的孙茂和Curtiss（1983）
+1983 年，美国普林斯顿大学的 Sun & Curtiss
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Sun1983,Sun1989a"
@@ -2174,16 +2189,12 @@ literal "false"
 
 \end_inset
 
- 建立了一种简化的自由尾迹卷起模型，用以研究旋翼尾迹与地面的相互影响，并在此基础上计算了桨盘平面的诱导速度分布。 结果显示，地面和卷起涡显著地改变了旋翼近尾迹的
-几何形态，从而造成了桨盘平面诱导速度分布的剧烈变化。
+ 建立了一种简化的自由尾迹卷起模型，用以研究旋翼尾迹与地面的相互影响，并在此基础上计算了桨盘平面的诱导速度分布。结果显示：地面和卷起涡显著地改变了旋翼近尾迹的几
+何形态，从而造成了桨盘平面诱导速度分布的剧烈变化。
 \end_layout
 
 \begin_layout Standard
-美国马里兰大学帕克分校的Leishman教授及其研究团队，于上世纪90年代提出和改进了多种自由尾迹算法。
-\end_layout
-
-\begin_layout Standard
-Crouse Jr.和Leishman（1993）
+自 1990 年代起，美国马里兰大学的 Leishman 团队提出和改进了多种自由尾迹算法。1993年，Crouse & Leishman
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Crouse1993"
@@ -2191,12 +2202,8 @@ literal "false"
 
 \end_inset
 
- 提出了一种预估校正格式（Predictor-Corrector scheme, PC），用于提高的收敛性，控制计算量。 该算法采用两点中心差分格式对涡量场进行
-时间和空间离散，通过引入周期条件确保稳态解收敛。 但对悬停状态客观存在的非周期解，无法给出正确的计算结果。
-\end_layout
-
-\begin_layout Standard
-Bagai和Leishman（1995）
+ 提出了一种“预估校正 (predictor–corrector, PC)”格式，用于提高收敛性，控制计算量。该算法采用两点中心差分格式对涡量场进行时间和空间离
+散，并通过引入周期条件确保稳态解收敛。但对悬停状态客观存在的非周期解，无法给出正确的计算结果。1995 年，Bagai & Leishman
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bagai1995,Bagai1995a,Bagai1996"
@@ -2204,10 +2211,10 @@ literal "false"
 
 \end_inset
 
- 提出了一种伪隐式预估校正积分格式（Pseudo-Implicit Predictor-Corrector Integration scheme,
- PIPC），用于求解存在稳态周期解的旋翼尾迹问题。 该算法采用五点中心差分格式对涡量场进行时间和空间离散，利用松弛迭代法和周期条件改善解的收敛性。
- 基于该算法，作者计算了单旋翼、双旋翼构型的直升机在悬停、低速前飞、高速前飞等各种飞行状态中的旋翼尾迹，结果很好地反映了旋翼尾迹的畸变。 但该方法用到了周期条件
-，因而只适用于存在稳态周期解的问题；但也有学者质疑稳态周期解的存在
+ 提出了一种“伪隐式预估校正 (pseudo-implicit predictor–corrector, PIPC)”格式，用于求解存在稳态周期解的旋翼尾迹问题
+。该算法采用五点中心差分格式对涡量场进行时间和空间离散，并利用松弛迭代法和周期条件改善解的收敛性。基于该算法，他们计算了单旋翼、双旋翼构型的直升机在悬停、低速前
+飞、高速前飞等各种飞行状态中的旋翼尾迹，结果很好地反映了旋翼尾迹的畸变。但该方法用到了周期条件，因而只适用于存在稳态周期解的问题；但也有学者质疑稳态周期解的存在
+性
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kini2002"
@@ -2215,11 +2222,7 @@ literal "false"
 
 \end_inset
 
-。 另外，参数分析表明，解的收敛性和尾迹几何结构与部分经验参数的选取有关，使该方法的通用性受到质疑。
-\end_layout
-
-\begin_layout Standard
-Bhagwat和Leishman（2000, 2002, 2004）
+。另外，参数分析表明，解的收敛性和尾迹几何结构与部分经验参数的选取有关，使该方法的通用性受到质疑。2000–2004年，Bhagwat & Leishman
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bhagwat2000,Bhagwat2000a,Leishman2002,Leishman2004"
@@ -2227,14 +2230,45 @@ literal "false"
 
 \end_inset
 
- 提出了一种时间精确（Time Accurate）自由尾迹模型，用于分析旋翼尾迹的动态响应过程。 该算法采用二阶后向差分预估校正格式（Predictor-Cor
-rector 2nd-Backward, PC2B），提高了算法的数值稳定性。 由松弛迭代法（如Bagai的PIPC格式）给出初始条件后，可以沿时间积分尾迹方程
-和桨叶动力学方程，得到旋翼尾迹和桨叶运动的动态响应值。 基于该算法，作者计算了多种旋翼构型在不同飞行条件下的尾迹几何形态，研究了旋翼作机动时的尾迹瞬态变化过程，
-并对涡环状态这一典型的不稳定状态进行了模拟。 该模型在以上算例中均给出了很好的结果。 
+ 提出了一种“时间精确”自由尾迹模型，用于分析旋翼尾迹的动态响应过程。该算法采用“二阶后向差分预估校正 (predictor–corrector
+ 2nd-backward, PC2B)”格式，提高了算法的数值稳定性。由松弛迭代法（如 Bagai 的 PIPC 格式）给出初始条件后，可以沿时间积分尾迹方程
+和桨叶动力学方程，得到旋翼尾迹和桨叶运动的动态响应值。基于该算法，他们计算了多种旋翼构型在不同飞行条件下的尾迹几何形态（如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:free-wake"
+
+\end_inset
+
+ 所示），研究了旋翼作机动时的尾迹瞬态变化过程，并对涡环状态这一典型的不稳定状态进行了模拟。该模型在以上算例中均给出了很好的结果。2006年，Gupta
+ & Leishman
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gupta2006"
+literal "false"
+
+\end_inset
+
+ 将上述时间精确自由尾迹模型应用到风力机械的气动性能研究中。同年，Ananthan & Leishman
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ananthan2006"
+literal "false"
+
+\end_inset
+
+ 基于时间精确自由尾迹模型，研究了机动飞行状态下的旋翼尾迹几何形态和涡量分布，初步研究了桨涡干扰引起的旋翼噪声。此后，Ribera & Celi
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ribera2007"
+literal "false"
+
+\end_inset
+
+ 也利用该模型开展了一些直升机飞行动力学方面的研究。
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2279,49 +2313,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Gupta和Leishman（2006）
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Gupta2006"
-literal "false"
-
-\end_inset
-
- 将上述时间精确自由尾迹模型应用到风力机械的气动性能研究中。
-\end_layout
-
-\begin_layout Standard
-Ananthan和Leishman（2006）
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Ananthan2006"
-literal "false"
-
-\end_inset
-
- 基于时间精确自由尾迹模型，研究了机动飞行状态下的旋翼尾迹几何形态和涡量分布，初步研究了桨涡干扰引起的旋翼噪声。 Ribera和Celi（2007）
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Ribera2007"
-literal "false"
-
-\end_inset
-
- 也利用该模型开展了直升机飞行动力学方面的研究。
-\end_layout
-
-\begin_layout Standard
-美国俄亥俄州立大学
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Ohio State University
-\end_layout
-
-\end_inset
-
-的Conlisk教授也开展了一些自由尾迹模型算法方面的研究
+本世纪初，美国俄亥俄州立大学的 Conlisk 团队
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Conlisk2001"
@@ -2329,11 +2321,7 @@ literal "false"
 
 \end_inset
 
-。
-\end_layout
-
-\begin_layout Standard
-Jain和Conlisk（2000）
+也开展了一些自由尾迹模型算法方面的研究。2000年，Jain & Conlisk
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jain2000"
@@ -2341,12 +2329,8 @@ literal "false"
 
 \end_inset
 
- 采用升力线理论对桨叶进行建模，采用时间步进（Time-Stepping）自由涡方法对桨尖涡运动进行计算。 在做时间步进积分时，此文采用了数值稳定的四阶隐式Ad
-ams–Moulton格式。 基于上述方法，作者通过数值计算研究了在试验中观察到的两条桨尖涡之间相互缠绕的现象。
-\end_layout
-
-\begin_layout Standard
-Kini和Conlisk（2002）
+ 采用升力线理论对桨叶进行建模，采用时间步进自由涡方法对桨尖涡运动进行计算。在做时间步进积分时，他们采用了数值稳定的四阶隐式 Adams–Moulton
+ 格式。基于上述方法，他们通过数值计算研究了在试验中观察到的两条桨尖涡之间相互缠绕的现象。2002年，Kini & Conlisk
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kini2002"
@@ -2362,13 +2346,13 @@ literal "false"
 
 \end_inset
 
- 中类似方法研究了悬停状态桨尖涡几何结构的稳定性。 计算结果显示，悬停状态时，桨尖涡几何结构的周期性条件只对前几圈桨叶适用，后几圈的桨尖涡几何结构表现出明细的时
-间非周期性。 由于采用了数值稳定的隐式Adams–Moulton格式，并且在步长小于 
+ 中类似方法研究了悬停状态桨尖涡几何结构的稳定性。计算结果显示，悬停状态时，桨尖涡几何结构的周期性条件只对前几圈桨叶适用，后几圈的桨尖涡几何结构表现出明显的时间
+非周期性。由于采用了数值稳定的隐式 Adams–Moulton 格式，并且在步长小于 
 \begin_inset Formula $\ang{4}$
 \end_inset
 
- 时可以给出足够精确的结果， 作者认为，物理不稳定是导致悬停状态桨尖涡远场尾迹非周期结构的主要原因，而非算法的数值稳定性问题。 这与Bagai和Leishman
-（1995）
+ 时可以给出足够精确的结果。此文认为，物理不稳定是导致悬停状态桨尖涡远场尾迹非周期结构的主要原因，而非算法的数值稳定性问题。这与 Leishman
+ 团队的观点
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bagai1995,Bagai1995a,Bagai1996"
@@ -2376,11 +2360,7 @@ literal "false"
 
 \end_inset
 
-之前所提出的观点相反。
-\end_layout
-
-\begin_layout Standard
-Pulla和Conlisk（2006）
+相反。2006年，Pulla & Conlisk
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Pulla2006"
@@ -2388,8 +2368,8 @@ literal "false"
 
 \end_inset
 
- 基于时间步进自由尾迹方法研究了地面效应影响下的直升机气动特性。 其中，旋翼尾迹通过自由涡方法进行建模，桨叶气动力由升力面理论给出，地面则采用镜像法进行处理。
- 时间步进算法采用与文献-
+ 基于时间步进自由尾迹方法研究了地面效应影响下的直升机气动特性。其中，旋翼尾迹通过自由涡方法进行建模，桨叶气动力由升力面理论给出，地面则采用镜像法进行处理。时间
+步进算法采用与文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jain2000,Kini2002"
@@ -2397,15 +2377,11 @@ literal "false"
 
 \end_inset
 
- 中类似的Adams-Moulton格式。 计算结果与佐治亚理工的试验数据进行了对比，验证了算法的可行性。
+ 中类似的 Adams–Moulton 格式。计算结果与佐治亚理工的试验数据进行了对比，验证了算法的可行性。
 \end_layout
 
 \begin_layout Standard
-在国内，自由尾迹模型也有相应的发展和应用。
-\end_layout
-
-\begin_layout Standard
-南京航空航天大学的李春华和徐国华（2007）
+在国内，自由尾迹模型也有相应的发展和应用。2007 年，南京航空航天大学的李春华、徐国华等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Li2007"
@@ -2413,11 +2389,7 @@ literal "false"
 
 \end_inset
 
- 基于时间精确自由尾迹模型，研究了倾转旋翼的气动特性。
-\end_layout
-
-\begin_layout Standard
-李攀和陈仁良（2010）
+基于时间精确自由尾迹模型，研究了倾转旋翼的气动特性；2010 年，该校的李攀、陈仁良等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Li2010"
@@ -2425,11 +2397,7 @@ literal "false"
 
 \end_inset
 
- 基于时间精确自由尾迹模型，提出了一种新的差分格式，建立了一种高置信度的直升机飞行动力学模型。
-\end_layout
-
-\begin_layout Standard
-北京航空航天大学的陈铭等（2014）
+ 基于时间精确自由尾迹模型，提出了一种新的差分格式，建立了一种高置信度的直升机飞行动力学模型。2014 年，北京航空航天大学的陈铭等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Wang2014"
@@ -2437,11 +2405,7 @@ literal "false"
 
 \end_inset
 
- 基于稳态自由尾迹模型，研究了旋翼几何参数对共轴双旋翼悬停性能的影响。
-\end_layout
-
-\begin_layout Standard
-曹义华等（2015）
+基于稳态自由尾迹模型，研究了旋翼几何参数对共轴双旋翼悬停性能的影响；2015 年，该校的曹义华等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Lv2015"
@@ -2449,13 +2413,13 @@ literal "false"
 
 \end_inset
 
- 采用自由尾迹模型和面元法，分别对旋翼和机身进行建模，建立了一种旋翼-机身气动干扰模型，并进行了配平计算。
+采用自由尾迹模型和面元法，分别对旋翼和机身进行建模，建立了一种旋翼–机身气动干扰模型，并进行了配平计算。
 \end_layout
 
 \begin_layout Standard
-尽管自由尾迹模型仍然是目前直升机工程界普遍认可的旋翼空气动力学分析手段，但该模型本身也存在一定的局限性。 首先，自由尾迹模型必须与其他模型（如升力面模型）配合，
-才能获得桨尖涡环量的初始值。 其次，目前常用的涡核模型都存在若干经验参数，并且桨尖涡的截断位置也需要人工设置。 另外，这种物理模型虽然能够大体上还原桨尖涡的几何
-结构，但在处理桨尖涡与固体壁面碰撞等问题时，只能采取回避或作镜像处理的方法，无法描述涡结构破碎等现象。 因此，自由尾迹模型还不是一种十分完备的物理模型。
+尽管自由尾迹模型仍然是目前直升机工程界普遍认可的旋翼空气动力学分析手段，但该模型本身也存在一定的局限性。首先，自由尾迹模型必须与其他模型（如升力面模型）配合，才
+能获得桨尖涡环量的初始值。其次，目前常用的涡核模型都存在若干经验参数，并且桨尖涡的截断位置也需要人工设置。另外，这种物理模型虽然能够大体上还原桨尖涡的几何结构，
+但在处理桨尖涡与固体壁面碰撞等问题时，只能采取回避或镜像处理的方法，无法描述涡结构破碎等现象。
 \end_layout
 
 \begin_layout Subsubsection
@@ -2470,37 +2434,33 @@ name "sec:Viscous-Vortex-Particle-Method"
 \end_layout
 
 \begin_layout Standard
-黏性涡粒子模型（Vortex Particle Model, VPM）与自由尾迹模型类似，也属于基于拉格朗日观点的分析模型。 所不同的是该模型用涡粒子代替了涡线
-，每个涡粒子由位置
-\begin_inset Formula $\vec{x}$
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "VPM"
+description "vortex particle model; vortex particle method"
+literal "true"
+
 \end_inset
 
-和涡量
+“黏性涡粒子模型 (vortex particle model, VPM)”与自由尾迹模型类似，也属于基于拉格朗日观点的分析模型。不同的是该模型用涡粒子代替了涡
+线，每个涡粒子由位置 
+\begin_inset Formula $\vec{r}$
+\end_inset
+
+ 和涡量 
 \begin_inset Formula $\vec{\omega}$
 \end_inset
 
-两个矢量来描述。 其中，涡元位置
-\begin_inset Formula $\vec{x}$
-\end_inset
-
-的变化规律与自由尾迹模型一样，由如下简单的运动学关系描述：
+ 两个矢量来描述。其中，涡元位置的变化规律与自由尾迹模型一样，由如下简单的运动学关系描述：
 \begin_inset Formula 
 \begin{equation}
-\frac{\dd\vec{x}}{\dd t}=\vec{u}
+\frac{\dd\vec{r}}{\dd t}=\vec{u},
 \end{equation}
 
 \end_inset
 
-而涡量
-\begin_inset Formula $\vec{\omega}$
-\end_inset
-
-的变化规律则由涡量输运方程给出。
-\end_layout
-
-\begin_layout Standard
-旋翼尾迹流场属于低亚声速流动，通常可以对空气采用各项同性、不可压缩、正压等理想化假设。 基于这些假设，可以将 Navier–Stokes 方程（详见
- 
+而涡量的变化规律则由涡量输运方程给出。旋翼尾迹流场属于低亚声速流动，通常可以对空气采用各项同性、不可压缩、正压等理想化假设。基于这些假设，可以将
+ Navier–Stokes 方程（详见 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Navier-Stokes-Equation"
@@ -2513,7 +2473,7 @@ noprefix "false"
  小节）简化为： 
 \begin_inset Formula 
 \begin{equation}
-\frac{\dd\vec{u}}{\dd t}=\frac{\partial\vec{u}}{\partial t}+\left(\vec{u}\cdot\nabla\right)\vec{u}=-\frac{1}{\rho}\nabla p+\nu\nabla^{2}\vec{u}+\vec{f}
+\frac{\partial\vec{u}}{\partial t}+\left(\vec{u}\cdot\nabla\right)\vec{u}=-\frac{1}{\rho}\nabla p+\nu\nabla^{2}\vec{u}+\vec{f}
 \end{equation}
 
 \end_inset
@@ -2526,7 +2486,7 @@ literal "false"
 
 \end_inset
 
-、 涡量定义
+、涡量定义
 \begin_inset Foot
 status collapsed
 
@@ -2539,7 +2499,7 @@ status collapsed
 
 \end_inset
 
-、 不可压
+、不可压
 \begin_inset Foot
 status collapsed
 
@@ -2552,7 +2512,7 @@ status collapsed
 
 \end_inset
 
-、 正压
+、正压
 \begin_inset Foot
 status collapsed
 
@@ -2565,7 +2525,7 @@ status collapsed
 
 \end_inset
 
-、 体积力有势
+、体积力有势
 \begin_inset Foot
 status collapsed
 
@@ -2578,10 +2538,10 @@ status collapsed
 
 \end_inset
 
-等条件， 可将上式改写成涡量形式： 
+等条件，可将上式改写成涡量形式： 
 \begin_inset Formula 
 \begin{equation}
-\frac{\dd\vec{\omega}}{\dd t}=\frac{\partial\vec{\omega}}{\partial t}+\left(\vec{u}\cdot\nabla\right)\vec{\omega}=\vec{\omega}\cdot\nabla\vec{u}+\nu\nabla^{2}\vec{\omega}\label{Vorticity-Transport-Equation}
+\frac{\partial\vec{\omega}}{\partial t}+\left(\vec{u}\cdot\nabla\right)\vec{\omega}=\vec{\omega}\cdot\nabla\vec{u}+\nu\nabla^{2}\vec{\omega}\label{Vorticity-Transport-Equation}
 \end{equation}
 
 \end_inset
@@ -2590,17 +2550,7 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-美国先进旋翼飞行器技术公司
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Advanced Rotorcraft Technology, Inc.
-\end_layout
-
-\end_inset
-
-的He等（2009）
+2009年，He 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "He2009"
@@ -2608,14 +2558,13 @@ literal "false"
 
 \end_inset
 
- 利用黏性涡粒子方法研究了旋翼尾迹中涡量的输运和扩散现象。 该方法避免了基于欧拉观点的数值离散方法所引入的数值耗散。 为提高计算效率，采用了TreeCode加速
-算法和快速多级子方法推高计算效率。 计算结果显示： 黏性涡粒子模型可以精确模拟旋翼尾迹在悬停、前飞等状态下的动态变化； 不借助经验参数，很好地捕捉到了尾迹收缩、
-桨尖涡卷起、涡量扩散等物理现象； 尾迹对总距突增操纵的动态响应计算结果与试验吻合很好。 此文中的旋翼尾迹初始涡量由升力线模型获得。 作者指出了用CFD方法替代该
-模型的可能性，但没有进一步给出具体实施方法和计算结果。
+利用 VPM 研究了旋翼尾迹中涡量的输运和扩散现象。该方法避免了基于欧拉观点的数值离散方法所引入的数值耗散。计算结果显示：VPM 可以精确模拟旋翼尾迹在悬停、前
+飞等状态下的动态变化；不借助经验参数，很好地捕捉到了尾迹收缩、桨尖涡卷起、涡量扩散等物理现象；尾迹对总距突增操纵的动态响应计算结果与试验吻合很好。此文中的旋翼尾
+迹初始涡量由升力线模型获得。此文指出了用 CFD 替代该模型的可能性，但没有进一步给出具体实施方法和计算结果。
 \end_layout
 
 \begin_layout Standard
-南京航空航天大学的魏鹏、徐国华等（2012）
+2012年，南京航空航天大学的魏鹏、徐国华等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Wei2012,Wei2012a"
@@ -2623,7 +2572,7 @@ literal "false"
 
 \end_inset
 
- 基于黏性涡粒子模型，建立了一种适用于旋翼非定常流场特性分析的数值方法。 桨叶附着涡以及新生涡环量由Weissinger-L升力面模型
+基于VPM建立了一种适用于旋翼非定常流场特性分析的数值方法。桨叶附着涡以及新生涡环量由升力面模型
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Weissinger1947"
@@ -2631,12 +2580,18 @@ literal "false"
 
 \end_inset
 
-给出。 计算结果显示，该方法与自由尾迹方法和CFD方法相比，能够在兼顾效率的同时，更好地捕捉旋翼尾迹运动。 但升力面模型只适用于势流，并不能很好反映动态失速、桨
-尖激波等现象。 
+给出。计算结果显示：该方法与自由尾迹模型和CFD相比，能够在兼顾效率的同时，更好地捕捉旋翼尾迹运动（如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:vortex-particle"
+
+\end_inset
+
+ 所示）。但升力面模型只适用于势流，并不能很好反映动态失速、桨尖激波等现象。
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2679,7 +2634,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-清华大学的王浩文等（2014）
+2014年，清华大学的王浩文等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Tan2014"
@@ -2687,47 +2642,13 @@ literal "false"
 
 \end_inset
 
- 采用非定常面元法、黏性涡粒子法及涡量镜面法，建立了旋翼-平尾非定常气动干扰分析模型。 计算结果显示，此方法计算精度高于时间精确自由尾迹，计算效率高于CFD。
- 但面元法只适用于势流，并不能真实反映桨叶表面的分离、压缩性等流动现象。
+采用非定常面元法、VPM 及涡量镜面法，建立了旋翼–平尾非定常气动干扰分析模型。计算结果显示，此方法计算精度高于时间精确自由尾迹，计算效率高于
+ CFD。但面元法只适用于势流，并不能真实反映桨叶表面的分离、压缩性等流动现象。
 \end_layout
 
 \begin_layout Standard
-从上述研究内容来看，黏性涡粒子模型本身可以比较高效（与CFD相比）且精确（与自由尾迹相比）地捕捉旋翼尾迹中的典型流动现象； 但在处理桨叶、机身、固定翼面等壁面时
-，需引入其他模型作为补充。 除上面提到的只适用于势流的升力线模型、升力面模型、面元法外，也有研究人员尝试采用CFD方法对近壁面进行处理。
-\end_layout
-
-\begin_layout Standard
-美国国家航空航天研究所
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-National Institute of Aerospace
-\end_layout
-
-\end_inset
-
-的Anusonti-Inthra等（2008）
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Anusonti-Inthra2008"
-literal "false"
-
-\end_inset
-
- 将雷诺平均Navier–Stokes方程方法（Reynolds-Averaged Navier–Stokes, RANS）与基于粒子的涡量输运方法（Parti
-cle-based Vorticity Transport Method, PVTM）进行耦合， 用于分析固定孤立机翼低速飞行时的气动性能和尾迹特性，并通过与风
-动试验数据进行对比，对该计算模型进行了验证。 该耦合方法将流场按主要流动特性，分为近壁面和远场区域，分别用三维可压缩RANS方法和PVTM方法进行求解。
- 计算结果显示，该耦合方法可以对机翼翼梢的三维流动效应进行合理的模拟，并且有效解决了常规RANS方法存在的数值耗散问题。 但也有研究人员认为，耦合方法本身及不同
-计算区域数据交换带来的复杂性，可能会抵消一部分涡粒子模型对计算效率的提升
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Kamkar2011"
-literal "false"
-
-\end_inset
-
-。
+从上述研究内容来看，VPM 本身可以比较高效（与 CFD 相比）且精确（与自由尾迹相比）地捕捉旋翼尾迹中的典型流动现象；但在处理桨叶、机身、固定翼面等壁面时，需
+引入其他模型作为补充。除上面提到的只适用于势流的升力线模型、升力面模型、面元法外，也有研究人员尝试采用 CFD 对近壁面进行处理。
 \end_layout
 
 \begin_layout Subsubsection
@@ -2752,32 +2673,12 @@ noprefix "false"
 
 \end_inset
 
- 进行数值求解。 从离散方法的角度看，该方法属于有限体积法，但描述流场的变量为涡量。 由于采用了涡量形式的问题表述形式，该方法能够有效地减小数值耗散引起的涡量非
-物理扩散。 涡量输运方法的主要弊端是难以处理壁面边界条件，无法考虑空气压缩性，因而必须引入其他方法（升力线、升力面、CFD等）作为补充。
+ 进行数值求解。从离散方法的角度看，该方法属于有限体积法，但描述流场的变量为涡量。由于采用了涡量形式的问题表述形式，该方法能够有效地减小数值耗散引起的涡量非物理
+扩散。涡量输运方法的主要弊端是难以处理壁面边界条件，无法考虑空气压缩性，因而必须引入其他方法（升力线、升力面、CFD 等）作为补充。
 \end_layout
 
 \begin_layout Standard
-英国的Brown，先后在格拉斯哥大学
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-University of Glasgow
-\end_layout
-
-\end_inset
-
-和帝国理工学院
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Imperial College, London
-\end_layout
-
-\end_inset
-
-开展了一系列基于涡量输运方程的旋翼空气动力学数值计算研究。 在格拉斯哥大学期间，Brown（2000）
+2000年，Brown
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Brown2000"
@@ -2785,12 +2686,12 @@ literal "false"
 
 \end_inset
 
- 采用基于欧拉网格的涡量守恒形式的Navier–Stokes方程（即涡量输运方程），计算了孤立旋翼和共轴双旋翼周围的非定常气动环境，并与试验数据进行了验证。
- 由于涡量输运方程不能直接处理壁面边界条件，此文通过升力线方法给出尾迹初始涡量。
+ 通过求解涡量输运方程，计算了孤立旋翼和共轴双旋翼周围的非定常气动环境，并与试验数据进行了对比验证。由于涡量输运方程不能直接处理壁面边界条件，此文利用升力线方法
+给出尾迹初始涡量。
 \end_layout
 
 \begin_layout Standard
-格拉斯哥大学的Houston和Brown（2000, 2003）
+2003年，Houston & Brown
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Brown2000a,Houston2003"
@@ -2798,12 +2699,8 @@ literal "false"
 
 \end_inset
 
- 采用有限状态入流模型与涡量输运模型两种方法，研究了直升机配平、自转下滑状等飞行力学问题。 计算结果表明，当自转下滑率较小时，两种模型给出的计算结果差别不大；随
-着下滑角增大，两者的差别逐渐变得明显。
-\end_layout
-
-\begin_layout Standard
-帝国理工学院的Whitehouse与Brown（2003）
+ 采用有限状态入流模型与涡量输运模型两种方法，研究了直升机配平、自转下滑状等飞行力学问题。计算结果表明，当自转下滑率较小时，两种模型给出的计算结果差别不大；随着
+下滑角的增大，两者的差别变得明显。同年，Whitehouse & Brown
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Whitehouse2003"
@@ -2811,12 +2708,12 @@ literal "false"
 
 \end_inset
 
- 将涡量输运方法应用到大型固定翼飞机尾涡与直升机尾迹气动干扰问题的研究中。 计算结果显示，直升机高速飞行时，飞机尾涡不会对其造成严重影响； 但在低速飞行时，飞机
-尾涡会引起旋翼气动载荷和气弹响应的震荡，从而增加飞行员操纵的难度。
+ 将涡量输运方法应用到大型固定翼飞机尾涡与直升机尾迹气动干扰问题的研究中。计算结果显示，直升机高速飞行时，飞机尾涡不会对其造成严重影响；但在低速飞行时，飞机尾涡
+会引起旋翼气动载荷和气弹响应的振荡，从而增加飞行员操纵的难度。
 \end_layout
 
 \begin_layout Standard
-在帝国理工学院期间，Brown与Line（2005）
+2005年，Brown & Line
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Brown2005"
@@ -2824,13 +2721,19 @@ literal "false"
 
 \end_inset
 
- 对涡量输运方法进行了改进，使其计算效率得到提高。 新算法引入了一种半拉格朗日型（Semi-Lagrangian）自适应网格系统，在尽可能避免产生额外计算量的前
-提下，显著提高了计算结果的空间分辨率。 同时，该网格系统避免了在处理计算区域边界附近尾迹截断时需借助数值边界条件的问题。 另外，在应用Biot-Savart定律
-计算速度场时，采用快速多极子方法显著提高了计算效率。 对于壁面边界条件，此文仍借助升力线模型进行处理。 
+ 对涡量输运方法进行了改进，使其计算效率得到提高，计算结果如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:VTM"
+
+\end_inset
+
+ 所示。新算法引入了一种半拉格朗日自适应网格系统，在尽可能避免产生额外计算量的前提下，显著提高了计算结果的空间分辨率。同时，该网格系统避免了在处理计算区域边界附
+近尾迹截断时需借助数值边界条件的问题。对于壁面边界条件，此文仍借助升力线模型进行处理。
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2874,18 +2777,82 @@ literal "false"
 
 \end_layout
 
-\begin_layout Standard
-美国连续介质动力学公司
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Continuum Dynamics, Inc.
-\end_layout
+\begin_layout Subsubsection
+Navier–Stokes 方程
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Navier-Stokes-Equation"
 
 \end_inset
 
-的Whitehouse等（2007）
+
+\end_layout
+
+\begin_layout Standard
+Navier–Stokes 方程
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Landau_1987"
+literal "false"
+
+\end_inset
+
+是连续介质假设下，描述流体运动最精确的物理模型。对此方程的数值求解，构成了 CFD 研究的主流，所涉及的文献浩如烟海，这里只介绍其中与旋翼相关的部分研究内容。
+\end_layout
+
+\begin_layout Standard
+早期的旋翼 CFD 研究完全不考虑空气黏性的影响，因此实际上是在求解 Navier–Stokes 方程的简化版本 —— Euler 方程。1985年，Rober
+ts 等
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Roberts1985"
+literal "false"
+
+\end_inset
+
+将旋翼流场分为两部分：远离桨叶的部分通过自由尾迹模型给出涡量分布，并计算出响应的诱导速度；靠近桨叶的部分由三维欧拉方程进行描述，利用有限体积法进行求解。基于这种
+耦合算法，他们研究了孤立机翼和悬停状态的旋翼桨叶附近的流场。1999 年，北京航空航天大学的曹义华等
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cao1998,Cao1999"
+literal "false"
+
+\end_inset
+
+也开展了类似的工作。由于没有考虑空气黏性，这种计算模型并不能用于分析旋翼气动效率。
+\end_layout
+
+\begin_layout Standard
+1997 年，北京航空航天大学的康宁、孙茂
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kang1997"
+literal "false"
+
+\end_inset
+
+ 基于三维定常不可压缩 Navier–Stokes 方程，研究了旋翼受地面效应影响的流动情况。 该方法以时间平均动量源模型
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rajagopalan1991,Rajagopalan1991a"
+literal "false"
+
+\end_inset
+
+来体现旋翼对流场的扰动，计算并分析了尾迹畸变、地面涡的形成、桨盘平面诱导速度分布、不同旋翼离地高度及前进比下的地面效应。通过将计算得到的流动图像和旋翼诱导速度与
+试验值进行对比，验证了算法的适用性。2000 年，他们又将该方法用于分析共轴式和纵列式两种双旋翼构型的地面效应问题研究中
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kang2000"
+literal "false"
+
+\end_inset
+
+。该方法对于远离桨叶的流场能够以较小的计算量给出合理的计算结果，但对桨叶表面的流动情况无法给出详细的信息。
+\end_layout
+
+\begin_layout Standard
+2007年，Whitehouse 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Whitehouse2007"
@@ -2893,17 +2860,14 @@ literal "false"
 
 \end_inset
 
- 将涡量输运方程与Navier–Stokes方程相结合，建立了一种更加接近物理真实的旋翼空气动力学分析模型。 该模型采用基于原始变量（速度、压力）的Navier
-–Stokes方程对桨叶附近的流动情况进行描述，可以体现这一区域存在的空气黏性、压缩性等势流模型无法很好处理的流动特性； 对涡流主导的尾迹部分则采用基于欧拉观点
-的涡量输运方程进行描述，可以有效降低常规CFD方法造成的涡量非物理扩散。 利用该耦合模型，此文给出了一些固定翼、钝体、直升机上的算例，在流动特性捕捉和非定常载荷
-计算方面都给出了较好的结果。 
-\end_layout
-
-\begin_layout Standard
+将涡量输运方程与 Navier–Stokes 方程相结合，建立了一种更加接近物理真实的旋翼空气动力学分析模型。该模型采用基于原始变量（速度、压力）的
+ Navier–Stokes 方程对桨叶附近的流动情况进行描述，可以体现这一区域存在的空气黏性、压缩性等势流模型无法很好处理的流动特性；对涡流主导的尾迹部分则采
+用基于欧拉观点的涡量输运方程进行描述，可以有效降低常规 CFD 造成的涡量非物理扩散。利用该耦合模型，他们给出了一些固定翼、钝体、直升机上的算例，在流动特性捕捉
+和非定常载荷计算方面都给出了较好的结果。
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2942,498 +2906,34 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../review/figures/whitehouse1.png
-	lyxscale 50
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
- 
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-由涡量输运方程与 Navier–Stokes 方程耦合模型计算得到的前飞状态涡量分布
+2008年，Anusonti-Inthra 等
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Whitehouse2007"
+key "Anusonti-Inthra2008"
 literal "false"
 
 \end_inset
 
-
-\end_layout
+将 RANS (Reynolds-averaged Navier–Stokes) 方程
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "RANS"
+description "Reynolds-averaged Navier–Stokes"
+literal "true"
 
 \end_inset
 
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Brown回到格拉斯哥大学后，又与Phillips（2009）
+与基于粒子的涡量输运方法进行耦合，用于分析固定孤立机翼低速飞行时的气动性能和尾迹特性，并通过与风动试验数据进行对比，对该计算模型进行了验证。该耦合方法将流场按主
+要流动特性，分为近壁面和远场区域，分别用三维可压缩 RANS 方程和基于粒子的涡量输运方程进行求解。计算结果显示：该耦合方法可以对机翼翼梢的三维流动效应进行合理
+的模拟，并且有效解决了常规 CFD 存在的数值耗散问题。但也有学者认为，耦合方法本身及不同计算区域数据交换带来的复杂性，可能会减弱涡粒子模型对计算效率的提升效果
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Phillips2009"
+key "Kamkar2011"
 literal "false"
 
 \end_inset
 
-一起， 将一种用于描述微小颗粒在气流中运动的粒子输运模型（Particle Transport Model）引入到涡量输运方法中，建立了一种适用于沙盲现象研究的
-计算模型，为该问题的研究提供了一种新的工具。
-\end_layout
-
-\begin_layout Standard
-在国内，目前尚无采用基于欧拉观点的涡量输运方程对旋翼空气动力学进行研究的尝试。
-\end_layout
-
-\begin_layout Subsubsection
-Navier–Stokes 方程
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Navier-Stokes-Equation"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Navier–Stokes方程
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Landau_1987"
-literal "false"
-
-\end_inset
-
-是
-\series bold
-连续介质
-\series default
-假设下，描述流体运动最精确的物理模型。 将动量定理应用于连续介质流体，可以得到一般形式的Navier–Stokes方程（动量方程）： 
-\begin_inset Formula 
-\begin{equation}
-\rho\frac{\dd u_{i}}{\dd t}=\rho\left(\frac{\partial u_{i}}{\partial t}+u_{j}\frac{\partial u_{i}}{\partial x_{j}}\right)=\rho f_{i}+\frac{\partial\sigma_{ij}}{\partial x_{j}}\label{eq:Navier-Stokes-General}
-\end{equation}
-
-\end_inset
-
-其中，
-\begin_inset Formula $\sigma_{ij}$
-\end_inset
-
-为应力张量，它是应变率的函数，由本构关系（应力-应变率关系）模型描述。
-\end_layout
-
-\begin_layout Standard
-一般形式的Navier–Stokes方程过于复杂，难以求解。 因此，有必要对流体模型（即本构关系模型）进行简化，由此演化出不同层次的分析模型。
- 常用的流体模型包括：无黏流体、牛顿流体、各项同性流体、常黏度流体、不可压缩流体、Stokes流体。 之前提到的各种计算模型都是以式 
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "eq:Navier-Stokes-General"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 为出发点，通过引入不可压缩、无黏、正压等假设，对物理模型进行简化，再经过一定的数学处理而得到的计算模型。
-\end_layout
-
-\begin_layout Paragraph
-无黏流体
-\end_layout
-
-\begin_layout Standard
-早期的旋翼空气动力学数值计算研究完全不考空气虑黏性的影响。这种无黏流体的本构关系为： 
-\begin_inset Formula 
-\begin{equation}
-\sigma_{ij}=-p\delta_{ij}
-\end{equation}
-
-\end_inset
-
-无黏流体的Navier–Stokes方程退化为欧拉方程： 
-\begin_inset Formula 
-\begin{equation}
-\rho\left(\frac{\partial u_{i}}{\partial t}+u_{j}\frac{\partial u_{i}}{\partial x_{j}}\right)=\rho f_{i}-\frac{\partial p}{\partial x_{i}}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-美国麻省理工学院的Roberts等（1985）
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Roberts1985"
-literal "false"
-
-\end_inset
-
- 将旋翼流场分为两部分： 远离桨叶的部分通过自由尾迹模型给出涡量分布，并计算出响应的诱导速度； 靠近桨叶的部分由三维欧拉方程进行描述，利用有限体积法进行求解。
- 基于这种耦合算法，作者研究了孤立机翼和悬停状态的旋翼桨叶附近的流场。
-\end_layout
-
-\begin_layout Standard
-北京航空航天大学的曹义华等（1998, 1999）
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Cao1998,Cao1999"
-literal "false"
-
-\end_inset
-
- 也开展了类似的工作。
-\end_layout
-
-\begin_layout Standard
-由于没有考虑空气黏性，这种计算模型并不能用于分析旋翼气动效率，因而逐渐被旋翼空气动力学界所抛弃。
-\end_layout
-
-\begin_layout Paragraph
-各项同性牛顿流体
-\end_layout
-
-\begin_layout Standard
-在直升机所处的工作环境中，空气可以认为是
-\series bold
-牛顿流体
-\series default
-，其本构关系用笛卡尔张量记法可以写为如下线性形式： 
-\begin_inset Formula 
-\begin{equation}
-\sigma_{ij}=-p\delta_{ij}+D_{ijkl}e_{kl}\label{eq:Newtonian-Fluid}
-\end{equation}
-
-\end_inset
-
-其中，
-\begin_inset Formula $p$
-\end_inset
-
-为静压，
-\begin_inset Formula $e_{kl}$
-\end_inset
-
- 为应变率张量： 
-\begin_inset Formula 
-\begin{equation}
-e_{ij}=\frac{1}{2}\left(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}}\right)\label{eq:strain_rate}
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula ${D}_{ijkl}$
-\end_inset
-
- 为黏性系数张量，对于
-\series bold
-各项同性流体
-\series default
-，只包含
-\begin_inset Formula $2$
-\end_inset
-
-个独立参数
-\begin_inset Formula $\lambda$
-\end_inset
-
-和
-\begin_inset Formula $\mu$
-\end_inset
-
-： 
-\begin_inset Formula 
-\begin{equation}
-D_{ijkl}=\lambda\delta_{ij}\delta_{kl}+\mu\left(\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}\right)\label{eq:isotropic}
-\end{equation}
-
-\end_inset
-
-在连续介质力学中，通常将
-\begin_inset Formula $\lambda$
-\end_inset
-
-和
-\begin_inset Formula $\mu$
-\end_inset
-
-称为拉梅系数； 在流体力学中，通常将
-\begin_inset Formula $\mu$
-\end_inset
-
-称为动力学黏度或剪切黏度，
-\begin_inset Formula $\nu=\mu/\rho$
-\end_inset
-
- 称为运动学黏度，而将
-\begin_inset Formula $\zeta=\lambda+\frac{2}{3}\mu$
-\end_inset
-
-称为第二黏度或体积黏度。 一般而言，它们都是温度和压力的函数。 将式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:strain_rate"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 和式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:isotropic"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 代入式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Newtonian-Fluid"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-，得到各项同性流体的本构关系： 
-\begin_inset Formula 
-\begin{equation}
-\begin{split}\sigma_{ij} & =-p\delta_{ij}+\lambda\delta_{ij}e_{kk}+2\mu e_{ij}\\
- & =-p\delta_{ij}+\lambda\delta_{ij}\frac{\partial u_{k}}{\partial x_{k}}+\mu\left(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}}\right)\\
- & =-p\delta_{ij}+\mu\left(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}}-\frac{2}{3}\delta_{ij}\frac{\partial u_{k}}{\partial x_{k}}\right)+\zeta\delta_{ij}\frac{\partial u_{k}}{\partial x_{k}}
-\end{split}
-\label{eq:Isotropic-Fluid}
-\end{equation}
-
-\end_inset
-
-将上述本构关系代入一般形式的动量方程， 得到描述各项同性牛顿流体动量守恒关系的Navier–Stokes方程： 
-\begin_inset Formula 
-\begin{equation}
-\begin{split}\rho\left(\frac{\partial u_{i}}{\partial t}+u_{j}\frac{\partial u_{i}}{\partial x_{j}}\right)=\rho f_{i} & -\frac{\partial p}{\partial x_{i}}\\
- & +\frac{\partial}{\partial x_{j}}\left(\mu\left(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}}-\frac{2}{3}\delta_{ij}\frac{\partial u_{k}}{\partial x_{k}}\right)\right)\\
- & +\frac{\partial}{\partial x_{i}}\left(\zeta\frac{\partial u_{k}}{\partial x_{k}}\right)
-\end{split}
-\label{eq:Navier-Stokes}
-\end{equation}
-
-\end_inset
-
-该式右端第一行表示与黏性无关的力对运动的影响，第二行表示剪切黏度的影响，第三行表示体积黏度的影响。
-\end_layout
-
-\begin_layout Paragraph
-常黏度流体
-\end_layout
-
-\begin_layout Standard
-对于直升机而言，其所处环境的温度和压力一般不会有太大的变化，因此可以将黏度
-\begin_inset Formula $\mu$
-\end_inset
-
-和
-\begin_inset Formula $\zeta$
-\end_inset
-
-视为常量，从而可以提到微分算子之外： 
-\begin_inset Formula 
-\begin{equation}
-\begin{split}\rho\left(\frac{\partial u_{i}}{\partial t}+u_{j}\frac{\partial u_{i}}{\partial x_{j}}\right)=\rho f_{i} & -\frac{\partial p}{\partial x_{i}}\\
- & +\mu\left(\frac{\partial^{2}u_{i}}{\partial x_{j}\partial x_{j}}+\frac{\partial^{2}u_{j}}{\partial x_{j}\partial x_{i}}-\frac{2}{3}\frac{\partial^{2}u_{k}}{\partial x_{i}\partial x_{k}}\right)\\
- & +\zeta\frac{\partial^{2}u_{k}}{\partial x_{i}\partial x_{k}}
-\end{split}
-\end{equation}
-
-\end_inset
-
-注意到
-\begin_inset Formula $\partial_{j}\partial_{i}u_{j}=\partial_{i}\partial_{j}u_{j}=\partial_{i}\partial_{k}u_{k}$
-\end_inset
-
-，可以将其改写成与坐标系无关的矢量形式： 
-\begin_inset Formula 
-\begin{equation}
-\rho\left(\frac{\partial\vec{u}}{\partial t}+\left(\vec{u}\cdot\nabla\right)\vec{u}\right)=\rho\vec{f}-\nabla p+\mu\Delta\vec{u}+\left(\frac{\mu}{3}+\zeta\right)\nabla\left(\nabla\cdot\vec{u}\right)\label{eq:Navier-Stokes-Vector}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph
-不可压缩流体
-\end_layout
-
-\begin_layout Standard
-若不考虑压缩性，式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Navier-Stokes-Vector"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 可以简化为： 
-\begin_inset Formula 
-\begin{equation}
-\frac{\partial\vec{u}}{\partial t}+\left(\vec{u}\cdot\nabla\right)\vec{u}=\vec{f}-\frac{1}{\rho}\nabla p+\nu\Delta\vec{u}
-\end{equation}
-
-\end_inset
-
-之前提到的
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "sec:Viscous-Vortex-Particle-Method"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-、
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "sec:Vorticity-Transport-Model"
-
-\end_inset
-
-均以此方程为出发点。显然，不可压缩流体模型不能用于压缩效应明显的高亚声速、跨声速流动区域。
-\end_layout
-
-\begin_layout Standard
-北京航空航天大学的康宁和孙茂
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Kang1997"
-literal "false"
-
-\end_inset
-
- 基于三维定常不可压缩Navier–Stokes方程，研究了旋翼受地面效应影响的流动情况。 通过动量源模型
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Rajagopalan1991,Rajagopalan1991a"
-literal "false"
-
-\end_inset
-
-来体现旋翼对流场的扰动，计算并分析了尾迹畸变、地面涡的形成、桨盘平面诱导速度分布、不同旋翼离地高度及前进比下的地面效应。 通过将计算得到的流动图像和旋翼诱导速度
-与试验值进行对比，验证了算法的适用性。 此后，作者又将该方法用于分析共轴式和纵列式两种双旋翼构型的地面效应问题研究中
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Kang2000"
-literal "false"
-
-\end_inset
-
-。 以上所用动量源方法，对于远离桨叶的流场能够以较小的计算量给出合理的计算结果， 但对桨叶表面的流动情况无法给出详细的信息，因而不适用于桨涡干扰、旋翼气动效率等
-问题的研究。
-\end_layout
-
-\begin_layout Paragraph
-Stokes流体
-\end_layout
-
-\begin_layout Standard
-式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Isotropic-Fluid"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 中的
-\begin_inset Formula $e_{kk}=e_{11}+e_{22}+e_{33}$
-\end_inset
-
-为体积应变率，是二阶张量
-\begin_inset Formula $e_{ij}$
-\end_inset
-
-的第一不变量。 与之对应，二阶张量
-\begin_inset Formula $\sigma_{ij}$
-\end_inset
-
-也有第一不变量： 
-\begin_inset Formula 
-\begin{equation}
-\sigma_{kk}=\sigma_{11}+\sigma_{22}+\sigma_{33}=-3p+\left(3\lambda+2\mu\right)e_{kk}
-\end{equation}
-
-\end_inset
-
-Stokes假设主应力平均值
-\begin_inset Formula $\frac{1}{3}\sigma_{kk}$
-\end_inset
-
-与体积应变率
-\begin_inset Formula $e_{kk}$
-\end_inset
-
-无关： 
-\begin_inset Formula 
-\begin{equation}
-3\lambda+2\mu=0
-\end{equation}
-
-\end_inset
-
-实际上就是假设体积黏度
-\begin_inset Formula $\zeta=0$
-\end_inset
-
-。 满足该假设的流体称为
-\series bold
-Stokes流体
-\series default
-，其本构关系为： 
-\begin_inset Formula 
-\begin{equation}
-\sigma_{ij}=-p\delta_{ij}-\frac{2}{3}\mu e_{kk}\delta_{ij}+2\mu e_{ij}\label{eq:Stokes-Fluid}
-\end{equation}
-
-\end_inset
-
-许多可压缩流动的研究以此假设为出发点。 但试验研究表明，该假设并不成立
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Dukhin2009"
-literal "false"
-
-\end_inset
-
-。 由于体积黏度只对可压缩流体有意义，因此，Stokes假设只对桨尖附近高亚声速、跨声速流动区域的计算精度有影响。 但对旋翼气动噪声等压缩性起主导作用的流动问题
-，仍采用Stokes假设是不合适的。
+。
 \end_layout
 
 \begin_layout Subsubsection
@@ -3441,15 +2941,44 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-对于任何基于离散网格的数值方法而言，加密网格都是提高计算精度的一个重要途径。 但是有限的计算资源不允许我们在整个计算区域内无差别地对网格进行加密，而只能有选择地
-在某些物理量随空间或时间变化剧烈的地方进行加密。 另外，加密网格的过程应当尽可能减少对人工操作的需求，且便于逐次递推，这样才能达到充分利用现有计算资源以获得尽可
-能高的精度的目的。 根据上一步基于粗糙网格的计算结果，由计算机自主确定下一步需要对网格进行加密的区域，并通过递推逐次实现网格的精细化， 充分利用计算机软硬件资源
-，以获得尽可能高的计算精度，这就是自适应网格加密（Adaptive Mesh Refinement, AMR）技术的主要思想。 这是解决由涡流主导的旋翼尾迹数值
-计算问题的关键技术，也是多年以来计算流体力学界研究的热点。 
+对于任何基于离散网格的数值方法而言，加密网格都是提高计算精度的一个重要途径。但是有限的计算资源不允许我们在整个计算区域内无差别地对网格进行加密，而只能有选择地在
+某些物理量随空间或时间变化剧烈的地方进行加密。另外，加密网格的过程应当尽可能减少对人工操作的需求，且便于逐次递推，这样才能达到充分利用现有计算资源以获得尽可能高
+的精度的目的。根据上一步基于粗糙网格的计算结果，由计算机自主确定下一步需要对网格进行加密的区域，并通过递推逐次实现网格的精细化，充分利用计算机软硬件资源，以获得
+尽可能高的计算精度，这就是“自适应网格加密 (adaptive mesh refinement, AMR)”
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "AMR"
+description "adaptive mesh refinement"
+literal "true"
+
+\end_inset
+
+技术的主要思想。这是解决由涡流主导的旋翼尾迹数值计算问题的关键技术，也是多年以来 CFD 领域的研究热点。
+\end_layout
+
+\begin_layout Standard
+2011年，美国斯坦福大学的 Kamkar & Jameson
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kamkar2011,Sankaran2011"
+literal "false"
+
+\end_inset
+
+ 提出了一种适用于涡主导流动问题的自适应网格加密方法。该方法将网格细化过程分为两步：先利用特征检测方法自动识别需要加密网格的区域，再利用基于 Richardso
+n 外插方法的误差估计，给出合适的网格精细程度（分辨率）。此文所用计算网格为“对偶网格 (dual-mesh)”：靠近物体表面用非结构网格处理复杂的几何外形及边
+界层，远离物体表面的区域用自适应结构网格和高阶格式处理涡流尾迹。结果表明，该方法能够同时提高直升机性能分析精度和尾迹分辨率（如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:AMR"
+
+\end_inset
+
+ 所示）。
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3466,6 +2995,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:AMR"
+
+\end_inset
+
 网格自适应加密对涡量分布计算结果的改善
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3488,41 +3023,20 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-美国斯坦福大学
-\begin_inset Foot
+\begin_inset Note Note
 status collapsed
-
-\begin_layout Plain Layout
-Stanford University
-\end_layout
-
-\end_inset
-
-的Kamkar和Jameson
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Kamkar2011,Sankaran2011"
-literal "false"
-
-\end_inset
-
- 提出了一种适用于涡主导流动问题的自适应网格加密方法。 该方法将网格细化过程分为两步：先利用特征检测（Feature Detection）方法自动识别需要加密网
-格的区域，再利用基于Richardson外插方法的误差估计，给出合适的网格精细程度（分辨率）。 此文所用计算网格为双重网格（dual-mesh），靠近物体表面用
-非结构网格处理复杂的几何外形及边界层，远离物体表面的区域用自适应结构网格和高阶格式处理涡流尾迹。 基于上述方法，作者计算了机翼翼梢涡和旋翼尾迹等典型的涡主导流动
-问题。 结果显示，该方法能够同时提高旋翼飞行器性能分析精度和尾迹分辨率。
-\end_layout
 
 \begin_layout Subsubsection
 无网格法
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 近些年，网格生成技术的发展已落后于数值算法和计算机硬件的发展，日益成为制约计算流体动力学发展和工程应用的瓶颈。 目前，许多网格生成技术的自动化水平较低，网格质量
 过度依赖研究者的操作经验，并且生成网格需要耗费大量人工劳动时间； 而已有的自动化网格生成方法在处理复杂几何外形时，计算效果并不理想。 解决网格生成问题的一种方案
 是采用无网格法。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 美国工程院院士Atluri教授
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3536,7 +3050,7 @@ literal "false"
 。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 美国加州大学洛杉矶分校
 \begin_inset Foot
 status collapsed
@@ -3564,7 +3078,7 @@ literal "false"
 于该方法应用前景的乐观预期。 尽管如此，MLPG方法的确解决了网格生成困难这一计算力学领域日益突出的问题，因而有希望在今后得到更广泛的应用。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 美国斯坦福大学的Katz和Jameson
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3580,7 +3094,7 @@ literal "false"
 推广到三维问题是该方法未来的发展方向之一。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 伊朗阿米尔卡比尔理工大学
 \begin_inset Foot
 status collapsed
@@ -3646,12 +3160,12 @@ literal "false"
 其他方法
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 美国斯坦福大学的Jameson教授和Butsuntorn、Allaneau等，在计算流体动力学新方法领域所开展的一些研究，直接或间接地为旋翼空气动力学研究提供了
 新的工具。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Butsuntorn和Jameson
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3668,7 +3182,7 @@ literal "false"
 无扭、矩形桨叶在总距和周期变距为常值时孤立旋翼的流动问题，没有考虑桨毂连接形式，也没有考虑机身、尾桨存在时的气动干扰问题。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Allaneau和Jameson
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3687,38 +3201,17 @@ literal "false"
 应用到直升机或旋翼空气动力学的研究中。
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 舰载直升机气动干扰试验
 \end_layout
 
 \begin_layout Standard
-舰载直升机所特有的空气动力学问题，主要表现为海面自由来流和舰船空气尾流与旋翼尾迹的相互作用。 起飞和着陆过程中，海面和舰面阻挡旋翼尾迹向下游移动，引起的“地”面
-效应，也是影响直升机飞行安全的重要因素。 研究海面、舰面与旋翼之间的气动干扰，是舰载直升机舰面空气动力学的主要任务。 与旋翼空气动力学类似，该领域的研究方法也分
-为试验和计算两大类。
-\end_layout
-
-\begin_layout Standard
-美国航空航天计算公司
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Aerospace Computing, Inc.
-\end_layout
-
-\end_inset
-
-的Derby和美国国家航空航天局
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-National Aeronautics and Space Administration, NASA
-\end_layout
-
-\end_inset
-
-Ames研究中心的Yamauchi
+2003 年，Derby & Yamauchi
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Derby2003"
@@ -3726,20 +3219,16 @@ literal "false"
 
 \end_inset
 
- 介绍了一套用于研究旋翼飞行器与两栖攻击舰气动干扰问题的
+ 搭建了一套用于研究直升机与两栖攻击舰气动干扰问题的 
 \begin_inset Formula $1/48$
 \end_inset
 
-缩比模型方案。 该尺寸的选择主要是为了能够在NASA Ames研究中心的
-\begin_inset Formula $7\times10~\mathrm{ft}$
-\end_inset
-
-风洞中开展吹风试验。 另外，该模型还被用于研究旋翼飞行器与大型建筑物以及地面的气动干扰问题。 该项目对倾转旋翼机、纵列式直升机、单主旋翼直升机三种构型都进行了缩
-比模型试验。 获得的结果可用于指导全尺寸直升机舰上操纵以及编队飞行的研究。
+ 缩比模型。该模型还被用于研究直升机与大型建筑物以及地面的气动干扰问题。此项目对倾转旋翼机、纵列式直升机、单主旋翼直升机三种构型都进行了缩比模型试验，获得的结果
+可用于指导全尺寸直升机舰上操纵以及编队飞行的研究。
 \end_layout
 
 \begin_layout Standard
-美国NASA Langley研究中心的Lamar等
+2007 年，Lamar 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Lamar2004,Lamar2007"
@@ -3747,12 +3236,18 @@ literal "false"
 
 \end_inset
 
- 通过试验研究了利用柱状涡流发生器（Columnar Vortex Generator, CVG）对船体空气尾流进行控制的可行性。 作者希望该技术能够应用于改善
-舰载机（包括直升机）的起降环境。 
+通过试验研究了利用柱状涡流发生器对船体空气尾流进行修改（如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CVG"
+
+\end_inset
+
+ 所示）的可行性。他们希望该技术能够应用于改善舰载机（包括直升机）的起降环境。
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3769,6 +3264,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:CVG"
+
+\end_inset
+
 利用柱状涡流发生器改善舰载直升机起降环境
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3791,27 +3292,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-法国航空航天研究中心
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Office National d'Etudes et de Recherches Aerospatiales, ONERA
-\end_layout
-
-\end_inset
-
-的Herry 和荷兰国家航空航天试验室
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-National Aerospace Laboratory
-\end_layout
-
-\end_inset
-
-的Vorst
+2011 年，Herry & Vorst
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Herry2011"
@@ -3819,51 +3300,19 @@ literal "false"
 
 \end_inset
 
-， 利用粒子成像测速技术和激光断层扫描显示（Laser Tomoscopy Visualizations, LTV）技术， 在ONERA的L2风洞中测量了
+ 利用 PIV 与激光断层扫描显示技术，在 ONERA 的 L2 风洞中测量了 
 \begin_inset Formula $1/60$
 \end_inset
 
-简单外形军舰缩比模型和
+ 简单外形军舰缩比模型和 
 \begin_inset Formula $1/100$
 \end_inset
 
-真实外形军舰缩比模型两种船体的空气尾流。 试验结果对于理解船体无侧滑航行时，船体结构后方气流的双稳定（bi-stable）现象，特别是二者之间的临界情况有很大帮
-助。
+ 真实外形军舰缩比模型两种船体的空气尾流。
 \end_layout
 
 \begin_layout Standard
-英国利物浦大学
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-University of Liverpool
-\end_layout
-
-\end_inset
-
-的Kääriä等 与澳大利亚棱镜防务公司
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Prism Defence Pty.
- Ltd.
-\end_layout
-
-\end_inset
-
-的Forrest 以及英国林肯大学
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-University of Lincoln
-\end_layout
-
-\end_inset
-
-的Owen
+2012 年，Kääriä 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kaeaeriae2012"
@@ -3871,25 +3320,27 @@ literal "false"
 
 \end_inset
 
- 通过开展水洞试验，研究了直升机处于舰体空气尾流中时的气动载荷特征。 该试验是在一个
+通过开展水洞试验，研究了直升机在船体空气尾流中的气动载荷特征。该试验是在一架 
 \begin_inset Formula $1/54$
 \end_inset
 
-的直升机缩比模型上进行的，模型直升机的旋翼也进行了简化，气动载荷通过安装在机身内的六分量天平来测量。 试验模拟了船头正面迎风与 
+ 的直升机缩比模型与一艘虽经简化但仍具有机库和飞行甲板的护卫舰模型上进行的，旋翼桨叶被简化为刚性连接到桨毂，气动载荷通过安装在机身内的六分量天平来测量。试验在船
+头正面迎风与 
 \begin_inset Formula $\ang{45}$
 \end_inset
 
- 侧风两种来流条件，沿直升机着舰机动飞行路径选取了几个固定点，测量了直升机在这几个点上的非定常气动载荷。 结果表明，船头正面迎风时，直升机着舰过程中存在“拉力不
-足”（thrust-deficit）的区域； 而在 
+ 侧面迎风两种来流条件下，沿直升机着舰飞行路径选取了若干观测点，测量了直升机在这几个点上的非定常气动载荷。试验结果表明，当船头正面迎风时，甲板上方存在一个拉力不
+足区域，迫使驾驶员增大总距以保持高度；而在 
 \begin_inset Formula $\ang{45}$
 \end_inset
 
- 侧风条件下，存在“压力墙”（pressure-wall）区域。 作者认为，这是由船体空气尾流中的速度梯度引起的，通过对船体空气尾流进行非定常CFD分析，解释了
-上述试验观察到的现象。 尽管该试验是在固定直升机的条件下进行的，仍不能完全反映直升机着舰过程的真实载荷特征，但可作为验证计算模型的参照对象。
+ 侧风条件下，甲板上方存在一堵压力墙，迫使驾驶员减小总距以降低高度、增大横向周期变距以保持飞行路径。他们认为上述现象是由船体空气尾流的速度梯度引起的，并通过对船
+体空气尾流进行非定常 CFD 计算验证了此观点。尽管该试验是在固定直升机的条件下进行的，仍不能完全反映直升机着舰过程的真实载荷特征，但可作为验证计算模型的参照对
+象。的条件下进行的，但已将试验环境从室内转移到了真实的船只上，因而更接近舰载直升机的真实工作环境。
 \end_layout
 
 \begin_layout Standard
-2015年，Friedman等
+2015 年，Friedman 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Friedman2015"
@@ -3913,7 +3364,7 @@ reference "fig:real_ship"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3965,7 +3416,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-1995年，Landsberg 等
+1995 年，Landsberg 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Landsberg1995"
@@ -3973,13 +3424,13 @@ literal "false"
 
 \end_inset
 
-利用 FAST3D 非定常流动求解器，分析了船体空气尾流与旋翼入流的相互作用。该求解器采用的是“通量修正输运 (flux corrected transport
-, FCT)”和“虚拟单元嵌入 (virtual cell embedding, VCE)”方法。旋翼对流场的影响是通过一个简化的桨盘模型来体现的，该模型中动量
-源沿桨盘均匀分布，因此只能反映旋翼整体的气动特性，而不能精细到每片桨叶。虽然计算模型较为简单，但计算结果仍能反映船体空气尾流中的非定常性对旋翼入流的影响。
+利用 FAST3D 非定常流动求解器，分析了船体空气尾流与旋翼入流的相互作用。该求解器采用的是通量修正输运及虚拟单元嵌入方法。旋翼对流场的影响是通过一个简化的桨
+盘模型来体现的，该模型中动量源沿桨盘均匀分布，因此只能反映旋翼整体的气动特性，而不能精细到每片桨叶。虽然计算模型较为简单，但计算结果仍能反映船体空气尾流中的非定
+常性对旋翼入流的影响。
 \end_layout
 
 \begin_layout Standard
-2013年，Muijden 等
+2013 年，Muijden 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Muijden2013"
@@ -3987,17 +3438,25 @@ literal "false"
 
 \end_inset
 
-基于结构网格，求解 RANS 方程与 RANS/大涡模拟（large eddy simulation, LES）混合方法两种物理模型，分析了船体空气尾流（如图
- 
+基于结构网格，用 RANS 方程与 RANS/大涡模拟 (large eddy simulation, LES
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "LES"
+description "large eddy simulation"
+literal "true"
+
+\end_inset
+
+) 混合方法两种物理模型，分析了船体空气尾流（如图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:structured-mesh"
 
 \end_inset
 
- 所示），并与试验数据进行了比较。结果表明，RANS方程的计算结果很好地反映了船体空气尾流的时间平均特征，而 RANS/LES 混合方法则进一步给出了更加接近物
-理真实的流场波动特征。上述计算结果已被用到直升机飞行模拟器中，并且得到了经验丰富的飞行员给出的积极评价。但只计算了船体空气尾流，并没有将直升机（特别是旋翼）包括
-在计算模型中，因此没有体现船体空气尾流与旋翼尾迹的耦合效应。
+ 所示），并与试验数据进行了比较。结果表明：RANS 方程的计算结果很好地反映了船体空气尾流的时间平均特征，而 RANS/LES 混合方法则进一步给出了更加接近
+物理真实的流场波动特征。上述计算结果已被用到直升机飞行模拟器中，并且得到了经验丰富的飞行员给出的积极评价。但只计算了船体空气尾流，并没有将直升机（特别是旋翼）包
+括在计算模型中，因此没有体现船体空气尾流与旋翼尾迹的耦合效应。
 \begin_inset Float figure
 wide false
 sideways false
@@ -4049,7 +3508,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-2014年，Crozon 等
+2014 年，Crozon 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Crozon2014"
@@ -4126,10 +3585,10 @@ literal "false"
 
 \end_inset
 
- 介绍了介绍了其所属公司在建立高置信度舰载直升机飞行仿真环境方面所做的工作。该仿真系统集成了直升机动力学、船体动力学以及非定常船体空气尾流方面的建模方法，为舰载
-直升机飞行训练和测试提供了一种高效的模拟工具。该仿真系统提供了三种不同精细程度的仿真模型：(1) 旋翼尾迹由有限状态入流模型描述，船体空气尾流由平板模型描述；(
-2) 旋翼尾迹由有限状态入流模型描述，船体空气尾流由 CFD 或试验数据描述；(3) 旋翼尾迹和船体空气尾流由VPM描述。其中，前两种模型可用于实时仿真计算。此
-后，该公司的 Zhao 等
+介绍了介绍了其所属公司在建立高置信度舰载直升机飞行仿真环境方面所做的工作。该仿真系统集成了直升机动力学、船体动力学以及非定常船体空气尾流方面的建模方法，为舰载直
+升机飞行训练和测试提供了一种高效的模拟工具。该仿真系统提供了三种不同精细程度的仿真模型：(1) 旋翼尾迹由有限状态入流模型描述，船体空气尾流由平板模型描述；(2
+) 旋翼尾迹由有限状态入流模型描述，船体空气尾流由 CFD 或试验数据描述；(3) 旋翼尾迹和船体空气尾流由VPM描述。其中，前两种模型可用于实时仿真计算。此后
+，该公司的 Zhao 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Zhao2013"
@@ -4137,12 +3596,12 @@ literal "false"
 
 \end_inset
 
-将VPM与基于非结构网格的CFD求解器相结合，研究了旋翼尾迹与船体空气尾流的相互作用。基于此混合方法的计算结果，他们推广了 Peters–He
+将 VPM 与基于非结构网格的 CFD 求解器相结合，研究了旋翼尾迹与船体空气尾流的相互作用。基于此混合方法的计算结果，他们推广了 Peters–He
  有限状态入流模型，使其适用于实时仿真。
 \end_layout
 
 \begin_layout Subsection
-受舰载直升机气动干扰影响的工程问题
+受气动干扰影响的工程问题
 \end_layout
 
 \begin_layout Standard
@@ -4157,7 +3616,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Wei等
+Wei 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Wei1992"
@@ -4165,10 +3624,10 @@ literal "false"
 
 \end_inset
 
-于1992年分析了SH-2F型直升机在预定的甲板运动、甲板摩擦、定常风条件下的结构动力学特性，用以确定该型直升机安全着舰和离舰的条件。对处于工作状态的旋翼、处于
-非工作状态的旋翼、折叠起来的旋翼以及机身分别进行了建模，以研究这4种情况的空气动力学特性。利用能量法推导了船体运动的动力学方程，包含3个线位移、2个角位移（滚转
-、俯仰）共5个自由度。此外，他们还分析了不同甲板摩擦条件对直升机结构动力学特性的影响。基于上述分析模型，此文给出了一些定性和定量的安全指标，但有待试验数据的验证
-。
+于 1992 年分析了 SH-2F 型直升机在预定的甲板运动、甲板摩擦、定常风条件下的结构动力学特性，用以确定该型直升机安全着舰和离舰的条件。对处于工作状态的旋
+翼、处于非工作状态的旋翼、折叠起来的旋翼以及机身分别进行了建模，以研究这4种情况的空气动力学特性。利用能量法推导了船体运动的动力学方程，包含三个线位移、两个角位
+移（滚转、俯仰）共五个自由度。此外，他们还分析了不同甲板摩擦条件对直升机结构动力学特性的影响。基于上述分析模型，此文给出了一些定性和定量的安全指标，但有待试验数
+据的验证。
 \end_layout
 
 \begin_layout Standard
@@ -4180,9 +3639,10 @@ literal "false"
 
 \end_inset
 
-于2009年研究了直升机着舰和离舰过程中桨叶特有的气动弹性问题。在海上风速较大且旋翼转速较低时，桨叶容易出现较大变形，这是由桨叶的动力学特性、船体运动、船体空气
-尾流等因素共同作用所引起的。他们将柔性桨叶离散为若干刚性的微段，用以表现非线性的桨叶弯曲变形；基于试验数据对船体空气尾流进行建模，体现了甲板上方气流随时间、空间
-变化的非定常、非均匀的特征。此文反映了影响桨叶气弹响应的各种因素之间相互作用关系的复杂性，但分析所用气动模型依赖试验数据，可考虑用更一般的CFD方法代替。
+ 于 2009 年研究了直升机着舰和离舰过程中桨叶特有的气动弹性问题。在海上风速较大且旋翼转速较低时，桨叶容易出现较大变形，这是由桨叶的动力学特性、船体运动、船
+体空气尾流等因素共同作用所引起的。他们将柔性桨叶离散为若干刚性的微段，用以表现非线性的桨叶弯曲变形；基于试验数据对船体空气尾流进行建模，体现了甲板上方气流随时间
+、空间变化的非定常、非均匀的特征。此文反映了影响桨叶气弹响应的各种因素之间相互作用关系的复杂性，但分析所用气动模型依赖试验数据，可考虑用更一般的
+ CFD 方法代替。
 \end_layout
 
 \begin_layout Subsubsection
@@ -4190,7 +3650,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-1986年，Jewell等
+1986 年，Jewell 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jewell1986"
@@ -4202,7 +3662,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Clement等
+Clement 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Clement1992"
@@ -4210,12 +3670,12 @@ literal "false"
 
 \end_inset
 
-于1992年建立了一种用于模拟直升机着舰飞行的实时仿真模型。该模型采用叶素法对旋翼进行气动建模；利用CFD软件得到船体空气尾流数据，并经过三维快速傅里叶变换算法
-处理，使其适用于实时仿真。
+于 1992 年建立了一种用于模拟直升机着舰飞行的实时仿真模型。该模型采用叶素法对旋翼进行气动建模；利用 CFD 软件得到船体空气尾流数据，并经过三维快速傅里叶
+变换算法处理，使其适用于实时仿真。
 \end_layout
 
 \begin_layout Standard
-1994年，Zhang等
+1994 年，Zhang 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Zhang1994"
@@ -4238,7 +3698,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-1999年，Bogstad等
+1999 年，Bogstad 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bogstad1999,Bogstad2002"
@@ -4254,7 +3714,7 @@ literal "false"
 
 \end_inset
 
-于2003年对文献-
+ 于 2003 年对文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bogstad2002"
@@ -4262,8 +3722,8 @@ literal "false"
 
 \end_inset
 
- 中的一些观点提出了质疑，其认为特殊算例的计算结果与试验数据进行的对比，并不能证明该方法在更一般的条件下仍然有效；试验和基于NS方程的计算结果都显示，在某些情况
-下，船体空气尾流是由涡流主导的，并且存在强烈的流动分离现象，因此文献-
+ 中的一些观点提出了质疑，其认为特殊算例的计算结果与试验数据进行的对比，并不能证明该方法在更一般的条件下仍然有效；试验和基于 Navier–Stokes
+ 方程的计算结果都显示，在某些情况下，船体空气尾流是由涡流主导的，并且存在强烈的流动分离现象，因此文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bogstad2002"
@@ -4271,11 +3731,11 @@ literal "false"
 
 \end_inset
 
- 中基于欧拉方程得到的结论并不可靠。
+ 中基于 Euler 方程得到的结论并不可靠。
 \end_layout
 
 \begin_layout Standard
-2003~2005年，Lee 等
+2003–2005 年，Lee 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Lee2003,Lee2005"
@@ -4283,9 +3743,9 @@ literal "false"
 
 \end_inset
 
-基于非结构网格，利用无黏CFD计算得到船体空气尾流，并将其引入到GENHEL直升机飞行仿真程序中。基于此模型，他们针对特定的直升机着舰和离舰飞行轨迹，设计了最优
-控制算法。结果表明，船体空气尾流的非定常性对于直升机着舰和离舰操纵具有显著影响，这正是舰载直升机与舰载固定翼飞机明显不同的地方。此文中的CFD计算模型没有考虑空
-气黏性，因而丢失了一些真实船体空气尾流的特征。在后续研究
+基于非结构网格，利用无黏 CFD 计算得到船体空气尾流，并将其引入到直升机飞行仿真程序 GENHEL 中。基于此模型，他们针对特定的直升机着舰和离舰飞行轨迹，设
+计了最优控制算法。结果表明，船体空气尾流的非定常性对于直升机着舰和离舰操纵具有显著影响，这正是舰载直升机与舰载固定翼飞机明显不同的地方。此文中的
+ CFD 计算模型没有考虑空气黏性，因而丢失了一些真实船体空气尾流的特征。在后续研究
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Lee2004"
@@ -4297,7 +3757,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Hoydonck等
+2006 年，Hoydonck 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Hoydonck2006"
@@ -4305,13 +3765,13 @@ literal "false"
 
 \end_inset
 
-于2006年建立了一种用于模拟直升机着舰操纵的飞行力学模型。旋翼模型采用刚性桨叶，考虑二阶挥舞运动，用叶素法对主旋翼进行建模。旋翼入流采用一种改进的
- Pitt–Peters 动态入流模型进行建模，通过引入四个状态变量来体现尾迹畸变对旋翼入流的影响。利用该模型，他们研究了直升机按预定路径着舰的飞行稳定性和控制
-问题，但并没有考虑船体空气尾流对旋翼的影响。
+建立了一种用于模拟直升机着舰操纵的飞行力学模型。旋翼模型采用刚性桨叶，考虑二阶挥舞运动，用叶素法对主旋翼进行建模。旋翼入流采用一种改进的 Pitt–Peters
+ 动态入流模型进行建模，通过引入四个状态变量来体现尾迹畸变对旋翼入流的影响。利用该模型，他们研究了直升机按预定路径着舰的飞行稳定性和控制问题，但并没有考虑船体空
+气尾流对旋翼的影响。
 \end_layout
 
 \begin_layout Standard
-2007年，Akinyanju
+2007 年，Akinyanju
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Akinyanju2007"
@@ -4319,13 +3779,13 @@ literal "false"
 
 \end_inset
 
-基于FLIGHTLAB直升机综合分析软件，对舰载直升机舰面操纵进行了建模和分析，并将仿真结果与试验数据进行了比较。他们采用叶素法、有限状态尾迹和自由尾迹对旋翼进
-行建模，基于CFD对船体空气尾流进行模拟，引入地面涡模拟甲板和海面引起的地面效应。计算结果表明，船的航行速度、航向、旋翼转速、海况对直升机的舰面操纵具有显著影响
-，并且得到了试验数据的验证。但此文中的建模工作过于依赖该软件提供的功能，因而不具有一般性，也不易引入更精细的空气动力学或结构动力学模型。
+ 基于直升机综合分析软件 FLIGHTLAB，对舰载直升机舰面操纵进行了建模和分析，并将仿真结果与试验数据进行了比较。他们采用叶素法、有限状态尾迹和自由尾迹对旋
+翼进行建模，基于 CFD 对船体空气尾流进行模拟，引入地面涡模拟甲板和海面引起的地面效应。计算结果表明：船的航行速度、航向、旋翼转速、海况对直升机的舰面操纵具有
+显著影响，并且得到了试验数据的验证。但此文中的建模工作过于依赖该软件提供的功能，因而不具有一般性，也不易引入更精细的空气动力学或结构动力学模型。
 \end_layout
 
 \begin_layout Standard
-2012年，Forrest等
+2012 年，Forres 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Forrest2012"
@@ -4333,9 +3793,9 @@ literal "false"
 
 \end_inset
 
-将非定常CFD计算所得的船体空气尾流数据引入到直升机飞行模拟器中，得到了一个比较接近真实情况的飞行仿真环境。一些直升机着舰过程中真实存在的现象，在该仿真模型中得
-到了体现。通过飞行员的主观评价以及其他客观指标，验证了该模型的有效性，也验证了将船体空气尾流CFD计算结果引入飞行仿真的可行性。尽管该方法只考虑了船体空气尾流对
-旋翼尾迹的影响，但仍可应用于舰载直升机飞行员的日常训练。 
+将非定常 CFD 计算所得的船体空气尾流数据引入到直升机飞行模拟器中，得到了一个比较接近真实情况的飞行仿真环境。一些直升机着舰过程中真实存在的现象，在该仿真模型
+中得到了体现。通过飞行员的主观评价以及其他客观指标，验证了该模型的有效性，也验证了将船体空气尾流 CFD 计算结果引入飞行仿真的可行性。尽管该方法只考虑了船体空
+气尾流对旋翼尾迹的影响，但仍可应用于舰载直升机飞行员的日常训练。
 \end_layout
 
 \begin_layout Subsubsection
@@ -4343,7 +3803,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-1991年，Negrin等
+1991 年，Negrin 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Negrin1991"
@@ -4356,7 +3816,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-2005年，Hess
+2005 年，Hess
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Hess2005"
@@ -4364,12 +3824,12 @@ literal "false"
 
 \end_inset
 
-基于简化的船体运动和直升机飞行动力学模型，提出了一种适用于直升机全包线飞行控制系统设计的方法，并将该方法应用于直升机在高速航行的船只甲板附近执行位置保持任务。该
-模型将大气扰动的影响表示为传递函数，后者基于UH-60直升机的飞行试验数据而获得，因此间接利用了气动试验研究的成果。 
+ 基于简化的船体运动和直升机飞行动力学模型，提出了一种适用于直升机全包线飞行控制系统设计的方法，并将该方法应用于直升机在高速航行的船只甲板附近执行位置保持任务。
+该模型将大气扰动的影响表示为传递函数，后者基于 UH-60 直升机的飞行试验数据而获得，因此间接利用了气动试验研究的成果。 
 \end_layout
 
 \begin_layout Standard
-2014年，Ngo & Sultan
+2014 年，Ngo & Sultan
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ngo2014"
@@ -4377,42 +3837,45 @@ literal "false"
 
 \end_inset
 
-建立了一种用于着舰操纵的面向控制系统设计的非线性直升机飞行力学模型。该模型具有隐式常微分方程的形式，其结果与基于悬停和前飞状态线化模型的结果吻合较好。此外，他们
-用一种简单的船体运动模型来模拟海面不规则运动对船体的影响。基于以上直升机模型和船体模型，他们利用模型预测控制方法，设计了一种能够完成自主着舰任务的控制系统。从工
-程实践角度看，该模型具有一定的应用价值，但其所用的 Pitt–Peters 入流模型，并没有考虑旋翼与船体之间的气动干扰。
+ 建立了一种用于着舰操纵的面向控制系统设计的非线性直升机飞行力学模型。该模型具有隐式常微分方程的形式，其结果与基于悬停和前飞状态线化模型的结果吻合较好。此外，他
+们用一种简单的船体运动模型来模拟海面不规则运动对船体的影响。基于以上直升机模型和船体模型，他们利用模型预测控制方法，设计了一种能够完成自主着舰任务的控制系统。从
+工程实践角度看，该模型具有一定的应用价值，但其所用的 Pitt–Peters 入流模型，并没有考虑旋翼与船体之间的气动干扰。
 \end_layout
 
 \begin_layout Subsection
-小结
+国内外研究现状小结
 \end_layout
 
 \begin_layout Standard
-舰载直升机空气动力学研究，既包含所有旋翼飞行器共有的一般性问题（即通常意义下，旋翼空气动力学所包含的研究内容），也有海面和船体与旋翼相互影响所带来的特殊问题。
- 旋翼空气动力学研究的主要任务是，认识旋翼流场的特点和规律，为旋翼飞行器的设计、使用和维护提供支持。 舰载直升机舰面空气动力学研究的主要任务则是，深入理解旋翼尾
-迹和船体空气尾流的流动特点， 把握海面、船体与旋翼之间的气动干扰规律，为舰载直升机舰面动力学、飞行动力学、导航和飞行控制方法研究提供支持。 这两大类问题的研究方
-法均可分为试验和计算两类。
+舰载直升机空气动力学的研究内容，既包括所有直升机的共性问题，也包括海上作业带来的特殊问题。对共性问题的研究属于旋翼空气动力学的范畴，其主要任务是认识旋翼流场的特
+征，为结构动力学、飞行动力学等下游学科提供气动模型。对特殊问题的研究则是舰载直升机空气动力学的侧重点，其主要任务是研究海面、船体与旋翼之间的气动干扰规律，为提高
+舰载直升机海面作业的安全性、舒适性提供支持。
 \end_layout
 
 \begin_layout Standard
-对旋翼空气动力学的试验研究经历了从定性到定量，从宏观到微观的发展过程。 最开始，人们通过自然凝结现象，观察到了旋翼桨尖涡的存在，并认识到旋翼流场由桨尖涡主导的重
-要事实。 此后，喷烟法、阴影法、纹影法等流动显示方法不断被引入旋翼空气动力学的定性试验研究中。 定量试验方面，包含测力试验和测速试验两类。 伴随试验技术的进步，
-测速试验经历了侵入式热线测速技术、非侵入式单点LDV技术、非侵入式多点PIV技术的发展过程。 目前，三维PIV技术已经能够对旋翼流场进行高分辨率测量，可以预见，
-该技术在未来一段时间里仍将是旋翼空气动力学研究的重要工具。
+对旋翼乃至舰载直升机空气动力学的试验研究经历了从定性到定量、从宏观到微观的发展过程。定量试验包含测力试验和测速试验两类。伴随试验技术的进步，测速试验经历了介入式
+测速（HWA 技术）、非介入式单点测速（LDV 技术）、非介入式多点测速（PIV 技术）的发展过程。目前，三维 PIV 技术已经能够在全尺寸亚声速风洞[84]中
+对旋翼流场进行高分辨率测量。可以预见，该技术在未来一段时间里仍将是旋翼空气动力学研究的重要工具。
 \end_layout
 
 \begin_layout Standard
-数值计算是旋翼空气动力学的另一类重要的研究方法。 旋翼流场的非定常、非线性特征决定了问题的复杂性。 为了真实还原旋翼流场的流动特征，必须解决好转捩、附面层分离、
-涡核粘性耗散、涡结构失稳破裂等复杂的流体力学问题。 在连续介质力学框架内，只有直接数值模拟技术可以完全实现上述目标。 受限于计算机硬件和软件发展水平，将DNS技
-术直接应用到旋翼空气动力学计算上，目前看来还很不现实。 因此，有必要寻找切实可行的替代方法。 旋翼入流模型、涡线尾迹模型、黏性涡粒子模型、基于欧拉观点的涡量输运
-模型、雷诺平均Navier–Stokes方程模型等，都已经被直升机工程界所采用。 为了解决网格离散带来的涡量非物理耗散问题，网格自适应加密技术、涡量约束方法等新
-兴的流体力学计算方法正成为该领域的研究热点。 而无网格法以其处理复杂几何边界的灵活性，也逐渐引起了计算流体力学界的关注。
+数值计算是旋翼乃至舰载直升机空气动力学的另一类重要的研究方法。旋翼流场的非定常、非线性特征决定了问题的复杂性。为了真实还原旋翼流场的流动特征，必须解决好转捩、附
+面层分离、涡核粘性耗散、涡结构失稳破裂等复杂的流体力学问题。为了解决网格离散带来的涡量非物理耗散问题，网格自适应加密技术、涡量约束方法等新兴的流体力学计算方法正
+成为该领域的研究热点。
 \end_layout
 
 \begin_layout Standard
-除上述旋翼空气动力学的一般性问题外，舰载直升机还有一些海上作业、舰面起降所带来的特殊空气动力学问题。 这类特殊问题主要表现为海面自由来流、舰船空气尾流与旋翼尾迹
-的相互作用，即气动干扰问题。 美国、法国、荷兰等国在该领域开展了许多试验和计算方法研究，一些分析方法已经实现商业化，并成功应用到飞行仿真、导航和飞行控制系统设计
-等应用领域。 相比之下，我国在这方面开展的研究工作起步较晚。研究舰载直升机空气动力学，特别是海面、舰船与旋翼之间的复杂气动干扰问题， 对于确定直升机舰面起降的环
-境条件，制定和完善直升机舰面起降作业规程，提高舰载直升机的安全性和作业效率具有重要意义。
+尽管舰载直升机空气动力学的研究已经用上 PIV、CFD 等先进技术，但其所积累的研究成果尚未广泛应用到结构动力学、飞行动力学、导航与飞控等以气动载荷作为输入的下
+游学科。近些年来，随着人工智能算法的不断改进以及计算机软硬件水平的稳步提升，直升机飞控系统的设计正朝着无人自主控制的方向迈进（美国已实现无人直升机的海上自动起降
+）
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DengJingHui_2021"
+literal "false"
+
+\end_inset
+
+。另一方面，大数据、机器学习技术的进步，也为建立基于 PIV、CFD 数据的精细气动模型创造了前所未有的条件。相比之下，我国在这些方向开展的研究工作仍十分有限。
 \end_layout
 
 \begin_layout Section
@@ -4669,7 +4132,7 @@ literal "false"
 
 \end_inset
 
-，包括描述无黏可压流的 Euler 方程。几乎在同一时期（1990 年代后期），DG 法也被扩展到控制粘性流动的 Navier–Stokes 方程。Bassi
+，包括描述无黏可压流的 Euler 方程。几乎在同一时期（1990 年代后期），DG 法也被扩展到控制黏性流动的 Navier–Stokes 方程。Bassi
  & Rebay
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -21526,7 +20989,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Chapter
-在舰载直升机气动干扰问题中的应用
+舰载直升机典型气动干扰的数值模拟
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:应用"
@@ -21718,7 +21181,11 @@ literal "false"
 \end_layout
 
 \begin_layout Section
-船头正面迎风情形
+直升机 
+\begin_inset Formula $0^{\circ}$
+\end_inset
+
+ 着舰
 \end_layout
 
 \begin_layout Problem
@@ -22073,7 +21540,11 @@ reference "prob:船头正面迎风"
 \end_layout
 
 \begin_layout Section
-船头侧面迎风情形
+直升机 
+\begin_inset Formula $45^{\circ}$
+\end_inset
+
+ 着舰
 \end_layout
 
 \begin_layout Problem
@@ -22671,12 +22142,38 @@ noprefix "false"
 \end_layout
 
 \begin_layout Section
+直升机 
+\begin_inset Formula $90^{\circ}$
+\end_inset
+
+ 着舰
+\end_layout
+
+\begin_layout Section
+直升机 
+\begin_inset Formula $180^{\circ}$
+\end_inset
+
+ 着舰
+\end_layout
+
+\begin_layout Section
 本章小结
 \end_layout
 
 \begin_layout Standard
 本章结果表明：非定常动量源模型与高阶 RKDG 求解器配合使用，能够在静态网格上高效、高精度地模拟旋翼对流场的扰动，避免了传统旋翼空气动力学数值模拟方法对变形网
 格、滑动网格、重叠网格等动态网格技术的依赖。
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+充实内容
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
