@@ -112,7 +112,7 @@ name "chap:绪论"
 \end_layout
 
 \begin_layout Section
-研究背景
+研究背景和意义
 \end_layout
 
 \begin_layout Standard
@@ -140,7 +140,7 @@ literal "false"
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -162,8 +162,9 @@ name "tab:shipborne-helicopter"
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="17" columns="5">
+<lyxtabular version="3" rows="17" columns="6">
 <features booktabs="true" islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
@@ -215,6 +216,15 @@ name "tab:shipborne-helicopter"
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+旋翼直径 (m)
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" usebox="none">
@@ -258,6 +268,15 @@ Sea Horse
 
 \begin_layout Plain Layout
 单旋翼带尾桨式
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.07
 \end_layout
 
 \end_inset
@@ -309,6 +328,15 @@ Sea King
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18.9
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" usebox="none">
@@ -352,6 +380,15 @@ Sea Sprite
 
 \begin_layout Plain Layout
 单旋翼带尾桨式
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13.14
 \end_layout
 
 \end_inset
@@ -403,6 +440,15 @@ Hormone
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.74
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" usebox="none">
@@ -446,6 +492,15 @@ Sea Knight
 
 \begin_layout Plain Layout
 双旋翼纵列式
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.24
 \end_layout
 
 \end_inset
@@ -497,6 +552,15 @@ Super Frelon
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18.9
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" usebox="none">
@@ -540,6 +604,15 @@ Sea Stallion
 
 \begin_layout Plain Layout
 单旋翼带尾桨式
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+22.02
 \end_layout
 
 \end_inset
@@ -591,6 +664,15 @@ Sea Ranger
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.16
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" usebox="none">
@@ -634,6 +716,15 @@ Helix
 
 \begin_layout Plain Layout
 双旋翼共轴式
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.9
 \end_layout
 
 \end_inset
@@ -685,6 +776,15 @@ Helix-B
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.9
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" usebox="none">
@@ -728,6 +828,15 @@ Super Puma
 
 \begin_layout Plain Layout
 单旋翼带尾桨式
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.6
 \end_layout
 
 \end_inset
@@ -779,6 +888,15 @@ Sea Hawk
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12.74
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" usebox="none">
@@ -822,6 +940,15 @@ Helix-C
 
 \begin_layout Plain Layout
 双旋翼共轴式
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.9
 \end_layout
 
 \end_inset
@@ -873,6 +1000,15 @@ Panther
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11.94
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" usebox="none">
@@ -916,6 +1052,15 @@ Osprey
 
 \begin_layout Plain Layout
 双旋翼横列式
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11.61
 \end_layout
 
 \end_inset
@@ -967,6 +1112,15 @@ Alligator
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14.43
+\end_layout
+
+\end_inset
+</cell>
 </row>
 </lyxtabular>
 
@@ -986,11 +1140,69 @@ Alligator
 \end_layout
 
 \begin_layout Standard
-在舰载直升机的设计、使用和维护过程中，存在大量亟待解决的科学和工程问题。其中，既有旋翼飞行器所共有的一般性问题，也有直升机执行海上作业任务所带来的特殊问题。海面
-、舰面特有的气流、动力学环境，则为舰载直升机设计、使用及维护带来了一些新的问题，空气动力学是其中最核心、最关键的问题。舰船在海面航行时，船体结构对海面气流的扰动
-使得直升机起降平台附近的气流环境较为复杂，增加了直升机完成起降飞行任务的难度。海面的风速和风向、舰船的航速和航向都是影响上述“船体空气尾流 (ship
- airwake)”的重要因素。直升机旋翼尾迹与船体空气尾流之间存在复杂的相互作用，进一步增加了上述问题的复杂程度。研究舰载直升机空气动力学，特别是海面、船体与
-旋翼之间的气动干扰问题，对于确定直升机舰面起降的环境条件，制定和完善直升机舰面起降作业规程，提高舰载直升机的安全性和作业效率具有重要意义。
+在舰载直升机的设计、使用和维护过程中，存在大量亟待解决的科学和工程问题。其中，既有旋翼飞行器所共有的一般性问题，也有直升机执行海上作业任务所带来的特殊问题。与陆
+基直升机对比，海面、舰面特有的气流环境，为舰载直升机设计、使用及维护带来了一些新的问题，空气动力学是其中最核心、最关键的问题。舰船在海面航行时，船体结构对海面气
+流的扰动使得直升机起降平台附近的气流环境较为复杂，增加了直升机完成起降飞行任务的难度。海面的风速和风向、舰船的航速和航向都是影响上述“船体空气尾流
+ (ship airwake)”的重要因素。直升机旋翼尾迹与船体空气尾流之间存在复杂的相互作用，进一步增加了上述问题的复杂程度。研究舰载直升机空气动力学，特别是
+海面、船体与旋翼之间的气动干扰问题，对于确定直升机舰面起降的环境条件，制定和完善直升机舰面起降作业流程（如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:landing"
+
+\end_inset
+
+ 所示），提高舰载直升机的安全性和作业效率具有重要意义。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/landing.jpg
+	lyxscale 15
+	width 100text%
+	height 30theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:landing"
+
+\end_inset
+
+英国海军舰载直升机着舰标准作业流程
+\begin_inset CommandInset citation
+LatexCommand cite
+key "K_ri__2012"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1216,7 +1428,7 @@ literal "false"
 国内外研究现状
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 旋翼空气动力学试验
 \end_layout
 
@@ -1225,7 +1437,7 @@ literal "false"
 的不断进步，对旋翼空气动力学的试验研究经历了从定性到定量，从总体力学参数测量到高分辨率流动细节捕捉的发展过程。
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 定性试验
 \end_layout
 
@@ -1338,47 +1550,6 @@ literal "false"
 \end_inset
 
 
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../review/figures/shadow.png
-	lyxscale 50
-	height 30pheight%
-	rotateAngle 90
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-利用阴影法观察到的旋翼桨尖涡
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Bagai1993"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1409,7 +1580,7 @@ literal "false"
  随着测量技术的进步，一些定性试验方法后来发展成为定量试验方法，或发展成为定量试验的一个前置环节。
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 定量试验
 \end_layout
 
@@ -1502,7 +1673,7 @@ literal "false"
 以上定量试验结果，为旋翼气动设计提供了重要参考信息，也为验证分析模型和计算方法提供了参照对象。
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 由试验得出的结论
 \end_layout
 
@@ -1629,11 +1800,11 @@ literal "false"
 究之前，必须经过适当的改造； 旋翼空气动力学本身也产生了一些特有的分析模型和数值计算方法，并且还在不断发展和改进。
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 旋翼空气动力学计算
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 入流模型
 \end_layout
 
@@ -1780,7 +1951,7 @@ literal "false"
 由桨尖涡主导、局部可压缩等特性，也无法处理存在复杂气动干扰的问题，目前正逐步被更接近物理真实的自由尾迹模型取代。
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 涡线尾迹模型
 \end_layout
 
@@ -1801,7 +1972,7 @@ literal "false"
 从发展历程来看，涡线尾迹模型经历了刚性尾迹，预定尾迹和自由尾迹三个阶段。
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 刚性尾迹模型
 \end_layout
 
@@ -1828,7 +1999,7 @@ literal "false"
 重，刚性尾迹模型不再适用。 目前，刚性尾迹模型只被用于对计算机时要求极高的实时仿真程序，或用于为自由尾迹模型、CFD计算程序提供迭代初值。
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 预定尾迹模型
 \end_layout
 
@@ -1857,7 +2028,7 @@ literal "false"
 几何结构的问题。
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 自由尾迹模型
 \end_layout
 
@@ -2287,7 +2458,7 @@ literal "false"
 结构，但在处理桨尖涡与固体壁面碰撞等问题时，只能采取回避或作镜像处理的方法，无法描述涡结构破碎等现象。 因此，自由尾迹模型还不是一种十分完备的物理模型。
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 黏性涡粒子模型
 \begin_inset CommandInset label
 LatexCommand label
@@ -2559,7 +2730,7 @@ literal "false"
 。
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 涡量输运方程
 \begin_inset CommandInset label
 LatexCommand label
@@ -2829,7 +3000,7 @@ literal "false"
 在国内，目前尚无采用基于欧拉观点的涡量输运方程对旋翼空气动力学进行研究的尝试。
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Navier–Stokes 方程
 \begin_inset CommandInset label
 LatexCommand label
@@ -2883,7 +3054,7 @@ noprefix "false"
  为出发点，通过引入不可压缩、无黏、正压等假设，对物理模型进行简化，再经过一定的数学处理而得到的计算模型。
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 无黏流体
 \end_layout
 
@@ -2936,7 +3107,7 @@ literal "false"
 由于没有考虑空气黏性，这种计算模型并不能用于分析旋翼气动效率，因而逐渐被旋翼空气动力学界所抛弃。
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 各项同性牛顿流体
 \end_layout
 
@@ -3074,7 +3245,7 @@ noprefix "false"
 该式右端第一行表示与黏性无关的力对运动的影响，第二行表示剪切黏度的影响，第三行表示体积黏度的影响。
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 常黏度流体
 \end_layout
 
@@ -3113,7 +3284,7 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 不可压缩流体
 \end_layout
 
@@ -3186,7 +3357,7 @@ literal "false"
 问题的研究。
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Stokes流体
 \end_layout
 
@@ -3265,7 +3436,7 @@ literal "false"
 ，仍采用Stokes假设是不合适的。
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 网格自适应加密技术
 \end_layout
 
@@ -3341,7 +3512,7 @@ literal "false"
 问题。 结果显示，该方法能够同时提高旋翼飞行器性能分析精度和尾迹分辨率。
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 无网格法
 \end_layout
 
@@ -3471,7 +3642,7 @@ literal "false"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 其他方法
 \end_layout
 
@@ -3516,18 +3687,14 @@ literal "false"
 应用到直升机或旋翼空气动力学的研究中。
 \end_layout
 
-\begin_layout Section
-舰载直升机气动干扰
+\begin_layout Subsection
+舰载直升机气动干扰试验
 \end_layout
 
 \begin_layout Standard
 舰载直升机所特有的空气动力学问题，主要表现为海面自由来流和舰船空气尾流与旋翼尾迹的相互作用。 起飞和着陆过程中，海面和舰面阻挡旋翼尾迹向下游移动，引起的“地”面
 效应，也是影响直升机飞行安全的重要因素。 研究海面、舰面与旋翼之间的气动干扰，是舰载直升机舰面空气动力学的主要任务。 与旋翼空气动力学类似，该领域的研究方法也分
 为试验和计算两大类。
-\end_layout
-
-\begin_layout Subsection
-试验研究
 \end_layout
 
 \begin_layout Standard
@@ -3722,27 +3889,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-美国乔治华盛顿大学
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-The George Washington University
-\end_layout
-
-\end_inset
-
-的Friedman和Snyder， 以及法国空军学院
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-French Air Force Academy
-\end_layout
-
-\end_inset
-
-的Duplessis
+2015年，Friedman等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Friedman2015"
@@ -3750,30 +3897,75 @@ literal "false"
 
 \end_inset
 
- 利用固定在（长
-\begin_inset Formula $32.9~\mathrm{m}$
+利用固定在（长 
+\begin_inset Formula $\SI{32.9}{m}$
 \end_inset
 
-）试验船后甲板上的模型直升机，研究了船体空气尾流与直升机旋翼尾迹的相互影响。 通过安置在旋翼周围的风速计，测量了试验船静止、无侧风航行、侧风航行等条件下的流场信
-息。 尽管该试验是在固定直升机的条件下进行的，但已将试验环境从室内转移到了真实的船只上，因而更接近舰载直升机的真实工作环境。
+）真实船只尾部甲板上方的模型直升机（如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:real_ship"
+
+\end_inset
+
+ 所示），研究了船体空气尾流与直升机旋翼尾迹的相互影响。通过安置在旋翼周围的风速计，测量了试验船静止、无侧风航行、侧风航行等条件下的流场信息。尽管该试验是在固定
+直升机的条件下进行的，但已将试验环境从室内转移到了真实的船只上，因而更接近舰载直升机的真实工作环境。
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/pvc/code/manuscript/review/figures/ship-helicopter-interaction.jpg
+	lyxscale 15
+	width 100text%
+	height 30theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:real_ship"
+
+\end_inset
+
+固定在真实船只尾部甲板上方的模型直升机
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Friedman2015"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
-数值模拟
+舰载直升机气动干扰计算
 \end_layout
 
 \begin_layout Standard
-美国海军研究试验室
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Naval Research Laboratory
-\end_layout
-
-\end_inset
-
-的Landsberg等
+1995年，Landsberg 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Landsberg1995"
@@ -3781,14 +3973,13 @@ literal "false"
 
 \end_inset
 
- 利用FAST3D非定常流动求解器，分析了船体空气尾流与旋翼入流的相互作用。 FAST3D求解器采用的是通量修正输运（Flux Corrected
- Transport, FCT）算法和虚拟单元嵌入（Virtual Cell Embedding, VCE）方法。 旋翼对流场的影响是通过一个简化的下洗模型（即
-动量源模型）来体现的，该模型中动量通量沿桨盘平面均匀分布，因此只能反映旋翼整体的气动特性，而不能精细到到每片桨叶。 虽然计算模型较为简单，但计算结果仍能反映船体
-空气尾流中的非定常性对旋翼入流的影响。
+利用 FAST3D 非定常流动求解器，分析了船体空气尾流与旋翼入流的相互作用。该求解器采用的是“通量修正输运 (flux corrected transport
+, FCT)”和“虚拟单元嵌入 (virtual cell embedding, VCE)”方法。旋翼对流场的影响是通过一个简化的桨盘模型来体现的，该模型中动量
+源沿桨盘均匀分布，因此只能反映旋翼整体的气动特性，而不能精细到每片桨叶。虽然计算模型较为简单，但计算结果仍能反映船体空气尾流中的非定常性对旋翼入流的影响。
 \end_layout
 
 \begin_layout Standard
-荷兰国家航空航天试验室的Muijden等
+2013年，Muijden 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Muijden2013"
@@ -3796,13 +3987,69 @@ literal "false"
 
 \end_inset
 
- 基于结构网格，求解RANS方程和RANS-LES混合方法两种物理模型，分析了船体空气尾流，并与试验数据进行了比较。 结果表明，RANS方程的计算结果很好地反映
-了船体空气尾流的时间平均特征，而RANS-LES混合方法则进一步给出了更加接近物理真实的流场波动特征。 上述计算结果已被用到直升机飞行模拟器中，并且得到了经验丰
-富的飞行员给出的积极评价。 但此文只计算了船体空气尾流，并没有将直升机（特别是旋翼）包括在计算模型中，因此没有体现船体空气尾流与旋翼空气尾流的耦合效应。
+基于结构网格，求解 RANS 方程与 RANS/大涡模拟（large eddy simulation, LES）混合方法两种物理模型，分析了船体空气尾流（如图
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:structured-mesh"
+
+\end_inset
+
+ 所示），并与试验数据进行了比较。结果表明，RANS方程的计算结果很好地反映了船体空气尾流的时间平均特征，而 RANS/LES 混合方法则进一步给出了更加接近物
+理真实的流场波动特征。上述计算结果已被用到直升机飞行模拟器中，并且得到了经验丰富的飞行员给出的积极评价。但只计算了船体空气尾流，并没有将直升机（特别是旋翼）包括
+在计算模型中，因此没有体现船体空气尾流与旋翼尾迹的耦合效应。
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../review/figures/RANS-LES_merged.png
+	lyxscale 15
+	width 100text%
+	height 50theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:structured-mesh"
+
+\end_inset
+
+用于计算船体空气尾流的结构网格（上）及 RANS（左）与 RANS/LES（右）计算结果对比
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Muijden2013"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-英国利物浦大学的Crozon等
+2014年，Crozon 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Crozon2014"
@@ -3810,14 +4057,68 @@ literal "false"
 
 \end_inset
 
- 基于结构网格，利用作用盘方法对旋翼在船体影响下的入流特征进行了静态计算。 作用盘方法的结果表明，当旋翼接近船体时，其入流会受到船体的显著影响，这种影响是非线性
-的，因而叠加法不再适用。 为突破作用盘方法只能描述旋翼整体入流特征的限制，作者通过求解非定常RANS方程获得了每片桨叶的流场信息。 通过该方法得到的旋翼拉力的计
-算结果与试验结果吻合较好，验证了方法的有效性。 作者希望此文的计算方法有助于确定直升机着舰过程的安全飞行包线，但并没有给出具体的结论。 就算例而言，此文也只给出
-了孤立旋翼与船体在气动方面的相互影响，没有考虑机身对气流的影响，也没有考虑旋翼动力学方面的问题。
+基于结构网格，利用作用盘方法对旋翼在船体影响下的入流特征进行了静态计算。作用盘方法的结果表明，当旋翼接近船体时，其入流会受到船体的显著影响，这种影响是非线性的，
+因而叠加法不再适用。为突破作用盘方法只能描述旋翼整体入流特征的限制，此文通过在滑动结构网格（如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sliding-mesh"
+
+\end_inset
+
+ 所示）上求解非定常 RANS 方程获得了每片桨叶的流场信息。通过该方法得到的旋翼拉力的计算结果与试验结果吻合较好，验证了方法的有效性。他们希望此文的计算方法有
+助于确定直升机着舰过程的安全飞行包线，但并没有给出具体的结论。就算例而言，此文只研究了孤立旋翼与船体的气动干扰，没有考虑机身对气流的影响。
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../review/figures/structured_sliding_mesh.jpg
+	lyxscale 50
+	width 100text%
+	height 30theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sliding-mesh"
+
+\end_inset
+
+用于计算旋翼–船体非定常气动干扰的滑动结构网格
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Crozon2014"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-美国先进旋翼机技术公司的He等
+He 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "He2008"
@@ -3825,28 +4126,10 @@ literal "false"
 
 \end_inset
 
- 介绍了该公司在建立高置信度舰载直升机飞行仿真环境方面所做的工作。 该仿真系统集成了直升机动力学、船体动力学以及非定常船体空气尾流方面的建模方法，为舰载直升机飞
-行训练和测试提供了一种高效的模拟工具。 该仿真系统提供了三种不同精细程度的仿真模型： 
-\end_layout
-
-\begin_layout Itemize
-旋翼尾迹由有限状态入流模型描述，船体空气尾流由平板模型描述； 
-\end_layout
-
-\begin_layout Itemize
-旋翼尾迹由有限状态入流模型描述，船体空气尾流由CFD或试验数据描述； 
-\end_layout
-
-\begin_layout Itemize
-旋翼尾迹和船体空气尾流由黏性涡粒子方法描述。 
-\end_layout
-
-\begin_layout Standard
-其中，前两种模型可用于实时仿真计算。
-\end_layout
-
-\begin_layout Standard
-此后，该公司的Zhao等
+ 介绍了介绍了其所属公司在建立高置信度舰载直升机飞行仿真环境方面所做的工作。该仿真系统集成了直升机动力学、船体动力学以及非定常船体空气尾流方面的建模方法，为舰载
+直升机飞行训练和测试提供了一种高效的模拟工具。该仿真系统提供了三种不同精细程度的仿真模型：(1) 旋翼尾迹由有限状态入流模型描述，船体空气尾流由平板模型描述；(
+2) 旋翼尾迹由有限状态入流模型描述，船体空气尾流由 CFD 或试验数据描述；(3) 旋翼尾迹和船体空气尾流由VPM描述。其中，前两种模型可用于实时仿真计算。此
+后，该公司的 Zhao 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Zhao2013"
@@ -3854,39 +4137,27 @@ literal "false"
 
 \end_inset
 
- 采用一种基于物理学原理（Physics-Based）的建模方法，对旋翼飞行器与船体的气动干扰问题进行了研究，并在此基础上进行实时飞行仿真研究。
- 作者将黏性涡粒子方法（VPM）与基于非结构网格的CFD求解器相结合，研究了旋翼尾迹与船体空气尾流之间复杂的相互作用关系。 基于VPM/CFD混合方法的计算结果
-，作者对Peters-He有限状态入流模型进行了推广，使其适用于实时仿真。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Section
-舰载直升机相关应用问题简介
-\end_layout
-
-\begin_layout Plain Layout
-除了空气动力学以外，舰载直升机的应用还面临许多舰面动力学、飞行动力学、导航和飞行控制等方面的问题。
+将VPM与基于非结构网格的CFD求解器相结合，研究了旋翼尾迹与船体空气尾流的相互作用。基于此混合方法的计算结果，他们推广了 Peters–He
+ 有限状态入流模型，使其适用于实时仿真。
 \end_layout
 
 \begin_layout Subsection
-舰面动力学
+受舰载直升机气动干扰影响的工程问题
 \end_layout
 
-\begin_layout Plain Layout
-美国卡曼航空航天公司
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Kaman Aerospace Corporation
+\begin_layout Standard
+在舰载直升机的实际工程应用中，人们通常更关注其飞行安全性与驾乘舒适度，这就需要从结构动力学、飞行动力学、导航与飞控等学科的视角对舰载直升机开展研究。这些学科或多
+或少都需要以气动载荷作为输入，因此可以被视为舰载直升机空气动力学的下游学科。最理想情况当然是将基于 PIV 或 CFD 的精细空气动力学模型植入到结构动力学、飞
+行动力学模型中。然而现实情况却是上下游学科的研究存在明显脱节，工程领域往往还在使用陈旧且粗糙的气动模型，有些学科甚至直接将气动力作为黑箱或随机过程处理。这种脱节
+说明舰载直升机空气动力学的研究成果尚未充分发挥其价值，应当引起上下游学科的共同关注。
 \end_layout
 
-\end_inset
+\begin_layout Subsubsection
+结构动力学
+\end_layout
 
-的Wei等
+\begin_layout Standard
+Wei等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Wei1992"
@@ -3894,23 +4165,14 @@ literal "false"
 
 \end_inset
 
- 分析了SH-2F型直升机在预定的甲板运动、甲板摩擦、定常风条件下的舰面动力学特性，用以确定该型直升机安全着舰和离舰的条件。 对处于工作状态的旋翼、处于非工作状
-态的旋翼、折叠起来的旋翼以及机身分别进行了建模，以研究这四种情况的空气动力学特性。 利用能量法推导了船体运动的动力学方程，包含三个线位移、两个角位移（滚转、俯仰
-）共五个自由度。 此外，作者还分析了不同甲板摩擦条件对直升机舰面动力学特性的影响。 基于上述分析模型，此文给出了一些定性和定量的安全指标，但有待试验数据的验证。
+于1992年分析了SH-2F型直升机在预定的甲板运动、甲板摩擦、定常风条件下的结构动力学特性，用以确定该型直升机安全着舰和离舰的条件。对处于工作状态的旋翼、处于
+非工作状态的旋翼、折叠起来的旋翼以及机身分别进行了建模，以研究这4种情况的空气动力学特性。利用能量法推导了船体运动的动力学方程，包含3个线位移、2个角位移（滚转
+、俯仰）共5个自由度。此外，他们还分析了不同甲板摩擦条件对直升机结构动力学特性的影响。基于上述分析模型，此文给出了一些定性和定量的安全指标，但有待试验数据的验证
+。
 \end_layout
 
-\begin_layout Plain Layout
-加拿大卡尔顿大学
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Carleton University
-\end_layout
-
-\end_inset
-
-的Wall
+\begin_layout Standard
+Wall
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Wall2009"
@@ -3918,39 +4180,17 @@ literal "false"
 
 \end_inset
 
- 研究了舰载直升机着舰和离舰过程中桨叶特有的气弹问题。 在海上风速较大且旋翼转速较低时，桨叶容易出现较大变形，这是由桨叶的动力学特性、船体运动、船体空气尾流等因
-素共同作用所引起的。 作者将柔性桨叶离散为若干刚性的微段，用以表现非线性的桨叶弯曲变形； 基于试验数据对船体空气尾流进行建模，体现了甲板上方气流随时间、空间变化
-的非定常、非均匀的特征。 此文反映了影响桨叶气弹响应的各种因素之间相互作用关系的复杂性，但分析所用气动模型依赖试验数据，可考虑用更一般的CFD方法代替。
+于2009年研究了直升机着舰和离舰过程中桨叶特有的气动弹性问题。在海上风速较大且旋翼转速较低时，桨叶容易出现较大变形，这是由桨叶的动力学特性、船体运动、船体空气
+尾流等因素共同作用所引起的。他们将柔性桨叶离散为若干刚性的微段，用以表现非线性的桨叶弯曲变形；基于试验数据对船体空气尾流进行建模，体现了甲板上方气流随时间、空间
+变化的非定常、非均匀的特征。此文反映了影响桨叶气弹响应的各种因素之间相互作用关系的复杂性，但分析所用气动模型依赖试验数据，可考虑用更一般的CFD方法代替。
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 飞行动力学
 \end_layout
 
-\begin_layout Plain Layout
-美国NASA Ames研究中心的Paulk Jr.等
-\begin_inset CommandInset citation
-LatexCommand cite
-key "PaulkJr1983"
-literal "false"
-
-\end_inset
-
- 通过仿真研究发现，紊乱的舰面气流是影响直升机着舰飞行最关键的环境因素。 为保证飞行性能，需采用高度指令补偿系统。
-\end_layout
-
-\begin_layout Plain Layout
-美国系统技术公司
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Systems Technology, Inc.
-\end_layout
-
-\end_inset
-
-的Jewell等
+\begin_layout Standard
+1986年，Jewell等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jewell1986"
@@ -3958,21 +4198,11 @@ literal "false"
 
 \end_inset
 
- 介绍了一项由美国海军航空发展中心
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Naval Air Development Center
+介绍了一项由美国海军航空发展中心支持的试验研究。该项研究的目的是在直升机操稳参数、舰面操纵流程、环境条件等方面，对飞行品质规范的修订提出建议。
 \end_layout
 
-\end_inset
-
-支持的试验研究。 该项研究的目的是在直升机操稳参数、舰面操纵流程、环境条件等方面，对飞行品质规范修订提出建议。
-\end_layout
-
-\begin_layout Plain Layout
-此后，该公司的Clement等
+\begin_layout Standard
+Clement等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Clement1992"
@@ -3980,12 +4210,12 @@ literal "false"
 
 \end_inset
 
- 建立了一种用于模拟直升机着舰飞行的实时仿真模型。 该模型采用叶素法对旋翼进行气动建模； 利用CFD软件得到船体空气尾流数据，并经过三维FFT算法处理，使其适用
-于实时仿真。
+于1992年建立了一种用于模拟直升机着舰飞行的实时仿真模型。该模型采用叶素法对旋翼进行气动建模；利用CFD软件得到船体空气尾流数据，并经过三维快速傅里叶变换算法
+处理，使其适用于实时仿真。
 \end_layout
 
-\begin_layout Plain Layout
-美国佐治亚理工学院的Zhang等
+\begin_layout Standard
+1994年，Zhang等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Zhang1994"
@@ -3993,10 +4223,10 @@ literal "false"
 
 \end_inset
 
- 利用全尺寸海上试验数据，识别出一个关于船体空气尾流速度垂直分量的功率谱模型。 基于上述半经验的船体空气尾流模型和一个简化的旋翼气动模型，作者研究了船体空气尾流
-对旋翼拉力和滚转、俯仰力矩的影响。 此后，作者又建立了一种用于模拟直升机与船体气动干扰并考虑地面效应的实时仿真模型。 该模型中，船体由板块表示，旋翼尾迹由固定尾
-迹和预定尾迹模型表示，海面的影响（地面效应）通过镜像法体现。 基于以上模型，将旋翼入流表示成有限状态形式，以便于进行实时仿真。 该模型只适用于直升机在甲板上方悬
-停的配平问题。 此后，作者还直升机与船体气动干扰问题中的地面效应问题进行了研究
+利用全尺寸海上试验数据，识别出了一个关于船体空气尾流速度垂直分量的功率谱模型。基于上述半经验的船体空气尾流模型和一个简化的旋翼气动模型，他们研究了船体空气尾流对
+旋翼拉力和滚转、俯仰力矩的影响。此后，他们又建立了一种用于模拟直升机与船体气动干扰并考虑地面效应的实时仿真模型。该模型中，船体由板块表示，旋翼尾迹由固定尾迹和预
+定尾迹模型表示，海面的影响（地面效应）通过镜像法体现。基于以上模型，将旋翼入流表示成有限状态形式，以便于进行实时仿真。该模型只适用于直升机在甲板上方悬停的配平问
+题。此后，他们还对直升机与船体气动干扰问题中的地面效应问题进行了研究
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Zhang1995"
@@ -4007,28 +4237,8 @@ literal "false"
 。
 \end_layout
 
-\begin_layout Plain Layout
-加拿大NTI公司
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Newmerical Technologies International Inc.
-\end_layout
-
-\end_inset
-
-的Bogstad等 以及CAE电子公司
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-CAE Electronics Ltd.
-\end_layout
-
-\end_inset
-
-的Giannias等
+\begin_layout Standard
+1999年，Bogstad等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bogstad1999,Bogstad2002"
@@ -4036,17 +4246,7 @@ literal "false"
 
 \end_inset
 
- 利用有限元求解器，基于Euler方程和非结构网格技术，研究了船体空气尾流，并将得到的数据整合到直升机飞行仿真软件中。 加拿大国家研究委员会
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-National Research Council of Canada
-\end_layout
-
-\end_inset
-
-的Zan
+利用基于欧拉方程和非结构网格的有限元求解器，研究了船体空气尾流，并将得到的数据整合到直升机飞行仿真软件中。Zan
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Zan2003"
@@ -4054,7 +4254,7 @@ literal "false"
 
 \end_inset
 
-对文献-
+于2003年对文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bogstad2002"
@@ -4062,8 +4262,8 @@ literal "false"
 
 \end_inset
 
- 中的一些观点提出了质疑。 Zan认为，特殊算例的CFD计算结果与试验数据进行的对比，并不能证明该CFD方法在更一般的条件下下仍然有效。 试验和基于Navier
-–Stokes方程的计算结果都显示，在某些情况下，船体空气尾流是由涡流主导的，并且存在强烈的流动分离现象。 因此，文献-
+ 中的一些观点提出了质疑，其认为特殊算例的计算结果与试验数据进行的对比，并不能证明该方法在更一般的条件下仍然有效；试验和基于NS方程的计算结果都显示，在某些情况
+下，船体空气尾流是由涡流主导的，并且存在强烈的流动分离现象，因此文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bogstad2002"
@@ -4071,21 +4271,11 @@ literal "false"
 
 \end_inset
 
- 中基于Euler方程得到的结论并不可靠。
+ 中基于欧拉方程得到的结论并不可靠。
 \end_layout
 
-\begin_layout Plain Layout
-美国宾夕法尼亚州立大学
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Pennsylvania State University
-\end_layout
-
-\end_inset
-
-的Lee等
+\begin_layout Standard
+2003~2005年，Lee 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Lee2003,Lee2005"
@@ -4093,9 +4283,9 @@ literal "false"
 
 \end_inset
 
- 基于非结构网格，利用定常和时间精确（非定常）无黏CFD计算得到船体空气尾流，并将其引入到GENHEL直升机飞行仿真程序中。 基于此模型，作者针对特定的直升机着
-舰和离舰飞行轨迹，设计了最优控制算法。 结果表明，船体空气尾流的非定常性对于直升机着舰和离舰操纵具有显著影响，这正是舰载直升机与舰载固定翼飞机明细不同的地方。
- 此文中的CFD计算模型没有考虑空气黏性，因而可能没有丢失了一些真实船体空气尾流的特征。 在文献-
+基于非结构网格，利用无黏CFD计算得到船体空气尾流，并将其引入到GENHEL直升机飞行仿真程序中。基于此模型，他们针对特定的直升机着舰和离舰飞行轨迹，设计了最优
+控制算法。结果表明，船体空气尾流的非定常性对于直升机着舰和离舰操纵具有显著影响，这正是舰载直升机与舰载固定翼飞机明显不同的地方。此文中的CFD计算模型没有考虑空
+气黏性，因而丢失了一些真实船体空气尾流的特征。在后续研究
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Lee2004"
@@ -4103,21 +4293,11 @@ literal "false"
 
 \end_inset
 
- 中，Lee等引入了一种随机船体空气尾流模型 ，用以提高仿真的效率。 该模型可用于优化飞行控制系统，以提高飞行器抗扰性能。
+中，他们引入了一种随机船体空气尾流模型，用以提高仿真的效率。该模型可用于优化飞行控制系统，以提高飞行器抗干扰性能。
 \end_layout
 
-\begin_layout Plain Layout
-荷兰代尔夫特理工大学
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Delft University of Technology
-\end_layout
-
-\end_inset
-
-的Hoydonck等
+\begin_layout Standard
+Hoydonck等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Hoydonck2006"
@@ -4125,72 +4305,13 @@ literal "false"
 
 \end_inset
 
- 建立了一种用于模拟直升机着舰操纵的飞行力学模型。 旋翼模型采用刚性桨叶，考虑二阶挥舞运动，用叶素法对主旋翼进行建模。 旋翼入流采用一种改进的Pitt-Pete
-rs动态入流模型进行建模，通过引入四个状态变量来体现尾迹畸变对旋翼入流的影响。 利用该模型，作者研究了直升机按预定路径着舰的飞行稳定性和控制方面的一些问题，但并
-没有考虑船体空气尾流对旋翼的影响。
+于2006年建立了一种用于模拟直升机着舰操纵的飞行力学模型。旋翼模型采用刚性桨叶，考虑二阶挥舞运动，用叶素法对主旋翼进行建模。旋翼入流采用一种改进的
+ Pitt–Peters 动态入流模型进行建模，通过引入四个状态变量来体现尾迹畸变对旋翼入流的影响。利用该模型，他们研究了直升机按预定路径着舰的飞行稳定性和控制
+问题，但并没有考虑船体空气尾流对旋翼的影响。
 \end_layout
 
-\begin_layout Plain Layout
-澳大利亚棱镜防务公司的Forrest，英国林肯大学的Owen，英国利物浦大学的Padfield以及英国BAE系统公司
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-BAE Systems
-\end_layout
-
-\end_inset
-
-的Hodge
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Forrest2012"
-literal "false"
-
-\end_inset
-
- 将非定常CFD计算所得的船体空气尾流数据引入到直升机飞行模拟器中，得到了一个比较接近真实情况的飞行仿真环境。 一些直升机着舰飞行过程中真实存在的现象，在该仿真
-模型中得到了体现。 通过飞行员的主观评价以及其他客观指标，验证了该模型的有效性，也验证了将船体空气尾流CFD计算结果引入飞行仿真的可行性。 尽管该方法只考虑了船
-体空气尾流对旋翼尾迹的影响，但仍可应用于舰载直升机飞行员的日常训练。
-\end_layout
-
-\begin_layout Plain Layout
-美国弗吉尼亚理工学院
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Virginia Polytechnic Institute and State University
-\end_layout
-
-\end_inset
-
-的Ngo和Sultan
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Ngo2014"
-literal "false"
-
-\end_inset
-
- 建立了一种用于着舰操纵的面向控制系统设计的非线性直升机飞行力学模型。 该非线性模型具有隐式常微分方程的形式，其结果与基于悬停和前飞状态线化模型的结果吻合较好。
- 此外，作者用一种简单的船体运动模型来模拟海面不规则运动对船体的影响。 基于以上直升机模型和船体模型，作者利用模型预测控制（Model predictive
- control, MPC）方法，设计了一种能够完成自主着舰任务的控制系统。 从工程实践角度看，该模型具有一定的应用价值，但该模型所用的Pitt-Peters静
-态入流模型，并不能体现旋翼与船体在气动方面的相互影响。
-\end_layout
-
-\begin_layout Plain Layout
-美国联合学院和大学
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Union Institute and University
-\end_layout
-
-\end_inset
-
-的Akinyanju
+\begin_layout Standard
+2007年，Akinyanju
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Akinyanju2007"
@@ -4198,51 +4319,31 @@ literal "false"
 
 \end_inset
 
- 基于FLIGHTLAB旋翼飞行器综合分析软件，对舰载直升机舰面操纵进行了建模和分析，并将仿真结果与试验数据进行了比较。 作者采用叶素法、有限状态尾迹和自由尾迹
-对旋翼进行建模，基于CFD对船体空气尾流进行模拟，引入地面涡（Ground Vortex）模拟甲板和海面引起的地面效应。 计算结果表明，船的航行速度、航向、旋翼
-转速、海况对直升机的舰面操纵具有显著影响，并且得到了试验数据的验证。 但此文中的建模工作过于依赖软件提供的功能，因而不具有一般性，也不易引入更精细的气动或动力学
-模型。
+基于FLIGHTLAB直升机综合分析软件，对舰载直升机舰面操纵进行了建模和分析，并将仿真结果与试验数据进行了比较。他们采用叶素法、有限状态尾迹和自由尾迹对旋翼进
+行建模，基于CFD对船体空气尾流进行模拟，引入地面涡模拟甲板和海面引起的地面效应。计算结果表明，船的航行速度、航向、旋翼转速、海况对直升机的舰面操纵具有显著影响
+，并且得到了试验数据的验证。但此文中的建模工作过于依赖该软件提供的功能，因而不具有一般性，也不易引入更精细的空气动力学或结构动力学模型。
 \end_layout
 
-\begin_layout Subsection
-导航与飞行控制
-\end_layout
-
-\begin_layout Plain Layout
-美国Lear Siegler公司
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Lear Siegler, Inc.
-\end_layout
-
-\end_inset
-
-的Gevaert等
+\begin_layout Standard
+2012年，Forrest等
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Gevaert1978"
+key "Forrest2012"
 literal "false"
 
 \end_inset
 
- 提出了一种全自动直升机舰面回收系统的设计方案。 针对高海况条件下的舰载机着陆任务，设计了导航和控制系统算法。 作者将六自由度直升机飞行动力学模型和船体运动数据
-用于全自动和远程人在回路仿真。
+将非定常CFD计算所得的船体空气尾流数据引入到直升机飞行模拟器中，得到了一个比较接近真实情况的飞行仿真环境。一些直升机着舰过程中真实存在的现象，在该仿真模型中得
+到了体现。通过飞行员的主观评价以及其他客观指标，验证了该模型的有效性，也验证了将船体空气尾流CFD计算结果引入飞行仿真的可行性。尽管该方法只考虑了船体空气尾流对
+旋翼尾迹的影响，但仍可应用于舰载直升机飞行员的日常训练。 
 \end_layout
 
-\begin_layout Plain Layout
-以色列理工学院
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Israel Institute of Technology
+\begin_layout Subsubsection
+导航与飞控
 \end_layout
 
-\end_inset
-
-的Negrin等
+\begin_layout Standard
+1991年，Negrin等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Negrin1991"
@@ -4250,22 +4351,12 @@ literal "false"
 
 \end_inset
 
- 介绍了一种用于手动执行直升机在移动甲板上方低空悬停任务的叠加显示技术。 分析和试验结果表明，将惯性参考系中的位置信息提供给飞行员，有助于提高直升机在移动甲板上
-方执行悬停任务的质量。
+介绍了一种用于手动执行直升机在移动甲板上方低空悬停任务的叠加显示技术。分析和试验结果表明，将惯性参考系中的位置信息提供给飞行员，有助于提高直升机在移动甲板上方执
+行悬停任务的质量。该研究以线化方程表示直升机运动，以马尔可夫过程模拟大气扰动，因此并没有将空气动力学的研究成果引入其中。
 \end_layout
 
-\begin_layout Plain Layout
-美国加州大学戴维斯分校
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-University of California, Davis
-\end_layout
-
-\end_inset
-
-的Hess
+\begin_layout Standard
+2005年，Hess
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Hess2005"
@@ -4273,30 +4364,26 @@ literal "false"
 
 \end_inset
 
- 基于简化的船体运动和直升机飞行动力学模型，提出了一种适用于旋翼飞行器全包线飞行控制系统设计的方法，并将该方法应用于直升机在高速航行的舰船甲板附近执行位置保持任
-务。
+基于简化的船体运动和直升机飞行动力学模型，提出了一种适用于直升机全包线飞行控制系统设计的方法，并将该方法应用于直升机在高速航行的船只甲板附近执行位置保持任务。该
+模型将大气扰动的影响表示为传递函数，后者基于UH-60直升机的飞行试验数据而获得，因此间接利用了气动试验研究的成果。 
 \end_layout
+
+\begin_layout Standard
+2014年，Ngo & Sultan
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ngo2014"
+literal "false"
 
 \end_inset
 
-
+建立了一种用于着舰操纵的面向控制系统设计的非线性直升机飞行力学模型。该模型具有隐式常微分方程的形式，其结果与基于悬停和前飞状态线化模型的结果吻合较好。此外，他们
+用一种简单的船体运动模型来模拟海面不规则运动对船体的影响。基于以上直升机模型和船体模型，他们利用模型预测控制方法，设计了一种能够完成自主着舰任务的控制系统。从工
+程实践角度看，该模型具有一定的应用价值，但其所用的 Pitt–Peters 入流模型，并没有考虑旋翼与船体之间的气动干扰。
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 小结
-\end_layout
-
-\begin_layout Standard
-随着我国海洋强国战略的逐步实施，我国在海上的军事、科考和生产活动正变得日益频繁。 与之相伴的是海上作业任务的不断丰富，以及对舰船海上作业半径和反应时间要求的不断
-提高。 飞行器以其远高于舰船的运动速度，能够极大地延伸舰船作业半径，缩短反应时间。 固定翼飞机对起降平台的要求较高，通常只有在具有数百米长跑道的航母上才能完成。
- 直升机以其特有的垂直起降能力，可以在与其尺度大致相当的平台上完成起降，因而比固定翼飞机更广泛地应用于海上作业。
-\end_layout
-
-\begin_layout Standard
-但是，海面复杂多变的气流和海浪条件，船体对海面气流的非定常扰动，海面、船体与旋翼之间的气动干扰， 使得直升机在舰面完成起降任务的难度远大于其在陆地上执行起降任务
-，也大于固定翼飞机在航母平台上执行舰面起降任务。 着舰和离舰是舰载直升机执行任何海上作业任务都必须完成的飞行科目。 为确保舰载直升机安全完成舰面起降任务、减轻飞
-行员工作负担，有必要对舰载直升机的空气动力学、舰面动力学、飞行动力学、导航和飞行控制方法开展深入研究。 其中，空气动力学是后续几项研究内容的基础。
- 本文对舰载直升机空气动力学的国内外研究现状进行了综述，并对与舰载直升机相关的一些应用问题作了简要介绍。
 \end_layout
 
 \begin_layout Standard
@@ -4324,8 +4411,8 @@ literal "false"
 \begin_layout Standard
 除上述旋翼空气动力学的一般性问题外，舰载直升机还有一些海上作业、舰面起降所带来的特殊空气动力学问题。 这类特殊问题主要表现为海面自由来流、舰船空气尾流与旋翼尾迹
 的相互作用，即气动干扰问题。 美国、法国、荷兰等国在该领域开展了许多试验和计算方法研究，一些分析方法已经实现商业化，并成功应用到飞行仿真、导航和飞行控制系统设计
-等应用领域。 相比之下，我国在这方面开展的研究工作十分有限。 研究舰载直升机空气动力学，特别是海面、舰船与旋翼之间的复杂气动干扰问题， 对于确定直升机舰面起降的
-环境条件，制定和完善直升机舰面起降作业规程，提高舰载直升机的安全性和作业效率具有重要意义。
+等应用领域。 相比之下，我国在这方面开展的研究工作起步较晚。研究舰载直升机空气动力学，特别是海面、舰船与旋翼之间的复杂气动干扰问题， 对于确定直升机舰面起降的环
+境条件，制定和完善直升机舰面起降作业规程，提高舰载直升机的安全性和作业效率具有重要意义。
 \end_layout
 
 \begin_layout Section
@@ -4337,7 +4424,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-舰载直升机气动问题与一般直升机气动问题的主要区别，在于船体空气尾流的存在及其对旋翼尾迹的影响。
+舰载直升机气动问题与路基直升机气动问题的主要区别，在于船体空气尾流的存在及其对旋翼尾迹的影响。
 \end_layout
 
 \begin_layout Standard
@@ -4397,7 +4484,7 @@ literal "true"
 \end_inset
 
 “消息传递接口 (message passing interface, MPI)”是目前最主流的并行计算标准，几乎所有高性能计算平台上都部署了该标准的某种具体实
-现。应用程序通过调用它提供的函数，将计算任务发送到各个计算节点（核心）上做并行处理，从而扩大求解规模、提高计算效率。MPI 技术基于大粒度的进程级并行，对单核性
+现。应用程序通过调用它提供的函数，将计算任务发送到各个计算节点（核心）上做并行处理，从而扩大求解规模、提高计算效率。MPI 技术基于粗粒度的进程级并行，对单核性
 能的要求较低，具有良好的可移植性和可扩展性。
 \end_layout
 
@@ -4440,15 +4527,25 @@ reference "chap:算法"
 第
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "chap:实现"
+reference "chap:验证"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-章基于现代 C++ 的标准库、类机制、模板机制，编写出一套求解器各模块的类模板，并以此模板生成不同精度阶数、不同物理背景的 RKDG 求解器实例。利用具有解析解
-或精确解的一维标准算例，定量验证上述 RKDG 求解器的正确性和精度阶数。利用拥有公认数值解的二维标准算例，定性验证上述求解器捕捉复杂流动图象的能力。
+章
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+基于现代 C++ 的标准库、类机制、模板机制，编写出一套求解器各模块的类模板，并以此模板生成不同精度阶数、不同物理背景的 RKDG 求解器实例。
+\end_layout
+
+\end_inset
+
+利用具有解析解或精确解的一维标准算例，定量验证上述 RKDG 求解器的正确性和精度阶数。利用拥有公认数值解的二维标准算例，定性验证上述求解器捕捉复杂流动图象的能
+力。
 \end_layout
 
 \begin_layout Standard
@@ -4487,7 +4584,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Chapter
-含动量源的间断伽辽金方法
+舰载直升机三维流场的高阶计算方法
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:算法"
@@ -4498,9 +4595,9 @@ name "chap:算法"
 \end_layout
 
 \begin_layout Standard
-目前在航空航天工程中使用的大多数 CFD 求解器都是基于使用有限体积格式。有限体积格式可以在非结构网格上构造，因此比有限差分格式更容易处理具有复杂几何外形的流场
-边界。然而，有限体积格式通常只有二阶空间精度，这是由于不规则局部模板的尺寸随着精度的阶数增加而迅速增长。在高阶有限体积格式中，单元的本地模板由单元和单元的邻居、
-邻居的邻居等组成。为了简化非结构网格的高阶格式的设计，最好使用局部模板比有限体积格式更紧致的有限单元法，如：“间断伽辽金 (discontinuous
+目前在航空航天工程中使用的大多数 CFD 求解器都是基于有限体积格式。有限体积格式可以在非结构网格上构造，因此比有限差分格式更容易处理具有复杂几何外形的流场边界
+。然而，有限体积格式通常只有二阶空间精度，这是由于不规则局部模板的尺寸随着精度的阶数增加而迅速增长。在高阶有限体积格式中，单元的本地模板由单元和单元的邻居、邻居
+的邻居等组成。为了简化非结构网格上的高阶格式的设计，最好使用局部模板比有限体积格式更紧致的有限单元法，如：“间断伽辽金 (discontinuous
  Galerkin, DG)”法。DG 法在每个单元内部用连续函数做近似（这一点更像经典有限元法），但允许在单元边界上存在间断（这一点更像经典有限体积法）。这样
 的假设使格式设计者在为每个单元选择基函数时有更大的自由度，例如：基于正交基函数的模态型 DG 法，基于拉格朗日多项式的节点型 DG 法
 \begin_inset CommandInset citation
@@ -4601,8 +4698,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-RKDG 方法虽然能在非结构网格上构造出高阶格式，但对于含有移动边界（如：旋翼桨叶）的问题，通常需要使用动态级网格技术（例如变形网格、滑动网格、重叠网格）。另一
-方面，在有限差分及有限体积法中，典型的升力体（如：旋翼）已成功地被建模为各种形式的动量源。Rajagopalan & Mathur 
+RKDG 方法虽然能在非结构网格上构造出高阶格式，但对于含有移动边界（如：旋翼桨叶）的问题，通常需要使用动态网格技术（例如变形网格、滑动网格、重叠网格）。另一方
+面，在有限差分及有限体积法中，典型的升力体（如：旋翼）已成功地被建模为各种形式的动量源。Rajagopalan & Mathur 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Rajagopalan_1989,Rajagopalan_1993"
@@ -4662,11 +4759,12 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-本章将前人为解决守恒律问题而提出的 RKDG 方法，推广为含有源项双曲型方程组的求解方法，并在最后一节给出一种特殊的源项，用以模拟旋翼对流场的非定常扰动。
+本章将前人为解决二维守恒律问题而提出的带有紧致型 WENO 限制器的 RKDG 方法，推广为含有源项的三维双曲型方程组的求解方法，并在最后一节给出一种特殊的源项
+，用以模拟旋翼对流场的非定常扰动。
 \end_layout
 
 \begin_layout Section
-使用正交归一基的 DG 空间离散
+三维非结构网格上的 DG 空间离散
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:DG"
@@ -4690,7 +4788,7 @@ reference "tab:mesh"
 
 \end_inset
 
- 列出了本文用到的网格术语，其中“对象 
+ 列出了本文用到的网格术语及记号，其中“对象 
 \begin_inset Formula $X$
 \end_inset
 
@@ -4711,7 +4809,7 @@ name "tab:mesh"
 
 \end_inset
 
-网格术语
+网格术语及记号
 \end_layout
 
 \end_inset
@@ -7080,7 +7178,7 @@ literal "true"
 
 \begin_inset Formula 
 \begin{equation}
-\int_{V}\left(\psi\,\partial_{t}\underline{U}-\underline{\vec{F}}\cdot\nabla\psi\right)+\oint_{\partial V}\psi\,\underbrace{\vec{\nu}\cdot\underline{\vec{F}}}_{\underline{F^{\nu}}}=\int_{V}\psi\,\underline{H},\label{eq:weak-form}
+\int_{V}\left(\psi\,\partial_{t}\underline{U}-\underline{\vec{F}}\cdot\nabla\psi\right)+\oint_{\partial V}\psi\,\underbrace{\vec{\nu}\cdot\underline{\vec{F}}}_{\underline{F}^{\nu}}=\int_{V}\psi\,\underline{H},\label{eq:weak-form}
 \end{equation}
 
 \end_inset
@@ -7174,7 +7272,7 @@ reference "eq:weak-form"
 
 \begin_inset Formula 
 \begin{equation}
-\oint_{\partial V}\psi\,\underline{F^{\nu}}\approx\oint_{\partial V}\psi^{h}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U}^{h}\right)=\sum_{l}\hat{\psi}_{l}\left[\oint_{\partial V}\psi_{l}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U}^{h}\right)\right],\label{eq:boundary-flux}
+\oint_{\partial V}\psi\,\underline{F}^{\nu}\approx\oint_{\partial V}\psi^{h}\,\mathopen{\underline{F}^{\nu}}\left(\underline{U}^{h}\right)=\sum_{l}\hat{\psi}_{l}\left[\oint_{\partial V}\psi_{l}\,\mathopen{\underline{F}^{\nu}}\left(\underline{U}^{h}\right)\right],\label{eq:boundary-flux}
 \end{equation}
 
 \end_inset
@@ -7188,11 +7286,11 @@ reference "eq:weak-form"
 \end_inset
 
 其中 
-\begin_inset Formula $\mathopen{\underline{F^{\nu}}}\left(\underline{U}^{h}\right)$
+\begin_inset Formula $\mathopen{\underline{F}^{\nu}}\left(\underline{U}^{h}\right)$
 \end_inset
 
  为法向通量 
-\begin_inset Formula $\underline{F^{\nu}}\coloneqq\vec{\nu}\cdot\underline{\vec{F}}$
+\begin_inset Formula $\underline{F}^{\nu}\coloneqq\vec{\nu}\cdot\underline{\vec{F}}$
 \end_inset
 
  的近似值，通常取某种精确或近似黎曼解。式 
@@ -7243,7 +7341,7 @@ reference "eq:weak-form"
  个方程：
 \begin_inset Formula 
 \begin{equation}
-\sum_{k}\dv{\underline{\hat{U}}_{k}}{t}\langle\phi_{k}\vert\psi_{l}\rangle_{V}-\int_{V}\left(\nabla\psi_{l}\right)\cdot\mathopen{\underline{\vec{F}}}\left(\underline{U}^{h}\right)+\oint_{\partial V}\psi_{l}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U}^{h}\right)=\int_{V}\psi_{l}\,\mathopen{\underline{H}}\left(\underline{U}^{h}\right).
+\sum_{k}\dv{\underline{\hat{U}}_{k}}{t}\langle\phi_{k}\vert\psi_{l}\rangle_{V}-\int_{V}\left(\nabla\psi_{l}\right)\cdot\mathopen{\underline{\vec{F}}}\left(\underline{U}^{h}\right)+\oint_{\partial V}\psi_{l}\,\mathopen{\underline{F}^{\nu}}\left(\underline{U}^{h}\right)=\int_{V}\psi_{l}\,\mathopen{\underline{H}}\left(\underline{U}^{h}\right).
 \end{equation}
 
 \end_inset
@@ -7311,7 +7409,7 @@ literal "true"
 ；
 \begin_inset Formula 
 \begin{equation}
-\underline{R}_{\partial V}\coloneqq\oint_{\partial V}\begin{bmatrix}\psi_{1} & \cdots & \psi_{L}\end{bmatrix}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U}^{h}\right)
+\underline{R}_{\partial V}\coloneqq\oint_{\partial V}\begin{bmatrix}\psi_{1} & \cdots & \psi_{L}\end{bmatrix}\,\mathopen{\underline{F}^{\nu}}\left(\underline{U}^{h}\right)
 \end{equation}
 
 \end_inset
@@ -7547,7 +7645,7 @@ reference "eq:FEM"
  矩阵，表示体积分残差；
 \begin_inset Formula 
 \begin{equation}
-\underline{R}_{\partial V_{i}}\coloneqq\oint_{\partial V_{i}}\begin{bmatrix}\phi_{1} & \cdots & \phi_{L}\end{bmatrix}\,\mathopen{\underline{F^{\nu}}}\left(\underline{U}^{h}\right)
+\underline{R}_{\partial V_{i}}\coloneqq\oint_{\partial V_{i}}\begin{bmatrix}\phi_{1} & \cdots & \phi_{L}\end{bmatrix}\,\mathopen{\underline{F}^{\nu}}\left(\underline{U}^{h}\right)\label{eq:boundary_residual}
 \end{equation}
 
 \end_inset
@@ -7574,7 +7672,1277 @@ reference "sec:RK"
 \end_layout
 
 \begin_layout Section
-数值振荡与 WENO 重构技术
+保持强稳定性的 RK 时间推进格式
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:RK"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+《
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sec:DG"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+》节最后给出的式 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:orthonormal_DG"
+
+\end_inset
+
+ 是一个待求解的常微分方程组，其中右端项依赖于待定未知量，不妨将其记作
+\begin_inset Formula 
+\begin{equation}
+\frac{\dd}{\dd t}\underline{\hat{U}}=\underline{\hat{R}},\qquad\underline{\hat{R}}\coloneqq\underline{R}(\underline{\hat{U}}).
+\end{equation}
+
+\end_inset
+
+其左侧的时间导数原则上可以做有限差分近似；考虑到时间变量 
+\begin_inset Formula $t$
+\end_inset
+
+ 是单调递增的，时间格式应当具有向前“推进 (marching)”的特点：
+\end_layout
+
+\begin_layout Itemize
+变量 
+\begin_inset Formula $\underline{\hat{U}}$
+\end_inset
+
+ 在下一时间步 
+\begin_inset Formula $t_{n+1}$
+\end_inset
+
+ 的值 
+\begin_inset Formula $\underline{\hat{U}}^{n+1}$
+\end_inset
+
+ 由变量在当前及之前各时间步的值计算而得。
+\end_layout
+
+\begin_layout Itemize
+如果计算 
+\begin_inset Formula $\underline{\hat{U}}^{n+1}$
+\end_inset
+
+ 只需用到当前时间步 
+\begin_inset Formula $t_{n}$
+\end_inset
+
+ 的值 
+\begin_inset Formula $\underline{\hat{U}}^{n}$
+\end_inset
+
+，则称其为单步格式，否则称之为多步格式。
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{\\hat{U}}^{n}$"
+description "表示 $\\underline{\\hat{U}}$ 第 $n$ 时间步的值"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\underline{\\hat{R}}^{n}$"
+description "表示 $\\underline{R}(\\underline{\\hat{U}})$ 在第 $n$ 时间步的值"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+如果计算 
+\begin_inset Formula $\underline{\hat{U}}^{n+1}$
+\end_inset
+
+ 时，右端项不依赖于 
+\begin_inset Formula $\underline{\hat{U}}^{n+1}$
+\end_inset
+
+，则称其为显示推进格式，否则称之为隐式推进格式。
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+显示推进格式可以直接代入公式计算，编程实现更简单，但对时间步长的要求相对苛刻。
+\end_layout
+
+\begin_layout Itemize
+隐式推进格式需要求解关于 
+\begin_inset Formula $\underline{\hat{U}}^{n+1}$
+\end_inset
+
+ 的代数方程组，编程实现更复杂，但对时间步长的要求相对宽松。
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+一阶格式
+\end_layout
+
+\begin_layout Standard
+采用一阶向前差分近似时间导数：
+\begin_inset Formula 
+\begin{equation}
+\frac{\underline{\hat{U}}^{n+1}-\underline{\hat{U}}^{n}}{h_{t}}\approx\frac{\dd}{\dd t}\underline{\hat{U}}^{n}=\underline{\hat{R}}^{n},
+\end{equation}
+
+\end_inset
+
+就得到显式欧拉格式：
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$h_t$"
+description "表示时间步长"
+literal "true"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n}.\label{eq:Euler}
+\end{equation}
+
+\end_inset
+
+它是最简单的显式推进格式。
+\end_layout
+
+\begin_layout Standard
+采用一阶向后差分近似时间导数：
+\begin_inset Formula 
+\begin{equation}
+\frac{\underline{\hat{U}}^{n+1}-\underline{\hat{U}}^{n}}{h_{t}}\approx\frac{\dd}{\dd t}\underline{\hat{U}}^{n+1}=\underline{\hat{R}}^{n+1},
+\end{equation}
+
+\end_inset
+
+就得到隐式欧拉格式：
+\begin_inset Formula 
+\begin{equation}
+\underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n+1}.
+\end{equation}
+
+\end_inset
+
+它是最简单的隐式推进格式。
+\end_layout
+
+\begin_layout Standard
+以上两种欧拉格式都只有一阶时间精度。
+\end_layout
+
+\begin_layout Subsection
+高阶格式
+\end_layout
+
+\begin_layout Standard
+显式 Runge–Kutta (RK) 格式
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "RK"
+description "Runge–Kutta"
+literal "true"
+
+\end_inset
+
+是一族高阶推进格式，最一般的形式为
+\begin_inset Formula 
+\begin{equation}
+\underline{\hat{U}}^{n+i/m}=\sum_{k=0}^{i-1}\left(\alpha_{i,k}\underline{\hat{U}}^{n+k/m}+\beta_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\right),\qquad i=1,\dots,m\label{eq:RKm}
+\end{equation}
+
+\end_inset
+
+其中 
+\begin_inset Formula $\sum_{k=0}^{i-1}\alpha_{i,k}=1$
+\end_inset
+
+ 对所有 
+\begin_inset Formula $i$
+\end_inset
+
+ 都成立。本文选用以下版本：
+\end_layout
+
+\begin_layout Description
+一阶 同显式欧拉格式，即
+\begin_inset Formula 
+\begin{equation}
+\underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n};\label{eq:RK1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+二阶 
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}\underline{\hat{U}}^{n+1/2} & =\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n},\\
+\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+2/2} & =\frac{1}{2}\underline{\hat{U}}^{n}+\frac{1}{2}\left(\underline{\hat{U}}^{n+1/2}+h_{t}\underline{\hat{R}}^{n+1/2}\right);
+\end{aligned}
+\label{eq:RK2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+三阶 
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}\underline{\hat{U}}^{n+1/3} & =\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n},\\
+\underline{\hat{U}}^{n+2/3} & =\frac{3}{4}\underline{\hat{U}}^{n}+\frac{1}{4}\left(\underline{\hat{U}}^{n+1/3}+h_{t}\underline{\hat{R}}^{n+1/3}\right),\\
+\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+3/3} & =\frac{1}{3}\underline{\hat{U}}^{n}+\frac{2}{3}\left(\underline{\hat{U}}^{n+2/3}+h_{t}\underline{\hat{R}}^{n+2/3}\right).
+\end{aligned}
+\label{eq:RK3}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+强稳定性
+\end_layout
+
+\begin_layout Standard
+设 
+\begin_inset Formula $\Vert\cdots\Vert$
+\end_inset
+
+ 是某种矩阵范数。若存在非负常数 
+\begin_inset Formula $C$
+\end_inset
+
+ 使得
+\begin_inset Formula 
+\begin{equation}
+\Vert\underline{\hat{U}}^{n}\Vert\le C\Vert\underline{\hat{U}}^{0}\Vert,\qquad\forall n\in\mathbb{N},
+\end{equation}
+
+\end_inset
+
+则称该格式具有稳定性。若上述 
+\begin_inset Formula $C\le1$
+\end_inset
+
+，则称该格式具有强稳定性。可以证明：当时间步长足够小时，显式欧拉格式具有强稳定性。若高阶格式可以保持这种强稳定性，则称其为“保持强稳定性的 (strong
+ stability preserving, SSP)”格式。
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "SSP"
+description "strong stability preserving"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+若式 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:RKm"
+
+\end_inset
+
+ 中的所有 
+\begin_inset Formula $\alpha_{i,k}$
+\end_inset
+
+ 和 
+\begin_inset Formula $\beta_{i,k}$
+\end_inset
+
+ 都非负，且满足
+\begin_inset Formula 
+\begin{equation}
+h_{t}\le ch_{t}^{\mathrm{E.E.}},\qquad c=\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}},
+\end{equation}
+
+\end_inset
+
+则其为 SSP 格式。
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$h_{t}^{\\mathrm{E.E.}}$"
+description "表示显示欧拉格式的时间步长"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+满足上述条件时，每个中间步的 
+\begin_inset Formula $\underline{\hat{U}}^{n+i/m}$
+\end_inset
+
+ 都可以分解为若干显式欧拉格式的凸组合：
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}\left\Vert \underline{\hat{U}}^{n+i/m}\right\Vert  & =\left\Vert \sum_{k=0}^{i-1}\alpha_{i,k}\left(\underline{\hat{U}}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{\hat{R}}^{n+k/m}\right)\right\Vert \\
+ & \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{\hat{R}}^{n+k/m}\right\Vert 
+\end{aligned}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\begin{equation}
+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\le\frac{\beta_{i,k}}{\alpha_{i,k}}ch_{t}^{\mathrm{E.E.}}\le\frac{\beta_{i,k}}{\alpha_{i,k}}\frac{\alpha_{i,k}}{\beta_{i,k}}h_{t}^{\mathrm{E.E.}}=h_{t}^{\mathrm{E.E.}},\qquad\forall(i,k),
+\end{equation}
+
+\end_inset
+
+满足显式欧拉格式的强稳定性条件，因此有
+\begin_inset Formula 
+\begin{equation}
+\left\Vert \underline{\hat{U}}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{\hat{R}}^{n+k/m}\right\Vert \le\left\Vert \underline{\hat{U}}^{n+k/m}\right\Vert ,\qquad\forall k=0,1,\dots,i-1.
+\end{equation}
+
+\end_inset
+
+从而有
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}\left\Vert \underline{\hat{U}}^{n+i/m}\right\Vert  & \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{\hat{R}}^{n+k/m}\right\Vert \\
+ & \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n+k/m}\right\Vert .
+\end{aligned}
+\end{equation}
+
+\end_inset
+
+据此有
+\begin_inset Formula 
+\begin{equation}
+\left\Vert \underline{\hat{U}}^{n+1/m}\right\Vert \le\sum_{k=0}^{0}\alpha_{1,0}\left\Vert \underline{\hat{U}}^{n+0/m}\right\Vert =\left\Vert \underline{U}^{n}\right\Vert ,
+\end{equation}
+
+\end_inset
+
+从而可以递归地证明
+\begin_inset Formula 
+\begin{equation}
+\left\Vert \underline{\hat{U}}^{n+i/m}\right\Vert \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n+k/m}\right\Vert \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n}\right\Vert =\left\Vert \underline{\hat{U}}^{n}\right\Vert .
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+一般的显式 RK 格式
+\begin_inset Formula 
+\begin{equation}
+\underline{\hat{U}}^{n+i/m}=\underline{\hat{U}}^{n}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m},\qquad i=1,2,\dots,m,
+\end{equation}
+
+\end_inset
+
+可以改写为式 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:RKm"
+
+\end_inset
+
+ 的形式，其中 
+\begin_inset Formula $\sum_{k=0}^{i-1}\alpha_{i,k}=1$
+\end_inset
+
+ 且
+\begin_inset Formula 
+\begin{equation}
+\alpha_{i,k}\ge0,\qquad\beta_{i,k}=\begin{cases}
+\gamma_{i,k}-\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}, & k=0,1,\dots,i-2;\\
+\gamma_{i,k} & k=i-1.
+\end{cases}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+令 
+\begin_inset Formula $\sum_{k=0}^{i-1}\alpha_{i,k}=1$
+\end_inset
+
+ 且
+\begin_inset Formula 
+\begin{equation}
+\alpha_{i,k}\ge0,\qquad k=0,1,\dots,i-1.
+\end{equation}
+
+\end_inset
+
+则
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}\underline{\hat{U}}^{n+i/m} & =\underline{\hat{U}}^{n}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}=\underbrace{\left(\sum_{k=0}^{i-1}\alpha_{i,k}\right)}_{=1}\underline{\hat{U}}^{n}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\\
+ & =\alpha_{i,0}\underline{U}^{n}+\sum_{k=1}^{i-1}\alpha_{i,k}\underbrace{\left(\underline{\hat{U}}^{n+k/m}-\sum_{l=0}^{k-1}\gamma_{k,l}h_{t}\underline{\hat{R}}^{n+l/m}\right)}_{=\underline{U}^{n}}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\\
+ & =\underbrace{\left(\alpha_{i,0}\underline{\hat{U}}^{n+0/m}+\sum_{k=1}^{i-1}\alpha_{i,k}\underline{\hat{U}}^{n+k/m}\right)}_{\sum_{k=0}^{i-1}\alpha_{i,k}\underline{U}^{n+k/m}}\\
+ & +\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}-\sum_{k=1}^{i-1}\sum_{l=0}^{k-1}\alpha_{i,k}\gamma_{k,l}h_{t}\underline{\hat{R}}^{n+l/m},
+\end{aligned}
+\end{equation}
+
+\end_inset
+
+其中
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}\sum_{k=1}^{i-1}\sum_{l=0}^{k-1}\alpha_{i,k}\gamma_{k,l}h_{t}\underline{\hat{R}}^{n+l/m} & =\sum_{l=0}^{i-2}\sum_{k=l+1}^{i-1}\alpha_{i,k}\gamma_{k,l}h_{t}\underline{\hat{R}}^{n+l/m}=\sum_{k=0}^{i-2}\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}h_{t}\underline{\hat{R}}^{n+k/m}.\end{aligned}
+\end{equation}
+
+\end_inset
+
+因此
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}\underline{\hat{U}}^{n+i/m} & =\sum_{k=0}^{i-1}\alpha_{i,k}\underline{\hat{U}}^{n+k/m}-\sum_{k=0}^{i-2}\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}h_{t}\underline{\hat{R}}^{n+k/m}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\\
+ & =\sum_{k=0}^{i-2}\left(\alpha_{i,k}\underline{\hat{U}}^{n+k/m}+\left(\gamma_{i,k}-\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}\right)h_{t}\underline{\hat{R}}^{n+k/m}\right)\\
+ & +\sum_{k=i-1}^{i-1}\left(\alpha_{i,k}\underline{\hat{U}}^{n+k/m}+\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\right).
+\end{aligned}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+强稳定保持的概念以及上述引理，是由 Shu 等提出并发展的
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Gottlieb_1998,Gottlieb_2001"
+literal "false"
+
+\end_inset
+
+。原始文献中的推导过程较为简略，这里尽量补全了被省去的步骤。
+\end_layout
+
+\begin_layout Standard
+并非所有 RK 格式都能保持强稳定性。例如：文献-
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hirsch_2007"
+literal "false"
+
+\end_inset
+
+ 给出的四阶 RK 格式
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}\underline{\hat{U}}^{n+1/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n},\\
+\underline{\hat{U}}^{n+2/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4},\\
+\underline{\hat{U}}^{n+3/4} & =\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n+2/4},\\
+\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+4/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{6}\left(\underline{\hat{R}}^{n}+2\underline{\hat{R}}^{n+1/4}+2\underline{\hat{R}}^{n+2/4}+\underline{\hat{R}}^{n+3/4}\right),
+\end{aligned}
+\end{equation}
+
+\end_inset
+
+改写为式 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:RKm"
+
+\end_inset
+
+ 的形式后
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+给出具体形式
+\end_layout
+
+\end_inset
+
+，并非所有 
+\begin_inset Formula $\alpha_{i,k}$
+\end_inset
+
+ 与 
+\begin_inset Formula $\beta_{i,k}$
+\end_inset
+
+ 都非负，因此不是 SSP 格式。
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+给出反例
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+本文选用式 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:RK1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:RK3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 作为时间推进格式，正是因为它们是 SSP 格式。为明确区分时间离散与空间离散的阶数，本文把用 
+\begin_inset Formula $p$
+\end_inset
+
+ 阶 (SSP) RK 格式做时间推进、用 
+\begin_inset Formula $q$
+\end_inset
+
+ 阶 DG 有限元法做空间离散的具体格式称为“RK
+\begin_inset Formula $p$
+\end_inset
+
+/DG
+\begin_inset Formula $q$
+\end_inset
+
+ 格式”，并称基于该格式的求解器、近似解为“RK
+\begin_inset Formula $p$
+\end_inset
+
+/DG
+\begin_inset Formula $q$
+\end_inset
+
+ 求解器、近似解”；称构造这些格式的方法为“RKDG 方法”。若时空精度皆为 
+\begin_inset Formula $p$
+\end_inset
+
+，则“RK
+\begin_inset Formula $p$
+\end_inset
+
+/DG
+\begin_inset Formula $q$
+\end_inset
+
+”（格式、求解器、近似解）也可简称为“
+\begin_inset Formula $p$
+\end_inset
+
+ 阶 RKDG”（格式、求解器、近似解）。
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "RKDG"
+description "Runge--Kutta discontinuous Galerkin"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "RK$p$/DG$q$"
+description "$p$th order Runge–Kutta and $q$th order discontinuous Galerkin"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+模拟桨叶对流场扰动的非定常动量源
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:UMS"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+前文已经给出了用 RKDG 方法 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:orthonormal_DG"
+
+\end_inset
+
+ 来求解含源项的双曲型方程组 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:PDE"
+
+\end_inset
+
+ 的一般过程。在该方法中，源项只出现在体积分中，具体形式为
+\begin_inset Formula 
+\begin{equation}
+\int_{V_{i}}\begin{bmatrix}\phi_{1} & \cdots & \phi_{K}\end{bmatrix}\mathopen{\underline{H}}\left(\underline{U}^{h}\right).
+\end{equation}
+
+\end_inset
+
+本文不考虑质量源与能量源，故该式实际需要计算的是计算基函数 
+\begin_inset Formula $\phi_{k}$
+\end_inset
+
+ 与动量源 
+\begin_inset Formula $\vec{b}$
+\end_inset
+
+ 的乘积在 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 上体积分：
+\begin_inset Formula 
+\begin{equation}
+\int_{V_{i}}\phi_{k}(\vec{r})\,\vec{b}(\vec{r}).
+\end{equation}
+
+\end_inset
+
+本节给出将体现旋翼气动效应的一种“非定常动量源 (unsteady momentum source, UMS)”模型
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "unsteady momentum source"
+description "UMS"
+literal "true"
+
+\end_inset
+
+嵌入既有的 RKDG 格式，从而获得 UMS–RKDG 格式的具体过程。
+\end_layout
+
+\begin_layout Subsection
+外力密度
+\end_layout
+
+\begin_layout Standard
+直升机旋翼的桨叶具有较大的展弦比，其对空气的作用力可以近似为集中于桨叶轴线。为避免混淆，本文以 
+\begin_inset Formula $\vec{b}_{\mathrm{V}}$
+\end_inset
+
+ 表示外力的体密度
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\vec{b}_{\\mathrm{V}}$"
+description "表示单位体积气体所受到的外力"
+literal "true"
+
+\end_inset
+
+，以 
+\begin_inset Formula $\vec{b}_{\mathrm{L}}$
+\end_inset
+
+ 表示外力的线密度
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\vec{b}_{\\mathrm{L}}$"
+description "表示单位长度气体所受到的外力"
+literal "true"
+
+\end_inset
+
+：
+\end_layout
+
+\begin_layout Itemize
+含动量源的三维欧拉方程可以写成
+\begin_inset Formula 
+\begin{equation}
+\partial_{t}\begin{bmatrix}\rho\\
+\rho\vec{u}\\
+\rho e_{0}
+\end{bmatrix}+\nabla\cdot\begin{bmatrix}\rho\vec{u}\\
+\rho\vec{u}\otimes\vec{u}\\
+\rho h_{0}\vec{u}
+\end{bmatrix}=\begin{bmatrix}0\\
+\vec{b}_{\mathrm{V}}-\nabla p\\
+0
+\end{bmatrix},
+\end{equation}
+
+\end_inset
+
+其中，
+\begin_inset Formula $\vec{b}_{\mathrm{V}}$
+\end_inset
+
+ 为单位体积气体所受到的外力，即 
+\begin_inset Formula $\vec{b}_{\mathrm{V}}(\vec{r})$
+\end_inset
+
+ 表示气体所受外力在 
+\begin_inset Formula $\vec{r}$
+\end_inset
+
+ 处的体密度。
+\end_layout
+
+\begin_layout Itemize
+展向弧长 
+\begin_inset Formula $s$
+\end_inset
+
+ 处的微翼段 
+\begin_inset Formula $[s,s+\dd{s})$
+\end_inset
+
+ 所受到的气动力为
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$s$"
+description "表示桨叶弦长参数"
+literal "true"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\begin{bmatrix}L\dd{s}\\
+D\dd{s}
+\end{bmatrix}=\frac{1}{2}\rho(u^{2}+w^{2})\begin{bmatrix}C_{L}(\alpha)\\
+C_{D}(\alpha)
+\end{bmatrix}c\dd{s},
+\end{equation}
+
+\end_inset
+
+其中，
+\begin_inset Formula $L$
+\end_inset
+
+ 与 
+\begin_inset Formula $D$
+\end_inset
+
+ 分别为升力与阻力的线密度
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$C_L$"
+description "表示翼型升力系数"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$C_D$"
+description "表示翼型阻力系数"
+literal "true"
+
+\end_inset
+
+。根据牛顿第三定律，该气动力的反作用力，就是微翼段对气体的作用力，故
+\begin_inset Formula 
+\begin{equation}
+\vec{b}_{\mathrm{L}}(\vec{r}(s))=-\begin{bmatrix}\vec{e}_{L}(s) & \vec{e}_{D}(s)\end{bmatrix}\begin{bmatrix}L(s)\\
+D(s)
+\end{bmatrix}
+\end{equation}
+
+\end_inset
+
+表示气体所受外力在展向弧长 
+\begin_inset Formula $s$
+\end_inset
+
+ 处的线密度。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+沿桨叶展向积分
+\end_layout
+
+\begin_layout Standard
+设
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "$\\overrightarrow{PQ}$"
+description "表示点 $P$ 到点 $Q$ 的有向线段"
+literal "true"
+
+\end_inset
+
+线段 
+\begin_inset Formula $\overrightarrow{PQ}$
+\end_inset
+
+ 与顶点为 
+\begin_inset Formula $ABCD$
+\end_inset
+
+ 的四面体单元 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 的公共部分为线段 
+\begin_inset Formula $\overrightarrow{RS}$
+\end_inset
+
+，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PQ"
+
+\end_inset
+
+ (a) 所示。这里允许 
+\begin_inset Formula $P=R$
+\end_inset
+
+ 或 
+\begin_inset Formula $Q=S$
+\end_inset
+
+，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PQ"
+
+\end_inset
+
+ (b) (c) 所示。
+\begin_inset Formula $\overrightarrow{RS}$
+\end_inset
+
+ 的求法在下一小节给出。
+\end_layout
+
+\begin_layout Standard
+基函数 
+\begin_inset Formula $\phi_{k}(\vec{r})$
+\end_inset
+
+ 定义在单元 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 上，则其与外力体密度的乘积 
+\begin_inset Formula $\phi_{k}\,\vec{b}_{\mathrm{V}}$
+\end_inset
+
+ 在单元 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ 上的体积分，可以转化为其与外力线密度的乘积 
+\begin_inset Formula $\phi_{k}\,\vec{b}_{\mathrm{L}}$
+\end_inset
+
+ 在线段 
+\begin_inset Formula $\overrightarrow{RS}$
+\end_inset
+
+ 上的线积分：
+\begin_inset Formula 
+\begin{equation}
+\int_{V_{i}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{V}}(\vec{r})=\int_{\overrightarrow{RS}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{L}}(\vec{r}).
+\end{equation}
+
+\end_inset
+
+线段 
+\begin_inset Formula $\overrightarrow{RS}$
+\end_inset
+
+ 是可参数化的曲线，故后者可借助曲线参数 
+\begin_inset Formula $\xi$
+\end_inset
+
+ 化为定积分：
+\begin_inset Formula 
+\begin{equation}
+\int_{\overrightarrow{RS}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{L}}(\vec{r})=\int_{\xi_{R}}^{\xi_{S}}\phi_{k}(\vec{r}(\xi))\,\vec{b}_{\mathrm{L}}(\vec{r}(\xi))\left\Vert \frac{\partial\vec{r}}{\partial\xi}\right\Vert \dd{\xi},
+\end{equation}
+
+\end_inset
+
+后者可以用标准的高斯求积公式计算。
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/PQ.pdf
+	lyxscale 50
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:PQ"
+
+\end_inset
+
+线段穿过四面体单元的几种常见情形
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+桨叶与体单元求交
+\end_layout
+
+\begin_layout Standard
+求线段 
+\begin_inset Formula $\overrightarrow{PQ}$
+\end_inset
+
+ 与四面体 
+\begin_inset Formula $ABCD$
+\end_inset
+
+ 的公共部分，可以归结为求线段 
+\begin_inset Formula $\overrightarrow{PQ}$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 的公共点。设
+\begin_inset Formula 
+\begin{equation}
+\overrightarrow{PQ}=\lambda_{A}\overrightarrow{PA}+\lambda_{B}\overrightarrow{PB}+\lambda_{C}\overrightarrow{PC},
+\end{equation}
+
+\end_inset
+
+即
+\begin_inset Formula 
+\begin{equation}
+\begin{bmatrix}(PQ)_{x}\\
+(PQ)_{y}\\
+(PQ)_{z}
+\end{bmatrix}=\begin{bmatrix}(PA)_{x} & (PB)_{x} & (PC)_{x}\\
+(PA)_{y} & (PB)_{y} & (PC)_{y}\\
+(PA)_{z} & (PB)_{z} & (PC)_{z}
+\end{bmatrix}\begin{bmatrix}\lambda_{A}\\
+\lambda_{B}\\
+\lambda_{C}
+\end{bmatrix}\label{eq:segment_triangle_intersection}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+若点 
+\begin_inset Formula $P$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 不共面，即
+\begin_inset Formula 
+\begin{equation}
+\det\begin{bmatrix}(PA)_{x} & (PB)_{x} & (PC)_{x}\\
+(PA)_{y} & (PB)_{y} & (PC)_{y}\\
+(PA)_{z} & (PB)_{z} & (PC)_{z}
+\end{bmatrix}\ne0,
+\end{equation}
+
+\end_inset
+
+则关于 
+\begin_inset Formula $\lambda_{A},\lambda_{B},\lambda_{C}$
+\end_inset
+
+ 的方程 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:segment_triangle_intersection"
+
+\end_inset
+
+ 有唯一解。
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+若 
+\begin_inset Formula $\lambda_{A},\lambda_{B},\lambda_{C}$
+\end_inset
+
+ 均为正数，则直线 
+\begin_inset Formula $PQ$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 有唯一的交点 
+\begin_inset Formula $R$
+\end_inset
+
+，且位于 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 内部：
+\begin_inset Formula 
+\begin{equation}
+\overrightarrow{PR}=\frac{\overrightarrow{PQ}}{\lambda_{A}+\lambda_{B}+\lambda_{C}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+若还有 
+\begin_inset Formula $\lambda_{A}+\lambda_{B}+\lambda_{C}>1$
+\end_inset
+
+，则点 
+\begin_inset Formula $R$
+\end_inset
+
+ 为线段 
+\begin_inset Formula $\overrightarrow{PQ}$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 的交点，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PQ"
+
+\end_inset
+
+ (a) 所示。
+\end_layout
+
+\begin_layout Itemize
+否则，点 
+\begin_inset Formula $R$
+\end_inset
+
+ 位于线段 
+\begin_inset Formula $\overrightarrow{PQ}$
+\end_inset
+
+ 的延长线上，不是线段 
+\begin_inset Formula $\overrightarrow{PQ}$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 的交点。
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+否则，线段 
+\begin_inset Formula $\overrightarrow{PQ}$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 所属平面有唯一的交点，但不在 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 内。
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+否则，判断点 
+\begin_inset Formula $Q$
+\end_inset
+
+ 是否与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 共面。
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+若点 
+\begin_inset Formula $Q$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 不共面，则点 
+\begin_inset Formula $P$
+\end_inset
+
+ 是直线 
+\begin_inset Formula $PQ$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 所属平面的唯一交点。
+\end_layout
+
+\begin_layout Itemize
+否则，直线 
+\begin_inset Formula $PQ$
+\end_inset
+
+ 与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 共面，但可能与 
+\begin_inset Formula $\triangle ABC$
+\end_inset
+
+ 没有公共点，需进一步讨论。
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+间断、数值振荡与 WENO 重构技术
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:WENO"
@@ -7585,7 +8953,7 @@ name "sec:WENO"
 \end_layout
 
 \begin_layout Standard
-双曲型方程（组）的广义解允许出现间断，按物理区分可以分为三类：
+双曲型方程（组）的广义解允许出现间断，按物理性质可以分为三类：
 \end_layout
 
 \begin_layout Description
@@ -7765,10 +9133,15 @@ name "fig:contact"
 \end_layout
 
 \begin_layout Standard
-无论是以上那种情形，间断解的存在都给高阶求解器的设计带来了麻烦。这其中最致命的问题是存在于间断附近、幅值不随网格加密而衰减的“数值振荡 (numerical
- oscillation)”。关于数值振荡的成因，学界存在多种观点，并有针对性地提出了多种压制策略：偏物理的解释有格式黏性不足、数值色散误差等观点，相应的策略包
-括人工黏性、群速度控制；偏数学的解释有格式单调性、吉布斯现象等，相应的策略有滤波器、限制器、高阶重构等。实际上，这些观点及策略在某种程度上是等价的。本文选用吉布
-斯现象
+直升机处于高速前飞状态时，主旋翼前行桨叶端部的相对气流速度有可能超过当地声速，从而形成激波。直升机处于低速前飞或悬停状态时，主旋翼桨尖处的相对气流速度属于高亚声
+速，通常不会形成激波。无论是以上哪种情形，桨叶上下表面之间都存在可观的压强差。在 UMS–RKDG 近似解中，这是一种无法回避的间断，因为桨叶轴线一般会穿过
+ RKDG 格式所用的体单元。
+\end_layout
+
+\begin_layout Standard
+间断解的存在给高阶格式的设计带来了麻烦，这其中最致命的问题是存在于间断附近、幅值不随网格加密而衰减的“数值振荡 (numerical oscillation)”
+。关于数值振荡的成因，学界存在多种观点，并有针对性地提出了多种压制策略：偏物理的解释有格式黏性不足、数值色散误差等观点，相应的策略包括人工黏性、群速度控制；偏数
+学的解释有格式单调性、吉布斯现象等，相应的策略有滤波器、限制器、高阶重构等。实际上，这些观点及策略在某种程度上是等价的。本文选用吉布斯现象
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Gottlieb_1997"
@@ -7846,7 +9219,15 @@ name "fig:Gibbs"
 \end_layout
 
 \begin_layout Standard
-为了压制数值振荡，本文选用 WENO 重构技术。对于有限差分或有限体积格式，可以用 van Leer
+高阶格式都必须以某种方式压制数值振荡。对于二阶有限差分格式，可以选用 Sweby 型限制器
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sweby_1984"
+literal "false"
+
+\end_inset
+
+；van Leer
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Van_Leer_1977,Van_Leer_1977a,van_Leer_1979,van_Leer_2021"
@@ -7854,8 +9235,12 @@ literal "false"
 
 \end_inset
 
- 提出的 MUSCL (monotonic upstream-centered scheme for conservation laws) 来压制数值振荡。该方
-法谨慎使用可以达到三阶精度，但不能直接应用于 DG 格式。除了推导 RKDG 之外，Cockburn
+ 提出的 MUSCL (monotonic upstream-centered scheme for conservation laws)，被谨慎使用时可以达到
+三阶精度。这些方法一般不能直接应用于间断有限元格式，并且会在光滑极值点处降阶。
+\end_layout
+
+\begin_layout Standard
+为了克服前一缺点（不适用于间断有限元），Cockburn
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Cockburn_1990,Cockburn_1998"
@@ -7863,8 +9248,12 @@ literal "false"
 
 \end_inset
 
- 的另一个重要贡献，是提出了适用于高维问题的广义斜率限制器。这些 minmod 型限制器，结合具有 TVD 性质的 RK 格式，能够使高阶 DG
- 近似解不含非物理振荡，但往往会降低光滑区域的精度阶数。为了克服这一缺点，Harten 等
+ 提出了适用于高维问题的广义斜率限制器。这些 minmod 型限制器，结合具有 TVD 性质（或更一般的 SSP 性质）的 RK 格式，能够使高阶
+ DG 近似解不含非物理振荡，但往往会降低光滑区域极值点处的精度阶数。
+\end_layout
+
+\begin_layout Standard
+为了克服后一缺点（在光滑极值点处降阶），Harten 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Harten_1997"
@@ -7872,7 +9261,7 @@ literal "false"
 
 \end_inset
 
-提出了 ENO (essentially non-oscillatory) 格式
+在有限差分法框架内提出了“基本无振荡 (essentially non-oscillatory, ENO)”格式
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 prefix "ENO"
@@ -7886,15 +9275,15 @@ literal "true"
 \end_layout
 
 \begin_layout Itemize
-为每个结点指定多个候选模板 (candidate stencil)。
+为每个结点指定多个“候选模板 (candidate stencil)”。
 \end_layout
 
 \begin_layout Itemize
-在每个候选模板上分别构造一个候选多项式 (candidate polynomial)。
+在每个候选模板上分别构造一个“候选多项式 (candidate polynomial)”。
 \end_layout
 
 \begin_layout Itemize
-取光滑程度 (smoothness) 最高的那一个作为近似解。
+取“光滑程度 (smoothness)”最高的那一个作为近似解。
 \end_layout
 
 \begin_layout Standard
@@ -7923,12 +9312,12 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-各种 WENO 方法的区别，正是体现在非线性权重的设计上。
+各种 WENO 重构技术的区别，正是体现在非线性权重的设计上。 ENO 格式与 WENO 重构技术虽不能完全消除数值振荡，但可以让数值振荡的幅值随网格加密而衰减
+，同时还能够避免近似解的精度在光滑极值点附近降阶，因此特别适合于既含间断（激波、接触间断、膨胀波）、又含复杂流动结构（湍流、涡系）的问题。
 \end_layout
 
 \begin_layout Standard
-ENO 格式和 WENO 重构技术都可以在光滑区域保持高阶精度，但在间断处能够将数值振荡压制到基本可以忽略的程度。此后，WENO 重构技术被引入到高阶有限体积格
-式
+此后，WENO 重构技术被引入到高阶有限体积格式
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Hu_1999"
@@ -7936,7 +9325,7 @@ literal "false"
 
 \end_inset
 
-中，从而适用于非结构网格。类似的想法后来被应用于 RKDG 格式
+中，从而适用于非结构网格。类似的想法后来被移植到 RKDG 格式中
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Qiu_2005,Zhu_2008"
@@ -7952,8 +9341,15 @@ literal "true"
 
 \end_inset
 
-，大约在 2013 年前后才开始出现，并且大多数只给出了二维版本。(W)ENO 格式虽不能完全消除数值振荡，但可以让数值振荡的幅值随网格加密而衰减，同时还能够避
-免近似解的精度在光滑极值点附近降阶，因此特别适合于既含间断（激波、接触间断、膨胀波）、又含复杂流动结构（湍流、涡系）的问题。
+，大约在 2013 年前后才开始出现，并且通常只给出二维版本的实现。本节剩余部分将基于文献-
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Zhong_2013,Zhu_2013"
+literal "true"
+
+\end_inset
+
+ 提出的二维 RKDG 格式的紧致型 WENO 限制器，提出一种适用于三维 RKDG 及 UMS–RKDG 格式的紧致型 WENO 限制器。
 \end_layout
 
 \begin_layout Subsection
@@ -9442,1290 +10838,41 @@ literal "true"
 \end_layout
 
 \begin_layout Section
-保强稳定的 RK 时间推进格式
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:RK"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-《
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "sec:DG"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-》节最后给出的式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:orthonormal_DG"
-
-\end_inset
-
- 是一个待求解的常微分方程组，其中右端项依赖于待定未知量，不妨将其记作
-\begin_inset Formula 
-\begin{equation}
-\frac{\dd}{\dd t}\underline{\hat{U}}=\underline{\hat{R}},\qquad\underline{\hat{R}}\coloneqq\underline{R}(\underline{\hat{U}}).
-\end{equation}
-
-\end_inset
-
-其左侧的时间导数原则上可以做有限差分近似；考虑到时间变量 
-\begin_inset Formula $t$
-\end_inset
-
- 是单调递增的，时间格式应当具有向前“推进 (marching)”的特点：
-\end_layout
-
-\begin_layout Itemize
-变量 
-\begin_inset Formula $\underline{\hat{U}}$
-\end_inset
-
- 在下一时间步 
-\begin_inset Formula $t_{n+1}$
-\end_inset
-
- 的值 
-\begin_inset Formula $\underline{\hat{U}}^{n+1}$
-\end_inset
-
- 由变量在当前及之前各时间步的值计算而得。
-\end_layout
-
-\begin_layout Itemize
-如果计算 
-\begin_inset Formula $\underline{\hat{U}}^{n+1}$
-\end_inset
-
- 只需用到当前时间步 
-\begin_inset Formula $t_{n}$
-\end_inset
-
- 的值 
-\begin_inset Formula $\underline{\hat{U}}^{n}$
-\end_inset
-
-，则称其为单步格式，否则称之为多步格式。
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "$\\underline{\\hat{U}}^{n}$"
-description "表示 $\\underline{\\hat{U}}$ 第 $n$ 时间步的值"
-literal "true"
-
-\end_inset
-
-
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "$\\underline{\\hat{R}}^{n}$"
-description "表示 $\\underline{R}(\\underline{\\hat{U}})$ 在第 $n$ 时间步的值"
-literal "true"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-如果计算 
-\begin_inset Formula $\underline{\hat{U}}^{n+1}$
-\end_inset
-
- 时，右端项不依赖于 
-\begin_inset Formula $\underline{\hat{U}}^{n+1}$
-\end_inset
-
-，则称其为显示推进格式，否则称之为隐式推进格式。
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-显示推进格式可以直接代入公式计算，编程实现更简单，但对时间步长的要求相对苛刻。
-\end_layout
-
-\begin_layout Itemize
-隐式推进格式需要求解关于 
-\begin_inset Formula $\underline{\hat{U}}^{n+1}$
-\end_inset
-
- 的代数方程组，编程实现更复杂，但对时间步长的要求相对宽松。
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-一阶格式
-\end_layout
-
-\begin_layout Standard
-采用一阶向前差分近似时间导数：
-\begin_inset Formula 
-\begin{equation}
-\frac{\underline{\hat{U}}^{n+1}-\underline{\hat{U}}^{n}}{h_{t}}\approx\frac{\dd}{\dd t}\underline{\hat{U}}^{n}=\underline{\hat{R}}^{n},
-\end{equation}
-
-\end_inset
-
-就得到显式欧拉格式：
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "$h_t$"
-description "表示时间步长"
-literal "true"
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-\underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n}.\label{eq:Euler}
-\end{equation}
-
-\end_inset
-
-它是最简单的显式推进格式。
-\end_layout
-
-\begin_layout Standard
-采用一阶向后差分近似时间导数：
-\begin_inset Formula 
-\begin{equation}
-\frac{\underline{\hat{U}}^{n+1}-\underline{\hat{U}}^{n}}{h_{t}}\approx\frac{\dd}{\dd t}\underline{\hat{U}}^{n+1}=\underline{\hat{R}}^{n+1},
-\end{equation}
-
-\end_inset
-
-就得到隐式欧拉格式：
-\begin_inset Formula 
-\begin{equation}
-\underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n+1}.
-\end{equation}
-
-\end_inset
-
-它是最简单的隐式推进格式。
-\end_layout
-
-\begin_layout Standard
-以上两种欧拉格式都只有一阶时间精度。
-\end_layout
-
-\begin_layout Subsection
-高阶格式
-\end_layout
-
-\begin_layout Standard
-显式 Runge–Kutta (RK) 格式
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "RK"
-description "Runge–Kutta"
-literal "true"
-
-\end_inset
-
-是一族高阶推进格式，最一般的形式为
-\begin_inset Formula 
-\begin{equation}
-\underline{\hat{U}}^{n+i/m}=\sum_{k=0}^{i-1}\left(\alpha_{i,k}\underline{\hat{U}}^{n+k/m}+\beta_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\right),\qquad i=1,\dots,m\label{eq:RKm}
-\end{equation}
-
-\end_inset
-
-其中 
-\begin_inset Formula $\sum_{k=0}^{i-1}\alpha_{i,k}=1$
-\end_inset
-
- 对所有 
-\begin_inset Formula $i$
-\end_inset
-
- 都成立。本文选用以下版本：
-\end_layout
-
-\begin_layout Description
-一阶 同显式欧拉格式，即
-\begin_inset Formula 
-\begin{equation}
-\underline{\hat{U}}^{n+1}=\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n};\label{eq:RK1}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Description
-二阶 
-\begin_inset Formula 
-\begin{equation}
-\begin{aligned}\underline{\hat{U}}^{n+1/2} & =\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n},\\
-\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+2/2} & =\frac{1}{2}\underline{\hat{U}}^{n}+\frac{1}{2}\left(\underline{\hat{U}}^{n+1/2}+h_{t}\underline{\hat{R}}^{n+1/2}\right);
-\end{aligned}
-\label{eq:RK2}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Description
-三阶 
-\begin_inset Formula 
-\begin{equation}
-\begin{aligned}\underline{\hat{U}}^{n+1/3} & =\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n},\\
-\underline{\hat{U}}^{n+2/3} & =\frac{3}{4}\underline{\hat{U}}^{n}+\frac{1}{4}\left(\underline{\hat{U}}^{n+1/3}+h_{t}\underline{\hat{R}}^{n+1/3}\right),\\
-\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+3/3} & =\frac{1}{3}\underline{\hat{U}}^{n}+\frac{2}{3}\left(\underline{\hat{U}}^{n+2/3}+h_{t}\underline{\hat{R}}^{n+2/3}\right).
-\end{aligned}
-\label{eq:RK3}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-强稳定性
-\end_layout
-
-\begin_layout Standard
-设 
-\begin_inset Formula $\Vert\cdots\Vert$
-\end_inset
-
- 是某种矩阵范数。若存在非负常数 
-\begin_inset Formula $C$
-\end_inset
-
- 使得
-\begin_inset Formula 
-\begin{equation}
-\Vert\underline{\hat{U}}^{n}\Vert\le C\Vert\underline{\hat{U}}^{0}\Vert,\qquad\forall n\in\mathbb{N},
-\end{equation}
-
-\end_inset
-
-则称该格式具有稳定性。若上述 
-\begin_inset Formula $C\le1$
-\end_inset
-
-，则称该格式具有强稳定性。可以证明：当时间步长足够小时，显式欧拉格式具有强稳定性。若高阶格式可以保持这种强稳定性，则称其为“保强稳定 (strong
- stability preserving, SSP)”格式。
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "SSP"
-description "strong stability preserving"
-literal "true"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Lemma
-若式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:RKm"
-
-\end_inset
-
- 中的所有 
-\begin_inset Formula $\alpha_{i,k}$
-\end_inset
-
- 和 
-\begin_inset Formula $\beta_{i,k}$
-\end_inset
-
- 都非负，且满足
-\begin_inset Formula 
-\begin{equation}
-h_{t}\le ch_{t}^{\mathrm{E.E.}},\qquad c=\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}},
-\end{equation}
-
-\end_inset
-
-则其为 SSP 格式。
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "$h_{t}^{\\mathrm{E.E.}}$"
-description "表示显示欧拉格式的时间步长"
-literal "true"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
-满足上述条件时，每个中间步的 
-\begin_inset Formula $\underline{\hat{U}}^{n+i/m}$
-\end_inset
-
- 都可以分解为若干显式欧拉格式的凸组合：
-\begin_inset Formula 
-\begin{equation}
-\begin{aligned}\left\Vert \underline{\hat{U}}^{n+i/m}\right\Vert  & =\left\Vert \sum_{k=0}^{i-1}\alpha_{i,k}\left(\underline{\hat{U}}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{\hat{R}}^{n+k/m}\right)\right\Vert \\
- & \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{\hat{R}}^{n+k/m}\right\Vert 
-\end{aligned}
-\end{equation}
-
-\end_inset
-
-其中
-\begin_inset Formula 
-\begin{equation}
-\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\le\frac{\beta_{i,k}}{\alpha_{i,k}}ch_{t}^{\mathrm{E.E.}}\le\frac{\beta_{i,k}}{\alpha_{i,k}}\frac{\alpha_{i,k}}{\beta_{i,k}}h_{t}^{\mathrm{E.E.}}=h_{t}^{\mathrm{E.E.}},\qquad\forall(i,k),
-\end{equation}
-
-\end_inset
-
-满足显式欧拉格式的强稳定性条件，因此有
-\begin_inset Formula 
-\begin{equation}
-\left\Vert \underline{\hat{U}}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{\hat{R}}^{n+k/m}\right\Vert \le\left\Vert \underline{\hat{U}}^{n+k/m}\right\Vert ,\qquad\forall k=0,1,\dots,i-1.
-\end{equation}
-
-\end_inset
-
-从而有
-\begin_inset Formula 
-\begin{equation}
-\begin{aligned}\left\Vert \underline{\hat{U}}^{n+i/m}\right\Vert  & \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n+k/m}+\frac{\beta_{i,k}}{\alpha_{i,k}}h_{t}\underline{\hat{R}}^{n+k/m}\right\Vert \\
- & \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n+k/m}\right\Vert .
-\end{aligned}
-\end{equation}
-
-\end_inset
-
-据此有
-\begin_inset Formula 
-\begin{equation}
-\left\Vert \underline{\hat{U}}^{n+1/m}\right\Vert \le\sum_{k=0}^{0}\alpha_{1,0}\left\Vert \underline{\hat{U}}^{n+0/m}\right\Vert =\left\Vert \underline{U}^{n}\right\Vert ,
-\end{equation}
-
-\end_inset
-
-从而可以递归地证明
-\begin_inset Formula 
-\begin{equation}
-\left\Vert \underline{\hat{U}}^{n+i/m}\right\Vert \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n+k/m}\right\Vert \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n}\right\Vert =\left\Vert \underline{\hat{U}}^{n}\right\Vert .
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Lemma
-一般的显式 RK 格式
-\begin_inset Formula 
-\begin{equation}
-\underline{\hat{U}}^{n+i/m}=\underline{\hat{U}}^{n}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m},\qquad i=1,2,\dots,m,
-\end{equation}
-
-\end_inset
-
-可以改写为式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:RKm"
-
-\end_inset
-
- 的形式，其中 
-\begin_inset Formula $\sum_{k=0}^{i-1}\alpha_{i,k}=1$
-\end_inset
-
- 且
-\begin_inset Formula 
-\begin{equation}
-\alpha_{i,k}\ge0,\qquad\beta_{i,k}=\begin{cases}
-\gamma_{i,k}-\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}, & k=0,1,\dots,i-2;\\
-\gamma_{i,k} & k=i-1.
-\end{cases}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
-令 
-\begin_inset Formula $\sum_{k=0}^{i-1}\alpha_{i,k}=1$
-\end_inset
-
- 且
-\begin_inset Formula 
-\begin{equation}
-\alpha_{i,k}\ge0,\qquad k=0,1,\dots,i-1.
-\end{equation}
-
-\end_inset
-
-则
-\begin_inset Formula 
-\begin{equation}
-\begin{aligned}\underline{\hat{U}}^{n+i/m} & =\underline{\hat{U}}^{n}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}=\underbrace{\left(\sum_{k=0}^{i-1}\alpha_{i,k}\right)}_{=1}\underline{\hat{U}}^{n}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\\
- & =\alpha_{i,0}\underline{U}^{n}+\sum_{k=1}^{i-1}\alpha_{i,k}\underbrace{\left(\underline{\hat{U}}^{n+k/m}-\sum_{l=0}^{k-1}\gamma_{k,l}h_{t}\underline{\hat{R}}^{n+l/m}\right)}_{=\underline{U}^{n}}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\\
- & =\underbrace{\left(\alpha_{i,0}\underline{\hat{U}}^{n+0/m}+\sum_{k=1}^{i-1}\alpha_{i,k}\underline{\hat{U}}^{n+k/m}\right)}_{\sum_{k=0}^{i-1}\alpha_{i,k}\underline{U}^{n+k/m}}\\
- & +\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}-\sum_{k=1}^{i-1}\sum_{l=0}^{k-1}\alpha_{i,k}\gamma_{k,l}h_{t}\underline{\hat{R}}^{n+l/m},
-\end{aligned}
-\end{equation}
-
-\end_inset
-
-其中
-\begin_inset Formula 
-\begin{equation}
-\begin{aligned}\sum_{k=1}^{i-1}\sum_{l=0}^{k-1}\alpha_{i,k}\gamma_{k,l}h_{t}\underline{\hat{R}}^{n+l/m} & =\sum_{l=0}^{i-2}\sum_{k=l+1}^{i-1}\alpha_{i,k}\gamma_{k,l}h_{t}\underline{\hat{R}}^{n+l/m}=\sum_{k=0}^{i-2}\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}h_{t}\underline{\hat{R}}^{n+k/m}.\end{aligned}
-\end{equation}
-
-\end_inset
-
-因此
-\begin_inset Formula 
-\begin{equation}
-\begin{aligned}\underline{\hat{U}}^{n+i/m} & =\sum_{k=0}^{i-1}\alpha_{i,k}\underline{\hat{U}}^{n+k/m}-\sum_{k=0}^{i-2}\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}h_{t}\underline{\hat{R}}^{n+k/m}+\sum_{k=0}^{i-1}\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\\
- & =\sum_{k=0}^{i-2}\left(\alpha_{i,k}\underline{\hat{U}}^{n+k/m}+\left(\gamma_{i,k}-\sum_{l=k+1}^{i-1}\alpha_{i,l}\gamma_{l,k}\right)h_{t}\underline{\hat{R}}^{n+k/m}\right)\\
- & +\sum_{k=i-1}^{i-1}\left(\alpha_{i,k}\underline{\hat{U}}^{n+k/m}+\gamma_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\right).
-\end{aligned}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-强稳定保持的概念以及上述引理，是由 Shu 等提出并发展的
-\begin_inset CommandInset citation
-LatexCommand citet
-key "Gottlieb_1998,Gottlieb_2001"
-literal "false"
-
-\end_inset
-
-。原始文献中的推导过程较为简略，这里尽量补全了被省去的步骤。
-\end_layout
-
-\begin_layout Standard
-并非所有 RK 格式都能保持强稳定性。例如：文献-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Hirsch_2007"
-literal "false"
-
-\end_inset
-
- 给出的四阶 RK 格式
-\begin_inset Formula 
-\begin{equation}
-\begin{aligned}\underline{\hat{U}}^{n+1/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n},\\
-\underline{\hat{U}}^{n+2/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4},\\
-\underline{\hat{U}}^{n+3/4} & =\underline{\hat{U}}^{n}+h_{t}\underline{\hat{R}}^{n+2/4},\\
-\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+4/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{6}\left(\underline{\hat{R}}^{n}+2\underline{\hat{R}}^{n+1/4}+2\underline{\hat{R}}^{n+2/4}+\underline{\hat{R}}^{n+3/4}\right),
-\end{aligned}
-\end{equation}
-
-\end_inset
-
-改写为式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:RKm"
-
-\end_inset
-
- 的形式后
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-给出具体形式
-\end_layout
-
-\end_inset
-
-，并非所有 
-\begin_inset Formula $\alpha_{i,k}$
-\end_inset
-
- 与 
-\begin_inset Formula $\beta_{i,k}$
-\end_inset
-
- 都非负，因此不是 SSP 格式。
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-给出反例
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-本文选用式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:RK1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-–
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:RK3"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 作为时间推进格式，正是因为它们是 SSP 格式。为明确区分时间离散与空间离散的阶数，本文把用 
-\begin_inset Formula $p$
-\end_inset
-
- 阶 (SSP) RK 格式做时间推进、用 
-\begin_inset Formula $q$
-\end_inset
-
- 阶 DG 有限元法做空间离散的具体格式称为“RK
-\begin_inset Formula $p$
-\end_inset
-
-/DG
-\begin_inset Formula $q$
-\end_inset
-
- 格式”，并称基于该格式的求解器、近似解为“RK
-\begin_inset Formula $p$
-\end_inset
-
-/DG
-\begin_inset Formula $q$
-\end_inset
-
- 求解器、近似解”；称构造这些格式的方法为“RKDG 方法”。若时空精度皆为 
-\begin_inset Formula $p$
-\end_inset
-
-，则“RK
-\begin_inset Formula $p$
-\end_inset
-
-/DG
-\begin_inset Formula $q$
-\end_inset
-
-”（格式、求解器、近似解）也可简称为“
-\begin_inset Formula $p$
-\end_inset
-
- 阶 RKDG”（格式、求解器、近似解）。
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "RKDG"
-description "Runge--Kutta discontinuous Galerkin"
-literal "true"
-
-\end_inset
-
-
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "RK$p$/DG$q$"
-description "$p$th order Runge–Kutta and $q$th order discontinuous Galerkin"
-literal "true"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-非定常动量源模型
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:UMS"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-前文已经给出了用 RKDG 方法 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:orthonormal_DG"
-
-\end_inset
-
- 来求解含源项的双曲型方程组 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:PDE"
-
-\end_inset
-
- 的一般过程。在该方法中，源项只出现在体积分中，具体形式为
-\begin_inset Formula 
-\begin{equation}
-\int_{V_{i}}\begin{bmatrix}\phi_{1} & \cdots & \phi_{K}\end{bmatrix}\mathopen{\underline{H}}\left(\underline{U}^{h}\right).
-\end{equation}
-
-\end_inset
-
-本文不考虑质量源与能量源，故该式实际需要计算的是计算基函数 
-\begin_inset Formula $\phi_{k}$
-\end_inset
-
- 与动量源 
-\begin_inset Formula $\vec{b}$
-\end_inset
-
- 的乘积在 
-\begin_inset Formula $V_{i}$
-\end_inset
-
- 上体积分：
-\begin_inset Formula 
-\begin{equation}
-\int_{V_{i}}\phi_{k}(\vec{r})\,\vec{b}(\vec{r}).
-\end{equation}
-
-\end_inset
-
-本节给出将体现旋翼气动效应的一种“非定常动量源 (unsteady momentum source, UMS)”模型
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "unsteady momentum source"
-description "UMS"
-literal "true"
-
-\end_inset
-
-嵌入既有的 RKDG 求解器，从而获得 UMS–RKDG 求解器的具体过程。
-\end_layout
-
-\begin_layout Subsection
-外力密度
-\end_layout
-
-\begin_layout Standard
-直升机旋翼桨叶具有较大的展弦比，其对空气的作用力可以近似为集中于桨叶轴线。为避免混淆，本文以 
-\begin_inset Formula $\vec{b}_{\mathrm{V}}$
-\end_inset
-
- 表示外力的体密度
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "$\\vec{b}_{\\mathrm{V}}$"
-description "表示单位体积气体所受到的外力"
-literal "true"
-
-\end_inset
-
-，以 
-\begin_inset Formula $\vec{b}_{\mathrm{L}}$
-\end_inset
-
- 表示外力的线密度
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "$\\vec{b}_{\\mathrm{L}}$"
-description "表示单位长度气体所受到的外力"
-literal "true"
-
-\end_inset
-
-：
-\end_layout
-
-\begin_layout Itemize
-含动量源的三维欧拉方程可以写成
-\begin_inset Formula 
-\begin{equation}
-\partial_{t}\begin{bmatrix}\rho\\
-\rho\vec{u}\\
-\rho e_{0}
-\end{bmatrix}+\nabla\cdot\begin{bmatrix}\rho\vec{u}\\
-\rho\vec{u}\otimes\vec{u}\\
-\rho h_{0}\vec{u}
-\end{bmatrix}=\begin{bmatrix}0\\
-\vec{b}_{\mathrm{V}}-\nabla p\\
-0
-\end{bmatrix},
-\end{equation}
-
-\end_inset
-
-其中，
-\begin_inset Formula $\vec{b}_{\mathrm{V}}$
-\end_inset
-
- 为单位体积气体所受到的外力，即 
-\begin_inset Formula $\vec{b}_{\mathrm{V}}(\vec{r})$
-\end_inset
-
- 表示气体所受外力在 
-\begin_inset Formula $\vec{r}$
-\end_inset
-
- 处的体密度。
-\end_layout
-
-\begin_layout Itemize
-展向弧长 
-\begin_inset Formula $s$
-\end_inset
-
- 处的微翼段 
-\begin_inset Formula $[s,s+\dd{s})$
-\end_inset
-
- 所受到的气动力为
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "$s$"
-description "表示桨叶弦长参数"
-literal "true"
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-\begin{bmatrix}L\dd{s}\\
-D\dd{s}
-\end{bmatrix}=\frac{1}{2}\rho(u^{2}+w^{2})\begin{bmatrix}C_{L}(\alpha)\\
-C_{D}(\alpha)
-\end{bmatrix}c\dd{s},
-\end{equation}
-
-\end_inset
-
-其中，
-\begin_inset Formula $L$
-\end_inset
-
- 与 
-\begin_inset Formula $D$
-\end_inset
-
- 分别为升力与阻力的线密度
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "$C_L$"
-description "表示翼型升力系数"
-literal "true"
-
-\end_inset
-
-
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "$C_D$"
-description "表示翼型阻力系数"
-literal "true"
-
-\end_inset
-
-。根据牛顿第三定律，该气动力的反作用力，就是微翼段对气体的作用力，故
-\begin_inset Formula 
-\begin{equation}
-\vec{b}_{\mathrm{L}}(\vec{r}(s))=-\begin{bmatrix}\vec{e}_{L}(s) & \vec{e}_{D}(s)\end{bmatrix}\begin{bmatrix}L(s)\\
-D(s)
-\end{bmatrix}
-\end{equation}
-
-\end_inset
-
-表示气体所受外力在展向弧长 
-\begin_inset Formula $s$
-\end_inset
-
- 处的线密度。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-沿桨叶展向积分
-\end_layout
-
-\begin_layout Standard
-设
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "$\\overrightarrow{PQ}$"
-description "表示点 $P$ 到点 $Q$ 的有向线段"
-literal "true"
-
-\end_inset
-
-线段 
-\begin_inset Formula $\overrightarrow{PQ}$
-\end_inset
-
- 与顶点为 
-\begin_inset Formula $ABCD$
-\end_inset
-
- 的四面体单元 
-\begin_inset Formula $V_{i}$
-\end_inset
-
- 的公共部分为线段 
-\begin_inset Formula $\overrightarrow{RS}$
-\end_inset
-
-，如图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:PQ"
-
-\end_inset
-
- (a) 所示。这里允许 
-\begin_inset Formula $P=R$
-\end_inset
-
- 或 
-\begin_inset Formula $Q=S$
-\end_inset
-
-，如图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:PQ"
-
-\end_inset
-
- (b) (c) 所示。
-\begin_inset Formula $\overrightarrow{RS}$
-\end_inset
-
- 的求法在下一小节给出。
-\end_layout
-
-\begin_layout Standard
-基函数 
-\begin_inset Formula $\phi_{k}(\vec{r})$
-\end_inset
-
- 定义在单元 
-\begin_inset Formula $V_{i}$
-\end_inset
-
- 上，则其与外力体密度的乘积 
-\begin_inset Formula $\phi_{k}\,\vec{b}_{\mathrm{V}}$
-\end_inset
-
- 在单元 
-\begin_inset Formula $V_{i}$
-\end_inset
-
- 上的体积分，可以转化为其与外力线密度的乘积 
-\begin_inset Formula $\phi_{k}\,\vec{b}_{\mathrm{L}}$
-\end_inset
-
- 在线段 
-\begin_inset Formula $\overrightarrow{RS}$
-\end_inset
-
- 上的线积分：
-\begin_inset Formula 
-\begin{equation}
-\int_{V_{i}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{V}}(\vec{r})=\int_{\overrightarrow{RS}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{L}}(\vec{r}).
-\end{equation}
-
-\end_inset
-
-线段 
-\begin_inset Formula $\overrightarrow{RS}$
-\end_inset
-
- 是可参数化的曲线，故后者可借助曲线参数 
-\begin_inset Formula $\xi$
-\end_inset
-
- 化为定积分：
-\begin_inset Formula 
-\begin{equation}
-\int_{\overrightarrow{RS}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{L}}(\vec{r})=\int_{\xi_{R}}^{\xi_{S}}\phi_{k}(\vec{r}(\xi))\,\vec{b}_{\mathrm{L}}(\vec{r}(\xi))\left\Vert \frac{\partial\vec{r}}{\partial\xi}\right\Vert \dd{\xi},
-\end{equation}
-
-\end_inset
-
-后者可以用标准的高斯求积公式计算。
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/PQ.pdf
-	lyxscale 50
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:PQ"
-
-\end_inset
-
-线段穿过四面体单元的几种常见情形
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-桨叶与体单元求交
-\end_layout
-
-\begin_layout Standard
-求线段 
-\begin_inset Formula $\overrightarrow{PQ}$
-\end_inset
-
- 与四面体 
-\begin_inset Formula $ABCD$
-\end_inset
-
- 的公共部分，可以归结为求线段 
-\begin_inset Formula $\overrightarrow{PQ}$
-\end_inset
-
- 与 
-\begin_inset Formula $\triangle ABC$
-\end_inset
-
- 的公共点。设
-\begin_inset Formula 
-\begin{equation}
-\overrightarrow{PQ}=\lambda_{A}\overrightarrow{PA}+\lambda_{B}\overrightarrow{PB}+\lambda_{C}\overrightarrow{PC},
-\end{equation}
-
-\end_inset
-
-即
-\begin_inset Formula 
-\begin{equation}
-\begin{bmatrix}(PQ)_{x}\\
-(PQ)_{y}\\
-(PQ)_{z}
-\end{bmatrix}=\begin{bmatrix}(PA)_{x} & (PB)_{x} & (PC)_{x}\\
-(PA)_{y} & (PB)_{y} & (PC)_{y}\\
-(PA)_{z} & (PB)_{z} & (PC)_{z}
-\end{bmatrix}\begin{bmatrix}\lambda_{A}\\
-\lambda_{B}\\
-\lambda_{C}
-\end{bmatrix}\label{eq:segment_triangle_intersection}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-若点 
-\begin_inset Formula $P$
-\end_inset
-
- 与 
-\begin_inset Formula $\triangle ABC$
-\end_inset
-
- 不共面，即
-\begin_inset Formula 
-\begin{equation}
-\det\begin{bmatrix}(PA)_{x} & (PB)_{x} & (PC)_{x}\\
-(PA)_{y} & (PB)_{y} & (PC)_{y}\\
-(PA)_{z} & (PB)_{z} & (PC)_{z}
-\end{bmatrix}\ne0,
-\end{equation}
-
-\end_inset
-
-则关于 
-\begin_inset Formula $\lambda_{A},\lambda_{B},\lambda_{C}$
-\end_inset
-
- 的方程 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:segment_triangle_intersection"
-
-\end_inset
-
- 有唯一解。
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-若 
-\begin_inset Formula $\lambda_{A},\lambda_{B},\lambda_{C}$
-\end_inset
-
- 均为正数，则直线 
-\begin_inset Formula $PQ$
-\end_inset
-
- 与 
-\begin_inset Formula $\triangle ABC$
-\end_inset
-
- 有唯一的交点 
-\begin_inset Formula $R$
-\end_inset
-
-，且位于 
-\begin_inset Formula $\triangle ABC$
-\end_inset
-
- 内部：
-\begin_inset Formula 
-\begin{equation}
-\overrightarrow{PR}=\frac{\overrightarrow{PQ}}{\lambda_{A}+\lambda_{B}+\lambda_{C}}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-若还有 
-\begin_inset Formula $\lambda_{A}+\lambda_{B}+\lambda_{C}>1$
-\end_inset
-
-，则点 
-\begin_inset Formula $R$
-\end_inset
-
- 为线段 
-\begin_inset Formula $\overrightarrow{PQ}$
-\end_inset
-
- 与 
-\begin_inset Formula $\triangle ABC$
-\end_inset
-
- 的交点，如图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:PQ"
-
-\end_inset
-
- (a) 所示。
-\end_layout
-
-\begin_layout Itemize
-否则，点 
-\begin_inset Formula $R$
-\end_inset
-
- 位于线段 
-\begin_inset Formula $\overrightarrow{PQ}$
-\end_inset
-
- 的延长线上，不是线段 
-\begin_inset Formula $\overrightarrow{PQ}$
-\end_inset
-
- 与 
-\begin_inset Formula $\triangle ABC$
-\end_inset
-
- 的交点。
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-否则，线段 
-\begin_inset Formula $\overrightarrow{PQ}$
-\end_inset
-
- 与 
-\begin_inset Formula $\triangle ABC$
-\end_inset
-
- 所属平面有唯一的交点，但不在 
-\begin_inset Formula $\triangle ABC$
-\end_inset
-
- 内。
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-否则，判断点 
-\begin_inset Formula $Q$
-\end_inset
-
- 是否与 
-\begin_inset Formula $\triangle ABC$
-\end_inset
-
- 共面。
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-若点 
-\begin_inset Formula $Q$
-\end_inset
-
- 与 
-\begin_inset Formula $\triangle ABC$
-\end_inset
-
- 不共面，则点 
-\begin_inset Formula $P$
-\end_inset
-
- 是直线 
-\begin_inset Formula $PQ$
-\end_inset
-
- 与 
-\begin_inset Formula $\triangle ABC$
-\end_inset
-
- 所属平面的唯一交点。
-\end_layout
-
-\begin_layout Itemize
-否则，直线 
-\begin_inset Formula $PQ$
-\end_inset
-
- 与 
-\begin_inset Formula $\triangle ABC$
-\end_inset
-
- 共面，但可能与 
-\begin_inset Formula $\triangle ABC$
-\end_inset
-
- 没有公共点，需进一步讨论。
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
 本章小结
 \end_layout
 
 \begin_layout Standard
-适用于三维非结构网格的 Runge–Kutta 间断 Galerkin (RKDG) 求解器，能够处理具有复杂几何外形的边界，从而适用于航空航天领域的工程问题。
-基于邻接单元的加权基本无振荡 (WENO) 重构过程，能够有效地压制间断附近的数值振荡，同时保持 RKDG 格式的紧致性、可并行性。非定常动量源
- (UMS) 模型，能够无缝嵌入高阶 RKDG 求解器，实现对旋翼气动的高精度、高效模拟，避免了对动态网格技术的依赖。
+本章提出了一种适用于舰载直升机流场的高阶计算方法。该方法
+\end_layout
+
+\begin_layout Itemize
+以三维非结构网格上的 DG 格式做空间离散，能够处理具有复杂几何外形的边界；
+\end_layout
+
+\begin_layout Itemize
+以保持强稳定性的 RK 格式做时间推进，能够像显式欧拉格式那样以保持数值解的强稳定性；
+\end_layout
+
+\begin_layout Itemize
+以非定常动量源模型 (UMS) 表示桨叶对流场的扰动，避免了旋翼 CFD 对动态网格技术的依赖；
+\end_layout
+
+\begin_layout Itemize
+以紧致型 WENO 重构技术压制 RKDG 及 UMS–RKDG 高阶近似解在间断附近的数值振荡。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
-算法的并行实现与精度验证
+高阶计算方法在非结构网格上的验证
 \begin_inset CommandInset label
 LatexCommand label
-name "chap:实现"
+name "chap:验证"
 
 \end_inset
 
@@ -10733,66 +10880,18 @@ name "chap:实现"
 \end_layout
 
 \begin_layout Standard
-带有紧致 WENO 限制器的 RKDG 格式自提出以来，很少有三维或实际工程应用的报道。一个重要原因是每个单元所消耗的计算资源，随着精度阶数或空间维度的增加而迅
-速增长。幸运的是，显式 RKDG 格式和紧致 WENO 限制器的大多数计算都可以在本地进行，并且不需要求解全局代数方程组。基于这些事实，基于区域分解的分布式并行
-计算可以很自然地用来加速计算。目前（2022 年初），对于带有紧致 WENO 限制器的 RKDG 格式，还没有公开发表的并行实现。但有一些其他
- DG 格式的并行化案例被公开发表过：
-\end_layout
-
-\begin_layout Itemize
-Biswas 等
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Biswas_1994"
-literal "false"
+本章首先基于一组具有解析解、数值精确解或高精度数值解的一维或二维标准算例，在三维非结构网格上验证第
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:算法"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
- 在均匀结构网格上，测量了其一维、二维线性标量问题 DG 求解器的并行性能。他们获得了接近理想情形的并行效率：纯求解时间（无 I/O）超过 99%，总运行时间至
-少 89%。
-\end_layout
-
-\begin_layout Itemize
-Bey 等
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Bey_1995"
-literal "false"
-
-\end_inset
-
- 在均匀（结构）和 
-\begin_inset Formula $hp$
-\end_inset
-
--自适应（非结构）网格上，测试了其线性守恒律 DG 求解器的性能。当内部单元的数量远超边界单元的数量时，他们获得了几乎最优的并行效率。
-\end_layout
-
-\begin_layout Itemize
-Chalmers 等
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chalmers_2019"
-literal "false"
-
-\end_inset
-
-使用 MPI/OpenMP 混合并行，实现了二维 Navier–Stokes 方程 DG 格式的并行化，并在只有四边形单元的均匀网格上实现了良好的可扩展性。
-\end_layout
-
-\begin_layout Standard
-它们都没有给出显式 DG 求解器在三维非结构网格上的并行性能。本章将完成实现 RKDG 求解器的三维并行版本。
-\end_layout
-
-\begin_layout Section
-基于 MPI 的并行实现
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:parallel"
-
-\end_inset
-
-
+章所提高阶计算方法的正确性，以及提高阶数对减小误差所起的积极作用。在此基础上，基于一组没有解析解、数值精确解及高精度数值解的三维工程算例，以物理上可靠的一阶近似
+解为参照，验证三阶近似解的正确性。
 \end_layout
 
 \begin_layout Section
@@ -10803,7 +10902,7 @@ name "sec:parallel"
 本小节求解如下线性波动方程
 \begin_inset Formula 
 \begin{equation}
-\partial_{t}\underline{U}+\underline{A^{x}}\,\partial_{x}\underline{U}+\underline{A^{y}}\,\partial_{y}\underline{U}+\underline{A^{z}}\,\partial_{z}\underline{U}=\underline{0}\label{eq:linear_system}
+\partial_{t}\underline{U}+\underline{A}^{x}\,\partial_{x}\underline{U}+\underline{A}^{y}\,\partial_{y}\underline{U}+\underline{A}^{z}\,\partial_{z}\underline{U}=\underline{0}\label{eq:linear_system}
 \end{equation}
 
 \end_inset
@@ -10867,7 +10966,7 @@ reference "eq:linear_system"
  中，令
 \begin_inset Formula 
 \begin{equation}
-\underline{U}(x,y,z,t)=\begin{bmatrix}U(x,y,z,t)\end{bmatrix},\qquad\underline{A^{x}}=\begin{bmatrix}-10\end{bmatrix},\qquad\underline{A^{y}}=\underline{A^{z}}=\begin{bmatrix}0\end{bmatrix},
+\underline{U}(x,y,z,t)=\begin{bmatrix}U(x,y,z,t)\end{bmatrix},\qquad\underline{A}^{x}=\begin{bmatrix}-10\end{bmatrix},\qquad\underline{A}^{y}=\underline{A}^{z}=\begin{bmatrix}0\end{bmatrix},
 \end{equation}
 
 \end_inset
@@ -12070,9 +12169,9 @@ reference "eq:linear_system"
 \begin{equation}
 \underline{U}(\vec{x},t)=\begin{bmatrix}U_{1}(x,y,z,t)\\
 U_{2}(x,y,z,t)
-\end{bmatrix},\qquad\underline{A^{x}}=\begin{bmatrix}6 & -2\\
+\end{bmatrix},\qquad\underline{A}^{x}=\begin{bmatrix}6 & -2\\
 -2 & 6
-\end{bmatrix},\qquad\underline{A^{y}}=\underline{A^{z}}=\begin{bmatrix}0 & 0\\
+\end{bmatrix},\qquad\underline{A}^{y}=\underline{A}^{z}=\begin{bmatrix}0 & 0\\
 0 & 0
 \end{bmatrix},
 \end{equation}
@@ -12122,7 +12221,7 @@ U_{2}(x,y,z,t)
 
 \begin_layout Standard
 为获得其解析解，先对 
-\begin_inset Formula $\underline{A^{x}}$
+\begin_inset Formula $\underline{A}^{x}$
 \end_inset
 
  作特征分解，得到
@@ -12130,7 +12229,7 @@ U_{2}(x,y,z,t)
 \begin{equation}
 \underbrace{\begin{bmatrix}6 & -2\\
 -2 & 6
-\end{bmatrix}}_{\underline{A^{x}}}=\underbrace{\begin{bmatrix}1 & 1\\
+\end{bmatrix}}_{\underline{A}^{x}}=\underbrace{\begin{bmatrix}1 & 1\\
 -1 & 1
 \end{bmatrix}}_{\underline{R^{x}}}\underbrace{\begin{bmatrix}8\\
  & 4
@@ -12547,7 +12646,7 @@ EigenWeno
 \end_layout
 
 \begin_layout Section
-基于一维流动问题数值精确解的定量验证
+基于一维流场数值精确解的定量验证
 \end_layout
 
 \begin_layout Standard
@@ -14361,7 +14460,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Section
-基于二维流动问题高精度数值解的定性验证
+基于二维流场高精度近似解的定性验证
 \end_layout
 
 \begin_layout Subsection
@@ -15912,11 +16011,21 @@ noprefix "false"
 \end_layout
 
 \begin_layout Section
-基于三维流动问题一阶数值解的定性验证
+基于三维流场一阶近似解的定性验证
 \end_layout
 
 \begin_layout Standard
-本小节在如图 
+为了验证第
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:算法"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+章所提高阶计算方法对具有复杂边界的处理能力，本小节在如图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:yf17_mesh"
@@ -16014,7 +16123,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Subsection
-YF-17 亚声速绕流问题
+具有复杂边界的亚声速流场
 \end_layout
 
 \begin_layout Problem
@@ -16321,7 +16430,7 @@ reference "prob:YF-17_亚声速绕流"
 \end_layout
 
 \begin_layout Subsection
-YF-17 超声速绕流问题
+具有复杂边界的超声速流场
 \end_layout
 
 \begin_layout Problem
@@ -16611,7 +16720,7 @@ reference "fig:yf17_supersonic_bottom"
 \begin_inset Formula $y=0$
 \end_inset
 
-) 的镜像显示在下半部分。这两幅图再次表明：开启了紧致 WENO 限制器的 RK1–DG3 求解器能够正确捕捉激波；至少在光滑区域，RK3/DG3
+) 的镜像显示在下半部分。这两幅图再次表明：开启了紧致 WENO 限制器的 RK1/DG3 求解器能够正确捕捉激波；至少在光滑区域，RK3/DG3
  求解器将每个单元内的常值近似提升为二次多项式近似。
 \end_layout
 
@@ -16730,1964 +16839,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Section
-并行性能评估
-\end_layout
-
-\begin_layout Subsection
-双马赫反射问题
-\end_layout
-
-\begin_layout Standard
-虽然我们在求解
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:双马赫反射"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题时使用了非结构网格，但其所含单元的尺寸大致相等，且计算区域具有简单的几何外形，因此很容易得到较为均匀的网格分块，从而实现静态负载均衡。为了提高求解器的普适性
-，我们放弃了这种简单几何外形带来的便利，转而通过调用第三方库 
-\shape smallcaps
-Metis
-\shape default
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Karypis_1998"
-literal "false"
-
-\end_inset
-
- 来实施网格分块。图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_partition"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_balance"
-
-\end_inset
-
- 给出了将图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_p=1_h=5e-3"
-
-\end_inset
-
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_p=3_h=5e-3"
-
-\end_inset
-
- 中的非结构网格分割为 100 块的（某次）分块结果，可见单元数量的波动小于 
-\begin_inset Formula $3\%$
-\end_inset
-
-，大致呈均匀分布。考虑到非结构网格的均匀分块属于 NP-hard 问题，图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_partition"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_balance"
-
-\end_inset
-
- 所示的分块效果已经相当令人满意。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/double_mach/partition.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:double_mach_partition"
-
-\end_inset
-
-将
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:双马赫反射"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题所用非结构网格分割为 
-\begin_inset Formula $100$
-\end_inset
-
- 块的分块结果
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/double_mach/balance.pdf
-	lyxscale 50
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:double_mach_balance"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:双马赫反射"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题网格分块结果（图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_partition"
-
-\end_inset
-
-）的单元分布情况
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-基于上述优质的分块工具，我们测量了 RK3/DG3 求解器的加速比及并行效率。表 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:double_mach_cost"
-
-\end_inset
-
- 列出了该求解器以不同进程数量并行求解
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:双马赫反射"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题所消耗的时间，其中
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $P$
-\end_inset
-
- 表示进程数量，亦即运行时所需的核心数量。
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $T_{n}$
-\end_inset
-
- 表示完成第 
-\begin_inset Formula $n$
-\end_inset
-
- 步所消耗的秒数。
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $P\frac{T_{m+m}-T_{n}}{m}$
-\end_inset
-
- 为每一步所消耗的核心数与墙上时间的乘积，简称“核时”。该数据通常被高性能计算平台用作收费依据。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-由于并行读写操作会导致许多聚合通信，聚合通信的效率又依赖于网络质量，因此我们应当尽量减少并行读写的调用次数。在求解该问题时，我们每完成一百步计算才输出一帧结果。
-因此，表 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:double_mach_cost"
-
-\end_inset
-
- 的后两列之差体现了读写操作的代价，它等于分摊到每一个时间步上读写开销。不难发现：随着核心数量的增加，单步读写开销也在逐渐地增加。这是因为随着核心数量的增加，每
-个进程的通信对象的数量以及端到端的距离都在不断增加。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:double_mach_cost"
-
-\end_inset
-
-RK3/DG3 求解器以不同进程数量并行求解
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:双马赫反射"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题所消耗的时间
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="7" columns="6">
-<features booktabs="true" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\begin_inset Formula $P\,\si{(core)}$
-\end_inset
-
- 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\begin_inset Formula $T_{100}\,\si{(s)}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\begin_inset Formula $T_{199}\,\si{(s)}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\begin_inset Formula $T_{200}\,\si{(s)}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $P\frac{T_{199}-T_{100}}{199-100}\,\si{(core.s)}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $P\frac{T_{200}-T_{100}}{200-100}\,\si{(core.s)}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-17652.2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-35324.5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-35519.3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-178.508
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-178.671
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-20
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-960.443
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1912.37
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1926.58
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-192.307
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-193.228
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-40
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-491.070
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-971.710
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-983.933
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-194.198
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-197.145
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-60
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-335.651
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-666.548
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-676.930
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-200.544
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-204.767
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-80
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-251.548
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-494.541
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-504.951
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-196.358
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-202.722
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-100
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-202.789
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-397.641
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-408.126
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-196.820
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-205.337
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-由表 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:double_mach_cost"
-
-\end_inset
-
- 中的数据，可以导出加速比 
-\begin_inset Formula $S$
-\end_inset
-
- 与并行效率 
-\begin_inset Formula $E$
-\end_inset
-
-，二者定义如下：
-\begin_inset Formula 
-\begin{equation}
-S=\frac{T_{\text{serial}}}{T_{\text{parallel}}},\qquad E=\frac{S}{P}\times100\%.\label{eq:speedup}
-\end{equation}
-
-\end_inset
-
-所得结果分别绘于图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_speedup"
-
-\end_inset
-
- 与图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_efficiency"
-
-\end_inset
-
-。这两幅图更直观地体现了并行读写操作对并行程序扩展性的不利影响。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/double_mach/speedup.pdf
-	lyxscale 50
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:double_mach_speedup"
-
-\end_inset
-
-RK3/DG3 求解器以不同进程数量并行求解
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:双马赫反射"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题所得的加速比
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/double_mach/efficiency.pdf
-	lyxscale 50
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:double_mach_efficiency"
-
-\end_inset
-
-RK3/DG3 求解器以不同进程数量并行求解
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:双马赫反射"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题所得的并行效率
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_efficiency"
-
-\end_inset
-
- 所示的并行效率在 
-\begin_inset Formula $90\%$
-\end_inset
-
- 附近波动，这比文献-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Biswas_1994"
-literal "false"
-
-\end_inset
-
- 中给出的 
-\begin_inset Formula $99\%$
-\end_inset
-
- 略差。造成这种差距的主要原因，在于该文献中的算例都是基于一维、二维的结构网格，分块数量又恰好是 
-\begin_inset Formula $2^{n}$
-\end_inset
-
-，因此经过 
-\begin_inset Formula $n$
-\end_inset
-
- 次几何等分，就能得到完美的均匀分块。本节所有算例均基于三维非结构网格，因此图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_efficiency"
-
-\end_inset
-
- 中的并行效率更具有参考价值。
-\end_layout
-
-\begin_layout Subsection
-超声速绕流问题
-\end_layout
-
-\begin_layout Standard
-如图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:yf17_mesh"
-
-\end_inset
-
- 所示，求解 
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:YF-17_超声速绕流"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题的网格是高度非结构、非均匀的，因此基于几何分割的简单分块方法难以实现负载均衡。如前所述，本文通过调用第三方库 
-\shape smallcaps
-Metis
-\shape default
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Karypis_1998"
-literal "false"
-
-\end_inset
-
- 来事实网格分块，分块结果如图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:yf17_partition"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:yf17_balance"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 所示。与双马赫反射问题的分块结果（图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_balance"
-
-\end_inset
-
-）相比，这里的单元分布更加均匀。单元数量的波动小于 
-\begin_inset Formula $1\%$
-\end_inset
-
-，粗略估计可以获得 
-\begin_inset Formula $99\%$
-\end_inset
-
- 的并行效率：
-\begin_inset Formula 
-\begin{equation}
-\begin{aligned}E & =\frac{T_{\text{serial}}}{PT_{\text{parallel}}}\times100\%\approx\frac{\sum_{i}N_{i}}{P\cdot\max_{i}N_{i}}\times100\%\\
- & =\frac{528915}{100\times5332}\times100\%\approx99.2\%,
-\end{aligned}
-\label{eq:yf17_estimate}
-\end{equation}
-
-\end_inset
-
-其中 
-\begin_inset Formula $N_{i}$
-\end_inset
-
- 表示第 
-\begin_inset Formula $i$
-\end_inset
-
- 块内的体单元数量。式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:yf17_estimate"
-
-\end_inset
-
- 只考虑了体单元上的计算所消耗的时间，因此是一种偏乐观的估计。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/yf17/partition.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:yf17_partition"
-
-\end_inset
-
-将 
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:YF-17_超声速绕流"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题所用非结构网格分割为 
-\begin_inset Formula $100$
-\end_inset
-
- 块的分块结果
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/yf17/balance.pdf
-	lyxscale 50
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:yf17_balance"
-
-\end_inset
-
-图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:yf17_partition"
-
-\end_inset
-
- 所示分块结果的单元分布情况
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-表 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:yf17_cost"
-
-\end_inset
-
- 给出了 RK3/DG3 求解器以不同进程数量并行求解 
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:YF-17_超声速绕流"
-
-\end_inset
-
-问题所消耗的时间，以及换算后得到的单步核时。基于此表，可以画出加速比与并行效率随进程数量的变换趋势，如如图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:yf17_speedup"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 所示、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:yf17_efficiency"
-
-\end_inset
-
- 所示。由图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:yf17_efficiency"
-
-\end_inset
-
- 可知，超声速绕流问题的实测并行效率只有约 
-\begin_inset Formula $80\%$
-\end_inset
-
-，低于双马赫反射问题的对应结果（如图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_efficiency"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 所示）。造成这种下降的主要原因，在于边界单元分布不均（处理边界条件时，含边界单元较少的进程易处于闲置状态），以及进程间通信量的增加（通信与计算不完全重叠，邻居
-较少的进程易处于闲置状态）。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:yf17_cost"
-
-\end_inset
-
-RK3/DG3 求解器以不同进程数量并行求解 
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:YF-17_超声速绕流"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题所消耗的时间
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="10" columns="6">
-<features booktabs="true" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\begin_inset Formula $P\,\si{(core)}$
-\end_inset
-
- 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\begin_inset Formula $T_{100}\,\si{(s)}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\begin_inset Formula $T_{399}\,\si{(s)}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\begin_inset Formula $T_{400}\,\si{(s)}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $P\frac{T_{399}-T_{100}}{399-100}\,\si{(core.s)}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $P\frac{T_{400}-T_{100}}{400-100}\,\si{(core.s)}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-10511.3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-42466.5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-42593.0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-106.873
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-106.939
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-2389.25
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-9740.13
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-9769.96
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-122.925
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-123.012
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-10
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1246.37
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5086.62
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5101.95
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-128.436
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-128.519
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-15
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-839.554
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-3420.17
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-3430.75
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-129.462
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-129.560
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-20
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-645.737
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-2632.32
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-2640.57
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-132.882
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-132.989
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-40
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-325.269
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1310.72
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1319.73
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-131.833
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-132.595
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-60
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-222.890
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-923.043
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-931.754
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-140.499
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-141.773
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-80
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-168.862
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-672.439
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-681.445
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-134.736
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-136.689
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-100
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-137.787
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-543.081
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-552.682
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-135.550
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-138.298
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/yf17/speedup.pdf
-	lyxscale 50
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:yf17_speedup"
-
-\end_inset
-
-RK3/DG3 求解器以不同进程数量并行求解 
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:YF-17_超声速绕流"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题所得的加速比
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/yf17/efficiency.pdf
-	lyxscale 50
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:yf17_efficiency"
-
-\end_inset
-
-RK3/DG3 求解器以不同进程数量并行求解 
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:YF-17_超声速绕流"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题所得的并行效率
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-本章小结
-\end_layout
-
-\begin_layout Standard
-高阶 RKDG 求解器的数值耗散较低，能够在相对较粗的非结构网格上捕获复杂的流动细节，具有更高的性价比。 
-\end_layout
-
-\begin_layout Chapter
-在旋翼空气动力学中的应用
-\begin_inset CommandInset label
-LatexCommand label
-name "chap:应用"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-孤立旋翼数值风洞试验
+基于旋翼流场一阶近似解的定性验证
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:rotor_in_tunnel"
@@ -21151,11 +19303,2241 @@ noprefix "false"
 \end_layout
 
 \begin_layout Section
-旋翼–舰体–海面气动干扰模拟
+本章小结
 \end_layout
 
 \begin_layout Standard
-本节利用上述经过验证的 UMS–RK3/DG3 求解器，对简化条件下的单旋翼–船体–海面气动干扰的形成过程进行了模拟。
+本章基于大量算例，对第
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:算法"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+章所提高阶计算方法进行了充分的验证。计算结果表明：高阶 RKDG 近似解的数值耗散较低，能够在相对较粗的非结构网格上捕获复杂的流动细节，比细网格上的低阶近似解具
+有更高的性价比。
+\end_layout
+
+\begin_layout Chapter
+三维流场计算的并行加速与性能评估
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:并行"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+带有紧致 WENO 限制器的 RKDG 格式自提出以来，很少有三维或实际工程应用的报道。一个重要原因是每个单元所消耗的计算资源，随着精度阶数或空间维度的增加而迅
+速增长。幸运的是，显式 RKDG 格式和紧致 WENO 限制器的大多数计算都可以在本地进行，并且不需要求解全局代数方程组。基于这些事实，基于区域分解的分布式并行
+计算可以很自然地用来加速计算。目前（2022 年初），对于带有紧致 WENO 限制器的 RKDG 格式，还没有公开发表的并行实现。但有一些其他
+ DG 格式的并行化案例被公开发表过：
+\end_layout
+
+\begin_layout Itemize
+Biswas 等
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Biswas_1994"
+literal "false"
+
+\end_inset
+
+ 在均匀结构网格上，测量了其一维、二维线性标量问题 DG 求解器的并行性能。他们获得了接近理想情形的并行效率：纯求解时间（无 I/O）超过 99%，总运行时间至
+少 89%。
+\end_layout
+
+\begin_layout Itemize
+Bey 等
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bey_1995"
+literal "false"
+
+\end_inset
+
+ 在均匀（结构）和 
+\begin_inset Formula $hp$
+\end_inset
+
+-自适应（非结构）网格上，测试了其线性守恒律 DG 求解器的性能。当内部单元的数量远超边界单元的数量时，他们获得了几乎最优的并行效率。
+\end_layout
+
+\begin_layout Itemize
+Chalmers 等
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chalmers_2019"
+literal "false"
+
+\end_inset
+
+使用 MPI/OpenMP 混合并行，实现了二维 Navier–Stokes 方程 DG 格式的并行化，并在只有四边形单元的均匀网格上实现了良好的可扩展性。
+\end_layout
+
+\begin_layout Standard
+它们都没有给出其 DG 求解器在三维非结构网格上的并行性能。
+\end_layout
+
+\begin_layout Standard
+本章将实现一种第
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:算法"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+章所提高阶计算方法的并行加速方案，并在实验室自建的 100 核机群上测量加速比及并行效率，以评估该并行加速方案的性能。
+\end_layout
+
+\begin_layout Section
+分布式并行计算
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:parallel"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+网格分块
+\end_layout
+
+\begin_layout Standard
+“网格 (mesh)”是一种特殊的“图 (graph)”。前者可以通过调用 
+\shape smallcaps
+Metis
+\shape default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Karypis_1998"
+literal "false"
+
+\end_inset
+
+ 提供的 
+\family typewriter
+METIS_PartMeshDual(...)
+\family default
+ 来实现分块，后者的分块可以通过调用 
+\family typewriter
+METIS_PartGraphKway(...)
+\family default
+ 或 
+\family typewriter
+METIS_PartGraphRecursive(...)
+\family default
+ 来完成。实际上，网格分块函数 
+\family typewriter
+METIS_PartMeshDual(...)
+\family default
+ 的内部封装了对图分块函数的调用，只不过这里被分块的是网格的“对偶图 (dual graph)”。所谓网格的对偶图，是指以体单元为顶点、以体单元邻接关系为边的图
+。
+\shape smallcaps
+Metis
+\shape default
+ 提供了 
+\family typewriter
+METIS_MeshToDual(...)
+\family default
+，用于将非结构网格转化为其对偶图。
+\end_layout
+
+\begin_layout Standard
+RKDG 格式中的面积分残差，即式 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:boundary_residual"
+
+\end_inset
+
+，以及 WENO 重构过程中遍历邻接单元的操作，都对体单元访问其邻接单元的效率提出了很高的要求：各体单元应能在常数时间内访问其任意邻接单元。就非结构网格而言，这
+意味着每个体单元都要预先存储其所有邻接单元的指针（或引用）。单元的邻接关系隐含在结点的连接关系里，因此大多数网格文件格式都不会显式记录该信息。
+\end_layout
+
+\begin_layout Standard
+出于上述原因，本文不像传统的并行有限元方法那样直接对网格分块，而是先用 
+\family typewriter
+METIS_MeshToDual(...)
+\family default
+ 将非结构网格转化为其对偶图，再用 
+\family typewriter
+METIS_PartGraphKway(...)
+\family default
+ 或 
+\family typewriter
+METIS_PartGraphRecursive(...)
+\family default
+ 对该对偶图实施分块。需要注意的是，用 C 语言编写的 
+\family typewriter
+METIS_MeshToDual(...)
+\family default
+ 函数，将单元邻接信息存储在动态分配的数组里，并返回指向该数组头部的地址。为避免内存泄漏造成动态内存空间耗尽，该动态数组必须被调用栈里的某一个且只有一个调用者释
+放。利用现代 C++ 标准库提供的智能指针接管该动态数组，能够有效地避免动态内存忘记释放或释放不止一次等内存故障
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Meyers_2014"
+literal "false"
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Subsection
+消息传递
+\end_layout
+
+\begin_layout Standard
+获得网格分块后，每一块上的数据都应由一个进程加载。各进程串行地保存和更新本地数据，并在必要时与邻居交换公共边界上的数据。这是分布式并行计算的典型场景，它通过在多
+个处理器核心上同时解决规模相等或接近的子问题来实现加速。与之相比，由多个线程共享同一内存空间的并行程序通常更易于编写，但存在扩展性瓶颈，通常只适用于安装有多核处
+理器的单机并行计算。
+\end_layout
+
+\begin_layout Standard
+为保持扩展性，本文选择分布式并行方案。为此，需要付出的代价是显式传递消息，以实现进程之间的数据交互。得益于学术界和工业界的共同努力，MPI 已经成为事实上的分布
+式并行计算行业标准，被称为“并行计算的汇编语言”。
+\end_layout
+
+\begin_layout Standard
+为了提高代码的可读性和可维护性，本文将涉及通信的操作封装在名为 
+\family typewriter
+ShareSomething(...)
+\family default
+ 的一组函数中，它们拥有相同的代码结构：
+\end_layout
+
+\begin_layout Enumerate
+为每个目的地，将要发送的数据放入发送缓冲区，并通过调用 
+\family typewriter
+MPI_Isend(...)
+\family default
+ 函数注册发送请求。
+\end_layout
+
+\begin_layout Enumerate
+为每个源进程，分配一个接收缓冲区用于接收数据，并通过调用 
+\family typewriter
+MPI_Irecv(...)
+\family default
+ 函数注册一个接收请求。
+\end_layout
+
+\begin_layout Enumerate
+执行无需通信即可完成的其他计算任务。
+\end_layout
+
+\begin_layout Enumerate
+通过调用 
+\family typewriter
+MPI_Waitall(...)
+\family default
+ 函数阻塞所有进程，直到其所有发送和接收请求完成。
+\end_layout
+
+\begin_layout Standard
+其中，第 3 步是可选的，它允许计算与通信重叠，可能有助于提高并行效率。
+\end_layout
+
+\begin_layout Section
+并行加速性能评估
+\end_layout
+
+\begin_layout Subsection
+双马赫反射问题
+\end_layout
+
+\begin_layout Standard
+虽然我们在求解
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:双马赫反射"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题时使用了非结构网格，但其所含单元的尺寸大致相等，且计算区域具有简单的几何外形，因此很容易得到较为均匀的网格分块，从而实现静态负载均衡。为了提高求解器的普适性
+，我们放弃了这种简单几何外形带来的便利，转而通过调用第三方库 
+\shape smallcaps
+Metis
+\shape default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Karypis_1998"
+literal "false"
+
+\end_inset
+
+ 来实施网格分块。图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_partition"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_balance"
+
+\end_inset
+
+ 给出了将图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=1_h=5e-3"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=3_h=5e-3"
+
+\end_inset
+
+ 中的非结构网格分割为 100 块的（某次）分块结果，可见单元数量的波动小于 
+\begin_inset Formula $3\%$
+\end_inset
+
+，大致呈均匀分布。考虑到非结构网格的均匀分块属于 NP-hard 问题，图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_partition"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_balance"
+
+\end_inset
+
+ 所示的分块效果已经相当令人满意。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/double_mach/partition.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_partition"
+
+\end_inset
+
+将
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:双马赫反射"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题所用非结构网格分割为 
+\begin_inset Formula $100$
+\end_inset
+
+ 块的分块结果
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/double_mach/balance.pdf
+	lyxscale 50
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_balance"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:双马赫反射"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题网格分块结果（图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_partition"
+
+\end_inset
+
+）的单元分布情况
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+基于上述优质的分块工具，我们测量了 RK3/DG3 求解器的加速比及并行效率。表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:double_mach_cost"
+
+\end_inset
+
+ 列出了该求解器以不同进程数量并行求解
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:双马赫反射"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题所消耗的时间，其中
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P$
+\end_inset
+
+ 表示进程数量，亦即运行时所需的核心数量。
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $T_{n}$
+\end_inset
+
+ 表示完成第 
+\begin_inset Formula $n$
+\end_inset
+
+ 步所消耗的秒数。
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P\frac{T_{m+m}-T_{n}}{m}$
+\end_inset
+
+ 为每一步所消耗的核心数与墙上时间的乘积，简称“核时”。该数据通常被高性能计算平台用作收费依据。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+由于并行读写操作会导致许多聚合通信，聚合通信的效率又依赖于网络质量，因此我们应当尽量减少并行读写的调用次数。在求解该问题时，我们每完成一百步计算才输出一帧结果。
+因此，表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:double_mach_cost"
+
+\end_inset
+
+ 的后两列之差体现了读写操作的代价，它等于分摊到每一个时间步上读写开销。不难发现：随着核心数量的增加，单步读写开销也在逐渐地增加。这是因为随着核心数量的增加，每
+个进程的通信对象的数量以及端到端的距离都在不断增加。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:double_mach_cost"
+
+\end_inset
+
+RK3/DG3 求解器以不同进程数量并行求解
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:双马赫反射"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题所消耗的时间
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="6">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $P\,\si{(core)}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{100}\,\si{(s)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{199}\,\si{(s)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{200}\,\si{(s)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P\frac{T_{199}-T_{100}}{199-100}\,\si{(core\cdot s)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P\frac{T_{200}-T_{100}}{200-100}\,\si{(core\cdot s)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17652.2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+35324.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+35519.3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+178.508
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+178.671
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+960.443
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1912.37
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1926.58
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+192.307
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+193.228
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+491.070
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+971.710
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+983.933
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+194.198
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+197.145
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+335.651
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+666.548
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+676.930
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+200.544
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+204.767
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+80
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+251.548
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+494.541
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+504.951
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+196.358
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+202.722
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+202.789
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+397.641
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+408.126
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+196.820
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+205.337
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+由表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:double_mach_cost"
+
+\end_inset
+
+ 中的数据，可以导出加速比 
+\begin_inset Formula $S$
+\end_inset
+
+ 与并行效率 
+\begin_inset Formula $E$
+\end_inset
+
+，二者定义如下：
+\begin_inset Formula 
+\begin{equation}
+S=\frac{T_{\text{serial}}}{T_{\text{parallel}}},\qquad E=\frac{S}{P}\times100\%.\label{eq:speedup}
+\end{equation}
+
+\end_inset
+
+所得结果分别绘于图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_speedup"
+
+\end_inset
+
+ 与图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_efficiency"
+
+\end_inset
+
+。这两幅图更直观地体现了并行读写操作对并行程序扩展性的不利影响。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/double_mach/speedup.pdf
+	lyxscale 50
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_speedup"
+
+\end_inset
+
+RK3/DG3 求解器以不同进程数量并行求解
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:双马赫反射"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题所得的加速比
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/double_mach/efficiency.pdf
+	lyxscale 50
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_efficiency"
+
+\end_inset
+
+RK3/DG3 求解器以不同进程数量并行求解
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:双马赫反射"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题所得的并行效率
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_efficiency"
+
+\end_inset
+
+ 所示的并行效率在 
+\begin_inset Formula $90\%$
+\end_inset
+
+ 附近波动，这比文献-
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Biswas_1994"
+literal "false"
+
+\end_inset
+
+ 中给出的 
+\begin_inset Formula $99\%$
+\end_inset
+
+ 略差。造成这种差距的主要原因，在于该文献中的算例都是基于一维、二维的结构网格，分块数量又恰好是 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+，因此经过 
+\begin_inset Formula $n$
+\end_inset
+
+ 次几何等分，就能得到完美的均匀分块。本节所有算例均基于三维非结构网格，因此图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_efficiency"
+
+\end_inset
+
+ 中的并行效率更具有参考价值。
+\end_layout
+
+\begin_layout Subsection
+超声速绕流问题
+\end_layout
+
+\begin_layout Standard
+如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_mesh"
+
+\end_inset
+
+ 所示，求解 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:YF-17_超声速绕流"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题的网格是高度非结构、非均匀的，因此基于几何分割的简单分块方法难以实现负载均衡。如前所述，本文通过调用第三方库 
+\shape smallcaps
+Metis
+\shape default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Karypis_1998"
+literal "false"
+
+\end_inset
+
+ 来事实网格分块，分块结果如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_partition"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_balance"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所示。与双马赫反射问题的分块结果（图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_balance"
+
+\end_inset
+
+）相比，这里的单元分布更加均匀。单元数量的波动小于 
+\begin_inset Formula $1\%$
+\end_inset
+
+，粗略估计可以获得 
+\begin_inset Formula $99\%$
+\end_inset
+
+ 的并行效率：
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}E & =\frac{T_{\text{serial}}}{PT_{\text{parallel}}}\times100\%\approx\frac{\sum_{i}N_{i}}{P\cdot\max_{i}N_{i}}\times100\%\\
+ & =\frac{528915}{100\times5332}\times100\%\approx99.2\%,
+\end{aligned}
+\label{eq:yf17_estimate}
+\end{equation}
+
+\end_inset
+
+其中 
+\begin_inset Formula $N_{i}$
+\end_inset
+
+ 表示第 
+\begin_inset Formula $i$
+\end_inset
+
+ 块内的体单元数量。式 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:yf17_estimate"
+
+\end_inset
+
+ 只考虑了体单元上的计算所消耗的时间，因此是一种偏乐观的估计。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/yf17/partition.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_partition"
+
+\end_inset
+
+将 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:YF-17_超声速绕流"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题所用非结构网格分割为 
+\begin_inset Formula $100$
+\end_inset
+
+ 块的分块结果
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/yf17/balance.pdf
+	lyxscale 50
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_balance"
+
+\end_inset
+
+图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_partition"
+
+\end_inset
+
+ 所示分块结果的单元分布情况
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:yf17_cost"
+
+\end_inset
+
+ 给出了 RK3/DG3 求解器以不同进程数量并行求解 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:YF-17_超声速绕流"
+
+\end_inset
+
+问题所消耗的时间，以及换算后得到的单步核时。基于此表，可以画出加速比与并行效率随进程数量的变换趋势，如如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_speedup"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所示、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_efficiency"
+
+\end_inset
+
+ 所示。由图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:yf17_efficiency"
+
+\end_inset
+
+ 可知，超声速绕流问题的实测并行效率只有约 
+\begin_inset Formula $80\%$
+\end_inset
+
+，低于双马赫反射问题的对应结果（如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_efficiency"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所示）。造成这种下降的主要原因，在于边界单元分布不均（处理边界条件时，含边界单元较少的进程易处于闲置状态），以及进程间通信量的增加（通信与计算不完全重叠，邻居
+较少的进程易处于闲置状态）。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:yf17_cost"
+
+\end_inset
+
+RK3/DG3 求解器以不同进程数量并行求解 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:YF-17_超声速绕流"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题所消耗的时间
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="6">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $P\,\si{(core)}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{100}\,\si{(s)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{399}\,\si{(s)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{400}\,\si{(s)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P\frac{T_{399}-T_{100}}{399-100}\,\si{(core\cdot s)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P\frac{T_{400}-T_{100}}{400-100}\,\si{(core\cdot s)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10511.3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+42466.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+42593.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+106.873
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+106.939
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2389.25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9740.13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9769.96
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+122.925
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+123.012
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1246.37
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5086.62
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5101.95
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+128.436
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+128.519
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+839.554
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3420.17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3430.75
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+129.462
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+129.560
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+645.737
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2632.32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2640.57
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+132.882
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+132.989
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+325.269
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1310.72
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1319.73
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+131.833
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+132.595
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+222.890
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+923.043
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+931.754
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+140.499
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+141.773
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+80
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+168.862
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+672.439
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+681.445
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+134.736
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+136.689
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+137.787
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+543.081
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+552.682
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+135.550
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+138.298
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/yf17/speedup.pdf
+	lyxscale 50
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_speedup"
+
+\end_inset
+
+RK3/DG3 求解器以不同进程数量并行求解 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:YF-17_超声速绕流"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题所得的加速比
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/yf17/efficiency.pdf
+	lyxscale 50
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:yf17_efficiency"
+
+\end_inset
+
+RK3/DG3 求解器以不同进程数量并行求解 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:YF-17_超声速绕流"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题所得的并行效率
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+本章小结
+\end_layout
+
+\begin_layout Standard
+本章实现了对第
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:算法"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+章所提高阶计算方法的并行加速，并在实验室自建的 100 核机群上测量了加速比及并行效率。测量结果表明：
+\end_layout
+
+\begin_layout Itemize
+加速比近似随核心数量线性增长，说明该并行方案能够有效地降低计算时间。
+\end_layout
+
+\begin_layout Itemize
+并行效率的测量值距离由分块结果估算得到的理论值有较大差距，说明“通信与计算重叠”的假设过于理想。
+\end_layout
+
+\begin_layout Itemize
+读写操作对加速比和并行效率有负面影响，应尽量较少读写次数，避免对单一文件的持续写入。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+在舰载直升机气动干扰问题中的应用
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:应用"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+本章利用上述经过验证的 UMS–RK3/DG3 并行求解器，对简化条件下的单旋翼–船体–海面气动干扰的形成过程进行模拟。
 \end_layout
 
 \begin_layout Standard
@@ -21169,7 +21551,7 @@ noprefix "false"
 
 \end_inset
 
- 所示的非结构网格上，模拟舰载直升机的旋翼–舰体–海面之间的气动干扰。该网格使用了图 
+ 所示的非结构网格上，模拟舰载直升机的旋翼–船体–海面之间的气动干扰。该网格使用了图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:ship_geometry"
@@ -21335,8 +21717,8 @@ literal "false"
 
 \end_layout
 
-\begin_layout Subsection
-船头正面迎风
+\begin_layout Section
+船头正面迎风情形
 \end_layout
 
 \begin_layout Problem
@@ -21690,8 +22072,8 @@ reference "prob:船头正面迎风"
 
 \end_layout
 
-\begin_layout Subsection
-船头侧面迎风
+\begin_layout Section
+船头侧面迎风情形
 \end_layout
 
 \begin_layout Problem
@@ -22293,8 +22675,8 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-非定常动量源模型与高阶 RKDG 求解器配合使用，能够在静态网格上高效、高精度地模拟旋翼对流场的扰动，避免了传统旋翼空气动力学数值模拟方法对变形网格、滑动网格、
-重叠网格等动态网格技术的依赖。
+本章结果表明：非定常动量源模型与高阶 RKDG 求解器配合使用，能够在静态网格上高效、高精度地模拟旋翼对流场的扰动，避免了传统旋翼空气动力学数值模拟方法对变形网
+格、滑动网格、重叠网格等动态网格技术的依赖。
 \end_layout
 
 \end_body
