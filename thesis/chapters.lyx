@@ -14032,7 +14032,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename figures/double_mach.pdf
+	filename figures/double_mach/sketch.pdf
 	lyxscale 50
 	width 100theight%
 	height 33theight%
@@ -14298,6 +14298,44 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+为了定性验证以上结果的正确性，图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=3_zhong"
+
+\end_inset
+
+ 给出了文献-
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhong_2013"
+literal "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $h=1/240$
+\end_inset
+
+ 的二维结构网格上得到的二维 RK3/DG3 近似解。将其与图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=3_h=5e-3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 即本文在 
+\begin_inset Formula $h\approx1/200$
+\end_inset
+
+ 的三维非结构网格上得到的三维 RK3/DG3 近似解对比，不难发现：二者给出的流场结构几乎完全一致，这说明本文所实现的三维 RK3/DG3 求解器能够在三维非
+结构网格上正确地捕捉复杂的二维流场结构。
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -14468,6 +14506,75 @@ noprefix "false"
 \end_inset
 
  作图）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/double_mach/zhong.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_p=3_zhong"
+
+\end_inset
+
+在只含 
+\begin_inset Formula $h=1/240$
+\end_inset
+
+ 的四边形单元的二维结构网格上得到的
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:双马赫反射"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题的 RK3/DG3 近似解（按 
+\begin_inset Formula $\rho(x,y,t=0.2)$
+\end_inset
+
+ 作等值线图）
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhong_2013"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
