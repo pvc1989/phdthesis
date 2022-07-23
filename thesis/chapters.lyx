@@ -3430,6 +3430,30 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+2008 年，He 等
+\begin_inset CommandInset citation
+LatexCommand cite
+key "He2008"
+literal "false"
+
+\end_inset
+
+介绍了介绍了其所属公司在建立高置信度舰载直升机飞行仿真环境方面所做的工作。该仿真系统集成了直升机动力学、船体动力学以及非定常船体空气尾流方面的建模方法，为舰载直
+升机飞行训练和测试提供了一种高效的模拟工具。该仿真系统提供了三种不同精细程度的仿真模型：(1) 旋翼尾迹由有限状态入流模型描述，船体空气尾流由平板模型描述；(2
+) 旋翼尾迹由有限状态入流模型描述，船体空气尾流由 CFD 或试验数据描述；(3) 旋翼尾迹和船体空气尾流由VPM描述。其中，前两种模型可用于实时仿真计算。此后
+，该公司的 Zhao 等
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhao2013"
+literal "false"
+
+\end_inset
+
+将 VPM 与基于非结构网格的 CFD 求解器相结合，研究了旋翼尾迹与船体空气尾流的相互作用。基于此混合方法的计算结果，他们推广了 Peters–He
+ 有限状态入流模型，使其适用于实时仿真。
+\end_layout
+
+\begin_layout Standard
 2013 年，Muijden 等
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3577,27 +3601,72 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-He 等
+2017 年，南京航空航天大学的史勇杰等
 \begin_inset CommandInset citation
-LatexCommand cite
-key "He2008"
+LatexCommand citet
+key "Shi_2017"
 literal "false"
 
 \end_inset
 
-介绍了介绍了其所属公司在建立高置信度舰载直升机飞行仿真环境方面所做的工作。该仿真系统集成了直升机动力学、船体动力学以及非定常船体空气尾流方面的建模方法，为舰载直
-升机飞行训练和测试提供了一种高效的模拟工具。该仿真系统提供了三种不同精细程度的仿真模型：(1) 旋翼尾迹由有限状态入流模型描述，船体空气尾流由平板模型描述；(2
-) 旋翼尾迹由有限状态入流模型描述，船体空气尾流由 CFD 或试验数据描述；(3) 旋翼尾迹和船体空气尾流由VPM描述。其中，前两种模型可用于实时仿真计算。此后
-，该公司的 Zhao 等
+利用重叠网格技术（如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:overset-mesh"
+
+\end_inset
+
+ 所示），研究了孤立旋翼与多种船体构型之间的气动干扰问题。他们用静态结构网格离散船体周围的空间，作为背景网格；用 C-O 或 C-H 型结构网格包裹桨叶，作为贴
+体网格。贴体网格被允许在背景网格中做任意运动，以模拟桨叶的旋转、挥舞、边距。两套网格上的数据通过三维线性插值进行交换。该方法在进行挖洞和贡献单元搜索时，利用了结
+构网格易于定位单元的性质，所需时间与流场计算时间相比可忽略不计。这种对结构网格的依赖，限制了该方法的适用范围。
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/overset_mesh.jpeg
+	lyxscale 50
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:overset-mesh"
+
+\end_inset
+
+用于计算旋翼–船体非定常气动干扰的重叠结构网格
 \begin_inset CommandInset citation
-LatexCommand cite
-key "Zhao2013"
+LatexCommand citet
+key "Shi_2017"
 literal "false"
 
 \end_inset
 
-将 VPM 与基于非结构网格的 CFD 求解器相结合，研究了旋翼尾迹与船体空气尾流的相互作用。基于此混合方法的计算结果，他们推广了 Peters–He
- 有限状态入流模型，使其适用于实时仿真。
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -4047,7 +4116,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Chapter
-舰载直升机三维流场的高阶计算方法
+舰载直升机三维流场的高阶计算格式
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:算法"
@@ -10332,7 +10401,7 @@ literal "true"
 \end_layout
 
 \begin_layout Chapter
-高阶计算方法在非结构网格上的验证
+高阶格式在三维非结构网格上的验证
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:验证"
