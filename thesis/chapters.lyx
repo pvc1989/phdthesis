@@ -1431,7 +1431,8 @@ literal "false"
 \begin_layout Standard
 旋翼是直升机最主要的气动部件，其对流场的周期性扰动使得直升机外流场具有显著不同于定翼机外流场的特征。因此，旋翼空气动力学构成了直升机空气动力学的主体（后者还包括
 旋翼与机身、地面的气动干扰），从而也构成了舰载直升机空气动力学（侧重于研究旋翼尾迹与海面气流、船体空气尾流之间的气动干扰）的基础。旋翼空气动力学的研究方法包括试
-验和计算两大类，前者可分为定性试验与定量试验，后者包括基于拉格朗日观点的涡方法、基于欧拉观点的
+验和计算两大类，前者可分为定性试验与定量试验，后者包括基于拉格朗日观点的涡方法、基于欧拉观点的“计算流体动力学 (computational fluid
+ dynamics, CFD
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "CFD"
@@ -1440,7 +1441,7 @@ literal "true"
 
 \end_inset
 
-“计算流体动力学 (computational fluid dynamics, CFD)”方法以及兼具二者优势的混合方法。
+)”方法以及兼具二者优势的混合方法。
 \end_layout
 
 \begin_layout Standard
@@ -1567,7 +1568,8 @@ literal "false"
 \end_layout
 
 \begin_layout Description
-测速试验 主要用于研究流场的流动细节。根据测量对象的范围，测速试验又可分为单点测量和多点测量两类。早期的单点测量试验主要采用
+测速试验 主要用于研究流场的流动细节。根据测量对象的范围，测速试验又可分为单点测量和多点测量两类。早期的单点测量试验主要采用“热线测速仪 (hot
+ wire anemometer, HWA
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "HWA"
@@ -1576,8 +1578,8 @@ literal "true"
 
 \end_inset
 
-“热线测速仪 (hot wire anemometer, HWA)”等介入式测量设备，测速探头本身对流场会造成一定干扰，因此测量结果不能完全反映真实流动情况。这
-一弊端后来被
+)”等介入式测量设备，测速探头本身对流场会造成一定干扰，因此测量结果不能完全反映真实流动情况。这一弊端后来被“激光多普勒测速 (laser doppler
+ velocimetry, LDV
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "LDV"
@@ -1586,7 +1588,8 @@ literal "true"
 
 \end_inset
 
-“激光多普勒测速技术 (laser doppler velocimetry, LDV)”技术所克服，但 LDV 仍属于单点测量技术。同属于非介入式测量技术的
+)”技术所克服，但 LDV 仍属于单点测量技术。同属于非介入式测量技术的“粒子成像测速 (particle image velocimetry,
+ PIV
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "PIV"
@@ -1595,8 +1598,7 @@ literal "true"
 
 \end_inset
 
-“粒子成像测速 (particle image velocimetry, PIV)”技术，解决了多点同步测量的难题，能够实现对流场（流速）的高分辨率测量，目前已
-成为流体力学新发现的重要来源，也是验证数值计算方法的重要依据。
+)”技术，解决了多点同步测量的难题，能够实现对流场（流速）的高分辨率测量，目前已成为流体力学新发现的重要来源，也是验证数值计算方法的重要依据。
 \end_layout
 
 \begin_layout Standard
@@ -2434,16 +2436,16 @@ name "sec:Viscous-Vortex-Particle-Method"
 \end_layout
 
 \begin_layout Standard
+“黏性涡粒子模型/方法 (vortex particle model/method, VPM
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "VPM"
-description "vortex particle model; vortex particle method"
+description "vortex particle model/method"
 literal "true"
 
 \end_inset
 
-“黏性涡粒子模型 (vortex particle model, VPM)”与自由尾迹模型类似，也属于基于拉格朗日观点的分析模型。不同的是该模型用涡粒子代替了涡
-线，每个涡粒子由位置 
+)”与自由尾迹模型类似，也属于基于拉格朗日观点的分析模型。不同的是该模型用涡粒子代替了涡线，每个涡粒子由位置 
 \begin_inset Formula $\vec{r}$
 \end_inset
 
@@ -2914,7 +2916,7 @@ literal "false"
 
 \end_inset
 
-将 RANS (Reynolds-averaged Navier–Stokes) 方程
+将 RANS
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "RANS"
@@ -2923,9 +2925,10 @@ literal "true"
 
 \end_inset
 
-与基于粒子的涡量输运方法进行耦合，用于分析固定孤立机翼低速飞行时的气动性能和尾迹特性，并通过与风动试验数据进行对比，对该计算模型进行了验证。该耦合方法将流场按主
-要流动特性，分为近壁面和远场区域，分别用三维可压缩 RANS 方程和基于粒子的涡量输运方程进行求解。计算结果显示：该耦合方法可以对机翼翼梢的三维流动效应进行合理
-的模拟，并且有效解决了常规 CFD 存在的数值耗散问题。但也有学者认为，耦合方法本身及不同计算区域数据交换带来的复杂性，可能会减弱涡粒子模型对计算效率的提升效果
+ (Reynolds-averaged Navier–Stokes) 方程与基于粒子的涡量输运方法进行耦合，用于分析固定孤立机翼低速飞行时的气动性能和尾迹特性，
+并通过与风动试验数据进行对比，对该计算模型进行了验证。该耦合方法将流场按主要流动特性，分为近壁面和远场区域，分别用三维可压缩 RANS 方程和基于粒子的涡量输运
+方程进行求解。计算结果显示：该耦合方法可以对机翼翼梢的三维流动效应进行合理的模拟，并且有效解决了常规 CFD 存在的数值耗散问题。但也有学者认为，耦合方法本身及
+不同计算区域数据交换带来的复杂性，可能会减弱涡粒子模型对计算效率的提升效果
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kamkar2011"
@@ -2944,7 +2947,7 @@ literal "false"
 对于任何基于离散网格的数值方法而言，加密网格都是提高计算精度的一个重要途径。但是有限的计算资源不允许我们在整个计算区域内无差别地对网格进行加密，而只能有选择地在
 某些物理量随空间或时间变化剧烈的地方进行加密。另外，加密网格的过程应当尽可能减少对人工操作的需求，且便于逐次递推，这样才能达到充分利用现有计算资源以获得尽可能高
 的精度的目的。根据上一步基于粗糙网格的计算结果，由计算机自主确定下一步需要对网格进行加密的区域，并通过递推逐次实现网格的精细化，充分利用计算机软硬件资源，以获得
-尽可能高的计算精度，这就是“自适应网格加密 (adaptive mesh refinement, AMR)”
+尽可能高的计算精度，这就是“自适应网格加密 (adaptive mesh refinement, AMR
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "AMR"
@@ -2953,7 +2956,7 @@ literal "true"
 
 \end_inset
 
-技术的主要思想。这是解决由涡流主导的旋翼尾迹数值计算问题的关键技术，也是多年以来 CFD 领域的研究热点。
+)”技术的主要思想。这是解决由涡流主导的旋翼尾迹数值计算问题的关键技术，也是多年以来 CFD 领域的研究热点。
 \end_layout
 
 \begin_layout Standard
@@ -3462,7 +3465,7 @@ literal "false"
 
 \end_inset
 
-基于结构网格，用 RANS 方程与 RANS/大涡模拟 (large eddy simulation, LES
+基于结构网格，用 RANS 方程与 RANS/LES
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "LES"
@@ -3471,7 +3474,7 @@ literal "true"
 
 \end_inset
 
-) 混合方法两种物理模型，分析了船体空气尾流（如图 
+ (large eddy simulation) 混合方法两种物理模型，分析了船体空气尾流（如图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:structured-mesh"
@@ -4007,6 +4010,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+“消息传递接口 (message passing interface, MPI
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "MPI"
@@ -4015,9 +4019,8 @@ literal "true"
 
 \end_inset
 
-“消息传递接口 (message passing interface, MPI)”是目前最主流的并行计算标准，几乎所有高性能计算平台上都部署了该标准的某种具体实
-现。应用程序通过调用它提供的函数，将计算任务发送到各个计算节点（核心）上做并行处理，从而扩大求解规模、提高计算效率。MPI 技术基于粗粒度的进程级并行，对单核性
-能的要求较低，具有良好的可移植性和可扩展性。
+)”是目前最主流的并行计算标准，几乎所有高性能计算平台上都部署了该标准的某种具体实现。应用程序通过调用它提供的函数，将计算任务发送到各个计算节点（核心）上做并行
+处理，从而扩大求解规模、提高计算效率。MPI 技术基于粗粒度的进程级并行，对单核性能的要求较低，具有良好的可移植性和可扩展性。
 \end_layout
 
 \begin_layout Standard
@@ -7015,7 +7018,7 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-英文文献通常将“间断伽辽金”简记作 DG (discontinuous Galerkin)。
+英文文献通常将“间断伽辽金”简记作 DG
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 prefix "DG"
@@ -7025,7 +7028,7 @@ literal "false"
 
 \end_inset
 
-
+ (discontinuous Galerkin)。
 \end_layout
 
 \begin_layout Standard
@@ -7392,7 +7395,7 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-显式 Runge–Kutta (RK) 格式
+显式 Runge–Kutta (RK
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "RK"
@@ -7401,7 +7404,7 @@ literal "true"
 
 \end_inset
 
-是一族高阶推进格式，最一般的形式为
+) 格式是一族高阶单步推进格式，最一般的形式为
 \begin_inset Formula 
 \begin{equation}
 \underline{\hat{U}}^{n+i/m}=\sum_{k=0}^{i-1}\left(\alpha_{i,k}\underline{\hat{U}}^{n+k/m}+\beta_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\right),\qquad i=1,\dots,m\label{eq:RKm}
@@ -7496,7 +7499,7 @@ literal "true"
 \end_inset
 
 ，则称该格式具有强稳定性。可以证明：当时间步长足够小时，显式欧拉格式具有强稳定性。若高阶格式可以保持这种强稳定性，则称其为“保持强稳定性的 (strong
- stability preserving, SSP)”格式。
+ stability preserving, SSP
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "SSP"
@@ -7505,7 +7508,7 @@ literal "true"
 
 \end_inset
 
-
+)”格式。
 \end_layout
 
 \begin_layout Lemma
@@ -7920,16 +7923,16 @@ reference "eq:PDE"
 
 \end_inset
 
-本节给出将体现旋翼气动效应的一种“非定常动量源 (unsteady momentum source, UMS)”模型
+本节给出将体现旋翼气动效应的一种“非定常动量源 (unsteady momentum source, UMS
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "unsteady momentum source"
-description "UMS"
+symbol "UMS"
+description "unsteady momentum source"
 literal "true"
 
 \end_inset
 
-嵌入既有的 RKDG 格式，从而获得 UMS–RKDG 格式的具体过程。
+)”模型嵌入既有的 RKDG 格式，从而获得 UMS–RKDG 格式的具体过程。
 \end_layout
 
 \begin_layout Subsection
@@ -8665,7 +8668,7 @@ name "fig:contact"
 \end_layout
 
 \begin_layout Standard
-直升机处于高速前飞状态时，主旋翼前行桨叶端部的相对气流速度有可能超过当地声速，从而形成激波。直升机处于低速前飞或悬停状态时，主旋翼桨尖处的相对气流速度属于高亚声
+直升机处于高速前飞状态时，主旋翼前行桨叶梢部的相对气流速度有可能超过当地声速，从而形成激波。直升机处于低速前飞或悬停状态时，主旋翼桨尖处的相对气流速度属于高亚声
 速，通常不会形成激波。无论是以上哪种情形，桨叶上下表面之间都存在可观的压强差。在 UMS–RKDG 近似解中，这是一种无法回避的间断，因为桨叶轴线一般会穿过
  RKDG 格式所用的体单元。
 \end_layout
@@ -8793,7 +8796,7 @@ literal "false"
 
 \end_inset
 
-在有限差分法框架内提出了“基本无振荡 (essentially non-oscillatory, ENO)”格式
+在有限差分法框架内提出了“基本无振荡 (essentially non-oscillatory, ENO
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 prefix "ENO"
@@ -8803,7 +8806,7 @@ literal "true"
 
 \end_inset
 
-，其核心思想是：
+)”格式，其核心思想是：
 \end_layout
 
 \begin_layout Itemize
@@ -8819,7 +8822,8 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-在近似解充分光滑的区域，各候选多项式的光滑程度通常也很接近，只保留其中一个显然是对计算资源的一种浪费。为了充分利用所有已知信息，
+在近似解充分光滑的区域，各候选多项式的光滑程度通常也很接近，只保留其中一个显然是对计算资源的一种浪费。为了充分利用所有已知信息，“加权基本无振荡
+ (Weighted ENO, WENO
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "WENO"
@@ -8828,7 +8832,7 @@ literal "true"
 
 \end_inset
 
-“加权基本无振荡 (Weighted ENO, WENO)”重构技术
+)”重构技术
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jiang_1996"
@@ -10374,23 +10378,46 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-本章提出了一种适用于舰载直升机流场的高阶计算方法。该方法
+本章提出了一种适用于舰载直升机流场的高阶计算方法。该方法具有以下优点：
 \end_layout
 
-\begin_layout Itemize
-以三维非结构网格上的 DG 格式做空间离散，能够处理具有复杂几何外形的边界；
+\begin_layout Description
+能够处理几何外形复杂的边界 该方法用间断伽辽金 (DG) 格式做空间离散，能够在三维非结构网格上的构造紧致的高阶格式，既克服了有限差分格式仅适用于结构网格的弊端
+，又解决了高阶有限差分格式局部模板过宽的问题。对于舰载直升机三维流场计算，这种优势能够让高阶计算格式很好地适应复杂的船体外形及直升机机身外形。
 \end_layout
 
-\begin_layout Itemize
-以保持强稳定性的 RK 格式做时间推进，能够像显式欧拉格式那样以保持数值解的强稳定性；
+\begin_layout Description
+能够保持数值解的强稳定性 该方法以保持强稳定性的显式 Runge–Kutta (RK) 格式做时间推进，能够像显式欧拉格式那样给出物理上可靠的结果。除此之外，显
+式 
+\begin_inset Formula $p$
+\end_inset
+
+ 阶 RK 格式避免了大型代数方程组的生成与求解，简化了程序实现，与紧致的 
+\begin_inset Formula $q$
+\end_inset
+
+ 阶 DG 格式相互配合，保证了整个 RK
+\begin_inset Formula $p$
+\end_inset
+
+/DG
+\begin_inset Formula $q$
+\end_inset
+
+ 格式具有高度的可并行性。
 \end_layout
 
-\begin_layout Itemize
-以非定常动量源模型 (UMS) 表示桨叶对流场的扰动，避免了旋翼 CFD 对动态网格技术的依赖；
+\begin_layout Description
+避免了对动态网格技术的依赖 该方法以非定常动量源 (UMS) 模型表示桨叶对流场的扰动，避免了旋翼 CFD 对变形网格、滑动网格、重叠网格等动态网格技术的依赖，
+大大降低了程序实现的难度。该模型与高阶 RKDG 格式相结合，能够在较为粗糙的三维非结构网格上，高效（相对于动态网格技术）且高精度（相对于经典有限体积）捕获旋翼
+流场的非定常特征。
 \end_layout
 
-\begin_layout Itemize
-以紧致型 WENO 重构技术压制 RKDG 及 UMS–RKDG 高阶近似解在间断附近的数值振荡。
+\begin_layout Description
+压制了高阶近似解的数值振荡 该方法以紧致型 WENO 重构技术，压制高阶 RKDG 及高阶 UMS–RKDG 近似解在间断附近的数值振荡。本文所借鉴的二维
+ WENO 重构技术，原本被用于压制高阶 RKDG 近似解在激波、接触间断、膨胀波边界附近的数值振荡。尽管对常规直升机而言，只有在高速飞行时才会在前行桨叶梢部形
+成激波；但 UMS 模型的引入，使得被桨叶穿过的体单元内部始终存在压强间断。因此，要获得正确的高阶 UMS–RKDG 近似解，必须开启本章所给出的三维
+ WENO 限制器。
 \end_layout
 
 \begin_layout Standard
@@ -11664,7 +11691,7 @@ diagbox{$p$}{$T$ (s)}{$h$}
 \end_layout
 
 \begin_layout Standard
-以上结果表明：高阶 RKDG 求解器具有较高的性价比。这里的“性”指全局精度，“价”指运行时间。
+以上结果表明：高阶 RKDG 求解器具有较高的“性价比”。这里的“性”指全局精度，“价”指运行时间。
 \end_layout
 
 \begin_layout Subsection
@@ -15832,8 +15859,62 @@ noprefix "false"
 
 \end_inset
 
-章所提高阶计算方法进行了充分的验证。计算结果表明：高阶 RKDG 近似解的数值耗散较低，能够在相对较粗的非结构网格上捕获复杂的流动细节，比细网格上的低阶近似解具
-有更高的性价比。
+章所提高阶计算格式的精度做了充分的验证。计算结果表明，带有 WENO 限制器的高阶 RKDG 格式具有以下优点：
+\end_layout
+
+\begin_layout Description
+基本无振荡 该格式能够将高阶近似解在（解析解、数值精确解所给出的）间断附近的数值振荡，压制到几乎无法察觉的程度，避免了密度或压强出现负值。激波在近似解中的厚度大
+约为 
+\begin_inset Formula $1h$
+\end_inset
+
+ 到 
+\begin_inset Formula $3h$
+\end_inset
+
+，接触间断在近似解中的厚度大约为 
+\begin_inset Formula $5h$
+\end_inset
+
+ 到 
+\begin_inset Formula $7h$
+\end_inset
+
+，均远小于经典有限体积近似解的相应厚度。
+\end_layout
+
+\begin_layout Description
+数值耗散低 该格式能够在相对较粗的非结构网格上捕获复杂的流动细节——特别是那些容易被数值耗散磨平的涡结构。这一点对于模拟由桨尖涡主导的旋翼尾迹是十分有利的。除此
+之外，下一章将会看到：高阶 UMS–RKDG 近似解还能在相对较粗的非结构网格上捕捉到声波。这一点体现了该格式在旋翼气动声学中的应用潜力。
+\end_layout
+
+\begin_layout Description
+计算效率高 尽管高阶格式在每个单元上的计算量大于低阶格式，但高阶格式所特有的低数值耗散的优势，使得其在粗网格上近似解，具有与细网格上的低阶近似解接近的精度。对运
+行时间和存储空间的测量（如表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:linear_cost"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+、表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:sod_cost"
+
+\end_inset
+
+ 所示）表明：高阶 RKDG 近似解具有更高的计算效率，即在全局精度接近的前提下，粗网格上的高阶近似解比细网格上的低阶近似解更省时间（用电量）。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -15937,6 +16018,59 @@ status open
 
 \begin_layout Subsection
 并行计算机架构
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/system_share.png
+	lyxscale 15
+	width 100text%
+	height 50theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figures/performance_share.png
+	lyxscale 15
+	width 100text%
+	height 50theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architecture"
+
+\end_inset
+
+并行计算机架构占比变化示意图（左：系统数量；右：峰值性能）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -19315,15 +19449,15 @@ noprefix "false"
 
 \end_inset
 
- 分别给出了 
+ 分别给出了
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:孤立旋翼爬升"
 
 \end_inset
 
-问题在若干时刻的 RK1/DG1、 RK3/DG3 近似解。这里给出精度较低的 RK1/DG1 近似解，是因为 RK1/DG1 求解器无需限制器，其给出的结果在
-物理上较为可靠，可以用来定性地验证高阶近似解的正确性。由于缺少试验数据，本文的所有含旋翼的算例都将采用这种方式来验证。
+问题在若干时刻的 UMS–RK1/DG1 与 UMS–RK3/DG3 近似解。这里给出精度较低的 UMS–RK1/DG1 近似解，是因为 UMS–RK1/DG1
+ 求解器无需限制器，其给出的结果在物理上较为可靠，可以用来定性地验证高阶近似解的正确性。由于缺少试验数据，本文的所有含旋翼的算例都将采用这种方式来验证。
 \end_layout
 
 \begin_layout Standard
