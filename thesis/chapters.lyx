@@ -2065,7 +2065,7 @@ literal "false"
 流体力学基本原理支配。该模型所依据的“涡元像流体微团一样在流场中自由运动”是指涡元运动满足如下关系： 
 \begin_inset Formula 
 \begin{equation}
-\frac{\dd\vec{r}}{\dd t}=\vec{u}=\vec{u}_{\mathrm{\infty}}+\vec{u}_{\mathrm{ind}}\label{eq:vortex_element}
+\frac{\dd\vec{r}}{\dd t}=\vec{u}=\vec{u}_{\infty}+\vec{u}_{\mathrm{ind}}\label{eq:vortex_element}
 \end{equation}
 
 \end_inset
@@ -2075,7 +2075,7 @@ literal "false"
 \end_inset
 
  是涡元位置，
-\begin_inset Formula $\vec{u}_{\mathrm{\infty}}$
+\begin_inset Formula $\vec{u}_{\infty}$
 \end_inset
 
  是自由来流速度，
@@ -5068,7 +5068,7 @@ literal "true"
 且相邻体单元之交的体积为零，即
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$\\mathrm{\\delta}_{ik}$"
+symbol "$\\delta_{ik}$"
 description "表示 Kronecker 记号，$i=k$ 时取值为 $1$，否则取值为 $0$"
 literal "true"
 
@@ -5077,7 +5077,7 @@ literal "true"
 
 \begin_inset Formula 
 \begin{equation}
-\int_{V_{i}\cap V_{k}}1=\mathrm{\delta}_{ik}\int_{V_{i}}1,\qquad\forall(i,k)\in I_{V(G)}\times I_{V(G)},
+\int_{V_{i}\cap V_{k}}1=\delta_{ik}\int_{V_{i}}1,\qquad\forall(i,k)\in I_{V(G)}\times I_{V(G)},
 \end{equation}
 
 \end_inset
@@ -6361,7 +6361,7 @@ z_{\mu}
 \begin_inset Formula 
 \begin{equation}
 \begin{cases}
-N_{\mu}(\xi_{\nu},\eta_{\nu},\zeta_{\nu})=\mathrm{\delta}_{\mu\nu}, & \forall(\mu,\nu),\\
+N_{\mu}(\xi_{\nu},\eta_{\nu},\zeta_{\nu})=\delta_{\mu\nu}, & \forall(\mu,\nu),\\
 \sum_{\mu}N_{\mu}(\xi,\eta,\zeta)=1, & \forall(\xi,\eta,\zeta),
 \end{cases}
 \end{equation}
@@ -7070,7 +7070,7 @@ reference "eq:coeff_matrix"
  上的正交基，即
 \begin_inset Formula 
 \begin{equation}
-\ip{\phi_{k}}{\phi_{l}}\coloneqq\int_{V_{i}}\phi_{k}\,\phi_{l}=\ip{\phi_{k}}{\phi_{k}}\mathrm{\delta}_{kl},\qquad\forall k,\forall l,
+\ip{\phi_{k}}{\phi_{l}}\coloneqq\int_{V_{i}}\phi_{k}\,\phi_{l}=\ip{\phi_{k}}{\phi_{k}}\delta_{kl},\qquad\forall k,\forall l,
 \end{equation}
 
 \end_inset
@@ -7090,7 +7090,7 @@ reference "eq:coeff_matrix"
  取为归一化的正交基，即
 \begin_inset Formula 
 \begin{equation}
-\ip{\phi_{k}}{\phi_{l}}\coloneqq\int_{V_{i}}\phi_{k}\,\phi_{l}=\mathrm{\delta}_{kl}\qquad\forall k,\forall l,
+\ip{\phi_{k}}{\phi_{l}}\coloneqq\int_{V_{i}}\phi_{k}\,\phi_{l}=\delta_{kl}\qquad\forall k,\forall l,
 \end{equation}
 
 \end_inset
@@ -8889,7 +8889,7 @@ literal "true"
 \end_layout
 
 \begin_layout Subsection
-适用于高阶有限差分法的标量重构
+适用于高阶差分格式的标量重构
 \end_layout
 
 \begin_layout Standard
@@ -9286,7 +9286,7 @@ w_{k}=w_{k}^{\star}+\order{h^{4}}\impliedby w_{k}^{\beta}=\frac{w_{k}^{\star}}{(
 \end_layout
 
 \begin_layout Subsection
-适用于间断伽辽金方法的标量重构
+适用于高阶 DG 格式的标量重构
 \end_layout
 
 \begin_layout Standard
@@ -9648,7 +9648,7 @@ f_{K}
 \end_layout
 
 \begin_layout Subsection
-适用于间断伽辽金方法的特征重构
+适用于高阶 DG 格式的特征重构
 \end_layout
 
 \begin_layout Standard
@@ -16083,11 +16083,7 @@ name "fig:architecture"
 \end_layout
 
 \begin_layout Standard
-CFD 所用的“网格 (mesh)”是一种特殊的“图 (graph)”。前者可以通过调用 
-\shape smallcaps
-Metis
-\shape default
- 
+CFD 所用的“网格 (mesh)”是一种特殊的“图 (graph)”。前者可以通过调用 METIS
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Karypis_1998"
@@ -16112,11 +16108,7 @@ METIS_PartGraphRecursive(...)
 METIS_PartMeshDual(...)
 \family default
  的内部封装了对图分块函数的调用，只不过这里被分块的是网格的“对偶图 (dual graph)”。所谓网格的对偶图，是指以体单元为顶点、以体单元邻接关系为边的图
-。
-\shape smallcaps
-Metis
-\shape default
- 提供了 
+。METIS 提供了 
 \family typewriter
 METIS_MeshToDual(...)
 \family default
@@ -16284,11 +16276,7 @@ noprefix "false"
 \end_inset
 
 问题时使用了非结构网格，但其所含单元的尺寸大致相等，且计算区域具有简单的几何外形，因此很容易得到较为均匀的网格分块，从而实现静态负载均衡。为了提高求解器的普适性
-，我们放弃了这种简单几何外形带来的便利，转而通过调用第三方库 
-\shape smallcaps
-Metis
-\shape default
- 
+，我们放弃了这种简单几何外形带来的便利，转而通过调用第三方库 METIS
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Karypis_1998"
@@ -18050,11 +18038,7 @@ noprefix "false"
 
 \end_inset
 
-问题的网格是高度非结构、非均匀的，因此基于几何分割的简单分块方法难以实现负载均衡。如前所述，本文通过调用第三方库 
-\shape smallcaps
-Metis
-\shape default
- 
+问题的网格是高度非结构、非均匀的，因此基于几何分割的简单分块方法难以实现负载均衡。如前所述，本文通过调用第三方库 METIS
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Karypis_1998"
@@ -21563,11 +21547,7 @@ noprefix "false"
 
 \end_inset
 
-问题的网格类似，是高度非结构、非均匀的，因此基于几何分割的简单分块方法难以实现负载均衡。如前所述，本文通过调用第三方库 
-\shape smallcaps
-Metis
-\shape default
- 
+问题的网格类似，是高度非结构、非均匀的，因此基于几何分割的简单分块方法难以实现负载均衡。如前所述，本文通过调用第三方库 METIS
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Karypis_1998"

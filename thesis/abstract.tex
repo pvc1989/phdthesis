@@ -1,10 +1,13 @@
 % !Mode:: "TeX:UTF-8"
 
 % 中英文摘要
+\phantomsection
+\addcontentsline{toc}{chapter}{摘要}
 \begin{cabstract}
 舰载直升机空气动力学以旋翼空气动力学为基础，侧重于研究旋翼与船体及海面之间的气动干扰问题。
 随着计算机硬件性能的提高，特别是高性能计算平台的普及，数值计算正日益称为包括舰载直升机气动干扰在内的复杂工程物理问题的重要研究手段。
 舰载直升机气动干扰的计算难点，主要来源于旋翼对流场的非定常扰动，其次来源于船体的复杂几何外形。
+
 现有的旋翼空气动力学数值方法，要么基于简化的物理模型，如：自由尾迹模型、涡粒子模型；要么基于动态网格技术，如：变形网格、滑动网格、重叠网格。
 前者计算效率虽高，但对于固体壁面通常以镜像法做处理，难以处理具有复杂几何外形的流场边界，从而不适合于研究舰载直升机气动干扰问题。
 后者虽能处理几何外形更复杂的固体边界，但频繁重构网格，或者在不同网格之间频繁交换数据，所增加的计算成本都是日常研究难以承受的。
@@ -27,6 +30,7 @@
 Based on rotor aerodynamics, shipborne helicopter aerodynamics focuses on the aerodynamic interference between the rotor, the hull and the sea surface.
 With the improvement of computer hardware performance, especially the popularization of high-performance computing platforms, numerical computing is increasingly becoming an important research method for complex engineering physics problems including the aerodynamic interference of shipborne helicopters.
 The difficulty in calculating the aerodynamic interference of shipborne helicopters mainly comes from the unsteady disturbance of the rotor to the flow field, and secondly from the complex geometric shape of the hull.
+
 Existing numerical methods of rotor aerodynamics are either based on simplified physical models, such as the free wake model and the vortex particle model; or based on dynamic mesh technology, such as deformed mesh, sliding mesh, and overlapping mesh.
 Although the former has high computational efficiency, solid walls are usually handled by the mirror method, which is difficult to deal with the flow field boundary with complex geometric shapes, so it is not suitable for studying the aerodynamic interference problem of shipborne helicopters.
 Although the latter can handle solid boundaries with more complex geometric shapes, frequent mesh reconstruction or frequent exchange of data between different meshes results in an unbearable computational cost for daily research.
