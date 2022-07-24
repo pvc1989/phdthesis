@@ -88,6 +88,7 @@ if __name__ == '__main__':
   from matplotlib import pyplot as plt
 
   plt.figure()
+  plt.figure(figsize=(6,3))
   plt.plot(x, lift)
   plt.grid()
   plt.xticks(np.arange(-180, 181, step=60))
@@ -98,6 +99,7 @@ if __name__ == '__main__':
   plt.savefig('lift.pdf')
 
   plt.figure()
+  plt.figure(figsize=(6,3))
   plt.plot(x, drag)
   plt.grid()
   plt.xticks(np.arange(-180, 181, step=60))
