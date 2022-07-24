@@ -15649,6 +15649,174 @@ noprefix "false"
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/forward_step/p=3_t=40e-1.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=40e-1-1"
+
+\end_inset
+
+在 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ 的伪结构网格上得到的
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:前向台阶"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题在 
+\begin_inset Formula $t=4.0$
+\end_inset
+
+ 时刻的 RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+为了定性验证以上结果的正确性，图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=5_qiu"
+
+\end_inset
+
+ 给出了文献-
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Giri_2019"
+literal "false"
+
+\end_inset
+
+ 在三级自适应加密（最粗处 
+\begin_inset Formula $h\approx1/32$
+\end_inset
+
+，最细处 
+\begin_inset Formula $h\approx1/256$
+\end_inset
+
+）的三角形网格上得到的二维 RK3/DG5 近似解，它是该问题目前已发表的最高精度的近似解。将其与图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=3_h=5e-3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 即本文在 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ 的伪结构网格上得到的三维 RK3/DG3 近似解对比，不难发现：二者给出的流场结构非常相似，这说明本文所实现的三维 RK3/DG3 求解器能够在三维伪结构网格
+上正确地捕捉复杂的二维流场结构。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/forward_step/qiu.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=5_qiu"
+
+\end_inset
+
+在三级自适应加密的二维非结构网格上得到的
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:前向台阶"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题的 RK3/DG5 高精度近似解（按 
+\begin_inset Formula $\rho(x,y,t=4)$
+\end_inset
+
+ 作图）
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Giri_2019"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 基于三维流场一阶近似解的定性验证
 \end_layout
