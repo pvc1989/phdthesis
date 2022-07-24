@@ -22459,7 +22459,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-本章实现了对第
+本章提出并实现了一种对第
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:算法"
@@ -22469,19 +22469,35 @@ noprefix "false"
 
 \end_inset
 
-章所提高阶计算方法的并行加速，并在实验室自建的 100 核机群上测量了加速比及并行效率。测量结果表明：
+章所述、第
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:验证"
+
+\end_inset
+
+章所验证的高阶计算格式的并行加速方案，并在实验室自建的 100 核机群上测量了加速比及并行效率。测量结果表明：
 \end_layout
 
-\begin_layout Itemize
-加速比近似随核心数量线性增长，说明该并行方案能够有效地降低计算时间。
+\begin_layout Description
+加速比近似随分块/进程/核心数量线性增长 这表明该并行方案能够有效地降低计算时间。对于一般的三维非结构网格，在 100 核机群上 获得的加速比可以超过
+ 80。这意味着：只要高阶格式在单核上消耗的计算资源不超过低阶格式的 80 倍，那么它在 100 核机群上的运行时间就与低阶格式在单核计算机上的运行时间大致相当
+。
 \end_layout
 
-\begin_layout Itemize
-并行效率的测量值距离由分块结果估算得到的理论值有较大差距，说明“通信与计算重叠”的假设过于理想。
+\begin_layout Description
+“通信与计算重叠”的假设过于理想 尽管 MPI 提供了非阻塞通信函数，允许发送、接收等操作被注册后就立即返回，无需等待数据发送、接收完成，但这些通信操作在后台运
+行时还是会消耗计算资源。操作系统不会让某一进程独享计算资源，而是会根据优先级让各个进程轮流执行。这意味着：负责计算的进程在执行过一段时间后，有可能会将计算资源转
+交给负责通信的进程，自己则转入闲置状态。
 \end_layout
 
-\begin_layout Itemize
-读写操作对加速比和并行效率有负面影响，应尽量较少读写次数，避免对单一文件的持续写入。
+\begin_layout Description
+同步操作对并行性能有负面影响 同步操作可分为显式同步（如显式调用 
+\family typewriter
+MPI_Waitall(...)
+\family default
+ 函数）与隐式同步（如聚合通信操作）。一条基本原则是：应尽量较少同步及聚合通信次数。除此之外，还应避免对同一文件的持续写入。这首先是因为多个进程向同一文件的写入
+操作，必然含有同步操作；其次，随着文件体积的增大，各进程需要读入的数据量也随之增大，从而有可能导致通信网络出现拥塞。
 \end_layout
 
 \begin_layout Standard
