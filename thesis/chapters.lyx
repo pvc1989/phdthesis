@@ -20094,7 +20094,7 @@ reference "prob:孤立旋翼爬升"
 \begin_inset Formula $t=1.0$
 \end_inset
 
- 时刻的 UMS–RK1/DG1 近似解（补充显示启动涡）
+ 时刻的 UMS–RK1/DG1 近似解（补充显示起动涡）
 \end_layout
 
 \end_inset
@@ -20148,7 +20148,7 @@ reference "prob:孤立旋翼爬升"
 \begin_inset Formula $t=1.0$
 \end_inset
 
- 时刻的 UMS–RK3/DG3 近似解（补充显示启动涡）
+ 时刻的 UMS–RK3/DG3 近似解（补充显示起动涡）
 \end_layout
 
 \end_inset
@@ -22622,7 +22622,7 @@ MPI_Waitall(...)
 \end_layout
 
 \begin_layout Chapter
-舰载直升机典型气动干扰的数值模拟
+舰载直升机典型工况气动干扰的模拟
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:应用"
@@ -22632,12 +22632,28 @@ name "chap:应用"
 
 \end_layout
 
-\begin_layout Standard
-本章利用上述经过验证的 UMS–RK3/DG3 并行求解器，对简化条件下的单旋翼–船体–海面气动干扰的形成过程进行模拟。
+\begin_layout Section
+问题描述
 \end_layout
 
 \begin_layout Standard
-本章在图 
+本章利用上述经过验证的 UMS–RK3/DG3 并行求解器，对一种舰载直升机典型工况下的旋翼–船体–海面气动干扰过程的进行模拟。算例设计的灵感来源于图
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:landing"
+
+\end_inset
+
+，即英国海军舰载直升机着舰标准作业流程。该流程要求直升机在着舰前以一定高度沿船身方向平飞，直到悬停于目标甲板上方。之所以要求直升机在接近过程中保持一定高度，是为
+了避免高度过低导致其与船体发生意外碰撞，或机上部件与船上部件发生缠绕，进而引发事故（如 1999 年 12 月 9 日发生的 CH-43D 直升机左后轮被
+ USNS Pecos 号船尾的安全网缠绕，导致直升机坠海的事故）。直升机抵达甲板上方后，应相对于甲板悬停并维持一段时间。待海面相对平静、舰上工作人员给出允许降
+落的信号后，直升机驾驶员才可以实施着舰。在这一流程中，最关键的一步是直升机悬停于目标甲板上方并保持相对静止。因此，本章选取该工况作为研究舰载直升机气动干扰的一种
+典型工况。
+\end_layout
+
+\begin_layout Standard
+本章所有算例都是在图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:ship_mesh"
@@ -22674,11 +22690,18 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-旋翼桨盘中心固定于点 
+除 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:x=0_u=5_a=0"
+
+\end_inset
+
+ 小节外，旋翼中心均固定于点 
 \begin_inset Formula $(\SI{-45}{ft},\SI{22.5}{ft},\SI{40}{ft})$
 \end_inset
 
- 处，桨根及桨尖到该中心点的距离分别为 
+ 处。桨根及桨尖到该中心点的距离分别为 
 \begin_inset Formula $\SI{0.1}{m}$
 \end_inset
 
@@ -22693,7 +22716,7 @@ reference "sec:rotor_in_tunnel"
 
 \end_inset
 
- 节中的桨叶相同。旋翼转轴指向 
+ 节所用的桨叶相同。旋翼转轴指向 
 \begin_inset Formula $+z$
 \end_inset
 
@@ -22814,11 +22837,11 @@ literal "false"
 \end_layout
 
 \begin_layout Section
-直升机 
-\begin_inset Formula $0^{\circ}$
-\end_inset
+直升机正面迎风
+\end_layout
 
- 着舰
+\begin_layout Subsection
+悬停于甲板中部上方
 \end_layout
 
 \begin_layout Problem
@@ -22827,7 +22850,7 @@ status open
 
 \begin_layout Plain Layout
 
-[船头正面迎风]
+[直升机正面迎风悬停于甲板中部上方]
 \end_layout
 
 \end_inset
@@ -22835,7 +22858,7 @@ status open
 
 \begin_inset CommandInset label
 LatexCommand label
-name "prob:船头正面迎风"
+name "prob:直升机正面迎风悬停于甲板中部上方"
 
 \end_inset
 
@@ -22857,11 +22880,15 @@ noprefix "false"
 \end_layout
 
 \begin_layout Problem
-初始条件设为与呈 
+初始条件设为与直升机机身（及船体对称面）呈 
 \begin_inset Formula $\ang{0}$
 \end_inset
 
- 夹角的均匀气流：
+ 夹角、速度为 
+\begin_inset Formula $\SI{5}{m/s}$
+\end_inset
+
+ 的均匀气流：
 \begin_inset Formula 
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 5.0 & 0.0 & 0.0 & 101325.0\end{bmatrix}.
@@ -22897,9 +22924,10 @@ noprefix "false"
 
 \end_inset
 
- 清楚地显示了旋翼尾迹的形成过程。计时开始后，一个启动涡在旋翼后缘形成，并随来流向后（右）运动，运动轨迹大致对应旋翼尾迹后缘。该尾迹后缘不受船体阻挡，正常向后向
-下延伸，直到触及海面。与之相反，尾迹前缘明显受到船尾甲板阻挡，气流撞击甲板形成高压、高密度区。相应地，旋翼前缘感受到来自甲板的托举力，其机理类似于直升机贴近平地
-飞行时所产生的地面效应。因此，在船头正面迎风的情形下，实施船尾甲板起降任务的舰载直升机驾驶员（或自动控制系统）需修正桨距输入，以克服使直升机向后翻滚的俯仰力矩。
+ 清楚地显示了旋翼尾迹的形成过程。计时开始后，一个起动涡在旋翼后缘形成，并随来流向后（右）运动，运动轨迹大致对应旋翼尾迹后缘。该尾迹后缘不受船体阻挡，自由地向后
+、向下延伸，直到触及海面。与之相反，尾迹前缘明显受到船尾甲板阻挡，气流撞击甲板形成高压、高密度区。相应地，旋翼前缘感受到来自甲板的托举力，其机理类似于直升机贴近
+平地飞行时所产生的地面效应。因此，在直升机正面迎风悬停于甲板中部上方的情形下，实施船尾甲板起降任务的舰载直升机驾驶员（或自动控制系统）需修正桨距输入，以克服使直
+升机向后翻滚的俯仰力矩。
 \end_layout
 
 \begin_layout Standard
@@ -22932,14 +22960,14 @@ name "fig:ship_a=0_t=2_p=3"
 
 \end_inset
 
-
+问题 
 \begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:船头正面迎风"
+LatexCommand ref
+reference "prob:直升机正面迎风悬停于甲板中部上方"
 
 \end_inset
 
-问题在 
+ 在 
 \begin_inset Formula $t=2$
 \end_inset
 
@@ -22986,14 +23014,14 @@ name "fig:ship_a=0_t=4_p=3"
 
 \end_inset
 
-
+问题 
 \begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:船头正面迎风"
+LatexCommand ref
+reference "prob:直升机正面迎风悬停于甲板中部上方"
 
 \end_inset
 
-问题在 
+ 在 
 \begin_inset Formula $t=4$
 \end_inset
 
@@ -23040,14 +23068,14 @@ name "fig:ship_a=0_t=6_p=3"
 
 \end_inset
 
-
+问题 
 \begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:船头正面迎风"
+LatexCommand ref
+reference "prob:直升机正面迎风悬停于甲板中部上方"
 
 \end_inset
 
-问题在 
+ 在 
 \begin_inset Formula $t=6$
 \end_inset
 
@@ -23094,14 +23122,14 @@ name "fig:ship_a=0_t=8_p=3"
 
 \end_inset
 
-
+问题 
 \begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:船头正面迎风"
+LatexCommand ref
+reference "prob:直升机正面迎风悬停于甲板中部上方"
 
 \end_inset
 
-问题在 
+ 在 
 \begin_inset Formula $t=8$
 \end_inset
 
@@ -23148,14 +23176,14 @@ name "fig:ship_a=0_t=10_p=3"
 
 \end_inset
 
-
+问题 
 \begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:船头正面迎风"
+LatexCommand ref
+reference "prob:直升机正面迎风悬停于甲板中部上方"
 
 \end_inset
 
-问题在 
+ 在 
 \begin_inset Formula $t=10$
 \end_inset
 
@@ -23172,12 +23200,15 @@ reference "prob:船头正面迎风"
 
 \end_layout
 
-\begin_layout Section
-直升机 
-\begin_inset Formula $45^{\circ}$
+\begin_layout Subsection
+悬停于甲板尾部上方
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:x=0_u=5_a=0"
+
 \end_inset
 
- 着舰
+
 \end_layout
 
 \begin_layout Problem
@@ -23186,7 +23217,7 @@ status open
 
 \begin_layout Plain Layout
 
-[船头侧面迎风]
+[直升机正面迎风悬停于甲板尾部上方]
 \end_layout
 
 \end_inset
@@ -23194,7 +23225,476 @@ status open
 
 \begin_inset CommandInset label
 LatexCommand label
-name "prob:船头侧面迎风"
+name "prob:直升机正面迎风悬停于甲板尾部上方"
+
+\end_inset
+
+除旋翼中心位置改为点 
+\begin_inset Formula $(\SI{0}{ft},\SI{22.5}{ft},\SI{40}{ft})$
+\end_inset
+
+ 外，其他条件与问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机正面迎风悬停于甲板中部上方"
+
+\end_inset
+
+ 相同。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ship_x=0_a=0_t=2_p=3"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ship_x=0_a=0_t=6_p=3"
+
+\end_inset
+
+ 给出了上述条件下，旋翼尾迹的形成过程。不难发现：尾迹前缘和后缘都不受甲板阻挡，自由地向后、向下延伸，直到约 
+\begin_inset Formula $t=6$
+\end_inset
+
+ 时刻触及海面。因气流撞击而形成的高压、高密度区，由甲板中心向后移动到海面。这意味着，此时旋翼所感受到的“地面效应”几乎完全来自于平直的海面，保持位置和姿态的难
+度低于
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:直升机正面迎风悬停于甲板中部上方"
+
+\end_inset
+
+的情形。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/ship/x=0/Frame20.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_x=0_a=0_t=2_p=3"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机正面迎风悬停于甲板尾部上方"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=2$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/ship/x=0/Frame40.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_x=0_a=0_t=4_p=3"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机正面迎风悬停于甲板尾部上方"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=4$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/ship/x=0/Frame60.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_x=0_a=0_t=6_p=3"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机正面迎风悬停于甲板尾部上方"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=6$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+为了更直观地展示旋翼尾迹及船体空气尾流的形态，图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ship_x=0_a=0_t=6_Q"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ship_x=0_a=0_t=10_Q"
+
+\end_inset
+
+ 给出了 
+\begin_inset Formula $t=6,8,10$
+\end_inset
+
+ 三个时刻的 
+\begin_inset Formula $Q=0.001$
+\end_inset
+
+ 等值面图。可以看出：船体的每一个台阶（特别是后向台阶）处都有涡结构存在，其中甲板与海面所成台阶处的涡可以与图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ship_x=0_a=0_t=2_p=3"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ship_x=0_a=0_t=6_p=3"
+
+\end_inset
+
+ 中的速度方向相互印证。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/ship/x=0/Frame60_Q.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_x=0_a=0_t=6_Q"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机正面迎风悬停于甲板尾部上方"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=6$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解（按 
+\begin_inset Formula $Q=0.001$
+\end_inset
+
+ 画出涡结构）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/ship/x=0/Frame80_Q.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_x=0_a=0_t=8_Q"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机正面迎风悬停于甲板尾部上方"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=8$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解（按 
+\begin_inset Formula $Q=0.001$
+\end_inset
+
+ 画出涡结构）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/ship/x=0/Frame100_Q.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_x=0_a=0_t=10_Q"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机正面迎风悬停于甲板尾部上方"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=10$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解（按 
+\begin_inset Formula $Q=0.001$
+\end_inset
+
+ 画出涡结构）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+直升机侧面迎风
+\end_layout
+
+\begin_layout Subsection
+来流为微风
+\end_layout
+
+\begin_layout Standard
+在风力等级表中，“微风”是指风速介于 
+\begin_inset Formula $\SI{3.4}{m/s}$
+\end_inset
+
+ 与 
+\begin_inset Formula $\SI{5.4}{m/s}$
+\end_inset
+
+ 之间的 3 级风。此时海面小波峰顶破裂，浪高约为 
+\begin_inset Formula $\SI{0.6}{m}$
+\end_inset
+
+， 对应于 2–3 级海况。
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[直升机侧面迎微风悬停于甲板中部上方]
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:直升机侧面迎微风悬停于甲板中部上方"
 
 \end_inset
 
@@ -23216,11 +23716,15 @@ noprefix "false"
 \end_layout
 
 \begin_layout Problem
-初始条件设为与呈 
+初始条件设为与直升机机身（及船体对称面）呈 
 \begin_inset Formula $\ang{45}$
 \end_inset
 
- 夹角的均匀气流：
+ 夹角、速度为 
+\begin_inset Formula $\SI{5}{m/s}$
+\end_inset
+
+ 的均匀气流：
 \begin_inset Formula 
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 2.5\sqrt{2} & 2.5\sqrt{2} & 0.0 & 101325.0\end{bmatrix}.
@@ -23256,9 +23760,9 @@ noprefix "false"
 
 \end_inset
 
- 给出了 UMS–RK3/DG3 求解器给出的旋翼尾迹的形成过程。可以看到：在船头侧面迎风的条件下，形成于船尾甲板正上方的旋翼尾迹，受海面自由来流的影响向右后方
-发展，并且因受到甲板的阻挡而发生变形。与船头正面迎风的情形类似，此时旋翼的受力情况也与平地起降时同等操纵输入的情况不一样。因此，在船头侧面迎风的情形下，实施船尾
-甲板起降任务的舰载直升机驾驶员（或自动控制系统）需修正桨距输入，以克服使直升机向右后方翻滚的俯仰和滚转力矩。
+ 展示了 UMS–RK3/DG3 求解器给出的旋翼尾迹的形成过程。可以看到：在船头侧面迎微风的条件下，形成于船尾甲板正上方的旋翼尾迹，受海面自由来流的影响向右后
+方发展，并且因受到甲板的阻挡而发生变形。与船头正面迎风的情形类似，此时旋翼的受力情况也与平地起降时同等操纵输入的情况不一样。因此，在船头侧面迎微风的情形下，实施
+船尾甲板起降任务的舰载直升机驾驶员（或自动控制系统）需修正桨距输入，以克服使直升机向右后方翻滚的俯仰和滚转力矩。
 \end_layout
 
 \begin_layout Standard
@@ -23291,17 +23795,17 @@ name "fig:ship_a=45_t=11e-1_p=3"
 
 \end_inset
 
-
+问题 
 \begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:船头侧面迎风"
+LatexCommand ref
+reference "prob:直升机侧面迎微风悬停于甲板中部上方"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-问题在 
+ 在 
 \begin_inset Formula $t=1.1$
 \end_inset
 
@@ -23348,17 +23852,17 @@ name "fig:ship_a=45_t=22e-1_p=3"
 
 \end_inset
 
-
+问题 
 \begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:船头侧面迎风"
+LatexCommand ref
+reference "prob:直升机侧面迎微风悬停于甲板中部上方"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-问题在 
+ 在 
 \begin_inset Formula $t=2.2$
 \end_inset
 
@@ -23405,17 +23909,17 @@ name "fig:ship_a=45_t=33e-1_p=3"
 
 \end_inset
 
-
+问题 
 \begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:船头侧面迎风"
+LatexCommand ref
+reference "prob:直升机侧面迎微风悬停于甲板中部上方"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-问题在 
+ 在 
 \begin_inset Formula $t=3.3$
 \end_inset
 
@@ -23462,17 +23966,17 @@ name "fig:ship_a=45_t=44e-1_p=3"
 
 \end_inset
 
-
+问题 
 \begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:船头侧面迎风"
+LatexCommand ref
+reference "prob:直升机侧面迎微风悬停于甲板中部上方"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-问题在 
+ 在 
 \begin_inset Formula $t=4.4$
 \end_inset
 
@@ -23519,17 +24023,17 @@ name "fig:ship_a=45_t=55e-1_p=3"
 
 \end_inset
 
-
+问题 
 \begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:船头侧面迎风"
+LatexCommand ref
+reference "prob:直升机侧面迎微风悬停于甲板中部上方"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-问题在 
+ 在 
 \begin_inset Formula $t=5.5$
 \end_inset
 
@@ -23576,17 +24080,17 @@ name "fig:ship_a=45_t=66e-1_p=3"
 
 \end_inset
 
-
+问题 
 \begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:船头侧面迎风"
+LatexCommand ref
+reference "prob:直升机侧面迎微风悬停于甲板中部上方"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-问题在 
+ 在 
 \begin_inset Formula $t=6.6$
 \end_inset
 
@@ -23633,17 +24137,17 @@ name "fig:ship_a=45_t=77e-1_p=3"
 
 \end_inset
 
-
+问题 
 \begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:船头侧面迎风"
+LatexCommand ref
+reference "prob:直升机侧面迎微风悬停于甲板中部上方"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-问题在 
+ 在 
 \begin_inset Formula $t=7.7$
 \end_inset
 
@@ -23690,17 +24194,17 @@ name "fig:ship_a=45_t=88e-1_p=3"
 
 \end_inset
 
-
+问题 
 \begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:船头侧面迎风"
+LatexCommand ref
+reference "prob:直升机侧面迎微风悬停于甲板中部上方"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-问题在 
+ 在 
 \begin_inset Formula $t=8.8$
 \end_inset
 
@@ -23747,17 +24251,652 @@ name "fig:ship_a=45_t=99e-1_p=3"
 
 \end_inset
 
-
+问题 
 \begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:船头侧面迎风"
+LatexCommand ref
+reference "prob:直升机侧面迎微风悬停于甲板中部上方"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-问题在 
+ 在 
+\begin_inset Formula $t=9.9$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+来流为轻劲风
+\end_layout
+
+\begin_layout Standard
+在风力等级表中， “轻劲风”是指风速介于 
+\begin_inset Formula $\SI{8.0}{m/s}$
+\end_inset
+
+ 与 
+\begin_inset Formula $\SI{10.7}{m/s}$
+\end_inset
+
+ 之间的 5 级风。此时海面波浪具有明显的形状，浪高达到 
+\begin_inset Formula $\SI{2.0}{m}$
+\end_inset
+
+，海况等级为 4 级。
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[直升机侧面迎轻劲风悬停于甲板中部上方]
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "prob:直升机侧面迎轻劲风悬停于甲板中部上方"
+
+\end_inset
+
+除初始条件改为与直升机机身（及船体对称面）呈 
+\begin_inset Formula $\ang{45}$
+\end_inset
+
+ 夹角、速度为 
+\begin_inset Formula $\SI{10}{m/s}$
+\end_inset
+
+ 的均匀气流：
+\begin_inset Formula 
+\begin{equation}
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 5\sqrt{2} & 5\sqrt{2} & 0.0 & 101325.0\end{bmatrix},
+\end{equation}
+
+\end_inset
+
+其他条件与问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机侧面迎微风悬停于甲板中部上方"
+
+\end_inset
+
+ 相同。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ship_u=10_a=45_t=11e-1"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ship_u=10_a=45_t=99e-1"
+
+\end_inset
+
+ 采用了类似于图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ship_a=45_t=11e-1_p=3"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ship_a=45_t=99e-1_p=3"
+
+\end_inset
+
+ 的绘图方式。可以看出：随着侧向风速的增大，旋翼尾迹明显向下游延伸，且起动涡不再保持环状。值得注意的是，这里的旋翼尾迹具有明显的非对称性：旋翼左侧的涡结构几乎不
+受甲板影响，基本保持如孤立旋翼前飞时的形态（如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_Q_y_view"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_Q_x_view"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 所示）；旋翼右侧的涡结构与船体空气尾流的涡结构相互缠绕，二者之间没有明显的分界面。造成这种差异的主要原因在于船体两侧的气流不对称：船体迎风侧的气流相对“干净”
+，而船体背风侧的气流则相对紊乱。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/ship/a=45_u=10/Frame11.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_u=10_a=45_t=11e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机侧面迎轻劲风悬停于甲板中部上方"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=1.1$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/ship/a=45_u=10/Frame22.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_u=10_a=45_t=22e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机侧面迎轻劲风悬停于甲板中部上方"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=2.2$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/ship/a=45_u=10/Frame33.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_u=10_a=45_t=33e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机侧面迎轻劲风悬停于甲板中部上方"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=3.3$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/ship/a=45_u=10/Frame44.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_u=10_a=45_t=44e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机侧面迎轻劲风悬停于甲板中部上方"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=4.4$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/ship/a=45_u=10/Frame55.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_u=10_a=45_t=55e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机侧面迎轻劲风悬停于甲板中部上方"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=5.5$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/ship/a=45_u=10/Frame66.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_u=10_a=45_t=66e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机侧面迎轻劲风悬停于甲板中部上方"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=6.6$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/ship/a=45_u=10/Frame77.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_u=10_a=45_t=77e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机侧面迎轻劲风悬停于甲板中部上方"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=7.7$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/ship/a=45_u=10/Frame88.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_u=10_a=45_t=88e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机侧面迎轻劲风悬停于甲板中部上方"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $t=8.8$
+\end_inset
+
+ 时刻的 UMS–RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/ship/a=45_u=10/Frame99.png
+	lyxscale 15
+	width 100text%
+	height 26theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ship_u=10_a=45_t=99e-1"
+
+\end_inset
+
+问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机侧面迎轻劲风悬停于甲板中部上方"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 在 
 \begin_inset Formula $t=9.9$
 \end_inset
 
@@ -23775,35 +24914,71 @@ noprefix "false"
 \end_layout
 
 \begin_layout Section
-直升机 
-\begin_inset Formula $90^{\circ}$
-\end_inset
-
- 着舰
-\end_layout
-
-\begin_layout Section
-直升机 
-\begin_inset Formula $180^{\circ}$
-\end_inset
-
- 着舰
-\end_layout
-
-\begin_layout Section
 本章小结
 \end_layout
 
 \begin_layout Standard
-本章结果表明：非定常动量源模型与高阶 RKDG 求解器配合使用，能够在静态网格上高效、高精度地模拟旋翼对流场的扰动，避免了传统旋翼空气动力学数值模拟方法对变形网
-格、滑动网格、重叠网格等动态网格技术的依赖。
-\begin_inset Note Note
-status open
+本章利用由第
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:算法"
+plural "false"
+caps "false"
+noprefix "false"
 
-\begin_layout Plain Layout
-充实内容
+\end_inset
+
+章提出、经第
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:验证"
+
+\end_inset
+
+章验证、在第
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:并行"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+章并行化的 UMS–RK3/DG3 格式，模拟了舰载直升机悬停于甲板上方这种典型工况下的气动干扰过程。模拟结果表明 UMS–RK3/DG3 格式具有以下优点：
 \end_layout
 
+\begin_layout Description
+能够高效地模拟旋翼对流场的扰动 该格式够在静态非结构网格上模拟旋翼对流场的非定常扰动，无需使用变形网格、滑动网格、重叠网格等动态网格技术，避免了挖洞、贡献单元搜
+索、不同网格之间的数据交换等操作，因而是相对高效的。
+\end_layout
+
+\begin_layout Description
+能够处理具有复杂几何外形的船体 该格式在设计之初就考虑了对非结构网格的支持：正是因为间断伽辽金 (DG) 方法易于在非结构网格构造高阶格式，才将其用于空间离散（
+即 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:DG"
+
+\end_inset
+
+ 节）。尽管本章算例使用了简化的船体几何模型，但对于非结构网格自动生成工具而言，这种简化可有可无。
+\end_layout
+
+\begin_layout Description
+数值耗散低、计算效率高 第
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:验证"
+
+\end_inset
+
+章验证了 RK3/DG3 格式具有数值耗散低、计算效率高等优点，这些优点对于 UMS–RK3/DG3 格式依然成立。这是因为，被桨叶穿过的体单元只占全部体单元的
+很小一部分；其余体单元无需计算源项，在这些体单元上 UMS–RK3/DG3 格式实际上退化为 RK3/DG3 格式。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
 \end_inset
 
 
