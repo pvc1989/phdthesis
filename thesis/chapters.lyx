@@ -1780,7 +1780,7 @@ reference "fig:helicopter-aerodynamic-interference"
 
 \end_inset
 
- 所示）也增加了问题的复杂程度：
+ 所示）也增加了问题的复杂程度。
 \begin_inset Float figure
 wide false
 sideways false
@@ -1829,22 +1829,22 @@ literal "false"
 \end_layout
 
 \begin_layout Description
-桨-涡干扰 在下降、俯冲、大机动等飞行条件下，或对于桨盘面积有重叠的双旋翼构型，桨尖涡与桨叶之间不可避免地会发生碰撞。桨尖涡经过桨叶时，桨叶表面的压力分布受到强
+桨–涡干扰 在下降、俯冲、大机动等飞行条件下，或对于桨盘面积有重叠的双旋翼构型，桨尖涡与桨叶之间不可避免地会发生碰撞。桨尖涡经过桨叶时，桨叶表面的压力分布受到强
 烈扰动，从而成为旋翼振动和噪声的重要来源。
 \end_layout
 
 \begin_layout Description
-旋翼-机身干扰 通常，直升机机身处于旋翼的下游区域，对旋翼尾迹起阻挡作用。旋翼拉力、悬停气动效率这些重要的总体性能指标将受到影响。另一方面，桨尖涡以一定频率与机
+旋翼–机身干扰 通常，直升机机身处于旋翼的下游区域，对旋翼尾迹起阻挡作用。旋翼拉力、悬停气动效率这些重要的总体性能指标将受到影响。另一方面，桨尖涡以一定频率与机
 身发生碰撞，使得机身表明的压力分布受到扰动，从而成为机体振动的重要来源。 
 \end_layout
 
 \begin_layout Description
-旋翼-固定翼干扰 直升机上除了旋翼以外，一般还有水平尾翼、垂直尾翼等固定翼面，用于增加飞行稳定性，或提供额外的操纵面。当这些固定翼面受到旋翼尾迹扰动时，其上感知
+旋翼–固定翼干扰 直升机上除了旋翼以外，一般还有水平尾翼、垂直尾翼等固定翼面，用于增加飞行稳定性，或提供额外的操纵面。当这些固定翼面受到旋翼尾迹扰动时，其上感知
 的气动力有别于相应孤立部件在相同自由来流条件下所感知的气动力，从而会影响全机的配平和稳定性。
 \end_layout
 
 \begin_layout Description
-旋翼-地面干扰 当直升机从地面起飞或贴地低空飞行时，地面的阻挡将改变旋翼尾迹的流向。一般而言，地面效应会使旋翼拉力、悬停气动效率等总体性能指标有所提升；但在地面
+旋翼–地面干扰 当直升机从地面起飞或贴地低空飞行时，地面的阻挡将改变旋翼尾迹的流向。一般而言，地面效应会使旋翼拉力、悬停气动效率等总体性能指标有所提升；但在地面
 存在大量砂石等颗粒物的条件下，地面效应会进一步引发沙盲现象，导致飞行员视线受到遮挡，从而影响飞行安全。 
 \end_layout
 
@@ -1931,7 +1931,7 @@ v=v_{0}+v_{\mathrm{c}}r\cos\psi+v_{\mathrm{s}}r\sin\psi,
 \begin_inset Formula $C_{T},C_{L},C_{M}$
 \end_inset
 
- 之间的关系，呗写成状态空间形式：
+ 之间的关系，被写成状态空间形式：
 \begin_inset Formula 
 \begin{equation}
 \left(\underline{M}\,\dv{t}+\underline{L}^{-1}\right)\begin{bmatrix}v_{\mathrm{0}}\\
@@ -3441,10 +3441,10 @@ literal "false"
 
 \end_inset
 
-介绍了介绍了其所属公司在建立高置信度舰载直升机飞行仿真环境方面所做的工作。该仿真系统集成了直升机动力学、船体动力学以及非定常船体空气尾流方面的建模方法，为舰载直
-升机飞行训练和测试提供了一种高效的模拟工具。该仿真系统提供了三种不同精细程度的仿真模型：(1) 旋翼尾迹由有限状态入流模型描述，船体空气尾流由平板模型描述；(2
-) 旋翼尾迹由有限状态入流模型描述，船体空气尾流由 CFD 或试验数据描述；(3) 旋翼尾迹和船体空气尾流由VPM描述。其中，前两种模型可用于实时仿真计算。此后
-，该公司的 Zhao 等
+介绍了其所属公司在建立高置信度舰载直升机飞行仿真环境方面所做的工作。该仿真系统集成了直升机动力学、船体动力学以及非定常船体空气尾流方面的建模方法，为舰载直升机飞
+行训练和测试提供了一种高效的模拟工具。该仿真系统提供了三种不同精细程度的仿真模型：(1) 旋翼尾迹由有限状态入流模型描述，船体空气尾流由平板模型描述；(2)
+ 旋翼尾迹由有限状态入流模型描述，船体空气尾流由 CFD 或试验数据描述；(3) 旋翼尾迹和船体空气尾流由VPM描述。其中，前两种模型可用于实时仿真计算。此后，
+该公司的 Zhao 等
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Zhao2013"
@@ -4171,7 +4171,16 @@ literal "false"
 
 \end_inset
 
- 将一阶 Euler 格式替换为某种特殊的二阶 Runge–Kutta (RK) 格式
+ 将一阶 Euler 格式替换为某种特殊的二阶 Runge–Kutta (RK
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "RK"
+description "Runge–Kutta"
+literal "true"
+
+\end_inset
+
+) 格式
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Shu_1988,Shu_1989"
@@ -7218,9 +7227,8 @@ name "sec:RK"
 \end_layout
 
 \begin_layout Standard
-《
 \begin_inset CommandInset ref
-LatexCommand nameref
+LatexCommand ref
 reference "sec:DG"
 plural "false"
 caps "false"
@@ -7228,7 +7236,7 @@ noprefix "false"
 
 \end_inset
 
-》节最后给出的式 
+ 节给出的式 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:orthonormal_DG"
@@ -7395,16 +7403,7 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-显式 Runge–Kutta (RK
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "RK"
-description "Runge–Kutta"
-literal "true"
-
-\end_inset
-
-) 格式是一族高阶单步推进格式，最一般的形式为
+显式 Runge–Kutta (RK) 格式是一族多级单步高阶时间推进格式，最一般的形式为
 \begin_inset Formula 
 \begin{equation}
 \underline{\hat{U}}^{n+i/m}=\sum_{k=0}^{i-1}\left(\alpha_{i,k}\underline{\hat{U}}^{n+k/m}+\beta_{i,k}h_{t}\underline{\hat{R}}^{n+k/m}\right),\qquad i=1,\dots,m\label{eq:RKm}
@@ -8090,14 +8089,14 @@ D(s)
 设
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-symbol "$\\overrightarrow{PQ}$"
+symbol "$\\overline{PQ}$"
 description "表示点 $P$ 到点 $Q$ 的有向线段"
 literal "true"
 
 \end_inset
 
 线段 
-\begin_inset Formula $\overrightarrow{PQ}$
+\begin_inset Formula $\overline{PQ}$
 \end_inset
 
  与顶点为 
@@ -8109,7 +8108,7 @@ literal "true"
 \end_inset
 
  的公共部分为线段 
-\begin_inset Formula $\overrightarrow{RS}$
+\begin_inset Formula $\overline{RS}$
 \end_inset
 
 ，如图 
@@ -8135,7 +8134,7 @@ reference "fig:PQ"
 \end_inset
 
  (b) (c) 所示。
-\begin_inset Formula $\overrightarrow{RS}$
+\begin_inset Formula $\overline{RS}$
 \end_inset
 
  的求法在下一小节给出。
@@ -8163,19 +8162,19 @@ reference "fig:PQ"
 \end_inset
 
  在线段 
-\begin_inset Formula $\overrightarrow{RS}$
+\begin_inset Formula $\overline{RS}$
 \end_inset
 
  上的线积分：
 \begin_inset Formula 
 \begin{equation}
-\int_{V_{i}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{V}}(\vec{r})=\int_{\overrightarrow{RS}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{L}}(\vec{r}).\label{eq:body_force}
+\int_{V_{i}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{V}}(\vec{r})=\int_{\overline{RS}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{L}}(\vec{r}).\label{eq:body_force}
 \end{equation}
 
 \end_inset
 
 线段 
-\begin_inset Formula $\overrightarrow{RS}$
+\begin_inset Formula $\overline{RS}$
 \end_inset
 
  是可参数化的曲线，故后者可借助曲线参数 
@@ -8185,7 +8184,7 @@ reference "fig:PQ"
  化为定积分：
 \begin_inset Formula 
 \begin{equation}
-\int_{\overrightarrow{RS}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{L}}(\vec{r})=\int_{\xi_{R}}^{\xi_{S}}\phi_{k}(\vec{r}(\xi))\,\vec{b}_{\mathrm{L}}(\vec{r}(\xi))\left\Vert \frac{\partial\vec{r}}{\partial\xi}\right\Vert \dd{\xi},
+\int_{\overline{RS}}\phi_{k}(\vec{r})\,\vec{b}_{\mathrm{L}}(\vec{r})=\int_{\xi_{R}}^{\xi_{S}}\phi_{k}(\vec{r}(\xi))\,\vec{b}_{\mathrm{L}}(\vec{r}(\xi))\left\Vert \frac{\partial\vec{r}}{\partial\xi}\right\Vert \dd{\xi},
 \end{equation}
 
 \end_inset
@@ -8234,12 +8233,12 @@ name "fig:PQ"
 \end_layout
 
 \begin_layout Subsection
-桨叶与体单元求交
+求桨叶与体单元交集
 \end_layout
 
 \begin_layout Standard
 求线段 
-\begin_inset Formula $\overrightarrow{PQ}$
+\begin_inset Formula $\overline{PQ}$
 \end_inset
 
  与四面体 
@@ -8247,7 +8246,7 @@ name "fig:PQ"
 \end_inset
 
  的公共部分，可以归结为求线段 
-\begin_inset Formula $\overrightarrow{PQ}$
+\begin_inset Formula $\overline{PQ}$
 \end_inset
 
  与 
@@ -8257,7 +8256,7 @@ name "fig:PQ"
  的公共点。设
 \begin_inset Formula 
 \begin{equation}
-\overrightarrow{PQ}=\lambda_{A}\overrightarrow{PA}+\lambda_{B}\overrightarrow{PB}+\lambda_{C}\overrightarrow{PC},
+\overline{PQ}=\lambda_{A}\overline{PA}+\lambda_{B}\overline{PB}+\lambda_{C}\overline{PC},
 \end{equation}
 
 \end_inset
@@ -8341,7 +8340,7 @@ reference "eq:segment_triangle_intersection"
  内部：
 \begin_inset Formula 
 \begin{equation}
-\overrightarrow{PR}=\frac{\overrightarrow{PQ}}{\lambda_{A}+\lambda_{B}+\lambda_{C}}
+\overline{PR}=\frac{\overline{PQ}}{\lambda_{A}+\lambda_{B}+\lambda_{C}}
 \end{equation}
 
 \end_inset
@@ -8360,7 +8359,7 @@ reference "eq:segment_triangle_intersection"
 \end_inset
 
  为线段 
-\begin_inset Formula $\overrightarrow{PQ}$
+\begin_inset Formula $\overline{PQ}$
 \end_inset
 
  与 
@@ -8383,11 +8382,11 @@ reference "fig:PQ"
 \end_inset
 
  位于线段 
-\begin_inset Formula $\overrightarrow{PQ}$
+\begin_inset Formula $\overline{PQ}$
 \end_inset
 
  的延长线上，不是线段 
-\begin_inset Formula $\overrightarrow{PQ}$
+\begin_inset Formula $\overline{PQ}$
 \end_inset
 
  与 
@@ -8400,7 +8399,7 @@ reference "fig:PQ"
 \end_deeper
 \begin_layout Itemize
 否则，线段 
-\begin_inset Formula $\overrightarrow{PQ}$
+\begin_inset Formula $\overline{PQ}$
 \end_inset
 
  与 
@@ -8762,7 +8761,7 @@ literal "false"
 
 \end_inset
 
-；van Leer
+。Van Leer
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Van_Leer_1977,Van_Leer_1977a,van_Leer_1979,van_Leer_2021"
@@ -8822,6 +8821,13 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 在近似解充分光滑的区域，各候选多项式的光滑程度通常也很接近，只保留其中一个显然是对计算资源的一种浪费。为了充分利用所有已知信息，“加权基本无振荡
  (Weighted ENO, WENO
 \begin_inset CommandInset nomenclature
@@ -8845,6 +8851,13 @@ literal "false"
 
 \begin_layout Itemize
 取所有候选多项式的非线性加权平均作为近似解。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -9306,7 +9319,7 @@ literal "false"
 
 \end_inset
 
- 推广（适用于非结构网格）的适用于间断伽辽金法的 WENO 重构方法。原文给出的是二维版本，本文将其推广到三维。
+ 推广（适用于非结构网格）的适用于间断伽辽金法的 WENO 重构方法。原文只给出了该方法在二维问题上的应用，本文将其适用范围推广到三维。
 \end_layout
 
 \begin_layout Standard
@@ -12135,14 +12148,24 @@ name "fig:linear_double_wave_error"
 
 \end_inset
 
-图 
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:线性双波平流"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题近似解（图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:linear_double_wave_sample"
 
 \end_inset
 
- 所示近似解的绝对误差之比较
+）的绝对误差之比较
 \end_layout
 
 \end_inset
@@ -12652,7 +12675,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-为了更公平地比较不同阶数的求解器，作者开展了一组数值试验，将低阶 RKDG 求解器在细网格上的性能与高阶 RKDG 求解器在粗网格上的性能进行了对比。图
+为了更合理地比较不同阶数的求解器，作者开展了一组数值试验，将低阶 RKDG 求解器在细网格上的性能与高阶 RKDG 求解器在粗网格上的性能进行了对比。图
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -14835,7 +14858,7 @@ literal "true"
 \begin_inset Formula $3$
 \end_inset
 
- 马赫的均匀状态（未画出）。
+ 马赫的均匀状态。
 \end_layout
 
 \begin_layout Standard
@@ -15977,7 +16000,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-它们都没有给出其 DG 求解器在三维非结构网格上的并行性能。
+他们都没有给出其 DG 求解器在三维非结构网格上的并行性能。
 \end_layout
 
 \begin_layout Standard
@@ -22463,7 +22486,7 @@ name "fig:rotor_upward_speedup"
 
 \end_inset
 
-RK3/DG3 求解器以不同进程数量并行求解
+UMS–RK3/DG3 求解器以不同进程数量并行求解
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:孤立旋翼爬升"
@@ -22516,7 +22539,7 @@ name "fig:rotor_upward_efficiency"
 
 \end_inset
 
-RK3/DG3 求解器以不同进程数量并行求解
+UMS–RK3/DG3 求解器以不同进程数量并行求解
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:孤立旋翼爬升"
