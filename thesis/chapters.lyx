@@ -3164,12 +3164,12 @@ literal "false"
 \end_layout
 
 \begin_layout Plain Layout
-美国斯坦福大学的Jameson教授和Butsuntorn、Allaneau等，在计算流体动力学新方法领域所开展的一些研究，直接或间接地为旋翼空气动力学研究提供了
-新的工具。
+美国斯坦福大学的 Jameson 教授和 Butsuntorn、Allaneau 等，在计算流体动力学新方法领域所开展的一些研究，直接或间接地为旋翼空气动力学研
+究提供了新的工具。
 \end_layout
 
 \begin_layout Plain Layout
-Butsuntorn和Jameson
+Butsuntorn 和 Jameson
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Butsuntorn2008"
@@ -3186,7 +3186,7 @@ literal "false"
 \end_layout
 
 \begin_layout Plain Layout
-Allaneau和Jameson
+Allaneau 和 Jameson
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Allaneau2012"
@@ -4283,7 +4283,7 @@ literal "false"
 
 \end_inset
 
-用代表各片桨叶的作用面模型，，捕获了旋翼流场的非定常效应。此类早期工作要么通过忽略非定常效应而过度简化（如文献-
+用代表各片桨叶的作用面模型，捕获了旋翼流场的非定常效应。此类早期工作要么通过忽略非定常效应而过度简化（如文献-
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Rajagopalan_1989,Rajagopalan_1993,Kang_1997,Kang_2000"
@@ -5123,19 +5123,23 @@ literal "true"
 \begin_layout Standard
 从数据结构的角度看，网格是所有体单元、面单元、结点的“容器 (container)”，体单元又是其所拥有的面单元、结点的容器，因此这些容器应当支持对其成员的快速
 “遍历 (traversal)”，即复杂度不超过 
-\begin_inset Formula $N\lg^{3}N$
+\begin_inset Formula $N_{X}\lg^{3}N_{X}$
 \end_inset
 
-，这里 
-\begin_inset Formula $N$
+，这里的 
+\begin_inset Formula $N_{X}$
 \end_inset
 
- 为该容器某种成员的数量。除此之外，面单元应当支持对其两侧体单元的快速“查询 (query)”，即复杂度不超过 
-\begin_inset Formula $\lg^{3}N$
+ 为容器 
+\begin_inset Formula $X$
 \end_inset
 
-，这里 
-\begin_inset Formula $N$
+ 的成员数量。除此之外，面单元应当支持对其两侧体单元的快速“查询 (query)”，即复杂度不超过 
+\begin_inset Formula $\lg^{3}N_{V}$
+\end_inset
+
+，这里的 
+\begin_inset Formula $N_{V}$
 \end_inset
 
  为体单元数量。
@@ -5931,7 +5935,7 @@ z-z_{0}
 \begin_inset Formula $\mathbb{P}^{<p}(V_{i})$
 \end_inset
 
- 的一组基。对其应用 Gram–Schimidt 过程，即得一组正交归一化的基函数：
+ 的一组基。对其应用 Gram–Schmidt 过程，即得一组正交归一化的基函数：
 \end_layout
 
 \begin_layout Itemize
@@ -6513,11 +6517,19 @@ reference "eq:volume_integral"
 \end_inset
 
 其中 
-\begin_inset Formula $\alpha,\beta,\gamma,\delta$
+\begin_inset Formula $\alpha,\beta$
+\end_inset
+
+ 为 
+\begin_inset Formula $\xi,\eta$
+\end_inset
+
+ 的多项式，
+\begin_inset Formula $\gamma,\delta$
 \end_inset
 
  均为 
-\begin_inset Formula $\xi,\eta$
+\begin_inset Formula $\eta$
 \end_inset
 
  的多项式。在上述假设下，式 
@@ -7011,7 +7023,7 @@ literal "true"
 \end_layout
 
 \begin_layout Itemize
-若相邻单元的基函数在边界上连续，则称此有限元法为“连续的 (scontinuous)”，否则称之为“间断的 (discontinuous)”。
+若相邻单元的基函数在边界上连续，则称此有限元法为“连续的 (continuous)”，否则称之为“间断的 (discontinuous)”。
 \end_layout
 
 \begin_layout Itemize
