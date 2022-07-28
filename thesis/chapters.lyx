@@ -17179,7 +17179,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/double_mach/speedup.pdf
+	filename figures/double_mach/speedup.pdf
 	lyxscale 50
 	width 100text%
 	height 26theight%
@@ -17232,7 +17232,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/double_mach/efficiency.pdf
+	filename figures/double_mach/efficiency.pdf
 	lyxscale 50
 	width 100text%
 	height 26theight%
@@ -18337,14 +18337,24 @@ name "fig:yf17_balance"
 
 \end_inset
 
-图 
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:YF-17_超声速绕流"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题网格分块结果（图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:yf17_partition"
 
 \end_inset
 
- 所示分块结果的单元分布情况
+）的单元分布情况
 \end_layout
 
 \end_inset
@@ -19081,7 +19091,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/yf17/speedup.pdf
+	filename figures/yf17/speedup.pdf
 	lyxscale 50
 	width 100text%
 	height 26theight%
@@ -19134,7 +19144,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/yf17/efficiency.pdf
+	filename figures/yf17/efficiency.pdf
 	lyxscale 50
 	width 100text%
 	height 26theight%
@@ -19346,8 +19356,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/airfoil/lift.pdf
-	lyxscale 15
+	filename figures/airfoil/lift.pdf
+	lyxscale 30
 	width 100text%
 	height 26theight%
 	keepAspectRatio
@@ -19397,8 +19407,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/airfoil/drag.pdf
-	lyxscale 15
+	filename figures/airfoil/drag.pdf
+	lyxscale 30
 	width 100text%
 	height 26theight%
 	keepAspectRatio
@@ -21853,14 +21863,24 @@ name "fig:rotor_upward_balance"
 
 \end_inset
 
-图 
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:孤立旋翼爬升"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题网格分块结果（图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:rotor_upward_partition"
 
 \end_inset
 
- 所示分块结果的单元分布情况
+）的单元分布情况
 \end_layout
 
 \end_inset

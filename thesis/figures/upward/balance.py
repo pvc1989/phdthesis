@@ -2,6 +2,7 @@
 
 import numpy as np
 from matplotlib import pyplot as plt
+plt.rcParams['font.sans-serif'] = ['Songti SC']
 
 if __name__ == '__main__':
   parts = np.linspace(0, 99, 100)
@@ -22,8 +23,8 @@ if __name__ == '__main__':
 
   plt.figure(figsize=(6,3))
   plt.plot(parts, cells)
-  plt.xlabel("Core Index")
-  plt.ylabel("Number of Cells")
+  plt.xlabel("分块/进程/核心编号")
+  plt.ylabel("体单元数量")
   plt.tight_layout()
   # plt.show()
   plt.savefig('./balance.pdf')
