@@ -116,9 +116,9 @@ name "chap:绪论"
 \end_layout
 
 \begin_layout Standard
-直升机以其特有的垂直起降、悬停和低空低速飞行能力，特别适合于在军舰、科考船、海上钻井平台等起降条件和飞行环境较差的平台上执行任务。舰载直升机能够有效扩大舰船作业
-半径、丰富海上作业科目、提升应对海上突发情况的能力。发展舰载直升机对于保障舰船航行安全、维护海洋权益具有重要意义。世界各海洋大国和航空大国历来重视舰载直升机的发
-展，相继研制出各种不同构型的舰载直升机，如表 
+直升机以其特有的垂直起降、悬停和低空低速飞行能力，特别适合于在军舰、科考船、海上钻井平台等飞行环境较差的起降平台上执行任务。舰载直升机能够有效扩大船舶作业半径、
+丰富海上作业科目、提升应对海上突发情况的能力。发展舰载直升机对于保障船舶航行安全、维护海洋权益具有重要意义。世界各海洋大国和航空大国历来重视舰载直升机的发展，相
+继研制出各种不同构型的舰载直升机，如表 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:shipborne-helicopter"
@@ -128,7 +128,7 @@ noprefix "false"
 
 \end_inset
 
- 所示。我国海军正处于“近海防御型向近海防御与远海护卫型结合转变”
+ 所示。当前，人民海军正处于“近海防御型向近海防御与远海护卫型结合转变”
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PRC2015"
@@ -136,7 +136,7 @@ literal "false"
 
 \end_inset
 
-的关键时期，发展适合中国国情的舰载直升机，对于实施海洋强国战略具有重要意义。
+的关键时期。发展适合我国国情的舰载直升机，对于海洋强国战略的实施具有重要意义。
 \begin_inset Float table
 wide false
 sideways false
@@ -1141,8 +1141,8 @@ Alligator
 
 \begin_layout Standard
 在舰载直升机的设计、使用和维护过程中，存在大量亟待解决的科学和工程问题。其中，既有旋翼飞行器所共有的一般性问题，也有直升机执行海上作业任务所带来的特殊问题。与陆
-基直升机对比，海面、舰面特有的气流环境，为舰载直升机设计、使用及维护带来了一些新的问题，空气动力学是其中最核心、最关键的问题。舰船在海面航行时，船体结构对海面气
-流的扰动使得直升机起降平台附近的气流环境较为复杂，增加了直升机完成起降飞行任务的难度。海面的风速和风向、舰船的航速和航向都是影响上述“船体空气尾流
+基直升机对比，海面、舰面特有的气流环境，为舰载直升机设计、使用及维护带来了一些新的问题，空气动力学是其中最核心、最关键的问题。船舶在海面航行时，船体结构对海面气
+流的扰动使得直升机起降平台附近的气流环境较为复杂，增加了直升机完成起降飞行任务的难度。海面的风速和风向、船舶的航速和航向都是影响上述“船体空气尾流
  (ship airwake)”的重要因素。直升机旋翼尾迹与船体空气尾流之间存在复杂的相互作用，进一步增加了上述问题的复杂程度。研究舰载直升机空气动力学，特别是
 海面、船体与旋翼之间的气动干扰问题，对于确定直升机舰面起降的环境条件，制定和完善直升机舰面起降作业流程（如图 
 \begin_inset CommandInset ref
@@ -1395,7 +1395,7 @@ literal "false"
 \end_layout
 
 \begin_layout Plain Layout
-舰船在海面航行时，船体结构对海面气流的扰动使得直升机起降平台附近的气流环境较为复杂，增加了直升机完成起降飞行任务的难度。 海面的风速和风向、舰船的航速和航向都是
+船舶在海面航行时，船体结构对海面气流的扰动使得直升机起降平台附近的气流环境较为复杂，增加了直升机完成起降飞行任务的难度。 海面的风速和风向、船舶的航速和航向都是
 影响上述船体空气尾流（Ship Airwake）的重要因素。
 \end_layout
 
@@ -1406,7 +1406,7 @@ literal "false"
 
 \begin_layout Plain Layout
 建立合适的海风模型、船体空气尾流模型、气动干扰模型，是舰载直升机空气动力学研究的主要任务； 研究舰载直升机在各种海浪和海风条件下的动力学稳定性，是舰载直升机结构
-动力学研究的主要内容； 确定舰载直升机在各种海风条件和舰船航行状态下的安全飞行路径和操纵策略，则是舰载直升机飞行动力学、导航及控制方法研究的重点和难点。
+动力学研究的主要内容； 确定舰载直升机在各种海风条件和船舶航行状态下的安全飞行路径和操纵策略，则是舰载直升机飞行动力学、导航及控制方法研究的重点和难点。
 \end_layout
 
 \begin_layout Subsection
@@ -1415,7 +1415,7 @@ literal "false"
 
 \begin_layout Plain Layout
 在舰载直升机设计和使用所面临的各种科学和工程问题中，空气动力学是其中最核心、最关键的问题。 国内外众多学者在这方面开展了大量研究工作，积累了丰富的研究方法和研究
-成果。 本文对旋翼空气动力学、舰船空气动力学以及计算空气动力学新方法的研究现状进行了综述，介绍了与舰载直升机相关的一些应用问题，并总结了该领域在未来一段时间内的
+成果。 本文对旋翼空气动力学、船舶空气动力学以及计算空气动力学新方法的研究现状进行了综述，介绍了与舰载直升机相关的一些应用问题，并总结了该领域在未来一段时间内的
 发展趋势。
 \end_layout
 
@@ -1445,7 +1445,7 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-舰载直升机所特有的空气动力学问题，主要表现为海面自由来流和舰船空气尾流与旋翼尾迹的相互作用。起飞和着舰过程中，海面和舰面阻挡旋翼尾迹向下游移动，引起的“地”面效
+舰载直升机所特有的空气动力学问题，主要表现为海面自由来流和船舶空气尾流与旋翼尾迹的相互作用。起飞和着舰过程中，海面和舰面阻挡旋翼尾迹向下游移动，引起的“地”面效
 应，也是影响直升机飞行安全的重要因素。研究海面、舰面与旋翼之间的气动干扰，是舰载直升机舰面空气动力学的主要任务。与旋翼空气动力学类似，该领域的研究方法也分为试验
 和计算两大类。
 \end_layout
@@ -1476,7 +1476,7 @@ reference "fig:natural-condensation"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1484,8 +1484,6 @@ status collapsed
 	filename ../review/figures/natural-condensation.png
 	lyxscale 50
 	width 100text%
-	height 26theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1559,7 +1557,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-根据所测量的物理量以及对流场刻画的精细程度，可以将旋翼空气动力学定量试验大致分为两大类。： 
+根据所测量的物理量以及对流场刻画的精细程度，可以将旋翼空气动力学定量试验大致分为两大类：
 \end_layout
 
 \begin_layout Description
@@ -1648,8 +1646,8 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename ../review/figures/tip-vortex.jpg
-	lyxscale 50
-	height 30pheight%
+	lyxscale 30
+	height 26theight%
 
 \end_inset
 
@@ -1759,9 +1757,9 @@ literal "false"
 \end_layout
 
 \begin_layout Description
-局部可压缩 直升机旋翼桨尖速度的设计值通常为 0.7–0.9 马赫，属于高亚声速范围，压缩性已较为明显。随着前飞速度增大，在前行侧桨叶桨尖处可能会出现局部跨声速区，
-甚至产生激波。桨叶的旋转又使得可压缩区域与低速不可压缩区域之间没有固定的、显著的界线。这一流动特征使得原本在固定翼空气动力学中已经形成的分别适用于不可压缩和可压
-缩流动的分析方法，需经过特殊处理才能应用于旋翼空气动力学的研究。 
+局部可压缩 直升机旋翼桨尖速度的设计值属于高亚声速范围，压缩性已较为明显。随着前飞速度增大，在前行侧桨叶桨尖处可能会出现局部跨声速区，甚至产生激波。桨叶的旋转又
+使得可压缩区域与低速不可压缩区域之间没有固定的、显著的界线。这一流动特征使得原本在固定翼空气动力学中已经形成的分别适用于不可压缩和可压缩流动的分析方法，需经过特
+殊处理才能应用于旋翼空气动力学的研究。 
 \end_layout
 
 \begin_layout Standard
@@ -1784,7 +1782,7 @@ reference "fig:helicopter-aerodynamic-interference"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1792,7 +1790,7 @@ status collapsed
 	filename ../review/figures/aero-interaction.jpg
 	lyxscale 50
 	width 100text%
-	height 26theight%
+	height 22theight%
 	keepAspectRatio
 
 \end_inset
@@ -2270,7 +2268,7 @@ literal "false"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2993,7 +2991,7 @@ reference "fig:AMR"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3001,7 +2999,7 @@ status collapsed
 	filename ../review/figures/adaptive.jpg
 	lyxscale 50
 	width 100text%
-	height 26theight%
+	height 24theight%
 	keepAspectRatio
 
 \end_inset
@@ -3221,13 +3219,6 @@ literal "false"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 舰载直升机气动干扰试验
 \end_layout
@@ -3258,7 +3249,7 @@ literal "false"
 
 \end_inset
 
-通过试验研究了利用柱状涡流发生器对船体空气尾流进行修改（如图 
+通过试验研究了利用“柱状涡发生器 (columnar vortex generator, CVG)”对船体空气尾流进行修改（如图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:CVG"
@@ -3269,7 +3260,7 @@ reference "fig:CVG"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3277,7 +3268,7 @@ status collapsed
 	filename ../review/figures/modifying.png
 	lyxscale 50
 	width 100text%
-	height 26theight%
+	height 24theight%
 	keepAspectRatio
 
 \end_inset
@@ -3292,7 +3283,7 @@ name "fig:CVG"
 
 \end_inset
 
-利用柱状涡流发生器改善舰载直升机起降环境
+利用柱状涡发生器改善舰载直升机起降环境
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Lamar2004"
@@ -3575,7 +3566,7 @@ reference "fig:sliding-mesh"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3652,7 +3643,7 @@ status open
 	filename figures/overset_mesh.jpeg
 	lyxscale 50
 	width 100text%
-	height 26theight%
+	height 32theight%
 	keepAspectRatio
 
 \end_inset
@@ -3967,13 +3958,6 @@ literal "false"
 \end_inset
 
 。另一方面，大数据、机器学习技术的进步，也为建立基于 PIV、CFD 数据的精细气动模型创造了前所未有的条件。相比之下，我国在这些方向开展的研究工作仍十分有限。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
