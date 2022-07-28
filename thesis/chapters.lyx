@@ -2862,14 +2862,20 @@ literal "false"
 
 \end_inset
 
-将涡量输运方程与 Navier–Stokes 方程相结合，建立了一种更加接近物理真实的旋翼空气动力学分析模型。该模型采用基于原始变量（速度、压力）的
- Navier–Stokes 方程对桨叶附近的流动情况进行描述，可以体现这一区域存在的空气黏性、压缩性等势流模型无法很好处理的流动特性；对涡流主导的尾迹部分则采
-用基于欧拉观点的涡量输运方程进行描述，可以有效降低常规 CFD 造成的涡量非物理扩散。利用该耦合模型，他们给出了一些固定翼、钝体、直升机上的算例，在流动特性捕捉
-和非定常载荷计算方面都给出了较好的结果。
+将涡量输运方程与 Navier–Stokes 方程相结合，建立了一种更加接近物理真实的旋翼空气动力学分析模型。该模型（如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:VTM-NSE"
+
+\end_inset
+
+ 所示）采用基于原始变量（速度、压力）的 Navier–Stokes 方程对桨叶附近的流动情况进行描述，可以体现这一区域存在的空气黏性、压缩性等势流模型无法很好
+处理的流动特性；对涡流主导的尾迹部分则采用基于欧拉观点的涡量输运方程进行描述，可以有效降低常规 CFD 造成的涡量非物理扩散。利用该耦合模型，他们给出了一些固定
+翼、钝体、直升机上的算例，在流动特性捕捉和非定常载荷计算方面都给出了较好的结果。
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2886,6 +2892,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:VTM-NSE"
+
+\end_inset
+
 涡量输运方程与 Navier–Stokes 方程耦合模型示意图
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3204,6 +3216,13 @@ literal "false"
 应用到直升机或旋翼空气动力学的研究中。
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -3948,6 +3967,13 @@ literal "false"
 \end_inset
 
 。另一方面，大数据、机器学习技术的进步，也为建立基于 PIV、CFD 数据的精细气动模型创造了前所未有的条件。相比之下，我国在这些方向开展的研究工作仍十分有限。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -5834,6 +5860,13 @@ reference "eq:inner-product"
  上的投影。
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 正交归一化
 \begin_inset CommandInset label
@@ -6240,6 +6273,10 @@ e'_{n}(\vec{r})
 \end{bmatrix}}_{\underline{e'}(\vec{r})}.
 \end{equation}
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 由此得矩阵函数 
@@ -6660,6 +6697,13 @@ reference "sec:parallel"
 \end_inset
 
  小节）正是本文的主要工作内容。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7522,6 +7566,13 @@ literal "true"
 )”格式。
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Lemma
 若式 
 \begin_inset CommandInset ref
@@ -7944,6 +7995,13 @@ literal "true"
 \end_inset
 
 )”模型嵌入既有的 RKDG 格式，从而获得 UMS–RKDG 格式的具体过程。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -10222,6 +10280,10 @@ literal "true"
 \end_inset
 
 
+\begin_inset Newpage newpage
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \underline{R'}=\begin{bmatrix}1 & 1 & 0 & 0 & 1\\
@@ -10320,6 +10382,10 @@ h_{0}-u_{\nu}a & \frac{u_{x}^{2}+u_{y}^{2}+u_{z}^{2}}{2} & u_{\sigma} & u_{\pi} 
 \end{bmatrix},
 \end{equation}
 
+\end_inset
+
+
+\begin_inset Newpage newpage
 \end_inset
 
 这里用
@@ -12293,6 +12359,13 @@ reference "fig:linear_double_wave_sample_u2"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 由以上结果可知：
 \family typewriter
 LazyWeno
@@ -13229,6 +13302,13 @@ reference "tab:sod_cost"
  点三角形积分器。因此，本节关于性价比的结论比线性单波方程一节得到的类似结论更加可靠，也更具有实际意义。
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Lax 激波管问题
 \end_layout
@@ -13682,6 +13762,13 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -14150,6 +14237,13 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -14746,6 +14840,13 @@ literal "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -15976,6 +16077,13 @@ literal "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -17737,6 +17845,13 @@ reference "prob:YF-17_亚声速绕流"
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 具有复杂边界的超声速流场
 \end_layout
@@ -18141,6 +18256,13 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -21652,6 +21774,13 @@ noprefix "false"
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 并行性能测评
 \begin_inset CommandInset label
@@ -23357,6 +23486,13 @@ reference "prob:直升机正面迎风悬停于甲板中部上方"
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 悬停于甲板尾部上方
 \begin_inset CommandInset label
@@ -23808,6 +23944,13 @@ reference "prob:直升机正面迎风悬停于甲板尾部上方"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
