@@ -10508,7 +10508,7 @@ name "chap:验证"
 \end_layout
 
 \begin_layout Standard
-本章首先基于一组具有解析解、数值精确解或高精度数值解的一维或二维标准算例，在三维非结构网格上验证第
+本章首先基于一组具有解析解或数值精确解的一维标准算例，在三维非结构网格上定量验证第
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:算法"
@@ -10518,8 +10518,8 @@ noprefix "false"
 
 \end_inset
 
-章所提高阶计算方法的正确性，以及提高阶数对减小误差所起的积极作用。在此基础上，基于一组没有解析解、数值精确解及高精度数值解的三维工程算例，以物理上可靠的一阶近似
-解为参照，验证三阶近似解的正确性。
+章所提高阶计算方法的正确性，以及提高阶数对减小误差所起的作用。在此基础上，基于一组没有解析解、数值精确解，但有高精度数值精的二维标准算例，在三维非结构网格上定性
+验证高阶格式的正确性及高精度。
 \end_layout
 
 \begin_layout Section
@@ -10527,7 +10527,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-本小节求解如下线性波动方程
+本节求解如下线性平流方程
 \begin_inset Formula 
 \begin{equation}
 \partial_{t}\underline{U}+\underline{A}^{x}\,\partial_{x}\underline{U}+\underline{A}^{y}\,\partial_{y}\underline{U}+\underline{A}^{z}\,\partial_{z}\underline{U}=\underline{0}\label{eq:linear_system}
@@ -10610,7 +10610,7 @@ reference "eq:linear_system"
 求满足此方程与边界条件
 \begin_inset Formula 
 \begin{equation}
-U(x=0,y,z,t)=-10\eqqcolon U_{L},\qquad U(x=4,y,z,t)=+10\eqqcolon U_{R},
+U(x=0,y,z,t)=-10\eqqcolon U_{\mathrm{L}},\qquad U(x=4,y,z,t)=+10\eqqcolon U_{\mathrm{R}},
 \end{equation}
 
 \end_inset
@@ -10618,7 +10618,7 @@ U(x=0,y,z,t)=-10\eqqcolon U_{L},\qquad U(x=4,y,z,t)=+10\eqqcolon U_{R},
 及初始条件
 \begin_inset Formula 
 \begin{equation}
-U(x,y,z,t=0)=U_{L}
+U(x,y,z,t=0)=U_{\mathrm{L}}
 \end{equation}
 
 \end_inset
@@ -10638,8 +10638,8 @@ U(x,y,z,t=0)=U_{L}
 \begin_inset Formula 
 \begin{equation}
 U^{\star}(x,y,z,t)=\begin{cases}
-U_{L}, & x-4<-10t;\\
-U_{R}, & x-4>-10t.
+U_{\mathrm{L}}, & x-4<-10t;\\
+U_{\mathrm{R}}, & x-4>-10t.
 \end{cases}
 \end{equation}
 
@@ -10750,7 +10750,7 @@ name "fig:linear_scalar_p=3_h=2^-3"
 \begin_inset Formula $h\approx2^{-3}$
 \end_inset
 
- 的四面体单元的非结构网格上得到的
+ 的四面体单元的非结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:线性单波平流"
@@ -10808,7 +10808,7 @@ name "fig:linear_scalar_p=1_h=2^-4"
 \begin_inset Formula $h\approx2^{-4}$
 \end_inset
 
- 的四面体单元的非结构网格上得到的
+ 的四面体单元的非结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:线性单波平流"
@@ -10866,7 +10866,7 @@ name "fig:linear_scalar_p=1_h=2^-5"
 \begin_inset Formula $h\approx2^{-5}$
 \end_inset
 
- 的四面体单元的非结构网格上得到的
+ 的四面体单元的非结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:线性单波平流"
@@ -10924,7 +10924,7 @@ name "fig:linear_scalar_p=3_h=2^-2"
 \begin_inset Formula $h\approx2^{-2}$
 \end_inset
 
- 的四面体单元的非结构网格上得到的
+ 的四面体单元的非结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:线性单波平流"
@@ -11011,7 +11011,7 @@ name "fig:linear_scalar_h_vary"
 
 \end_inset
 
-同一求解器在不同网格上得到的
+同一求解器在不同网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:线性单波平流"
@@ -11065,7 +11065,7 @@ name "fig:linear_scalar_p_vary"
 
 \end_inset
 
-不同求解器在同一网格上得到的
+不同求解器在同一网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:线性单波平流"
@@ -11164,15 +11164,7 @@ name "tab:linear_accuracy"
 
 \end_inset
 
-各种 
-\begin_inset Formula $p$
-\end_inset
-
-–
-\begin_inset Formula $h$
-\end_inset
-
-（求解器–网格）组合得到的
+各种求解器–网格组合所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:线性单波平流"
@@ -11211,7 +11203,9 @@ status open
 \backslash
 diagbox{$p$}{$
 \backslash
-varepsilon(0.2)$}{$h$}
+eval{
+\backslash
+varepsilon}_{t=0.2}$}{$h$}
 \end_layout
 
 \end_inset
@@ -11439,7 +11433,7 @@ reference "tab:linear_cost"
 \begin_inset Formula $h$
 \end_inset
 
-) 组合的运行时间。这里的“运行时间”含数据结构初始化及文件读写等操作，均为在主频为 2.7 GHz 的单核处理器上测得。需要说明的是，表 
+) 组合的运行时间。这里的“运行时间”含数据结构初始化及文件读写等操作，均为在主频为 2.7 GHz 的单核处理器上测得。需要承认的是，表 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:linear_cost"
@@ -11478,11 +11472,11 @@ reference "tab:linear_cost"
 \begin_inset Formula $h\approx1/32$
 \end_inset
 
-) 网格上的所消耗的运行时间 (306.293 s 或按 
+) 网格上的所消耗的运行时间（306.293 s 或按 
 \begin_inset Formula $1/24$
 \end_inset
 
- 换算后的 12.762 s)。
+ 换算后的 12.762 s）。
 \end_layout
 
 \begin_layout Standard
@@ -11502,15 +11496,7 @@ name "tab:linear_cost"
 
 \end_inset
 
-各种 
-\begin_inset Formula $p$
-\end_inset
-
-–
-\begin_inset Formula $h$
-\end_inset
-
-（求解器–网格）组合求解
+各种求解器–网格组合所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:线性单波平流"
@@ -11859,17 +11845,17 @@ U_{2}(x,y,z,t)
 -2 & 6
 \end{bmatrix}}_{\underline{A}^{x}}=\underbrace{\begin{bmatrix}1 & 1\\
 -1 & 1
-\end{bmatrix}}_{\underline{R^{x}}}\underbrace{\begin{bmatrix}8\\
+\end{bmatrix}}_{\underline{R}^{x}}\underbrace{\begin{bmatrix}8\\
  & 4
-\end{bmatrix}}_{\underline{\varLambda^{x}}}\underbrace{\begin{bmatrix}1/2 & -1/2\\
+\end{bmatrix}}_{\underline{\varLambda}^{x}}\underbrace{\begin{bmatrix}1/2 & -1/2\\
 1/2 & 1/2
-\end{bmatrix}}_{\underline{L^{x}}}.
+\end{bmatrix}}_{\underline{L}^{x}}.
 \end{equation}
 
 \end_inset
 
 通过引入特征变量 
-\begin_inset Formula $\underline{V}\coloneqq\underline{L^{x}}\,\underline{U}$
+\begin_inset Formula $\underline{V}\coloneqq\underline{L}^{x}\,\underline{U}$
 \end_inset
 
 ，即
@@ -11891,9 +11877,9 @@ U_{1}+U_{2}
 可以将边界条件转化为
 \begin_inset Formula 
 \begin{equation}
-\underline{V}_{\mathrm{L}}=\underline{L^{x}}\,\underline{U}_{\mathrm{L}}=\begin{bmatrix}0\\
+\underline{V}_{\mathrm{L}}=\underline{L}^{x}\,\underline{U}_{\mathrm{L}}=\begin{bmatrix}0\\
 0
-\end{bmatrix},\qquad\underline{V}_{\mathrm{R}}=\underline{L^{x}}\,\underline{U}_{\mathrm{R}}=\begin{bmatrix}8\\
+\end{bmatrix},\qquad\underline{V}_{\mathrm{R}}=\underline{L}^{x}\,\underline{U}_{\mathrm{R}}=\begin{bmatrix}8\\
 4
 \end{bmatrix},
 \end{equation}
@@ -11922,12 +11908,12 @@ reference "eq:linear_double_wave"
 \begin_inset Formula 
 \begin{equation}
 V_{1}^{\star}(x,y,z,t)=\begin{cases}
-0 & x<8t\\
-8 & x>8t
-\end{cases},\qquad V_{2}^{\star}(x,y,z,t)=\begin{cases}
-0 & x<4t\\
-4 & x>4t
-\end{cases}.
+0, & x<8t,\\
+8, & x>8t,
+\end{cases}\qquad V_{2}^{\star}(x,y,z,t)=\begin{cases}
+0, & x<4t,\\
+4, & x>4t.
+\end{cases}
 \end{equation}
 
 \end_inset
@@ -11940,19 +11926,19 @@ reference "prob:线性双波平流"
 \end_inset
 
  的解可通过特征变量到守恒变量的反变换 
-\begin_inset Formula $\underline{U^{\star}}=\underline{R^{x}}\,\underline{V^{\star}}$
+\begin_inset Formula $\underline{U}^{\star}=\underline{R}^{x}\,\underline{V}^{\star}$
 \end_inset
 
  得到：
 \begin_inset Formula 
 \begin{equation}
-\underline{U^{\star}}(\vec{x},t)=\begin{bmatrix}V_{2}^{\star}+V_{1}^{\star}\\
+\underline{U}^{\star}(\vec{x},t)=\begin{bmatrix}V_{2}^{\star}+V_{1}^{\star}\\
 V_{2}^{\star}-V_{1}^{\star}
 \end{bmatrix}=\begin{cases}
-\underline{U}_{\mathrm{L}} & x/t<4\\
-\underline{U}_{\mathrm{M}} & x/t\in(4,8)\\
-\underline{U}_{\mathrm{R}} & x/t>8
-\end{cases},\label{eq:linear_double_wave_solution}
+\underline{U}_{\mathrm{L}}, & x/t<4,\\
+\underline{U}_{\mathrm{M}}, & x/t\in(4,8),\\
+\underline{U}_{\mathrm{R}}, & x/t>8,
+\end{cases}\label{eq:linear_double_wave_solution}
 \end{equation}
 
 \end_inset
@@ -12028,8 +12014,6 @@ status open
 	filename ../mdpi/figures/linear_system/u_1_contour.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -12056,11 +12040,11 @@ noprefix "false"
 
 \end_inset
 
-问题的 RK3/DG3 近似解（按 
+问题 
 \begin_inset Formula $U_{1}(x,y,z,t=0.3)$
 \end_inset
 
- 作图）
+ 的 RK3/DG3 近似解
 \end_layout
 
 \end_inset
@@ -12085,8 +12069,6 @@ status open
 	filename ../mdpi/figures/linear_system/u_2_contour.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -12113,11 +12095,11 @@ noprefix "false"
 
 \end_inset
 
-问题的 RK3/DG3 近似解（按 
+问题 
 \begin_inset Formula $U_{2}(x,y,z,t=0.3)$
 \end_inset
 
- 作图）
+ 的 RK3/DG3 近似解
 \end_layout
 
 \end_inset
@@ -12142,8 +12124,7 @@ status open
 	filename figures/linear_system/u_1.pdf
 	lyxscale 50
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 30theight%
 
 \end_inset
 
@@ -12160,7 +12141,7 @@ name "fig:linear_double_wave_sample_u1"
 
 \end_inset
 
-不同求解器–限制器组合在同一网格上得到的
+不同求解器–限制器组合在同一网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:线性双波平流"
@@ -12170,7 +12151,7 @@ noprefix "false"
 
 \end_inset
 
-问题的 
+问题 
 \begin_inset Formula $U_{1}(x,y=0.5,z=0.25,t=0.3)$
 \end_inset
 
@@ -12199,8 +12180,7 @@ status open
 	filename figures/linear_system/u_2.pdf
 	lyxscale 50
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 30theight%
 
 \end_inset
 
@@ -12217,7 +12197,7 @@ name "fig:linear_double_wave_sample_u2"
 
 \end_inset
 
-不同求解器–限制器组合在同一网格上得到的
+不同求解器–限制器组合在同一网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:线性双波平流"
@@ -12227,7 +12207,7 @@ noprefix "false"
 
 \end_inset
 
-问题的 
+问题 
 \begin_inset Formula $U_{2}(x,y=0.5,z=0.25,t=0.3)$
 \end_inset
 
@@ -12278,8 +12258,7 @@ status open
 	filename figures/linear_system/error.pdf
 	lyxscale 50
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 30theight%
 
 \end_inset
 
@@ -12331,13 +12310,6 @@ reference "fig:linear_double_wave_sample_u2"
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
 \end_inset
 
 
@@ -12508,8 +12480,8 @@ noprefix "false"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的六面体单元的非结构网格上得到的该问题的 RK3/DG3 近似解。由此图中的四个间断（两个导数值间断、两个函数值间断）处的光滑过渡可知：高阶格式在间断附近引起
-的数值振荡得到了有效压制。这种光滑过渡在图 
+ 的六面体单元的非结构网格上所得该问题的 RK3/DG3 近似解。由此图中的四个间断（两个导数值间断、两个函数值间断）处的光滑过渡可知：高阶格式在间断附近引起的
+数值振荡得到了有效压制。这种光滑过渡在图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:sod_hexa_p_vary"
@@ -12542,8 +12514,6 @@ status open
 	filename ../mdpi/figures/shock_tubes/sod/contour.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -12564,7 +12534,7 @@ name "fig:sod_hexa"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的六面体单元的非结构网格上得到的 
+ 的六面体单元的非结构网格上所得 
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:Sod-激波管"
@@ -12574,11 +12544,11 @@ noprefix "false"
 
 \end_inset
 
-问题的 RK3/DG3 近似解（按 
+问题 
 \begin_inset Formula $\rho(x,y,z,t=1.0)$
 \end_inset
 
- 作图）
+ 的 RK3/DG3 近似解
 \end_layout
 
 \end_inset
@@ -12600,11 +12570,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/shock_tubes/sod/result.pdf
+	filename figures/shock_tubes/sod/result.pdf
 	lyxscale 50
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 30theight%
 
 \end_inset
 
@@ -12625,7 +12594,7 @@ name "fig:sod_hexa_p_vary"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的六面体单元的非结构网格上得到的 
+ 的六面体单元的非结构网格上所得 
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:Sod-激波管"
@@ -12635,11 +12604,11 @@ noprefix "false"
 
 \end_inset
 
-问题的各阶 RKDG 近似解之间的比较（按 
+问题 
 \begin_inset Formula $\rho(x,y=0.5,z=0.25,t=1.0)$
 \end_inset
 
- 作图）
+ 的各阶 RKDG 近似解之间的比较
 \end_layout
 
 \end_inset
@@ -12729,8 +12698,6 @@ status open
 	filename ../mdpi/figures/shock_tubes/sod/contour_tetra.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -12751,7 +12718,7 @@ name "fig:sod_tetra"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的四面体单元的非结构网格上得到的 
+ 的四面体单元的非结构网格上所得 
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:Sod-激波管"
@@ -12761,11 +12728,11 @@ noprefix "false"
 
 \end_inset
 
-问题的 RK3/DG3 近似解（按 
+问题 
 \begin_inset Formula $\rho(x,y,z,t=1.0)$
 \end_inset
 
- 作图）
+ 的 RK3/DG3 近似解
 \end_layout
 
 \end_inset
@@ -12787,11 +12754,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/shock_tubes/sod/result_tetra.pdf
+	filename figures/shock_tubes/sod/result_tetra.pdf
 	lyxscale 50
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 30theight%
 
 \end_inset
 
@@ -12812,7 +12778,7 @@ name "fig:sod_tetra_p_vary"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的四面体单元的非结构网格上得到的 
+ 的四面体单元的非结构网格上所得 
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:Sod-激波管"
@@ -12822,11 +12788,11 @@ noprefix "false"
 
 \end_inset
 
-问题的各阶 RKDG 近似解之间的比较（按 
+问题 
 \begin_inset Formula $\rho(x,y=0.5,z=0.25,t=1.0)$
 \end_inset
 
- 作图）
+ 的各阶 RKDG 近似解之间的比较
 \end_layout
 
 \end_inset
@@ -12885,11 +12851,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/shock_tubes/sod/h_vary_tetra.pdf
+	filename figures/shock_tubes/sod/h_vary_tetra.pdf
 	lyxscale 50
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 30theight%
 
 \end_inset
 
@@ -12906,15 +12871,7 @@ name "fig:sod_error"
 
 \end_inset
 
-不同求解器–网格 (
-\begin_inset Formula $h$
-\end_inset
-
-–
-\begin_inset Formula $p$
-\end_inset
-
-) 组合对 
+不同求解器–网格组合所得 
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:Sod-激波管"
@@ -12924,11 +12881,11 @@ noprefix "false"
 
 \end_inset
 
-问题的计算精度之比较（按 
+问题 
 \begin_inset Formula $\rho(x,y=0.5,z=0.25,t=1.0)$
 \end_inset
 
- 作图）
+ 的计算精度之比较
 \end_layout
 
 \end_inset
@@ -12958,15 +12915,7 @@ name "tab:sod_cost"
 
 \end_inset
 
-不同 
-\begin_inset Formula $p$
-\end_inset
-
-–
-\begin_inset Formula $h$
-\end_inset
-
-（求解器–网格）组合对 
+不同求解器–网格组合所得 
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:Sod-激波管"
@@ -13238,7 +13187,17 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-需要说明的是，不同于表 
+需要说明的是，不同于
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:线性单波平流"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题所得的表 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:linear_cost"
@@ -13253,38 +13212,18 @@ reference "tab:sod_cost"
 \end_inset
 
  中的数据没有夸大低阶 RKDG 求解器的运行时间，这是因为这里的 RK1/DG1、RK2/DG2 求解器采用了与之相对应的低阶数值积分器。具体地说，这里的
- RK1/DG1 求解器采用了 
-\begin_inset Formula $1$
+ RK1/DG1 求解器采用了 1 点四面体积分器与 1 点三角形积分器，RK2/DG2 求解器采用了 4 点四面体积分器与 3 点三角形积分器，RK3/DG3
+ 求解器采用了 14 点四面体积分器与 6 点三角形积分器。因此，本节关于性价比的结论比
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:线性单波平流"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
- 点四面体积分器与 
-\begin_inset Formula $1$
-\end_inset
-
- 点三角形积分器，RK2/DG2 求解器采用了 
-\begin_inset Formula $4$
-\end_inset
-
- 点四面体积分器与 
-\begin_inset Formula $3$
-\end_inset
-
- 点三角形积分器，RK3/DG3 求解器采用了 
-\begin_inset Formula $14$
-\end_inset
-
- 点四面体积分器与 
-\begin_inset Formula $6$
-\end_inset
-
- 点三角形积分器。因此，本节关于性价比的结论比线性单波方程一节得到的类似结论更加可靠，也更具有实际意义。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
+问题所得的类似结论更加可靠，也更具有参考价值。
 \end_layout
 
 \begin_layout Subsection
@@ -13384,17 +13323,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-与 
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:Sod-激波管"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题类似，图 
+图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:lax_hexa"
@@ -13405,7 +13334,7 @@ reference "fig:lax_hexa"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的六面体单元的非结构网格上得到的 
+ 的六面体单元的非结构网格上所得 
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:Lax-激波管"
@@ -13415,7 +13344,70 @@ noprefix "false"
 
 \end_inset
 
-问题的 RK3/DG3 近似解。图 
+问题的 RK3/DG3 近似解。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/shock_tubes/lax/contour.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:lax_hexa"
+
+\end_inset
+
+在只含 
+\begin_inset Formula $h\approx0.1$
+\end_inset
+
+ 的六面体单元的非结构网格上所得 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:Lax-激波管"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题 
+\begin_inset Formula $\rho(x,y,z,t=0.5)$
+\end_inset
+
+ 的 RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:lax_hexa_p_vary"
@@ -13442,72 +13434,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/shock_tubes/lax/contour.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:lax_hexa"
-
-\end_inset
-
-在只含 
-\begin_inset Formula $h\approx0.1$
-\end_inset
-
- 的六面体单元的非结构网格上得到的 
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:Lax-激波管"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题的 RK3/DG3 近似解（按 
-\begin_inset Formula $\rho(x,y,z,t=0.5)$
-\end_inset
-
- 作图）
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/shock_tubes/lax/result.pdf
+	filename figures/shock_tubes/lax/result.pdf
 	lyxscale 50
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 30theight%
 
 \end_inset
 
@@ -13528,7 +13458,7 @@ name "fig:lax_hexa_p_vary"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的六面体单元的非结构网格上得到的 
+ 的六面体单元的非结构网格上所得 
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:Lax-激波管"
@@ -13538,11 +13468,11 @@ noprefix "false"
 
 \end_inset
 
-问题的各阶 RKDG 近似解之间的比较（按 
+问题 
 \begin_inset Formula $\rho(x,y=0.5,z=0.25,t=0.5)$
 \end_inset
 
- 作图）
+ 的各阶 RKDG 近似解之间的比较
 \end_layout
 
 \end_inset
@@ -13590,7 +13520,131 @@ noprefix "false"
 
 \end_inset
 
- 所示。将它们与图 
+ 所示。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/shock_tubes/lax/contour_tetra.png
+	lyxscale 15
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:lax_tetra"
+
+\end_inset
+
+在只含 
+\begin_inset Formula $h\approx0.1$
+\end_inset
+
+ 的四面体单元的非结构网格上所得 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:Lax-激波管"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题 
+\begin_inset Formula $\rho(x,y,z,t=0.5)$
+\end_inset
+
+ 的 RK3/DG3 近似解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/shock_tubes/lax/result_tetra.pdf
+	lyxscale 50
+	width 100text%
+	height 30cm
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:lax_tetra_p_vary"
+
+\end_inset
+
+在只含 
+\begin_inset Formula $h\approx0.1$
+\end_inset
+
+ 的四面体单元的非结构网格上所得 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:Lax-激波管"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题 
+\begin_inset Formula $\rho(x,y=0.5,z=0.25,t=0.5)$
+\end_inset
+
+ 的各阶 RKDG 近似解之间的比较
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+将它们与图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:lax_hexa"
@@ -13621,135 +13675,6 @@ noprefix "false"
 \end_inset
 
 问题的各阶 RKDG 近似解均能收敛到精确解。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/shock_tubes/lax/contour_tetra.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:lax_tetra"
-
-\end_inset
-
-在只含 
-\begin_inset Formula $h\approx0.1$
-\end_inset
-
- 的四面体单元的非结构网格上得到的 
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:Lax-激波管"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题的 RK3/DG3 近似解（按 
-\begin_inset Formula $\rho(x,y,z,t=0.5)$
-\end_inset
-
- 作图）
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/shock_tubes/lax/result_tetra.pdf
-	lyxscale 50
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:lax_tetra_p_vary"
-
-\end_inset
-
-在只含 
-\begin_inset Formula $h\approx0.1$
-\end_inset
-
- 的四面体单元的非结构网格上得到的 
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:Lax-激波管"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题的各阶 RKDG 近似解之间的比较（按 
-\begin_inset Formula $\rho(x,y=0.5,z=0.25,t=0.5)$
-\end_inset
-
- 作图）
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -13872,20 +13797,25 @@ literal "true"
 \begin_inset Formula $u$
 \end_inset
 
- 是未定义的；另一方面，真空区域的边界恰好是膨胀波的波尾，因此其上的速率值可以由穿过膨胀波的黎曼不变量求得，即
+ 是未定义的；另一方面，真空区域的边界恰好是膨胀波的波尾，因此其上的速率值可以由穿过膨胀波的黎曼不变量求得。
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+即
 \begin_inset Formula 
 \begin{equation}
-u_{*L}=u_{L}+\frac{2a_{L}}{\gamma-1},\qquad u_{*R}=u_{R}-\frac{2a_{R}}{\gamma-1}.
+u_{*\mathrm{L}}=u_{\mathrm{L}}+\frac{2a_{\mathrm{L}}}{\gamma-1},\qquad u_{*\mathrm{R}}=u_{\mathrm{R}}-\frac{2a_{\mathrm{R}}}{\gamma-1}.
 \end{equation}
 
 \end_inset
 
 在这里，下标中的 
-\begin_inset Formula $L$
+\begin_inset Formula $\mathrm{L}$
 \end_inset
 
  与 
-\begin_inset Formula $R$
+\begin_inset Formula $\mathrm{R}$
 \end_inset
 
  分别表示左、右，符号 
@@ -13895,8 +13825,13 @@ u_{*L}=u_{L}+\frac{2a_{L}}{\gamma-1},\qquad u_{*R}=u_{R}-\frac{2a_{R}}{\gamma-1}
  表示当地声速。
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
-根据前两个问题类似，图 
+图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:vacuum_hexa"
@@ -13910,7 +13845,7 @@ noprefix "false"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的六面体单元的非结构网格上得到的
+ 的六面体单元的非结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:真空管"
@@ -13950,8 +13885,6 @@ status open
 	filename ../mdpi/figures/shock_tubes/vacuum/contour.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -13972,7 +13905,7 @@ name "fig:vacuum_hexa"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的六面体单元的非结构网格上得到的
+ 的六面体单元的非结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:真空管"
@@ -13982,11 +13915,11 @@ noprefix "false"
 
 \end_inset
 
-问题的 RK3/DG3 近似解（按 
+问题 
 \begin_inset Formula $\rho(x,y,z,t=0.4)$
 \end_inset
 
- 作图）
+ 的 RK3/DG3 近似解
 \end_layout
 
 \end_inset
@@ -14008,11 +13941,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/shock_tubes/vacuum/result.pdf
+	filename figures/shock_tubes/vacuum/result.pdf
 	lyxscale 50
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 30theight%
 
 \end_inset
 
@@ -14033,7 +13965,7 @@ name "fig:vacuum_hexa_p_vary"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的六面体单元的非结构网格上得到的
+ 的六面体单元的非结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:真空管"
@@ -14043,11 +13975,11 @@ noprefix "false"
 
 \end_inset
 
-问题的各阶 RKDG 近似解之间的比较（按 
+问题 
 \begin_inset Formula $\rho(x,y=0.5,z=0.25,t=0.4)$
 \end_inset
 
- 作图）
+ 的各阶 RKDG 近似解之间的比较
 \end_layout
 
 \end_inset
@@ -14061,7 +13993,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-与之前两个问题类似，我们在只含 
+与前两个问题类似，我们在只含 
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
@@ -14110,8 +14042,6 @@ status open
 	filename ../mdpi/figures/shock_tubes/vacuum/contour_tetra.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -14132,7 +14062,7 @@ name "fig:vacuum_tetra"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的四面体单元的非结构网格上得到的
+ 的四面体单元的非结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:真空管"
@@ -14142,11 +14072,11 @@ noprefix "false"
 
 \end_inset
 
-问题的 RK3/DG3 近似解（按 
+问题 
 \begin_inset Formula $\rho(x,y,z,t=0.4)$
 \end_inset
 
- 作图）
+ 的 RK3/DG3 近似解
 \end_layout
 
 \end_inset
@@ -14168,11 +14098,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/shock_tubes/vacuum/result_tetra.pdf
+	filename figures/shock_tubes/vacuum/result_tetra.pdf
 	lyxscale 50
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 30theight%
 
 \end_inset
 
@@ -14193,7 +14122,7 @@ name "fig:vacuum_tetra_p_vary"
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
- 的四面体单元的非结构网格上得到的
+ 的四面体单元的非结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:真空管"
@@ -14203,11 +14132,11 @@ noprefix "false"
 
 \end_inset
 
-问题的各阶 RKDG 近似解之间的比较（按 
+问题 
 \begin_inset Formula $\rho(x,y=0.5,z=0.25,t=0.4)$
 \end_inset
 
- 作图）
+ 的各阶 RKDG 近似解之间的比较
 \end_layout
 
 \end_inset
@@ -14215,13 +14144,6 @@ noprefix "false"
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
 \end_inset
 
 
@@ -14318,7 +14240,7 @@ literal "true"
 
 \end_inset
 
- 为代表，该问题通常以二维形式出现。与激波管问题类似，我们在三维空间内重新给出其定义。
+ 为代表，该问题通常以二维形式出现。与激波管问题类似，本文在三维空间内重新给出其定义。
 \end_layout
 
 \begin_layout Problem
@@ -14375,8 +14297,8 @@ noprefix "false"
 \begin_inset Formula 
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{cases}
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{A}, & \sqrt{3}(x-x_{0})<y,\\
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{B}, & \sqrt{3}(x-x_{0})>y,
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{A}}, & \sqrt{3}(x-x_{0})<y,\\
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{B}}, & \sqrt{3}(x-x_{0})>y,
 \end{cases}\label{eq:double_mach_ic}
 \end{equation}
 
@@ -14385,8 +14307,8 @@ noprefix "false"
 其中
 \begin_inset Formula 
 \begin{equation}
-\begin{aligned}\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{A} & =\begin{bmatrix}8.0 & 4.125\sqrt{3} & -4.125 & 0.0 & 116.5\end{bmatrix},\\
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{B} & =\begin{bmatrix}1.4 & 0.0 & 0.0 & 0.0 & 1.0\end{bmatrix},
+\begin{aligned}\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{A}} & =\begin{bmatrix}8.0 & 4.125\sqrt{3} & -4.125 & 0.0 & 116.5\end{bmatrix},\\
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{B}} & =\begin{bmatrix}1.4 & 0.0 & 0.0 & 0.0 & 1.0\end{bmatrix},
 \end{aligned}
 \end{equation}
 
@@ -14406,7 +14328,7 @@ noprefix "false"
 \end_inset
 
 ) 为超声速入口，状态设为 
-\begin_inset Formula $\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{A}$
+\begin_inset Formula $\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{A}}$
 \end_inset
 
 ；
@@ -14459,9 +14381,9 @@ noprefix "false"
 \begin_inset Formula 
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}=\begin{cases}
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{A}, & x-(\delta+4.125\sqrt{3}t)<\sqrt{1/3},\\
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{B}, & x-(\delta+4.125\sqrt{3}t)>\sqrt{1/3}.
-\end{cases}
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{A}}, & x-(\delta+4.125\sqrt{3}t)<\sqrt{1/3},\\
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{B}}, & x-(\delta+4.125\sqrt{3}t)>\sqrt{1/3}.
+\end{cases}\qedhere
 \end{equation}
 
 \end_inset
@@ -14478,7 +14400,12 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-该问题的解具有自相似性，因此只需要画出某一时刻的计算结果。为了方便对比，这里仿照文献-
+该问题的解具有自相似性，因此只需要画出某一时刻的计算结果。
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+为了方便对比，这里仿照文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Woodward_1984,Zhong_2013,Zhu_2013"
@@ -14498,7 +14425,12 @@ literal "true"
 \begin_inset Formula $z=Z/2$
 \end_inset
 
- 平面交集内的密度分布。图 
+ 平面交集内的密度分布。
+\end_layout
+
+\end_inset
+
+图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:double_mach_p=1_h=5e-3"
@@ -14529,46 +14461,7 @@ noprefix "false"
 \begin_inset Formula $h\approx1/200$
 \end_inset
 
- 的六面体单元的非结构网格上的 RK1/DG1、RK2/DG2、RK3/DG3 近似解。三者给出的流场结构大致相同，都含有一道弓形激波与两组马赫反射；但只有高阶
-近似解才能捕捉到右下角的复杂涡系。这种差别再次体现了高阶 RKDG 求解器分辨流动细节的优越性。
-\end_layout
-
-\begin_layout Standard
-为了定性验证以上结果的正确性，图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_p=3_zhong"
-
-\end_inset
-
- 给出了文献-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Zhong_2013"
-literal "false"
-
-\end_inset
-
- 在 
-\begin_inset Formula $h=1/240$
-\end_inset
-
- 的二维结构网格上得到的二维 RK3/DG3 近似解。将其与图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:double_mach_p=3_h=5e-3"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 即本文在 
-\begin_inset Formula $h\approx1/200$
-\end_inset
-
- 的三维非结构网格上得到的三维 RK3/DG3 近似解对比，不难发现：二者给出的流场结构几乎完全一致，这说明本文所实现的三维 RK3/DG3 求解器能够在三维非
-结构网格上正确地捕捉复杂的二维流场结构。
+ 的六面体单元的非结构网格上的 RK1/DG1、RK2/DG2、RK3/DG3 近似解。
 \end_layout
 
 \begin_layout Standard
@@ -14583,8 +14476,6 @@ status open
 	filename ../mdpi/figures/double_mach/p=1_h=5e-3.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -14605,7 +14496,7 @@ name "fig:double_mach_p=1_h=5e-3"
 \begin_inset Formula $h\approx1/200$
 \end_inset
 
- 的六面体单元的非结构网格上得到的
+ 的六面体单元的非结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:双马赫反射"
@@ -14615,11 +14506,11 @@ noprefix "false"
 
 \end_inset
 
-问题的 RK1/DG1 近似解（按 
+问题 
 \begin_inset Formula $\rho(x,y,z=Z/2,t=0.2)$
 \end_inset
 
- 作图）
+ 的 RK1/DG1 近似解
 \end_layout
 
 \end_inset
@@ -14644,8 +14535,6 @@ status open
 	filename ../mdpi/figures/double_mach/p=2_h=5e-3.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -14666,7 +14555,7 @@ name "fig:double_mach_p=2_h=5e-3"
 \begin_inset Formula $h\approx1/200$
 \end_inset
 
- 的六面体单元的非结构网格上得到的
+ 的六面体单元的非结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:双马赫反射"
@@ -14676,11 +14565,11 @@ noprefix "false"
 
 \end_inset
 
-问题的 RK2/DG2 近似解（按 
+问题 
 \begin_inset Formula $\rho(x,y,z=Z/2,t=0.2)$
 \end_inset
 
- 作图）
+ 的 RK2/DG2 近似解
 \end_layout
 
 \end_inset
@@ -14705,8 +14594,6 @@ status open
 	filename ../mdpi/figures/double_mach/p=3_h=5e-3.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -14727,7 +14614,7 @@ name "fig:double_mach_p=3_h=5e-3"
 \begin_inset Formula $h\approx1/200$
 \end_inset
 
- 的六面体单元的非结构网格上得到的
+ 的六面体单元的非结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:双马赫反射"
@@ -14737,11 +14624,11 @@ noprefix "false"
 
 \end_inset
 
-问题的 RK3/DG3 近似解（按 
+问题 
 \begin_inset Formula $\rho(x,y,z=Z/2,t=0.2)$
 \end_inset
 
- 作图）
+ 的 RK3/DG3 近似解
 \end_layout
 
 \end_inset
@@ -14752,6 +14639,49 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+三者给出的流场结构大致相同，都含有一道弓形激波与两组马赫反射；但只有高阶近似解才能捕捉到右下角的复杂涡系。这种差别再次体现了高阶 RKDG 求解器分辨流动细节的
+优越性。
+\end_layout
+
+\begin_layout Standard
+为了定性验证以上结果的正确性，图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=3_zhong"
+
+\end_inset
+
+ 给出了文献-
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhong_2013"
+literal "false"
+
+\end_inset
+
+ 在 
+\begin_inset Formula $h=1/240$
+\end_inset
+
+ 的二维结构网格上所得二维 RK3/DG3 近似解。将其与图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=3_h=5e-3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 即本文在 
+\begin_inset Formula $h\approx1/200$
+\end_inset
+
+ 的三维非结构网格上所得三维 RK3/DG3 近似解对比，不难发现：二者给出的流场结构几乎完全一致，这说明本文所实现的三维 RK3/DG3 求解器能够在三维非结
+构网格上正确地捕捉复杂的二维流场结构。
 \end_layout
 
 \begin_layout Standard
@@ -14766,8 +14696,6 @@ status open
 	filename figures/double_mach/zhong.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -14788,7 +14716,7 @@ name "fig:double_mach_p=3_zhong"
 \begin_inset Formula $h=1/240$
 \end_inset
 
- 的四边形单元的二维结构网格上得到的
+ 的四边形单元的二维结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:双马赫反射"
@@ -14798,11 +14726,11 @@ noprefix "false"
 
 \end_inset
 
-问题的 RK3/DG3 近似解（按 
+问题 
 \begin_inset Formula $\rho(x,y,t=0.2)$
 \end_inset
 
- 作等值线图）
+ 的 RK3/DG3 近似解
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Zhong_2013"
@@ -15098,8 +15026,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=02e-1.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 28theight%
 
 \end_inset
 
@@ -15120,7 +15047,7 @@ name "fig:forward_step_p=3_t=02e-1"
 \begin_inset Formula $h=1/200$
 \end_inset
 
- 的伪结构网格上得到的
+ 的伪结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:前向台阶"
@@ -15159,8 +15086,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=04e-1.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 28theight%
 
 \end_inset
 
@@ -15181,7 +15107,7 @@ name "fig:forward_step_p=3_t=04e-1"
 \begin_inset Formula $h=1/200$
 \end_inset
 
- 的伪结构网格上得到的
+ 的伪结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:前向台阶"
@@ -15258,8 +15184,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=06e-1.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 28theight%
 
 \end_inset
 
@@ -15280,7 +15205,7 @@ name "fig:forward_step_p=3_t=06e-1"
 \begin_inset Formula $h=1/200$
 \end_inset
 
- 的伪结构网格上得到的
+ 的伪结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:前向台阶"
@@ -15319,8 +15244,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=08e-1.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 28theight%
 
 \end_inset
 
@@ -15341,7 +15265,7 @@ name "fig:forward_step_p=3_t=08e-1"
 \begin_inset Formula $h=1/200$
 \end_inset
 
- 的伪结构网格上得到的问题 
+ 的伪结构网格上所得问题 
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:前向台阶"
@@ -15380,8 +15304,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=10e-1.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 28theight%
 
 \end_inset
 
@@ -15402,7 +15325,7 @@ name "fig:forward_step_p=3_t=10e-1"
 \begin_inset Formula $h=1/200$
 \end_inset
 
- 的伪结构网格上得到的
+ 的伪结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:前向台阶"
@@ -15424,6 +15347,13 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -15456,8 +15386,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=12e-1.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 28theight%
 
 \end_inset
 
@@ -15478,7 +15407,7 @@ name "fig:forward_step_p=3_t=12e-1"
 \begin_inset Formula $h=1/200$
 \end_inset
 
- 的伪结构网格上得到的
+ 的伪结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:前向台阶"
@@ -15532,8 +15461,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=20e-1.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 28theight%
 
 \end_inset
 
@@ -15554,7 +15482,7 @@ name "fig:forward_step_p=3_t=20e-1"
 \begin_inset Formula $h=1/200$
 \end_inset
 
- 的伪结构网格上得到的
+ 的伪结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:前向台阶"
@@ -15604,8 +15532,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=24e-1.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 28theight%
 
 \end_inset
 
@@ -15626,7 +15553,7 @@ name "fig:forward_step_p=3_t=24e-1"
 \begin_inset Formula $h=1/200$
 \end_inset
 
- 的伪结构网格上得到的
+ 的伪结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:前向台阶"
@@ -15680,8 +15607,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=28e-1.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 28theight%
 
 \end_inset
 
@@ -15702,7 +15628,7 @@ name "fig:forward_step_p=3_t=28e-1"
 \begin_inset Formula $h=1/200$
 \end_inset
 
- 的伪结构网格上得到的
+ 的伪结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:前向台阶"
@@ -15782,8 +15708,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=32e-1.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 28theight%
 
 \end_inset
 
@@ -15804,7 +15729,7 @@ name "fig:forward_step_p=3_t=32e-1"
 \begin_inset Formula $h=1/200$
 \end_inset
 
- 的伪结构网格上得到的
+ 的伪结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:前向台阶"
@@ -15843,8 +15768,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=40e-1.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 28theight%
 
 \end_inset
 
@@ -15865,7 +15789,7 @@ name "fig:forward_step_p=3_t=40e-1"
 \begin_inset Formula $h=1/200$
 \end_inset
 
- 的伪结构网格上得到的
+ 的伪结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:前向台阶"
@@ -15904,8 +15828,7 @@ status open
 	filename ../mdpi/figures/forward_step/p=3_t=40e-1.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 28theight%
 
 \end_inset
 
@@ -15926,7 +15849,7 @@ name "fig:forward_step_p=3_t=40e-1-1"
 \begin_inset Formula $h=1/200$
 \end_inset
 
- 的伪结构网格上得到的
+ 的伪结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:前向台阶"
@@ -15977,7 +15900,7 @@ literal "false"
 \begin_inset Formula $h\approx1/256$
 \end_inset
 
-）的三角形网格上得到的二维 RK3/DG5 近似解，它是该问题目前已发表的最高精度的近似解。将其与图 
+）的三角形网格上所得二维 RK3/DG5 近似解，它是该问题目前已发表的最高精度的近似解。将其与图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:double_mach_p=3_h=5e-3"
@@ -15991,8 +15914,8 @@ noprefix "false"
 \begin_inset Formula $h=1/200$
 \end_inset
 
- 的伪结构网格上得到的三维 RK3/DG3 近似解对比，不难发现：二者给出的流场结构非常相似，这说明本文所实现的三维 RK3/DG3 求解器能够在三维伪结构网格
-上正确地捕捉复杂的二维流场结构。
+ 的伪结构网格上所得三维 RK3/DG3 近似解对比，不难发现：二者给出的流场结构非常相似，这说明本文所实现的三维 RK3/DG3 求解器能够在三维伪结构网格上
+正确地捕捉复杂的二维流场结构。
 \end_layout
 
 \begin_layout Standard
@@ -16007,8 +15930,6 @@ status open
 	filename figures/forward_step/qiu.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -16025,7 +15946,7 @@ name "fig:forward_step_p=5_qiu"
 
 \end_inset
 
-在三级自适应加密的二维非结构网格上得到的
+在三级自适应加密的二维非结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:前向台阶"
@@ -16035,11 +15956,11 @@ noprefix "false"
 
 \end_inset
 
-问题的 RK3/DG5 高精度近似解（按 
+问题 
 \begin_inset Formula $\rho(x,y,t=4)$
 \end_inset
 
- 作图）
+ 的 RK3/DG5 近似解
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Giri_2019"
