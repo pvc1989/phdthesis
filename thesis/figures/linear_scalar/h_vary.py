@@ -3,6 +3,7 @@
 import sys
 import numpy as np
 from matplotlib import pyplot as plt
+plt.rcParams['font.sans-serif'] = ['Songti SC']
 
 if __name__ == '__main__':
 
@@ -13,7 +14,7 @@ if __name__ == '__main__':
   x = np.linspace(1.9, 2.1, 1001)
   u = 10.0 * (x - 2.) / np.abs(x - 2.)
   u[len(u)//2] = 0.0
-  plt.plot(x, u, label='Exact')
+  plt.plot(x, u, label='精确值')
 
   names = ['h=2^-3', 'h=2^-4', 'h=2^-5']
   labels = [r'$h\approx 1/8$', r'$h\approx 1/16$', r'$h\approx 1/32$']
