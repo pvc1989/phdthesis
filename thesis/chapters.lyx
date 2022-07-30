@@ -22866,11 +22866,37 @@ literal "false"
 \end_inset
 
  对网格进行加密的区域。本文将加密区域适当前移并令其底部与海面接触，以罩住舰体后半部分。该网格相当粗糙：远场单元尺度约为 
+\begin_inset Formula $\SI{12.192}{m}$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
 \begin_inset Formula $\SI{40}{ft}$
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
 ，加密区域内最小单元尺度约为 
+\begin_inset Formula $\SI{1.524}{m}$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
 \begin_inset Formula $\SI{5}{ft}$
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 ， 为甲板距离海面的高度的三分之一。后面将会看到，在如此粗糙的网格上，高阶 UMS–RKDG 近似解依然能捕捉到许多经典有限体积解不可能捕捉到的流动细节。
@@ -22885,7 +22911,20 @@ reference "subsec:x=0_u=5_a=0"
 \end_inset
 
  小节外，旋翼中心均固定于点 
+\begin_inset Formula $(\SI{-13.716}{m},\SI{6.858}{m},\SI{12.192}{m})$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
 \begin_inset Formula $(\SI{-45}{ft},\SI{22.5}{ft},\SI{40}{ft})$
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
  处。桨根及桨尖到该中心点的距离分别为 
@@ -22934,7 +22973,7 @@ status open
 	filename figures/ship/grid.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 40theight%
 	keepAspectRatio
 
 \end_inset
@@ -22982,9 +23021,9 @@ status open
 \align center
 \begin_inset Graphics
 	filename figures/ship/simple_frigate.jpeg
-	lyxscale 15
+	lyxscale 30
 	width 100text%
-	height 26theight%
+	height 40theight%
 	keepAspectRatio
 
 \end_inset
@@ -23129,7 +23168,7 @@ status open
 	filename figures/ship/a=0_p=3/Frame20.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 40theight%
 	keepAspectRatio
 
 \end_inset
@@ -23183,7 +23222,7 @@ status open
 	filename figures/ship/a=0_p=3/Frame40.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 40theight%
 	keepAspectRatio
 
 \end_inset
@@ -23237,7 +23276,7 @@ status open
 	filename figures/ship/a=0_p=3/Frame60.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 40theight%
 	keepAspectRatio
 
 \end_inset
@@ -23291,7 +23330,7 @@ status open
 	filename figures/ship/a=0_p=3/Frame80.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 40theight%
 	keepAspectRatio
 
 \end_inset
@@ -23334,6 +23373,10 @@ reference "prob:直升机正面迎风悬停于甲板中部上方"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
@@ -23345,7 +23388,7 @@ status open
 	filename figures/ship/a=0_p=3/Frame100.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 40theight%
 	keepAspectRatio
 
 \end_inset
@@ -23387,8 +23430,6 @@ reference "prob:直升机正面迎风悬停于甲板中部上方"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
 \end_inset
 
 
@@ -23424,7 +23465,24 @@ name "prob:直升机正面迎风悬停于甲板尾部上方"
 \end_inset
 
 除旋翼中心位置改为点 
+\begin_inset Formula $(\SI{0}{m},\SI{6.858}{m},$
+\end_inset
+
+ 
+\begin_inset Formula $\SI{12.192}{m})$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
 \begin_inset Formula $(\SI{0}{ft},\SI{22.5}{ft},\SI{40}{ft})$
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
  外，其他条件与问题 
@@ -23464,14 +23522,14 @@ reference "fig:ship_x=0_a=0_t=6_p=3"
 \end_inset
 
  时刻触及海面。因气流撞击而形成的高压、高密度区，由甲板中心向后移动到海面。这意味着，此时旋翼所感受到的“地面效应”几乎完全来自于平直的海面，保持位置和姿态的难
-度低于
+度与陆基直升机相当，低于问题 
 \begin_inset CommandInset ref
-LatexCommand nameref
+LatexCommand ref
 reference "prob:直升机正面迎风悬停于甲板中部上方"
 
 \end_inset
 
-的情形。
+ 中的情形。
 \end_layout
 
 \begin_layout Standard
@@ -23486,7 +23544,7 @@ status open
 	filename figures/ship/x=0/Frame20.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 40theight%
 	keepAspectRatio
 
 \end_inset
@@ -23529,6 +23587,10 @@ reference "prob:直升机正面迎风悬停于甲板尾部上方"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
@@ -23540,7 +23602,7 @@ status open
 	filename figures/ship/x=0/Frame40.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 40theight%
 	keepAspectRatio
 
 \end_inset
@@ -23582,6 +23644,11 @@ reference "prob:直升机正面迎风悬停于甲板尾部上方"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 wide false
@@ -23594,7 +23661,7 @@ status open
 	filename figures/ship/x=0/Frame60.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 40theight%
 	keepAspectRatio
 
 \end_inset
@@ -23688,7 +23755,7 @@ status open
 	filename figures/ship/x=0/Frame60_Q.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -23746,7 +23813,7 @@ status open
 	filename figures/ship/x=0/Frame80_Q.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -23804,7 +23871,7 @@ status open
 	filename figures/ship/x=0/Frame100_Q.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -23862,7 +23929,11 @@ reference "prob:直升机正面迎风悬停于甲板尾部上方"
 \end_layout
 
 \begin_layout Subsection
-来流为微风
+来流为 
+\begin_inset Formula $\SI{5}{m/s}$
+\end_inset
+
+ 的微风
 \end_layout
 
 \begin_layout Standard
@@ -23878,7 +23949,21 @@ reference "prob:直升机正面迎风悬停于甲板尾部上方"
 \begin_inset Formula $\SI{0.6}{m}$
 \end_inset
 
-， 对应于 2–3 级海况。
+， 对应于 2–3 级海况。前一节的问题 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机正面迎风悬停于甲板中部上方"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prob:直升机正面迎风悬停于甲板尾部上方"
+
+\end_inset
+
+ 都属于这种情形。在此情形下，浪高与船体及旋翼尺度相比较小，故本文选择忽略海浪引起的船体运动。
 \end_layout
 
 \begin_layout Problem
@@ -23947,14 +24032,17 @@ noprefix "false"
 图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:ship_a=45_t=11e-1_p=3"
+reference "fig:ship_a=45_t=22e-1_p=3"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
 –
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:ship_a=45_t=99e-1_p=3"
+reference "fig:ship_a=45_t=88e-1_p=3"
 plural "false"
 caps "false"
 noprefix "false"
@@ -23967,10 +24055,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -23978,7 +24070,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame11.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -24023,6 +24115,11 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 wide false
@@ -24035,7 +24132,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame22.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -24081,10 +24178,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -24092,7 +24193,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame33.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -24137,6 +24238,11 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 wide false
@@ -24149,7 +24255,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame44.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -24195,10 +24301,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -24206,7 +24316,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame55.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -24251,6 +24361,11 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 wide false
@@ -24263,7 +24378,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame66.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -24309,10 +24424,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -24320,7 +24439,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame77.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -24365,6 +24484,11 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 wide false
@@ -24377,7 +24501,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame88.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -24423,10 +24547,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -24434,7 +24562,7 @@ status open
 	filename figures/ship/a=45_p=3/Frame99.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -24479,12 +24607,21 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
-来流为轻劲风
+来流为 
+\begin_inset Formula $\SI{10}{m/s}$
+\end_inset
+
+ 的轻劲风
 \end_layout
 
 \begin_layout Standard
-在风力等级表中， “轻劲风”是指风速介于 
+在风力等级表中，“轻劲风”是指风速介于 
 \begin_inset Formula $\SI{8.0}{m/s}$
 \end_inset
 
@@ -24496,7 +24633,13 @@ noprefix "false"
 \begin_inset Formula $\SI{2.0}{m}$
 \end_inset
 
-，海况等级为 4 级。
+，海况等级为 4 级。在此情形下，浪高已与船体及旋翼尺度相当，故海浪引起的船体运动不可忽略。然而，上述讨论假设了船体处于停泊状态，直升机感受到的风速就是海面自由
+来流的风速。
+\end_layout
+
+\begin_layout Standard
+如果允许船体处于迎风航行状态，则悬停于甲板上方的直升机所感受到的风速，等于自由来流的风速与船体航速的叠加。在此情形下，直升机感受到轻劲风而海面为微风，故仍可以忽
+略海浪引起的船体运动。
 \end_layout
 
 \begin_layout Problem
@@ -24568,14 +24711,20 @@ reference "fig:ship_u=10_a=45_t=99e-1"
  采用了类似于图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:ship_a=45_t=11e-1_p=3"
+reference "fig:ship_a=45_t=22e-1_p=3"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
 –
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:ship_a=45_t=99e-1_p=3"
+reference "fig:ship_a=45_t=88e-1_p=3"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
@@ -24613,7 +24762,7 @@ status open
 	filename figures/ship/a=45_u=10/Frame11.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -24659,10 +24808,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -24670,7 +24823,7 @@ status open
 	filename figures/ship/a=45_u=10/Frame22.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -24715,6 +24868,11 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 wide false
@@ -24727,7 +24885,7 @@ status open
 	filename figures/ship/a=45_u=10/Frame33.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -24773,10 +24931,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -24784,7 +24946,7 @@ status open
 	filename figures/ship/a=45_u=10/Frame44.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -24829,6 +24991,11 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 wide false
@@ -24841,7 +25008,7 @@ status open
 	filename figures/ship/a=45_u=10/Frame55.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -24887,10 +25054,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -24898,7 +25069,7 @@ status open
 	filename figures/ship/a=45_u=10/Frame66.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -24943,6 +25114,11 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 wide false
@@ -24955,7 +25131,7 @@ status open
 	filename figures/ship/a=45_u=10/Frame77.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -25001,10 +25177,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -25012,7 +25192,7 @@ status open
 	filename figures/ship/a=45_u=10/Frame88.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -25057,6 +25237,11 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 wide false
@@ -25069,7 +25254,7 @@ status open
 	filename figures/ship/a=45_u=10/Frame99.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -25109,6 +25294,13 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
