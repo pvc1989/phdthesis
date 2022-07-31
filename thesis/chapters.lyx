@@ -4175,7 +4175,7 @@ literal "false"
  首次尝试使用 DG 法进行空间离散，并使用显式 Euler 格式进行时间离散。该格式在空间上是二阶精度的，但在时间上只有一阶精度。为了提高时间离散的精度，Co
 ckburn & Shu
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand cite
 key "Cockburn_1988"
 literal "false"
 
@@ -4201,7 +4201,7 @@ literal "false"
 ，所得格式是“总变差递减的 ( total variation diminishing, TVD)”。它是第一个取得成功的 RKDG 格式，该格式在空间和时间上
 都具有高阶精度，适用于标量守恒定律。这种方法很快被推广到一维守恒律方程组
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand cite
 key "Cockburn_1989"
 literal "true"
 
@@ -4209,7 +4209,7 @@ literal "true"
 
 、高维标量守恒律
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand cite
 key "Cockburn_1990"
 literal "false"
 
@@ -4242,7 +4242,7 @@ literal "false"
 
  推广为局部 DG 法，将 RKDG 方法从守恒律推广到对流占优问题，具体推广过程可参考文献-
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand cite
 key "Cockburn_2001"
 literal "false"
 
@@ -4295,7 +4295,7 @@ literal "false"
 
 用代表各片桨叶的作用面模型，捕获了旋翼流场的非定常效应。此类早期工作要么通过忽略非定常效应而过度简化（如文献-
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand cite
 key "Rajagopalan_1989,Rajagopalan_1993,Kang_1997,Kang_2000"
 literal "false"
 
@@ -4303,7 +4303,7 @@ literal "false"
 
 ），要么仅限于结构网格（如文献-
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand cite
 key "Shen_2009,Shi_2017"
 literal "false"
 
@@ -8807,7 +8807,7 @@ literal "false"
 
 。Van Leer
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand cite
 key "Van_Leer_1977,Van_Leer_1977a,van_Leer_1979,van_Leer_2021"
 literal "false"
 
@@ -8820,7 +8820,7 @@ literal "false"
 \begin_layout Standard
 为了克服前一缺点（不适用于间断有限元），Cockburn
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand cite
 key "Cockburn_1990,Cockburn_1998"
 literal "false"
 
@@ -8912,7 +8912,7 @@ literal "false"
 \begin_layout Standard
 此后，WENO 重构技术被引入到高阶有限体积格式
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand cite
 key "Hu_1999"
 literal "false"
 
@@ -8920,7 +8920,7 @@ literal "false"
 
 中，从而适用于非结构网格。类似的想法后来被移植到 RKDG 格式中
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand cite
 key "Qiu_2005,Zhu_2008"
 literal "false"
 
@@ -8928,7 +8928,7 @@ literal "false"
 
 ，但代价是牺牲了 RKDG 格式的紧致性。适用于 RKDG 格式且保持其紧致特性的 WENO 重构技术
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand cite
 key "Zhong_2013,Zhu_2013,Mazaheri_2019"
 literal "true"
 
