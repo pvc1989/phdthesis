@@ -27,4 +27,4 @@ if __name__ == '__main__':
   plt.legend()
   plt.tight_layout()
   # plt.show()
-  plt.savefig('h_vary.pdf')
+  plt.savefig('gibbs.pdf')

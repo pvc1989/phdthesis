@@ -8764,7 +8764,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename figures/linear_scalar/h_vary.pdf
+	filename figures/linear_scalar/gibbs.pdf
 	lyxscale 50
 	width 100text%
 
@@ -13591,7 +13591,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/shock_tubes/lax/result_tetra.pdf
+	filename figures/shock_tubes/lax/result_tetra.pdf
 	lyxscale 50
 	width 100text%
 	height 30cm
