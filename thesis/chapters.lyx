@@ -11834,6 +11834,13 @@ U_{2}(x,y,z,t)
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 为获得其解析解，先对 
 \begin_inset Formula $\underline{A}^{x}$
 \end_inset
@@ -13226,6 +13233,13 @@ noprefix "false"
 问题所得的类似结论更加可靠，也更具有参考价值。
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Lax 激波管问题
 \end_layout
@@ -13884,7 +13898,7 @@ status open
 \begin_inset Graphics
 	filename ../mdpi/figures/shock_tubes/vacuum/contour.png
 	lyxscale 15
-	width 100text%
+	width 98text%
 
 \end_inset
 
@@ -13945,6 +13959,7 @@ status open
 	lyxscale 50
 	width 100text%
 	height 30theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -14041,7 +14056,7 @@ status open
 \begin_inset Graphics
 	filename ../mdpi/figures/shock_tubes/vacuum/contour_tetra.png
 	lyxscale 15
-	width 100text%
+	width 98text%
 
 \end_inset
 
@@ -14102,6 +14117,7 @@ status open
 	lyxscale 50
 	width 100text%
 	height 30theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -18165,6 +18181,13 @@ noprefix "false"
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 并行性能测评
 \begin_inset CommandInset label
@@ -19481,6 +19504,13 @@ reference "fig:rotor_mesh"
 理。
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 孤立旋翼爬升问题
 \end_layout
@@ -20324,6 +20354,13 @@ reference "prob:孤立旋翼爬升"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
