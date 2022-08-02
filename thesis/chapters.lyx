@@ -11158,7 +11158,6 @@ reference "tab:linear_accuracy"
 
 \begin_layout Standard
 \begin_inset Float table
-placement H
 wide false
 sideways false
 status open
@@ -11490,7 +11489,6 @@ reference "tab:linear_cost"
 
 \begin_layout Standard
 \begin_inset Float table
-placement H
 wide false
 sideways false
 status open
@@ -12916,7 +12914,6 @@ noprefix "false"
 
 \begin_layout Standard
 \begin_inset Float table
-placement H
 wide false
 sideways false
 status open
@@ -14207,7 +14204,6 @@ reference "fig:double_mach_sketch"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -16705,7 +16701,6 @@ reference "tab:double_mach_cost"
 
 \begin_layout Standard
 \begin_inset Float table
-placement H
 wide false
 sideways false
 status open
@@ -18491,7 +18486,6 @@ noprefix "false"
 
 \begin_layout Standard
 \begin_inset Float table
-placement H
 wide false
 sideways false
 status open
@@ -22080,7 +22074,6 @@ noprefix "false"
 
 \begin_layout Standard
 \begin_inset Float table
-placement H
 wide false
 sideways false
 status open
