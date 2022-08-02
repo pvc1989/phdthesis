@@ -10728,7 +10728,7 @@ status open
 	filename ../mdpi/figures/linear_scalar/p=3_h=2^-3.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 40theight%
 	keepAspectRatio
 
 \end_inset
@@ -10775,10 +10775,14 @@ reference "prob:线性单波平流"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -10786,7 +10790,7 @@ status open
 	filename ../mdpi/figures/linear_scalar/p=1_h=2^-4.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 40theight%
 	keepAspectRatio
 
 \end_inset
@@ -10832,6 +10836,11 @@ reference "prob:线性单波平流"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 wide false
@@ -10844,7 +10853,7 @@ status open
 	filename ../mdpi/figures/linear_scalar/p=1_h=2^-5.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 40theight%
 	keepAspectRatio
 
 \end_inset
@@ -10902,7 +10911,7 @@ status open
 	filename ../mdpi/figures/linear_scalar/p=3_h=2^-2.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 40theight%
 	keepAspectRatio
 
 \end_inset
@@ -10990,10 +10999,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/linear_scalar/h_vary.pdf
+	filename figures/linear_scalar/h_vary.pdf
 	lyxscale 50
 	width 100text%
-	height 26theight%
+	height 30theight%
 	keepAspectRatio
 
 \end_inset
@@ -11044,10 +11053,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/linear_scalar/p_vary.pdf
+	filename figures/linear_scalar/p_vary.pdf
 	lyxscale 50
 	width 100text%
-	height 26theight%
+	height 30theight%
 	keepAspectRatio
 
 \end_inset
@@ -11120,7 +11129,7 @@ reference "tab:linear_accuracy"
 
 \end_inset
 
- 中的数据验证了前文定性观察得出的结论，即（1）细 (
+ 中的数据验证了前文定性观察得出的结论，即 (1) 细 (
 \begin_inset Formula $h\approx1/32$
 \end_inset
 
@@ -11136,7 +11145,7 @@ reference "tab:linear_accuracy"
 \begin_inset Formula $p=3$
 \end_inset
 
-) 数值解精度相当；（2）加密网格（减小 
+) 数值解精度相当；(2) 加密网格（减小 
 \begin_inset Formula $h$
 \end_inset
 
@@ -12828,8 +12837,8 @@ reference "tab:sod_cost"
 
 \end_inset
 
- 给出了三组试验的结果。由该图、表可知：（1）RK1/DG1 近似解的全局误差、运行时间、存储空间均最大，性价比最低；（2）RK3/DG3 与
- RK3/DG3 近似解的全局误差、运行时间大致相当，但 RK2/DG2 近似解所需的存储空间较大，故其性价比低于 RK3/DG3 近似解；（3）求解器精度每提
+ 给出了三组试验的结果。由该图、表可知：(1) RK1/DG1 近似解的全局误差、运行时间、存储空间均最大，性价比最低；(2) RK3/DG3 与
+ RK3/DG3 近似解的全局误差、运行时间大致相当，但 RK2/DG2 近似解所需的存储空间较大，故其性价比低于 RK3/DG3 近似解；(3) 求解器精度每提
 高一阶，单元尺寸与时间步长可增加一倍，体单元数与时间步数的乘积可以减小为原来的 
 \begin_inset Formula $1/16$
 \end_inset
@@ -13435,8 +13444,8 @@ noprefix "false"
 \begin_inset Formula $y=0.5,\,z=0.25$
 \end_inset
 
-) 均匀选取了 1001 个采样点，依次画出了 RK1/DG1、RK2/DG2、RK3/DG3 近似解在这些采样点处的密度值。由这两幅图不难再次得出结论：（1）
-高阶格式在间断附近引起的数值振荡得到了有效压制；（2）在相同的网格上，求解器的阶数越高，数值解的精度也越高。
+) 均匀选取了 1001 个采样点，依次画出了 RK1/DG1、RK2/DG2、RK3/DG3 近似解在这些采样点处的密度值。由这两幅图不难再次得出结论：(1) 
+高阶格式在间断附近引起的数值振荡得到了有效压制；(2) 在相同的网格上，求解器的阶数越高，数值解的精度也越高。
 \end_layout
 
 \begin_layout Standard
@@ -25437,6 +25446,34 @@ addcontentsline{toc}{chapter}{结论与展望}
 \begin_layout Standard
 本文首先对旋翼空气动力学、舰载直升机气动干扰、高精度 CFD 方法的国内外研究现状进行了文献调研。在此基础上，以舰载直升机气动干扰的高效高精度数值模拟为目标，提
 出了一种既能处理船体复杂几何外形、又能高效模拟旋翼对流场扰动的 UMS–RKDG 混合方法，并给出了该方法的一种支持分布式并行计算的代码实现。
+\end_layout
+
+\begin_layout Subparagraph*
+本文的主要结论如下：
+\end_layout
+
+\begin_layout Enumerate
+适用于三维非结构网格的 RKDG 求解器，能够处理具有复杂几何外形的边界，适用于航空航天领域的工程问题。
+\end_layout
+
+\begin_layout Enumerate
+基于邻接单元的 WENO 重构过程，能够有效地压制间断附近的数值振荡，同时保持 RKDG 方法的紧致性、可并行性。
+\end_layout
+
+\begin_layout Enumerate
+高阶 RKDG 求解器的数值耗散较低，能够在相对较粗的非结构网格上捕获复杂的流动细节，具有更高的性价比。 
+\end_layout
+
+\begin_layout Enumerate
+非定常动量源模型与高阶 RKDG 求解器配合使用，能够在静态网格上高效、高精度地模拟旋翼对流场的扰动，避免了传统旋翼空气动力学数值模拟方法对动态网格、滑动网格、
+重叠网格等高级网格技术的依赖。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subparagraph*
