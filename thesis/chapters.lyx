@@ -1707,7 +1707,7 @@ literal "false"
 
 \end_inset
 
-利用二维 PIV 技术，在水洞中对共轴式双旋翼悬停及不同前飞速度下的流场进行了测量，并对上下两副旋翼的气动干扰特性作了定量研究。该试验测量了流场的瞬时涡量和速度
+利用二维 PIV 技术，在水洞中对共轴式双旋翼悬停及不同前飞速度下的流场进行了测量，并对上下两副旋翼的气动干扰特性做了定量研究。该试验测量了流场的瞬时涡量和速度
 分布、桨尖涡结构和脱落轨迹、尾迹边界等。结果显示：共轴双旋翼悬停流场由上旋翼所主导；与单旋翼相比，双旋翼的尾迹结构更加不稳定。
 \end_layout
 
@@ -1951,7 +1951,7 @@ literal "false"
 
 \end_inset
 
- 对截至 1980 年代末的各种静态、动态入流模型作了详细的综述。
+ 对截至 1980 年代末的各种静态、动态入流模型做了详细的综述。
 \end_layout
 
 \begin_layout Standard
@@ -2239,7 +2239,7 @@ reference "fig:free-wake"
 
 \end_inset
 
- 所示），研究了旋翼作机动时的尾迹瞬态变化过程，并对涡环状态这一典型的不稳定状态进行了模拟。该模型在以上算例中均给出了很好的结果。2006年，Gupta
+ 所示），研究了旋翼做机动时的尾迹瞬态变化过程，并对涡环状态这一典型的不稳定状态进行了模拟。该模型在以上算例中均给出了很好的结果。2006年，Gupta
  & Leishman
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2936,7 +2936,7 @@ literal "true"
 \end_inset
 
  (Reynolds-averaged Navier–Stokes) 方程与基于粒子的涡量输运方法进行耦合，用于分析固定孤立机翼低速飞行时的气动性能和尾迹特性，
-并通过与风动试验数据进行对比，对该计算模型进行了验证。该耦合方法将流场按主要流动特性，分为近壁面和远场区域，分别用三维可压缩 RANS 方程和基于粒子的涡量输运
+并通过与风洞试验数据进行对比，对该计算模型进行了验证。该耦合方法将流场按主要流动特性，分为近壁面和远场区域，分别用三维可压缩 RANS 方程和基于粒子的涡量输运
 方程进行求解。计算结果显示：该耦合方法可以对机翼翼梢的三维流动效应进行合理的模拟，并且有效解决了常规 CFD 存在的数值耗散问题。但也有学者认为，耦合方法本身及
 不同计算区域数据交换带来的复杂性，可能会减弱涡粒子模型对计算效率的提升效果
 \begin_inset CommandInset citation
@@ -3349,7 +3349,7 @@ literal "false"
 
  侧风条件下，甲板上方存在一堵压力墙，迫使驾驶员减小总距以降低高度、增大横向周期变距以保持飞行路径。他们认为上述现象是由船体空气尾流的速度梯度引起的，并通过对船
 体空气尾流进行非定常 CFD 计算验证了此观点。尽管该试验是在固定直升机的条件下进行的，仍不能完全反映直升机着舰过程的真实载荷特征，但可作为验证计算模型的参照对
-象。的条件下进行的，但已将试验环境从室内转移到了真实的船只上，因而更接近舰载直升机的真实工作环境。
+象。
 \end_layout
 
 \begin_layout Standard
@@ -3385,7 +3385,7 @@ status collapsed
 	filename /Users/pvc/code/manuscript/review/figures/ship-helicopter-interaction.jpg
 	lyxscale 15
 	width 100text%
-	height 30theight%
+	height 33theight%
 	keepAspectRatio
 
 \end_inset
@@ -3630,7 +3630,7 @@ reference "fig:overset-mesh"
 \end_inset
 
  所示），研究了孤立旋翼与多种船体构型之间的气动干扰问题。他们用静态结构网格离散船体周围的空间，作为背景网格；用 C-O 或 C-H 型结构网格包裹桨叶，作为贴
-体网格。贴体网格被允许在背景网格中做任意运动，以模拟桨叶的旋转、挥舞、边距。两套网格上的数据通过三维线性插值进行交换。该方法在进行挖洞和贡献单元搜索时，利用了结
+体网格。贴体网格被允许在背景网格中做任意运动，以模拟桨叶的旋转、挥舞、变距。两套网格上的数据通过三维线性插值进行交换。该方法在进行挖洞和贡献单元搜索时，利用了结
 构网格易于定位单元的性质，所需时间与流场计算时间相比可忽略不计。这种对结构网格的依赖，限制了该方法的适用范围。
 \begin_inset Float figure
 wide false
@@ -5781,6 +5781,14 @@ n=\binom{p+2}{3}=\frac{(p+2)(p+1)p}{6},
 
 \end_inset
 
+
+\begin_inset Formula 
+\[
+\Vert u-u^{h}\Vert_{2}=\int_{V_{i}}\left(u-u^{h}\right)^{2}
+\]
+
+\end_inset
+
 且关于式 
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -5953,7 +5961,7 @@ z-z_{0}
 \begin_inset Formula $\phi_{1}$
 \end_inset
 
- 作归一化：
+ 做归一化：
 \begin_inset Formula 
 \begin{equation}
 e_{1}=\frac{\phi_{1}}{\Vert\phi_{1}\Vert_{V_{i}}}.
@@ -5985,7 +5993,7 @@ e_{1}=\frac{\phi_{1}}{\Vert\phi_{1}\Vert_{V_{i}}}.
 \begin_inset Formula $\left\{ e_{k}\right\} _{k=1}^{m-1}$
 \end_inset
 
- 上的投影，再对剩余部分作归一化：
+ 上的投影，再对剩余部分做归一化：
 \begin_inset Formula 
 \begin{equation}
 e_{m}=\frac{\phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle_{V_{i}}}{\left\Vert \phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle_{V_{i}}\right\Vert _{V_{i}}},\qquad m>1.\label{eq:ortho-normal}
@@ -6101,7 +6109,7 @@ a_{j}=\begin{cases}
 \begin_inset Formula $\sum_{j=1}^{m}a_{j}\phi_{j}$
 \end_inset
 
- 作归一化，即得 
+ 做归一化，即得 
 \begin_inset Formula $\underline{S}$
 \end_inset
 
@@ -7061,7 +7069,7 @@ literal "true"
 \begin_inset Formula $V_{i}$
 \end_inset
 
- 上充分光滑。根据基函数取法的不同，可以将有限元法作如下分类：
+ 上充分光滑。根据基函数取法的不同，可以将有限元法做如下分类：
 \end_layout
 
 \begin_layout Itemize
@@ -9448,7 +9456,7 @@ K_{i}\coloneqq\left\{ k:\partial V_{i}\cap\partial V_{k}\ne\varnothing\right\} .
 \begin_inset Formula $V_{i}$
 \end_inset
 
- 上，并对函数值作适当平移，
+ 上，并对函数值做适当平移，
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "$u_{k\\to i}$"
@@ -9617,7 +9625,7 @@ w_{k\to i}=\frac{w_{k\to i}^{\beta}}{\sum_{k\in K_{i}}w_{k\to i}^{\beta}},\qquad
 \begin_inset Formula $\left\{ u_{k\to i}:k\in K_{i}\right\} $
 \end_inset
 
- 作平均，
+ 做平均，
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "$u_{i}^{\\mathrm{new}}$"
@@ -9775,7 +9783,7 @@ literal "true"
 \begin_inset Formula $V_{i}$
 \end_inset
 
- 上，并对函数值作适当平移，使所得的 
+ 上，并对函数值做适当平移，使所得的 
 \begin_inset Formula $\underline{U}_{k\to i}^{h}$
 \end_inset
 
@@ -16177,19 +16185,27 @@ name "sec:parallel"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
 \begin_layout Subsection
 并行计算机架构
 \end_layout
+
+\begin_layout Standard
+本小节介绍当前（2022 年）主流的并行计算机架构，并解释本文采用分布式并行计算的原因。
+\end_layout
+
+\begin_layout Standard
+要讨论并行计算机的架构，必须先了解并行计算机的存储模型。并行计算机的存储模型。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
 
 \begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
