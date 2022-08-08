@@ -16185,21 +16185,33 @@ name "sec:parallel"
 
 \end_layout
 
-\begin_layout Subsection
-并行计算机架构
-\end_layout
-
 \begin_layout Standard
-本小节介绍当前（2022 年）主流的并行计算机架构，并解释本文采用分布式并行计算的原因。
-\end_layout
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "CPU"
+description "central processing unit"
+literal "true"
 
-\begin_layout Standard
-要讨论并行计算机的架构，必须先了解并行计算机的存储模型。并行计算机的存储模型。
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Note Note
 status open
+
+\begin_layout Subsection
+并行计算机架构
+\end_layout
+
+\begin_layout Plain Layout
+本小节介绍当前（2022 年）主流的并行计算机架构，并解释本文采用分布式并行计算的原因。
+\end_layout
+
+\begin_layout Plain Layout
+要讨论并行计算机的架构，必须先了解并行计算机的存储模型。并行计算机的存储模型。
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Float figure
@@ -19191,6 +19203,13 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 12pt
 \end_inset
 
 
