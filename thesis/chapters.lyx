@@ -7591,7 +7591,7 @@ reference "eq:RKm"
  都非负，且满足
 \begin_inset Formula 
 \begin{equation}
-h_{t}\le ch_{t}^{\mathrm{E.E.}},\qquad c=\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}},
+0<h_{t}\le\left(\min_{i,k}\frac{\alpha_{i,k}}{\beta_{i,k}}\right)h_{t}^{\mathrm{E.E.}},
 \end{equation}
 
 \end_inset
@@ -7781,7 +7781,7 @@ reference "eq:RKm"
 强稳定保持的概念以及上述引理，是由 Shu 等提出并发展的
 \begin_inset CommandInset citation
 LatexCommand citet
-key "Gottlieb_1998,Gottlieb_2001"
+key "Shu_1988,Gottlieb_1998,Gottlieb_2001"
 literal "false"
 
 \end_inset
@@ -7817,25 +7817,34 @@ reference "eq:RKm"
 
 \end_inset
 
- 的形式后
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-给出具体形式
-\end_layout
+ 的形式
+\begin_inset Formula 
+\[
+\begin{aligned}\underline{\hat{U}}^{n+1/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n},\\
+\underline{\hat{U}}^{n+2/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4}\\
+ & =(1-\mu)\underline{\hat{U}}^{n}+\mu\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4}\\
+ & =(1-\mu)\underline{\hat{U}}^{n}+\mu\left(\underline{\hat{U}}^{n+1/4}-\frac{h_{t}}{2}\underline{\hat{R}}^{n}\right)+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4}\\
+ & =\left[(1-\mu)\underline{\hat{U}}^{n}+\left(-\frac{\mu}{2}\right)h_{t}\underline{\hat{R}}^{n}\right]+\left(\mu\underline{\hat{U}}^{n+1/4}+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4}\right),\\
+\underline{\hat{U}}^{n+3/4} & =\cdots,\\
+\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+4/4} & =\cdots,
+\end{aligned}
+\]
 
 \end_inset
 
-，并非所有 
+之后，在 
+\begin_inset Formula $\mu\in(0,1)$
+\end_inset
+
+ 的前提下总是会出现负的 
 \begin_inset Formula $\alpha_{i,k}$
 \end_inset
 
- 与 
+ 或 
 \begin_inset Formula $\beta_{i,k}$
 \end_inset
 
- 都非负，因此它不是 SSP 格式。
+，因此它不是 SSP 格式。
 \begin_inset Note Note
 status open
 
