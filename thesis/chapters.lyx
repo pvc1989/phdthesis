@@ -5781,14 +5781,6 @@ n=\binom{p+2}{3}=\frac{(p+2)(p+1)p}{6},
 
 \end_inset
 
-
-\begin_inset Formula 
-\[
-\Vert u-u^{h}\Vert_{2}=\int_{V_{i}}\left(u-u^{h}\right)^{2}
-\]
-
-\end_inset
-
 且关于式 
 \begin_inset CommandInset ref
 LatexCommand eqref
