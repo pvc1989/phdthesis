@@ -7998,6 +7998,13 @@ literal "true"
 )”模型嵌入既有的 RKDG 格式，从而获得 UMS–RKDG 格式的具体过程。
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 外力密度
 \end_layout
@@ -9129,7 +9136,7 @@ literal "true"
 ：
 \begin_inset Formula 
 \begin{equation}
-\begin{bmatrix}w_{1} & w_{2} & w_{3}\end{bmatrix}=\begin{bmatrix}w_{1}^{\star} & w_{2}^{\star} & w_{3}^{\star}\end{bmatrix}\coloneqq\frac{\begin{bmatrix}1 & 6 & 3\end{bmatrix}}{10}.
+\begin{bmatrix}w_{1} & w_{2} & w_{3}\end{bmatrix}=\begin{bmatrix}w_{1}^{\star} & w_{2}^{\star} & w_{3}^{\star}\end{bmatrix}\coloneqq\frac{1}{10}\begin{bmatrix}1 & 6 & 3\end{bmatrix}.
 \end{equation}
 
 \end_inset
