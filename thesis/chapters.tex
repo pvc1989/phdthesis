@@ -1285,12 +1285,6 @@ $\left(\underline{R}_{V_{i}}-\underline{R}_{\partial V_{i}}\right)\underline{A}_
 之后，在 $\mu\in(0,1)$ 的前提下总是会出现负的 $\alpha_{i,k}$ 或 $\beta_{i,k}$，因此它不是
 SSP 格式。
 
-本文选用式 (\ref{eq:RK1})–(\ref{eq:RK3}) 作为时间推进格式，正是因为它们是 SSP 格式。
-
-为明确区分时间离散与空间离散的阶数，本文把用 $p$ 阶 (SSP) RK 格式做时间推进、用 $q$ 阶 DG 有限元法做空间离散的具体格式称为“RK$p$/DG$q$
-格式”，并称基于该格式的求解器、近似解为“RK$p$/DG$q$ 求解器、近似解”；称构造这些格式的方法为“RKDG 方法”。若时空精度皆为
-$p$，则“RK$p$/DG$q$”（格式、求解器、近似解）也可简称为“$p$ 阶 RKDG”（格式、求解器、近似解）。\nomenclature{RKDG}{Runge--Kutta discontinuous Galerkin}\nomenclature{RK$p$/DG$q$}{$p$th order Runge–Kutta and $q$th order discontinuous Galerkin}
-
 \section{模拟桨叶对流场扰动的非定常动量源\label{sec:UMS}}
 
 前文已经给出了用 RKDG 方法 (\ref{eq:orthonormal_DG}) 来求解含源项的双曲型方程组 (\ref{eq:PDE})
@@ -1925,6 +1919,9 @@ u_{z}
 \item [{能够保持数值解的强稳定性}] 该方法以保持强稳定性的显式 Runge–Kutta (RK) 格式做时间推进，能够像显式欧拉格式那样给出物理上可靠的结果。除此之外，显式
 $p$ 阶 RK 格式避免了大型代数方程组的生成与求解，简化了程序实现，与紧致的 $q$ 阶 DG 格式相互配合，保证了整个 RK$p$/DG$q$
 格式具有高度的可并行性。
+为明确区分时间离散与空间离散的阶数，这里及本文剩余部分把用 $p$ 阶 (SSP) RK 格式做时间推进、用 $q$ 阶 DG 有限元法做空间离散的具体格式称为“RK$p$/DG$q$
+格式”，并称基于该格式的求解器、近似解为“RK$p$/DG$q$ 求解器、近似解”；称构造这些格式的方法为“RKDG 方法”。若时空精度皆为
+$p$，则“RK$p$/DG$q$”（格式、求解器、近似解）也可简称为“$p$ 阶 RKDG”（格式、求解器、近似解）。\nomenclature{RKDG}{Runge--Kutta discontinuous Galerkin}\nomenclature{RK$p$/DG$q$}{$p$th order Runge–Kutta and $q$th order discontinuous Galerkin}
 \item [{避免了对动态网格技术的依赖}] 该方法以非定常动量源 (UMS) 模型表示桨叶对流场的扰动，避免了旋翼 CFD 对变形网格、滑动网格、重叠网格等动态网格技术的依赖，大大降低了程序实现的难度。该模型与高阶
 RKDG 格式相结合，能够在较为粗糙的三维非结构网格上，高效（相对于动态网格技术）且高精度（相对于经典有限体积）捕获旋翼流场的非定常特征。
 \item [{压制了高阶近似解的数值振荡}] 该方法以紧致型 WENO 重构技术，压制高阶 RKDG 及高阶 UMS–RKDG 近似解在间断附近的数值振荡。本文所借鉴的二维

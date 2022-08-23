@@ -7849,92 +7849,6 @@ status open
 
 \end_layout
 
-\begin_layout Standard
-本文选用式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:RK1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-–
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:RK3"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 作为时间推进格式，正是因为它们是 SSP 格式。
-\end_layout
-
-\begin_layout Standard
-为明确区分时间离散与空间离散的阶数，本文把用 
-\begin_inset Formula $p$
-\end_inset
-
- 阶 (SSP) RK 格式做时间推进、用 
-\begin_inset Formula $q$
-\end_inset
-
- 阶 DG 有限元法做空间离散的具体格式称为“RK
-\begin_inset Formula $p$
-\end_inset
-
-/DG
-\begin_inset Formula $q$
-\end_inset
-
- 格式”，并称基于该格式的求解器、近似解为“RK
-\begin_inset Formula $p$
-\end_inset
-
-/DG
-\begin_inset Formula $q$
-\end_inset
-
- 求解器、近似解”；称构造这些格式的方法为“RKDG 方法”。若时空精度皆为 
-\begin_inset Formula $p$
-\end_inset
-
-，则“RK
-\begin_inset Formula $p$
-\end_inset
-
-/DG
-\begin_inset Formula $q$
-\end_inset
-
-”（格式、求解器、近似解）也可简称为“
-\begin_inset Formula $p$
-\end_inset
-
- 阶 RKDG”（格式、求解器、近似解）。
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "RKDG"
-description "Runge--Kutta discontinuous Galerkin"
-literal "true"
-
-\end_inset
-
-
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-symbol "RK$p$/DG$q$"
-description "$p$th order Runge–Kutta and $q$th order discontinuous Galerkin"
-literal "true"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 模拟桨叶对流场扰动的非定常动量源
 \begin_inset CommandInset label
@@ -10489,7 +10403,65 @@ literal "true"
 \begin_inset Formula $q$
 \end_inset
 
- 格式具有高度的可并行性。
+ 格式具有高度的可并行性。为明确区分时间离散与空间离散的阶数，这里及本文剩余部分把用 
+\begin_inset Formula $p$
+\end_inset
+
+ 阶 (SSP) RK 格式做时间推进、用 
+\begin_inset Formula $q$
+\end_inset
+
+ 阶 DG 有限元法做空间离散的具体格式称为“RK
+\begin_inset Formula $p$
+\end_inset
+
+/DG
+\begin_inset Formula $q$
+\end_inset
+
+ 格式”，并称基于该格式的求解器、近似解为“RK
+\begin_inset Formula $p$
+\end_inset
+
+/DG
+\begin_inset Formula $q$
+\end_inset
+
+ 求解器、近似解”；称构造这些格式的方法为“RKDG 方法”。若时空精度皆为 
+\begin_inset Formula $p$
+\end_inset
+
+，则“RK
+\begin_inset Formula $p$
+\end_inset
+
+/DG
+\begin_inset Formula $q$
+\end_inset
+
+”（格式、求解器、近似解）也可简称为“
+\begin_inset Formula $p$
+\end_inset
+
+ 阶 RKDG”（格式、求解器、近似解）。
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "RKDG"
+description "Runge--Kutta discontinuous Galerkin"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "RK$p$/DG$q$"
+description "$p$th order Runge–Kutta and $q$th order discontinuous Galerkin"
+literal "true"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Description
