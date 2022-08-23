@@ -7770,7 +7770,7 @@ reference "eq:RKm"
 \end_layout
 
 \begin_layout Standard
-强稳定保持的概念以及上述引理，是由 Shu 等提出并发展的
+保持强稳定性 (SSP) 的概念以及上述引理，是由 Shu 等提出并发展的
 \begin_inset CommandInset citation
 LatexCommand citet
 key "Shu_1988,Gottlieb_1998,Gottlieb_2001"
@@ -7811,7 +7811,7 @@ reference "eq:RKm"
 
  的形式
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{aligned}\underline{\hat{U}}^{n+1/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n},\\
 \underline{\hat{U}}^{n+2/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4}\\
  & =(1-\mu)\underline{\hat{U}}^{n}+\mu\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4}\\
@@ -7820,7 +7820,7 @@ reference "eq:RKm"
 \underline{\hat{U}}^{n+3/4} & =\cdots,\\
 \underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+4/4} & =\cdots,
 \end{aligned}
-\]
+\end{equation}
 
 \end_inset
 
