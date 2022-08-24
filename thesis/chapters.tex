@@ -1278,8 +1278,7 @@ $\left(\underline{R}_{V_{i}}-\underline{R}_{\partial V_{i}}\right)\underline{A}_
 	& =(1-\mu)\underline{\hat{U}}^{n}+\mu\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4}\\
 	& =(1-\mu)\underline{\hat{U}}^{n}+\mu\left(\underline{\hat{U}}^{n+1/4}-\frac{h_{t}}{2}\underline{\hat{R}}^{n}\right)+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4}\\
 	& =\left[(1-\mu)\underline{\hat{U}}^{n}+\left(-\frac{\mu}{2}\right)h_{t}\underline{\hat{R}}^{n}\right]+\left(\mu\underline{\hat{U}}^{n+1/4}+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4}\right),\\
-	\underline{\hat{U}}^{n+3/4} & =\cdots,\\
-	\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+4/4} & =\cdots,
+	\underline{\hat{U}}^{n+3/4} & =\cdots,\qquad\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+4/4}=\cdots,
 \end{aligned}
 \end{equation}
 之后，在 $\mu\in(0,1)$ 的前提下总是会出现负的 $\alpha_{i,k}$ 或 $\beta_{i,k}$，因此它不是
@@ -1288,17 +1287,12 @@ SSP 格式。
 \section{模拟桨叶对流场扰动的非定常动量源\label{sec:UMS}}
 
 前文已经给出了用 RKDG 方法 (\ref{eq:orthonormal_DG}) 来求解含源项的双曲型方程组 (\ref{eq:PDE})
-的一般过程。在该方法中，源项只出现在体积分中，具体形式为
+的一般过程。在该方法中，源项只出现在体积分中，且本文不考虑质量源与能量源，故该式实际需要计算的是计算基函数与动量源的乘积在 $V_{i}$ 上体积分：
 \begin{equation}
-\int_{V_{i}}\mathopen{\underline{H}}\left(\underline{U}^{h}\right)\begin{bmatrix}\phi_{1} & \cdots & \phi_{K}\end{bmatrix}.
-\end{equation}
-本文不考虑质量源与能量源，故该式实际需要计算的是计算基函数与动量源的乘积在 $V_{i}$ 上体积分：
-\begin{equation}
-\int_{V_{i}}\begin{bmatrix}0\\
-b_{x}\\
-b_{y}\\
-b_{z}\\
-0
+\int_{V_{i}}\begin{bmatrix}
+b_x\\
+b_y\\
+b_z
 \end{bmatrix}\begin{bmatrix}\phi_{1} & \cdots & \phi_{K}\end{bmatrix}.
 \end{equation}
 本节给出将体现旋翼气动效应的一种“非定常动量源 (unsteady momentum source, UMS\nomenclature{UMS}{unsteady momentum source})”模型嵌入既有的
