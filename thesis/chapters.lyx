@@ -7770,7 +7770,7 @@ reference "eq:RKm"
 \end_layout
 
 \begin_layout Standard
-保持强稳定性 (SSP) 的概念以及上述引理，是由 Shu 等提出并发展的
+“保持强稳定性 (SSP)”的概念以及上述引理，是由 Shu 等提出并发展的
 \begin_inset CommandInset citation
 LatexCommand citet
 key "Shu_1988,Gottlieb_1998,Gottlieb_2001"
@@ -9048,7 +9048,7 @@ literal "true"
 \end_layout
 
 \begin_layout Itemize
-在非光滑区域，被间断穿过的小模板即坏模板 (troubled stencil) 上的权重应当接近 
+在非光滑区域，被间断穿过的小模板即“坏模板 (troubled stencil)”上的权重应当接近 
 \begin_inset Formula $0$
 \end_inset
 

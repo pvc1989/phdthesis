@@ -1261,7 +1261,7 @@ $\left(\underline{R}_{V_{i}}-\underline{R}_{\partial V_{i}}\right)\underline{A}_
 \end{equation}
 \end{proof}
 %
-保持强稳定性 (SSP) 的概念以及上述引理，是由 Shu 等提出并发展的\upcite{Shu_1988,Gottlieb_1998,Gottlieb_2001}。原始文献中的推导过程较为简略，这里尽量补全了被省去的步骤。
+“保持强稳定性 (SSP)”的概念以及上述引理，是由 Shu 等提出并发展的\upcite{Shu_1988,Gottlieb_1998,Gottlieb_2001}。原始文献中的推导过程较为简略，这里尽量补全了被省去的步骤。
 
 并非所有 RK 格式都能保持强稳定性。例如：文献 \cite{Hirsch_2007} 给出的四阶 RK 格式
 \begin{equation}
@@ -1552,7 +1552,7 @@ f_{i+2}
 \begin{equation}
 \begin{bmatrix}w_{1} & w_{2} & w_{3}\end{bmatrix}=\begin{bmatrix}w_{1}^{\star} & w_{2}^{\star} & w_{3}^{\star}\end{bmatrix}\coloneqq\frac{1}{10}\begin{bmatrix}1 & 6 & 3\end{bmatrix}.
 \end{equation}
-\item 在非光滑区域，被间断穿过的小模板即坏模板 (troubled stencil) 上的权重应当接近 $0$，但所有小模板的权重之和依然为
+\item 在非光滑区域，被间断穿过的小模板即“坏模板 (troubled stencil)”上的权重应当接近 $0$，但所有小模板的权重之和依然为
 $1$。
 \end{itemize}
 文献 \cite{Jiang_1996} 给出了一种满足上述性质的方案：
