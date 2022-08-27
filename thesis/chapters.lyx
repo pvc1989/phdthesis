@@ -16064,7 +16064,7 @@ reference "tab:sod_cost"
 \end_layout
 
 \begin_layout Chapter
-三维流场的并行计算及并行性能测评
+旋翼流场计算的并行加速及性能测评
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:并行"
@@ -22096,7 +22096,7 @@ name "tab:rotor_upward_cost"
 
 \end_inset
 
-RK3/DG3 求解器以不同进程数量并行求解
+UMS–RK3/DG3 求解器以不同进程数量并行求解
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:孤立旋翼爬升"
