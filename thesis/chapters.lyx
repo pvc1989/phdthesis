@@ -16159,7 +16159,7 @@ reference "chap:验证"
 \end_layout
 
 \begin_layout Section
-旋翼吹风试验模拟
+旋翼流场计算
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:rotor_in_tunnel"
@@ -18648,7 +18648,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Section
-并行加速及性能测评
+并行加速方案
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:parallel"
@@ -18886,8 +18886,983 @@ MPI_Waitall(...)
 是降低并行性能的直接因素，应尽量避免非必要的同步。
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 并行性能测评
+\end_layout
+
+\begin_layout Subsection
+双马赫反射问题
+\end_layout
+
+\begin_layout Standard
+本小节对第
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:验证"
+
+\end_inset
+
+章用于验证近似解精度的
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:双马赫反射"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题做并行性能测评。该问题的初边值条件及近似解具有二维特征，因此在三维空间求解时，沿 
+\begin_inset Formula $z$
+\end_inset
+
+ 方向的网格数量可以很少（本文尝试过取一到三层，所得结果没有显著变化）。因此，对这种伪三维网格的分块，实际上等价于对二维网格的分块。这就造成各块边界上的单元数量
+，近似为块内单元数量的 
+\begin_inset Formula $\order{N^{1/2}}$
+\end_inset
+
+；而对真正的三维网格分块，各块边界上的单元数量，近似为块内单元数量的 
+\begin_inset Formula $\order{N^{2/3}}$
+\end_inset
+
+。由此可以预测：本节所得并行效率将高于真正三维问题的并行效率。这一预测将被本章 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:rotor-parallel"
+
+\end_inset
+
+ 小节的数据所证实。
+\end_layout
+
+\begin_layout Standard
+虽然在求解
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:双马赫反射"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题时使用了非结构网格，但其所含单元的尺寸大致相等，且计算区域具有简单的几何外形，因此很容易得到较为均匀的网格分块，从而实现静态负载均衡。为了提高求解器的普适性
+，我们放弃了这种简单几何外形带来的便利，转而通过调用第三方库 METIS
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Karypis_1998"
+literal "false"
+
+\end_inset
+
+ 来实施网格分块。图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_partition"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_balance"
+
+\end_inset
+
+ 给出了将图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=1_h=5e-3"
+
+\end_inset
+
+–
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_p=3_h=5e-3"
+
+\end_inset
+
+ 中的非结构网格分割为 100 块的（某次）分块结果，可见单元数量的波动小于 
+\begin_inset Formula $3\%$
+\end_inset
+
+，大致呈均匀分布。考虑到非结构网格的均匀分块属于 NP-hard 问题，图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_partition"
+
+\end_inset
+
+、图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_balance"
+
+\end_inset
+
+ 所示的分块效果已经相当令人满意。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/double_mach/partition.png
+	lyxscale 15
+	width 100text%
+	height 40theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_partition"
+
+\end_inset
+
+将
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:双马赫反射"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题所用非结构网格分割为 
+\begin_inset Formula $100$
+\end_inset
+
+ 块的分块结果
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/double_mach/balance.pdf
+	lyxscale 50
+	width 100text%
+	height 30theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_balance"
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:双马赫反射"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题网格分块结果（图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_partition"
+
+\end_inset
+
+）的单元分布情况
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+基于上述优质的分块工具，我们测量了 RK3/DG3 求解器的加速比及并行效率。表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:double_mach_cost"
+
+\end_inset
+
+ 列出了该求解器以不同进程数量并行求解
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:双马赫反射"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题所消耗的时间，其中
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P$
+\end_inset
+
+ 表示进程数量，亦即运行时所需的核心数量。
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $T_{n}$
+\end_inset
+
+ 表示完成第 
+\begin_inset Formula $n$
+\end_inset
+
+ 步所消耗的秒数。
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P\frac{T_{m+m}-T_{n}}{m}$
+\end_inset
+
+ 为每一步所消耗的核心数与墙上时间的乘积，简称“核时”。
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+该数据通常被高性能计算平台用作收费依据。
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+由于并行读写操作会导致许多聚合通信，聚合通信的效率又依赖于网络质量，因此我们应当尽量减少并行读写的调用次数。在求解该问题时，我们每完成一百步计算才输出一帧结果。
+因此，表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:double_mach_cost"
+
+\end_inset
+
+ 的后两列之差体现了读写操作的代价，它等于分摊到每一个时间步上读写开销。不难发现：随着核心数量的增加，单步读写开销也在逐渐地增加。这是因为随着核心数量的增加，每
+个进程的通信对象的数量以及端到端的距离都在不断增加。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:double_mach_cost"
+
+\end_inset
+
+RK3/DG3 求解器以不同进程数量并行求解
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:双马赫反射"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题所消耗的时间
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="6">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $P\,\si{(core)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{100}\,\si{(s)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{199}\,\si{(s)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $T_{200}\,\si{(s)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P\frac{T_{199}-T_{100}}{199-100}\,\si{(core\cdot s)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P\frac{T_{200}-T_{100}}{200-100}\,\si{(core\cdot s)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17652.2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+35324.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+35519.3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+178.508
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+178.671
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+960.443
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1912.37
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1926.58
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+192.307
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+193.228
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+491.070
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+971.710
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+983.933
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+194.198
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+197.145
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+335.651
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+666.548
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+676.930
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+200.544
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+204.767
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+80
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+251.548
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+494.541
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+504.951
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+196.358
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+202.722
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+202.789
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+397.641
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+408.126
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+196.820
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+205.337
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+由表 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:double_mach_cost"
+
+\end_inset
+
+ 中的数据，可以导出加速比 
+\begin_inset Formula $S$
+\end_inset
+
+ 与并行效率 
+\begin_inset Formula $E$
+\end_inset
+
+，二者定义如下：
+\begin_inset Formula 
+\begin{equation}
+S=\frac{T_{\text{串行}}}{T_{\text{并行}}},\qquad E=\frac{S}{P}\times100\%.\label{eq:speedup}
+\end{equation}
+
+\end_inset
+
+所得结果分别绘于图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_speedup"
+
+\end_inset
+
+ 与图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_efficiency"
+
+\end_inset
+
+。这两幅图更直观地体现了并行读写操作对并行程序扩展性的不利影响。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/double_mach/speedup.pdf
+	lyxscale 50
+	width 100text%
+	height 30theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_speedup"
+
+\end_inset
+
+RK3/DG3 求解器以不同进程数量并行求解
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:双马赫反射"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题所得的加速比
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/double_mach/efficiency.pdf
+	lyxscale 50
+	width 100text%
+	height 30theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_efficiency"
+
+\end_inset
+
+RK3/DG3 求解器以不同进程数量并行求解
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:双马赫反射"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题所得的并行效率
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_efficiency"
+
+\end_inset
+
+ 所示的并行效率在 
+\begin_inset Formula $90\%$
+\end_inset
+
+ 附近波动，这比文献-
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Biswas_1994"
+literal "false"
+
+\end_inset
+
+ 中给出的 
+\begin_inset Formula $99\%$
+\end_inset
+
+ 略差。造成这种差距的主要原因，在于该文献中的算例都是基于一维、二维的结构网格，分块数量又恰好是 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+，因此经过 
+\begin_inset Formula $n$
+\end_inset
+
+ 次几何等分，就能得到完美的均匀分块。本节所有算例均基于三维非结构网格，因此图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double_mach_efficiency"
+
+\end_inset
+
+ 中的并行效率更具有参考价值。
+\end_layout
+
+\begin_layout Subsection
+孤立旋翼爬升问题
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:rotor-parallel"
@@ -18918,17 +19893,7 @@ noprefix "false"
 
 \end_inset
 
-问题的网格与求解 
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:YF-17_超声速绕流"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题的网格类似，是高度非结构、非均匀的，因此基于几何分割的简单分块方法难以实现负载均衡。如前所述，本文通过调用第三方库 METIS
+问题的网格是高度非结构、非均匀的，因此基于几何分割的简单分块方法难以实现负载均衡。如前一小节所述，本小节通过调用第三方库 METIS
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Karypis_1998"
@@ -18953,10 +19918,10 @@ noprefix "false"
 
 \end_inset
 
- 所示。与 
+ 所示。与
 \begin_inset CommandInset ref
 LatexCommand nameref
-reference "prob:YF-17_超声速绕流"
+reference "prob:双马赫反射"
 plural "false"
 caps "false"
 noprefix "false"
@@ -18993,21 +19958,7 @@ reference "fig:double_mach_balance"
 \begin_inset Formula $i$
 \end_inset
 
- 个进程所分得的体单元数量。与式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:yf17_estimate"
-
-\end_inset
-
- 类似，式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:rotor_upward_estimate"
-
-\end_inset
-
- 只考虑了体单元上的计算所消耗的时间，因此依然是一种偏乐观的估计。
+ 个进程所分得的体单元数量。该式只考虑了体单元上的计算所消耗的时间，因此是一种偏乐观的估计。
 \end_layout
 
 \begin_layout Standard
@@ -19207,26 +20158,6 @@ noprefix "false"
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:double_mach_efficiency"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 所示），但高于 
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:YF-17_超声速绕流"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题的对应结果（如图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:yf17_efficiency"
 plural "false"
 caps "false"
 noprefix "false"
@@ -19930,32 +20861,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-与前两个问题不同，该问题含非定常动量源，一般而言会破坏负载均衡：并非所有单元都需要计算源项，即式 
+该问题含非定常动量源，一般而言会破坏负载均衡：并非所有单元都需要计算源项，即式 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:body_force"
 
 \end_inset
 
-，那些没有被桨叶轴线穿过的体单元在计算源项这一步时处于闲置状态，这会造成等待时间增加，从而引起并行效率降低。但比较图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:rotor_upward_efficiency"
-
-\end_inset
-
- 与图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:yf17_efficiency"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 可知：这种不平衡性并没有显著降低实际运行所测得的并行效率。这是因为动量源计算所占比重较小，不足以破坏显著负载均衡。边界单元分布的不均匀以及进程间通信量的增加才
-是降低并行效率的主要原因。
+，那些没有被桨叶轴线穿过的体单元在计算源项这一步时处于闲置状态，这会造成等待时间增加，从而引起并行效率降低。
 \end_layout
 
 \begin_layout Section
