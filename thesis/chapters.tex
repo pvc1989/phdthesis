@@ -2800,7 +2800,8 @@ UMS–RKDG 近似解还能在相对较粗的非结构网格上捕捉到声波。
 
 \chapter{旋翼流场计算的并行加速及性能测评\label{chap:=005E76=00884C}}
 
-如第\ref{chap:算法}章所述，本文所提出的旋翼流场计算方法，是将模拟旋翼气动力的 UMS 模型植入带有紧致 WENO 限制器的 RKDG 格式而得到的。后者自从被提出以来，鲜有三维工程应用的报道。一个重要原因是每个单元所消耗的计算资源，随着精度阶数或空间维度的增加而迅速增长。另一方面，显式
+如第\ref{chap:=007B97=006CD5}章所述，本文所提出的旋翼流场计算方法，是将模拟旋翼气动力的 UMS 模型植入带有紧致
+WENO 限制器的 RKDG 格式而得到的。后者自从被提出以来，鲜有三维工程应用的报道。一个重要原因是每个单元所消耗的计算资源，随着精度阶数或空间维度的增加而迅速增长。另一方面，显式
 RKDG 格式和紧致 WENO 限制器的大多数计算都可以在本地进行，并且不需要求解全局代数方程组。因此，基于区域分解的分布式并行计算可以很自然地被用来加速计算。目前（2022
 年初），带有紧致 WENO 限制器的 RKDG 格式还没有公开发表的并行实现。其他的 DG 格式虽有公开发表的并行实现，例如：
 \begin{itemize}
@@ -2815,340 +2816,7 @@ I/O）超过 99\%，总运行时间至少 89\%。
 为了让第\ref{chap:=007B97=006CD5}章所述、第\ref{chap:=009A8C=008BC1}章所验证的高阶计算格式具有实用价值，本章将提出并实现一种分布式并行加速方案，并在实验室自建的
 100 核“机群 (cluster)”上测量加速比及并行效率，以评估该方案的性能。
 
-\section{分布式并行计算\label{sec:parallel}}
-
-\nomenclature{CPU}{central processing unit}
-
-
-\subsection{非结构网格分块}
-
-CFD 所用的“网格 (mesh)”是一种特殊的“图 (graph)”数据结构\upcite{Sedgewick_2011}。前者可以通过调用
-METIS\upcite{Karypis_1998} 提供的 \texttt{METIS\_PartMeshDual(...)} 来实现分块，后者的分块可以通过调用
-\texttt{METIS\_PartGraphKway(...)} 或 \texttt{METIS\_PartGraphRecursive(...)}
-来完成。实际上，网格分块函数 \texttt{METIS\_PartMeshDual(...)} 的内部封装了对图分块函数的调用，只不过这里被分块的是网格的“对偶图
-(dual graph)”。所谓网格的对偶图，是指以体单元为顶点、以体单元邻接关系为边的图。METIS 提供了 \texttt{METIS\_MeshToDual(...)}，用于将非结构网格转化为其对偶图。
-
-RKDG 格式中的面积分残差，即式 (\ref{eq:boundary_residual})，以及 WENO 重构过程中遍历邻接单元的操作，都对体单元访问其邻接单元的效率提出了很高的要求：各体单元应能在常数时间内访问其任意邻接单元。就非结构网格而言，这意味着每个体单元都要预先存储其所有邻接单元的指针（或引用）。单元的邻接关系隐含在结点的连接关系里，因此大多数网格文件格式都不会显式记录该信息。
-
-出于上述原因，本文不像传统的并行有限元方法那样直接对网格分块，而是先用 \texttt{METIS\_MeshToDual(...)}
-将非结构网格转化为其对偶图，再用 \texttt{METIS\_PartGraphKway(...)} 或 \texttt{METIS\_PartGraphRecursive(...)}
-对该对偶图实施分块。需要注意的是，用 C 语言编写的 \texttt{METIS\_MeshToDual(...)} 函数，将单元邻接信息存储在动态分配的数组里，并返回指向该数组头部的地址。为避免内存泄漏造成动态内存空间耗尽，该动态数组必须被调用栈里的某一个且只有一个调用者释放。利用现代
-C++ 标准库提供的智能指针接管该动态数组，能够有效地避免动态内存忘记释放或释放不止一次等内存故障\upcite{Meyers_2014}。
-
-\subsection{进程间消息传递}
-
-获得网格分块后，每一块上的数据都应由一个进程加载。各进程串行地保存和更新本地数据，并在必要时与邻居交换公共边界上的数据。这是分布式并行计算的典型场景，它通过在多个处理器核心上同时解决规模相等或接近的子问题来实现加速。与之相比，由多个线程共享同一内存空间的并行程序通常更易于编写，但存在扩展性瓶颈，通常只适用于安装有多核处理器的单机并行计算。
-
-为保持扩展性，本文选择分布式并行方案。为此，需要付出的代价是显式传递消息，以实现进程之间的数据交互。得益于学术界和工业界的共同努力，MPI
-已经成为事实上的分布式并行计算行业标准，被称为“并行计算的汇编语言”。
-
-为了提高代码的可读性和可维护性，本文将涉及通信的操作封装在名为 \texttt{ShareSomething(...)} 的一组函数中，它们拥有相同的代码结构：
-\begin{enumerate}
-\item 为每个目的地，将要发送的数据放入发送缓冲区，并通过调用 \texttt{MPI\_Isend(...)} 函数注册发送请求。
-\item 为每个源进程，分配一个接收缓冲区用于接收数据，并通过调用 \texttt{MPI\_Irecv(...)} 函数注册一个接收请求。
-\item 执行无需通信即可完成的其他计算任务。
-\item 通过调用 \texttt{MPI\_Waitall(...)} 函数阻塞所有进程，直到其所有发送和接收请求完成。
-\end{enumerate}
-其中，第 3 步是可选的，它允许计算与通信重叠，有助于提高并行效率；第 4 步是显式同步操作，除此之外还有一些隐式同步（例如：向同一个文件并行地写入数据），它们是降低并行性能的直接因素，应尽量避免非必要的同步。
-
-\section{双马赫反射问题的并行性能测评}
-
-本节对第\ref{chap:=009A8C=008BC1}章用于验证近似解精度的\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题做并行性能测评。该问题的初边值条件及近似解具有二维特征，因此在三维空间求解时，沿
-$z$ 方向的网格数量可以很少（本文尝试过取一到三层，所得结果没有显著变化）。因此，对这种伪三维网格的分块，实际上等价于对二维网格的分块。这就造成各块边界上的单元数量，近似为块内单元数量的
-$\order{N^{1/2}}$；而对真正的三维网格分块，各块边界上的单元数量，近似为块内单元数量的 $\order{N^{2/3}}$。由此可以预测：本节所得并行效率将高于真正三维问题的并行效率。这一预测将被本章
-\ref{subsec:YF17-parallel} 及 \ref{subsec:rotor-parallel} 小节的数据所证实。
-
-虽然在求解\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题时使用了非结构网格，但其所含单元的尺寸大致相等，且计算区域具有简单的几何外形，因此很容易得到较为均匀的网格分块，从而实现静态负载均衡。为了提高求解器的普适性，我们放弃了这种简单几何外形带来的便利，转而通过调用第三方库
-METIS\upcite{Karypis_1998} 来实施网格分块。图 \ref{fig:double_mach_partition}、图
-\ref{fig:double_mach_balance} 给出了将图 \ref{fig:double_mach_p=00003D1_h=00003D5e-3}–\ref{fig:double_mach_p=00003D3_h=00003D5e-3}
-中的非结构网格分割为 100 块的（某次）分块结果，可见单元数量的波动小于 $3\%$，大致呈均匀分布。考虑到非结构网格的均匀分块属于
-NP-hard 问题，图 \ref{fig:double_mach_partition}、图 \ref{fig:double_mach_balance}
-所示的分块效果已经相当令人满意。
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/double_mach/partition}
-\par\end{centering}
-\caption{\label{fig:double_mach_partition}将\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题所用非结构网格分割为
-$100$ 块的分块结果}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/double_mach/balance}
-\par\end{centering}
-\caption{\label{fig:double_mach_balance}\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题网格分块结果（图
-\ref{fig:double_mach_partition}）的单元分布情况}
-\end{figure}
-
-基于上述优质的分块工具，我们测量了 RK3/DG3 求解器的加速比及并行效率。表 \ref{tab:double_mach_cost}
-列出了该求解器以不同进程数量并行求解\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题所消耗的时间，其中
-\begin{itemize}
-\item $P$ 表示进程数量，亦即运行时所需的核心数量。
-\item $T_{n}$ 表示完成第 $n$ 步所消耗的秒数。
-\item $P\frac{T_{m+m}-T_{n}}{m}$ 为每一步所消耗的核心数与墙上时间的乘积，简称“核时”。
-\end{itemize}
-
-由于并行读写操作会导致许多聚合通信，聚合通信的效率又依赖于网络质量，因此我们应当尽量减少并行读写的调用次数。在求解该问题时，我们每完成一百步计算才输出一帧结果。因此，表
-\ref{tab:double_mach_cost} 的后两列之差体现了读写操作的代价，它等于分摊到每一个时间步上读写开销。不难发现：随着核心数量的增加，单步读写开销也在逐渐地增加。这是因为随着核心数量的增加，每个进程的通信对象的数量以及端到端的距离都在不断增加。
-
-\begin{table}
-\caption{\label{tab:double_mach_cost}RK3/DG3 求解器以不同进程数量并行求解\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题所消耗的时间}
-
-\centering{}%
-\begin{tabular}{cccccc}
-\toprule 
-\textbf{$P\,\si{(core)}$ } & \textbf{$T_{100}\,\si{(s)}$} & \textbf{$T_{199}\,\si{(s)}$} & \textbf{$T_{200}\,\si{(s)}$} & $P\frac{T_{199}-T_{100}}{199-100}\,\si{(core\cdot s)}$ & $P\frac{T_{200}-T_{100}}{200-100}\,\si{(core\cdot s)}$\tabularnewline
-\midrule 
-1 & 17652.2 & 35324.5 & 35519.3 & 178.508 & 178.671\tabularnewline
-20 & 960.443 & 1912.37 & 1926.58 & 192.307 & 193.228\tabularnewline
-40 & 491.070 & 971.710 & 983.933 & 194.198 & 197.145\tabularnewline
-60 & 335.651 & 666.548 & 676.930 & 200.544 & 204.767\tabularnewline
-80 & 251.548 & 494.541 & 504.951 & 196.358 & 202.722\tabularnewline
-100 & 202.789 & 397.641 & 408.126 & 196.820 & 205.337\tabularnewline
-\bottomrule
-\end{tabular}
-\end{table}
-
-由表 \ref{tab:double_mach_cost} 中的数据，可以导出加速比 $S$ 与并行效率 $E$，二者定义如下：
-\begin{equation}
-S=\frac{T_{\text{串行}}}{T_{\text{并行}}},\qquad E=\frac{S}{P}\times100\%.\label{eq:speedup}
-\end{equation}
-所得结果分别绘于图 \ref{fig:double_mach_speedup} 与图 \ref{fig:double_mach_efficiency}。这两幅图更直观地体现了并行读写操作对并行程序扩展性的不利影响。
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/double_mach/speedup}
-\par\end{centering}
-\caption{\label{fig:double_mach_speedup}RK3/DG3 求解器以不同进程数量并行求解\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题所得的加速比}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/double_mach/efficiency}
-\par\end{centering}
-\caption{\label{fig:double_mach_efficiency}RK3/DG3 求解器以不同进程数量并行求解\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题所得的并行效率}
-\end{figure}
-
-图 \ref{fig:double_mach_efficiency} 所示的并行效率在 $90\%$ 附近波动，这比文献 \cite{Biswas_1994}
-中给出的 $99\%$ 略差。造成这种差距的主要原因，在于该文献中的算例都是基于一维、二维的结构网格，分块数量又恰好是 $2^{n}$，因此经过
-$n$ 次几何等分，就能得到完美的均匀分块。本节所有算例均基于三维非结构网格，因此图 \ref{fig:double_mach_efficiency}
-中的并行效率更具有参考价值。
-
-\section{三维流场的并行计算及性能测评}
-
-为了验证第\ref{chap:=007B97=006CD5}章所提高阶计算方法对具有复杂边界的处理能力，本小节在如图 \ref{fig:yf17_mesh}
-所示只含四面体单元的三维非结构网格上，求解轻量级原型战斗机 YF-17 的全机绕流问题。该网格机身一侧的外部空间离散为 528915
-个四面体单元。单元尺寸变换剧烈：近壁面单元大致与壁面曲率成反比，最小边长约为 \SI{5}{cm}；远场单元大致均匀，边长约为 \SI{3.7}{m}。
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth]{../mdpi/figures/yf17/mesh}
-\par\end{centering}
-\caption{\label{fig:yf17_mesh}用于求解 \nameref{prob:YF-17_=004E9A=0058F0=00901F=007ED5=006D41}、\nameref{prob:YF-17_=008D85=0058F0=00901F=007ED5=006D41}问题的三维非结构网格（只显示边界上的三角形单元）}
-\end{figure}
-
-
-\subsection{具有复杂边界的亚声速流场}
-\begin{problem}
-[YF-17 亚声速绕流]\label{prob:YF-17_=004E9A=0058F0=00901F=007ED5=006D41}在时间范围
-$t\in[0,10]$ 内，求满足三维欧拉方程 (\ref{eq:euler_system}) 及以下定解条件的广义解。
-
-初始条件设为 20 deg 迎角、0.3 马赫的亚声速气流：
-\begin{equation}
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 0.2819 & 0.0 & 0.1026 & 1.0\end{bmatrix}.
-\end{equation}
-
-边界条件如下
-\begin{itemize}
-\item 机身、机翼表面及对称面 ($y=0$) 均为固体壁面；
-\item 远场为亚声速入口或出口，状态与初始条件相同；
-\item 进气道入口为（外流场的）亚声速出口，状态与初始条件相同；
-\item 尾喷管出口为（外流场的）超声速入口：
-\begin{equation}
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\text{尾喷口}}=\begin{bmatrix}1.4 & 2.4 & 0.0 & 0.0 & 1.44\end{bmatrix}.
-\end{equation}
-\end{itemize}
-\end{problem}
-
-图 \ref{fig:yf17_subsonic_p=00003D1}、图 \ref{fig:yf17_subsonic_p=00003D3}
-分别给出了基于 RK1/DG1、RK3/DG3 近似解的速度流线图。由二者对比可知，基于 RK3/DG3 近似解得到的流线比基于 RK1/DG1
-近似解得到的流线更光滑。这是因为 RK1/DG1 近似解在各单元内是常值，而 RK3/DG3 近似解在各单元内是二次多项式。这再次体现了提高求解器阶数对精度的提升作用。
-
-由流线形状可知：两种近似解都能够捕获从机翼翼尖、边条翼外缘拖出的涡。从机翼翼尖拖出的涡（简称“翼尖涡”）是由机翼上下表面之间的压力差产生的：当机翼产生正升力时，下翼面的压力高于上翼面的压力；在这个压力差的作用下，机翼下方的空气围绕翼尖卷起并随着来流向后移动，从而形成翼尖涡。从边条翼外缘拖出的涡（简称“边条涡”）的产生机制也与之类似。
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{../mdpi/figures/yf17/streamlines_p=1}
-\par\end{centering}
-\caption{\label{fig:yf17_subsonic_p=00003D1}\nameref{prob:YF-17_=004E9A=0058F0=00901F=007ED5=006D41}问题
-$\rho(x,y,z,t=10)$ 的 RK1/DG1 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{../mdpi/figures/yf17/streamlines_p=3}
-\par\end{centering}
-\caption{\label{fig:yf17_subsonic_p=00003D3}\nameref{prob:YF-17_=004E9A=0058F0=00901F=007ED5=006D41}问题
-$\rho(x,y,z,t=10)$ 的 RK3/DG3 近似解}
-\end{figure}
-
-为了更直观地对比两种近似解的精度，图 \ref{fig:yf17_subsonic_rho} 将 RK3/DG3 近似解显示在左侧，将
-RK1/DG1 近似解关于对称面 ($y=0$) 的镜像显示在右侧。由此图可知：二者均能捕捉到清晰的翼尖涡涡核；边条涡的涡核只在
-RK3/DG3 近似解中较为明显，而在 RK1/DG1 近似解中则显得非常模糊。这一事实再次体现了在粗网格上使用高阶求解器的必要性。
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{../mdpi/figures/yf17/rho_subsonic} 
-\par\end{centering}
-\caption{\label{fig:yf17_subsonic_rho}\nameref{prob:YF-17_=004E9A=0058F0=00901F=007ED5=006D41}问题
-$\rho(x=0.5,y,z,t=10)$ 的三阶（左）与一阶（右）近似解之对比}
-\end{figure}
-
-
-\subsection{具有复杂边界的超声速流场}
-\begin{problem}
-[YF-17 超声速绕流]\label{prob:YF-17_=008D85=0058F0=00901F=007ED5=006D41}在时间范围
-$t\in[0,10]$ 内，求满足三维欧拉方程 (\ref{eq:euler_system}) 及以下定解条件的广义解。
-
-初始条件设为 $\ang{0}$ 迎角、2.0 马赫的超声速气流：
-\begin{equation}
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.4 & 2.0 & 0.0 & 0.0 & 1.0\end{bmatrix}.
-\end{equation}
-
-边界条件如下：
-\begin{itemize}
-\item 机身、机翼表面及对称面 ($y=0$) 均为固体壁面；
-\item 远场为超声速入口或出口，前者状态与初始条件相同，后者状态无需预设；
-\item 进气道入口为（外流场的）超声速出口，状态无需预设；尾喷管出口为（外流场的）超声速入口：
-\begin{equation}
-\begin{bmatrix}\rho & u & v & w & p\end{bmatrix}_{\text{尾喷口}}=\begin{bmatrix}1.4 & 2.4 & 0.0 & 0.0 & 1.44\end{bmatrix}.
-\end{equation}
-\end{itemize}
-\end{problem}
-
-与 \nameref{prob:YF-17_=004E9A=0058F0=00901F=007ED5=006D41}问题类似，这里采用
-RK1/DG1、RK3/DG3 求解器分别求解该问题，所得结果分别如图 \ref{fig:yf17_supersonic_p=00003D1}–\ref{fig:yf17_supersonic_p=00003D3}
-所示。与亚声速绕流不同，超声速绕流的一大特征是存在激波及膨胀波。
-
-RK1/DG1 求解器等价于一阶有限体积求解器，能够自动捕捉激波而不产生数值振荡。因此，图 \ref{fig:yf17_supersonic_p=00003D1}
-较为可靠地显示了激波及膨胀波的分布情况：激波（红色）在迎风面上产生，该处气流的相对速度大于当地声速，发生强烈压缩；膨胀波（蓝色）在背风面产生，固体壁面在该处收缩，为超声速气流让出更多空间。
-
- RK3/DG3 求解器必须开启限制器（例如本文所使用的紧致 WENO 限制器），才能压制激波附近的数值振荡。图 \ref{fig:yf17_supersonic_p=00003D3}
-所显示的激波及膨胀波分布，与图 \ref{fig:yf17_supersonic_p=00003D1} 给出的结果一致，但在光滑区域的每个单元内由常值近似提升为二次多项式近似。
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{../mdpi/figures/yf17/rho_p=1}
-\par\end{centering}
-\caption{\label{fig:yf17_supersonic_p=00003D1}\nameref{prob:YF-17_=008D85=0058F0=00901F=007ED5=006D41}问题
-$\rho(x,y=0,z,t=10)$ 的 RK1/DG1 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{../mdpi/figures/yf17/rho_p=3}
-\par\end{centering}
-\caption{\label{fig:yf17_supersonic_p=00003D3}\nameref{prob:YF-17_=008D85=0058F0=00901F=007ED5=006D41}问题
-$\rho(x,y=0,z,t=10)$ 的 RK3/DG3 近似解}
-\end{figure}
-
-为了更直观地比较两种近似解的精度，俯视图 \ref{fig:yf17_supersonic_top}、仰视图 \ref{fig:yf17_supersonic_bottom}
-将 RK3/DG3 近似解显示在上半部分，将 RK1/DG1 近似解关于对称面 ($y=0$) 的镜像显示在下半部分。这两幅图再次表明：开启了紧致
-WENO 限制器的 RK1/DG3 求解器能够正确捕捉激波；至少在光滑区域，RK3/DG3 求解器将每个单元内的常值近似提升为二次多项式近似。
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{../mdpi/figures/yf17/supersonic_top_view}
-\par\end{centering}
-\caption{\label{fig:yf17_supersonic_top}\nameref{prob:YF-17_=008D85=0058F0=00901F=007ED5=006D41}问题
-$\rho(x,y,z=0,t=10)$ 的三阶（上）与一阶近似解（下）的俯视图对比}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{../mdpi/figures/yf17/supersonic_bottom_view}
-\par\end{centering}
-\caption{\label{fig:yf17_supersonic_bottom}\nameref{prob:YF-17_=008D85=0058F0=00901F=007ED5=006D41}问题的
-RK3/DG3 近似解（上）与 RK1/DG1 近似解（下）的仰视图对比（按 $\rho(x,y,z=0,t=10)$ 着色）}
-\end{figure}
-
-\newpage{}
-
-\subsection{并行性能测评\label{subsec:YF17-parallel}}
-
-如图 \ref{fig:yf17_mesh} 所示，求解 \nameref{prob:YF-17_=008D85=0058F0=00901F=007ED5=006D41}问题的网格是高度非结构、非均匀的，因此基于几何分割的简单分块方法难以实现负载均衡。如前所述，本文通过调用第三方库
-METIS\upcite{Karypis_1998} 来实施网格分块，分块结果如图 \ref{fig:yf17_partition}–\ref{fig:yf17_balance}
-所示。与\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题的分块结果（图 \ref{fig:double_mach_balance}）相比，这里的单元分布更加均匀：单元数量的波动小于
-$1\%$，粗略估计并行效率可达
-\begin{equation}
-\begin{aligned}E & =\frac{T_{\text{串行}}}{PT_{\text{并行}}}\times100\%\approx\frac{\sum_{i}N_{i}}{P\cdot\max_{i}N_{i}}\times100\%\\
- & =\frac{528915}{100\times5332}\times100\%\approx99.2\%,
-\end{aligned}
-\label{eq:yf17_estimate}
-\end{equation}
-其中 $N_{i}$ 表示第 $i$ 块内的体单元数量。式 (\ref{eq:yf17_estimate}) 只考虑了体单元上的计算所消耗的时间，因此是一种偏乐观的估计。
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/yf17/partition}
-\par\end{centering}
-\caption{\label{fig:yf17_partition}将 \nameref{prob:YF-17_=008D85=0058F0=00901F=007ED5=006D41}问题所用非结构网格分割为
-$100$ 块的分块结果}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/yf17/balance}
-\par\end{centering}
-\caption{\label{fig:yf17_balance}\nameref{prob:YF-17_=008D85=0058F0=00901F=007ED5=006D41}问题网格分块结果（图
-\ref{fig:yf17_partition}）的单元分布情况}
-\end{figure}
-
-表 \ref{tab:yf17_cost} 给出了 RK3/DG3 求解器以不同进程数量并行求解 \nameref{prob:YF-17_=008D85=0058F0=00901F=007ED5=006D41}问题所消耗的时间，以及换算后得到的单步核时。基于此表，可以画出加速比与并行效率随进程数量的变换趋势，如图
-\ref{fig:yf17_speedup}–\ref{fig:yf17_efficiency} 所示。由图 \ref{fig:yf17_efficiency}
-可知，超声速绕流问题的实测并行效率只有约 $75\%$（含读写操作）到 $80\%$（不含读写操作），低于\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题的对应结果（如图
-\ref{fig:double_mach_efficiency} 所示）。造成这种下降的主要原因，在于边界单元分布不均（处理边界条件时，含边界单元较少的进程易处于闲置状态），以及进程间通信量的增加（通信与计算不完全重叠，邻居较少的进程易处于闲置状态）。
-
-\begin{table}
-\caption{\label{tab:yf17_cost}RK3/DG3 求解器以不同进程数量并行求解 \nameref{prob:YF-17_=008D85=0058F0=00901F=007ED5=006D41}问题所消耗的时间}
-
-\centering{}%
-\begin{tabular}{cccccc}
-\toprule 
-\textbf{$P\,\si{(core)}$ } & \textbf{$T_{100}\,\si{(s)}$} & \textbf{$T_{399}\,\si{(s)}$} & \textbf{$T_{400}\,\si{(s)}$} & $P\frac{T_{399}-T_{100}}{399-100}\,\si{(core\cdot s)}$ & $P\frac{T_{400}-T_{100}}{400-100}\,\si{(core\cdot s)}$\tabularnewline
-\midrule 
-1 & 10511.3 & 42466.5 & 42593.0 & 106.873 & 106.939\tabularnewline
-5 & 2389.25 & 9740.13 & 9769.96 & 122.925 & 123.012\tabularnewline
-10 & 1246.37 & 5086.62 & 5101.95 & 128.436 & 128.519\tabularnewline
-15 & 839.554 & 3420.17 & 3430.75 & 129.462 & 129.560\tabularnewline
-20 & 645.737 & 2632.32 & 2640.57 & 132.882 & 132.989\tabularnewline
-40 & 325.269 & 1310.72 & 1319.73 & 131.833 & 132.595\tabularnewline
-60 & 222.890 & 923.043 & 931.754 & 140.499 & 141.773\tabularnewline
-80 & 168.862 & 672.439 & 681.445 & 134.736 & 136.689\tabularnewline
-100 & 137.787 & 543.081 & 552.682 & 135.550 & 138.298\tabularnewline
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/yf17/speedup}
-\par\end{centering}
-\caption{\label{fig:yf17_speedup}RK3/DG3 求解器以不同进程数量并行求解 \nameref{prob:YF-17_=008D85=0058F0=00901F=007ED5=006D41}问题所得的加速比}
-\end{figure}
-
-\vspace{12pt}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/yf17/efficiency}
-\par\end{centering}
-\caption{\label{fig:yf17_efficiency}RK3/DG3 求解器以不同进程数量并行求解 \nameref{prob:YF-17_=008D85=0058F0=00901F=007ED5=006D41}问题所得的并行效率}
-\end{figure}
-
-
-\section{旋翼流场的并行计算及性能测评\label{sec:rotor_in_tunnel}}
+\section{旋翼流场计算\label{sec:rotor_in_tunnel}}
 
 本节用图 \ref{fig:rotor_mesh} 所示的网格，模拟孤立旋翼在低速风洞中的吹风试验。风洞外形由三维区间 $[\SI{-3}{m},\SI{9}{m}]\times[\SI{-3}{m},\SI{3}{m}]\times[\SI{-3}{m},\SI{3}{m}]$
 表示，在其内部嵌套一个较小的三维区间 $[\SI{-2}{m},\SI{8}{m}]\times[\SI{-2}{m},\SI{2}{m}]\times[\SI{-2}{m},\SI{2}{m}]$，用以表示旋翼及其尾迹附近网格需要加密的区域。旋翼桨盘中心固定于坐标原点处，桨根及桨尖到该中心点的距离分别为
@@ -3502,12 +3170,133 @@ $t=1.0$ 时刻的 UMS–RK1/DG1 近似解导出的 $Q$ 等值面（左视图）}
 \end{figure}
 
 
-\subsection{并行性能测评\label{subsec:rotor-parallel}}
+\section{并行加速方案\label{sec:parallel}}
 
-如图 \ref{fig:rotor_mesh} 所示，求解\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题的网格与求解
-\nameref{prob:YF-17_=008D85=0058F0=00901F=007ED5=006D41}问题的网格类似，是高度非结构、非均匀的，因此基于几何分割的简单分块方法难以实现负载均衡。如前所述，本文通过调用第三方库
+\nomenclature{CPU}{central processing unit}
+
+
+\subsection{非结构网格分块}
+
+CFD 所用的“网格 (mesh)”是一种特殊的“图 (graph)”数据结构\upcite{Sedgewick_2011}。前者可以通过调用
+METIS\upcite{Karypis_1998} 提供的 \texttt{METIS\_PartMeshDual(...)} 来实现分块，后者的分块可以通过调用
+\texttt{METIS\_PartGraphKway(...)} 或 \texttt{METIS\_PartGraphRecursive(...)}
+来完成。实际上，网格分块函数 \texttt{METIS\_PartMeshDual(...)} 的内部封装了对图分块函数的调用，只不过这里被分块的是网格的“对偶图
+(dual graph)”。所谓网格的对偶图，是指以体单元为顶点、以体单元邻接关系为边的图。METIS 提供了 \texttt{METIS\_MeshToDual(...)}，用于将非结构网格转化为其对偶图。
+
+RKDG 格式中的面积分残差，即式 (\ref{eq:boundary_residual})，以及 WENO 重构过程中遍历邻接单元的操作，都对体单元访问其邻接单元的效率提出了很高的要求：各体单元应能在常数时间内访问其任意邻接单元。就非结构网格而言，这意味着每个体单元都要预先存储其所有邻接单元的指针（或引用）。单元的邻接关系隐含在结点的连接关系里，因此大多数网格文件格式都不会显式记录该信息。
+
+出于上述原因，本文不像传统的并行有限元方法那样直接对网格分块，而是先用 \texttt{METIS\_MeshToDual(...)}
+将非结构网格转化为其对偶图，再用 \texttt{METIS\_PartGraphKway(...)} 或 \texttt{METIS\_PartGraphRecursive(...)}
+对该对偶图实施分块。需要注意的是，用 C 语言编写的 \texttt{METIS\_MeshToDual(...)} 函数，将单元邻接信息存储在动态分配的数组里，并返回指向该数组头部的地址。为避免内存泄漏造成动态内存空间耗尽，该动态数组必须被调用栈里的某一个且只有一个调用者释放。利用现代
+C++ 标准库提供的智能指针接管该动态数组，能够有效地避免动态内存忘记释放或释放不止一次等内存故障\upcite{Meyers_2014}。
+
+\subsection{进程间消息传递}
+
+获得网格分块后，每一块上的数据都应由一个进程加载。各进程串行地保存和更新本地数据，并在必要时与邻居交换公共边界上的数据。这是分布式并行计算的典型场景，它通过在多个处理器核心上同时解决规模相等或接近的子问题来实现加速。与之相比，由多个线程共享同一内存空间的并行程序通常更易于编写，但存在扩展性瓶颈，通常只适用于安装有多核处理器的单机并行计算。
+
+为保持扩展性，本文选择分布式并行方案。为此，需要付出的代价是显式传递消息，以实现进程之间的数据交互。得益于学术界和工业界的共同努力，MPI
+已经成为事实上的分布式并行计算行业标准，被称为“并行计算的汇编语言”。
+
+为了提高代码的可读性和可维护性，本文将涉及通信的操作封装在名为 \texttt{ShareSomething(...)} 的一组函数中，它们拥有相同的代码结构：
+\begin{enumerate}[wide]
+\item 为每个目的地，将要发送的数据放入发送缓冲区，并通过调用 \texttt{MPI\_Isend(...)} 函数注册发送请求。
+\item 为每个源进程，分配一个接收缓冲区用于接收数据，并通过调用 \texttt{MPI\_Irecv(...)} 函数注册一个接收请求。
+\item 执行无需通信即可完成的其他计算任务。
+\item 通过调用 \texttt{MPI\_Waitall(...)} 函数阻塞所有进程，直到其所有发送和接收请求完成。
+\end{enumerate}
+其中，第 3 步是可选的，它允许计算与通信重叠，有助于提高并行效率；第 4 步是显式同步操作，除此之外还有一些隐式同步（例如：向同一个文件并行地写入数据），它们是降低并行性能的直接因素，应尽量避免非必要的同步。
+
+\section{并行性能测评}
+
+\subsection{双马赫反射问题}
+
+本小节对第\ref{chap:=009A8C=008BC1}章用于验证近似解精度的\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题做并行性能测评。该问题的初边值条件及近似解具有二维特征，因此在三维空间求解时，沿
+$z$ 方向的网格数量可以很少（本文尝试过取一到三层，所得结果没有显著变化）。因此，对这种伪三维网格的分块，实际上等价于对二维网格的分块。这就造成各块边界上的单元数量，近似为块内单元数量的
+$\order{N^{1/2}}$；而对真正的三维网格分块，各块边界上的单元数量，近似为块内单元数量的 $\order{N^{2/3}}$。由此可以预测：本节所得并行效率将高于真正三维问题的并行效率。这一预测将被本章
+\ref{subsec:rotor-parallel} 小节的数据所证实。
+
+虽然在求解\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题时使用了非结构网格，但其所含单元的尺寸大致相等，且计算区域具有简单的几何外形，因此很容易得到较为均匀的网格分块，从而实现静态负载均衡。为了提高求解器的普适性，我们放弃了这种简单几何外形带来的便利，转而通过调用第三方库
+METIS\upcite{Karypis_1998} 来实施网格分块。图 \ref{fig:double_mach_partition}、图
+\ref{fig:double_mach_balance} 给出了将图 \ref{fig:double_mach_p=00003D1_h=00003D5e-3}–\ref{fig:double_mach_p=00003D3_h=00003D5e-3}
+中的非结构网格分割为 100 块的（某次）分块结果，可见单元数量的波动小于 $3\%$，大致呈均匀分布。考虑到非结构网格的均匀分块属于
+NP-hard 问题，图 \ref{fig:double_mach_partition}、图 \ref{fig:double_mach_balance}
+所示的分块效果已经相当令人满意。
+
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/double_mach/partition}
+\par\end{centering}
+\caption{\label{fig:double_mach_partition}将\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题所用非结构网格分割为
+$100$ 块的分块结果}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/double_mach/balance}
+\par\end{centering}
+\caption{\label{fig:double_mach_balance}\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题网格分块结果（图
+\ref{fig:double_mach_partition}）的单元分布情况}
+\end{figure}
+
+基于上述优质的分块工具，我们测量了 RK3/DG3 求解器的加速比及并行效率。表 \ref{tab:double_mach_cost}
+列出了该求解器以不同进程数量并行求解\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题所消耗的时间，其中
+\begin{itemize}
+\item $P$ 表示进程数量，亦即运行时所需的核心数量。
+\item $T_{n}$ 表示完成第 $n$ 步所消耗的秒数。
+\item $P\frac{T_{m+m}-T_{n}}{m}$ 为每一步所消耗的核心数与墙上时间的乘积，简称“核时”。
+\end{itemize}
+
+由于并行读写操作会导致许多聚合通信，聚合通信的效率又依赖于网络质量，因此我们应当尽量减少并行读写的调用次数。在求解该问题时，我们每完成一百步计算才输出一帧结果。因此，表
+\ref{tab:double_mach_cost} 的后两列之差体现了读写操作的代价，它等于分摊到每一个时间步上读写开销。不难发现：随着核心数量的增加，单步读写开销也在逐渐地增加。这是因为随着核心数量的增加，每个进程的通信对象的数量以及端到端的距离都在不断增加。
+
+\begin{table}
+\caption{\label{tab:double_mach_cost}RK3/DG3 求解器以不同进程数量并行求解\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题所消耗的时间}
+
+\centering{}%
+\begin{tabular}{cccccc}
+\toprule 
+\textbf{$P\,\si{(core)}$} & \textbf{$T_{100}\,\si{(s)}$} & \textbf{$T_{199}\,\si{(s)}$} & \textbf{$T_{200}\,\si{(s)}$} & $P\frac{T_{199}-T_{100}}{199-100}\,\si{(core\cdot s)}$ & $P\frac{T_{200}-T_{100}}{200-100}\,\si{(core\cdot s)}$\tabularnewline
+\midrule 
+1 & 17652.2 & 35324.5 & 35519.3 & 178.508 & 178.671\tabularnewline
+20 & 960.443 & 1912.37 & 1926.58 & 192.307 & 193.228\tabularnewline
+40 & 491.070 & 971.710 & 983.933 & 194.198 & 197.145\tabularnewline
+60 & 335.651 & 666.548 & 676.930 & 200.544 & 204.767\tabularnewline
+80 & 251.548 & 494.541 & 504.951 & 196.358 & 202.722\tabularnewline
+100 & 202.789 & 397.641 & 408.126 & 196.820 & 205.337\tabularnewline
+\bottomrule
+\end{tabular}
+\end{table}
+
+由表 \ref{tab:double_mach_cost} 中的数据，可以导出加速比 $S$ 与并行效率 $E$，二者定义如下：
+\begin{equation}
+S=\frac{T_{\text{串行}}}{T_{\text{并行}}},\qquad E=\frac{S}{P}\times100\%.\label{eq:speedup}
+\end{equation}
+所得结果分别绘于图 \ref{fig:double_mach_speedup} 与图 \ref{fig:double_mach_efficiency}。这两幅图更直观地体现了并行读写操作对并行程序扩展性的不利影响。
+
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/double_mach/speedup}
+\par\end{centering}
+\caption{\label{fig:double_mach_speedup}RK3/DG3 求解器以不同进程数量并行求解\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题所得的加速比}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/double_mach/efficiency}
+\par\end{centering}
+\caption{\label{fig:double_mach_efficiency}RK3/DG3 求解器以不同进程数量并行求解\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题所得的并行效率}
+\end{figure}
+
+图 \ref{fig:double_mach_efficiency} 所示的并行效率在 $90\%$ 附近波动，这比文献 \cite{Biswas_1994}
+中给出的 $99\%$ 略差。造成这种差距的主要原因，在于该文献中的算例都是基于一维、二维的结构网格，分块数量又恰好是 $2^{n}$，因此经过
+$n$ 次几何等分，就能得到完美的均匀分块。本节所有算例均基于三维非结构网格，因此图 \ref{fig:double_mach_efficiency}
+中的并行效率更具有参考价值。
+
+\subsection{孤立旋翼爬升问题\label{subsec:rotor-parallel}}
+
+如图 \ref{fig:rotor_mesh} 所示，求解\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题的网格是高度非结构、非均匀的，因此基于几何分割的简单分块方法难以实现负载均衡。如前一小节所述，本小节通过调用第三方库
 METIS\upcite{Karypis_1998} 来实施网格分块，分块结果如图 \ref{fig:rotor_upward_partition}、图
-\ref{fig:rotor_upward_balance} 所示。与 \nameref{prob:YF-17_=008D85=0058F0=00901F=007ED5=006D41}问题的分块结果（图
+\ref{fig:rotor_upward_balance} 所示。与\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题的分块结果（图
 \ref{fig:double_mach_balance}）相比，这里的单元分布更加均匀：单元数量的波动小于 $0.5\%$，粗略估计并行效率可达
 \begin{equation}
 \begin{aligned}E & =\frac{T_{\text{串行}}}{PT_{\text{并行}}}\times100\%\approx\frac{\sum_{i}N_{i}}{P\cdot\max_{i}N_{i}}\times100\%\\
@@ -3515,8 +3304,7 @@ METIS\upcite{Karypis_1998} 来实施网格分块，分块结果如图 \ref{fig:r
 \end{aligned}
 \label{eq:rotor_upward_estimate}
 \end{equation}
-其中 $N_{i}$ 表示第 $i$ 个进程所分得的体单元数量。与式 (\ref{eq:yf17_estimate}) 类似，式
-(\ref{eq:rotor_upward_estimate}) 只考虑了体单元上的计算所消耗的时间，因此依然是一种偏乐观的估计。
+其中 $N_{i}$ 表示第 $i$ 个进程所分得的体单元数量。该式只考虑了体单元上的计算所消耗的时间，因此是一种偏乐观的估计。
 
 \begin{figure}[h!]
 \begin{centering}
@@ -3538,8 +3326,7 @@ $100$ 块的分块结果}
 \ref{fig:rotor_upward_speedup} 所示、图 \ref{fig:rotor_upward_efficiency}
 所示。由图 \ref{fig:rotor_upward_efficiency} 可知，\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题的实测并行效率约为
 $83\%$（含读写操作）到 $85\%$（不含读写操作），低于\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题的对应结果（如图
-\ref{fig:double_mach_efficiency} 所示），但高于 \nameref{prob:YF-17_=008D85=0058F0=00901F=007ED5=006D41}问题的对应结果（如图
-\ref{fig:yf17_efficiency} 所示）。 
+\ref{fig:double_mach_efficiency} 所示）。 
 
 \begin{table}
 \caption{\label{tab:rotor_upward_cost}UMS–RK3/DG3 求解器以不同进程数量并行求解\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题所消耗的时间}
@@ -3575,8 +3362,7 @@ $83\%$（含读写操作）到 $85\%$（不含读写操作），低于\nameref{p
 \caption{\label{fig:rotor_upward_efficiency}UMS–RK3/DG3 求解器以不同进程数量并行求解\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题所得的并行效率}
 \end{figure}
 
-与前两个问题不同，该问题含非定常动量源，一般而言会破坏负载均衡：并非所有单元都需要计算源项，即式 (\ref{eq:body_force})，那些没有被桨叶轴线穿过的体单元在计算源项这一步时处于闲置状态，这会造成等待时间增加，从而引起并行效率降低。但比较图
-\ref{fig:rotor_upward_efficiency} 与图 \ref{fig:yf17_efficiency} 可知：这种不平衡性并没有显著降低实际运行所测得的并行效率。这是因为动量源计算所占比重较小，不足以破坏显著负载均衡。边界单元分布的不均匀以及进程间通信量的增加才是降低并行效率的主要原因。
+该问题含非定常动量源，一般而言会破坏负载均衡：并非所有单元都需要计算源项，即式 (\ref{eq:body_force})，那些没有被桨叶轴线穿过的体单元在计算源项这一步时处于闲置状态，这会造成等待时间增加，从而引起并行效率降低。
 
 \section{本章小结}
 
