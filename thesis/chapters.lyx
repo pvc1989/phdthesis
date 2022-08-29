@@ -17287,13 +17287,6 @@ reference "prob:孤立旋翼爬升"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 孤立旋翼前飞问题
 \end_layout
@@ -18049,23 +18042,12 @@ reference "fig:forward_wake_z_view"
 
 \end_inset
 
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_wake_x_view"
-
-\end_inset
-
  分别沿 
 \begin_inset Formula $+y$
 \end_inset
 
 、
 \begin_inset Formula $-z$
-\end_inset
-
-、
-\begin_inset Formula $+x$
 \end_inset
 
  方向，画出了由 
@@ -18080,7 +18062,7 @@ reference "fig:forward_t=10e-1_p=3"
 
 \end_inset
 
- 中的低密度区（即涡核所在位置）。这至少说明，由 UMS–RK3/DG3 近似解导出的结果是自洽的。
+ 中的低密度区（即涡核所在位置）。这说明，由 UMS–RK3/DG3 近似解导出的结果是自洽的。
 \end_layout
 
 \begin_layout Standard
@@ -18095,8 +18077,7 @@ status open
 	filename figures/forward/p=3/y+.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 28theight%
 
 \end_inset
 
@@ -18152,8 +18133,7 @@ status open
 	filename figures/forward/p=3/z-.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 28theight%
 
 \end_inset
 
@@ -18185,63 +18165,6 @@ noprefix "false"
 \end_inset
 
  时刻的 UMS–RK3/DG3 近似解导出的流线（俯视图）
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=3/x+.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_wake_x_view"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 UMS–RK3/DG3 近似解导出的流线（左视图）
 \end_layout
 
 \end_inset
@@ -18287,26 +18210,12 @@ noprefix "false"
 
 \end_inset
 
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_Q_x_view"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
  分别沿 
 \begin_inset Formula $+y$
 \end_inset
 
 、
 \begin_inset Formula $-z$
-\end_inset
-
-、
-\begin_inset Formula $+x$
 \end_inset
 
  方向，画出了由 
@@ -18317,7 +18226,7 @@ noprefix "false"
 \begin_inset Formula $Q$
 \end_inset
 
- 等值面三视图。可以看出：桨盘两侧各有一道向后拖出的涡，且其位置与图 
+ 等值面图。可以看出：桨盘两侧各有一道向后拖出的涡，且其位置与图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:forward_wake_y_view"
@@ -18328,13 +18237,6 @@ reference "fig:forward_wake_y_view"
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:forward_wake_z_view"
-
-\end_inset
-
-、图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_wake_x_view"
 
 \end_inset
 
@@ -18353,8 +18255,7 @@ status open
 	filename figures/forward/p=1/Q_y+.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 28theight%
 
 \end_inset
 
@@ -18414,8 +18315,7 @@ status open
 	filename figures/forward/p=1/Q_z-.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
-	keepAspectRatio
+	height 28theight%
 
 \end_inset
 
@@ -18451,67 +18351,6 @@ noprefix "false"
 \end_inset
 
  等值面（俯视图）
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/forward/p=1/Q_x+.png
-	lyxscale 15
-	width 100text%
-	height 26theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_Q_x_view"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:孤立旋翼前飞"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 UMS–RK1/DG1 近似解导出的 
-\begin_inset Formula $Q$
-\end_inset
-
- 等值面（左视图）
 \end_layout
 
 \end_inset
@@ -22855,7 +22694,7 @@ reference "fig:forward_Q_y_view"
 –
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:forward_Q_x_view"
+reference "fig:forward_Q_z_view"
 plural "false"
 caps "false"
 noprefix "false"

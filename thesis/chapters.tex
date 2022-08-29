@@ -2991,8 +2991,6 @@ $t=1.0$ 时刻的 UMS–RK1/DG1 近似解（补充显示起动涡）}
 $t=1.0$ 时刻的 UMS–RK3/DG3 近似解（补充显示起动涡）}
 \end{figure}
 
-\newpage{}
-
 \subsection{孤立旋翼前飞问题}
 \begin{problem}
 [孤立旋翼前飞]\label{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}令旋翼转轴指向风洞顶部，即以
@@ -3109,15 +3107,14 @@ $t=1.0$ 时刻的 UMS–RK3/DG3 近似解}
 与\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题的结论类似，两种求解器都能捕捉大尺度的涡结构，例如从桨盘拖出、向右下方倾斜的旋翼尾迹；但只有三阶求解器才能在
 $x=4$ 平面上捕捉到一对清晰的涡核（深蓝色区域）。下面采用两种方法来证明这对涡确实存在。
 
-第一种方法基于流线。图 \ref{fig:forward_wake_y_view}、图 \ref{fig:forward_wake_z_view}、图
-\ref{fig:forward_wake_x_view} 分别沿 $+y$、$-z$、$+x$ 方向，画出了由 $t=1.0$
-时刻的 UMS–RK3/DG3 近似解导出的速度流线三视图。可以看出：桨盘两侧的流线在向后延伸的过程中，叠加了绕某个向后延伸的轴线的转动，该轴线恰好穿过图
-\ref{fig:forward_t=00003D10e-1_p=00003D3} 中的低密度区（即涡核所在位置）。这至少说明，由
+第一种方法基于流线。图 \ref{fig:forward_wake_y_view}、图 \ref{fig:forward_wake_z_view} 分别沿 $+y$、$-z$ 方向，画出了由 $t=1.0$
+时刻的 UMS–RK3/DG3 近似解导出的速度流线图。可以看出：桨盘两侧的流线在向后延伸的过程中，叠加了绕某个向后延伸的轴线的转动，该轴线恰好穿过图
+\ref{fig:forward_t=00003D10e-1_p=00003D3} 中的低密度区（即涡核所在位置）。这说明，由
 UMS–RK3/DG3 近似解导出的结果是自洽的。
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/forward/p=3/y+}
+\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/forward/p=3/y+}
 \par\end{centering}
 \caption{\label{fig:forward_wake_y_view}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
 $t=1.0$ 时刻的 UMS–RK3/DG3 近似解导出的流线（主视图）}
@@ -3125,29 +3122,20 @@ $t=1.0$ 时刻的 UMS–RK3/DG3 近似解导出的流线（主视图）}
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/forward/p=3/z-}
+\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/forward/p=3/z-}
 \par\end{centering}
 \caption{\label{fig:forward_wake_z_view}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
 $t=1.0$ 时刻的 UMS–RK3/DG3 近似解导出的流线（俯视图）}
 \end{figure}
 
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/forward/p=3/x+}
-\par\end{centering}
-\caption{\label{fig:forward_wake_x_view}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
-$t=1.0$ 时刻的 UMS–RK3/DG3 近似解导出的流线（左视图）}
-\end{figure}
-
 第二种方法基于 $Q$ 准则\upcite{Jeong_1995}，它是一种常用的涡结构可视化方法。图 \ref{fig:forward_Q_y_view}、图
-\ref{fig:forward_Q_z_view}、图 \ref{fig:forward_Q_x_view} 分别沿 $+y$、$-z$、$+x$
-方向，画出了由 $t=1.0$ 时刻的 UMS–RK1/DG1 近似解导出的 $Q$ 等值面三视图。可以看出：桨盘两侧各有一道向后拖出的涡，且其位置与图
-\ref{fig:forward_wake_y_view}、图 \ref{fig:forward_wake_z_view}、图
-\ref{fig:forward_wake_x_view} 中流线螺旋延伸的轴线一致。这说明由两种近似解导出的结果是相容的。
+\ref{fig:forward_Q_z_view} 分别沿 $+y$、$-z$ 
+方向，画出了由 $t=1.0$ 时刻的 UMS–RK1/DG1 近似解导出的 $Q$ 等值面图。可以看出：桨盘两侧各有一道向后拖出的涡，且其位置与图
+\ref{fig:forward_wake_y_view}、图 \ref{fig:forward_wake_z_view} 中流线螺旋延伸的轴线一致。这说明由两种近似解导出的结果是相容的。
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/forward/p=1/Q_y+}
+\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/forward/p=1/Q_y+}
 \par\end{centering}
 \caption{\label{fig:forward_Q_y_view}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
 $t=1.0$ 时刻的 UMS–RK1/DG1 近似解导出的 $Q$ 等值面（主视图）}
@@ -3155,20 +3143,13 @@ $t=1.0$ 时刻的 UMS–RK1/DG1 近似解导出的 $Q$ 等值面（主视图）}
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/forward/p=1/Q_z-}
+\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/forward/p=1/Q_z-}
 \par\end{centering}
 \caption{\label{fig:forward_Q_z_view}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
 $t=1.0$ 时刻的 UMS–RK1/DG1 近似解导出的 $Q$ 等值面（俯视图）}
 \end{figure}
 
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/forward/p=1/Q_x+}
-\par\end{centering}
-\caption{\label{fig:forward_Q_x_view}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
-$t=1.0$ 时刻的 UMS–RK1/DG1 近似解导出的 $Q$ 等值面（左视图）}
-\end{figure}
-
+\newpage{}
 
 \section{并行加速方案\label{sec:parallel}}
 
@@ -3198,7 +3179,7 @@ C++ 标准库提供的智能指针接管该动态数组，能够有效地避免�
 已经成为事实上的分布式并行计算行业标准，被称为“并行计算的汇编语言”。
 
 为了提高代码的可读性和可维护性，本文将涉及通信的操作封装在名为 \texttt{ShareSomething(...)} 的一组函数中，它们拥有相同的代码结构：
-\begin{enumerate}[wide]
+\begin{enumerate}
 \item 为每个目的地，将要发送的数据放入发送缓冲区，并通过调用 \texttt{MPI\_Isend(...)} 函数注册发送请求。
 \item 为每个源进程，分配一个接收缓冲区用于接收数据，并通过调用 \texttt{MPI\_Irecv(...)} 函数注册一个接收请求。
 \item 执行无需通信即可完成的其他计算任务。
@@ -3590,7 +3571,7 @@ $\ang{45}$ 夹角、速度为 $\SI{10}{m/s}$ 的均匀气流：
 图 \ref{fig:ship_u=00003D10_a=00003D45_t=00003D11e-1}–\ref{fig:ship_u=00003D10_a=00003D45_t=00003D99e-1}
 采用了类似于图 \ref{fig:ship_a=00003D45_t=00003D22e-1_p=00003D3}–\ref{fig:ship_a=00003D45_t=00003D88e-1_p=00003D3}
 的绘图方式。可以看出：随着侧向风速的增大，旋翼尾迹明显向下游延伸，且起动涡不再保持环状。值得注意的是，这里的旋翼尾迹具有明显的非对称性：旋翼左侧的涡结构几乎不受甲板影响，基本保持如孤立旋翼前飞时的形态（如图
-\ref{fig:forward_Q_y_view}–\ref{fig:forward_Q_x_view} 所示）；旋翼右侧的涡结构与船体气流尾迹的涡结构相互缠绕，二者之间没有明显的分界面。造成这种差异的主要原因在于船体两侧的气流不对称：船体迎风侧的气流相对“干净”，而船体背风侧的气流则相对紊乱。
+\ref{fig:forward_Q_y_view}–\ref{fig:forward_Q_z_view} 所示）；旋翼右侧的涡结构与船体气流尾迹的涡结构相互缠绕，二者之间没有明显的分界面。造成这种差异的主要原因在于船体两侧的气流不对称：船体迎风侧的气流相对“干净”，而船体背风侧的气流则相对紊乱。
 
 \begin{figure}[h!]
 \begin{centering}
