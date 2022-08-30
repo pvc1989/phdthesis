@@ -21088,6 +21088,13 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 图 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -21098,7 +21105,7 @@ reference "fig:ship_a=0_t=2_p=3"
 –
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:ship_a=0_t=10_p=3"
+reference "fig:ship_a=0_t=8_p=3"
 plural "false"
 caps "false"
 noprefix "false"
