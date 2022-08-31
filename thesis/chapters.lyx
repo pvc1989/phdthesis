@@ -4910,16 +4910,6 @@ literal "false"
 \end_inset
 
 。
-\begin_inset Note Note
-status open
-
-\begin_layout Subsection
-创建面单元
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -5400,16 +5390,6 @@ reference "eq:inner-product"
 \begin{equation}
 \min_{\hat{u}_{a,b,c}\in\mathbb{R}}\int_{V_{i}}\left(u-\sum_{\vert a+b+c\vert<p}\hat{u}_{a,b,c}x^{a}y^{b}z^{c}\right)^{2}.
 \end{equation}
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-正定二次型
-\end_layout
 
 \end_inset
 
@@ -6775,19 +6755,6 @@ reference "subsec:orthonormal"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-值得……看似增加计算量……
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 本文采用上述正交归一基函数构造方法，因此式 
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -7423,16 +7390,6 @@ reference "eq:RKm"
 \end_inset
 
 ，因此它不是 SSP 格式。
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-给出反例
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -9145,65 +9102,6 @@ literal "true"
 \begin{equation}
 u_{i}^{\mathrm{new}}(\vec{r})\coloneqq\sum_{k\in K_{i}}w_{k\to i}\,u_{k\to i}(\vec{r}),\qquad\vec{x}\in V_{i}.
 \end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-借助（向量）函数的投影表示法
-\begin_inset Formula 
-\begin{equation}
-\begin{bmatrix}f_{1}(x,y)\\
-\vdots\\
-f_{K}(x,y)
-\end{bmatrix}_{K\times1}=\underline{A}_{K\times N}\begin{bmatrix}1\\
-x-x_{0}\\
-y-y_{0}\\
-(x-x_{0})(x-x_{0})\\
-(x-x_{0})(y-y_{0})\\
-(y-y_{0})(y-y_{0})
-\end{bmatrix}_{N\times1}
-\end{equation}
-
-\end_inset
-
-可以将其偏导数表示为
-\begin_inset Formula 
-\begin{equation}
-\underbrace{\begin{bmatrix}\dfrac{\partial}{\partial x}\begin{bmatrix}f_{1}\\
-\vdots\\
-f_{K}
-\end{bmatrix} & \dfrac{\partial}{\partial y}\begin{bmatrix}f_{1}\\
-\vdots\\
-f_{K}
-\end{bmatrix} & \dfrac{\partial^{2}}{\partial x^{2}}\begin{bmatrix}f_{1}\\
-\vdots\\
-f_{K}
-\end{bmatrix} & \dfrac{\partial^{2}}{\partial x\partial y}\begin{bmatrix}f_{1}\\
-\vdots\\
-f_{K}
-\end{bmatrix} & \dfrac{\partial^{2}}{\partial y^{2}}\begin{bmatrix}f_{1}\\
-\vdots\\
-f_{K}
-\end{bmatrix}\end{bmatrix}}_{K\times(N-1)}=\underline{A}_{K\times N}\underbrace{\begin{bmatrix}0\\
-1\\
-0 & 1\\
-2(x-x_{0}) & 0 & 2\\
-0 & 0 & 0 & 1\\
-0 & 2(y-y_{0}) & 0 & 0 & 2
-\end{bmatrix}}_{N\times(N-1)}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
 
 \end_inset
 
