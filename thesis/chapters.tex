@@ -670,8 +670,8 @@ n=\binom{p+2}{3}=\frac{(p+2)(p+1)p}{6},
 \begin{equation}
 \min_{\hat{u}_{a,b,c}\in\mathbb{R}}\int_{V_{i}}\left(u-\sum_{\vert a+b+c\vert<p}\hat{u}_{a,b,c}x^{a}y^{b}z^{c}\right)^{2}.
 \end{equation}
-直接求解该优化问题过于繁琐，更简洁的方式为借助式 (\ref{eq:inner-product}) 所定义的内积构造 $u$
-在 $\mathbb{P}^{<p}(V_{i})$ 上的投影。
+直接求解该优化问题过于繁琐，更简洁的方式为借助式 (\ref{eq:inner-product}) 所定义的内积构造 $u$ 在
+$\mathbb{P}^{<p}(V_{i})$ 上的投影。
 
 \subsection{正交归一化\label{subsec:orthonormal}}
 
@@ -1274,11 +1274,11 @@ $\left(\underline{R}_{V_{i}}-\underline{R}_{\partial V_{i}}\right)\underline{A}_
 改写为式 (\ref{eq:RKm}) 的形式
 \begin{equation}
 \begin{aligned}\underline{\hat{U}}^{n+1/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n},\\
-	\underline{\hat{U}}^{n+2/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4}\\
-	& =(1-\mu)\underline{\hat{U}}^{n}+\mu\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4}\\
-	& =(1-\mu)\underline{\hat{U}}^{n}+\mu\left(\underline{\hat{U}}^{n+1/4}-\frac{h_{t}}{2}\underline{\hat{R}}^{n}\right)+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4}\\
-	& =\left[(1-\mu)\underline{\hat{U}}^{n}+\left(-\frac{\mu}{2}\right)h_{t}\underline{\hat{R}}^{n}\right]+\left(\mu\underline{\hat{U}}^{n+1/4}+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4}\right),\\
-	\underline{\hat{U}}^{n+3/4} & =\cdots,\qquad\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+4/4}=\cdots,
+\underline{\hat{U}}^{n+2/4} & =\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4}\\
+ & =(1-\mu)\underline{\hat{U}}^{n}+\mu\underline{\hat{U}}^{n}+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4}\\
+ & =(1-\mu)\underline{\hat{U}}^{n}+\mu\left(\underline{\hat{U}}^{n+1/4}-\frac{h_{t}}{2}\underline{\hat{R}}^{n}\right)+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4}\\
+ & =\left[(1-\mu)\underline{\hat{U}}^{n}+\left(-\frac{\mu}{2}\right)h_{t}\underline{\hat{R}}^{n}\right]+\left(\mu\underline{\hat{U}}^{n+1/4}+\frac{h_{t}}{2}\underline{\hat{R}}^{n+1/4}\right),\\
+\underline{\hat{U}}^{n+3/4} & =\cdots,\qquad\underline{\hat{U}}^{n+1}\equiv\underline{\hat{U}}^{n+4/4}=\cdots,
 \end{aligned}
 \end{equation}
 之后，在 $\mu\in(0,1)$ 的前提下总是会出现负的 $\alpha_{i,k}$ 或 $\beta_{i,k}$，因此它不是
@@ -1287,12 +1287,12 @@ SSP 格式。
 \section{模拟桨叶对流场扰动的非定常动量源\label{sec:UMS}}
 
 前文已经给出了用 RKDG 方法 (\ref{eq:orthonormal_DG}) 来求解含源项的双曲型方程组 (\ref{eq:PDE})
-的一般过程。在该方法中，源项只出现在体积分中，且本文不考虑质量源与能量源，故该式实际需要计算的是计算基函数与动量源的乘积在 $V_{i}$ 上体积分：
+的一般过程。在该方法中，源项只出现在体积分中，且本文不考虑质量源与能量源，故该式实际需要计算的是计算基函数与动量源的乘积在 $V_{i}$
+上体积分：
 \begin{equation}
-\int_{V_{i}}\begin{bmatrix}
-b_x\\
-b_y\\
-b_z
+\int_{V_{i}}\begin{bmatrix}b_{x}\\
+b_{y}\\
+b_{z}
 \end{bmatrix}\begin{bmatrix}\phi_{1} & \cdots & \phi_{K}\end{bmatrix}.
 \end{equation}
 本节给出将体现旋翼气动效应的一种“非定常动量源 (unsteady momentum source, UMS\nomenclature{UMS}{unsteady momentum source})”模型嵌入既有的
@@ -1912,10 +1912,10 @@ u_{z}
 \item [{能够处理几何外形复杂的边界}] 该方法用间断伽辽金 (DG) 格式做空间离散，能够在三维非结构网格上的构造紧致的高阶格式，既克服了有限差分格式仅适用于结构网格的弊端，又解决了高阶有限差分格式局部模板过宽的问题。对于舰载直升机三维流场计算，这种优势能够让高阶计算格式很好地适应复杂的船体外形及直升机机身外形。
 \item [{能够保持数值解的强稳定性}] 该方法以保持强稳定性的显式 Runge–Kutta (RK) 格式做时间推进，能够像显式欧拉格式那样给出物理上可靠的结果。除此之外，显式
 $p$ 阶 RK 格式避免了大型代数方程组的生成与求解，简化了程序实现，与紧致的 $q$ 阶 DG 格式相互配合，保证了整个 RK$p$/DG$q$
-格式具有高度的可并行性。
-为明确区分时间离散与空间离散的阶数，这里及本文剩余部分把用 $p$ 阶 (SSP) RK 格式做时间推进、用 $q$ 阶 DG 有限元法做空间离散的具体格式称为“RK$p$/DG$q$
-格式”，并称基于该格式的求解器、近似解为“RK$p$/DG$q$ 求解器、近似解”；称构造这些格式的方法为“RKDG 方法”。若时空精度皆为
-$p$，则“RK$p$/DG$q$”（格式、求解器、近似解）也可简称为“$p$ 阶 RKDG”（格式、求解器、近似解）。\nomenclature{RKDG}{Runge--Kutta discontinuous Galerkin}\nomenclature{RK$p$/DG$q$}{$p$th order Runge–Kutta and $q$th order discontinuous Galerkin}
+格式具有高度的可并行性。为明确区分时间离散与空间离散的阶数，这里及本文剩余部分把用 $p$ 阶 (SSP) RK 格式做时间推进、用
+$q$ 阶 DG 有限元法做空间离散的具体格式称为“RK$p$/DG$q$ 格式”，并称基于该格式的求解器、近似解为“RK$p$/DG$q$
+求解器、近似解”；称构造这些格式的方法为“RKDG 方法”。若时空精度皆为 $p$，则“RK$p$/DG$q$”（格式、求解器、近似解）也可简称为“$p$
+阶 RKDG”（格式、求解器、近似解）。\nomenclature{RKDG}{Runge--Kutta discontinuous Galerkin}\nomenclature{RK$p$/DG$q$}{$p$th order Runge–Kutta and $q$th order discontinuous Galerkin}
 \item [{避免了对动态网格技术的依赖}] 该方法以非定常动量源 (UMS) 模型表示桨叶对流场的扰动，避免了旋翼 CFD 对变形网格、滑动网格、重叠网格等动态网格技术的依赖，大大降低了程序实现的难度。该模型与高阶
 RKDG 格式相结合，能够在较为粗糙的三维非结构网格上，高效（相对于动态网格技术）且高精度（相对于经典有限体积）捕获旋翼流场的非定常特征。
 \item [{压制了高阶近似解的数值振荡}] 该方法以紧致型 WENO 重构技术，压制高阶 RKDG 及高阶 UMS–RKDG 近似解在间断附近的数值振荡。本文所借鉴的二维
@@ -3107,10 +3107,10 @@ $t=1.0$ 时刻的 UMS–RK3/DG3 近似解}
 与\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题的结论类似，两种求解器都能捕捉大尺度的涡结构，例如从桨盘拖出、向右下方倾斜的旋翼尾迹；但只有三阶求解器才能在
 $x=4$ 平面上捕捉到一对清晰的涡核（深蓝色区域）。下面采用两种方法来证明这对涡确实存在。
 
-第一种方法基于流线。图 \ref{fig:forward_wake_y_view}、图 \ref{fig:forward_wake_z_view} 分别沿 $+y$、$-z$ 方向，画出了由 $t=1.0$
-时刻的 UMS–RK3/DG3 近似解导出的速度流线图。可以看出：桨盘两侧的流线在向后延伸的过程中，叠加了绕某个向后延伸的轴线的转动，该轴线恰好穿过图
-\ref{fig:forward_t=00003D10e-1_p=00003D3} 中的低密度区（即涡核所在位置）。这说明，由
-UMS–RK3/DG3 近似解导出的结果是自洽的。
+第一种方法基于流线。图 \ref{fig:forward_wake_y_view}、图 \ref{fig:forward_wake_z_view}
+分别沿 $+y$、$-z$ 方向，画出了由 $t=1.0$ 时刻的 UMS–RK3/DG3 近似解导出的速度流线三视图。可以看出：桨盘两侧的流线在向后延伸的过程中，叠加了绕某个向后延伸的轴线的转动，该轴线恰好穿过图
+\ref{fig:forward_t=00003D10e-1_p=00003D3} 中的低密度区（即涡核所在位置）。这说明，由 UMS–RK3/DG3
+近似解导出的结果是自洽的。
 
 \begin{figure}[h!]
 \begin{centering}
@@ -3129,9 +3129,9 @@ $t=1.0$ 时刻的 UMS–RK3/DG3 近似解导出的流线（俯视图）}
 \end{figure}
 
 第二种方法基于 $Q$ 准则\upcite{Jeong_1995}，它是一种常用的涡结构可视化方法。图 \ref{fig:forward_Q_y_view}、图
-\ref{fig:forward_Q_z_view} 分别沿 $+y$、$-z$ 
-方向，画出了由 $t=1.0$ 时刻的 UMS–RK1/DG1 近似解导出的 $Q$ 等值面图。可以看出：桨盘两侧各有一道向后拖出的涡，且其位置与图
-\ref{fig:forward_wake_y_view}、图 \ref{fig:forward_wake_z_view} 中流线螺旋延伸的轴线一致。这说明由两种近似解导出的结果是相容的。
+\ref{fig:forward_Q_z_view} 分别沿 $+y$、$-z$ 方向，画出了由 $t=1.0$ 时刻的 UMS–RK1/DG1
+近似解导出的 $Q$ 等值面图。可以看出：桨盘两侧各有一道向后拖出的涡，且其位置与图 \ref{fig:forward_wake_y_view}、图
+\ref{fig:forward_wake_z_view} 中流线螺旋延伸的轴线一致。这说明由两种近似解导出的结果是相容的。
 
 \begin{figure}[h!]
 \begin{centering}
