@@ -27,7 +27,7 @@ if __name__ == '__main__':
 
   names = [case+'/p=1_h=2e-2'+mesh, case+'/p=2_h=55e-3'+mesh, case+'/rkdg3'+mesh]
   labels = [r'$p=1,\quad h\approx 1/50$', r'$p=2,\quad h\approx 1/18$', r'$p=3,\quad h\approx 1/10$']
-  styles = ['b-', 'k-', 'r-']
+  styles = ['b:', 'k-.', 'r--']
   data = []
   for i in range(len(names)):
     data.append(np.loadtxt('../../../mdpi/figures/shock_tubes/'+names[i]+'.csv', delimiter=',', skiprows=1))
