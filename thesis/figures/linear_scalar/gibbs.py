@@ -18,11 +18,12 @@ if __name__ == '__main__':
 
   names = ['h=2^-3', 'h=2^-4', 'h=2^-5']
   labels = [r'$h\approx 1/8$', r'$h\approx 1/16$', r'$h\approx 1/32$']
+  linestyles = ['--', '-.', ':']
 
   data = []
   for i in range(len(names)):
     data.append(np.loadtxt(names[i]+'.csv', delimiter=',', skiprows=1))
-    plt.plot(data[i][:,3], data[i][:,0], label=labels[i])
+    plt.plot(data[i][:,3], data[i][:,0], label=labels[i], linestyle=linestyles[i])
   plt.grid()
   plt.legend()
   plt.tight_layout()

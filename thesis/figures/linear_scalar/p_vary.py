@@ -17,12 +17,13 @@ if __name__ == '__main__':
 
   names = ['p=3_h=2^-3', 'p=2_h=2^-3', 'p=1_h=2^-3']
   labels = [r'$p=3,\quad h\approx 2^{-3}$', r'$p=2,\quad h\approx 2^{-3}$', r'$p=1,\quad h\approx 2^{-3}$']
+  linestyles = ['--', '-.', ':']
 
   data = []
   for i in range(len(names)):
     data.append(np.loadtxt('../../../mdpi/figures/linear_scalar/'+names[i]+'.csv', delimiter=',', skiprows=1))
     print(data[i].shape)
-    plt.plot(data[i][:,3], data[i][:,0], label=labels[i])
+    plt.plot(data[i][:,3], data[i][:,0], label=labels[i], linestyle=linestyles[i])
   plt.grid()
   plt.legend()
   plt.tight_layout()
