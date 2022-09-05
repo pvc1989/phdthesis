@@ -402,7 +402,7 @@ The LaTeX template for thesis of BUAA]
 \RequirePackage{graphicx}
 \graphicspath{{figure/}}
 \RequirePackage{pifont} % “秘级”后的五角星
-\RequirePackage{subfigure}
+% \RequirePackage{subfigure}
 
 %%%%%%%%%% list %%%%%%%%%%
 % 列表
