@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from cProfile import label
 import numpy as np
 from matplotlib import pyplot as plt
 plt.rcParams['font.sans-serif'] = ['Songti SC']
@@ -19,11 +20,15 @@ if __name__ == '__main__':
     4058, 4030, 4110, 4100, 4102, 4096, 4094, 4102, 4100, 4108]) // 2
 
   print(np.min(cells), np.max(cells))
+  avg = np.mean(cells)
 
   plt.figure(figsize=(6,3))
-  plt.plot(parts, cells)
+  plt.bar(parts, cells, label="分布值")
+  plt.plot([0, 100], [avg, avg], 'r--', label="平均值")
+  plt.ylim((1990, 2080))
   plt.xlabel("分块/进程/核心编号")
   plt.ylabel("体单元数量")
   plt.tight_layout()
+  plt.legend()
   # plt.show()
   plt.savefig('./balance.pdf')

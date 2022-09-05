@@ -18,13 +18,16 @@ if __name__ == '__main__':
     727, 727, 726, 726, 727, 726, 727, 726, 729, 727,
     727, 727, 726, 726, 726, 727, 726, 727, 726, 729])
 
-  print(np.sum(cells), np.max(cells))
-  print(np.sum(cells) / 100 / np.max(cells))
+  print(np.min(cells), np.max(cells))
+  avg = np.mean(cells)
 
   plt.figure(figsize=(6,3))
-  plt.plot(parts, cells)
+  plt.bar(parts, cells, label="分布值")
+  plt.plot([0, 100], [avg, avg], 'r--', label="平均值")
+  plt.ylim((724, 734))
   plt.xlabel("分块/进程/核心编号")
   plt.ylabel("体单元数量")
   plt.tight_layout()
+  plt.legend()
   # plt.show()
   plt.savefig('./balance.pdf')
