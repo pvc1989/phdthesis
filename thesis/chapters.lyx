@@ -10126,14 +10126,7 @@ U_{\mathrm{R}}, & x-4>-10t.
 为了直观地比较数值解的精度，图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:linear_scalar_p=3_h=2^-3"
-
-\end_inset
-
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:linear_scalar_p=3_h=2^-2"
+reference "fig:linear_scalar_contour"
 
 \end_inset
 
@@ -10185,6 +10178,12 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename ../mdpi/figures/linear_scalar/p=3_h=2^-3.png
@@ -10208,22 +10207,15 @@ name "fig:linear_scalar_p=3_h=2^-3"
 
 \end_inset
 
-在只含 
+时空精度 
+\begin_inset Formula $p=3$
+\end_inset
+
+，网格尺度 
 \begin_inset Formula $h\approx2^{-3}$
 \end_inset
 
- 的四面体单元的非结构网格上所得
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:线性单波平流"
 
-\end_inset
-
-问题在 
-\begin_inset Formula $t=0.2$
-\end_inset
-
- 时刻的 RK3/DG3 近似解
 \end_layout
 
 \end_inset
@@ -10236,7 +10228,7 @@ reference "prob:线性单波平流"
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
@@ -10266,22 +10258,15 @@ name "fig:linear_scalar_p=1_h=2^-5"
 
 \end_inset
 
-在只含 
+时空精度 
+\begin_inset Formula $p=1$
+\end_inset
+
+，网格尺度 
 \begin_inset Formula $h\approx2^{-5}$
 \end_inset
 
- 的四面体单元的非结构网格上所得
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:线性单波平流"
 
-\end_inset
-
-问题在 
-\begin_inset Formula $t=0.2$
-\end_inset
-
- 时刻的 RK1/DG1 近似解
 \end_layout
 
 \end_inset
@@ -10294,7 +10279,7 @@ reference "prob:线性单波平流"
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
@@ -10324,11 +10309,38 @@ name "fig:linear_scalar_p=3_h=2^-2"
 
 \end_inset
 
-在只含 
+时空精度 
+\begin_inset Formula $p=3$
+\end_inset
+
+，网格尺度 
 \begin_inset Formula $h\approx2^{-2}$
 \end_inset
 
- 的四面体单元的非结构网格上所得
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:linear_scalar_contour"
+
+\end_inset
+
+在只含四面体单元的非结构网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:线性单波平流"
@@ -10339,7 +10351,7 @@ reference "prob:线性单波平流"
 \begin_inset Formula $t=0.2$
 \end_inset
 
- 时刻的 RK3/DG3 近似解
+ 时刻的 RKDG 近似解
 \end_layout
 
 \end_inset
