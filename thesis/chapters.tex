@@ -1299,8 +1299,6 @@ b_{z}
 本节给出将体现旋翼气动效应的一种“非定常动量源 (unsteady momentum source, UMS\nomenclature{UMS}{unsteady momentum source})”模型嵌入既有的
 RKDG 格式，从而获得 UMS–RKDG 格式的具体过程。
 
-\newpage{}
-
 \subsection{外力密度}
 
 直升机旋翼的桨叶具有较大的展弦比，其对空气的作用力可以近似为集中于桨叶轴线。为避免混淆，本文以 $\vec{b}_{\mathrm{V}}$
@@ -1807,7 +1805,7 @@ $\vec{\nu}_{k}$ 沿该边界不变，即单元边界属于某个平面。在三�
  &  &  &  & u_{\nu}+a
 \end{bmatrix},
 \end{equation}
-相应的右特征矩阵\nomenclature{$\underline{R'}$}{表示 $\underline{A}^{\nu}$ 的右特征矩阵在法向坐标系中的表达式}为\newpage
+相应的右特征矩阵\nomenclature{$\underline{R'}$}{表示 $\underline{A}^{\nu}$ 的右特征矩阵在法向坐标系中的表达式}为
 \begin{equation}
 \underline{R'}=\begin{bmatrix}1 & 1 & 0 & 0 & 1\\
 u_{\nu}-a & u_{\nu} & 0 & 0 & u_{\nu}+a\\
@@ -2109,8 +2107,6 @@ U_{2}(x,y,z,t)
 的广义解。
 \end{problem}
 
-\newpage{}
-
 为获得其解析解，先对 $\underline{A}^{x}$ 作特征分解，得到
 \begin{equation}
 \underbrace{\begin{bmatrix}6 & -2\\
@@ -2373,8 +2369,6 @@ RK1/DG1、RK2/DG2 求解器采用了与之相对应的低阶数值积分器。�
 1 点三角形积分器，RK2/DG2 求解器采用了 4 点四面体积分器与 3 点三角形积分器，RK3/DG3 求解器采用了 14 点四面体积分器与
 6 点三角形积分器。因此，本节关于性价比的结论比\nameref{prob:=007EBF=006027=005355=006CE2=005E73=006D41}问题所得的类似结论更加可靠，也更具有参考价值。
 
-\newpage{}
-
 \subsection{Lax 激波管问题}
 \begin{problem}
 [Lax 激波管]\label{prob:Lax-=006FC0=006CE2=007BA1}在时间范围 $t\in[0.0,0.6]$
@@ -2607,7 +2601,6 @@ RK3/DG3 求解器能够在三维非结构网格上正确地捕捉复杂的二维
 $\rho(x,y,t=0.2)$ 的 RK3/DG3 近似解\upcite{Zhong_2013}}
 \end{figure}
 
-\newpage{}
 
 \subsection{前向台阶问题}
 
@@ -2694,8 +2687,6 @@ $t=0.6$ 时刻的 RK3/DG3 近似解}
 $t=1.0$ 时刻的 RK3/DG3 近似解}
 \end{figure}
 
-\newpage{}
-
 大约在 $t=1.2$ 时刻，反射波与台阶顶部发生碰撞并再次反射，如图 \ref{fig:forward_step_p=00003D3_t=00003D12e-1}
 所示。
 
@@ -2781,7 +2772,6 @@ RK3/DG3 求解器能够在三维伪结构网格上正确地捕捉复杂的二维
 $\rho(x,y,t=4)$ 的 RK3/DG5 近似解\upcite{Giri_2019}}
 \end{figure}
 
-\newpage{}
 
 \section{本章小结}
 
@@ -2851,7 +2841,6 @@ SC-1095 翼型，其升力系数、阻力系数曲线分别如图 \ref{fig:rotor
 以上几何参数以及本节剩余部分给出的定解条件，是对真实旋翼风洞试验的较为激进的简化。进行这种简化主要是为了方便后续计算或试验研究复现本节剩余部分给出的算例。实际上，对于更一般的风洞截面形状，获得如图
 \ref{fig:rotor_mesh} 所示的只含四面体单元的非结构网格，对于网格生成模块而言没有额外的难度；对于更一般的桨叶外形，如非线性的弦长、预扭分布，本文所实现的求解器也已支持对其进行高效处理。
 
-\newpage{}
 
 \subsection{孤立旋翼爬升问题}
 \begin{problem}
@@ -3402,8 +3391,6 @@ $t\in[0,10]$ 内，求满足三维欧拉方程 (\ref{eq:euler_system}) 及以下
 \end{equation}
 \end{problem}
 
-\newpage{}
-
 图 \ref{fig:ship_a=00003D0_t=00003D2_p=00003D3}–\ref{fig:ship_a=00003D0_t=00003D8_p=00003D3}
 清楚地显示了旋翼尾迹的形成过程。计时开始后，一个起动涡在旋翼后缘形成，并随来流向后（右）运动，运动轨迹大致对应旋翼尾迹后缘。该尾迹后缘不受船体阻挡，自由地向后、向下延伸，直到触及海面。与之相反，尾迹前缘明显受到船尾甲板阻挡，气流撞击甲板形成高压、高密度区。相应地，旋翼前缘感受到来自甲板的托举力，其机理类似于直升机贴近平地飞行时所产生的地面效应。因此，在直升机正面迎风悬停于甲板中部上方的情形下，实施船尾甲板起降任务的舰载直升机驾驶员（或自动控制系统）需修正桨距输入，以克服使直升机向后翻滚的俯仰力矩。
 
@@ -3498,7 +3485,6 @@ $(\SI{0}{m},\SI{6.858}{m},$ $\SI{12.192}{m})$\footnote{$(\SI{0}{ft},\SI{22.5}{ft
 在 $t=10$ 时刻的 UMS–RK3/DG3 近似解（按 $Q=0.001$ 画出涡结构）}
 \end{figure}
 
-\newpage{}
 
 \section{直升机侧面迎风}
 
@@ -3614,7 +3600,6 @@ $\ang{45}$ 夹角、速度为 $\SI{10}{m/s}$ 的均匀气流：
 在 $t=9.9$ 时刻的 UMS–RK3/DG3 近似解}
 \end{figure}
 
-\newpage{}
 
 \section{本章小结}
 

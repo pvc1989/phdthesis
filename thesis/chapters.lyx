@@ -7445,13 +7445,6 @@ literal "true"
 )”模型嵌入既有的 RKDG 格式，从而获得 UMS–RKDG 格式的具体过程。
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 外力密度
 \end_layout
@@ -9658,10 +9651,6 @@ literal "true"
 \end_inset
 
 为
-\begin_inset Newpage newpage
-\end_inset
-
-
 \begin_inset Formula 
 \begin{equation}
 \underline{R'}=\begin{bmatrix}1 & 1 & 0 & 0 & 1\\
@@ -11252,13 +11241,6 @@ U_{2}(x,y,z,t)
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 为获得其解析解，先对 
 \begin_inset Formula $\underline{A}^{x}$
 \end_inset
@@ -12648,13 +12630,6 @@ noprefix "false"
 \end_inset
 
 问题所得的类似结论更加可靠，也更具有参考价值。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -14183,13 +14158,6 @@ literal "false"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 前向台阶问题
 \end_layout
@@ -14779,13 +14747,6 @@ noprefix "false"
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
 \end_inset
 
 
@@ -15413,13 +15374,6 @@ literal "false"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 本章小结
 \end_layout
@@ -15860,13 +15814,6 @@ reference "fig:rotor_mesh"
 
  所示的只含四面体单元的非结构网格，对于网格生成模块而言没有额外的难度；对于更一般的桨叶外形，如非线性的弦长、预扭分布，本文所实现的求解器也已支持对其进行高效处
 理。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -20399,13 +20346,6 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 图 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -21059,13 +20999,6 @@ reference "prob:直升机正面迎风悬停于甲板尾部上方"
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
 \end_inset
 
 
@@ -21847,13 +21780,6 @@ noprefix "false"
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
 \end_inset
 
 
