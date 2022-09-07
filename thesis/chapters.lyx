@@ -10130,7 +10130,7 @@ reference "fig:linear_scalar_contour"
 ) 组合给出的同一时刻的数值解云图。这些图中的白色区域为函数值连续变化的过渡层，其厚度与数值解的误差呈正相关。通过比较图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:linear_scalar_p=1_h=2^-5"
+reference "subfig:linear_scalar_p=1_h=2^-5"
 
 \end_inset
 
@@ -10145,7 +10145,7 @@ reference "fig:linear_scalar_p=1_h=2^-5"
 ) 数值解，与图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:linear_scalar_p=3_h=2^-2"
+reference "subfig:linear_scalar_p=3_h=2^-2"
 
 \end_inset
 
@@ -10192,7 +10192,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:linear_scalar_p=3_h=2^-3"
+name "subfig:linear_scalar_p=3_h=2^-3"
 
 \end_inset
 
@@ -10243,7 +10243,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:linear_scalar_p=1_h=2^-5"
+name "subfig:linear_scalar_p=1_h=2^-5"
 
 \end_inset
 
@@ -10294,7 +10294,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:linear_scalar_p=3_h=2^-2"
+name "subfig:linear_scalar_p=3_h=2^-2"
 
 \end_inset
 
@@ -11371,7 +11371,7 @@ V_{2}^{\star}-V_{1}^{\star}
 此解析解可以被用来定量地评估数值求解器的性能。本小节使用图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:linear_scalar_p=3_h=2^-3"
+reference "subfig:linear_scalar_p=3_h=2^-3"
 
 \end_inset
 
