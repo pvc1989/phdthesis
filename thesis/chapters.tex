@@ -3350,21 +3350,32 @@ $83\%$（含读写操作）到 $85\%$（不含读写操作），低于\nameref{p
 
 \chapter{舰载直升机典型工况气动干扰的模拟\label{chap:=005E94=007528}}
 
+本章利用经过前文验证的 UMS–RK3/DG3 并行求解器，对一种舰载直升机典型工况下的旋翼–船体–海面气动干扰过程的进行模拟。
+
 \section{问题描述}
 
-本章利用上述经过验证的 UMS–RK3/DG3 并行求解器，对一种舰载直升机典型工况下的旋翼–船体–海面气动干扰过程的进行模拟。算例设计的灵感来源于图
-\ref{fig:landing}，即英国海军舰载直升机着舰标准作业流程。该流程要求直升机在着舰前以一定高度沿船身方向平飞，直到悬停于目标甲板上方。之所以要求直升机在接近过程中保持一定高度，是为了避免高度过低导致其与船体发生意外碰撞，或机上部件与船上部件发生缠绕，进而引发事故（如
-1999 年 12 月 9 日发生的 CH-43D 直升机左后轮被 USNS Pecos 号船尾的安全网缠绕，导致直升机坠海的事故）。直升机抵达甲板上方后，应相对于甲板悬停并维持一段时间。待海面相对平静、舰上工作人员给出允许降落的信号后，直升机驾驶员才可以实施着舰。在这一流程中，最关键的一步是直升机悬停于目标甲板上方并保持相对静止。因此，本章选取该工况作为研究舰载直升机气动干扰的一种典型工况。
+\subsection{典型工况选取}
+
+本章所谓“典型工况”选取自图 \ref{fig:landing}，即英国海军舰载直升机着舰标准作业流程：
+\begin{enumerate}[wide]
+\item 直升机在着舰前以\emph{一定高度}沿船身方向平飞并减速，直到悬停于目标甲板上方。之所以要求直升机在接近过程中保持\emph{一定高度}，是为了避免高度过低导致其与船体发生意外碰撞，或机上部件与船上部件发生缠绕，进而引发事故。1999
+年 12 月 9 日，美国海军就发生过一起 CH-43D 直升机因其左后轮被 Pecos 号船尾的安全网缠绕而坠海的重大事故。
+\item 直升机抵达甲板上方后，应相对于甲板悬停，并维持该相对位置一段时间。
+\item 待海面相对平静、舰上工作人员给出允许降落的信号后，直升机驾驶员方可实施着舰。
+\end{enumerate}
+
+在以上标准作业流程中，最关键的一步是直升机悬停于目标甲板上方并保持相对静止。因此，本章选取该工况作为研究舰载直升机气动干扰的一种典型工况。
+
+\subsection{网格及参数设定}
 
 本章所有算例都是在图 \ref{fig:ship_mesh} 所示的非结构网格上，模拟舰载直升机的旋翼–船体–海面之间的气动干扰。该网格使用了图
 \ref{fig:ship_geometry} 所示的简化版护卫舰模型，其中灰色长方体为文献 \cite{Thedin_2020}
-对网格进行加密的区域。本文将加密区域适当前移并令其底部与海面接触，以罩住舰体后半部分。该网格相当粗糙：远场单元尺度约为 $\SI{12.192}{m}$\footnote{$\SI{40}{ft}$}，加密区域内最小单元尺度约为
-$\SI{1.524}{m}$\footnote{$\SI{5}{ft}$}， 为甲板距离海面的高度的三分之一。后面将会看到，在如此粗糙的网格上，高阶
-UMS–RKDG 近似解依然能捕捉到许多经典有限体积解不可能捕捉到的流动细节。
+对网格进行加密的区域。本文将加密区域适当前移并令其底部与海面接触，以罩住舰体后半部分。该网格相当粗糙：远场单元尺度约为 $\SI{12}{m}$\footnote{$\SI{40}{ft}$}，加密区域内最小单元尺度约为
+$\SI{1.5}{m}$\footnote{$\SI{5}{ft}$}，为甲板到海面距离的三分之一。
 
 除 \ref{subsec:x=00003D0_u=00003D5_a=00003D0} 小节外，旋翼中心均固定于点 $(\SI{-13.716}{m},\SI{6.858}{m},\SI{12.192}{m})$\footnote{$(\SI{-45}{ft},\SI{22.5}{ft},\SI{40}{ft})$}
 处。桨根及桨尖到该中心点的距离分别为 $\SI{0.1}{m}$ 与 $\SI{10}{m}$，其他几何参数与 \ref{sec:rotor_in_tunnel}
-节所用的桨叶相同。旋翼转轴指向 $+z$ 方向，转速为每秒 $4$ 转，桨尖速率约为 $0.74$ 马赫（声速取 $\SI{340}{m/s}$）。
+节所用的桨叶相同。旋翼转轴指向 $+z$ 方向，每秒旋转 $4$ 周。
 
 \begin{figure}[h!]
 \begin{centering}
@@ -3392,41 +3403,51 @@ $t\in[0,10]$ 内，求满足三维欧拉方程 (\ref{eq:euler_system}) 及以下
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 5.0 & 0.0 & 0.0 & 101325.0\end{bmatrix}.
 \end{equation}
+
+边界条件以船体及海面为固壁、其余为远场。
 \end{problem}
 
-图 \ref{fig:ship_a=00003D0_t=00003D2_p=00003D3}–\ref{fig:ship_a=00003D0_t=00003D8_p=00003D3}
-清楚地显示了旋翼尾迹的形成过程。计时开始后，一个起动涡在旋翼后缘形成，并随来流向后（右）运动，运动轨迹大致对应旋翼尾迹后缘。该尾迹后缘不受船体阻挡，自由地向后、向下延伸，直到触及海面。与之相反，尾迹前缘明显受到船尾甲板阻挡，气流撞击甲板形成高压、高密度区。相应地，旋翼前缘感受到来自甲板的托举力，其机理类似于直升机贴近平地飞行时所产生的地面效应。因此，在直升机正面迎风悬停于甲板中部上方的情形下，实施船尾甲板起降任务的舰载直升机驾驶员（或自动控制系统）需修正桨距输入，以克服使直升机向后翻滚的俯仰力矩。
+图 \ref{fig:ship_a=00003D0_p=00003D3} 动态地显示了旋翼尾迹的形成过程。计时开始后，一个起动涡在旋翼后缘形成，并随来流向后（右）运动，运动轨迹大致对应旋翼尾迹后缘。该尾迹后缘不受船体阻挡，自由地向后、向下延伸，直到触及海面。与之相反，尾迹前缘明显受到船尾甲板阻挡，气流撞击甲板形成高压、高密度区。相应地，旋翼前缘感受到来自甲板的托举力，其机理类似于直升机贴近平地飞行时所产生的地面效应。因此，在直升机正面迎风悬停于甲板中部上方的情形下，实施船尾甲板起降任务的舰载直升机驾驶员（或自动控制系统）需修正桨距输入，以克服使直升机向后翻滚的俯仰力矩。
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame20}
+\subfloat[$t=2.0$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.2\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame20}
 \par\end{centering}
-\caption{\label{fig:ship_a=00003D0_t=00003D2_p=00003D3}问题 \ref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}
-在 $t=2$ 时刻的 UMS–RK3/DG3 近似解}
+}
+\par\end{centering}
+\begin{centering}
+\subfloat[$t=4.0$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.2\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame40}
+\par\end{centering}
+}
+\par\end{centering}
+\caption{\label{fig:ship_a=00003D0_p=00003D3}\nameref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}工况的
+UMS–RK3/DG3 近似解}
 \end{figure}
 
 \begin{figure}[h!]
+\ContinuedFloat
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame40}
+\subfloat[$t=6.0$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.2\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame60}
 \par\end{centering}
-\caption{\label{fig:ship_a=00003D0_t=00003D4_p=00003D3}问题 \ref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}
-在 $t=4$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
+}
+\par\end{centering}
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame60}
+\subfloat[$t=8.0$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.2\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame80}
 \par\end{centering}
-\caption{\label{fig:ship_a=00003D0_t=00003D6_p=00003D3}问题 \ref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}
-在 $t=6$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
+}
+\par\end{centering}
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame80}
+\subfloat[$t=10.0$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.2\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame100}
 \par\end{centering}
-\caption{\label{fig:ship_a=00003D0_t=00003D8_p=00003D3}问题 \ref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}
-在 $t=8$ 时刻的 UMS–RK3/DG3 近似解}
+}
+\par\end{centering}
+\caption{\nameref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}工况的
+UMS–RK3/DG3 近似解（续）}
 \end{figure}
 
 
@@ -3434,68 +3455,58 @@ $t\in[0,10]$ 内，求满足三维欧拉方程 (\ref{eq:euler_system}) 及以下
 \begin{problem}
 [直升机正面迎风悬停于甲板尾部上方]\label{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=005C3E=0090E8=004E0A=0065B9}除旋翼中心位置改为点
 $(\SI{0}{m},\SI{6.858}{m},$ $\SI{12.192}{m})$\footnote{$(\SI{0}{ft},\SI{22.5}{ft},\SI{40}{ft})$}
-外，其他条件与问题 \ref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}
-相同。
+外，其他条件与前一工况相同。
 \end{problem}
 
-图 \ref{fig:ship_x=00003D0_a=00003D0_t=00003D2_p=00003D3}–\ref{fig:ship_x=00003D0_a=00003D0_t=00003D6_p=00003D3}
-给出了上述条件下，旋翼尾迹的形成过程。不难发现：尾迹前缘和后缘都不受甲板阻挡，自由地向后、向下延伸，直到约 $t=6$ 时刻触及海面。因气流撞击而形成的高压、高密度区，由甲板中心向后移动到海面。这意味着，此时旋翼所感受到的“地面效应”几乎完全来自于平直的海面，保持位置和姿态的难度与陆基直升机相当，低于问题
-\ref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}
-中的情形。
+图 \ref{fig:ship_x=00003D0_a=00003D0} 给出了上述条件下，旋翼尾迹的形成过程。不难发现：尾迹前缘和后缘都不受甲板阻挡，自由地向后、向下延伸，直到约
+$t=6$ 时刻触及海面。因气流撞击而形成的高压、高密度区，由甲板中心向后移动到海面。这意味着，此时旋翼所感受到的“地面效应”几乎完全来自于平直的海面，保持位置和姿态的难度与陆基直升机相当，低于前一小节研究的\nameref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}工况。
 
 \begin{figure}[h!]
 \begin{centering}
+\subfloat[$t=2.0$]{\begin{centering}
 \includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/ship/x=0/Frame20}
 \par\end{centering}
-\caption{\label{fig:ship_x=00003D0_a=00003D0_t=00003D2_p=00003D3}问题 \ref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=005C3E=0090E8=004E0A=0065B9}
-在 $t=2$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
+}
+\par\end{centering}
 \begin{centering}
+\subfloat[$t=6.0$]{\begin{centering}
 \includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/ship/x=0/Frame60}
 \par\end{centering}
-\caption{\label{fig:ship_x=00003D0_a=00003D0_t=00003D6_p=00003D3}问题 \ref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=005C3E=0090E8=004E0A=0065B9}
-在 $t=6$ 时刻的 UMS–RK3/DG3 近似解}
+}
+\par\end{centering}
+\caption{\label{fig:ship_x=00003D0_a=00003D0}\nameref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=005C3E=0090E8=004E0A=0065B9}工况的
+UMS–RK3/DG3 近似解}
 \end{figure}
 
-为了更直观地展示旋翼尾迹及船体气流尾迹的形态，图 \ref{fig:ship_x=00003D0_a=00003D0_t=00003D6_Q}–\ref{fig:ship_x=00003D0_a=00003D0_t=00003D10_Q}
-给出了 $t=6,8,10$ 三个时刻的 $Q=0.001$ 等值面图。可以看出：船体的每一个台阶（特别是后向台阶）处都有涡结构存在，其中甲板与海面所成台阶处的涡可以与图
-\ref{fig:ship_x=00003D0_a=00003D0_t=00003D2_p=00003D3}–\ref{fig:ship_x=00003D0_a=00003D0_t=00003D6_p=00003D3}
-中的速度方向相互印证。
+为了更直观地展示旋翼尾迹及船体气流尾迹的形态，图 \ref{fig:ship_x=00003D0_a=00003D0_Q} 给出了
+$Q=0.001$ 等值面图。可以看出：船体的每一个台阶（特别是后向台阶）处都有涡结构生成，其中甲板与海面所成台阶处的涡可以与图
+\ref{fig:ship_x=00003D0_a=00003D0} 中的速度方向相互印证。
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/ship/x=0/Frame60_Q}
+\subfloat[$t=6.0$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/ship/x=0/Frame60_Q}
 \par\end{centering}
-\caption{\label{fig:ship_x=00003D0_a=00003D0_t=00003D6_Q}问题 \ref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=005C3E=0090E8=004E0A=0065B9}
-在 $t=6$ 时刻的 UMS–RK3/DG3 近似解（按 $Q=0.001$ 画出涡结构）}
-\end{figure}
-
-\begin{figure}[h!]
+}
+\par\end{centering}
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/ship/x=0/Frame80_Q}
+\subfloat[$t=10.0$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/ship/x=0/Frame100_Q}
 \par\end{centering}
-\caption{\label{fig:ship_x=00003D0_a=00003D0_t=00003D8_Q}问题 \ref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=005C3E=0090E8=004E0A=0065B9}
-在 $t=8$ 时刻的 UMS–RK3/DG3 近似解（按 $Q=0.001$ 画出涡结构）}
+}
+\par\end{centering}
+\caption{\label{fig:ship_x=00003D0_a=00003D0_Q}由\nameref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=005C3E=0090E8=004E0A=0065B9}工况的
+UMS–RK3/DG3 近似解导出的涡结构（续）}
 \end{figure}
 
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/ship/x=0/Frame100_Q}
-\par\end{centering}
-\caption{\label{fig:ship_x=00003D0_a=00003D0_t=00003D10_Q}问题 \ref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=005C3E=0090E8=004E0A=0065B9}
-在 $t=10$ 时刻的 UMS–RK3/DG3 近似解（按 $Q=0.001$ 画出涡结构）}
-\end{figure}
-
+\newpage{}
 
 \section{直升机侧面迎风}
 
 \subsection{来流为 $\SI{5}{m/s}$ 的微风}
 
-在风力等级表中，“微风”是指风速介于 $\SI{3.4}{m/s}$ 与 $\SI{5.4}{m/s}$ 之间的 3 级风。此时海面小波峰顶破裂，浪高约为
-$\SI{0.6}{m}$， 对应于 2–3 级海况。前一节的问题 \ref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}–\ref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=005C3E=0090E8=004E0A=0065B9}
-都属于这种情形。在此情形下，浪高与船体及旋翼尺度相比较小，故本文选择忽略海浪引起的船体运动。
+在风力等级表中，“微风 (gentle breeze)”是指风速介于 $\SI{3.4}{m/s}$ 与 $\SI{5.4}{m/s}$
+之间的 3 级风。此时海面小波峰顶破裂，浪高约为 $\SI{0.6}{m}$， 对应于 2–3 级海况。前一节的直升机正面迎风悬停于甲板中部及尾部上方两种工况都属于这种情形。在此情形下，浪高与船体及旋翼尺度相比较小，故本文选择忽略海浪引起的船体运动。
 \begin{problem}
 [直升机侧面迎微风悬停于甲板中部上方]\label{prob:=0076F4=005347=00673A=004FA7=009762=008FCE=005FAE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}在时间范围
 $t\in[0,10]$ 内，求满足三维欧拉方程 (\ref{eq:euler_system}) 及以下定解条件的广义解。
@@ -3504,103 +3515,76 @@ $t\in[0,10]$ 内，求满足三维欧拉方程 (\ref{eq:euler_system}) 及以下
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 2.5\sqrt{2} & 2.5\sqrt{2} & 0.0 & 101325.0\end{bmatrix}.
 \end{equation}
+
+边界条件与直升机正面迎风两种工况相同。
 \end{problem}
 
-图 \ref{fig:ship_a=00003D45_t=00003D22e-1_p=00003D3}–\ref{fig:ship_a=00003D45_t=00003D88e-1_p=00003D3}
-展示了 UMS–RK3/DG3 求解器给出的旋翼尾迹的形成过程。可以看到：在船头侧面迎微风的条件下，形成于船尾甲板正上方的旋翼尾迹，受海面自由来流的影响向右后方发展，并且因受到甲板的阻挡而发生变形。与船头正面迎风的情形类似，此时旋翼的受力情况也与平地起降时同等操纵输入的情况不一样。因此，在船头侧面迎微风的情形下，实施船尾甲板起降任务的舰载直升机驾驶员（或自动控制系统）需修正桨距输入，以克服使直升机向右后方翻滚的俯仰和滚转力矩。
+图 \ref{fig:ship_u=00003D5_a=00003D45} 展示了 UMS–RK3/DG3 求解器给出的旋翼尾迹的形成过程。可以看到：在船头侧面迎微风的条件下，形成于船尾甲板正上方的旋翼尾迹，受海面自由来流的影响向右后方发展，并且因受到甲板的阻挡而发生变形。与船头正面迎风的情形类似，此时旋翼的受力情况也与平地起降时同等操纵输入的情况不一样。因此，在船头侧面迎微风的情形下，实施船尾甲板起降任务的舰载直升机驾驶员（或自动控制系统）需修正桨距输入，以克服使直升机向右后方翻滚的俯仰和滚转力矩。
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/ship/a=45_p=3/Frame22}
+\subfloat[$t=4.4$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/ship/a=45_p=3/Frame44}
 \par\end{centering}
-\caption{\label{fig:ship_a=00003D45_t=00003D22e-1_p=00003D3}问题 \ref{prob:=0076F4=005347=00673A=004FA7=009762=008FCE=005FAE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}
-在 $t=2.2$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
+}
+\par\end{centering}
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/ship/a=45_p=3/Frame44}
+\subfloat[$t=8.8$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/ship/a=45_p=3/Frame88}
 \par\end{centering}
-\caption{\label{fig:ship_a=00003D45_t=00003D44e-1_p=00003D3}问题 \ref{prob:=0076F4=005347=00673A=004FA7=009762=008FCE=005FAE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}
-在 $t=4.4$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/ship/a=45_p=3/Frame66}
+}
 \par\end{centering}
-\caption{\label{fig:ship_a=00003D45_t=00003D66e-1_p=00003D3}问题 \ref{prob:=0076F4=005347=00673A=004FA7=009762=008FCE=005FAE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}
-在 $t=6.6$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/ship/a=45_p=3/Frame88}
-\par\end{centering}
-\caption{\label{fig:ship_a=00003D45_t=00003D88e-1_p=00003D3}问题 \ref{prob:=0076F4=005347=00673A=004FA7=009762=008FCE=005FAE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}
-在 $t=8.8$ 时刻的 UMS–RK3/DG3 近似解}
+\caption{\label{fig:ship_u=00003D5_a=00003D45}由\nameref{prob:=0076F4=005347=00673A=004FA7=009762=008FCE=005FAE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}工况的
+UMS–RK3/DG3 近似解导出的涡结构}
 \end{figure}
 
 
-\subsection{来流为 $\SI{10}{m/s}$ 的轻劲风}
+\subsection{来流为 $\SI{10}{m/s}$ 的劲风}
 
-在风力等级表中，“轻劲风”是指风速介于 $\SI{8.0}{m/s}$ 与 $\SI{10.7}{m/s}$ 之间的 5 级风。此时海面波浪具有明显的形状，浪高达到
-$\SI{2.0}{m}$，海况等级为 4 级。在此情形下，浪高已与船体及旋翼尺度相当，故海浪引起的船体运动不可忽略。然而，上述讨论假设了船体处于停泊状态，直升机感受到的风速就是海面自由来流的风速。
+在风力等级表中，“劲风 (fresh breeze)”是指风速介于 $\SI{8.0}{m/s}$ 与 $\SI{10.7}{m/s}$
+之间的 5 级风。此时海面波浪具有明显的形状，浪高达到 $\SI{2.0}{m}$，海况等级为 4 级。在此情形下，浪高已与船体及旋翼尺度相当，故海浪引起的船体运动不可忽略。然而，上述讨论假设了船体处于停泊状态，直升机感受到的风速就是海面自由来流的风速。
 
-如果允许船体处于迎风航行状态，则悬停于甲板上方的直升机所感受到的风速，等于自由来流的风速与船体航速的叠加。在此情形下，直升机感受到轻劲风而海面为微风，故仍可以忽略海浪引起的船体运动。
+如果允许船体处于迎风航行状态，则悬停于甲板上方的直升机所感受到的风速，等于自由来流的风速与船体航速的叠加。在此情形下，直升机感受到劲风而海面为微风，故仍可以忽略海浪引起的船体运动。
 \begin{problem}
-[直升机侧面迎轻劲风悬停于甲板中部上方]\label{prob:=0076F4=005347=00673A=004FA7=009762=008FCE=008F7B=0052B2=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}除初始条件改为与直升机机身（及船体对称面）呈
-$\ang{45}$ 夹角、速度为 $\SI{10}{m/s}$ 的均匀气流：
+[直升机侧面迎劲风悬停于甲板中部上方]\label{prob:=0076F4=005347=00673A=004FA7=009762=008FCE=0052B2=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}除自由来流改为
+$\SI{10}{m/s}$ 的劲风外，其他条件与前一工况相同，即初始条件改为
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 5\sqrt{2} & 5\sqrt{2} & 0.0 & 101325.0\end{bmatrix},
 \end{equation}
-其他条件与问题 \ref{prob:=0076F4=005347=00673A=004FA7=009762=008FCE=005FAE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}
-相同。
+其他条件不变。
 \end{problem}
 
-图 \ref{fig:ship_u=00003D10_a=00003D45_t=00003D11e-1}–\ref{fig:ship_u=00003D10_a=00003D45_t=00003D99e-1}
-采用了类似于图 \ref{fig:ship_a=00003D45_t=00003D22e-1_p=00003D3}–\ref{fig:ship_a=00003D45_t=00003D88e-1_p=00003D3}
+图 \ref{fig:ship_u=00003D10_a=00003D45} 采用了类似于图 \ref{fig:ship_u=00003D5_a=00003D45}
 的绘图方式。可以看出：随着侧向风速的增大，旋翼尾迹明显向下游延伸，且起动涡不再保持环状。值得注意的是，这里的旋翼尾迹具有明显的非对称性：旋翼左侧的涡结构几乎不受甲板影响，基本保持如孤立旋翼前飞时的形态（如图
 \ref{fig:forward_Q_y_view}–\ref{fig:forward_Q_z_view} 所示）；旋翼右侧的涡结构与船体气流尾迹的涡结构相互缠绕，二者之间没有明显的分界面。造成这种差异的主要原因在于船体两侧的气流不对称：船体迎风侧的气流相对“干净”，而船体背风侧的气流则相对紊乱。
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/ship/a=45_u=10/Frame11}
+\subfloat[$t=4.4$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/ship/a=45_u=10/Frame44}
 \par\end{centering}
-\caption{\label{fig:ship_u=00003D10_a=00003D45_t=00003D11e-1}问题 \ref{prob:=0076F4=005347=00673A=004FA7=009762=008FCE=008F7B=0052B2=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}
-在 $t=1.1$ 时刻的 UMS–RK3/DG3 近似解}
+}
+\par\end{centering}
+\caption{\label{fig:ship_u=00003D10_a=00003D45}由\nameref{prob:=0076F4=005347=00673A=004FA7=009762=008FCE=0052B2=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}工况的
+UMS–RK3/DG3 近似解导出的涡结构}
 \end{figure}
 
 \begin{figure}[h!]
+\ContinuedFloat
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/ship/a=45_u=10/Frame33}
+\subfloat[$t=6.6$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/ship/a=45_u=10/Frame66}
 \par\end{centering}
-\caption{\label{fig:ship_u=00003D10_a=00003D45_t=00003D33e-1}问题 \ref{prob:=0076F4=005347=00673A=004FA7=009762=008FCE=008F7B=0052B2=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}
-在 $t=3.3$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
+}
+\par\end{centering}
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/ship/a=45_u=10/Frame55}
+\subfloat[$t=8.8$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/ship/a=45_u=10/Frame88}
 \par\end{centering}
-\caption{\label{fig:ship_u=00003D10_a=00003D45_t=00003D55e-1}问题 \ref{prob:=0076F4=005347=00673A=004FA7=009762=008FCE=008F7B=0052B2=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}
-在 $t=5.5$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/ship/a=45_u=10/Frame77}
+}
 \par\end{centering}
-\caption{\label{fig:ship_u=00003D10_a=00003D45_t=00003D77e-1}问题 \ref{prob:=0076F4=005347=00673A=004FA7=009762=008FCE=008F7B=0052B2=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}
-在 $t=7.7$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/ship/a=45_u=10/Frame99}
-\par\end{centering}
-\caption{\label{fig:ship_u=00003D10_a=00003D45_t=00003D99e-1}问题 \ref{prob:=0076F4=005347=00673A=004FA7=009762=008FCE=008F7B=0052B2=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}
-在 $t=9.9$ 时刻的 UMS–RK3/DG3 近似解}
+\caption{由\nameref{prob:=0076F4=005347=00673A=004FA7=009762=008FCE=0052B2=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}工况的
+UMS–RK3/DG3 近似解导出的涡结构}
 \end{figure}
 
 
