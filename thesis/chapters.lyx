@@ -13708,8 +13708,8 @@ noprefix "false"
 \begin_inset Formula 
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{cases}
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{A}}, & \sqrt{3}(x-x_{0})<y,\\
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{B}}, & \sqrt{3}(x-x_{0})>y,
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{A}}, & \sqrt{3}(x-\delta)<y,\\
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{B}}, & \sqrt{3}(x-\delta)>y,
 \end{cases}\label{eq:double_mach_ic}
 \end{equation}
 
@@ -13725,7 +13725,7 @@ noprefix "false"
 
 \end_inset
 
-分别为波后 (After the wave) 与波前 (Before the wave) 状态。
+分别为“波后 (After the wave)”与“波前 (Before the wave)”状态。
 \end_layout
 
 \begin_layout Problem
@@ -13792,8 +13792,8 @@ noprefix "false"
 \begin_inset Formula 
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}=\begin{cases}
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{A}}, & x-(\delta+4.125\sqrt{3}t)<\sqrt{1/3},\\
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{B}}, & x-(\delta+4.125\sqrt{3}t)>\sqrt{1/3}.
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{A}}, & x-(\delta+u_{x,\mathrm{A}}t)<\sqrt{\frac{1}{3}},\\
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{B}}, & x-(\delta+u_{x,\mathrm{A}}t)>\sqrt{\frac{1}{3}}.
 \end{cases}\qedhere
 \end{equation}
 
@@ -17983,8 +17983,15 @@ MPI_Waitall(...)
 \end_layout
 
 \begin_layout Standard
-其中，第 3 步是可选的，它允许计算与通信重叠，有助于提高并行效率；第 4 步是显式同步操作，除此之外还有一些隐式同步（例如：向同一个文件并行地写入数据），它们
-是降低并行性能的直接因素，应尽量避免非必要的同步。
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+以上各步中，第 3 步是可选的，它允许计算与通信重叠，有助于提高并行效率；第 4 步是显式同步操作，除此之外还有一些隐式同步（例如：向同一个文件并行地写入数据）
+，它们是降低并行性能的直接因素，应尽量避免非必要的同步。
 \end_layout
 
 \begin_layout Section

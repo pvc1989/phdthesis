@@ -2530,8 +2530,8 @@ $t\in[0.0,0.2]$ 及图 \ref{fig:double_mach_sketch} 中虚线所围计算区域�
 初始条件设为
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{cases}
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{A}}, & \sqrt{3}(x-x_{0})<y,\\
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{B}}, & \sqrt{3}(x-x_{0})>y,
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{A}}, & \sqrt{3}(x-\delta)<y,\\
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{B}}, & \sqrt{3}(x-\delta)>y,
 \end{cases}\label{eq:double_mach_ic}
 \end{equation}
 其中
@@ -2540,18 +2540,18 @@ $t\in[0.0,0.2]$ 及图 \ref{fig:double_mach_sketch} 中虚线所围计算区域�
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{B}} & =\begin{bmatrix}1.4 & 0.0 & 0.0 & 0.0 & 1.0\end{bmatrix},
 \end{aligned}
 \end{equation}
-分别为波后 (After the wave) 与波前 (Before the wave) 状态。
+分别为“波后 (After the wave)”与“波前 (Before the wave)”状态。
 
 边界条件如下：
-\begin{itemize}[wide]
+\begin{itemize}
 \item 左端 ($x=0$) 为超声速入口，状态设为 $\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{A}}$；
 \item 右端 ($x=4$) 及底部前段 ($y=0$ 且 $x<\delta$) 为超声速出口（无需设置状态）；
 \item 底部后段 ($y=0$ 且 $x<\delta$) 为固体壁面；
 \item 顶部 ($y=1$) 状态随时间变化，并且与初始条件 (\ref{eq:double_mach_ic}) 兼容：
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}=\begin{cases}
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{A}}, & x-(\delta+4.125\sqrt{3}t)<\sqrt{1/3},\\
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{B}}, & x-(\delta+4.125\sqrt{3}t)>\sqrt{1/3}.
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{A}}, & x-(\delta+u_{x,\mathrm{A}}t)<\sqrt{\frac{1}{3}},\\
+\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{\mathrm{B}}, & x-(\delta+u_{x,\mathrm{A}}t)>\sqrt{\frac{1}{3}}.
 \end{cases}\qedhere
 \end{equation}
 \end{itemize}
@@ -2843,7 +2843,6 @@ SC-1095 翼型，其升力系数、阻力系数曲线分别如图 \ref{fig:rotor
 
 以上几何参数以及本节剩余部分给出的定解条件，是对真实旋翼风洞试验的较为激进的简化。进行这种简化主要是为了方便后续计算或试验研究复现本节剩余部分给出的算例。实际上，对于更一般的风洞截面形状，获得如图
 \ref{fig:rotor_mesh} 所示的只含四面体单元的非结构网格，对于网格生成模块而言没有额外的难度；对于更一般的桨叶外形，如非线性的弦长、预扭分布，本文所实现的求解器也已支持对其进行高效处理。
-
 
 \subsection{孤立旋翼爬升问题}
 \begin{problem}
@@ -3170,13 +3169,14 @@ C++ 标准库提供的智能指针接管该动态数组，能够有效地避免�
 已经成为事实上的分布式并行计算行业标准，被称为“并行计算的汇编语言”。
 
 为了提高代码的可读性和可维护性，本文将涉及通信的操作封装在名为 \texttt{ShareSomething(...)} 的一组函数中，它们拥有相同的代码结构：
-\begin{enumerate}
+\begin{enumerate}[wide]
 \item 为每个目的地，将要发送的数据放入发送缓冲区，并通过调用 \texttt{MPI\_Isend(...)} 函数注册发送请求。
 \item 为每个源进程，分配一个接收缓冲区用于接收数据，并通过调用 \texttt{MPI\_Irecv(...)} 函数注册一个接收请求。
 \item 执行无需通信即可完成的其他计算任务。
 \item 通过调用 \texttt{MPI\_Waitall(...)} 函数阻塞所有进程，直到其所有发送和接收请求完成。
 \end{enumerate}
-其中，第 3 步是可选的，它允许计算与通信重叠，有助于提高并行效率；第 4 步是显式同步操作，除此之外还有一些隐式同步（例如：向同一个文件并行地写入数据），它们是降低并行性能的直接因素，应尽量避免非必要的同步。
+
+以上各步中，第 3 步是可选的，它允许计算与通信重叠，有助于提高并行效率；第 4 步是显式同步操作，除此之外还有一些隐式同步（例如：向同一个文件并行地写入数据），它们是降低并行性能的直接因素，应尽量避免非必要的同步。
 
 \section{并行性能测评}
 
