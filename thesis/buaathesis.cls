@@ -260,6 +260,12 @@ The LaTeX template for thesis of BUAA]
         beforeskip={.5\baselineskip},
         afterskip={.5\baselineskip},
     },
+    subsubsection={
+        format={\zihao{-4}\heiti},  
+    },
+    paragraph={
+        format={\zihao{-4}\heiti},
+    },
 }
 
 \ifbuaa@bachelor
