@@ -1497,7 +1497,7 @@ literal "false"
 \end_layout
 
 \begin_layout Subsubsection
-由试验得出的结论
+试验小结
 \end_layout
 
 \begin_layout Standard
@@ -1648,7 +1648,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-入流模型描述的是旋翼尾迹在桨盘平面处的诱导速度与旋翼气动力之间的数量关系。
+入流模型描述的是旋翼尾迹在桨盘平面处的诱导速度与旋翼气动力之间的函数关系，其发展历程经历了滑流理论、动态入流和有限状态入流三个阶段。
 \end_layout
 
 \begin_layout Standard
@@ -1775,12 +1775,12 @@ literal "false"
 \end_layout
 
 \begin_layout Subsubsection
-涡线尾迹模型
+尾迹模型
 \end_layout
 
 \begin_layout Standard
-涡线尾迹模型是用于描述旋翼尾迹中涡量空间分布情况的物理模型，在一些文献中也用来指代该物理模型所对应的数值计算方法。该模型的基本思想是用直线或曲线涡元（涡线单元）
-对涡量场进行离散，通过研究涡线单元的运动和演化来描述涡量场，属于连续介质力学
+尾迹模型是用于描述旋翼尾迹中涡量空间分布情况的物理模型，在一些文献中也用来指代该物理模型所对应的数值计算方法。该模型的基本思想是用直线或曲线涡元（涡线单元）对涡
+量场进行离散，通过研究涡线单元的运动和演化来描述涡量场，属于连续介质力学
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Fung1994"
@@ -1798,7 +1798,7 @@ literal "false"
 
 \begin_layout Standard
 刚性尾迹模型假设旋翼尾迹中的涡量集中分布在以桨盘为底面的直圆柱面或斜圆柱面上，或集中分布在从桨尖拖出的螺旋线上。在此模型中，涡系的几何形状只受自由来流和平均入流
-的驱动，不因涡系自诱导和互诱导而发生变形，故而得名“刚性尾迹”。
+的驱动，不因涡系自诱导和互诱导而发生变形，故而得名“刚性 (rigid)”尾迹。
 \end_layout
 
 \begin_layout Standard
@@ -2037,7 +2037,8 @@ literal "false"
 
 \end_inset
 
- 基于时间精确自由尾迹模型，研究了机动飞行状态下的旋翼尾迹几何形态和涡量分布，初步研究了桨涡干扰引起的旋翼噪声。此后，Ribera & Celi
+ 基于时间精确自由尾迹模型，研究了机动飞行状态下的旋翼尾迹几何形态和涡量分布，初步研究了桨涡干扰引起的旋翼噪声。此后，该校的 Ribera &
+ Celi
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ribera2007"
@@ -2088,6 +2089,13 @@ literal "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -3081,20 +3089,20 @@ literal "true"
 
 \end_inset
 
- (large eddy simulation) 混合方法两种物理模型，分析了船体气流尾迹（如图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:structured-mesh"
+ (large eddy simulation) 混合方法两种物理模型，分析了船体气流尾迹，并与试验数据进行了比较。结果表明：RANS 方程的计算结果很好地反映
+了船体气流尾迹的时间平均特征，而 RANS/LES 混合方法则进一步给出了更加接近物理真实的流场波动特征。上述计算结果已被用到直升机飞行模拟器中，并且得到了经验
+丰富的飞行员给出的积极评价。但此文只计算了船体气流尾迹，并没有将直升机（特别是旋翼）包括在计算模型中，因此没有体现船体气流尾迹与旋翼尾迹的耦合效应。
+\end_layout
 
-\end_inset
+\begin_layout Standard
+\begin_inset Note Note
+status open
 
- 所示），并与试验数据进行了比较。结果表明：RANS 方程的计算结果很好地反映了船体气流尾迹的时间平均特征，而 RANS/LES 混合方法则进一步给出了更加接近
-物理真实的流场波动特征。上述计算结果已被用到直升机飞行模拟器中，并且得到了经验丰富的飞行员给出的积极评价。但只计算了船体气流尾迹，并没有将直升机（特别是旋翼）包
-括在计算模型中，因此没有体现船体气流尾迹与旋翼尾迹的耦合效应。
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3125,6 +3133,11 @@ name "fig:structured-mesh"
 LatexCommand cite
 key "Muijden2013"
 literal "false"
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -3414,6 +3427,13 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 2003–2005 年，Lee 等
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3554,7 +3574,24 @@ literal "false"
 
 \end_inset
 
-。另一方面，大数据、机器学习技术的进步，也为建立基于 PIV、CFD 数据的精细气动模型创造了前所未有的条件。相比之下，我国在这些方向开展的研究工作仍十分有限。
+。
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+另一方面，大数据、机器学习技术的进步，也为建立基于 PIV、CFD 数据的精细气动模型创造了前所未有的条件。相比之下，我国在这些方向开展的研究工作仍十分有限。
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
