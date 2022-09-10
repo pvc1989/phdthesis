@@ -4193,7 +4193,7 @@ literal "true"
 \begin_inset Text
 
 \begin_layout Plain Layout
-数量
+总数
 \end_layout
 
 \end_inset
@@ -4202,7 +4202,7 @@ literal "true"
 \begin_inset Text
 
 \begin_layout Plain Layout
-Number
+total Number
 \end_layout
 
 \end_inset
@@ -4252,7 +4252,7 @@ literal "true"
 \begin_inset Formula $X$
 \end_inset
 
- 中所有成员的数量
+ 中所有成员的总数
 \end_layout
 
 \end_inset
@@ -4718,6 +4718,16 @@ literal "true"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 \int_{V_{i}\cap V_{k}}1=\delta_{ik}\int_{V_{i}}1,\qquad\forall(i,k)\in I_{V(G)}\times I_{V(G)},
@@ -4949,6 +4959,13 @@ literal "false"
 。
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 多项式近似
 \end_layout
@@ -4995,7 +5012,7 @@ literal "true"
 ，记作
 \begin_inset Formula 
 \begin{equation}
-u^{h}|_{V_{i}}(x,y,z)=\sum_{a,b,c}\hat{u}_{a,b,c}(x-x_{0})^{a}(y-y_{0})^{b}(z-z_{0})^{c},\qquad(x,y,z)\in V_{i},
+u^{h}|_{V_{i}}(x,y,z)=\sum_{a,b,c}\hat{u}_{a,b,c}\,(x-x_{0})^{a}(y-y_{0})^{b}(z-z_{0})^{c},\qquad(x,y,z)\in V_{i},
 \end{equation}
 
 \end_inset
@@ -5055,9 +5072,9 @@ literal "true"
 \begin{equation}
 u^{h}(x,y,z)=\begin{cases}
 u^{h}|_{V_{1}}(x,y,z), & (x,y,z)\in V_{1},\\
-\vdots & \vdots\\
+\cdots & \cdots\\
 u^{h}|_{V_{i}}(x,y,z), & (x,y,z)\in V_{i},\\
-\vdots & \vdots\\
+\cdots & \cdots\\
 u^{h}|_{V_{N_{V(G)}}}(x,y,z), & (x,y,z)\in V_{N_{V(G)}}.
 \end{cases}\label{eq:piecewise_polynomial}
 \end{equation}
@@ -5088,8 +5105,17 @@ u^{h}|_{V_{N_{V(G)}}}(x,y,z), & (x,y,z)\in V_{N_{V(G)}}.
 \begin_inset Formula $\varOmega$
 \end_inset
 
- 上的近似，需要补充其在这些面单元上的值。在间断伽辽金有限元法框架内，这些值可以由精确或近似黎曼求解器给出。本小节暂不对其展开讨论，因为所有面单元的并集在三维空
-间内的测度为零，而零测度集上的值不影响体积分。
+ 上的近似，需要补充其在这些面单元上的值。在间断伽辽金有限元法框架内，这些值可以由精确或近似黎曼求解器给出，并且只影响面积分
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+所有面单元的并集在三维空间内的测度为零，而零测度集上的有限值不影响体积分。
+\end_layout
+
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Standard
@@ -5156,6 +5182,17 @@ literal "true"
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 可以证明：式 
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -5387,6 +5424,10 @@ literal "true"
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 可以证明：该空间的其维数为
 \begin_inset Formula 
 \begin{equation}
@@ -5425,12 +5466,16 @@ reference "eq:inner-product"
  个待定系数的最小值问题：
 \begin_inset Formula 
 \begin{equation}
-\min_{\hat{u}_{a,b,c}\in\mathbb{R}}\int_{V_{i}}\left(u-\sum_{\vert a+b+c\vert<p}\hat{u}_{a,b,c}x^{a}y^{b}z^{c}\right)^{2}.
+\min_{\hat{u}_{a,b,c}\in\mathbb{R}}\int_{V_{i}}\left(u-\sum_{\vert a+b+c\vert<p}\hat{u}_{a,b,c}\,x^{a}y^{b}z^{c}\right)^{2}.
 \end{equation}
 
 \end_inset
 
-直接求解该优化问题过于繁琐，更简洁的方式为借助式 
+
+\end_layout
+
+\begin_layout Standard
+直接求解该优化问题通常需要迭代计算，存在收敛性问题；更直接的方法为借助式 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:inner-product"
@@ -5445,7 +5490,14 @@ reference "eq:inner-product"
 \begin_inset Formula $\mathbb{P}^{<p}(V_{i})$
 \end_inset
 
- 上的投影。
+ 上的投影。以下两小节将给出后者（直接投影法）的一般过程。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -5460,11 +5512,11 @@ name "subsec:orthonormal"
 \end_layout
 
 \begin_layout Standard
-任取 
+本小节从 
 \begin_inset Formula $\mathbb{P}^{<p}(V_{i})$
 \end_inset
 
- 的一组基函数，总是可以借助式 
+ 的一组基函数出发，借助式 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:inner-product"
@@ -5475,7 +5527,11 @@ reference "eq:inner-product"
 \begin_inset Formula $\mathbb{P}^{<p}(V_{i})$
 \end_inset
 
- 的一组正交归一化的基函数。不失一般性，可以取
+ 的一组正交归一化的基函数。
+\end_layout
+
+\begin_layout Standard
+不失一般性，可以取
 \begin_inset Formula 
 \begin{equation}
 \phi_{1}(\vec{r})=1,\qquad\begin{bmatrix}\phi_{2}(\vec{r})\\
@@ -5501,7 +5557,7 @@ z-z_{0}
 
 \end_inset
 
-
+以及更高次的
 \begin_inset Formula 
 \begin{equation}
 \begin{bmatrix}\phi_{11}(\vec{r})\\
@@ -5529,7 +5585,7 @@ z-z_{0}
 
 \end_inset
 
-其中 
+作为基函数，其中 
 \begin_inset Formula $(x_{0},y_{0},z_{0})$
 \end_inset
 
@@ -5540,7 +5596,7 @@ z-z_{0}
  内任意一点。可以证明：
 \begin_inset Formula 
 \begin{equation}
-\underline{\phi}(\vec{r})\coloneqq\begin{bmatrix}\phi_{1}(\vec{r}) & \phi_{2}(\vec{r}) & \cdots & \phi_{n}(\vec{r})\end{bmatrix}^{t},\qquad n=\frac{p}{6}(p+1)(p+2),
+\underline{\phi}(\vec{r})\coloneqq\begin{bmatrix}\phi_{1}(\vec{r}) & \phi_{2}(\vec{r}) & \cdots & \phi_{n}(\vec{r})\end{bmatrix}^{t},\qquad n=\binom{p+2}{3},
 \end{equation}
 
 \end_inset
@@ -5549,10 +5605,14 @@ z-z_{0}
 \begin_inset Formula $\mathbb{P}^{<p}(V_{i})$
 \end_inset
 
- 的一组基。对其应用 Gram–Schmidt 过程，即得一组正交归一化的基函数：
+ 的一组基。
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+对其应用 Gram–Schmidt 过程，即得一组正交归一化的基函数：
+\end_layout
+
+\begin_layout Enumerate
 首先对 
 \begin_inset Formula $\phi_{1}$
 \end_inset
@@ -5568,7 +5628,7 @@ e_{1}=\frac{\phi_{1}}{\Vert\phi_{1}\Vert_{V_{i}}}.
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 假设已得出前 
 \begin_inset Formula $m-1$
 \end_inset
@@ -5608,7 +5668,7 @@ e_{m}=\frac{\phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle_{V_{
 \end_layout
 
 \begin_layout Standard
-如果将所得结果记为
+该过程所得结果可以记为
 \begin_inset Formula 
 \begin{equation}
 \underbrace{\begin{bmatrix}e_{1}(\vec{r})\\
@@ -5628,7 +5688,7 @@ S_{n1} & S_{n2} & \cdots & S_{nn}
 
 \end_inset
 
-那么 
+其中 
 \begin_inset Formula $\underline{S}$
 \end_inset
 
@@ -5643,7 +5703,7 @@ literal "false"
 ：
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 第一行只需做归一化：
 \begin_inset Formula 
 \begin{equation}
@@ -5655,7 +5715,7 @@ S_{11}=\frac{1}{\Vert\phi_{1}\Vert_{V_{i}}}.
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 假设已获得 
 \begin_inset Formula $\underline{S}$
 \end_inset
@@ -5683,8 +5743,7 @@ reference "eq:ortho-normal"
 \begin_inset Formula 
 \begin{equation}
 \begin{aligned}\phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle_{V_{i}} & =\phi_{m}-\sum_{k=1}^{m-1}\left(\sum_{j=1}^{k}S_{kj}\phi_{j}\right)\ip{\sum_{l=1}^{k}S_{kl}\phi_{l}}{\phi_{m}}_{V_{i}}\\
- & =\phi_{m}-\sum_{k=1}^{m-1}\left(\sum_{j=1}^{k}S_{kj}\phi_{j}\right)\left(\sum_{l=1}^{k}S_{kl}\langle\phi_{l}\vert\phi_{m}\rangle_{V_{i}}\right)\\
- & =\sum_{j=1}^{m}a_{j}\phi_{j},
+ & =\phi_{m}-\sum_{k=1}^{m-1}\left(\sum_{j=1}^{k}S_{kj}\phi_{j}\right)\left(\sum_{l=1}^{k}S_{kl}\langle\phi_{l}\vert\phi_{m}\rangle_{V_{i}}\right)=\sum_{j=1}^{m}a_{j}\phi_{j},
 \end{aligned}
 \end{equation}
 
@@ -5732,6 +5791,13 @@ S_{mj}=\frac{a_{j}}{\left\Vert \sum_{j=1}^{m}a_{j}\phi_{j}\right\Vert _{V_{i}}}=
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 含有 
 \begin_inset Formula $m$
 \end_inset
@@ -5745,14 +5811,6 @@ S_{mj}=\frac{a_{j}}{\left\Vert \sum_{j=1}^{m}a_{j}\phi_{j}\right\Vert _{V_{i}}}=
 \end_inset
 
  上的投影来近似：
-\begin_inset Formula 
-\begin{equation}
-\underline{U}^{h}(\vec{r})=\langle\underline{U}\vert\underline{e}\rangle_{V_{i}}\,\underline{e}(\vec{r}),
-\end{equation}
-
-\end_inset
-
-即
 \begin_inset Formula 
 \begin{equation}
 \begin{bmatrix}U_{1}^{h}(\vec{r})\\
@@ -5769,7 +5827,7 @@ e_{n}(\vec{r})
 
 \end_inset
 
-这里的“近似”有两层含义：一是该式中的内积一般不能精确算出，二是有限维的多项式空间不足以精确表达任意函数。如果 
+这里的“近似”有两层含义：一是该式中的内积（积分）一般不能精确算出，二是有限维的多项式空间不足以精确表达任意函数。如果 
 \begin_inset Formula $\underline{U}$
 \end_inset
 
@@ -5789,121 +5847,6 @@ reference "subsec:quadrature"
 \end_inset
 
  的精确表示。
-\end_layout
-
-\begin_layout Standard
-如果 
-\begin_inset Formula $\underline{e'}(\vec{r})=\begin{bmatrix}e'_{1}(\vec{r}) & \cdots & e'_{n}(\vec{r})\end{bmatrix}^{t}$
-\end_inset
-
- 是另一组正交归一化的基底，那么原始基底 
-\begin_inset Formula $\underline{E}$
-\end_inset
-
- 在新的基底 
-\begin_inset Formula $\underline{E'}$
-\end_inset
-
- 上的投影为
-\begin_inset Formula 
-\begin{equation}
-\underline{e^{h}}(\vec{r})=\langle\underline{e}\vert\underline{e'}\rangle_{V_{i}}\,\underline{e'}(\vec{r}),
-\end{equation}
-
-\end_inset
-
-即
-\begin_inset Formula 
-\begin{equation}
-\begin{bmatrix}e_{1}(\vec{r})\\
-\vdots\\
-e_{n}(\vec{r})
-\end{bmatrix}=\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e{}_{1}\vert e'_{n}\rangle_{V_{i}}\\
-\vdots & \ddots & \vdots\\
-\langle e_{n}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{n}\vert e'_{n}\rangle_{V_{i}}
-\end{bmatrix}\begin{bmatrix}e'_{1}(\vec{r})\\
-\vdots\\
-e'_{n}(\vec{r})
-\end{bmatrix}.
-\end{equation}
-
-\end_inset
-
-原则上，该式中的内积都可以精确算出（被积函数都是多项式），因此该变换可以被视为是精确的（即 
-\begin_inset Formula $\underline{e^{h}}$
-\end_inset
-
- 的上标 
-\begin_inset Formula $h$
-\end_inset
-
- 可以省略）。将其代入式 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:function_projection"
-
-\end_inset
-
- 即得 
-\begin_inset Formula $\underline{U}$
-\end_inset
-
- 在 
-\begin_inset Formula $\underline{e'}$
-\end_inset
-
- 上的投影：
-\begin_inset Formula 
-\begin{equation}
-\underbrace{\begin{bmatrix}U_{1}(\vec{r})\\
-\vdots\\
-U_{m}(\vec{r})
-\end{bmatrix}}_{\underline{U}^{h}(\vec{r})}=\underbrace{\begin{bmatrix}\langle U_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{1}\vert e_{n}\rangle_{V_{i}}\\
-\vdots & \ddots & \vdots\\
-\langle U_{m}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{m}\vert e_{n}\rangle_{V_{i}}
-\end{bmatrix}\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{1}\vert e'_{n}\rangle_{V_{i}}\\
-\vdots & \ddots & \vdots\\
-\langle e_{n}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{n}\vert e'_{n}\rangle_{V_{i}}
-\end{bmatrix}}_{\langle\underline{U}\vert\underline{e'}\rangle_{V_{i}}}\underbrace{\begin{bmatrix}e'_{1}(\vec{r})\\
-\vdots\\
-e'_{n}(\vec{r})
-\end{bmatrix}}_{\underline{e'}(\vec{r})}.
-\end{equation}
-
-\end_inset
-
-由此得矩阵函数 
-\begin_inset Formula $\underline{U}(\vec{r})$
-\end_inset
-
- 在两组正交归一基底上的投影系数之间的变换法则：
-\begin_inset Formula 
-\begin{equation}
-\langle\underline{U}\vert\underline{e'}\rangle_{V_{i}}=\langle\underline{U}\vert\underline{e}\rangle_{V_{i}}\langle\underline{e}\vert\underline{e'}\rangle_{V_{i}}
-\end{equation}
-
-\end_inset
-
-即
-\begin_inset Formula 
-\begin{equation}
-\begin{gathered}\begin{bmatrix}\langle U_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle U_{1}\vert e'_{n}\rangle_{V_{i}}\\
-\vdots & \ddots & \vdots\\
-\langle U_{m}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle U_{m}\vert e'_{n}\rangle_{V_{i}}
-\end{bmatrix}\\
-=\begin{bmatrix}\langle U_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{1}\vert e_{n}\rangle_{V_{i}}\\
-\vdots & \ddots & \vdots\\
-\langle U_{m}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{m}\vert e_{n}\rangle_{V_{i}}
-\end{bmatrix}\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{1}\vert e'_{n}\rangle_{V_{i}}\\
-\vdots & \ddots & \vdots\\
-\langle e_{n}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{n}\vert e'_{n}\rangle_{V_{i}}
-\end{bmatrix}.
-\end{gathered}
-\end{equation}
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -6033,6 +5976,13 @@ N_{\mu}(\xi_{\nu},\eta_{\nu},\zeta_{\nu})=\delta_{\mu\nu}, & \forall(\mu,\nu),\\
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 式 
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -6077,7 +6027,7 @@ z_{\mu}
 
 \end_inset
 
-的最后一行的被积函数
+右端的被积函数
 \begin_inset Formula 
 \begin{equation}
 f(x(\xi,\eta,\zeta),y(\xi,\eta,\zeta),z(\xi,\eta,\zeta))\det\underline{J}\eqqcolon F(\xi,\eta,\zeta)
@@ -6089,7 +6039,11 @@ f(x(\xi,\eta,\zeta),y(\xi,\eta,\zeta),z(\xi,\eta,\zeta))\det\underline{J}\eqqcol
 \begin_inset Formula $(\xi,\eta,\zeta)$
 \end_inset
 
- 的多项式。原则上，只要数值积分器的代数精度足够高，就能精确算出其积分值。下面给出一种构造具有 
+ 的多项式。原则上，只要数值积分器的代数精度足够高，就能精确算出其积分值。
+\end_layout
+
+\begin_layout Standard
+下面给出一种构造具有 
 \begin_inset Formula $r$
 \end_inset
 
@@ -6270,14 +6224,14 @@ w_{k}>0\\
 
 \end_inset
 
-通用的优化算法一般会给出多组极小值解，而非单一的最小值解。但上述目标函数都是非负的，其最小值只能为零。因此，用优化方法寻找方程组 
+通用的优化算法一般会给出多组极小值解，而非单一的最小值解。但上述目标函数都是非负的，其最小值只能为零。因此，用优化算法找到方程组 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:rth-order-gaussian"
 
 \end_inset
 
- 的解，只应保留那些使得目标函数取值为零的极小值解。
+ 的解后，只应保留那些使得目标函数取值为零的极小值解。
 \end_layout
 
 \begin_layout Standard
@@ -6297,15 +6251,26 @@ reference "chap:gaussian_pairs"
 \end_layout
 
 \begin_layout Standard
-以上各小节已经给出了寻找给定函数在给定非结构网格上的分段多项式近似的一般方法。在实际应用中，更有价值的是寻找满足给定微分方程及定解条件的未知函数，在给定非结构网
-格上的分段多项式近似。本小节及下一小节就来推导求解双曲型方程定解问题的间断伽辽金有限元法，该方法的三维并行实现（详见 
+以上各小节已经给出了寻找
+\emph on
+已知函数
+\emph default
+在给定非结构网格上的分段多项式近似的一般方法，其最常见的应用是施加初边值问题的初始条件。
+\end_layout
+
+\begin_layout Standard
+在实际应用中，更有价值的是寻找满足给定微分方程及定解条件的
+\emph on
+未知函数
+\emph default
+，在给定非结构网格上的分段多项式近似。本小节及下一小节就来推导求解双曲型方程定解问题的间断伽辽金有限元法，该方法的三维并行实现（详见 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:parallel"
 
 \end_inset
 
- 小节）正是本文的主要贡献之一。
+ 小节）正是本文的主要工作内容（之一）。
 \end_layout
 
 \begin_layout Standard
@@ -6540,7 +6505,7 @@ reference "eq:weak-form"
 \begin_inset Formula $L$
 \end_inset
 
- 个方程：
+ 个常微分方程：
 \begin_inset Formula 
 \begin{equation}
 \sum_{k}\dv{\underline{\hat{U}}_{k}}{t}\langle\phi_{k}\vert\psi_{l}\rangle_{V}-\int_{V}\left(\nabla\psi_{l}\right)\cdot\mathopen{\underline{\vec{F}}}\left(\underline{U}^{h}\right)+\oint_{\partial V}\psi_{l}\,\mathopen{\underline{F}^{\nu}}\left(\underline{U}^{h}\right)=\int_{V}\psi_{l}\,\mathopen{\underline{H}}\left(\underline{U}^{h}\right).
@@ -6773,7 +6738,11 @@ reference "eq:FEM"
 
 \end_inset
 
- 中省去。前文（
+ 中省去。
+\end_layout
+
+\begin_layout Standard
+前文（
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:orthonormal"
@@ -7361,6 +7330,13 @@ reference "eq:RKm"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 “保持强稳定性 (SSP)”的概念以及上述引理，是由 Shu 等提出并发展的
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -7480,6 +7456,13 @@ literal "true"
 \end_inset
 
 )”模型嵌入既有的 RKDG 格式，从而获得 UMS–RKDG 格式的具体过程。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -8427,7 +8410,11 @@ literal "true"
 
 \end_inset
 
-，大约在 2013 年前后才开始出现，并且通常只给出二维版本的实现。本节剩余部分将基于文献-
+，大约在 2013 年前后才开始出现，并且通常只给出二维版本的实现。
+\end_layout
+
+\begin_layout Standard
+本节剩余部分将基于文献-
 \begin_inset CommandInset citation
 LatexCommand citet
 key "Zhong_2013,Zhu_2013"
@@ -9022,7 +9009,11 @@ w_{k\to i}^{\star}=\begin{cases}
 
 \end_inset
 
-数值试验表明：较大的 
+其中 
+\begin_inset Formula $w_{i\to i}^{\star}$
+\end_inset
+
+ 为可调小量。数值试验表明：较大的 
 \begin_inset Formula $w_{i\to i}^{\star}$
 \end_inset
 
@@ -9063,7 +9054,7 @@ literal "true"
 \begin_inset Formula $\vert V_{i}\vert^{2\vert\alpha\vert/3-1}/(\vert\alpha\vert!)^{2}$
 \end_inset
 
- 的分子用于无量纲化，分母用于避免高阶导数的占比过多。文献-
+ 的分子用于无量纲化，分母用于调节高阶导数的占比。文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Zhu_2013"
@@ -9529,8 +9520,17 @@ literal "true"
 \begin_inset Formula $\vec{\nu}_{k}$
 \end_inset
 
- 沿该边界不变，即单元边界属于某个平面。在三维问题中，四面体单元通常可以保证不属于任何平面的单元边界只出现在流场边界上，而六面体单元（即使最低阶的八结点单元）的
-单元边界一般而言是非平面的。
+ 沿该边界不变，即单元边界属于某个平面
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+在三维问题中，四面体单元通常可以保证不属于任何平面的单元边界只出现在流场边界上，而六面体单元（即使最低阶的八结点单元）的单元边界一般而言是非平面的。
+\end_layout
+
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Subsection
@@ -9712,11 +9712,11 @@ literal "true"
 ：
 \begin_inset Formula 
 \begin{equation}
-\underline{L'}=(\underline{R'})^{-1}=\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}+1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{-1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}\\
+\underline{L'}=(\underline{R'})^{-1}=\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & -\frac{1}{2}\left(B_{1}u_{\nu}+1/a\right) & -\frac{1}{2}B_{1}u_{\sigma} & -\frac{1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}\\
 1-B_{2} & B_{1}u_{\nu} & B_{1}u_{\sigma} & B_{1}u_{\pi} & -B_{1}\\
 -u_{\sigma} & 0 & 1 & 0 & 0\\
 -u_{\pi} & 0 & 0 & 1 & 0\\
-\frac{1}{2}\left(B_{2}-u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}-1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{-1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}
+\frac{1}{2}\left(B_{2}-u_{\nu}/a\right) & -\frac{1}{2}\left(B_{1}u_{\nu}-1/a\right) & -\frac{1}{2}B_{1}u_{\sigma} & -\frac{1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}
 \end{bmatrix},
 \end{equation}
 
@@ -9817,6 +9817,13 @@ u_{z}
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 同理，可得左特征矩阵在全局 
 \begin_inset Formula $(x,y,z)$
 \end_inset
@@ -9833,38 +9840,14 @@ literal "true"
 ：
 \begin_inset Formula 
 \begin{equation}
-\underline{L}=\underline{L'}\,\underline{J}_{\underline{U}\to\underline{U'}}^{-1}
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-=\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}+1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{-1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}\\
-1-B_{2} & B_{1}u_{\nu} & B_{1}u_{\sigma} & B_{1}u_{\pi} & -B_{1}\\
--u_{\sigma} & 0 & 1 & 0 & 0\\
--u_{\pi} & 0 & 0 & 1 & 0\\
-\frac{1}{2}\left(B_{2}-u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}-1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{-1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}
-\end{bmatrix}\begin{bmatrix}1\\
- & \nu_{x} & \nu_{y} & \nu_{z}\\
- & \sigma_{x} & \sigma_{y} & \sigma_{z}\\
- & \pi_{x} & \pi_{y} & \pi_{z}\\
- &  &  &  & 1
-\end{bmatrix}
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-=\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{x}+\nu_{x}/a\right) & \frac{-1}{2}\left(B_{1}u_{y}+\nu_{y}/a\right) & \frac{-1}{2}\left(B_{1}u_{z}+\nu_{z}/a\right) & \frac{1}{2}B_{1}\\
-1-B_{2} & B_{1}u_{x} & B_{1}u_{y} & B_{1}u_{z} & -B_{1}\\
--u_{\sigma} & \sigma_{x} & \sigma_{y} & \sigma_{z} & 0\\
--u_{\pi} & \pi_{x} & \pi_{y} & \pi_{z} & 0\\
-\frac{1}{2}\left(B_{2}-u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{x}-\nu_{x}/a\right) & \frac{-1}{2}\left(B_{1}u_{y}-\nu_{y}/a\right) & \frac{-1}{2}\left(B_{1}u_{z}-\nu_{z}/a\right) & \frac{1}{2}B_{1}
-\end{bmatrix}.
+\begin{aligned}\underline{L} & =\underline{L'}\,\underline{J}_{\underline{U}\to\underline{U'}}^{-1}\\
+ & =\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & 1-B_{2} & -u_{\sigma} & -u_{\pi} & \frac{1}{2}\left(B_{2}-u_{\nu}/a\right)\\
+-\frac{1}{2}\left(B_{1}u_{x}+\nu_{x}/a\right) & B_{1}u_{x} & \sigma_{x} & \pi_{x} & -\frac{1}{2}\left(B_{1}u_{x}-\nu_{x}/a\right)\\
+-\frac{1}{2}\left(B_{1}u_{y}+\nu_{y}/a\right) & B_{1}u_{y} & \sigma_{y} & \pi_{y} & -\frac{1}{2}\left(B_{1}u_{y}-\nu_{y}/a\right)\\
+-\frac{1}{2}\left(B_{1}u_{z}+\nu_{z}/a\right) & B_{1}u_{z} & \sigma_{z} & \pi_{z} & -\frac{1}{2}\left(B_{1}u_{z}-\nu_{z}/a\right)\\
+\frac{1}{2}B_{1} & -B_{1} & 0 & 0 & \frac{1}{2}B_{1}
+\end{bmatrix}^{t}
+\end{aligned}
 \end{equation}
 
 \end_inset

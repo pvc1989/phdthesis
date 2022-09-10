@@ -555,7 +555,7 @@ RKDG 方法虽然能在非结构网格上构造出高阶格式，但对于含有
 \midrule
 网格 & Grid & $G(\varOmega)$ 或 $G_{\varOmega}$\nomenclature{$G(\varOmega)$ 或 $G_{\varOmega}$}{表示覆盖区域 $\varOmega$ 的网格}  & $G$ & 用于离散空间区域 $\varOmega$ 的网格\tabularnewline
 索引 & Index & $I(X)$ 或 $I_{X}$\nomenclature{$I(X)$ 或 $I_{X}$}{表示对象 $X$ 中所有成员编号之集} & $I$ & 对象 $X$ 中所有成员编号之集\tabularnewline
-数量 & Number & $N(X)$ 或 $N_{X}$\nomenclature{$N(X)$ 或 $N_{X}$}{表示对象 $X$ 中所有成员的数量} & $N$ & 对象 $X$ 中所有成员的数量\tabularnewline
+总数 & total Number & $N(X)$ 或 $N_{X}$\nomenclature{$N(X)$ 或 $N_{X}$}{表示对象 $X$ 中所有成员的数量} & $N$ & 对象 $X$ 中所有成员的总数\tabularnewline
 体单元 & Volume element & $V(X,i)$\nomenclature{$V(X,i)$ 或 $V_{i}$}{表示对象 $X$ 中的第 $i$ 号体单元} & $V_{i}$ & 对象 $X$ 中的第 $i$ 号体单元\tabularnewline
  &  & $V(X)$ 或 $V_{X}$\nomenclature{$V(X)$ 或 $V_{X}$}{表示对象 $X$ 中的所有体单元} & $V$ & 对象 $X$ 中的所有体单元\tabularnewline
 面单元 & Surface element & $S(X,i)$\nomenclature{$S(X,i)$}{表示对象 $X$ 中的第 $i$ 号面单元} & $S_{i}$ & 对象 $X$ 中的第 $i$ 号面单元\tabularnewline
@@ -571,6 +571,9 @@ RKDG 方法虽然能在非结构网格上构造出高阶格式，但对于含有
 \varOmega=\bigcup_{i\in I_{V(G)}}\overline{V_{i}},
 \end{equation}
 且相邻体单元之交的体积为零，即\nomenclature{$\delta_{ik}$}{表示 Kronecker 记号，$i=k$ 时取值为 $1$，否则取值为 $0$}
+
+\newpage{}
+
 \begin{equation}
 \int_{V_{i}\cap V_{k}}1=\delta_{ik}\int_{V_{i}}1,\qquad\forall(i,k)\in I_{V(G)}\times I_{V(G)},
 \end{equation}
@@ -600,12 +603,14 @@ h_{i}\coloneqq\vert V_{i}\vert\coloneqq\int_{V_{i}}1=\int_{x_{i-1/2}}^{x_{i+1/2}
 对于高维问题，网格的生成是一项重要且相对独立的技术，需要借助专业的软件（例如：\href{http://gmsh.info/}{Gmsh}、\href{https://www.cgal.org/}{CGAL}）来完成。这些软件输出的非结构网格文件（例如：\href{http://gmsh.info/doc/texinfo/gmsh.html\#File-formats}{MSH}、\href{https://www.vtk.org/wp-content/uploads/2015/04/file-formats.pdf}{VTK}、\href{http://cgns.github.io/}{CGNS}）通常只含有结点坐标与体单元结点编号等信息，而不会显式记录面单元及其与体单元的关联信息。在导入这类网格文件时，需要以
 $\order{N_{V}\lg^{3}N_{V}}$ 复杂度构造所有面单元，并为每个面单元创建其相邻体单元的引用\footnote{\href{https://www.openfoam.com}{OpenFOAM} 定义的 \href{https://www.openfoam.com/documentation/user-guide/4-mesh-generation-and-conversion/4.1-mesh-description}{polyMesh 格式}会显式记录面元及两侧体元的信息，故无需此操作}。
 
+\newpage{}
+
 \subsection{多项式近似}
 
 给定函数 $u\colon\varOmega\to\mathbb{R}$ 及非结构网格 $G(\varOmega)$，在任意体单元
 $V_{i}\subset\varOmega$ 上总是可以定义 $u$ 在 $V_{i}$ 上的多项式近似\nomenclature{$u^{h}\vert_{V_{i}}$}{表示标量函数 $u$ 在体单元 $V_{i}$ 上的多项式近似}\nomenclature{$u^{h}$}{表示标量函数 $u$ 在尺度为 $h$ 的网格上的多项式近似}，记作
 \begin{equation}
-u^{h}|_{V_{i}}(x,y,z)=\sum_{a,b,c}\hat{u}_{a,b,c}(x-x_{0})^{a}(y-y_{0})^{b}(z-z_{0})^{c},\qquad(x,y,z)\in V_{i},
+u^{h}|_{V_{i}}(x,y,z)=\sum_{a,b,c}\hat{u}_{a,b,c}\,(x-x_{0})^{a}(y-y_{0})^{b}(z-z_{0})^{c},\qquad(x,y,z)\in V_{i},
 \end{equation}
 其中 $a,b,c$ 均为非负整数，$\hat{u}_{a,b,c}$ 为常值系数\nomenclature{$\hat{u}_{a,b,c}$}{表示多项式 $u^{h}\vert_{V_{i}}$ 以 $(x_{0},y_{0},z_{0})$ 为中心的展开式中 $(x-x_{0})^{a}(y-y_{0})^{b}(z-z_{0})^{c}$ 的系数}，$(x_{0},y_{0},z_{0})$
 为 $V_{i}$ 内任意一点，$h$ 表示单元尺寸（棱长平均值或外接球半径）\nomenclature{$h$}{表示单元的尺寸（棱长平均值或外接球半径）}。将
@@ -614,14 +619,14 @@ $u$ 在所有体单元 $V(G)$ 上的这种多项式近似拼接在一起，就�
 \begin{equation}
 u^{h}(x,y,z)=\begin{cases}
 u^{h}|_{V_{1}}(x,y,z), & (x,y,z)\in V_{1},\\
-\vdots & \vdots\\
+\cdots & \cdots\\
 u^{h}|_{V_{i}}(x,y,z), & (x,y,z)\in V_{i},\\
-\vdots & \vdots\\
+\cdots & \cdots\\
 u^{h}|_{V_{N_{V(G)}}}(x,y,z), & (x,y,z)\in V_{N_{V(G)}}.
 \end{cases}\label{eq:piecewise_polynomial}
 \end{equation}
 该函数的定义域 $\bigcup_{i\in I_{V(G)}}V_{i}$ 与被网格 $G$ 离散的区域 $\varOmega$
-相比，遗漏了面单元上的点。为了让 $u^{h}$ 真正成为 $u$ 在 $\varOmega$ 上的近似，需要补充其在这些面单元上的值。在间断伽辽金有限元法框架内，这些值可以由精确或近似黎曼求解器给出。本小节暂不对其展开讨论，因为所有面单元的并集在三维空间内的测度为零，而零测度集上的值不影响体积分。
+相比，遗漏了面单元上的点。为了让 $u^{h}$ 真正成为 $u$ 在 $\varOmega$ 上的近似，需要补充其在这些面单元上的值。在间断伽辽金有限元法框架内，这些值可以由精确或近似黎曼求解器给出，并且只影响面积分\footnote{所有面单元的并集在三维空间内的测度为零，而零测度集上的有限值不影响体积分。}。
 
 为了定量描述 $u^{h}$ 对 $u$ 的近似精度，需要在二者共同所属的函数空间上引入某种“度量 (metric)”。通常的做法是取
 $\varOmega$ 上的平方可积函数空间\nomenclature{$L^{2}(\varOmega)$}{表示 $\varOmega$ 上的平方可积函数空间}
@@ -636,6 +641,9 @@ L^{2}(\varOmega)\coloneqq\left\{ \phi:\int_{\varOmega}\vert\phi\vert^{2}<\infty\
 \begin{equation}
 \Vert\phi\Vert_{\varOmega}\coloneqq\sqrt{\langle\phi\vert\phi\rangle_{\varOmega}},\qquad\forall\phi\in L^{2}(\varOmega).\label{eq:norm}
 \end{equation}
+
+\newpage{}
+
 可以证明：式 (\ref{eq:inner-product})–(\ref{eq:norm}) 与内积、范数的公理化定义是相容的，且
 $L^{2}(\varOmega)$ 是完备的无穷维内积空间。有了上述概念，便可以定义误差的“阶数 (order)”：若随着 $h\to0$，函数
 $u$ 与其多项式近似 $u^{h}$ 之差的范数是 $h$ 的 $p$ 阶无穷小量，即
@@ -659,6 +667,7 @@ $u^{h}|_{V_{i}}$ 的一般方法。实际计算不可能取遍整个 $L^{2}(V_{i
 \begin{equation}
 \mathbb{P}^{<p}(V_{i})\coloneqq\mathrm{span}\left\{ x^{a}y^{b}z^{c}:\vert a+b+c\vert<p\right\} .
 \end{equation}
+
 可以证明：该空间的其维数为
 \begin{equation}
 n=\binom{p+2}{3}=\frac{(p+2)(p+1)p}{6},
@@ -667,15 +676,20 @@ n=\binom{p+2}{3}=\frac{(p+2)(p+1)p}{6},
 内寻找 $u$ 的最优近似 $u^{h}$ 就归结为求解关于 $\left\{ \hat{u}_{a,b,c}\right\} _{\vert a+b+c\vert<p}$
 这 $(p+2)(p+1)p/6$ 个待定系数的最小值问题：
 \begin{equation}
-\min_{\hat{u}_{a,b,c}\in\mathbb{R}}\int_{V_{i}}\left(u-\sum_{\vert a+b+c\vert<p}\hat{u}_{a,b,c}x^{a}y^{b}z^{c}\right)^{2}.
+\min_{\hat{u}_{a,b,c}\in\mathbb{R}}\int_{V_{i}}\left(u-\sum_{\vert a+b+c\vert<p}\hat{u}_{a,b,c}\,x^{a}y^{b}z^{c}\right)^{2}.
 \end{equation}
-直接求解该优化问题过于繁琐，更简洁的方式为借助式 (\ref{eq:inner-product}) 所定义的内积构造 $u$ 在
-$\mathbb{P}^{<p}(V_{i})$ 上的投影。
+
+直接求解该优化问题通常需要迭代计算，存在收敛性问题；更直接的方法为借助式 (\ref{eq:inner-product}) 所定义的内积构造
+$u$ 在 $\mathbb{P}^{<p}(V_{i})$ 上的投影。以下两小节将给出后者（直接投影法）的一般过程。
+
+\newpage{}
 
 \subsection{正交归一化\label{subsec:orthonormal}}
 
-任取 $\mathbb{P}^{<p}(V_{i})$ 的一组基函数，总是可以借助式 (\ref{eq:inner-product})
-所定义的内积，构造出 $\mathbb{P}^{<p}(V_{i})$ 的一组正交归一化的基函数。不失一般性，可以取
+本小节从 $\mathbb{P}^{<p}(V_{i})$ 的一组基函数出发，借助式 (\ref{eq:inner-product})
+所定义的内积，构造出 $\mathbb{P}^{<p}(V_{i})$ 的一组正交归一化的基函数。
+
+不失一般性，可以取
 \begin{equation}
 \phi_{1}(\vec{r})=1,\qquad\begin{bmatrix}\phi_{2}(\vec{r})\\
 \phi_{3}(\vec{r})\\
@@ -697,6 +711,7 @@ z-z_{0}
 (z-z_{0})(z-z_{0})
 \end{bmatrix},
 \end{equation}
+以及更高次的
 \begin{equation}
 \begin{bmatrix}\phi_{11}(\vec{r})\\
 \phi_{12}(\vec{r})\\
@@ -720,12 +735,14 @@ z-z_{0}
 (z-z_{0})(z-z_{0})(z-z_{0})
 \end{bmatrix},\qquad\dots
 \end{equation}
-其中 $(x_{0},y_{0},z_{0})$ 是体单元 $V_{i}$ 内任意一点。可以证明：
+作为基函数，其中 $(x_{0},y_{0},z_{0})$ 是体单元 $V_{i}$ 内任意一点。可以证明：
 \begin{equation}
-\underline{\phi}(\vec{r})\coloneqq\begin{bmatrix}\phi_{1}(\vec{r}) & \phi_{2}(\vec{r}) & \cdots & \phi_{n}(\vec{r})\end{bmatrix}^{t},\qquad n=\frac{p}{6}(p+1)(p+2),
+\underline{\phi}(\vec{r})\coloneqq\begin{bmatrix}\phi_{1}(\vec{r}) & \phi_{2}(\vec{r}) & \cdots & \phi_{n}(\vec{r})\end{bmatrix}^{t},\qquad n=\binom{p+2}{3},
 \end{equation}
-的确是函数空间 $\mathbb{P}^{<p}(V_{i})$ 的一组基。对其应用 Gram–Schmidt 过程，即得一组正交归一化的基函数：
-\begin{itemize}
+的确是函数空间 $\mathbb{P}^{<p}(V_{i})$ 的一组基。
+
+对其应用 Gram–Schmidt 过程，即得一组正交归一化的基函数：
+\begin{enumerate}[wide]
 \item 首先对 $\phi_{1}$ 做归一化：
 \begin{equation}
 e_{1}=\frac{\phi_{1}}{\Vert\phi_{1}\Vert_{V_{i}}}.
@@ -736,9 +753,9 @@ $e_{m}$ 只需先从 $\phi_{m}$ 中减去其在 $\left\{ e_{k}\right\} _{k=1}^{m
 \begin{equation}
 e_{m}=\frac{\phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle_{V_{i}}}{\left\Vert \phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle_{V_{i}}\right\Vert _{V_{i}}},\qquad m>1.\label{eq:ortho-normal}
 \end{equation}
-\end{itemize}
+\end{enumerate}
 
-如果将所得结果记为
+该过程所得结果可以记为
 \begin{equation}
 \underbrace{\begin{bmatrix}e_{1}(\vec{r})\\
 e_{2}(\vec{r})\\
@@ -754,8 +771,8 @@ S_{n1} & S_{n2} & \cdots & S_{nn}
 \phi_{n}(\vec{r})
 \end{bmatrix}}_{\underline{\phi}},
 \end{equation}
-那么 $\underline{S}$ 为下三角阵，其元素可逐行算出\upcite{JYY_2021}：
-\begin{itemize}
+其中 $\underline{S}$ 为下三角阵，其元素可逐行算出\upcite{JYY_2021}：
+\begin{enumerate}[wide]
 \item 第一行只需做归一化：
 \begin{equation}
 S_{11}=\frac{1}{\Vert\phi_{1}\Vert_{V_{i}}}.
@@ -767,8 +784,7 @@ e_{k}=\sum_{j=1}^{k}S_{kj}\phi_{j},\qquad k=1,2,\dots,m-1,\label{eq:partially_or
 代入式 (\ref{eq:ortho-normal}) 右端的分子，可得
 \begin{equation}
 \begin{aligned}\phi_{m}-\sum_{k=1}^{m-1}e_{k}\langle e_{k}\vert\phi_{m}\rangle_{V_{i}} & =\phi_{m}-\sum_{k=1}^{m-1}\left(\sum_{j=1}^{k}S_{kj}\phi_{j}\right)\ip{\sum_{l=1}^{k}S_{kl}\phi_{l}}{\phi_{m}}_{V_{i}}\\
- & =\phi_{m}-\sum_{k=1}^{m-1}\left(\sum_{j=1}^{k}S_{kj}\phi_{j}\right)\left(\sum_{l=1}^{k}S_{kl}\langle\phi_{l}\vert\phi_{m}\rangle_{V_{i}}\right)\\
- & =\sum_{j=1}^{m}a_{j}\phi_{j},
+ & =\phi_{m}-\sum_{k=1}^{m-1}\left(\sum_{j=1}^{k}S_{kj}\phi_{j}\right)\left(\sum_{l=1}^{k}S_{kl}\langle\phi_{l}\vert\phi_{m}\rangle_{V_{i}}\right)=\sum_{j=1}^{m}a_{j}\phi_{j},
 \end{aligned}
 \end{equation}
 其中
@@ -783,15 +799,13 @@ a_{j}=\begin{cases}
 \begin{equation}
 S_{mj}=\frac{a_{j}}{\left\Vert \sum_{j=1}^{m}a_{j}\phi_{j}\right\Vert _{V_{i}}}=\frac{a_{j}}{\sqrt{\sum_{j=1}^{m}\sum_{l=1}^{m}a_{j}a_{l}\langle\phi_{j}\vert\phi_{l}\rangle_{V_{i}}}},\qquad j=1,\dots,m.
 \end{equation}
-\end{itemize}
+\end{enumerate}
+
+\newpage{}
 
 含有 $m$ 个成员的矩阵函数 $\underline{U}(\vec{r})=\begin{bmatrix}U_{1}(\vec{r}) & \cdots & U_{m}(\vec{r})\end{bmatrix}^{t}$
 可以用其在正交归一基底 $\underline{e}(\vec{r})=\begin{bmatrix}e_{1}(\vec{r}) & \cdots & e_{n}(\vec{r})\end{bmatrix}^{t}$
 上的投影来近似：
-\begin{equation}
-\underline{U}^{h}(\vec{r})=\langle\underline{U}\vert\underline{e}\rangle_{V_{i}}\,\underline{e}(\vec{r}),
-\end{equation}
-即
 \begin{equation}
 \begin{bmatrix}U_{1}^{h}(\vec{r})\\
 \vdots\\
@@ -804,66 +818,9 @@ U_{m}^{h}(\vec{r})
 e_{n}(\vec{r})
 \end{bmatrix}.\label{eq:function_projection}
 \end{equation}
-这里的“近似”有两层含义：一是该式中的内积一般不能精确算出，二是有限维的多项式空间不足以精确表达任意函数。如果 $\underline{U}$
+这里的“近似”有两层含义：一是该式中的内积（积分）一般不能精确算出，二是有限维的多项式空间不足以精确表达任意函数。如果 $\underline{U}$
 的成员都是多项式，且计算内积所使用的数值积分器（详见 \ref{subsec:quadrature} 小节）有足够高的代数精度，那么上述投影所得的
 $\underline{U}^{h}$ 就是 $\underline{U}$ 的精确表示。
-
-如果 $\underline{e'}(\vec{r})=\begin{bmatrix}e'_{1}(\vec{r}) & \cdots & e'_{n}(\vec{r})\end{bmatrix}^{t}$
-是另一组正交归一化的基底，那么原始基底 $\underline{E}$ 在新的基底 $\underline{E'}$ 上的投影为
-\begin{equation}
-\underline{e^{h}}(\vec{r})=\langle\underline{e}\vert\underline{e'}\rangle_{V_{i}}\,\underline{e'}(\vec{r}),
-\end{equation}
-即
-\begin{equation}
-\begin{bmatrix}e_{1}(\vec{r})\\
-\vdots\\
-e_{n}(\vec{r})
-\end{bmatrix}=\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e{}_{1}\vert e'_{n}\rangle_{V_{i}}\\
-\vdots & \ddots & \vdots\\
-\langle e_{n}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{n}\vert e'_{n}\rangle_{V_{i}}
-\end{bmatrix}\begin{bmatrix}e'_{1}(\vec{r})\\
-\vdots\\
-e'_{n}(\vec{r})
-\end{bmatrix}.
-\end{equation}
-原则上，该式中的内积都可以精确算出（被积函数都是多项式），因此该变换可以被视为是精确的（即 $\underline{e^{h}}$
-的上标 $h$ 可以省略）。将其代入式 (\ref{eq:function_projection}) 即得 $\underline{U}$
-在 $\underline{e'}$ 上的投影：
-\begin{equation}
-\underbrace{\begin{bmatrix}U_{1}(\vec{r})\\
-\vdots\\
-U_{m}(\vec{r})
-\end{bmatrix}}_{\underline{U}^{h}(\vec{r})}=\underbrace{\begin{bmatrix}\langle U_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{1}\vert e_{n}\rangle_{V_{i}}\\
-\vdots & \ddots & \vdots\\
-\langle U_{m}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{m}\vert e_{n}\rangle_{V_{i}}
-\end{bmatrix}\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{1}\vert e'_{n}\rangle_{V_{i}}\\
-\vdots & \ddots & \vdots\\
-\langle e_{n}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{n}\vert e'_{n}\rangle_{V_{i}}
-\end{bmatrix}}_{\langle\underline{U}\vert\underline{e'}\rangle_{V_{i}}}\underbrace{\begin{bmatrix}e'_{1}(\vec{r})\\
-\vdots\\
-e'_{n}(\vec{r})
-\end{bmatrix}}_{\underline{e'}(\vec{r})}.
-\end{equation}
-由此得矩阵函数 $\underline{U}(\vec{r})$ 在两组正交归一基底上的投影系数之间的变换法则：
-\begin{equation}
-\langle\underline{U}\vert\underline{e'}\rangle_{V_{i}}=\langle\underline{U}\vert\underline{e}\rangle_{V_{i}}\langle\underline{e}\vert\underline{e'}\rangle_{V_{i}}
-\end{equation}
-即
-\begin{equation}
-\begin{gathered}\begin{bmatrix}\langle U_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle U_{1}\vert e'_{n}\rangle_{V_{i}}\\
-\vdots & \ddots & \vdots\\
-\langle U_{m}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle U_{m}\vert e'_{n}\rangle_{V_{i}}
-\end{bmatrix}\\
-=\begin{bmatrix}\langle U_{1}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{1}\vert e_{n}\rangle_{V_{i}}\\
-\vdots & \ddots & \vdots\\
-\langle U_{m}\vert e_{1}\rangle_{V_{i}} & \cdots & \langle U_{m}\vert e_{n}\rangle_{V_{i}}
-\end{bmatrix}\begin{bmatrix}\langle e_{1}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{1}\vert e'_{n}\rangle_{V_{i}}\\
-\vdots & \ddots & \vdots\\
-\langle e_{n}\vert e'_{1}\rangle_{V_{i}} & \cdots & \langle e_{n}\vert e'_{n}\rangle_{V_{i}}
-\end{bmatrix}.
-\end{gathered}
-\end{equation}
-
 
 \subsection{数值积分器\label{subsec:quadrature}}
 
@@ -898,6 +855,8 @@ N_{\mu}(\xi_{\nu},\eta_{\nu},\zeta_{\nu})=\delta_{\mu\nu}, & \forall(\mu,\nu),\\
 \end{equation}
 的形函数，他们都是局部坐标 $(\xi,\eta,\zeta)$ 的多项式，且总数等于 $V_{i}$ 的结点总数。
 
+\newpage{}
+
 式 (\ref{eq:isoparametric}) 定义了一种坐标变换，相应的雅可比矩阵
 \begin{equation}
 \underline{J}=\begin{bmatrix}\partial x/\partial\xi & \partial x/\partial\eta & \partial x/\partial\zeta\\
@@ -916,12 +875,13 @@ z_{\mu}
 \end{aligned}
 \label{eq:volume_integral}
 \end{equation}
-的最后一行的被积函数
+右端的被积函数
 \begin{equation}
 f(x(\xi,\eta,\zeta),y(\xi,\eta,\zeta),z(\xi,\eta,\zeta))\det\underline{J}\eqqcolon F(\xi,\eta,\zeta)
 \end{equation}
-亦为局部坐标 $(\xi,\eta,\zeta)$ 的多项式。原则上，只要数值积分器的代数精度足够高，就能精确算出其积分值。下面给出一种构造具有
-$r$ 阶代数精度的 $q$ 点高斯型求积公式的通用方法。
+亦为局部坐标 $(\xi,\eta,\zeta)$ 的多项式。原则上，只要数值积分器的代数精度足够高，就能精确算出其积分值。
+
+下面给出一种构造具有 $r$ 阶代数精度的 $q$ 点高斯型求积公式的通用方法。
 
 所谓 $q$ 点高斯型求积公式，是指将式 (\ref{eq:volume_integral}) 中的积分用如下的加权求和式近似：
 \begin{equation}
@@ -965,16 +925,18 @@ w_{k}>0\\
 \begin{equation}
 \min\sum_{a+b+c\le r}\left(I(a,b,c)-\sum_{k=1}^{q}w_{k}\xi_{k}^{a}\eta_{k}^{b}\zeta_{k}^{c}\right)^{2}.
 \end{equation}
-通用的优化算法一般会给出多组极小值解，而非单一的最小值解。但上述目标函数都是非负的，其最小值只能为零。因此，用优化方法寻找方程组 (\ref{eq:rth-order-gaussian})
-的解，只应保留那些使得目标函数取值为零的极小值解。
+通用的优化算法一般会给出多组极小值解，而非单一的最小值解。但上述目标函数都是非负的，其最小值只能为零。因此，用优化算法找到方程组 (\ref{eq:rth-order-gaussian})
+的解后，只应保留那些使得目标函数取值为零的极小值解。
 
 上述方法一般只用于构造三角形、四面体上的数值积分器。对于四边形、六面体这种可以化为高维区间的区域，可以对各个维度逐次使用一维区间上的标准高斯求积公式。附录
 \ref{chap:gaussian_pairs} 给出了本文所用数值积分器的具体数值。
 
 \subsection{有限元方程}
 
-以上各小节已经给出了寻找给定函数在给定非结构网格上的分段多项式近似的一般方法。在实际应用中，更有价值的是寻找满足给定微分方程及定解条件的未知函数，在给定非结构网格上的分段多项式近似。本小节及下一小节就来推导求解双曲型方程定解问题的间断伽辽金有限元法，该方法的三维并行实现（详见
-\ref{sec:parallel} 小节）正是本文的主要贡献之一。
+以上各小节已经给出了寻找\emph{已知函数}在给定非结构网格上的分段多项式近似的一般方法，其最常见的应用是施加初边值问题的初始条件。
+
+在实际应用中，更有价值的是寻找满足给定微分方程及定解条件的\emph{未知函数}，在给定非结构网格上的分段多项式近似。本小节及下一小节就来推导求解双曲型方程定解问题的间断伽辽金有限元法，该方法的三维并行实现（详见
+\ref{sec:parallel} 小节）正是本文的主要工作内容（之一）。
 
 定义在区域 $\varOmega$ 上、含 $N$ 个未知量的双曲型偏微分方程组\nomenclature{$\underline{U}$}{表示双曲型方程组中的未知量列矩阵}\nomenclature{$\underline{\vec{F}}$}{表示双曲型方程组中的以列矩阵为分量的通量向量}\nomenclature{$\underline{H}$}{表示双曲型方程组中的源项列矩阵}
 \begin{equation}
@@ -1019,7 +981,7 @@ $\psi$ 可以分别近似为
 $\sum_{l}\hat{\psi}_{l}\,\underline{X}_{l}$ 等于零（矩阵）。
 
 考虑到 $\left\{ \hat{\psi}_{l}\right\} _{l=1}^{L}$ 的任意性，这里的每一个 $\underline{X}_{l}$
-都必须为零（矩阵），由此导出 $L$ 个方程：
+都必须为零（矩阵），由此导出 $L$ 个常微分方程：
 \begin{equation}
 \sum_{k}\dv{\underline{\hat{U}}_{k}}{t}\langle\phi_{k}\vert\psi_{l}\rangle_{V}-\int_{V}\left(\nabla\psi_{l}\right)\cdot\mathopen{\underline{\vec{F}}}\left(\underline{U}^{h}\right)+\oint_{\partial V}\psi_{l}\,\mathopen{\underline{F}^{\nu}}\left(\underline{U}^{h}\right)=\int_{V}\psi_{l}\,\mathopen{\underline{H}}\left(\underline{U}^{h}\right).
 \end{equation}
@@ -1078,9 +1040,10 @@ $\left(\underline{R}_{V_{i}}-\underline{R}_{\partial V_{i}}\right)\underline{A}_
 \begin{equation}
 \ip{\phi_{k}}{\phi_{l}}\coloneqq\int_{V_{i}}\phi_{k}\,\phi_{l}=\delta_{kl}\qquad\forall k,\forall l,
 \end{equation}
-则 $\underline{A}_{V_{i}}$ 退化退化为单位阵，可以从式 (\ref{eq:FEM}) 中省去。前文（\ref{subsec:orthonormal}
-小节）已经介绍了一种在单元 $V_{i}$ 上构造正交归一基函数的方法。当时引入该方法是为了寻找给定（已知）函数在 $V_{i}$
-上的最优多项式近似。这里体现了构造正交归一基函数的另一个好处。
+则 $\underline{A}_{V_{i}}$ 退化退化为单位阵，可以从式 (\ref{eq:FEM}) 中省去。
+
+前文（\ref{subsec:orthonormal} 小节）已经介绍了一种在单元 $V_{i}$ 上构造正交归一基函数的方法。当时引入该方法是为了寻找给定（已知）函数在
+$V_{i}$ 上的最优多项式近似。这里体现了构造正交归一基函数的另一个好处。
 
 本文采用上述正交归一基函数构造方法，因此式 (\ref{eq:FEM}) 可以简化为
 \begin{equation}
@@ -1261,6 +1224,8 @@ $\left(\underline{R}_{V_{i}}-\underline{R}_{\partial V_{i}}\right)\underline{A}_
 \end{equation}
 \end{proof}
 %
+\newpage{}
+
 “保持强稳定性 (SSP)”的概念以及上述引理，是由 Shu 等提出并发展的\upcite{Shu_1988,Gottlieb_1998,Gottlieb_2001}。原始文献中的推导过程较为简略，这里尽量补全了被省去的步骤。
 
 并非所有 RK 格式都能保持强稳定性。例如：文献 \cite{Hirsch_2007} 给出的四阶 RK 格式
@@ -1297,6 +1262,8 @@ b_{z}
 \end{equation}
 本节给出将体现旋翼气动效应的一种“非定常动量源 (unsteady momentum source, UMS\nomenclature{UMS}{unsteady momentum source})”模型嵌入既有的
 RKDG 格式，从而获得 UMS–RKDG 格式的具体过程。
+
+\newpage{}
 
 \subsection{外力密度}
 
@@ -1492,8 +1459,10 @@ ENO 格式的最后一步替换为：
 
 此后，WENO 重构技术被引入到高阶有限体积格式\upcite{Hu_1999}中，从而适用于非结构网格。类似的想法后来被移植到 RKDG
 格式中\upcite{Qiu_2005,Zhu_2008}，但代价是牺牲了 RKDG 格式的紧致性。适用于 RKDG 格式且保持其紧致特性的
-WENO 重构技术\upcite{Zhong_2013,Zhu_2013,Mazaheri_2019}，大约在 2013 年前后才开始出现，并且通常只给出二维版本的实现。本节剩余部分将基于文献 \cite{Zhong_2013,Zhu_2013}
-提出的二维 RKDG 格式的紧致型 WENO 限制器，提出一种适用于三维 RKDG 及 UMS–RKDG 格式的紧致型 WENO 限制器。
+WENO 重构技术\upcite{Zhong_2013,Zhu_2013,Mazaheri_2019}，大约在 2013 年前后才开始出现，并且通常只给出二维版本的实现。
+
+本节剩余部分将基于文献 \cite{Zhong_2013,Zhu_2013} 提出的二维 RKDG 格式的紧致型 WENO 限制器，提出一种适用于三维
+RKDG 及 UMS–RKDG 格式的紧致型 WENO 限制器。
 
 \subsection{适用于高阶差分格式的标量重构}
 
@@ -1652,14 +1621,14 @@ w_{k\to i}^{\star}=\begin{cases}
 1-\sum_{k\in K_{i}\setminus\left\{ i\right\} }w_{k\to i}^{\star}, & k=i,
 \end{cases}
 \end{equation}
-数值试验表明：较大的 $w_{i\to i}^{\star}$ 有利于在光滑处保持精度，较小的 $w_{i\to i}^{\star}$
-有利于在间断处压制振荡。
+其中 $w_{i\to i}^{\star}$ 为可调小量。数值试验表明：较大的 $w_{i\to i}^{\star}$ 有利于在光滑处保持精度，较小的
+$w_{i\to i}^{\star}$ 有利于在间断处压制振荡。
 \item 计算 $u_{k\to i}$ 在 $V_{i}$ 上的光滑程度\nomenclature{$\beta_{k\to i}$}{表示标量函数函数 $u_{k\to i}$ 在 $V_{i}$ 上的光滑程度}：
 \begin{equation}
 \beta_{k\to i}=\sum_{\vert\alpha\vert=1}^{p}\frac{\vert V_{i}\vert^{2\vert\alpha\vert/3-1}}{(\vert\alpha\vert!)^{2}}\int_{V_{i}}\left(\frac{\partial^{\vert\alpha\vert}u_{k\to i}}{\partial x^{\alpha_{x}}\partial y^{\alpha_{y}}\partial z^{\alpha_{z}}}\right)^{2},\qquad\vert\alpha\vert\coloneqq\alpha_{x}+\alpha_{y}+\alpha_{z},
 \end{equation}
 其中系数 $\vert V_{i}\vert^{2\vert\alpha\vert/3-1}/(\vert\alpha\vert!)^{2}$
-的分子用于无量纲化，分母用于避免高阶导数的占比过多。文献 \cite{Zhu_2013} 中，此分子为 $\vert V_{i}\vert^{\vert\alpha\vert-1}$，其实是二维版本
+的分子用于无量纲化，分母用于调节高阶导数的占比。文献 \cite{Zhu_2013} 中，此分子为 $\vert V_{i}\vert^{\vert\alpha\vert-1}$，其实是二维版本
 $\vert V_{i}\vert^{2\vert\alpha\vert/2-1}$。
 \item 计算非线性权重：
 \begin{equation}
@@ -1737,7 +1706,7 @@ $\vec{\nu}_{k}$ 的法向分裂形式\nomenclature{$\underline{F}^{\nu_{k}}$}{�
 \end{itemize}
 
 上述过程在每个公共边界 $\partial V_{i}\cap\partial V_{k}$ 上只做一次法向投影，实际上是假设了单位法向量
-$\vec{\nu}_{k}$ 沿该边界不变，即单元边界属于某个平面。在三维问题中，四面体单元通常可以保证不属于任何平面的单元边界只出现在流场边界上，而六面体单元（即使最低阶的八结点单元）的单元边界一般而言是非平面的。
+$\vec{\nu}_{k}$ 沿该边界不变，即单元边界属于某个平面\footnote{在三维问题中，四面体单元通常可以保证不属于任何平面的单元边界只出现在流场边界上，而六面体单元（即使最低阶的八结点单元）的单元边界一般而言是非平面的。}。
 
 \subsection{三维欧拉方程的特征分解}
 
@@ -1815,11 +1784,11 @@ h_{0}-u_{\nu}a & \frac{u_{\nu}^{2}+u_{\sigma}^{2}+u_{\pi}^{2}}{2} & u_{\sigma} &
 \end{equation}
 利用符号运算可得左特征矩阵\nomenclature{$\underline{L'}$}{表示 $\underline{A}^{\nu}$ 的左特征矩阵在法向坐标系中的表达式}：
 \begin{equation}
-\underline{L'}=(\underline{R'})^{-1}=\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}+1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{-1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}\\
+\underline{L'}=(\underline{R'})^{-1}=\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & -\frac{1}{2}\left(B_{1}u_{\nu}+1/a\right) & -\frac{1}{2}B_{1}u_{\sigma} & -\frac{1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}\\
 1-B_{2} & B_{1}u_{\nu} & B_{1}u_{\sigma} & B_{1}u_{\pi} & -B_{1}\\
 -u_{\sigma} & 0 & 1 & 0 & 0\\
 -u_{\pi} & 0 & 0 & 1 & 0\\
-\frac{1}{2}\left(B_{2}-u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}-1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{-1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}
+\frac{1}{2}\left(B_{2}-u_{\nu}/a\right) & -\frac{1}{2}\left(B_{1}u_{\nu}-1/a\right) & -\frac{1}{2}B_{1}u_{\sigma} & -\frac{1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}
 \end{bmatrix},
 \end{equation}
 其中
@@ -1879,30 +1848,18 @@ u_{z}
 \end{equation}
 对速度分量做了替换。
 
+\newpage{}
+
 同理，可得左特征矩阵在全局 $(x,y,z)$ 坐标系下的表达式\nomenclature{$\underline{L}$}{表示 $\underline{A}^{\nu}$ 的左特征矩阵在全局坐标系中的表达式}：
 \begin{equation}
-\underline{L}=\underline{L'}\,\underline{J}_{\underline{U}\to\underline{U'}}^{-1}
-\end{equation}
-\begin{equation}
-=\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}+1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{-1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}\\
-1-B_{2} & B_{1}u_{\nu} & B_{1}u_{\sigma} & B_{1}u_{\pi} & -B_{1}\\
--u_{\sigma} & 0 & 1 & 0 & 0\\
--u_{\pi} & 0 & 0 & 1 & 0\\
-\frac{1}{2}\left(B_{2}-u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{\nu}-1/a\right) & \frac{-1}{2}B_{1}u_{\sigma} & \frac{-1}{2}B_{1}u_{\pi} & \frac{1}{2}B_{1}
-\end{bmatrix}\begin{bmatrix}1\\
- & \nu_{x} & \nu_{y} & \nu_{z}\\
- & \sigma_{x} & \sigma_{y} & \sigma_{z}\\
- & \pi_{x} & \pi_{y} & \pi_{z}\\
- &  &  &  & 1
-\end{bmatrix}
-\end{equation}
-\begin{equation}
-=\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{x}+\nu_{x}/a\right) & \frac{-1}{2}\left(B_{1}u_{y}+\nu_{y}/a\right) & \frac{-1}{2}\left(B_{1}u_{z}+\nu_{z}/a\right) & \frac{1}{2}B_{1}\\
-1-B_{2} & B_{1}u_{x} & B_{1}u_{y} & B_{1}u_{z} & -B_{1}\\
--u_{\sigma} & \sigma_{x} & \sigma_{y} & \sigma_{z} & 0\\
--u_{\pi} & \pi_{x} & \pi_{y} & \pi_{z} & 0\\
-\frac{1}{2}\left(B_{2}-u_{\nu}/a\right) & \frac{-1}{2}\left(B_{1}u_{x}-\nu_{x}/a\right) & \frac{-1}{2}\left(B_{1}u_{y}-\nu_{y}/a\right) & \frac{-1}{2}\left(B_{1}u_{z}-\nu_{z}/a\right) & \frac{1}{2}B_{1}
-\end{bmatrix}.
+\begin{aligned}\underline{L} & =\underline{L'}\,\underline{J}_{\underline{U}\to\underline{U'}}^{-1}\\
+ & =\begin{bmatrix}\frac{1}{2}\left(B_{2}+u_{\nu}/a\right) & 1-B_{2} & -u_{\sigma} & -u_{\pi} & \frac{1}{2}\left(B_{2}-u_{\nu}/a\right)\\
+-\frac{1}{2}\left(B_{1}u_{x}+\nu_{x}/a\right) & B_{1}u_{x} & \sigma_{x} & \pi_{x} & -\frac{1}{2}\left(B_{1}u_{x}-\nu_{x}/a\right)\\
+-\frac{1}{2}\left(B_{1}u_{y}+\nu_{y}/a\right) & B_{1}u_{y} & \sigma_{y} & \pi_{y} & -\frac{1}{2}\left(B_{1}u_{y}-\nu_{y}/a\right)\\
+-\frac{1}{2}\left(B_{1}u_{z}+\nu_{z}/a\right) & B_{1}u_{z} & \sigma_{z} & \pi_{z} & -\frac{1}{2}\left(B_{1}u_{z}-\nu_{z}/a\right)\\
+\frac{1}{2}B_{1} & -B_{1} & 0 & 0 & \frac{1}{2}B_{1}
+\end{bmatrix}^{t}
+\end{aligned}
 \end{equation}
 
 
