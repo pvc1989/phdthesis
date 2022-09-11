@@ -16337,7 +16337,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/rotor_in_tunnel/upward_p=1.png
+	filename figures/upward/p=1/vortex.png
 	lyxscale 15
 	width 100text%
 	height 40theight%
@@ -16385,7 +16385,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/rotor_in_tunnel/upward_p=3.png
+	filename figures/upward/p=3/vortex.png
 	lyxscale 15
 	width 100text%
 	height 40theight%
