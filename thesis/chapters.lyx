@@ -17085,10 +17085,7 @@ literal "false"
 
 \end_inset
 
-，它是速度梯度张量的不变量：
-\end_layout
-
-\begin_layout Standard
+，它是速度梯度张量的第二不变量：
 \begin_inset Formula 
 \begin{equation}
 Q\coloneqq\frac{(\partial_{i}u_{i})(\partial_{k}u_{k})-(\partial_{i}u_{k})(\partial_{k}u_{i})}{2}

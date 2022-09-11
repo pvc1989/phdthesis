@@ -2776,7 +2776,7 @@ $40$ 转，桨尖速率约为 $0.74$ 马赫（声速取 $\SI{340}{m/s}$）。图
 \begin{centering}
 \includegraphics[width=1\textwidth,height=0.33\textheight,keepaspectratio]{../mdpi/figures/rotor_in_tunnel/mesh}
 \par\end{centering}
-\caption{\label{fig:rotor_mesh}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}、\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题所用网格的示意图}
+\caption{\label{fig:rotor_mesh}\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}、\nameref{prob:=005B64=007ACB=0065CB=007FFC=005F84=005411=008FCE=0098CE}问题所用网格的示意图}
 \end{figure}
 
 桨叶选用单一翼型、弦长为 $\SI{0.1}{m}$ 的矩形平直桨叶，预扭角为 $\ang{10}$；翼型选用 UH-60A 直升机主旋翼的
@@ -2800,11 +2800,14 @@ SC-1095 翼型，其升力系数、阻力系数曲线分别如图 \ref{fig:rotor
 以上几何参数以及本节剩余部分给出的定解条件，是对真实旋翼风洞试验的较为激进的简化。进行这种简化主要是为了方便后续计算或试验研究复现本节剩余部分给出的算例。实际上，对于更一般的风洞截面形状，获得如图
 \ref{fig:rotor_mesh} 所示的只含四面体单元的非结构网格，对于网格生成模块而言没有额外的难度；对于更一般的桨叶外形，如非线性的弦长、预扭分布，本文所实现的求解器也已支持对其进行高效处理。
 
-\subsection{孤立旋翼爬升问题}
+\subsection{孤立旋翼轴向迎风}
+
+该问题是对直升机爬升工况的简化。
 \begin{problem}
-[孤立旋翼爬升]\label{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}令旋翼转轴指向风洞左侧，即以
-$(-1,0,0)$ 为方向矢量。在时间范围 $t\in[0,1]$ 内，求满足三维欧拉方程 (\ref{eq:euler_system})
-及以下定解条件的广义解。
+[孤立旋翼轴向迎风]\label{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}令旋翼转轴指向风洞左侧，即以
+$(-1,0,0)$ 为方向矢量。
+
+在时间范围 $t\in[0,1]$ 内，求满足三维欧拉方程 (\ref{eq:euler_system}) 及以下定解条件的广义解。
 
 初始条件设为均匀低速气流：
 \begin{equation}
@@ -2813,289 +2816,208 @@ $(-1,0,0)$ 为方向矢量。在时间范围 $t\in[0,1]$ 内，求满足三维�
 
 边界条件如下：
 \begin{itemize}
-\item 风洞上、下、前、后四面均为固体壁面；
 \item 风洞左端为亚声速入口，状态与初始条件兼容：
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=-3}=\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0};
 \end{equation}
 \item 风洞右端为亚声速出口，只给定背景压强：
 \begin{equation}
-\eval{p}_{x=9}=101325.0.
+\eval{p}_{x=9}=101325.0;
 \end{equation}
+\item 风洞上、下、前、后四面均为固体壁面。\qedhere
 \end{itemize}
 \end{problem}
 
-为了体现高阶求解器在粗网格上的优势，这里采用只含 $h\approx0.25$ 的四面体单元的粗网格求解该问题。图 \ref{fig:upward_t=00003D2e-1_p=00003D3}–\ref{fig:upward_t=00003D10e-1_p=00003D3}
-分别给出了\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题在若干时刻的
-UMS–RK1/DG1 与 UMS–RK3/DG3 近似解。这里给出精度较低的 UMS–RK1/DG1 近似解，是因为 UMS–RK1/DG1
-求解器无需限制器，其给出的结果在物理上较为可靠，可以用来定性地验证高阶近似解的正确性。由于缺少试验数据，本文的所有含旋翼的算例都将采用这种方式来验证。
-
-图 \ref{fig:upward_t=00003D2e-1_p=00003D3}–\ref{fig:upward_t=00003D10e-1_p=00003D3}
-采取了相同的作图方式：在 $y=0$ 平面上画出密度分布；在 $z=0$ 平面上画出速度方向，并以箭头根部密度着色；偏左侧的一对同心圆表示桨尖及桨根轨迹。不难发现：桨盘上（左）侧的速度矢量明显在向中心汇聚，密度值在桨盘附近有一个明显的跳跃。由等熵条件
-$p=C\rho^{\gamma}$ 可以推知，压强在桨盘附近也有一跳跃，且下（右）侧值大于上（左）侧值。这说明流经桨盘平面的气体，正在被桨叶压缩做功；根据牛顿第三定律，桨叶必然受到气体对其施加的反作用力，这正是旋翼升力的来源。
+为了体现高阶求解器在粗网格上的优势，这里采用只含 $h\approx0.25$ 的四面体单元的粗网格求解该问题。图 \ref{fig:upward_p=00003D1}
+与图 \ref{fig:upward_p=00003D3} 分别给出了\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题在若干时刻的
+UMS–RK1/DG1 与 UMS–RK3/DG3 近似解。这里给出精度较低的 UMS–RK1/DG1 近似解，是因为其在物理上较为可靠，可以用来定性地验证高阶近似解的正确性。
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/upward/p=1/Frame20}
+\subfloat[\label{fig:upward_t=00003D4e-1_p=00003D1}$t=0.4$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/upward/p=1/Frame40}
 \par\end{centering}
-\caption{\label{fig:upward_t=00003D2e-1_p=00003D1}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题在
-$t=0.2$ 时刻的 UMS–RK1/DG1 近似解}
+}
+\par\end{centering}
+\begin{centering}
+\subfloat[\label{fig:upward_t=00003D8e-1_p=00003D1}$t=0.8$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/upward/p=1/Frame80}
+\par\end{centering}
+}
+\par\end{centering}
+\caption{\label{fig:upward_p=00003D1}\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题的
+UMS–RK1/DG1 近似解}
 \end{figure}
 
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/upward/p=3/Frame20}
-\par\end{centering}
-\caption{\label{fig:upward_t=00003D2e-1_p=00003D3}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题在
-$t=0.2$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
+图 \ref{fig:upward_p=00003D1} 与图 \ref{fig:upward_p=00003D3} 采取了相同的作图方式：在
+$y=0$ 平面上画出密度分布；在 $z=0$ 平面上画出速度方向，并以箭头根部密度着色；偏左侧的一对同心圆表示桨尖及桨根轨迹。
+
+不难发现：桨盘上（左）侧的速度矢量明显在向中心汇聚，密度值在桨盘附近有一个明显的跳跃。由等熵条件 $p=C\rho^{\gamma}$
+可以推知，压强在桨盘附近也有一跳跃，且下（右）侧值大于上（左）侧值。这说明流经桨盘平面的气体，正在被桨叶压缩做功；根据牛顿第三定律，桨叶必然受到气体对其施加的反作用力，这正是旋翼升力的来源。
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/upward/p=1/Frame40}
+\subfloat[\label{fig:upward_t=00003D4e-1_p=00003D3}$t=0.4$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/upward/p=3/Frame40}
 \par\end{centering}
-\caption{\label{fig:upward_t=00003D4e-1_p=00003D1}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题
-在 $t=0.4$ 时刻的 UMS–RK1/DG1 近似解}
-\end{figure}
-
-\begin{figure}[h!]
+}
+\par\end{centering}
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/upward/p=3/Frame40}
+\subfloat[\label{fig:upward_t=00003D8e-1_p=00003D3}$t=0.8$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/upward/p=3/Frame80}
 \par\end{centering}
-\caption{\label{fig:upward_t=00003D4e-1_p=00003D3}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题在
-$t=0.4$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/upward/p=1/Frame60}
+}
 \par\end{centering}
-\caption{\label{fig:upward_t=00003D6e-1_p=00003D1}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题在
-$t=0.6$ 时刻的 UMS–RK1/DG1 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/upward/p=3/Frame60}
-\par\end{centering}
-\caption{\label{fig:upward_t=00003D6e-1_p=00003D3}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题在
-$t=0.6$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/upward/p=1/Frame80}
-\par\end{centering}
-\caption{\label{fig:upward_t=00003D8e-1_p=00003D1}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题在
-$t=0.8$ 时刻的 UMS–RK1/DG1 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/upward/p=3/Frame80}
-\par\end{centering}
-\caption{\label{fig:upward_t=00003D8e-1_p=00003D3}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题在
-$t=0.8$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/upward/p=1/Frame100}
-\par\end{centering}
-\caption{\label{fig:upward_t=00003D10e-1_p=00003D1}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题在
-$t=1.0$ 时刻的 UMS–RK1/DG1 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/upward/p=3/Frame100}
-\par\end{centering}
-\caption{\label{fig:upward_t=00003D10e-1_p=00003D3}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题在
-$t=1.0$ 时刻的 UMS–RK3/DG3 近似解}
+\caption{\label{fig:upward_p=00003D3}\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题的
+UMS–RK3/DG3 近似解}
 \end{figure}
 
 比较不同时刻的 UMS–RK1/DG1、UMS–RK3/DG3 近似解可以发现：两种求解器都能捕捉大尺度的涡结构，例如形成于桨盘下（右）侧、随时间推移而向下（右）移动的环状涡；但只有
 UMS–RK3/DG3 求解器才能在如此稀疏的网格上捕捉到声波的干涉条纹。这是因为 UMS–RK1/DG1 求解器采用分段常值近似，过大的数值耗散容易将流动细节抹平。
 
-近似解的数值耗散，还可以通过环状涡的涡核清晰度来观察。图 \ref{fig:upward_p=00003D1}、图 \ref{fig:upward_p=00003D3}
-在图 \ref{fig:upward_t=00003D10e-1_p=00003D3} 的基础上，补充显示了 $x=4.8$ 平面上的密度分布。可以发现：环状涡的涡核在
-UMS–RK1/DG1 近似解中较为模糊，在 UMS–RK3/DG3 近似解中仍十分明显。这再次体现了高阶求解器数值耗散低的优势。
+数值耗散的强弱，还可以通过环状涡的涡核清晰度来观察。图 \ref{fig:upward_ring} 补充显示了 $x=4.8$
+平面上的密度分布。可以发现：环状涡的涡核在 UMS–RK1/DG1 近似解中较为模糊，在 UMS–RK3/DG3 近似解中仍十分明显。这再次体现了高阶求解器数值耗散低的优势。
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{../mdpi/figures/rotor_in_tunnel/upward_p=1}
+\subfloat[\label{fig:upward_ring_p=00003D1}$p=1$（时空一阶）]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{../mdpi/figures/rotor_in_tunnel/upward_p=1}
 \par\end{centering}
-\caption{\label{fig:upward_p=00003D1}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题在
-$t=1.0$ 时刻的 UMS–RK1/DG1 近似解（补充显示起动涡）}
-\end{figure}
-
-\begin{figure}[h!]
+}
+\par\end{centering}
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{../mdpi/figures/rotor_in_tunnel/upward_p=3}
+\subfloat[\label{fig:upward_ring_p=00003D3}$p=3$（时空三阶）]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{../mdpi/figures/rotor_in_tunnel/upward_p=3}
 \par\end{centering}
-\caption{\label{fig:upward_p=00003D3}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题在
-$t=1.0$ 时刻的 UMS–RK3/DG3 近似解（补充显示起动涡）}
+}
+\par\end{centering}
+\caption{\label{fig:upward_ring}\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题在
+$t=1.0$ 时刻的 UMS–RKDG 近似解（补充显示起动涡）}
 \end{figure}
 
+\newpage{}
 
-\subsection{孤立旋翼前飞问题}
+\subsection{孤立旋翼径向迎风}
+
+该问题是对直升机前飞工况的简化。
 \begin{problem}
-[孤立旋翼前飞]\label{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}令旋翼转轴指向风洞顶部，即以
-$(0,0,1)$ 为方向矢量。在时间范围 $t\in[0,1]$ 内，求满足三维欧拉方程 (\ref{eq:euler_system})
-及以下定解条件的广义解。
+[孤立旋翼径向迎风]\label{prob:=005B64=007ACB=0065CB=007FFC=005F84=005411=008FCE=0098CE}令旋翼转轴指向风洞顶部，即以
+$(0,0,1)$ 为方向矢量。
+
+在时间范围 $t\in[0,1]$ 内，求满足三维欧拉方程 (\ref{eq:euler_system}) 及以下定解条件的广义解。
 
 初始条件设为均匀中低速气流：
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{bmatrix}1.29 & 10.0 & 0.0 & 0.0 & 101325.0\end{bmatrix}.
 \end{equation}
 
-边界条件设如下：
-\begin{itemize}
-\item 风洞上、下、前、后四面均为固体壁面；
-\item 风洞左端为亚声速入口，状态与初始条件兼容：
-\begin{equation}
-\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{x=-3}=\begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0};
-\end{equation}
-\item 风洞右端为亚声速出口，只给定背景压强：
-\begin{equation}
-\eval{p}_{x=9}=101325.0.
-\end{equation}
-\end{itemize}
+边界条件在形式上与\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题相同。
 \end{problem}
 
-与\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题相同，这里采用只含
-$h\approx0.25$ 的四面体单元的粗网格求解该问题，并且给出精度较低但物理上可靠的 UMS–RK1/DG1 近似解，作为定性验证
-UMS–RK3/DG3 近似解的正确性的参照对象。
-
-图 \ref{fig:forward_t=00003D2e-1_p=00003D3}–\ref{fig:forward_t=00003D10e-1_p=00003D3}
-依次给出了\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在若干时刻的
-UMS–RK1/DG1、UMS–RK3/DG3 近似解。具体的作图方式为：在 $x=4$ 平面上画出密度分布；在 $y=0$ 平面上画出速度方向，并以箭头根部密度着色；偏左侧的一对同心圆表示桨尖及桨根轨迹。不难发现：桨盘附近的速度矢量明显向下偏转，这表明旋转的桨叶在为气流提供动量；旋翼尾迹（红色区域）向右偏转，这体现了左侧自由来流的驱动作用。
+为体现高阶解的优势，这里仍采用 $h\approx0.25$ 的粗网格求解该问题。图 \ref{fig:forward_p=00003D1}
+与图 \ref{fig:forward_p=00003D3} 分别给出了该问题在若干时刻的 UMS–RK1/DG1、UMS–RK3/DG3
+近似解。
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/forward/p=1/Frame20}
+\subfloat[\label{fig:forward_t=00003D4e-1_p=00003D1}$t=0.4$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=1/Frame40}
 \par\end{centering}
-\caption{\label{fig:forward_t=00003D2e-1_p=00003D1}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
-$t=0.2$ 时刻的 UMS–RK1/DG1 近似解}
+}
+\par\end{centering}
+\begin{centering}
+\subfloat[\label{fig:forward_t=00003D10e-1_p=00003D1}$t=1.0$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=1/Frame100}
+\par\end{centering}
+}
+\par\end{centering}
+\caption{\label{fig:forward_p=00003D1}\nameref{prob:=005B64=007ACB=0065CB=007FFC=005F84=005411=008FCE=0098CE}问题的
+UMS–RK1/DG1 近似解}
 \end{figure}
+
+\newpage{}
+
+图 \ref{fig:forward_p=00003D1} 与图 \ref{fig:forward_p=00003D3} 的作图方式为：在
+$x=4$ 平面上画出密度分布；在 $y=0$ 平面上画出速度方向，并以箭头根部密度着色；偏左侧的一对同心圆表示桨尖及桨根轨迹。
+
+不难发现：桨盘附近的速度矢量明显向下偏转，这表明旋转的桨叶在为气流提供动量；旋翼尾迹（红色区域）向右偏转，这体现了左侧自由来流的驱动作用。
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/forward/p=3/Frame20}
+\subfloat[\label{fig:forward_t=00003D4e-1_p=00003D3}$t=0.4$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=3/Frame40}
 \par\end{centering}
-\caption{\label{fig:forward_t=00003D2e-1_p=00003D3}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
-$t=0.2$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
+}
+\par\end{centering}
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/forward/p=1/Frame40}
+\subfloat[\label{fig:forward_t=00003D10e-1_p=00003D3}$t=1.0$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=3/Frame100}
 \par\end{centering}
-\caption{\label{fig:forward_t=00003D4e-1_p=00003D1}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
-$t=0.4$ 时刻的 UMS–RK1/DG1 近似解}
+}
+\par\end{centering}
+\caption{\label{fig:forward_p=00003D3}\nameref{prob:=005B64=007ACB=0065CB=007FFC=005F84=005411=008FCE=0098CE}问题的
+UMS–RK3/DG3 近似解}
 \end{figure}
 
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/forward/p=3/Frame40}
-\par\end{centering}
-\caption{\label{fig:forward_t=00003D4e-1_p=00003D3}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
-$t=0.4$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
+与\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题的结论类似，两种求解器都能捕捉大尺度的涡结构，例如从桨盘拖出、向右下方倾斜的旋翼尾迹；但只有
+UMS–RK3/DG3 求解器才能在 $x=4$ 平面上捕捉到一对清晰的涡核（深蓝色区域）。下面采用两种方法来显示这对涡。
 
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/forward/p=1/Frame60}
-\par\end{centering}
-\caption{\label{fig:forward_t=00003D6e-1_p=00003D1}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
-$t=0.6$ 时刻的 UMS–RK1/DG1 近似解}
-\end{figure}
+\newpage{}
 
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/forward/p=3/Frame60}
-\par\end{centering}
-\caption{\label{fig:forward_t=00003D6e-1_p=00003D3}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
-$t=0.6$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
+第一种方法基于速度流线，它是对瞬时速度场的空间积分：
+\begin{equation}
+\vec{r}(s)\coloneqq\vec{r}_{0}+\int_{s_{0}}^{s}\vec{u}\dd{\sigma}.
+\end{equation}
 
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/forward/p=1/Frame80}
-\par\end{centering}
-\caption{\label{fig:forward_t=00003D8e-1_p=00003D1}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
-$t=0.8$ 时刻的 UMS–RK1/DG1 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/forward/p=3/Frame80}
-\par\end{centering}
-\caption{\label{fig:forward_t=00003D8e-1_p=00003D3}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
-$t=0.8$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/forward/p=1/Frame100}
-\par\end{centering}
-\caption{\label{fig:forward_t=00003D10e-1_p=00003D1}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
-$t=1.0$ 时刻的 UMS–RK1/DG1 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{figures/forward/p=3/Frame100}
-\par\end{centering}
-\caption{\label{fig:forward_t=00003D10e-1_p=00003D3}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
-$t=1.0$ 时刻的 UMS–RK3/DG3 近似解}
-\end{figure}
-
-与\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题的结论类似，两种求解器都能捕捉大尺度的涡结构，例如从桨盘拖出、向右下方倾斜的旋翼尾迹；但只有三阶求解器才能在
-$x=4$ 平面上捕捉到一对清晰的涡核（深蓝色区域）。下面采用两种方法来证明这对涡确实存在。
-
-第一种方法基于流线。图 \ref{fig:forward_wake_y_view}、图 \ref{fig:forward_wake_z_view}
-分别沿 $+y$、$-z$ 方向，画出了由 $t=1.0$ 时刻的 UMS–RK3/DG3 近似解导出的速度流线三视图。可以看出：桨盘两侧的流线在向后延伸的过程中，叠加了绕某个向后延伸的轴线的转动，该轴线恰好穿过图
+图 \ref{fig:forward_streamlines} 画出了由 $t=1.0$ 时刻的 UMS–RK3/DG3 近似解导出的速度流线。可以看出：桨盘两侧的流线在向后延伸的过程中，叠加了绕某个向后延伸的轴线的转动，该轴线恰好穿过图
 \ref{fig:forward_t=00003D10e-1_p=00003D3} 中的低密度区（即涡核所在位置）。这说明，由 UMS–RK3/DG3
 近似解导出的结果是自洽的。
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/forward/p=3/y+}
+\subfloat[主视图]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=3/y+}
 \par\end{centering}
-\caption{\label{fig:forward_wake_y_view}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
-$t=1.0$ 时刻的 UMS–RK3/DG3 近似解导出的流线（主视图）}
+}
+\par\end{centering}
+\begin{centering}
+\subfloat[俯视图]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=3/z-}
+\par\end{centering}
+}
+\par\end{centering}
+\caption{\label{fig:forward_streamlines}由\nameref{prob:=005B64=007ACB=0065CB=007FFC=005F84=005411=008FCE=0098CE}问题在
+$t=1.0$ 时刻的 UMS–RK3/DG3 近似解导出的速度流线图}
 \end{figure}
+
+\newpage{}
+
+第二种方法基于 $Q$ 值\upcite{Jeong_1995}，它是速度梯度张量的第二不变量：
+\begin{equation}
+Q\coloneqq\frac{(\partial_{i}u_{i})(\partial_{k}u_{k})-(\partial_{i}u_{k})(\partial_{k}u_{i})}{2}
+\end{equation}
+
+图 \ref{fig:forward_Q} 画出了由 $t=1.0$ 时刻的 UMS–RK1/DG1 近似解导出的 $Q$ 等值面。可以看出：桨盘两侧各有一道向后拖出的涡，且其位置与图
+\ref{fig:forward_streamlines} 中流线螺旋延伸的轴线一致。这说明由两种近似解导出的结果是相容的。
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/forward/p=3/z-}
+\subfloat[主视图]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=1/Q_y+}
 \par\end{centering}
-\caption{\label{fig:forward_wake_z_view}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
-$t=1.0$ 时刻的 UMS–RK3/DG3 近似解导出的流线（俯视图）}
-\end{figure}
-
-第二种方法基于 $Q$ 准则\upcite{Jeong_1995}，它是一种常用的涡结构可视化方法。图 \ref{fig:forward_Q_y_view}、图
-\ref{fig:forward_Q_z_view} 分别沿 $+y$、$-z$ 方向，画出了由 $t=1.0$ 时刻的 UMS–RK1/DG1
-近似解导出的 $Q$ 等值面图。可以看出：桨盘两侧各有一道向后拖出的涡，且其位置与图 \ref{fig:forward_wake_y_view}、图
-\ref{fig:forward_wake_z_view} 中流线螺旋延伸的轴线一致。这说明由两种近似解导出的结果是相容的。
-
-\begin{figure}[h!]
+}
+\par\end{centering}
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/forward/p=1/Q_y+}
+\subfloat[俯视图]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=1/Q_z-}
 \par\end{centering}
-\caption{\label{fig:forward_Q_y_view}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
-$t=1.0$ 时刻的 UMS–RK1/DG1 近似解导出的 $Q$ 等值面（主视图）}
+}
+\par\end{centering}
+\caption{\label{fig:forward_Q}由\nameref{prob:=005B64=007ACB=0065CB=007FFC=005F84=005411=008FCE=0098CE}问题在
+$t=1.0$ 时刻的 UMS–RK1/DG1 近似解导出的 $Q$ 等值面}
 \end{figure}
 
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{figures/forward/p=1/Q_z-}
-\par\end{centering}
-\caption{\label{fig:forward_Q_z_view}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00524D=0098DE}问题在
-$t=1.0$ 时刻的 UMS–RK1/DG1 近似解导出的 $Q$ 等值面（俯视图）}
-\end{figure}
-
+\newpage{}
 
 \section{并行加速方案\label{sec:parallel}}
 
@@ -3222,7 +3144,7 @@ $n$ 次几何等分，就能得到完美的均匀分块。本节所有算例均�
 
 \subsection{孤立旋翼爬升问题\label{subsec:rotor-parallel}}
 
-如图 \ref{fig:rotor_mesh} 所示，求解\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题的网格是高度非结构、非均匀的，因此基于几何分割的简单分块方法难以实现负载均衡。如前一小节所述，本小节通过调用第三方库
+如图 \ref{fig:rotor_mesh} 所示，求解\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题的网格是高度非结构、非均匀的，因此基于几何分割的简单分块方法难以实现负载均衡。如前一小节所述，本小节通过调用第三方库
 METIS\upcite{Karypis_1998} 来实施网格分块，分块结果如图 \ref{fig:rotor_upward_partition}、图
 \ref{fig:rotor_upward_balance} 所示。与\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题的分块结果（图
 \ref{fig:double_mach_balance}）相比，这里的单元分布更加均匀：单元数量的波动小于 $0.5\%$，粗略估计并行效率可达
@@ -3238,7 +3160,7 @@ METIS\upcite{Karypis_1998} 来实施网格分块，分块结果如图 \ref{fig:r
 \begin{centering}
 \includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/upward/partition}
 \par\end{centering}
-\caption{\label{fig:rotor_upward_partition}将\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题所用非结构网格分割为
+\caption{\label{fig:rotor_upward_partition}将\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题所用非结构网格分割为
 $100$ 块的分块结果}
 \end{figure}
 
@@ -3246,18 +3168,14 @@ $100$ 块的分块结果}
 \begin{centering}
 \includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/upward/balance}
 \par\end{centering}
-\caption{\label{fig:rotor_upward_balance}\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题网格分块结果（图
+\caption{\label{fig:rotor_upward_balance}\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题网格分块结果（图
 \ref{fig:rotor_upward_partition}）的单元分布情况}
 \end{figure}
 
-表 \ref{tab:rotor_upward_cost} 给出了 UMS–RK3/DG3 求解器以不同进程数量并行求解\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题所消耗的时间，以及换算后得到的单步核时。基于此表，可以画出加速比与并行效率随进程数量的变换趋势，如图
-\ref{fig:rotor_upward_speedup} 所示、图 \ref{fig:rotor_upward_efficiency}
-所示。由图 \ref{fig:rotor_upward_efficiency} 可知，\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题的实测并行效率约为
-$83\%$（含读写操作）到 $85\%$（不含读写操作），低于\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题的对应结果（如图
-\ref{fig:double_mach_efficiency} 所示）。 
+表 \ref{tab:rotor_upward_cost} 给出了 UMS–RK3/DG3 求解器以不同进程数量并行求解\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题所消耗的时间，以及换算后得到的单步核时。
 
 \begin{table}
-\caption{\label{tab:rotor_upward_cost}UMS–RK3/DG3 求解器以不同进程数量并行求解\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题所消耗的时间}
+\caption{\label{tab:rotor_upward_cost}UMS–RK3/DG3 求解器以不同进程数量并行求解\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题所消耗的时间}
 
 \centering{}%
 \begin{tabular}{cccccc}
@@ -3276,21 +3194,36 @@ $83\%$（含读写操作）到 $85\%$（不含读写操作），低于\nameref{p
 \end{tabular}
 \end{table}
 
+基于此表，可以画出加速比与并行效率随进程数量的变换趋势，如图 \ref{fig:rotor_upward_speedup} 所示、图
+\ref{fig:rotor_upward_efficiency} 所示。由图 \ref{fig:rotor_upward_efficiency}
+可知，\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题的实测并行效率约为
+$83\%$（含读写操作）到 $85\%$（不含读写操作），低于\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题的对应结果（如图
+\ref{fig:double_mach_efficiency} 所示）。 
+
 \begin{figure}[h!]
 \begin{centering}
 \includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/upward/speedup}
 \par\end{centering}
-\caption{\label{fig:rotor_upward_speedup}UMS–RK3/DG3 求解器以不同进程数量并行求解\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题所得的加速比}
+\caption{\label{fig:rotor_upward_speedup}UMS–RK3/DG3 求解器以不同进程数量并行求解\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题所得的加速比}
 \end{figure}
 
 \begin{figure}[h!]
 \begin{centering}
 \includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/upward/efficiency}
 \par\end{centering}
-\caption{\label{fig:rotor_upward_efficiency}UMS–RK3/DG3 求解器以不同进程数量并行求解\nameref{prob:=005B64=007ACB=0065CB=007FFC=00722C=005347}问题所得的并行效率}
+\caption{\label{fig:rotor_upward_efficiency}UMS–RK3/DG3 求解器以不同进程数量并行求解\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题所得的并行效率}
 \end{figure}
 
-该问题含非定常动量源，一般而言会破坏负载均衡：并非所有单元都需要计算源项，即式 (\ref{eq:body_force})，那些没有被桨叶轴线穿过的体单元在计算源项这一步时处于闲置状态，这会造成等待时间增加，从而引起并行效率降低。
+造成并行效率降低的原因主要有以下两点：
+\begin{enumerate}[wide]
+\item \nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题含非定常动量源，一般而言会破坏负载均衡：并非所有单元都需要计算源项，即式
+(\ref{eq:body_force})，那些没有被桨叶轴线穿过的体单元在计算源项这一步时处于闲置状态，这会造成等待时间增加，从而引起并行效率降低。
+\item \nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题是真正的三维问题，分块边界上的单元数量
+$\order{N^{2/3}}$ 大于\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题的
+$\order{N^{1/2}}$。
+\end{enumerate}
+
+\newpage{}
 
 \section{本章小结}
 
@@ -3512,7 +3445,7 @@ $\SI{10}{m/s}$ 的劲风外，其他条件与前一工况相同，即初始条�
 
 图 \ref{fig:ship_u=00003D10_a=00003D45} 采用了类似于图 \ref{fig:ship_u=00003D5_a=00003D45}
 的绘图方式。可以看出：随着侧向风速的增大，旋翼尾迹明显向下游延伸，且起动涡不再保持环状。值得注意的是，这里的旋翼尾迹具有明显的非对称性：旋翼左侧的涡结构几乎不受甲板影响，基本保持如孤立旋翼前飞时的形态（如图
-\ref{fig:forward_Q_y_view}–\ref{fig:forward_Q_z_view} 所示）；旋翼右侧的涡结构与船体气流尾迹的涡结构相互缠绕，二者之间没有明显的分界面。造成这种差异的主要原因在于船体两侧的气流不对称：船体迎风侧的气流相对“干净”，而船体背风侧的气流则相对紊乱。
+\ref{fig:forward_Q} 所示）；旋翼右侧的涡结构与船体气流尾迹的涡结构相互缠绕，二者之间没有明显的分界面。造成这种差异的主要原因在于船体两侧的气流不对称：船体迎风侧的气流相对“干净”，而船体背风侧的气流则相对紊乱。
 
 \begin{figure}[h!]
 \begin{centering}
