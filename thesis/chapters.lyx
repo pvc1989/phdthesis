@@ -1975,7 +1975,11 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-自 1990 年代起，美国马里兰大学的 Leishman 团队提出和改进了多种自由尾迹算法。1993年，Crouse & Leishman
+自 1990 年代起，美国马里兰大学的 Leishman 团队提出了多种自由尾迹算法。
+\end_layout
+
+\begin_layout Standard
+1993年，Crouse & Leishman
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Crouse1993"
@@ -1984,7 +1988,11 @@ literal "false"
 \end_inset
 
  提出了一种“预估校正 (predictor–corrector, PC)”格式，用于提高收敛性，控制计算量。该算法采用两点中心差分格式对涡量场进行时间和空间离
-散，并通过引入周期条件确保稳态解收敛。但对悬停状态客观存在的非周期解，无法给出正确的计算结果。1995 年，Bagai & Leishman
+散，并通过引入周期条件确保稳态解收敛。但对悬停状态客观存在的非周期解，无法给出正确的计算结果。
+\end_layout
+
+\begin_layout Standard
+1995 年，Bagai & Leishman
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bagai1995,Bagai1995a,Bagai1996"
@@ -2003,7 +2011,11 @@ literal "false"
 
 \end_inset
 
-。另外，参数分析表明，解的收敛性和尾迹几何结构与部分经验参数的选取有关，使该方法的通用性受到质疑。2000–2004年，Bhagwat & Leishman
+。另外，参数分析表明，解的收敛性和尾迹几何结构与部分经验参数的选取有关，使该方法的通用性受到质疑。
+\end_layout
+
+\begin_layout Standard
+2000–2004年，Bhagwat & Leishman
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bhagwat2000,Bhagwat2000a,Leishman2002,Leishman2004"
@@ -2020,33 +2032,7 @@ reference "fig:free-wake"
 
 \end_inset
 
- 所示），研究了旋翼做机动时的尾迹瞬态变化过程，并对涡环状态这一典型的不稳定状态进行了模拟。该模型在以上算例中均给出了很好的结果。2006年，Gupta
- & Leishman
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Gupta2006"
-literal "false"
-
-\end_inset
-
- 将上述时间精确自由尾迹模型应用到风力机械的气动性能研究中。同年，Ananthan & Leishman
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Ananthan2006"
-literal "false"
-
-\end_inset
-
- 基于时间精确自由尾迹模型，研究了机动飞行状态下的旋翼尾迹几何形态和涡量分布，初步研究了桨涡干扰引起的旋翼噪声。此后，该校的 Ribera &
- Celi
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Ribera2007"
-literal "false"
-
-\end_inset
-
- 也利用该模型开展了一些直升机飞行动力学方面的研究。
+ 所示），研究了旋翼做机动时的尾迹瞬态变化过程，并对涡环状态这一典型的不稳定状态进行了模拟。该模型在以上算例中均给出了很好的结果。
 \begin_inset Float figure
 wide false
 sideways false
@@ -2092,6 +2078,38 @@ literal "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+2006年，Gupta & Leishman
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gupta2006"
+literal "false"
+
+\end_inset
+
+ 将上述时间精确自由尾迹模型应用到风力机械的气动性能研究中。同年，Ananthan & Leishman
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ananthan2006"
+literal "false"
+
+\end_inset
+
+ 基于时间精确自由尾迹模型，研究了机动飞行状态下的旋翼尾迹几何形态和涡量分布，初步研究了桨涡干扰引起的旋翼噪声。
+\end_layout
+
+\begin_layout Standard
+翌年，该校的 Ribera & Celi
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ribera2007"
+literal "false"
+
+\end_inset
+
+ 也利用该模型开展了直升机飞行动力学方面的研究。
 \end_layout
 
 \begin_layout Standard
@@ -3376,7 +3394,7 @@ literal "false"
 \end_inset
 
 利用全尺寸海上试验数据，识别出了一个关于船体气流尾迹速度垂直分量的功率谱模型。基于上述半经验的船体气流尾迹模型和一个简化的旋翼气动模型，他们研究了船体气流尾迹对
-旋翼拉力和滚转、俯仰力矩的影响。此后，他们又建立了一种用于模拟直升机与船体气动干扰并考虑地面效应的实时仿真模型。该模型中，船体由板块表示，旋翼尾迹由固定尾迹和预
+旋翼拉力和滚转、俯仰力矩的影响。随后，他们又建立了一种用于模拟直升机与船体气动干扰并考虑地面效应的实时仿真模型。该模型中，船体由板块表示，旋翼尾迹由固定尾迹和预
 定尾迹模型表示，海面的影响（地面效应）通过镜像法体现。基于以上模型，将旋翼入流表示成有限状态形式，以便于进行实时仿真。该模型只适用于直升机在甲板上方悬停的配平问
 题。此后，他们还对直升机与船体气动干扰问题中的地面效应问题进行了研究
 \begin_inset CommandInset citation
@@ -3398,7 +3416,11 @@ literal "false"
 
 \end_inset
 
-利用基于欧拉方程和非结构网格的有限元求解器，研究了船体气流尾迹，并将得到的数据整合到直升机飞行仿真软件中。Zan
+借助适用于三维非结构网格的有限元求解器，通过求解三维 Euler 方程，研究了无黏条件下的船体气流尾迹，并将得到的数据整合到直升机飞行仿真软件中。
+\end_layout
+
+\begin_layout Standard
+2003 年，Zan
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Zan2003"
@@ -3406,7 +3428,7 @@ literal "false"
 
 \end_inset
 
- 于 2003 年对文献-
+对文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bogstad2002"
@@ -3415,7 +3437,15 @@ literal "false"
 \end_inset
 
  中的一些观点提出了质疑，其认为特殊算例的计算结果与试验数据进行的对比，并不能证明该方法在更一般的条件下仍然有效；试验和基于 Navier–Stokes
- 方程的计算结果都显示，在某些情况下，船体气流尾迹是由涡流主导的，并且存在强烈的流动分离现象，因此文献-
+ 方程的计算结果都显示，在某些情况下，船体气流尾迹是由涡流主导的，并且存在强烈的流动分离现象，因此 Bogstad 等
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Bogstad2002"
+literal "false"
+
+\end_inset
+
+在文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bogstad2002"
