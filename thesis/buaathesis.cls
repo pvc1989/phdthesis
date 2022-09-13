@@ -261,11 +261,17 @@ The LaTeX template for thesis of BUAA]
         afterskip={.5\baselineskip},
     },
     subsubsection={
-        format={\zihao{-4}\heiti},  
+        format={\zihao{-4}\heiti},
+        aftername={\quad},
+        beforeskip={.5\baselineskip},
+        afterskip={.5\baselineskip},
     },
     paragraph={
         format={\zihao{-4}\heiti},
+        aftername={\quad},
+        beforeskip={.5\baselineskip},
     },
+    secnumdepth=subsubsection,
 }
 
 \ifbuaa@bachelor
