@@ -1191,7 +1191,7 @@ $V_{i}$ 上的最优多项式近似。这里体现了构造正交归一基函数
 \left\Vert \underline{\hat{U}}^{n+i/m}\right\Vert \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n+k/m}\right\Vert \le\sum_{k=0}^{i-1}\alpha_{i,k}\left\Vert \underline{\hat{U}}^{n}\right\Vert =\left\Vert \underline{\hat{U}}^{n}\right\Vert .
 \end{equation}
 \end{proof}
-%
+
 \begin{lem}
 一般的显式 RK 格式
 \begin{equation}
@@ -1231,7 +1231,7 @@ $V_{i}$ 上的最优多项式近似。这里体现了构造正交归一基函数
 \end{aligned}
 \end{equation}
 \end{proof}
-%
+
 \newpage{}
 
 “保持强稳定性 (SSP)”的概念以及上述引理，是由 Shu 等提出并发展的\upcite{Shu_1988,Gottlieb_1998,Gottlieb_2001}。原始文献中的推导过程较为简略，这里尽量补全了被省去的步骤。
@@ -1940,35 +1940,36 @@ U_{\mathrm{R}}, & x-4>-10t.
 其物理意义为以速率 $10$ 沿 $-x$ 方向移动的平面波。初始时，长方体内部为均匀状态，但有一间断位于 $x=4$ 处。
 
 为了直观地比较数值解的精度，图 \ref{fig:linear_scalar_contour} 给出了若干求解器–网格 ($p$–$h$)
-组合给出的同一时刻的数值解云图。这些图中的白色区域为函数值连续变化的过渡层，其厚度与数值解的误差呈正相关。通过比较图 \ref{subfig:linear_scalar_p=00003D1_h=00003D2^-5}
-所示的细 ($h\approx1/32$) 网格上的低阶 ($p=1$) 数值解，与图 \ref{subfig:linear_scalar_p=00003D3_h=00003D2^-2}
-所示粗 ($h\approx1/4$) 网格上的高阶 ($p=3$) 数值解，可知二者的误差在同一量级。
+组合给出的同一时刻的数值解云图。
 
 \begin{figure}[h!]
 \begin{centering}
-\subfloat[\label{subfig:linear_scalar_p=00003D3_h=00003D2^-3}时空精度 $p=3$，网格尺度
-$h\approx2^{-3}$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{../mdpi/figures/linear_scalar/p=3_h=2^-3}
+\subfloat[\label{subfig:linear_scalar_p=00003D3_h=00003D2^-3}$p=3$，$h=2^{-3}$]{\begin{centering}
+\includegraphics[width=0.45\textwidth,height=0.28\textheight,keepaspectratio]{figures/linear_scalar/p=3_h=2^-3}
+\par\end{centering}
+}\hfill{}\subfloat[\label{subfig:linear_scalar_p=00003D3_h=00003D2^-2}$p=3$，$h\approx2^{-2}$]{\begin{centering}
+\includegraphics[width=0.45\textwidth,height=0.28\textheight,keepaspectratio]{figures/linear_scalar/p=3_h=2^-2}
 \par\end{centering}
 }
 \par\end{centering}
 \begin{centering}
-\subfloat[\label{subfig:linear_scalar_p=00003D1_h=00003D2^-5}时空精度 $p=1$，网格尺度
-$h\approx2^{-5}$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{../mdpi/figures/linear_scalar/p=1_h=2^-5}
+\subfloat[\label{subfig:linear_scalar_p=00003D1_h=00003D2^-4}$p=1$，$h\approx2^{-4}$]{\begin{centering}
+\includegraphics[width=0.45\textwidth,height=0.28\textheight,keepaspectratio]{figures/linear_scalar/p=1_h=2^-4}
 \par\end{centering}
-}
-\par\end{centering}
-\begin{centering}
-\subfloat[\label{subfig:linear_scalar_p=00003D3_h=00003D2^-2}时空精度 $p=3$，网格尺度
-$h\approx2^{-2}$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{../mdpi/figures/linear_scalar/p=3_h=2^-2}
+}\hfill{}\subfloat[\label{subfig:linear_scalar_p=00003D1_h=00003D2^-5}$p=1$，$h\approx2^{-5}$]{\begin{centering}
+\includegraphics[width=0.45\textwidth,height=0.28\textheight,keepaspectratio]{figures/linear_scalar/p=1_h=2^-5}
 \par\end{centering}
 }
 \par\end{centering}
 \centering{}\caption{\label{fig:linear_scalar_contour}在只含四面体单元的非结构网格上所得\nameref{prob:=007EBF=006027=005355=006CE2=005E73=006D41}问题在
 $t=0.2$ 时刻的 RKDG 近似解}
 \end{figure}
+
+\newpage{}
+
+这些图中的白色区域为函数值连续变化的过渡层，其厚度与数值解的误差呈正相关。通过比较图 \ref{subfig:linear_scalar_p=00003D1_h=00003D2^-5}
+所示的细 ($h\approx1/32$) 网格上的低阶 ($p=1$) 数值解，与图 \ref{subfig:linear_scalar_p=00003D3_h=00003D2^-2}
+所示粗 ($h\approx1/4$) 网格上的高阶 ($p=3$) 数值解，可知二者的误差在同一量级。
 
 为了进一步体现单元尺寸与求解器阶数对数值解精度的影响，图 \ref{fig:linear_scalar_h_vary}–\ref{fig:linear_scalar_p_vary}
 给出了沿纵向对称轴 ($y=0.5,\,z=0.25$) 均匀分布的 1001 个采样点处的函数值。二者分别体现了加密网格（减小
@@ -1991,6 +1992,9 @@ $t=0.2$ 时刻的近似解之间的比较}
 \end{figure}
 
 表 \ref{tab:linear_accuracy} 列出了各种求解器–网格 ($p$–$h$) 组合的全局误差测量值。这里的“全局误差”定义为
+
+\newpage{}
+
 \begin{equation}
 \varepsilon(t)=\sum_{i\in I_{V}}\int_{V_{i}}\left|U^{h}(x,y,z,t)-U^{\star}(x,y,z,t)\right|.\label{eq:global-error}
 \end{equation}
@@ -2098,20 +2102,20 @@ U_{2}
 U_{1}+U_{2}
 \end{bmatrix},
 \end{equation}
-可以将边界条件转化为
+可以将方程组 (\ref{eq:linear_double_wave}) 解耦为
+\begin{equation}
+\left(\partial_{t}+8\partial_{x}\right)V_{1}=0,\qquad\left(\partial_{t}+4\partial_{x}\right)V_{2}=0,
+\end{equation}
+并将边界条件转化为
+
+\newpage{}
+
 \begin{equation}
 \underline{V}_{\mathrm{L}}=\underline{L}^{x}\,\underline{U}_{\mathrm{L}}=\begin{bmatrix}0\\
 0
 \end{bmatrix},\qquad\underline{V}_{\mathrm{R}}=\underline{L}^{x}\,\underline{U}_{\mathrm{R}}=\begin{bmatrix}8\\
 4
-\end{bmatrix},
-\end{equation}
-并将方程组 (\ref{eq:linear_double_wave}) 解耦为
-\begin{equation}
-\begin{cases}
-\left(\partial_{t}+8\partial_{x}\right)V_{1}=0,\\
-\left(\partial_{t}+4\partial_{x}\right)V_{2}=0.
-\end{cases}
+\end{bmatrix}.
 \end{equation}
 由此得到两个独立的初边值问题，它们的解析解分别为
 \begin{equation}
@@ -2147,57 +2151,55 @@ V_{2}^{\star}-V_{1}^{\star}
 \end{equation}
 
 此解析解可以被用来定量地评估数值求解器的性能。本小节使用图 \ref{subfig:linear_scalar_p=00003D3_h=00003D2^-3}
-所示的网格，测试了四种求解器–限制器组合，所得结果如图 \ref{fig:linear_double_wave_u1}–\ref{fig:linear_double_wave_sample_u2}
-所示，其中图 \ref{fig:linear_double_wave_sample_u1}–\ref{fig:linear_double_wave_sample_u2}
-依然为沿纵向对称轴均匀分布的 1001 个采样点处的函数值。
+所示的网格，测试了四种求解器–限制器组合，所得结果如图 \ref{fig:linear_double_wave_sample} 所示。该图依然为沿纵向对称轴均匀分布的
+1001 个采样点处的函数值。
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth]{../mdpi/figures/linear_system/u_1_contour}
-\par\end{centering}
-\caption{\label{fig:linear_double_wave_u1}\nameref{prob:=007EBF=006027=0053CC=006CE2=005E73=006D41}问题
-$U_{1}(x,y,z,t=0.3)$ 的 RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth]{../mdpi/figures/linear_system/u_2_contour}
-\par\end{centering}
-\caption{\label{fig:linear_double_wave_u2}\nameref{prob:=007EBF=006027=0053CC=006CE2=005E73=006D41}问题
-$U_{2}(x,y,z,t=0.3)$ 的 RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
+\subfloat[$U_{1}(x,y=0.5,z=0.25,t=0.3)$]{\begin{centering}
 \includegraphics[width=1\textwidth,height=0.3\textheight]{figures/linear_system/u_1}
 \par\end{centering}
-\caption{\label{fig:linear_double_wave_sample_u1}不同求解器–限制器组合在同一网格上所得\nameref{prob:=007EBF=006027=0053CC=006CE2=005E73=006D41}问题
-$U_{1}(x,y=0.5,z=0.25,t=0.3)$ 近似解之间的比较}
+}
+\par\end{centering}
+\caption{\label{fig:linear_double_wave_sample}不同求解器–限制器组合所得\nameref{prob:=007EBF=006027=0053CC=006CE2=005E73=006D41}问题
+RKDG 近似解之间的比较}
 \end{figure}
 
+\newpage{}
+
 \begin{figure}[h!]
+\ContinuedFloat
 \begin{centering}
+\subfloat[$U_{2}(x,y=0.5,z=0.25,t=0.3)$]{\begin{centering}
 \includegraphics[width=1\textwidth,height=0.3\textheight]{figures/linear_system/u_2}
 \par\end{centering}
-\caption{\label{fig:linear_double_wave_sample_u2}不同求解器–限制器组合在同一网格上所得\nameref{prob:=007EBF=006027=0053CC=006CE2=005E73=006D41}问题
-$U_{2}(x,y=0.5,z=0.25,t=0.3)$ 近似解之间的比较}
+}
+\par\end{centering}
+\begin{centering}
+\subfloat[\label{fig:linear_double_wave_error}绝对误差]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/linear_system/error}
+\par\end{centering}
+}
+\par\end{centering}
+\caption{不同求解器–限制器组合在同一网格上所得\nameref{prob:=007EBF=006027=0053CC=006CE2=005E73=006D41}问题
+RKDG 近似解之间的比较（续）}
 \end{figure}
 
 为了更清晰地展示各种求解器–限制器组合的效果，图 \ref{fig:linear_double_wave_error} 比较了以上四种数值解的绝对误差。这里的“绝对误差”定义为
 \begin{equation}
 \varepsilon(x)=\left(\left|U_{1}^{h}-U_{1}^{\star}\right|+\left|U_{2}^{h}-U_{2}^{\star}\right|\right)_{y=0.5,\,z=0.25,\,t=0.3}.
 \end{equation}
+实际上，这正是 $\underline{U}-\underline{U}^{\star}$ 的 $L_{1}$ 范数；取其他范数亦可，例如
+$L_{2}$ 范数
+\begin{equation}
+\varepsilon(x)=\left(\left|U_{1}^{h}-U_{1}^{\star}\right|^{2}+\left|U_{2}^{h}-U_{2}^{\star}\right|^{2}\right)_{y=0.5,\,z=0.25,\,t=0.3}^{1/2}.
+\end{equation}
 
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight]{figures/linear_system/error}
-\par\end{centering}
-\caption{\label{fig:linear_double_wave_error}\nameref{prob:=007EBF=006027=0053CC=006CE2=005E73=006D41}问题近似解（图
-\ref{fig:linear_double_wave_sample_u1}–\ref{fig:linear_double_wave_sample_u2}）的绝对误差之比较}
-\end{figure}
+\newpage{}
 
 由以上结果可知：\texttt{LazyWeno} 及 \texttt{EigenWeno} 这两种限制器都能有效地压制非物理振荡，且后者压制振荡的效果优于前者。基于此结论，本文剩余部分的所有算例都将全部采用
 \texttt{EigenWeno} 限制器，并且所有算例均为描述无黏可压缩流动的三维欧拉方程
+
 \begin{equation}
 \partial_{t}\begin{bmatrix}\rho\\
 \rho u_{x}\\
@@ -2233,8 +2235,9 @@ $U_{2}(x,y=0.5,z=0.25,t=0.3)$ 近似解之间的比较}
 激波管问题是欧拉方程的黎曼问题。其精确解含有激波、膨胀波、接触间断中的一种或多种，有时还会形成真空；又因其流场边界几何外形简单，初始条件、边界条件非常容易设置，自其被提出以来便被用作考核欧拉方程数值解的标准算例。
 
 它们通常被简化为一维问题，但本文将其用于验证三维欧拉方程求解器的正确性，因此需要在三维空间内重新给出其定义。本小节的所有问题都在三维区间
-$[0.0,5.0]\times[0.0,1.0]\times[0.0,0.5]$ 内求解，且平行于 $x$ 轴的边界均设为固体壁面。尽管这些问题没有封闭形式的解析解，但基于文献 \cite{Toro_2009}
-介绍的方法，辅之以精度充分高的非线性代数方程求解器，仍然可以得到精度任意高的近似解。这种近似解的精度可以充分高，以至于其与实数范围内的精确解具有相同的（有限位）浮点数表示。若无特别说明，本文剩余部分提到的“精确解”都是指“浮点数范围内的精确解”或“计算机上的精确解”。
+$[0.0,5.0]\times[0.0,1.0]\times[0.0,0.5]$ 内求解，且平行于 $x$ 轴的边界均设为固体壁面。
+
+尽管这些问题没有封闭形式的解析解，但基于文献 \cite{Toro_2009} 介绍的方法，辅之以精度充分高的非线性代数方程求解器，仍然可以得到精度任意高的近似解。这种近似解的精度可以充分高，以至于其与实数范围内的精确解具有相同的（有限位）浮点数表示。若无特别说明，本文剩余部分提到的“精确解”都是指“浮点数范围内的精确解”或“计算机上的精确解”。
 
 \subsection{Sod 激波管问题}
 \begin{problem}
@@ -2247,6 +2250,8 @@ $[0.0,5.0]\times[0.0,1.0]\times[0.0,0.5]$ 内求解，且平行于 $x$ 轴的边
 \end{cases}
 \end{equation}
 与初始条件
+
+\newpage{}
 
 \begin{equation}
 \begin{bmatrix}\rho & u_{x} & u_{y} & u_{z} & p\end{bmatrix}_{t=0}=\begin{cases}
@@ -2279,7 +2284,7 @@ $\rho(x,y,z,t=1.0)$ 的 RK3/DG3 近似解}
 $\rho(x,y=0.5,z=0.25,t=1.0)$ 的各阶 RKDG 近似解之间的比较}
 \end{figure}
 
-为了验证上述结论的网格无关性，我们在只含 $h\approx0.1$ 的四面体单元的非结构网格上再次求解了 \nameref{prob:Sod-=006FC0=006CE2=007BA1}问题，所得结果如图
+为了验证上述结论的网格无关性，作者在只含 $h\approx0.1$ 的四面体单元的非结构网格上再次求解了 \nameref{prob:Sod-=006FC0=006CE2=007BA1}问题，所得结果如图
 \ref{fig:sod_tetra}–\ref{fig:sod_tetra_p_vary} 所示。将它们与图 \ref{fig:sod_hexa}–\ref{fig:sod_hexa_p_vary}
 比较，不难发现：无论采用何种单元，只要网格足够精细，\nameref{prob:Sod-=006FC0=006CE2=007BA1}问题的各阶
 RKDG 近似解均能收敛到精确解。
@@ -2336,6 +2341,8 @@ RK1/DG1、RK2/DG2 求解器采用了与之相对应的低阶数值积分器。�
 1 点三角形积分器，RK2/DG2 求解器采用了 4 点四面体积分器与 3 点三角形积分器，RK3/DG3 求解器采用了 14 点四面体积分器与
 6 点三角形积分器。因此，本节关于性价比的结论比\nameref{prob:=007EBF=006027=005355=006CE2=005E73=006D41}问题所得的类似结论更加可靠，也更具有参考价值。
 
+\newpage{}
+
 \subsection{Lax 激波管问题}
 \begin{problem}
 [Lax 激波管]\label{prob:Lax-=006FC0=006CE2=007BA1}在时间范围 $t\in[0.0,0.6]$
@@ -2383,7 +2390,7 @@ $\rho(x,y,z,t=0.5)$ 的 RK3/DG3 近似解}
 $\rho(x,y=0.5,z=0.25,t=0.5)$ 的各阶 RKDG 近似解之间的比较}
 \end{figure}
 
-为了验证计算结果及上述结论的网格无关性，我们在只含 $h\approx0.1$ 的四面体单元的非结构网格上再次求解了 \nameref{prob:Lax-=006FC0=006CE2=007BA1}问题，所得结果如图
+为了验证计算结果及上述结论的网格无关性，作者在只含 $h\approx0.1$ 的四面体单元的非结构网格上再次求解了 \nameref{prob:Lax-=006FC0=006CE2=007BA1}问题，所得结果如图
 \ref{fig:lax_tetra}、图 \ref{fig:lax_tetra_p_vary} 所示。
 
 \begin{figure}[h!]
@@ -2451,7 +2458,9 @@ $\rho(x,y,z,t=0.4)$ 的 RK3/DG3 近似解}
 $\rho(x,y=0.5,z=0.25,t=0.4)$ 的各阶 RKDG 近似解之间的比较}
 \end{figure}
 
-与前两个问题类似，我们在只含 $h\approx0.1$ 的四面体单元的非结构网格上再次求解了\nameref{prob:=00771F=007A7A=007BA1}问题，所得结果如图
+\newpage{}
+
+与前两个问题类似，作者在只含 $h\approx0.1$ 的四面体单元的非结构网格上再次求解了\nameref{prob:=00771F=007A7A=007BA1}问题，所得结果如图
 \ref{fig:vacuum_tetra}、图 \ref{fig:vacuum_tetra_p_vary} 所示。数值解的网格无关性再次得到了验证。
 
 \begin{figure}[h!]
@@ -2521,35 +2530,40 @@ $t\in[0.0,0.2]$ 及图 \ref{fig:double_mach_sketch} 中虚线所围计算区域�
 \end{itemize}
 \end{problem}
 
-该问题的解具有自相似性，因此只需要画出某一时刻的计算结果。图 \ref{fig:double_mach_p=00003D1_h=00003D5e-3}–\ref{fig:double_mach_p=00003D3_h=00003D5e-3}
+该问题的解具有自相似性，因此只需要画出某一时刻的计算结果。为了方便对比，这里仿照文献 \cite{Woodward_1984,Zhong_2013,Zhu_2013}
+的习惯，画出 $t=0.2$ 时刻平面 $\left\{ \left(x,y,\frac{Z}{2}\right):x\in[0,3],y\in[0,1]\right\} $
+上的密度分布。图 \ref{fig:double_mach_p=00003D1_h=00003D5e-3}–\ref{fig:double_mach_p=00003D3_h=00003D5e-3}
 依次为\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题在只含 $h\approx1/200$
 的六面体单元的非结构网格上的 RK1/DG1、RK2/DG2、RK3/DG3 近似解。
 
 \begin{figure}[h!]
 \begin{centering}
+\subfloat[\label{fig:double_mach_p=00003D1_h=00003D5e-3}$p=1$]{\begin{centering}
 \includegraphics[width=1\textwidth]{../mdpi/figures/double_mach/p=1_h=5e-3}
 \par\end{centering}
-\caption{\label{fig:double_mach_p=00003D1_h=00003D5e-3}在只含 $h\approx1/200$
-的六面体单元的非结构网格上所得\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题
-$\rho(x,y,z=Z/2,t=0.2)$ 的 RK1/DG1 近似解}
-\end{figure}
-
-\begin{figure}[h!]
+}
+\par\end{centering}
 \begin{centering}
+\subfloat[\label{fig:double_mach_p=00003D2_h=00003D5e-3}$p=2$]{\begin{centering}
 \includegraphics[width=1\textwidth]{../mdpi/figures/double_mach/p=2_h=5e-3}
 \par\end{centering}
-\caption{\label{fig:double_mach_p=00003D2_h=00003D5e-3}在只含 $h\approx1/200$
-的六面体单元的非结构网格上所得\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题
-$\rho(x,y,z=Z/2,t=0.2)$ 的 RK2/DG2 近似解}
+}
+\par\end{centering}
+\caption{\label{fig:double_mach_h=00003D5e-3}在只含 $h\approx1/200$ 的六面体单元的非结构网格上所得\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题
+$\rho(x,y,z=Z/2,t=0.2)$ 的 RKDG 近似解}
 \end{figure}
+
+\newpage{}
 
 \begin{figure}[h!]
 \begin{centering}
+\subfloat[\label{fig:double_mach_p=00003D3_h=00003D5e-3}$p=3$]{\begin{centering}
 \includegraphics[width=1\textwidth]{../mdpi/figures/double_mach/p=3_h=5e-3}
 \par\end{centering}
-\caption{\label{fig:double_mach_p=00003D3_h=00003D5e-3}在只含 $h\approx1/200$
-的六面体单元的非结构网格上所得\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题
-$\rho(x,y,z=Z/2,t=0.2)$ 的 RK3/DG3 近似解}
+}
+\par\end{centering}
+\caption{在只含 $h\approx1/200$ 的六面体单元的非结构网格上所得\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题
+$\rho(x,y,z=Z/2,t=0.2)$ 的 RKDG 近似解（续）}
 \end{figure}
 
 三者给出的流场结构大致相同，都含有一道弓形激波与两组马赫反射；但只有高阶近似解才能捕捉到右下角的复杂涡系。这种差别再次体现了高阶 RKDG
@@ -2568,10 +2582,11 @@ RK3/DG3 求解器能够在三维非结构网格上正确地捕捉复杂的二维
 $\rho(x,y,t=0.2)$ 的 RK3/DG3 近似解\upcite{Zhong_2013}}
 \end{figure}
 
+\newpage{}
 
 \subsection{前向台阶问题}
 
-该问题是另一个用于校验无黏可压缩气流数值解的经典二维问题。该问题的边界条件与初始条件比双马赫反射问题的简单，但其解不具有自相似性，所涉及的物理现象更加复杂，因此对求解器的性能要求更为苛刻。与双马赫反射问题类似，我们在三维空间内重新给出其定义。
+该问题是另一个用于校验无黏可压缩气流数值解的经典二维问题。该问题的边界条件与初始条件比双马赫反射问题的简单，但其解不具有自相似性，所涉及的物理现象更加复杂，因此对求解器的性能要求更为苛刻。与双马赫反射问题类似，作者在三维空间内重新给出其定义。
 \begin{problem}
 [前向台阶]\label{prob:=00524D=005411=0053F0=009636}考虑一个由三维区间
 $[0,3]\times[0,1]\times[0,Z]$ 表示的风洞，其底部设有一始于 $x=0.6$ 处、高度为 $0.2$
@@ -2588,13 +2603,12 @@ $t\in[0.0,4.0]$ 内，求满足三维欧拉方程 (\ref{eq:euler_system}) 及初
 \end{problem}
 
 图 \ref{fig:forward_step_domain} 给出了一种可用于求解该问题的只含有 $h=1/20$ 的六面体单元的伪结构网格。这里的“伪结构”指其可以用结构网格的数据结构来表示，但本小节的所有算例仍将其以非结构网格的数据结构来表示。需要说明的是，该网格仅用于展示网格拓扑，其精细程度不足以捕捉图
-\ref{fig:forward_step_p=00003D3_t=00003D02e-1}–\ref{fig:forward_step_p=00003D3_t=00003D40e-1}
-所示的复杂流动结构。实际上，图 \ref{fig:forward_step_p=00003D3_t=00003D02e-1}–\ref{fig:forward_step_p=00003D3_t=00003D40e-1}
-使用了 $h=1/200$ 的精细网格。
+\ref{fig:forward_step_p=00003D3} 所示的复杂流动结构。实际上，这组图使用了 $h=1/200$
+的精细网格。
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.26\textheight,keepaspectratio]{../mdpi/figures/forward_step/mesh}
+\includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{../mdpi/figures/forward_step/mesh}
 \par\end{centering}
 \caption{\label{fig:forward_step_domain}用于求解\nameref{prob:=00524D=005411=0053F0=009636}问题的只含
 $h=1/20$ 的六面体单元的伪结构网格}
@@ -2611,125 +2625,130 @@ $h=1/20$ 的六面体单元的伪结构网格}
 
 \begin{figure}[h!]
 \begin{centering}
+\subfloat[\label{fig:forward_step_p=00003D3_t=00003D02e-1}$t=0.2$]{\begin{centering}
 \includegraphics[width=1\textwidth,height=0.28\textheight]{../mdpi/figures/forward_step/p=3_t=02e-1}
 \par\end{centering}
-\caption{\label{fig:forward_step_p=00003D3_t=00003D02e-1}在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题在
-$t=0.2$ 时刻的 RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
+}
+\par\end{centering}
 \begin{centering}
+\subfloat[\label{fig:forward_step_p=00003D3_t=00003D04e-1}$t=0.4$]{\begin{centering}
 \includegraphics[width=1\textwidth,height=0.28\textheight]{../mdpi/figures/forward_step/p=3_t=04e-1}
 \par\end{centering}
-\caption{\label{fig:forward_step_p=00003D3_t=00003D04e-1}在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题在
-$t=0.4$ 时刻的 RK3/DG3 近似解}
+}
+\par\end{centering}
+\caption{\label{fig:forward_step_p=00003D3}在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题的
+RK3/DG3 近似解}
 \end{figure}
 
 大约在 $t=0.6$ 时刻，该弓形激波与风洞顶部发生碰撞并发生反射，如图 \ref{fig:forward_step_p=00003D3_t=00003D06e-1}
 所示。该反射为常规反射，反射波向风洞底部运动，如图 \ref{fig:forward_step_p=00003D3_t=00003D08e-1}、图
 \ref{fig:forward_step_p=00003D3_t=00003D10e-1} 所示。
 
-\begin{figure}[h!]
+\newpage{}
+
+
+\begin{figure}[H]
+\ContinuedFloat
 \begin{centering}
+\subfloat[\label{fig:forward_step_p=00003D3_t=00003D06e-1}$t=0.6$]{\begin{centering}
 \includegraphics[width=1\textwidth,height=0.28\textheight]{../mdpi/figures/forward_step/p=3_t=06e-1}
 \par\end{centering}
-\caption{\label{fig:forward_step_p=00003D3_t=00003D06e-1}在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题在
-$t=0.6$ 时刻的 RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
+}
+\par\end{centering}
 \begin{centering}
+\subfloat[\label{fig:forward_step_p=00003D3_t=00003D08e-1}$t=0.8$]{\begin{centering}
 \includegraphics[width=1\textwidth,height=0.28\textheight]{../mdpi/figures/forward_step/p=3_t=08e-1}
 \par\end{centering}
-\caption{\label{fig:forward_step_p=00003D3_t=00003D08e-1}在 $h=1/200$ 的伪结构网格上所得问题
-\nameref{prob:=00524D=005411=0053F0=009636} 在 $t=0.8$ 时刻的 RK3/DG3
-近似解}
-\end{figure}
-
-\begin{figure}[h!]
+}
+\par\end{centering}
 \begin{centering}
+\subfloat[\label{fig:forward_step_p=00003D3_t=00003D10e-1}$t=1.0$]{\begin{centering}
 \includegraphics[width=1\textwidth,height=0.28\textheight]{../mdpi/figures/forward_step/p=3_t=10e-1}
 \par\end{centering}
-\caption{\label{fig:forward_step_p=00003D3_t=00003D10e-1}在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题在
-$t=1.0$ 时刻的 RK3/DG3 近似解}
+}
+\par\end{centering}
+\caption{在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题的
+RK3/DG3 近似解 (c, d, e)}
 \end{figure}
+
+\newpage{}
 
 大约在 $t=1.2$ 时刻，反射波与台阶顶部发生碰撞并再次反射，如图 \ref{fig:forward_step_p=00003D3_t=00003D12e-1}
 所示。
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight]{../mdpi/figures/forward_step/p=3_t=12e-1}
-\par\end{centering}
-\caption{\label{fig:forward_step_p=00003D3_t=00003D12e-1}在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题在
-$t=1.2$ 时刻的 RK3/DG3 近似解}
-\end{figure}
 
 大约在 $t=2.0$ 时刻，该二级反射依然为常规反射，但风洞顶部的初级反射已发展为马赫反射，如图 \ref{fig:forward_step_p=00003D3_t=00003D20e-1}
 所示。垂直于壁面的马赫杆，入射波、反射波、马赫杆汇聚处的三岔点，以及自三岔点向后拖出的剪切层，正是马赫反射的标志性特征。
 
 \begin{figure}[h!]
+\ContinuedFloat
 \begin{centering}
+\subfloat[\label{fig:forward_step_p=00003D3_t=00003D12e-1}$t=1.2$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.28\textheight]{../mdpi/figures/forward_step/p=3_t=12e-1}
+\par\end{centering}
+}
+\par\end{centering}
+\begin{centering}
+\subfloat[\label{fig:forward_step_p=00003D3_t=00003D20e-1}$t=2.0$]{\begin{centering}
 \includegraphics[width=1\textwidth,height=0.28\textheight]{../mdpi/figures/forward_step/p=3_t=20e-1}
 \par\end{centering}
-\caption{\label{fig:forward_step_p=00003D3_t=00003D20e-1}在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题在
-$t=2.0$ 时刻的 RK3/DG3 近似解}
+}
+\par\end{centering}
+\caption{在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题的
+RK3/DG3 近似解 (f, g)}
 \end{figure}
 
 此后一段时间，马赫杆逐渐拉长，二级反射波逐渐靠近风洞顶部，如图 \ref{fig:forward_step_p=00003D3_t=00003D24e-1}
 所示。
 
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight]{../mdpi/figures/forward_step/p=3_t=24e-1}
-\par\end{centering}
-\caption{\label{fig:forward_step_p=00003D3_t=00003D24e-1}在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题在
-$t=2.4$ 时刻的 RK3/DG3 近似解}
-\end{figure}
-
 大约在 $t=2.8$ 时刻，二级反射波与风洞顶部发生碰撞并形成三级反射，如图 \ref{fig:forward_step_p=00003D3_t=00003D28e-1}
 所示。不难想象，如果风洞的长度足够长，且计算的时间范围也足够大，那么这种反射的级数还有可能继续增加。
 
 \begin{figure}[h!]
+\ContinuedFloat
 \begin{centering}
+\subfloat[\label{fig:forward_step_p=00003D3_t=00003D24e-1}$t=2.4$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.28\textheight]{../mdpi/figures/forward_step/p=3_t=24e-1}
+\par\end{centering}
+}
+\par\end{centering}
+\begin{centering}
+\subfloat[\label{fig:forward_step_p=00003D3_t=00003D28e-1}$t=2.8$]{\begin{centering}
 \includegraphics[width=1\textwidth,height=0.28\textheight]{../mdpi/figures/forward_step/p=3_t=28e-1}
 \par\end{centering}
-\caption{\label{fig:forward_step_p=00003D3_t=00003D28e-1}在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题在
-$t=2.8$ 时刻的 RK3/DG3 近似解}
+}
+\par\end{centering}
+\caption{在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题的
+RK3/DG3 近似解 (h, i)}
 \end{figure}
 
 自 $t=2.8$ 时刻起，到 $t=4.0$ 时刻止，一个显著发展的流动特征是三叉点后的波纹状剪切层涡系，如图 \ref{fig:forward_step_p=00003D3_t=00003D28e-1}–\ref{fig:forward_step_p=00003D3_t=00003D40e-1}
 所示。文献 \cite{Woodward_1984} 认为，这种波纹的形成是数值误差引起的扰动被剪切层的开尔文–亥姆霍兹不稳定性捕获的结果。虽然该涡系的形成有非物理的原因，但对其细节的分辨能力已经成为了评价求解器性能的一个定性指标，更低阶的求解器或更粗糙的网格都很难捕获该流动特征。
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight]{../mdpi/figures/forward_step/p=3_t=32e-1}
-\par\end{centering}
-\caption{\label{fig:forward_step_p=00003D3_t=00003D32e-1}在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题在
-$t=3.2$ 时刻的 RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight]{../mdpi/figures/forward_step/p=3_t=40e-1}
-\par\end{centering}
-\caption{\label{fig:forward_step_p=00003D3_t=00003D40e-1}在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题在
-$t=4.0$ 时刻的 RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.28\textheight]{../mdpi/figures/forward_step/p=3_t=40e-1}
-\par\end{centering}
-\caption{\label{fig:forward_step_p=00003D3_t=00003D40e-1-1}在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题在
-$t=4.0$ 时刻的 RK3/DG3 近似解}
-\end{figure}
 
 为了定性验证以上结果的正确性，图 \ref{fig:forward_step_p=00003D5_qiu} 给出了文献 \cite{Giri_2019}
 在三级自适应加密（最粗处 $h\approx1/32$，最细处 $h\approx1/256$）的三角形网格上所得二维 RK3/DG5
 近似解，它是该问题目前已发表的最高精度的近似解。将其与图 \ref{fig:double_mach_p=00003D3_h=00003D5e-3}
 即本文在 $h=1/200$ 的伪结构网格上所得三维 RK3/DG3 近似解对比，不难发现：二者给出的流场结构非常相似，这说明本文所实现的三维
 RK3/DG3 求解器能够在三维伪结构网格上正确地捕捉复杂的二维流场结构。
+
+\newpage{}
+
+\begin{figure}[h!]
+\ContinuedFloat
+\begin{centering}
+\subfloat[\label{fig:forward_step_p=00003D3_t=00003D32e-1}$t=3.2$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.28\textheight]{../mdpi/figures/forward_step/p=3_t=32e-1}
+\par\end{centering}
+}
+\par\end{centering}
+\begin{centering}
+\subfloat[\label{fig:forward_step_p=00003D3_t=00003D40e-1}$t=4.0$]{\begin{centering}
+\includegraphics[width=1\textwidth,height=0.28\textheight]{../mdpi/figures/forward_step/p=3_t=40e-1}
+\par\end{centering}
+}
+\par\end{centering}
+\caption{在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题的
+RK3/DG3 近似解 (j, k)}
+\end{figure}
 
 \begin{figure}[h!]
 \begin{centering}
@@ -2739,6 +2758,7 @@ RK3/DG3 求解器能够在三维伪结构网格上正确地捕捉复杂的二维
 $\rho(x,y,t=4)$ 的 RK3/DG5 近似解\upcite{Giri_2019}}
 \end{figure}
 
+\newpage{}
 
 \section{本章小结}
 
@@ -3073,7 +3093,7 @@ $z$ 方向的网格数量可以很少（本文尝试过取一到三层，所得�
 $\order{N^{1/2}}$；而对真正的三维网格分块，各块边界上的单元数量，近似为块内单元数量的 $\order{N^{2/3}}$。由此可以预测：本节所得并行效率将高于真正三维问题的并行效率。这一预测将被本章
 \ref{subsec:rotor-parallel} 小节的数据所证实。
 
-虽然在求解\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题时使用了非结构网格，但其所含单元的尺寸大致相等，且计算区域具有简单的几何外形，因此很容易得到较为均匀的网格分块，从而实现静态负载均衡。为了提高求解器的普适性，我们放弃了这种简单几何外形带来的便利，转而通过调用第三方库
+虽然在求解\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题时使用了非结构网格，但其所含单元的尺寸大致相等，且计算区域具有简单的几何外形，因此很容易得到较为均匀的网格分块，从而实现静态负载均衡。为了提高求解器的普适性，作者放弃了这种简单几何外形带来的便利，转而通过调用第三方库
 METIS\upcite{Karypis_1998} 来实施网格分块。图 \ref{fig:double_mach_partition}、图
 \ref{fig:double_mach_balance} 给出了将图 \ref{fig:double_mach_p=00003D1_h=00003D5e-3}–\ref{fig:double_mach_p=00003D3_h=00003D5e-3}
 中的非结构网格分割为 100 块的（某次）分块结果，可见单元数量的波动小于 $3\%$，大致呈均匀分布。考虑到非结构网格的均匀分块属于
@@ -3096,7 +3116,7 @@ $100$ 块的分块结果}
 \ref{fig:double_mach_partition}）的单元分布情况}
 \end{figure}
 
-基于上述优质的分块工具，我们测量了 RK3/DG3 求解器的加速比及并行效率。表 \ref{tab:double_mach_cost}
+基于上述优质的分块工具，作者测量了 RK3/DG3 求解器的加速比及并行效率。表 \ref{tab:double_mach_cost}
 列出了该求解器以不同进程数量并行求解\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题所消耗的时间，其中
 \begin{itemize}
 \item $P$ 表示进程数量，亦即运行时所需的核心数量。
@@ -3104,7 +3124,7 @@ $100$ 块的分块结果}
 \item $P\frac{T_{m+m}-T_{n}}{m}$ 为每一步所消耗的核心数与墙上时间的乘积，简称“核时”。
 \end{itemize}
 
-由于并行读写操作会导致许多聚合通信，聚合通信的效率又依赖于网络质量，因此我们应当尽量减少并行读写的调用次数。在求解该问题时，我们每完成一百步计算才输出一帧结果。因此，表
+由于并行读写操作会导致许多聚合通信，聚合通信的效率又依赖于网络质量，因此程序应当尽量减少并行读写的调用次数。在求解该问题时，作者每完成一百步计算才输出一帧结果。因此，表
 \ref{tab:double_mach_cost} 的后两列之差体现了读写操作的代价，它等于分摊到每一个时间步上读写开销。不难发现：随着核心数量的增加，单步读写开销也在逐渐地增加。这是因为随着核心数量的增加，每个进程的通信对象的数量以及端到端的距离都在不断增加。
 
 \begin{table}
