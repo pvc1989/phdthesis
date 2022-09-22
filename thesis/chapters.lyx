@@ -9918,7 +9918,7 @@ literal "true"
 
  格式
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 为明确区分时间离散与空间离散的阶数，这里及本文剩余部分把用 
@@ -10187,37 +10187,7 @@ reference "fig:linear_scalar_contour"
 \begin_inset Formula $h$
 \end_inset
 
-) 组合给出的同一时刻的数值解云图。这些图中的白色区域为函数值连续变化的过渡层，其厚度与数值解的误差呈正相关。通过比较图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subfig:linear_scalar_p=1_h=2^-5"
-
-\end_inset
-
- 所示的细 (
-\begin_inset Formula $h\approx1/32$
-\end_inset
-
-) 网格上的低阶 (
-\begin_inset Formula $p=1$
-\end_inset
-
-) 数值解，与图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subfig:linear_scalar_p=3_h=2^-2"
-
-\end_inset
-
- 所示粗 (
-\begin_inset Formula $h\approx1/4$
-\end_inset
-
-) 网格上的高阶 (
-\begin_inset Formula $p=3$
-\end_inset
-
-) 数值解，可知二者的误差在同一量级。
+) 组合给出的同一时刻的数值解云图。
 \end_layout
 
 \begin_layout Standard
@@ -10236,10 +10206,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/linear_scalar/p=3_h=2^-3.png
+	filename figures/linear_scalar/p=3_h=2^-3.png
 	lyxscale 15
-	width 100text%
-	height 40theight%
+	width 45text%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -10257,12 +10227,12 @@ name "subfig:linear_scalar_p=3_h=2^-3"
 
 \end_inset
 
-时空精度 
+
 \begin_inset Formula $p=3$
 \end_inset
 
-，网格尺度 
-\begin_inset Formula $h\approx2^{-3}$
+，
+\begin_inset Formula $h=2^{-3}$
 \end_inset
 
 
@@ -10276,10 +10246,10 @@ name "subfig:linear_scalar_p=3_h=2^-3"
 \end_inset
 
 
-\end_layout
+\begin_inset space \hfill{}
+\end_inset
 
-\begin_layout Plain Layout
-\align center
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -10288,62 +10258,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../mdpi/figures/linear_scalar/p=1_h=2^-5.png
+	filename figures/linear_scalar/p=3_h=2^-2.png
 	lyxscale 15
-	width 100text%
-	height 40theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "subfig:linear_scalar_p=1_h=2^-5"
-
-\end_inset
-
-时空精度 
-\begin_inset Formula $p=1$
-\end_inset
-
-，网格尺度 
-\begin_inset Formula $h\approx2^{-5}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/linear_scalar/p=3_h=2^-2.png
-	lyxscale 15
-	width 100text%
-	height 40theight%
+	width 45text%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -10361,12 +10279,116 @@ name "subfig:linear_scalar_p=3_h=2^-2"
 
 \end_inset
 
-时空精度 
+
 \begin_inset Formula $p=3$
 \end_inset
 
-，网格尺度 
+，
 \begin_inset Formula $h\approx2^{-2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/linear_scalar/p=1_h=2^-4.png
+	lyxscale 15
+	width 45text%
+	height 28theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "subfig:linear_scalar_p=1_h=2^-4"
+
+\end_inset
+
+
+\begin_inset Formula $p=1$
+\end_inset
+
+，
+\begin_inset Formula $h\approx2^{-4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/linear_scalar/p=1_h=2^-5.png
+	lyxscale 15
+	width 45text%
+	height 28theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "subfig:linear_scalar_p=1_h=2^-5"
+
+\end_inset
+
+
+\begin_inset Formula $p=1$
+\end_inset
+
+，
+\begin_inset Formula $h\approx2^{-5}$
 \end_inset
 
 
@@ -10415,6 +10437,47 @@ reference "prob:线性单波平流"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这些图中的白色区域为函数值连续变化的过渡层，其厚度与数值解的误差呈正相关。通过比较图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subfig:linear_scalar_p=1_h=2^-5"
+
+\end_inset
+
+ 所示的细 (
+\begin_inset Formula $h\approx1/32$
+\end_inset
+
+) 网格上的低阶 (
+\begin_inset Formula $p=1$
+\end_inset
+
+) 数值解，与图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subfig:linear_scalar_p=3_h=2^-2"
+
+\end_inset
+
+ 所示粗 (
+\begin_inset Formula $h\approx1/4$
+\end_inset
+
+) 网格上的高阶 (
+\begin_inset Formula $p=3$
+\end_inset
+
+) 数值解，可知二者的误差在同一量级。
 \end_layout
 
 \begin_layout Standard
@@ -10575,6 +10638,16 @@ reference "tab:linear_accuracy"
 \end_inset
 
 ) 组合的全局误差测量值。这里的“全局误差”定义为
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 \varepsilon(t)=\sum_{i\in I_{V}}\int_{V_{i}}\left|U^{h}(x,y,z,t)-U^{\star}(x,y,z,t)\right|.\label{eq:global-error}
@@ -11345,19 +11418,7 @@ U_{1}+U_{2}
 
 \end_inset
 
-可以将边界条件转化为
-\begin_inset Formula 
-\begin{equation}
-\underline{V}_{\mathrm{L}}=\underline{L}^{x}\,\underline{U}_{\mathrm{L}}=\begin{bmatrix}0\\
-0
-\end{bmatrix},\qquad\underline{V}_{\mathrm{R}}=\underline{L}^{x}\,\underline{U}_{\mathrm{R}}=\begin{bmatrix}8\\
-4
-\end{bmatrix},
-\end{equation}
-
-\end_inset
-
-并将方程组 
+可以将方程组 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:linear_double_wave"
@@ -11367,10 +11428,29 @@ reference "eq:linear_double_wave"
  解耦为
 \begin_inset Formula 
 \begin{equation}
-\begin{cases}
-\left(\partial_{t}+8\partial_{x}\right)V_{1}=0,\\
-\left(\partial_{t}+4\partial_{x}\right)V_{2}=0.
-\end{cases}
+\left(\partial_{t}+8\partial_{x}\right)V_{1}=0,\qquad\left(\partial_{t}+4\partial_{x}\right)V_{2}=0,
+\end{equation}
+
+\end_inset
+
+并将边界条件转化为
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\underline{V}_{\mathrm{L}}=\underline{L}^{x}\,\underline{U}_{\mathrm{L}}=\begin{bmatrix}0\\
+0
+\end{bmatrix},\qquad\underline{V}_{\mathrm{R}}=\underline{L}^{x}\,\underline{U}_{\mathrm{R}}=\begin{bmatrix}8\\
+4
+\end{bmatrix}.
 \end{equation}
 
 \end_inset
@@ -11442,38 +11522,25 @@ reference "subfig:linear_scalar_p=3_h=2^-3"
  所示的网格，测试了四种求解器–限制器组合，所得结果如图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:linear_double_wave_u1"
+reference "fig:linear_double_wave_sample"
 
 \end_inset
 
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:linear_double_wave_sample_u2"
-
-\end_inset
-
- 所示，其中图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:linear_double_wave_sample_u1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:linear_double_wave_sample_u2"
-
-\end_inset
-
- 依然为沿纵向对称轴均匀分布的 1001 个采样点处的函数值。
+ 所示。该图依然为沿纵向对称轴均匀分布的 1001 个采样点处的函数值。
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -11485,6 +11552,8 @@ status open
 	filename ../mdpi/figures/linear_system/u_1_contour.png
 	lyxscale 15
 	width 100text%
+	height 40theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -11495,9 +11564,71 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset Formula $U_{1}(x,y,z,t=0.3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/linear_system/u_2_contour.png
+	lyxscale 15
+	width 100text%
+	height 40theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $U_{2}(x,y,z,t=0.3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:linear_double_wave_u1"
+name "fig:linear_double_wave"
 
 \end_inset
 
@@ -11511,11 +11642,7 @@ noprefix "false"
 
 \end_inset
 
-问题 
-\begin_inset Formula $U_{1}(x,y,z,t=0.3)$
-\end_inset
-
- 的 RK3/DG3 近似解
+问题的 RK3/DG3 近似解
 \end_layout
 
 \end_inset
@@ -11523,6 +11650,18 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -11536,54 +11675,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename ../mdpi/figures/linear_system/u_2_contour.png
-	lyxscale 15
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:linear_double_wave_u2"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:线性双波平流"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题 
-\begin_inset Formula $U_{2}(x,y,z,t=0.3)$
-\end_inset
-
- 的 RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -11606,13 +11697,33 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:linear_double_wave_sample_u1"
+\begin_inset Formula $U_{1}(x,y=0.5,z=0.25,t=0.3)$
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
-不同求解器–限制器组合在同一网格上所得
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:linear_double_wave_sample"
+
+\end_inset
+
+不同求解器–限制器组合所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:线性双波平流"
@@ -11622,11 +11733,7 @@ noprefix "false"
 
 \end_inset
 
-问题 
-\begin_inset Formula $U_{1}(x,y=0.5,z=0.25,t=0.3)$
-\end_inset
-
- 近似解之间的比较
+问题 RKDG 近似解之间的比较
 \end_layout
 
 \end_inset
@@ -11640,6 +11747,36 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ContinuedFloat
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -11662,12 +11799,70 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:linear_double_wave_sample_u2"
+\begin_inset Formula $U_{2}(x,y=0.5,z=0.25,t=0.3)$
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/linear_system/error.pdf
+	lyxscale 50
+	width 100text%
+	height 30theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:linear_double_wave_error"
+
+\end_inset
+
+绝对误差
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
 不同求解器–限制器组合在同一网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
@@ -11678,11 +11873,7 @@ noprefix "false"
 
 \end_inset
 
-问题 
-\begin_inset Formula $U_{2}(x,y=0.5,z=0.25,t=0.3)$
-\end_inset
-
- 近似解之间的比较
+问题 RKDG 近似解之间的比较（续）
 \end_layout
 
 \end_inset
@@ -11714,73 +11905,31 @@ noprefix "false"
 
 \end_inset
 
+实际上，这正是 
+\begin_inset Formula $\underline{U}-\underline{U}^{\star}$
+\end_inset
+
+ 的 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ 范数；取其他范数亦可，例如 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ 范数
+\begin_inset Formula 
+\begin{equation}
+\varepsilon(x)=\left(\left|U_{1}^{h}-U_{1}^{\star}\right|^{2}+\left|U_{2}^{h}-U_{2}^{\star}\right|^{2}\right)_{y=0.5,\,z=0.25,\,t=0.3}^{1/2}.
+\end{equation}
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/linear_system/error.pdf
-	lyxscale 50
-	width 100text%
-	height 30theight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:linear_double_wave_error"
-
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:线性双波平流"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题近似解（图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:linear_double_wave_sample_u1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:linear_double_wave_sample_u2"
-
-\end_inset
-
-）的绝对误差之比较
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -11800,6 +11949,9 @@ EigenWeno
 EigenWeno
 \family default
  限制器，并且所有算例均为描述无黏可压缩流动的三维欧拉方程
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 \partial_{t}\begin{bmatrix}\rho\\
@@ -11853,7 +12005,11 @@ EigenWeno
 \begin_inset Formula $x$
 \end_inset
 
- 轴的边界均设为固体壁面。尽管这些问题没有封闭形式的解析解，但基于文献-
+ 轴的边界均设为固体壁面。
+\end_layout
+
+\begin_layout Standard
+尽管这些问题没有封闭形式的解析解，但基于文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Toro_2009"
@@ -11913,6 +12069,13 @@ noprefix "false"
 \end_inset
 
 与初始条件
+\end_layout
+
+\begin_layout Problem
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Problem
@@ -12093,7 +12256,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-为了验证上述结论的网格无关性，我们在只含 
+为了验证上述结论的网格无关性，作者在只含 
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
@@ -12696,6 +12859,13 @@ noprefix "false"
 问题所得的类似结论更加可靠，也更具有参考价值。
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Lax 激波管问题
 \end_layout
@@ -12956,7 +13126,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-为了验证计算结果及上述结论的网格无关性，我们在只含 
+为了验证计算结果及上述结论的网格无关性，作者在只含 
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
@@ -13464,7 +13634,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-与前两个问题类似，我们在只含 
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+与前两个问题类似，作者在只含 
 \begin_inset Formula $h\approx0.1$
 \end_inset
 
@@ -13871,12 +14048,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-该问题的解具有自相似性，因此只需要画出某一时刻的计算结果。
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-为了方便对比，这里仿照文献-
+该问题的解具有自相似性，因此只需要画出某一时刻的计算结果。为了方便对比，这里仿照文献-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Woodward_1984,Zhong_2013,Zhu_2013"
@@ -13888,20 +14060,11 @@ literal "true"
 \begin_inset Formula $t=0.2$
 \end_inset
 
- 时刻、二维区间 
-\begin_inset Formula $[0,3]\times[0,1]$
+ 时刻平面 
+\begin_inset Formula $\left\{ \left(x,y,\frac{Z}{2}\right):x\in[0,3],y\in[0,1]\right\} $
 \end_inset
 
- 与 
-\begin_inset Formula $z=Z/2$
-\end_inset
-
- 平面交集内的密度分布。
-\end_layout
-
-\end_inset
-
-图 
+ 上的密度分布。图 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:double_mach_p=1_h=5e-3"
@@ -13943,6 +14106,13 @@ status open
 
 \begin_layout Plain Layout
 \align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename ../mdpi/figures/double_mach/p=1_h=5e-3.png
 	lyxscale 15
@@ -13963,25 +14133,11 @@ name "fig:double_mach_p=1_h=5e-3"
 
 \end_inset
 
-在只含 
-\begin_inset Formula $h\approx1/200$
+
+\begin_inset Formula $p=1$
 \end_inset
 
- 的六面体单元的非结构网格上所得
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:双马赫反射"
-plural "false"
-caps "false"
-noprefix "false"
 
-\end_inset
-
-问题 
-\begin_inset Formula $\rho(x,y,z=Z/2,t=0.2)$
-\end_inset
-
- 的 RK1/DG1 近似解
 \end_layout
 
 \end_inset
@@ -13994,7 +14150,8 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -14022,6 +14179,33 @@ name "fig:double_mach_p=2_h=5e-3"
 
 \end_inset
 
+
+\begin_inset Formula $p=2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double_mach_h=5e-3"
+
+\end_inset
+
 在只含 
 \begin_inset Formula $h\approx1/200$
 \end_inset
@@ -14040,7 +14224,7 @@ noprefix "false"
 \begin_inset Formula $\rho(x,y,z=Z/2,t=0.2)$
 \end_inset
 
- 的 RK2/DG2 近似解
+ 的 RKDG 近似解
 \end_layout
 
 \end_inset
@@ -14054,6 +14238,20 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -14081,6 +14279,27 @@ name "fig:double_mach_p=3_h=5e-3"
 
 \end_inset
 
+
+\begin_inset Formula $p=3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
 在只含 
 \begin_inset Formula $h\approx1/200$
 \end_inset
@@ -14099,7 +14318,7 @@ noprefix "false"
 \begin_inset Formula $\rho(x,y,z=Z/2,t=0.2)$
 \end_inset
 
- 的 RK3/DG3 近似解
+ 的 RKDG 近似解（续）
 \end_layout
 
 \end_inset
@@ -14222,13 +14441,20 @@ literal "false"
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 前向台阶问题
 \end_layout
 
 \begin_layout Standard
 该问题是另一个用于校验无黏可压缩气流数值解的经典二维问题。该问题的边界条件与初始条件比双马赫反射问题的简单，但其解不具有自相似性，所涉及的物理现象更加复杂，因此
-对求解器的性能要求更为苛刻。与双马赫反射问题类似，我们在三维空间内重新给出其定义。
+对求解器的性能要求更为苛刻。与双马赫反射问题类似，作者在三维空间内重新给出其定义。
 \end_layout
 
 \begin_layout Problem
@@ -14325,44 +14551,11 @@ reference "fig:forward_step_domain"
 展示网格拓扑，其精细程度不足以捕捉图 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:forward_step_p=3_t=02e-1"
-plural "false"
-caps "false"
-noprefix "false"
+reference "fig:forward_step_p=3"
 
 \end_inset
 
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_step_p=3_t=40e-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 所示的复杂流动结构。实际上，图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_step_p=3_t=02e-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-–
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_step_p=3_t=40e-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 使用了 
+ 所示的复杂流动结构。实际上，这组图使用了 
 \begin_inset Formula $h=1/200$
 \end_inset
 
@@ -14381,7 +14574,7 @@ status open
 	filename ../mdpi/figures/forward_step/mesh.png
 	lyxscale 15
 	width 100text%
-	height 26theight%
+	height 28theight%
 	keepAspectRatio
 
 \end_inset
@@ -14486,6 +14679,13 @@ status open
 
 \begin_layout Plain Layout
 \align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename ../mdpi/figures/forward_step/p=3_t=02e-1.png
 	lyxscale 15
@@ -14507,29 +14707,10 @@ name "fig:forward_step_p=3_t=02e-1"
 
 \end_inset
 
-在 
-\begin_inset Formula $h=1/200$
-\end_inset
 
- 的伪结构网格上所得
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:前向台阶"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
 \begin_inset Formula $t=0.2$
 \end_inset
 
- 时刻的 RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
@@ -14538,7 +14719,13 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Standard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -14567,6 +14754,33 @@ name "fig:forward_step_p=3_t=04e-1"
 
 \end_inset
 
+
+\begin_inset Formula $t=0.4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3"
+
+\end_inset
+
 在 
 \begin_inset Formula $h=1/200$
 \end_inset
@@ -14581,11 +14795,7 @@ noprefix "false"
 
 \end_inset
 
-问题在 
-\begin_inset Formula $t=0.4$
-\end_inset
-
- 时刻的 RK3/DG3 近似解
+问题的 RK3/DG3 近似解
 \end_layout
 
 \end_inset
@@ -14637,6 +14847,36 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ContinuedFloat
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -14665,29 +14905,10 @@ name "fig:forward_step_p=3_t=06e-1"
 
 \end_inset
 
-在 
-\begin_inset Formula $h=1/200$
-\end_inset
 
- 的伪结构网格上所得
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:前向台阶"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
 \begin_inset Formula $t=0.6$
 \end_inset
 
- 时刻的 RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
@@ -14696,7 +14917,13 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Standard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -14725,29 +14952,10 @@ name "fig:forward_step_p=3_t=08e-1"
 
 \end_inset
 
-在 
-\begin_inset Formula $h=1/200$
-\end_inset
 
- 的伪结构网格上所得问题 
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:前向台阶"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- 在 
 \begin_inset Formula $t=0.8$
 \end_inset
 
- 时刻的 RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
@@ -14756,7 +14964,13 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Standard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -14785,6 +14999,27 @@ name "fig:forward_step_p=3_t=10e-1"
 
 \end_inset
 
+
+\begin_inset Formula $t=1.0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
 在 
 \begin_inset Formula $h=1/200$
 \end_inset
@@ -14799,11 +15034,7 @@ noprefix "false"
 
 \end_inset
 
-问题在 
-\begin_inset Formula $t=1.0$
-\end_inset
-
- 时刻的 RK3/DG3 近似解
+问题的 RK3/DG3 近似解 (c, d, e)
 \end_layout
 
 \end_inset
@@ -14811,6 +15042,13 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -14832,6 +15070,44 @@ reference "fig:forward_step_p=3_t=12e-1"
 \end_layout
 
 \begin_layout Standard
+大约在 
+\begin_inset Formula $t=2.0$
+\end_inset
+
+ 时刻，该二级反射依然为常规反射，但风洞顶部的初级反射已发展为马赫反射，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=20e-1"
+
+\end_inset
+
+ 所示。垂直于壁面的马赫杆，入射波、反射波、马赫杆汇聚处的三岔点，以及自三岔点向后拖出的剪切层，正是马赫反射的标志性特征。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ContinuedFloat
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -14860,29 +15136,10 @@ name "fig:forward_step_p=3_t=12e-1"
 
 \end_inset
 
-在 
-\begin_inset Formula $h=1/200$
-\end_inset
 
- 的伪结构网格上所得
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:前向台阶"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
 \begin_inset Formula $t=1.2$
 \end_inset
 
- 时刻的 RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
@@ -14891,22 +15148,13 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Standard
-大约在 
-\begin_inset Formula $t=2.0$
 \end_inset
 
- 时刻，该二级反射依然为常规反射，但风洞顶部的初级反射已发展为马赫反射，如图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_step_p=3_t=20e-1"
 
-\end_inset
-
- 所示。垂直于壁面的马赫杆，入射波、反射波、马赫杆汇聚处的三岔点，以及自三岔点向后拖出的剪切层，正是马赫反射的标志性特征。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -14935,6 +15183,27 @@ name "fig:forward_step_p=3_t=20e-1"
 
 \end_inset
 
+
+\begin_inset Formula $t=2.0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
 在 
 \begin_inset Formula $h=1/200$
 \end_inset
@@ -14949,11 +15218,7 @@ noprefix "false"
 
 \end_inset
 
-问题在 
-\begin_inset Formula $t=2.0$
-\end_inset
-
- 时刻的 RK3/DG3 近似解
+问题的 RK3/DG3 近似解 (f, g)
 \end_layout
 
 \end_inset
@@ -14978,6 +15243,44 @@ reference "fig:forward_step_p=3_t=24e-1"
 \end_layout
 
 \begin_layout Standard
+大约在 
+\begin_inset Formula $t=2.8$
+\end_inset
+
+ 时刻，二级反射波与风洞顶部发生碰撞并形成三级反射，如图 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:forward_step_p=3_t=28e-1"
+
+\end_inset
+
+ 所示。不难想象，如果风洞的长度足够长，且计算的时间范围也足够大，那么这种反射的级数还有可能继续增加。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ContinuedFloat
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -15006,29 +15309,10 @@ name "fig:forward_step_p=3_t=24e-1"
 
 \end_inset
 
-在 
-\begin_inset Formula $h=1/200$
-\end_inset
 
- 的伪结构网格上所得
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:前向台阶"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
 \begin_inset Formula $t=2.4$
 \end_inset
 
- 时刻的 RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
@@ -15037,22 +15321,13 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Standard
-大约在 
-\begin_inset Formula $t=2.8$
 \end_inset
 
- 时刻，二级反射波与风洞顶部发生碰撞并形成三级反射，如图 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:forward_step_p=3_t=28e-1"
 
-\end_inset
-
- 所示。不难想象，如果风洞的长度足够长，且计算的时间范围也足够大，那么这种反射的级数还有可能继续增加。
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -15081,6 +15356,27 @@ name "fig:forward_step_p=3_t=28e-1"
 
 \end_inset
 
+
+\begin_inset Formula $t=2.8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
 在 
 \begin_inset Formula $h=1/200$
 \end_inset
@@ -15095,11 +15391,7 @@ noprefix "false"
 
 \end_inset
 
-问题在 
-\begin_inset Formula $t=2.8$
-\end_inset
-
- 时刻的 RK3/DG3 近似解
+问题的 RK3/DG3 近似解 (h, i)
 \end_layout
 
 \end_inset
@@ -15154,186 +15446,6 @@ literal "true"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/forward_step/p=3_t=32e-1.png
-	lyxscale 15
-	width 100text%
-	height 28theight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_step_p=3_t=32e-1"
-
-\end_inset
-
-在 
-\begin_inset Formula $h=1/200$
-\end_inset
-
- 的伪结构网格上所得
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:前向台阶"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=3.2$
-\end_inset
-
- 时刻的 RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/forward_step/p=3_t=40e-1.png
-	lyxscale 15
-	width 100text%
-	height 28theight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_step_p=3_t=40e-1"
-
-\end_inset
-
-在 
-\begin_inset Formula $h=1/200$
-\end_inset
-
- 的伪结构网格上所得
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:前向台阶"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=4.0$
-\end_inset
-
- 时刻的 RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../mdpi/figures/forward_step/p=3_t=40e-1.png
-	lyxscale 15
-	width 100text%
-	height 28theight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:forward_step_p=3_t=40e-1-1"
-
-\end_inset
-
-在 
-\begin_inset Formula $h=1/200$
-\end_inset
-
- 的伪结构网格上所得
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "prob:前向台阶"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-问题在 
-\begin_inset Formula $t=4.0$
-\end_inset
-
- 时刻的 RK3/DG3 近似解
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 为了定性验证以上结果的正确性，图 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -15373,6 +15485,160 @@ noprefix "false"
 
  的伪结构网格上所得三维 RK3/DG3 近似解对比，不难发现：二者给出的流场结构非常相似，这说明本文所实现的三维 RK3/DG3 求解器能够在三维伪结构网格上
 正确地捕捉复杂的二维流场结构。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ContinuedFloat
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/forward_step/p=3_t=32e-1.png
+	lyxscale 15
+	width 100text%
+	height 28theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=32e-1"
+
+\end_inset
+
+
+\begin_inset Formula $t=3.2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../mdpi/figures/forward_step/p=3_t=40e-1.png
+	lyxscale 15
+	width 100text%
+	height 28theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:forward_step_p=3_t=40e-1"
+
+\end_inset
+
+
+\begin_inset Formula $t=4.0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+在 
+\begin_inset Formula $h=1/200$
+\end_inset
+
+ 的伪结构网格上所得
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "prob:前向台阶"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+问题的 RK3/DG3 近似解 (j, k)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -15433,6 +15699,13 @@ literal "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -17602,7 +17875,7 @@ noprefix "false"
 \end_inset
 
 问题时使用了非结构网格，但其所含单元的尺寸大致相等，且计算区域具有简单的几何外形，因此很容易得到较为均匀的网格分块，从而实现静态负载均衡。为了提高求解器的普适性
-，我们放弃了这种简单几何外形带来的便利，转而通过调用第三方库 METIS
+，作者放弃了这种简单几何外形带来的便利，转而通过调用第三方库 METIS
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Karypis_1998"
@@ -17777,7 +18050,7 @@ reference "fig:double_mach_partition"
 \end_layout
 
 \begin_layout Standard
-基于上述优质的分块工具，我们测量了 RK3/DG3 求解器的加速比及并行效率。表 
+基于上述优质的分块工具，作者测量了 RK3/DG3 求解器的加速比及并行效率。表 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:double_mach_cost"
@@ -17840,7 +18113,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-由于并行读写操作会导致许多聚合通信，聚合通信的效率又依赖于网络质量，因此我们应当尽量减少并行读写的调用次数。在求解该问题时，我们每完成一百步计算才输出一帧结果。
+由于并行读写操作会导致许多聚合通信，聚合通信的效率又依赖于网络质量，因此程序应当尽量减少并行读写的调用次数。在求解该问题时，作者每完成一百步计算才输出一帧结果。
 因此，表 
 \begin_inset CommandInset ref
 LatexCommand ref
