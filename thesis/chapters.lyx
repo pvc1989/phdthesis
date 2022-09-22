@@ -9916,7 +9916,12 @@ literal "true"
 \begin_inset Formula $q$
 \end_inset
 
- 格式具有高度的可并行性。为明确区分时间离散与空间离散的阶数，这里及本文剩余部分把用 
+ 格式
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+为明确区分时间离散与空间离散的阶数，这里及本文剩余部分把用 
 \begin_inset Formula $p$
 \end_inset
 
@@ -9957,6 +9962,11 @@ literal "true"
 \end_inset
 
  阶 RKDG”（格式、求解器、近似解）。
+\end_layout
+
+\end_inset
+
+具有高度的可并行性。
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "RKDG"
