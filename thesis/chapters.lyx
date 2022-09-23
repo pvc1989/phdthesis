@@ -11942,9 +11942,6 @@ EigenWeno
 EigenWeno
 \family default
  限制器，并且所有算例均为描述无黏可压缩流动的三维欧拉方程
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 \partial_{t}\begin{bmatrix}\rho\\
