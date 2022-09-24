@@ -2950,8 +2950,8 @@ literal "false"
 \begin_layout Standard
 2012 年，Kääriä 等
 \begin_inset CommandInset citation
-LatexCommand cite
-key "Kaeaeriae2012"
+LatexCommand citet
+key "K_ri__2012"
 literal "false"
 
 \end_inset
