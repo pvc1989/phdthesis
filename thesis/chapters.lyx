@@ -14681,6 +14681,7 @@ status open
 	lyxscale 15
 	width 100text%
 	height 28theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -14728,6 +14729,7 @@ status open
 	lyxscale 15
 	width 100text%
 	height 28theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -14879,6 +14881,7 @@ status open
 	lyxscale 15
 	width 100text%
 	height 28theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -14926,6 +14929,7 @@ status open
 	lyxscale 15
 	width 100text%
 	height 28theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -14973,6 +14977,7 @@ status open
 	lyxscale 15
 	width 100text%
 	height 28theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -15110,6 +15115,7 @@ status open
 	lyxscale 15
 	width 100text%
 	height 28theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -15157,6 +15163,7 @@ status open
 	lyxscale 15
 	width 100text%
 	height 28theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -15283,6 +15290,7 @@ status open
 	lyxscale 15
 	width 100text%
 	height 28theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -15330,6 +15338,7 @@ status open
 	lyxscale 15
 	width 100text%
 	height 28theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -15520,6 +15529,7 @@ status open
 	lyxscale 15
 	width 100text%
 	height 28theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -15567,6 +15577,7 @@ status open
 	lyxscale 15
 	width 100text%
 	height 28theight%
+	keepAspectRatio
 
 \end_inset
 
