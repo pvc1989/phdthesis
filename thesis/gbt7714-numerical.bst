@@ -47,7 +47,7 @@ FUNCTION {load.config}
 {
   #0 'uppercase.name :=
   #3 'max.num.authors :=
-  #1 'sentence.case.title :=
+  #0 'sentence.case.title :=
   #0 'link.title :=
   #1 'title.in.journal :=
   #1 'show.mark :=
@@ -58,10 +58,10 @@ FUNCTION {load.config}
   #0 'italic.journal :=
   #0 'bold.journal.volume :=
   #1 'show.missing.address.publisher :=
-  #0 'space.before.pages :=
+  #1 'space.before.pages :=
   #0 'only.start.page :=
-  #1 'show.url :=
-  #1 'show.doi :=
+  #0 'show.url :=
+  #0 'show.doi :=
   #0 'show.note :=
   #0 'show.english.translation :=
 }
