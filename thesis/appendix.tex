@@ -5,26 +5,26 @@
 
 一维单元总是可以借助等参变换化为标准区间 $(-1,1)$，从而可以用标准高斯求积公式构造数值积分器。标准高斯求积公式可以在数值分析教程（如文献 \cite{Quarteroni_2007}）中找到，此处从略。
 
-二维空间中的四边形单元、三维空间中的六面体单元总是可以借助等参变换化为相应维度的标准区间。这两种单元上的数值积分器可以由一维数值积分器的直积构造而得，无需使用
+四边形单元、六面体单元总是可以借助等参变换化为相应维度的标准区间。这两种单元上的数值积分器可以由一维数值积分器的直积构造而得，无需使用
 \ref{subsec:quadrature} 小节中介绍的通用方法。
 
 \section{三角形单元上的数值积分器}
 
 为了使用 \ref{subsec:quadrature} 小节中介绍的通用方法，需要解析地算出标准三角形上的积分
 \begin{equation}
-\int_{0}^{1}\int_{0}^{1-\eta_{B}}\eta_{A}^{a}\eta_{B}^{b}\dd{\eta_{A}}\dd{\eta_{B}}.
+\int_{0}^{1}\int_{0}^{1-\eta_{B}}\eta_{A}^{a}\,\eta_{B}^{b}\dd{\eta_{A}}\dd{\eta_{B}}.
 \end{equation}
 此处证明一个更一般的结论：
 \begin{equation}
-I(a,b,c)=\int_{0}^{1}\int_{0}^{1-\eta_{B}}\eta_{A}^{a}\eta_{B}^{b}\eta_{C}^{c}\dd{\eta_{A}}\dd{\eta_{B}}=\frac{a!\,b!\,c!}{(a+b+c+2)!}.
+I(a,b,c)=\int_{0}^{1}\int_{0}^{1-\eta_{B}}\eta_{A}^{a}\,\eta_{B}^{b}\,\eta_{C}^{c}\dd{\eta_{A}}\dd{\eta_{B}}=\frac{a!\,b!\,c!}{(a+b+c+2)!}.
 \end{equation}
 其中 $\eta_{A},\eta_{B},\eta_{C}$ 依次为 $A,B,C$ 三点对应的面积坐标。
 \begin{proof}
 将 $\eta_{C}=1-\eta_{A}-\eta_{B}$ 代入 $I(a,b,c)$，可得
 \begin{equation}
-\begin{aligned}I(a,b,c) & =\int_{0}^{1}\int_{0}^{1-\eta_{B}}\eta_{A}^{a}\eta_{B}^{b}\eta_{C}^{c}\dd{\eta_{A}}\dd{\eta_{B}}\\
+\begin{aligned}I(a,b,c) & =\int_{0}^{1}\int_{0}^{1-\eta_{B}}\eta_{A}^{a}\,\eta_{B}^{b}\,\eta_{C}^{c}\dd{\eta_{A}}\dd{\eta_{B}}\\
  & =\int_{0}^{1}\left(\int_{0}^{1-\eta_{B}}\eta_{A}^{a}\left(1-\eta_{A}-\eta_{B}\right)^{c}\dd{\eta_{A}}\right)\eta_{B}^{b}\dd{\eta_{B}}\\
- & =\int_{0}^{1}\left(\int_{0}^{1}\left(\frac{\eta_{A}}{1-\eta_{B}}\right)^{a}\left(1-\frac{\eta_{A}}{1-\eta_{B}}\right)^{c}\frac{\dd{\eta_{A}}}{1-\eta_{B}}\right)(1-\eta_{B})^{a+c+1}\eta_{B}^{b}\dd{\eta_{B}}
+ & =\int_{0}^{1}\left(\int_{0}^{1}\left(\frac{\eta_{A}}{1-\eta_{B}}\right)^{a}\left(1-\frac{\eta_{A}}{1-\eta_{B}}\right)^{c}\frac{\dd{\eta_{A}}}{1-\eta_{B}}\right)\left(1-\eta_{B}\right)^{a+c+1}\eta_{B}^{b}\dd{\eta_{B}}
 \end{aligned}
 \end{equation}
 利用 Beta 函数与 Gamma 函数的关系
@@ -37,8 +37,8 @@ I(a,b,c)=\int_{0}^{1}\int_{0}^{1-\eta_{B}}\eta_{A}^{a}\eta_{B}^{b}\eta_{C}^{c}\d
 \end{equation}
 可得
 \begin{equation}
-\begin{aligned}I(a,b,c) & =\int_{0}^{1}\left(\int_{0}^{1}\left(\frac{\eta_{A}}{1-\eta_{B}}\right)^{a}\left(1-\frac{\eta_{A}}{1-\eta_{B}}\right)^{c}\frac{\dd{\eta_{A}}}{1-\eta_{B}}\right)(1-\eta_{B})^{a+c+1}\eta_{B}^{b}\dd{\eta_{B}}\\
- & =\frac{a!\,c!}{(a+c+1)!}\int_{0}^{1}(1-\eta_{B})^{a+c+1}\eta_{B}^{b}\dd{\eta_{B}}\\
+\begin{aligned}I(a,b,c) & =\int_{0}^{1}\left(\int_{0}^{1}\left(\frac{\eta_{A}}{1-\eta_{B}}\right)^{a}\left(1-\frac{\eta_{A}}{1-\eta_{B}}\right)^{c}\frac{\dd{\eta_{A}}}{1-\eta_{B}}\right)\left(1-\eta_{B}\right)^{a+c+1}\eta_{B}^{b}\dd{\eta_{B}}\\
+ & =\frac{a!\,c!}{(a+c+1)!}\int_{0}^{1}\left(1-\eta_{B}\right)^{a+c+1}\eta_{B}^{b}\dd{\eta_{B}}\\
  & =\frac{a!\,c!}{(a+c+1)!}\frac{b!\,(a+c+1)!}{(a+b+c+2)!}=\frac{a!\,b!\,c!}{(a+b+c+2)!}
 \end{aligned}
 \end{equation}
@@ -224,11 +224,11 @@ w=\frac{0.02723031417443499426484469007390892}{2}.
 
 为了使用 \ref{subsec:quadrature} 小节中介绍的通用方法，需要解析地算出标准四面体上的积分
 \begin{equation}
-\int_{0}^{1}\int_{0}^{1-\eta_{B}}\eta_{A}^{a}\eta_{B}^{b}\dd{\eta_{A}}\dd{\eta_{B}}.
+\int_{0}^{1}\int_{0}^{1-\eta_{B}}\eta_{A}^{a}\,\eta_{B}^{b}\,\eta_{C}^{c}\dd{\eta_{A}}\dd{\eta_{B}}\dd{\eta_{C}}.
 \end{equation}
 此处引用一个更一般的结论：
 \begin{equation}
-\int_{0}^{1}\int_{0}^{1-\eta_{B}}\int_{0}^{1-\eta_{B}-\eta_{C}}\eta_{A}^{a}\eta_{B}^{b}\eta_{C}^{c}\eta_{D}^{d}\dd{\eta_{A}}\dd{\eta_{B}}\dd{\eta_{C}}=\frac{a!\,b!\,c!\,d!}{(a+b+c+d+3)!},
+\int_{0}^{1}\int_{0}^{1-\eta_{B}}\int_{0}^{1-\eta_{B}-\eta_{C}}\eta_{A}^{a}\,\eta_{B}^{b}\,\eta_{C}^{c}\,\eta_{D}^{d}\dd{\eta_{A}}\dd{\eta_{B}}\dd{\eta_{C}}=\frac{a!\,b!\,c!\,d!}{(a+b+c+d+3)!},
 \end{equation}
 其中 $\eta_{A},\eta_{B},\eta_{C},\eta_{D}$ 依次为 $A,B,C,D$ 四点对应的体积坐标。
 
