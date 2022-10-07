@@ -11727,7 +11727,7 @@ noprefix "false"
 
 \end_inset
 
-问题 RKDG 近似解之间的比较
+问题 RKDG 近似解之比较 (1/2)
 \end_layout
 
 \end_inset
@@ -11857,7 +11857,7 @@ name "fig:linear_double_wave_error"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-不同求解器–限制器组合在同一网格上所得
+不同求解器–限制器组合所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:线性双波平流"
@@ -11867,7 +11867,7 @@ noprefix "false"
 
 \end_inset
 
-问题 RKDG 近似解之间的比较（续）
+问题 RKDG 近似解之比较 (2/2)
 \end_layout
 
 \end_inset
@@ -14215,7 +14215,7 @@ noprefix "false"
 \begin_inset Formula $\rho(x,y,z=Z/2,t=0.2)$
 \end_inset
 
- 的 RKDG 近似解
+ 的 RKDG 近似解 (1/2)
 \end_layout
 
 \end_inset
@@ -14240,6 +14240,22 @@ noprefix "false"
 wide false
 sideways false
 status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ContinuedFloat
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \align center
@@ -14309,7 +14325,7 @@ noprefix "false"
 \begin_inset Formula $\rho(x,y,z=Z/2,t=0.2)$
 \end_inset
 
- 的 RKDG 近似解（续）
+ 的 RKDG 近似解 (2/2)
 \end_layout
 
 \end_inset
@@ -14788,7 +14804,7 @@ noprefix "false"
 
 \end_inset
 
-问题的 RK3/DG3 近似解
+问题的 RK3/DG3 近似解 (1/5)
 \end_layout
 
 \end_inset
@@ -15030,7 +15046,7 @@ noprefix "false"
 
 \end_inset
 
-问题的 RK3/DG3 近似解 (c, d, e)
+问题的 RK3/DG3 近似解 (2/5)
 \end_layout
 
 \end_inset
@@ -15216,7 +15232,7 @@ noprefix "false"
 
 \end_inset
 
-问题的 RK3/DG3 近似解 (f, g)
+问题的 RK3/DG3 近似解 (3/5)
 \end_layout
 
 \end_inset
@@ -15391,7 +15407,7 @@ noprefix "false"
 
 \end_inset
 
-问题的 RK3/DG3 近似解 (h, i)
+问题的 RK3/DG3 近似解 (4/5)
 \end_layout
 
 \end_inset
@@ -15630,7 +15646,7 @@ noprefix "false"
 
 \end_inset
 
-问题的 RK3/DG3 近似解 (j, k)
+问题的 RK3/DG3 近似解 (5/5)
 \end_layout
 
 \end_inset
@@ -15671,7 +15687,7 @@ name "fig:forward_step_p=5_qiu"
 
 \end_inset
 
-在三级自适应加密的二维非结构网格上所得
+在三级自适应加密的二维网格上所得
 \begin_inset CommandInset ref
 LatexCommand nameref
 reference "prob:前向台阶"
@@ -15681,11 +15697,7 @@ noprefix "false"
 
 \end_inset
 
-问题 
-\begin_inset Formula $\rho(x,y,t=4)$
-\end_inset
-
- 的 RK3/DG5 近似解
+问题的 RK3/DG5 近似解
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Giri_2019"
@@ -16759,7 +16771,7 @@ reference "prob:孤立旋翼轴向迎风"
 \begin_inset Formula $t=1.0$
 \end_inset
 
- 时刻的 UMS–RKDG 近似解（补充显示起动涡）
+ 时刻的 UMS–RKDG 近似解
 \end_layout
 
 \end_inset
@@ -20407,7 +20419,7 @@ reference "prob:直升机正面迎风悬停于甲板中部上方"
 
 \end_inset
 
-工况的 UMS–RK3/DG3 近似解
+工况的 UMS–RK3/DG3 近似解 (1/2)
 \end_layout
 
 \end_inset
@@ -20575,7 +20587,7 @@ reference "prob:直升机正面迎风悬停于甲板中部上方"
 
 \end_inset
 
-工况的 UMS–RK3/DG3 近似解（续）
+工况的 UMS–RK3/DG3 近似解 (2/2)
 \end_layout
 
 \end_inset
@@ -21329,7 +21341,7 @@ noprefix "false"
 
 \end_inset
 
-工况的 UMS–RK3/DG3 近似解导出的涡结构
+工况的 UMS–RK3/DG3 近似解导出的涡结构 (1/2)
 \end_layout
 
 \end_inset
@@ -21460,7 +21472,7 @@ noprefix "false"
 
 \end_inset
 
-工况的 UMS–RK3/DG3 近似解导出的涡结构（续）
+工况的 UMS–RK3/DG3 近似解导出的涡结构 (2/2)
 \end_layout
 
 \end_inset
