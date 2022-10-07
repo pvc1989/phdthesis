@@ -14,16 +14,18 @@
 
 本文的主要目标是提供一种既能处理复杂船体外形，又能在较粗的非结构网格上保持较高精度，还能在静态网格上高效地捕捉旋翼对流场非定常扰动的计算方法。
 为此，本文的主要内容包括：
-\begin{itemize}[wide]
+\begin{enumerate}[wide]
 \item 提出一种适用于舰载直升机流场计算的高阶数值方法。该方法以间断伽辽金有限元为空间离散方法，以保持强稳定性的龙格--库塔格式做显式时间推进，以非定常动量源模型表示桨叶对流场的非定常扰动，以加权基本无振荡重构技术压制桨叶附近的数值振荡。
-\item 利用具有解析解或数值精确解的一维标准算例，定量验证上述高阶数值方法的正确性和精度阶数；利用拥有公认数值解的二维标准算例，定性验证上述高阶数值方法捕捉复杂流动图象的能力。在此基础上，以数学上等价于经典有限体积解、物理上较为可靠的一阶近似解为参照，定性验证三阶近似解的正确性和精度优势。
+\item 利用具有解析解或数值精确解的一维标准算例，定量验证上述高阶数值方法的正确性和精度阶数；利用拥有公认数值解的二维标准算例，定性验证上述高阶数值方法捕捉复杂流动图象的能力。
+\item 在此基础上，以数学上等价于经典有限体积解、物理上较为可靠的一阶近似解为参照，定性验证三阶近似解的正确性和精度优势。
 \item 提出并实现一种上述高阶数值方法的分布式并行加速方案，在实验室自建的小型机群上测量加速比和并行效率。
 \item 将上述并行化的高阶数值方法，应用到舰载直升机气动干扰问题的研究中。
-\end{itemize}
+\end{enumerate}
 
 本文以舰载直升机气动干扰问题为研究对象，
-提出了一种支持分布式并行计算的动量源--有限元方法，
+提出了一种支持分布式并行计算的动量源--高阶有限元混合方法，
 为舰载直升机气动干扰问题的研究，提供了一种高效且具有高阶精度的数值计算工具。
+\newpage{}
 \end{cabstract}
 
 \begin{eabstract}
@@ -37,14 +39,16 @@ Although the latter can handle solid boundaries with more complex geometric shap
 
 The main goal of this thesis is to provide a computational method that can handle complex hull shapes, maintain high accuracy on coarse unstructured grids, and efficiently capture rotor unsteady disturbances to flow fields on static grids.
 To this end, the main contents of this thesis include:
-\begin{itemize}[wide]
+\begin{enumerate}[wide]
 \item Propose a high-order numerical method suitable for the computation of the flow field of shipborne helicopters. In this method, the discontinuous Galerkin finite element method is used as the spatial discretization method, the Runge--Kutta scheme which is strong stability preserving is used for explicit time marching, and an unsteady momentum source model is used to represent the unsteady disturbance of the blade to the flow field. Numerical oscillations near the blade are suppressed by a weighted essentially non-oscillatory reconstruction technique.
-\item Quantitatively verify the correctness and order of accuracy of the above high-order numerical methods using one-dimensional standard examples with analytical solutions or numerically accurate solutions. Qualitatively verify the above high-order numerical methods using two-dimensional standard examples with recognized numerical solutions. The method's ability to capture complex flowing images. On this basis, taking the mathematically equivalent to the classical finite volume solution and the physically reliable first-order approximate solution as a reference, the correctness and precision advantages of the third-order approximate solution are qualitatively verified.
+\newpage{}
+\item Quantitatively verify the correctness and order of accuracy of the above high-order numerical methods using one-dimensional standard examples with analytical solutions or numerically accurate solutions. Qualitatively verify the above high-order numerical methods using two-dimensional standard examples with recognized numerical solutions. The method's ability to capture complex flowing images.
+\item On this basis, taking the mathematically equivalent to the classical finite volume solution and the physically reliable first-order approximate solution as a reference, the correctness and precision advantages of the third-order approximate solution are qualitatively verified.
 \item Propose and implement a distributed parallel acceleration scheme of the above-mentioned high-order numerical method, and measured the speedup ratio and parallel efficiency on a small cluster built by the laboratory.
 \item Apply the above parallelized high-order numerical method to the study of the aerodynamic interference problem of shipborne helicopters.
-\end{itemize}
+\end{enumerate}
 
 This thesis takes the aerodynamic interference problem of shipborne helicopters as the research object.
-A momentum source--finite element method, which supports distributed parallel computing, is proposed.
+A momentum source--high-order finite element hybrid method, which supports distributed parallel computing, is proposed.
 An efficient tool with high-order accuracy is provided for the study of aerodynamic interference of shipborne helicopters.
 \end{eabstract}
