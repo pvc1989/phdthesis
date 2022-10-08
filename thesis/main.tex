@@ -5,7 +5,6 @@
 % 参考文献
 \bibliographystyle{gbt7714-numerical}
 
-
 \makeatletter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
@@ -293,29 +292,37 @@ SmallCapsFeatures={Numbers=OldStyle}
 % 摘要
 \include{abstract}
 % 目录、插图目录、表格目录
+
+\makeatletter
+\@openrightfalse
+\makeatother
+
 \phantomsection
 \addcontentsline{toc}{chapter}{目录}
 \tableofcontents
 
-\begingroup
+\begingroup % 为了 lof lot 中不出现 cite
 
 \renewcommand\citet[2][]{}
 \renewcommand\cite[2][]{}
 \renewcommand\upcite[2][]{}
 
-\cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{插图目录}
 \listoffigures
 
-\cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{表格目录}
 \listoftables
 
-\endgroup
+\endgroup % 为了 lof lot 中不出现 cite
+
 % 符号表
 \printnomenclature
+
+\makeatletter
+\@openrighttrue
+\makeatother
 
 % 正文页码样式
 \mainmatter
