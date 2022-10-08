@@ -2154,12 +2154,10 @@ V_{2}^{\star}-V_{1}^{\star}
 1001 个采样点处的函数值。
 
 \begin{figure}[h!]
-\begin{centering}
-\subfloat[$U_{1}(x,y=0.5,z=0.25,t=0.3)$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight]{figures/linear_system/u_1}
-\par\end{centering}
-}
-\par\end{centering}
+\centering
+
+\subfloat[$U_{1}(x,y=0.5,z=0.25,t=0.3)$]{\includegraphics[width=1\textwidth,height=0.3\textheight]{figures/linear_system/u_1}}
+
 \caption{\label{fig:linear_double_wave_sample}不同求解器–限制器组合所得\nameref{prob:=007EBF=006027=0053CC=006CE2=005E73=006D41}问题
 RKDG 近似解之比较 (1/2)}
 \end{figure}
@@ -2167,19 +2165,12 @@ RKDG 近似解之比较 (1/2)}
 \newpage{}
 
 \begin{figure}[h!]
-\ContinuedFloat
-\begin{centering}
-\subfloat[$U_{2}(x,y=0.5,z=0.25,t=0.3)$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight]{figures/linear_system/u_2}
-\par\end{centering}
-}
-\par\end{centering}
-\begin{centering}
-\subfloat[\label{fig:linear_double_wave_error}绝对误差]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/linear_system/error}
-\par\end{centering}
-}
-\par\end{centering}
+\ContinuedFloat\centering
+
+\subfloat[$U_{2}(x,y=0.5,z=0.25,t=0.3)$]{\includegraphics[width=1\textwidth,height=0.3\textheight]{figures/linear_system/u_2}}
+
+\subfloat[\label{fig:linear_double_wave_error}绝对误差]{\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/linear_system/error}}
+
 \caption{不同求解器–限制器组合所得\nameref{prob:=007EBF=006027=0053CC=006CE2=005E73=006D41}问题
 RKDG 近似解之比较 (2/2)}
 \end{figure}
@@ -2535,18 +2526,12 @@ $t\in[0.0,0.2]$ 及图 \ref{fig:double_mach_sketch} 中虚线所围计算区域�
 的六面体单元的非结构网格上的 RK1/DG1、RK2/DG2、RK3/DG3 近似解。
 
 \begin{figure}[h!]
-\begin{centering}
-\subfloat[\label{fig:double_mach_p=00003D1_h=00003D5e-3}$p=1$]{\begin{centering}
-\includegraphics[width=1\textwidth]{../mdpi/figures/double_mach/p=1_h=5e-3}
-\par\end{centering}
-}
-\par\end{centering}
-\begin{centering}
-\subfloat[\label{fig:double_mach_p=00003D2_h=00003D5e-3}$p=2$]{\begin{centering}
-\includegraphics[width=1\textwidth]{../mdpi/figures/double_mach/p=2_h=5e-3}
-\par\end{centering}
-}
-\par\end{centering}
+\centering
+
+\subfloat[\label{fig:double_mach_p=00003D1_h=00003D5e-3}$p=1$]{\includegraphics[width=1\textwidth]{../mdpi/figures/double_mach/p=1_h=5e-3}}
+
+\subfloat[\label{fig:double_mach_p=00003D2_h=00003D5e-3}$p=2$]{\includegraphics[width=1\textwidth]{../mdpi/figures/double_mach/p=2_h=5e-3}}
+
 \caption{\label{fig:double_mach_h=00003D5e-3}在只含 $h\approx1/200$ 的六面体单元的非结构网格上所得\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题
 $\rho(x,y,z=Z/2,t=0.2)$ 的 RKDG 近似解 (1/2)}
 \end{figure}
@@ -2554,13 +2539,10 @@ $\rho(x,y,z=Z/2,t=0.2)$ 的 RKDG 近似解 (1/2)}
 \newpage{}
 
 \begin{figure}[h!]
-\ContinuedFloat
-\begin{centering}
-\subfloat[\label{fig:double_mach_p=00003D3_h=00003D5e-3}$p=3$]{\begin{centering}
-\includegraphics[width=1\textwidth]{../mdpi/figures/double_mach/p=3_h=5e-3}
-\par\end{centering}
-}
-\par\end{centering}
+\ContinuedFloat\centering
+
+\subfloat[\label{fig:double_mach_p=00003D3_h=00003D5e-3}$p=3$]{\includegraphics[width=1\textwidth]{../mdpi/figures/double_mach/p=3_h=5e-3}}
+
 \caption{在只含 $h\approx1/200$ 的六面体单元的非结构网格上所得\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题
 $\rho(x,y,z=Z/2,t=0.2)$ 的 RKDG 近似解 (2/2)}
 \end{figure}
@@ -2644,7 +2626,6 @@ RK3/DG3 近似解 (1/5)}
 \ref{fig:forward_step_p=00003D3_t=00003D10e-1} 所示。
 
 \newpage{}
-
 
 \begin{figure}[H]
 \ContinuedFloat
@@ -2753,7 +2734,8 @@ RK3/DG3 近似解 (5/5)}
 \begin{centering}
 \includegraphics[width=1\textwidth]{figures/forward_step/qiu}
 \par\end{centering}
-\caption{\label{fig:forward_step_p=00003D5_qiu}在三级自适应加密的二维网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题的 RK3/DG5 近似解\upcite{Giri_2019}}
+\caption{\label{fig:forward_step_p=00003D5_qiu}在三级自适应加密的二维网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题的
+RK3/DG5 近似解\upcite{Giri_2019}}
 \end{figure}
 
 \newpage{}
@@ -2859,18 +2841,12 @@ $(-1,0,0)$ 为方向矢量。
 UMS–RK1/DG1 与 UMS–RK3/DG3 近似解。这里给出精度较低的 UMS–RK1/DG1 近似解，是因为其在物理上较为可靠，可以用来定性地验证高阶近似解的正确性。
 
 \begin{figure}[h!]
-\begin{centering}
-\subfloat[\label{fig:upward_t=00003D4e-1_p=00003D1}$t=0.4$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/upward/p=1/Frame40}
-\par\end{centering}
-}
-\par\end{centering}
-\begin{centering}
-\subfloat[\label{fig:upward_t=00003D8e-1_p=00003D1}$t=0.8$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/upward/p=1/Frame80}
-\par\end{centering}
-}
-\par\end{centering}
+\centering
+
+\subfloat[\label{fig:upward_t=00003D4e-1_p=00003D1}$t=0.4$]{\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/upward/p=1/Frame40}}
+
+\subfloat[\label{fig:upward_t=00003D8e-1_p=00003D1}$t=0.8$]{\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/upward/p=1/Frame80}}
+
 \caption{\label{fig:upward_p=00003D1}\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题的
 UMS–RK1/DG1 近似解}
 \end{figure}
@@ -2882,18 +2858,12 @@ $y=0$ 平面上画出密度分布；在 $z=0$ 平面上画出速度方向，并�
 可以推知，压强在桨盘附近也有一跳跃，且下（右）侧值大于上（左）侧值。这说明流经桨盘平面的气体，正在被桨叶压缩做功；根据牛顿第三定律，桨叶必然受到气体对其施加的反作用力，这正是旋翼升力的来源。
 
 \begin{figure}[h!]
-\begin{centering}
-\subfloat[\label{fig:upward_t=00003D4e-1_p=00003D3}$t=0.4$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/upward/p=3/Frame40}
-\par\end{centering}
-}
-\par\end{centering}
-\begin{centering}
-\subfloat[\label{fig:upward_t=00003D8e-1_p=00003D3}$t=0.8$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/upward/p=3/Frame80}
-\par\end{centering}
-}
-\par\end{centering}
+\centering
+
+\subfloat[\label{fig:upward_t=00003D4e-1_p=00003D3}$t=0.4$]{\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/upward/p=3/Frame40}}
+
+\subfloat[\label{fig:upward_t=00003D8e-1_p=00003D3}$t=0.8$]{\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/upward/p=3/Frame80}}
+
 \caption{\label{fig:upward_p=00003D3}\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题的
 UMS–RK3/DG3 近似解}
 \end{figure}
@@ -2905,18 +2875,12 @@ UMS–RK3/DG3 求解器才能在如此稀疏的网格上捕捉到声波的干涉
 平面上的密度分布。可以发现：环状涡的涡核在 UMS–RK1/DG1 近似解中较为模糊，在 UMS–RK3/DG3 近似解中仍十分明显。这再次体现了高阶求解器数值耗散低的优势。
 
 \begin{figure}[h!]
-\begin{centering}
-\subfloat[\label{fig:upward_ring_p=00003D1}$p=1$（时空一阶）]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/upward/p=1/vortex}
-\par\end{centering}
-}
-\par\end{centering}
-\begin{centering}
-\subfloat[\label{fig:upward_ring_p=00003D3}$p=3$（时空三阶）]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/upward/p=3/vortex}
-\par\end{centering}
-}
-\par\end{centering}
+\centering
+
+\subfloat[\label{fig:upward_ring_p=00003D1}$p=1$（时空一阶）]{\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/upward/p=1/vortex}}
+
+\subfloat[\label{fig:upward_ring_p=00003D3}$p=3$（时空三阶）]{\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/upward/p=3/vortex}}
+
 \caption{\label{fig:upward_ring}\nameref{prob:=005B64=007ACB=0065CB=007FFC=008F74=005411=008FCE=0098CE}问题在
 $t=1.0$ 时刻的 UMS–RKDG 近似解}
 \end{figure}
@@ -2945,18 +2909,12 @@ $(0,0,1)$ 为方向矢量。
 近似解。
 
 \begin{figure}[h!]
-\begin{centering}
-\subfloat[\label{fig:forward_t=00003D4e-1_p=00003D1}$t=0.4$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=1/Frame40}
-\par\end{centering}
-}
-\par\end{centering}
-\begin{centering}
-\subfloat[\label{fig:forward_t=00003D10e-1_p=00003D1}$t=1.0$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=1/Frame100}
-\par\end{centering}
-}
-\par\end{centering}
+\centering
+
+\subfloat[\label{fig:forward_t=00003D4e-1_p=00003D1}$t=0.4$]{\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=1/Frame40}}
+
+\subfloat[\label{fig:forward_t=00003D10e-1_p=00003D1}$t=1.0$]{\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=1/Frame100}}
+
 \caption{\label{fig:forward_p=00003D1}\nameref{prob:=005B64=007ACB=0065CB=007FFC=005F84=005411=008FCE=0098CE}问题的
 UMS–RK1/DG1 近似解}
 \end{figure}
@@ -2969,18 +2927,12 @@ $x=4$ 平面上画出密度分布；在 $y=0$ 平面上画出速度方向，并�
 不难发现：桨盘附近的速度矢量明显向下偏转，这表明旋转的桨叶在为气流提供动量；旋翼尾迹（红色区域）向右偏转，这体现了左侧自由来流的驱动作用。
 
 \begin{figure}[h!]
-\begin{centering}
-\subfloat[\label{fig:forward_t=00003D4e-1_p=00003D3}$t=0.4$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=3/Frame40}
-\par\end{centering}
-}
-\par\end{centering}
-\begin{centering}
-\subfloat[\label{fig:forward_t=00003D10e-1_p=00003D3}$t=1.0$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=3/Frame100}
-\par\end{centering}
-}
-\par\end{centering}
+\centering
+
+\subfloat[\label{fig:forward_t=00003D4e-1_p=00003D3}$t=0.4$]{\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=3/Frame40}}
+
+\subfloat[\label{fig:forward_t=00003D10e-1_p=00003D3}$t=1.0$]{\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=3/Frame100}}
+
 \caption{\label{fig:forward_p=00003D3}\nameref{prob:=005B64=007ACB=0065CB=007FFC=005F84=005411=008FCE=0098CE}问题的
 UMS–RK3/DG3 近似解}
 \end{figure}
@@ -3000,18 +2952,12 @@ UMS–RK3/DG3 求解器才能在 $x=4$ 平面上捕捉到一对清晰的涡核�
 近似解导出的结果是自洽的。
 
 \begin{figure}[h!]
-\begin{centering}
-\subfloat[主视图]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=3/y+}
-\par\end{centering}
-}
-\par\end{centering}
-\begin{centering}
-\subfloat[俯视图]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=3/z-}
-\par\end{centering}
-}
-\par\end{centering}
+\centering
+
+\subfloat[主视图]{\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=3/y+}}
+
+\subfloat[俯视图]{\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=3/z-}}
+
 \caption{\label{fig:forward_streamlines}由\nameref{prob:=005B64=007ACB=0065CB=007FFC=005F84=005411=008FCE=0098CE}问题在
 $t=1.0$ 时刻的 UMS–RK3/DG3 近似解导出的速度流线图}
 \end{figure}
@@ -3027,18 +2973,12 @@ Q\coloneqq\frac{(\partial_{i}u_{i})(\partial_{k}u_{k})-(\partial_{i}u_{k})(\part
 \ref{fig:forward_streamlines} 中流线螺旋延伸的轴线一致。这说明由两种近似解导出的结果是相容的。
 
 \begin{figure}[h!]
-\begin{centering}
-\subfloat[主视图]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=1/Q_y+}
-\par\end{centering}
-}
-\par\end{centering}
-\begin{centering}
-\subfloat[俯视图]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=1/Q_z-}
-\par\end{centering}
-}
-\par\end{centering}
+\centering
+
+\subfloat[主视图]{\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=1/Q_y+}}
+
+\subfloat[俯视图]{\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/forward/p=1/Q_z-}}
+
 \caption{\label{fig:forward_Q}由\nameref{prob:=005B64=007ACB=0065CB=007FFC=005F84=005411=008FCE=0098CE}问题在
 $t=1.0$ 时刻的 UMS–RK1/DG1 近似解导出的 $Q$ 等值面}
 \end{figure}
@@ -3325,42 +3265,25 @@ $t\in[0,10]$ 内，求满足三维欧拉方程 (\ref{eq:euler_system}) 及以下
 图 \ref{fig:ship_a=00003D0_p=00003D3} 动态地显示了旋翼尾迹的形成过程。计时开始后，一个起动涡在旋翼后缘形成，并随来流向后（右）运动，运动轨迹大致对应旋翼尾迹后缘。该尾迹后缘不受船体阻挡，自由地向后、向下延伸，直到触及海面。与之相反，尾迹前缘明显受到船尾甲板阻挡，气流撞击甲板形成高压、高密度区。相应地，旋翼前缘感受到来自甲板的托举力，其机理类似于直升机贴近平地飞行时所产生的地面效应。因此，在直升机正面迎风悬停于甲板中部上方的情形下，实施船尾甲板起降任务的舰载直升机驾驶员（或自动控制系统）需修正桨距输入，以克服使直升机向后翻滚的俯仰力矩。
 
 \begin{figure}[h!]
-\begin{centering}
-\subfloat[$t=2.0$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.2\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame20}
-\par\end{centering}
-}
-\par\end{centering}
-\begin{centering}
-\subfloat[$t=4.0$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.2\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame40}
-\par\end{centering}
-}
-\par\end{centering}
+\centering
+
+\subfloat[$t=2.0$]{\includegraphics[width=1\textwidth,height=0.2\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame20}}
+
+\subfloat[$t=4.0$]{\includegraphics[width=1\textwidth,height=0.2\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame40}}
+
 \caption{\label{fig:ship_a=00003D0_p=00003D3}\nameref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}工况的
 UMS–RK3/DG3 近似解 (1/2)}
 \end{figure}
 
 \begin{figure}[h!]
-\ContinuedFloat
-\begin{centering}
-\subfloat[$t=6.0$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.2\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame60}
-\par\end{centering}
-}
-\par\end{centering}
-\begin{centering}
-\subfloat[$t=8.0$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.2\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame80}
-\par\end{centering}
-}
-\par\end{centering}
-\begin{centering}
-\subfloat[$t=10.0$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.2\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame100}
-\par\end{centering}
-}
-\par\end{centering}
+\ContinuedFloat\centering
+
+\subfloat[$t=6.0$]{\includegraphics[width=1\textwidth,height=0.2\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame60}}
+
+\subfloat[$t=8.0$]{\includegraphics[width=1\textwidth,height=0.2\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame80}}
+
+\subfloat[$t=10.0$]{\includegraphics[width=1\textwidth,height=0.2\textheight,keepaspectratio]{figures/ship/a=0_p=3/Frame100}}
+
 \caption{\nameref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}工况的
 UMS–RK3/DG3 近似解 (2/2)}
 \end{figure}
@@ -3377,18 +3300,12 @@ $(\SI{0}{m},\SI{6.858}{m},$ $\SI{12.192}{m})$\footnote{$(\SI{0}{ft},\SI{22.5}{ft
 $t=6$ 时刻触及海面。因气流撞击而形成的高压、高密度区，由甲板中心向后移动到海面。这意味着，此时旋翼所感受到的“地面效应”几乎完全来自于平直的海面，保持位置和姿态的难度与陆基直升机相当，低于前一小节研究的\nameref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=004E2D=0090E8=004E0A=0065B9}工况。
 
 \begin{figure}[h!]
-\begin{centering}
-\subfloat[$t=2.0$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/ship/x=0/Frame20}
-\par\end{centering}
-}
-\par\end{centering}
-\begin{centering}
-\subfloat[$t=6.0$]{\begin{centering}
-\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/ship/x=0/Frame60}
-\par\end{centering}
-}
-\par\end{centering}
+\centering
+
+\subfloat[$t=2.0$]{\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/ship/x=0/Frame20}}
+
+\subfloat[$t=6.0$]{\includegraphics[width=1\textwidth,height=0.4\textheight,keepaspectratio]{figures/ship/x=0/Frame60}}
+
 \caption{\label{fig:ship_x=00003D0_a=00003D0}\nameref{prob:=0076F4=005347=00673A=006B63=009762=008FCE=0098CE=0060AC=00505C=004E8E=007532=00677F=005C3E=0090E8=004E0A=0065B9}工况的
 UMS–RK3/DG3 近似解}
 \end{figure}

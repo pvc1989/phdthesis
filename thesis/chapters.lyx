@@ -11668,14 +11668,28 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/linear_system/u_1.pdf
 	lyxscale 50
@@ -11685,9 +11699,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -11762,6 +11773,8 @@ status open
 
 \backslash
 ContinuedFloat
+\backslash
+centering
 \end_layout
 
 \end_inset
@@ -11770,14 +11783,12 @@ ContinuedFloat
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/linear_system/u_2.pdf
 	lyxscale 50
@@ -11787,9 +11798,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -11810,14 +11818,12 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/linear_system/error.pdf
 	lyxscale 50
@@ -11828,9 +11834,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -14096,14 +14099,28 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename ../mdpi/figures/double_mach/p=1_h=5e-3.png
 	lyxscale 15
@@ -14112,9 +14129,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -14142,14 +14156,12 @@ name "fig:double_mach_p=1_h=5e-3"
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename ../mdpi/figures/double_mach/p=2_h=5e-3.png
 	lyxscale 15
@@ -14158,9 +14170,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -14250,6 +14259,8 @@ status open
 
 \backslash
 ContinuedFloat
+\backslash
+centering
 \end_layout
 
 \end_inset
@@ -14258,14 +14269,12 @@ ContinuedFloat
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename ../mdpi/figures/double_mach/p=3_h=5e-3.png
 	lyxscale 15
@@ -14274,9 +14283,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -16331,14 +16337,28 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/upward/p=1/Frame40.png
 	lyxscale 15
@@ -16349,9 +16369,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -16379,14 +16396,12 @@ name "fig:upward_t=4e-1_p=1"
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/upward/p=1/Frame80.png
 	lyxscale 15
@@ -16397,9 +16412,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -16498,14 +16510,28 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/upward/p=3/Frame40.png
 	lyxscale 15
@@ -16516,9 +16542,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -16546,14 +16569,12 @@ name "fig:upward_t=4e-1_p=3"
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/upward/p=3/Frame80.png
 	lyxscale 15
@@ -16564,9 +16585,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -16655,14 +16673,28 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/upward/p=1/vortex.png
 	lyxscale 15
@@ -16673,9 +16705,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -16703,14 +16732,12 @@ name "fig:upward_ring_p=1"
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/upward/p=3/vortex.png
 	lyxscale 15
@@ -16721,9 +16748,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -16907,14 +16931,28 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/forward/p=1/Frame40.png
 	lyxscale 15
@@ -16925,9 +16963,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -16955,14 +16990,12 @@ name "fig:forward_t=4e-1_p=1"
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/forward/p=1/Frame100.png
 	lyxscale 15
@@ -16973,9 +17006,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -17085,14 +17115,28 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-wide false
-sideways false
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-\align center
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
 \begin_inset Graphics
 	filename figures/forward/p=3/Frame40.png
 	lyxscale 15
@@ -17103,9 +17147,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -17133,14 +17174,12 @@ name "fig:forward_t=4e-1_p=3"
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/forward/p=3/Frame100.png
 	lyxscale 15
@@ -17151,9 +17190,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -17280,14 +17316,28 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/forward/p=3/y+.png
 	lyxscale 15
@@ -17298,9 +17348,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -17318,14 +17365,12 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/forward/p=3/z-.png
 	lyxscale 15
@@ -17336,9 +17381,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -17459,14 +17501,28 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/forward/p=1/Q_y+.png
 	lyxscale 15
@@ -17477,9 +17533,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -17497,14 +17550,12 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/forward/p=1/Q_z-.png
 	lyxscale 15
@@ -17515,9 +17566,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -20321,14 +20369,28 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/ship/a=0_p=3/Frame20.png
 	lyxscale 15
@@ -20339,9 +20401,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -20362,14 +20421,12 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/ship/a=0_p=3/Frame40.png
 	lyxscale 15
@@ -20380,9 +20437,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -20452,17 +20506,28 @@ ContinuedFloat
 \end_inset
 
 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/ship/a=0_p=3/Frame60.png
 	lyxscale 15
@@ -20473,9 +20538,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -20496,14 +20558,12 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/ship/a=0_p=3/Frame80.png
 	lyxscale 15
@@ -20514,9 +20574,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -20537,14 +20594,12 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/ship/a=0_p=3/Frame100.png
 	lyxscale 15
@@ -20555,9 +20610,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -20690,14 +20742,28 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/ship/x=0/Frame20.png
 	lyxscale 15
@@ -20708,9 +20774,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -20731,14 +20794,12 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename figures/ship/x=0/Frame60.png
 	lyxscale 15
@@ -20749,9 +20810,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
