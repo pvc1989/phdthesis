@@ -4,6 +4,7 @@ import sys
 import numpy as np
 from matplotlib import pyplot as plt
 plt.rcParams['font.sans-serif'] = ['Songti SC']
+plt.rcParams['axes.unicode_minus'] = False
 
 if __name__ == '__main__':
   case = sys.argv[1]
@@ -12,8 +13,8 @@ if __name__ == '__main__':
     mesh = '_' + sys.argv[2]
 
   fig, ax = plt.subplots(figsize=[6, 3])
-  plt.xlabel(r'$x$')
-  plt.ylabel(r'$\rho$')
+  plt.xlabel(r'无量纲坐标 $X$')
+  plt.ylabel(r'无量纲密度 $\rho$')
 
   # inset axes....
   axins = ax.inset_axes([0.55, 0.5, 0.4, 0.4])

@@ -3,6 +3,7 @@
 import numpy as np
 from matplotlib import pyplot as plt
 plt.rcParams['font.sans-serif'] = ['Songti SC']
+plt.rcParams['axes.unicode_minus'] = False
 
 if __name__ == '__main__':
 
@@ -26,8 +27,8 @@ if __name__ == '__main__':
 
   # figure 1
   plt.figure(figsize=(6,3))
-  plt.xlabel(r'$x$')
-  plt.ylabel(r"$U_1$")
+  plt.xlabel(r'无量纲坐标 $X$')
+  plt.ylabel(r"无量纲分量值 $U_1$")
   plt.plot(x, u[0], label='解析解')
   data = []
   for i in range(len(names)):
@@ -41,8 +42,8 @@ if __name__ == '__main__':
 
   # figure 2
   plt.figure(figsize=(6,3))
-  plt.xlabel(r'$x$')
-  plt.ylabel(r"$U_2$")
+  plt.xlabel(r'无量纲坐标 $X$')
+  plt.ylabel(r"无量纲分量值 $U_2$")
   plt.plot(x, u[1], label='解析解')
   data = []
   for i in range(len(names)):
@@ -56,8 +57,8 @@ if __name__ == '__main__':
 
   # figure 3
   fig, ax = plt.subplots(figsize=[6, 3])
-  plt.xlabel(r'$x$')
-  plt.ylabel("绝对误差")
+  plt.xlabel(r'无量纲坐标 $X$')
+  plt.ylabel(r'无量纲绝对误差 $\varepsilon$')
   # inset axes....
   axins = ax.inset_axes([0.15, 0.6, 0.3, 0.35])
   # sub region of the original image

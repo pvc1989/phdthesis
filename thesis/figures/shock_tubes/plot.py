@@ -4,6 +4,7 @@ import sys
 import numpy as np
 from matplotlib import pyplot as plt
 plt.rcParams['font.sans-serif'] = ['Songti SC']
+plt.rcParams['axes.unicode_minus'] = False
 
 if __name__ == '__main__':
   case = sys.argv[1]
@@ -17,8 +18,8 @@ if __name__ == '__main__':
   rkdg3 = np.loadtxt('../../../mdpi/figures/shock_tubes/'+case+'/rkdg3' + mesh + '.csv', delimiter=',', skiprows=1)
 
   plt.figure(figsize=(6,3))
-  plt.xlabel(r'$x$')
-  plt.ylabel(r'$\rho$')
+  plt.xlabel(r'无量纲坐标 $X$')
+  plt.ylabel(r'无量纲密度 $\rho$')
   plt.plot(exact[0,:], exact[1,:], 'g-', label='精确解')
   plt.plot(rkdg1[:,3], rkdg1[:,0], 'b:', label=r'$p=1$')
   plt.plot(rkdg2[:,3], rkdg2[:,0], 'k-.', label=r'$p=2$')

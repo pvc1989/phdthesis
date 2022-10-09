@@ -3,12 +3,13 @@
 import numpy as np
 from matplotlib import pyplot as plt
 plt.rcParams['font.sans-serif'] = ['Songti SC']
+plt.rcParams['axes.unicode_minus'] = False
 
 if __name__ == '__main__':
 
   plt.figure(figsize=(6,3))
-  plt.xlabel(r'$x$')
-  plt.ylabel(r'$U$')
+  plt.xlabel(r'无量纲坐标 $X$')
+  plt.ylabel(r'无量纲函数值 $U$')
 
   x = np.linspace(0.0, 4.0, 1001)
   u = 10.0 * (x - 2.) / np.abs(x - 2.)
