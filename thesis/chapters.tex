@@ -1896,7 +1896,7 @@ WENO 限制器。
 
 \section{基于线性平流问题解析解的定量验证}
 
-本节求解如下线性平流方程
+本节求解如下（无量纲）线性平流方程
 \begin{equation}
 \partial_{t}\underline{U}+\underline{A}^{x}\,\partial_{x}\underline{U}+\underline{A}^{y}\,\partial_{y}\underline{U}+\underline{A}^{z}\,\partial_{z}\underline{U}=\underline{0}\label{eq:linear_system}
 \end{equation}
@@ -1960,8 +1960,8 @@ U_{\mathrm{R}}, & x-4>-10t.
 \par\end{centering}
 }
 \par\end{centering}
-\centering{}\caption{\label{fig:linear_scalar_contour}在只含四面体单元的非结构网格上所得\nameref{prob:=007EBF=006027=005355=006CE2=005E73=006D41}问题在
-$t=0.2$ 时刻的 RKDG 近似解}
+\centering{}\caption{\label{fig:linear_scalar_contour}\nameref{prob:=007EBF=006027=005355=006CE2=005E73=006D41}问题在只含四面体单元的非结构网格的
+RKDG 近似解}
 \end{figure}
 
 \newpage{}
@@ -1976,21 +1976,19 @@ $h$）与增加阶数（增大 $p$）对数值解精度的提高。
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/linear_scalar/h_vary}
+\includegraphics[width=1\textwidth]{figures/linear_scalar/h_vary}
 \par\end{centering}
-\caption{\label{fig:linear_scalar_h_vary}同一求解器在不同网格上所得\nameref{prob:=007EBF=006027=005355=006CE2=005E73=006D41}问题在
-$t=0.2$ 时刻的近似解之间的比较}
+\caption{\label{fig:linear_scalar_h_vary}\nameref{prob:=007EBF=006027=005355=006CE2=005E73=006D41}问题以同一求解器在不同网格上解得的近似解之比较}
 \end{figure}
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/linear_scalar/p_vary}
+\includegraphics[width=1\textwidth]{figures/linear_scalar/p_vary}
 \par\end{centering}
-\caption{\label{fig:linear_scalar_p_vary}不同求解器在同一网格上所得\nameref{prob:=007EBF=006027=005355=006CE2=005E73=006D41}问题在
-$t=0.2$ 时刻的近似解之间的比较}
+\caption{\label{fig:linear_scalar_p_vary}\nameref{prob:=007EBF=006027=005355=006CE2=005E73=006D41}问题以不同求解器在同一网格上解得的近似解之比较}
 \end{figure}
 
-表 \ref{tab:linear_accuracy} 列出了各种求解器–网格 ($p$–$h$) 组合的全局误差测量值。这里的“全局误差”定义为
+表 \ref{tab:linear_accuracy} 列出了各种求解器–网格组合的全局误差测量值。这里的“全局误差”定义为
 
 \newpage{}
 
@@ -2156,9 +2154,9 @@ V_{2}^{\star}-V_{1}^{\star}
 \begin{figure}[h!]
 \centering
 
-\subfloat[$U_{1}(x,y=0.5,z=0.25,t=0.3)$]{\includegraphics[width=1\textwidth,height=0.3\textheight]{figures/linear_system/u_1}}
+\subfloat[$U_{1}(x,y=0.5,z=0.25,t=0.3)$]{\includegraphics[width=1\textwidth]{figures/linear_system/u_1}}
 
-\caption{\label{fig:linear_double_wave_sample}不同求解器–限制器组合所得\nameref{prob:=007EBF=006027=0053CC=006CE2=005E73=006D41}问题
+\caption{\label{fig:linear_double_wave_sample}\nameref{prob:=007EBF=006027=0053CC=006CE2=005E73=006D41}问题以不同求解器–限制器组合解得的
 RKDG 近似解之比较 (1/2)}
 \end{figure}
 
@@ -2167,11 +2165,11 @@ RKDG 近似解之比较 (1/2)}
 \begin{figure}[h!]
 \ContinuedFloat\centering
 
-\subfloat[$U_{2}(x,y=0.5,z=0.25,t=0.3)$]{\includegraphics[width=1\textwidth,height=0.3\textheight]{figures/linear_system/u_2}}
+\subfloat[$U_{2}(x,y=0.5,z=0.25,t=0.3)$]{\includegraphics[width=1\textwidth]{figures/linear_system/u_2}}
 
-\subfloat[\label{fig:linear_double_wave_error}绝对误差]{\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/linear_system/error}}
+\subfloat[\label{fig:linear_double_wave_error}绝对误差]{\includegraphics[width=1\textwidth]{figures/linear_system/error}}
 
-\caption{不同求解器–限制器组合所得\nameref{prob:=007EBF=006027=0053CC=006CE2=005E73=006D41}问题
+\caption{\nameref{prob:=007EBF=006027=0053CC=006CE2=005E73=006D41}问题以不同求解器–限制器组合解得的
 RKDG 近似解之比较 (2/2)}
 \end{figure}
 
@@ -2223,8 +2221,8 @@ $L_{2}$ 范数
 
 激波管问题是欧拉方程的黎曼问题。其精确解含有激波、膨胀波、接触间断中的一种或多种，有时还会形成真空；又因其流场边界几何外形简单，初始条件、边界条件非常容易设置，自其被提出以来便被用作考核欧拉方程数值解的标准算例。
 
-它们通常被简化为一维问题，但本文将其用于验证三维欧拉方程求解器的正确性，因此需要在三维空间内重新给出其定义。本小节的所有问题都在三维区间
-$[0.0,5.0]\times[0.0,1.0]\times[0.0,0.5]$ 内求解，且平行于 $x$ 轴的边界均设为固体壁面。
+它们通常被简化为一维问题，但本文将其用于验证三维欧拉方程求解器的正确性，因此需要在三维空间内重新给出其定义。本节的所有物理量都是无量纲化的，所有问题都定义在三维区间
+$[0.0,5.0]\times[0.0,1.0]\times[0.0,0.5]$ 内，且平行于 $x$ 轴的边界均设为固体壁面。
 
 尽管这些问题没有封闭形式的解析解，但基于文献 \cite{Toro_2009} 介绍的方法，辅之以精度充分高的非线性代数方程求解器，仍然可以得到精度任意高的近似解。这种近似解的精度可以充分高，以至于其与实数范围内的精确解具有相同的（有限位）浮点数表示。若无特别说明，本文剩余部分提到的“精确解”都是指“浮点数范围内的精确解”或“计算机上的精确解”。
 
@@ -2261,56 +2259,27 @@ $[0.0,5.0]\times[0.0,1.0]\times[0.0,0.5]$ 内求解，且平行于 $x$ 轴的边
 \begin{centering}
 \includegraphics[width=1\textwidth]{../mdpi/figures/shock_tubes/sod/contour}
 \par\end{centering}
-\caption{\label{fig:sod_hexa}在只含 $h\approx0.1$ 的六面体单元的非结构网格上所得 \nameref{prob:Sod-=006FC0=006CE2=007BA1}问题
-$\rho(x,y,z,t=1.0)$ 的 RK3/DG3 近似解}
+\caption{\label{fig:sod_hexa}\nameref{prob:Sod-=006FC0=006CE2=007BA1}问题在只含
+$h\approx0.1$ 六面体单元的非结构网格上的 RK3/DG3 近似解}
 \end{figure}
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight]{figures/shock_tubes/sod/result}
+\includegraphics[width=1\textwidth]{figures/shock_tubes/sod/result}
 \par\end{centering}
-\caption{\label{fig:sod_hexa_p_vary}在只含 $h\approx0.1$ 的六面体单元的非结构网格上所得 \nameref{prob:Sod-=006FC0=006CE2=007BA1}问题
-$\rho(x,y=0.5,z=0.25,t=1.0)$ 的各阶 RKDG 近似解之间的比较}
+\caption{\label{fig:sod_hexa_p_vary}\nameref{prob:Sod-=006FC0=006CE2=007BA1}问题在只含
+$h\approx0.1$ 六面体单元的非结构网格上的各阶 RKDG 近似解之比较}
 \end{figure}
 
-为了验证上述结论的网格无关性，作者在只含 $h\approx0.1$ 的四面体单元的非结构网格上再次求解了 \nameref{prob:Sod-=006FC0=006CE2=007BA1}问题，所得结果如图
-\ref{fig:sod_tetra}–\ref{fig:sod_tetra_p_vary} 所示。将它们与图 \ref{fig:sod_hexa}–\ref{fig:sod_hexa_p_vary}
-比较，不难发现：无论采用何种单元，只要网格足够精细，\nameref{prob:Sod-=006FC0=006CE2=007BA1}问题的各阶
-RKDG 近似解均能收敛到精确解。
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth]{../mdpi/figures/shock_tubes/sod/contour_tetra}
-\par\end{centering}
-\caption{\label{fig:sod_tetra}在只含 $h\approx0.1$ 的四面体单元的非结构网格上所得 \nameref{prob:Sod-=006FC0=006CE2=007BA1}问题
-$\rho(x,y,z,t=1.0)$ 的 RK3/DG3 近似解}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight]{figures/shock_tubes/sod/result_tetra}
-\par\end{centering}
-\caption{\label{fig:sod_tetra_p_vary}在只含 $h\approx0.1$ 的四面体单元的非结构网格上所得 \nameref{prob:Sod-=006FC0=006CE2=007BA1}问题
-$\rho(x,y=0.5,z=0.25,t=1.0)$ 的各阶 RKDG 近似解之间的比较}
-\end{figure}
-
-为了更合理地比较不同阶数的求解器，作者开展了一组数值试验，将低阶 RKDG 求解器在细网格上的性能与高阶 RKDG 求解器在粗网格上的性能进行了对比。图
-\ref{fig:sod_error}、表 \ref{tab:sod_cost} 给出了三组试验的结果。由该图、表可知：(1)
+为了更合理地比较不同阶数的求解器，作者开展了一组数值试验，将低阶 RKDG 求解器在细网格上的性能与高阶 RKDG 求解器在粗网格上的性能进行了对比。表
+\ref{tab:sod_cost}、图 \ref{fig:sod_error} 给出了三组试验的结果。由该表、图可知：(1)
 RK1/DG1 近似解的全局误差、运行时间、存储空间均最大，性价比最低；(2) RK3/DG3 与 RK3/DG3 近似解的全局误差、运行时间大致相当，但
 RK2/DG2 近似解所需的存储空间较大，故其性价比低于 RK3/DG3 近似解；(3) 求解器精度每提高一阶，单元尺寸与时间步长可增加一倍，体单元数与时间步数的乘积可以减小为原来的
 $1/16$。因此，只要 $p+1$ 阶 RKDG 求解器分摊到每个体单元上的单步计算量不超过 $p$ 阶 RKDG 求解器的
 $16$ 倍，就具有更高的性价比。这里的“性”指全局精度，“价”指运行时间及存储空间。
 
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight]{figures/shock_tubes/sod/h_vary_tetra}
-\par\end{centering}
-\caption{\label{fig:sod_error}不同求解器–网格组合所得 \nameref{prob:Sod-=006FC0=006CE2=007BA1}问题
-$\rho(x,y=0.5,z=0.25,t=1.0)$ 的计算精度之比较}
-\end{figure}
-
 \begin{table}
-\caption{\label{tab:sod_cost}不同求解器–网格组合所得 \nameref{prob:Sod-=006FC0=006CE2=007BA1}问题的计算成本之比较}
+\caption{\label{tab:sod_cost}\nameref{prob:Sod-=006FC0=006CE2=007BA1}问题以不同求解器–网格组合求解的计算成本之比较}
 
 \centering{}%
 \begin{tabular}{cccccc}
@@ -2324,11 +2293,38 @@ $p$ & $h$ & 体单元数 & 时间步数 & 运行时间 (s) & 存储空间 (MB)\t
 \end{tabular}
 \end{table}
 
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[width=1\textwidth]{figures/shock_tubes/sod/h_vary_tetra}
+\par\end{centering}
+\caption{\label{fig:sod_error}\nameref{prob:Sod-=006FC0=006CE2=007BA1}问题以不同求解器–网格组合解得的近似解之比较}
+\end{figure}
+
 需要说明的是，不同于\nameref{prob:=007EBF=006027=005355=006CE2=005E73=006D41}问题所得的表
-\ref{tab:linear_cost}，表 \ref{tab:sod_cost} 中的数据没有夸大低阶 RKDG 求解器的运行时间，这是因为这里的
-RK1/DG1、RK2/DG2 求解器采用了与之相对应的低阶数值积分器。具体地说，这里的 RK1/DG1 求解器采用了 1 点四面体积分器与
-1 点三角形积分器，RK2/DG2 求解器采用了 4 点四面体积分器与 3 点三角形积分器，RK3/DG3 求解器采用了 14 点四面体积分器与
-6 点三角形积分器。因此，本节关于性价比的结论比\nameref{prob:=007EBF=006027=005355=006CE2=005E73=006D41}问题所得的类似结论更加可靠，也更具有参考价值。
+\ref{tab:linear_cost}，表 \ref{tab:sod_cost} 中的数据没有夸大低阶 RKDG 求解器的运行时间，这是因为，这里的
+RK1/DG1 求解器采用了 1 点四面体积分器与 1 点三角形积分器，RK2/DG2 求解器采用了 4 点四面体积分器与 3 点三角形积分器，RK3/DG3
+求解器采用了 14 点四面体积分器与 6 点三角形积分器。因此，本节关于性价比的结论比\nameref{prob:=007EBF=006027=005355=006CE2=005E73=006D41}问题所得的类似结论更加可靠，也更具有参考价值。
+
+为了验证上述结论的网格无关性，作者在只含 $h\approx0.1$ 的四面体单元的非结构网格上再次求解了 \nameref{prob:Sod-=006FC0=006CE2=007BA1}问题，所得结果如图
+\ref{fig:sod_tetra}–\ref{fig:sod_tetra_p_vary} 所示。将它们与图 \ref{fig:sod_hexa}–\ref{fig:sod_hexa_p_vary}
+比较，不难发现：无论采用何种单元，只要网格足够精细，\nameref{prob:Sod-=006FC0=006CE2=007BA1}问题的各阶
+RKDG 近似解均能收敛到精确解。
+
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[width=1\textwidth]{../mdpi/figures/shock_tubes/sod/contour_tetra}
+\par\end{centering}
+\caption{\label{fig:sod_tetra}\nameref{prob:Sod-=006FC0=006CE2=007BA1}问题在只含
+$h\approx0.1$ 四面体单元的非结构网格上的 RK3/DG3 近似解}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[width=1\textwidth]{figures/shock_tubes/sod/result_tetra}
+\par\end{centering}
+\caption{\label{fig:sod_tetra_p_vary}\nameref{prob:Sod-=006FC0=006CE2=007BA1}问题在只含
+$h\approx0.1$ 四面体单元的非结构网格上的各阶 RKDG 近似解之比较}
+\end{figure}
 
 \newpage{}
 
@@ -2363,8 +2359,8 @@ RK3/DG3 近似解。
 \begin{centering}
 \includegraphics[width=1\textwidth]{../mdpi/figures/shock_tubes/lax/contour}
 \par\end{centering}
-\caption{\label{fig:lax_hexa}在只含 $h\approx0.1$ 的六面体单元的非结构网格上所得 \nameref{prob:Lax-=006FC0=006CE2=007BA1}问题
-$\rho(x,y,z,t=0.5)$ 的 RK3/DG3 近似解}
+\caption{\label{fig:lax_hexa}\nameref{prob:Lax-=006FC0=006CE2=007BA1}问题在只含
+$h\approx0.1$ 六面体单元的非结构网格上的 RK3/DG3 近似解}
 \end{figure}
 
 图 \ref{fig:lax_hexa_p_vary} 沿纵向对称轴 ($y=0.5,\,z=0.25$) 均匀选取了 1001
@@ -2373,10 +2369,10 @@ $\rho(x,y,z,t=0.5)$ 的 RK3/DG3 近似解}
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight]{figures/shock_tubes/lax/result}
+\includegraphics[width=1\textwidth]{figures/shock_tubes/lax/result}
 \par\end{centering}
-\caption{\label{fig:lax_hexa_p_vary}在只含 $h\approx0.1$ 的六面体单元的非结构网格上所得 \nameref{prob:Lax-=006FC0=006CE2=007BA1}问题
-$\rho(x,y=0.5,z=0.25,t=0.5)$ 的各阶 RKDG 近似解之间的比较}
+\caption{\label{fig:lax_hexa_p_vary}\nameref{prob:Lax-=006FC0=006CE2=007BA1}问题在只含
+$h\approx0.1$ 六面体单元的非结构网格上的各阶 RKDG 近似解之比较}
 \end{figure}
 
 为了验证计算结果及上述结论的网格无关性，作者在只含 $h\approx0.1$ 的四面体单元的非结构网格上再次求解了 \nameref{prob:Lax-=006FC0=006CE2=007BA1}问题，所得结果如图
@@ -2386,20 +2382,22 @@ $\rho(x,y=0.5,z=0.25,t=0.5)$ 的各阶 RKDG 近似解之间的比较}
 \begin{centering}
 \includegraphics[width=1\textwidth]{../mdpi/figures/shock_tubes/lax/contour_tetra}
 \par\end{centering}
-\caption{\label{fig:lax_tetra}在只含 $h\approx0.1$ 的四面体单元的非结构网格上所得 \nameref{prob:Lax-=006FC0=006CE2=007BA1}问题
-$\rho(x,y,z,t=0.5)$ 的 RK3/DG3 近似解}
+\caption{\label{fig:lax_tetra}\nameref{prob:Lax-=006FC0=006CE2=007BA1}问题在只含
+$h\approx0.1$ 四面体单元的非结构网格上的 RK3/DG3 近似解}
 \end{figure}
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=30cm,keepaspectratio]{figures/shock_tubes/lax/result_tetra}
+\includegraphics[width=1\textwidth]{figures/shock_tubes/lax/result_tetra}
 \par\end{centering}
-\caption{\label{fig:lax_tetra_p_vary}在只含 $h\approx0.1$ 的四面体单元的非结构网格上所得 \nameref{prob:Lax-=006FC0=006CE2=007BA1}问题
-$\rho(x,y=0.5,z=0.25,t=0.5)$ 的各阶 RKDG 近似解之间的比较}
+\caption{\label{fig:lax_tetra_p_vary}\nameref{prob:Lax-=006FC0=006CE2=007BA1}问题在只含
+$h\approx0.1$ 四面体单元的非结构网格上的各阶 RKDG 近似解之比较}
 \end{figure}
 
 将它们与图 \ref{fig:lax_hexa}–\ref{fig:lax_hexa_p_vary} 比较，不难发现：无论采用何种单元，只要网格足够精细，\nameref{prob:Lax-=006FC0=006CE2=007BA1}问题的各阶
 RKDG 近似解均能收敛到精确解。
+
+\newpage{}
 
 \subsection{真空管问题}
 \begin{problem}
@@ -2427,24 +2425,31 @@ RKDG 近似解均能收敛到精确解。
 的 4.6 节对真空区域的处理开展了充分的讨论。本文根据其建议，按如下方式确定真空区域的状态：真空区域（在下标中用 $*$ 表示）内没有气体分子，因此密度
 $\rho$ 及压强 $p$ 可以设为 $0$，但速率 $u$ 是未定义的；另一方面，真空区域的边界恰好是膨胀波的波尾，因此其上的速率值可以由穿过膨胀波的黎曼不变量求得。
 
+\newpage{}
+
+上述对真空区域处理方法的讨论可表示为
+\begin{equation}
+u_{*\mathrm{L}}=u_{\mathrm{L}}+\frac{2a_{\mathrm{L}}}{\gamma-1},\qquad u_{*\mathrm{R}}=u_{\mathrm{R}}-\frac{2a_{\mathrm{R}}}{\gamma-1}.
+\end{equation}
+
 图 \ref{fig:vacuum_hexa} 给出了在只含 $h\approx0.1$ 的六面体单元的非结构网格上所得\nameref{prob:=00771F=007A7A=007BA1}问题的
 RK3/DG3 近似解，图 \ref{fig:vacuum_hexa_p_vary} 沿纵向对称轴 ($y=0.5,\,z=0.25$)
 均匀选取了 1001 个采样点，依次画出了 RK1/DG1、RK2/DG2、RK3/DG3 近似解在这些采样点处的密度值。结果再次验证了的有效性和阶数与精度的正相关。
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=0.98\textwidth]{../mdpi/figures/shock_tubes/vacuum/contour}
+\includegraphics[width=1\textwidth]{../mdpi/figures/shock_tubes/vacuum/contour}
 \par\end{centering}
-\caption{\label{fig:vacuum_hexa}在只含 $h\approx0.1$ 的六面体单元的非结构网格上所得\nameref{prob:=00771F=007A7A=007BA1}问题
-$\rho(x,y,z,t=0.4)$ 的 RK3/DG3 近似解}
+\caption{\label{fig:vacuum_hexa}\nameref{prob:=00771F=007A7A=007BA1}问题在只含
+$h\approx0.1$ 六面体单元的非结构网格上的 RK3/DG3 近似解}
 \end{figure}
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/shock_tubes/vacuum/result}
+\includegraphics[width=1\textwidth]{figures/shock_tubes/vacuum/result}
 \par\end{centering}
-\caption{\label{fig:vacuum_hexa_p_vary}在只含 $h\approx0.1$ 的六面体单元的非结构网格上所得\nameref{prob:=00771F=007A7A=007BA1}问题
-$\rho(x,y=0.5,z=0.25,t=0.4)$ 的各阶 RKDG 近似解之间的比较}
+\caption{\label{fig:vacuum_hexa_p_vary}\nameref{prob:=00771F=007A7A=007BA1}问题在只含
+$h\approx0.1$ 六面体单元的非结构网格上的各阶 RKDG 近似解之比较}
 \end{figure}
 
 \newpage{}
@@ -2454,18 +2459,18 @@ $\rho(x,y=0.5,z=0.25,t=0.4)$ 的各阶 RKDG 近似解之间的比较}
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=0.98\textwidth]{../mdpi/figures/shock_tubes/vacuum/contour_tetra}
+\includegraphics[width=1\textwidth]{../mdpi/figures/shock_tubes/vacuum/contour_tetra}
 \par\end{centering}
-\caption{\label{fig:vacuum_tetra}在只含 $h\approx0.1$ 的四面体单元的非结构网格上所得\nameref{prob:=00771F=007A7A=007BA1}问题
-$\rho(x,y,z,t=0.4)$ 的 RK3/DG3 近似解}
+\caption{\label{fig:vacuum_tetra}\nameref{prob:=00771F=007A7A=007BA1}问题在只含
+$h\approx0.1$ 四面体单元的非结构网格上的 RK3/DG3 近似解}
 \end{figure}
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textwidth,height=0.3\textheight,keepaspectratio]{figures/shock_tubes/vacuum/result_tetra}
+\includegraphics[width=1\textwidth]{figures/shock_tubes/vacuum/result_tetra}
 \par\end{centering}
-\caption{\label{fig:vacuum_tetra_p_vary}在只含 $h\approx0.1$ 的四面体单元的非结构网格上所得\nameref{prob:=00771F=007A7A=007BA1}问题
-$\rho(x,y=0.5,z=0.25,t=0.4)$ 的各阶 RKDG 近似解之间的比较}
+\caption{\label{fig:vacuum_tetra_p_vary}\nameref{prob:=00771F=007A7A=007BA1}问题在只含
+$h\approx0.1$ 四面体单元的非结构网格上的各阶 RKDG 近似解之比较}
 \end{figure}
 
 
@@ -2478,7 +2483,7 @@ $\rho(x,y=0.5,z=0.25,t=0.4)$ 的各阶 RKDG 近似解之间的比较}
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[width=1\textheight,height=0.33\textheight,keepaspectratio]{figures/double_mach/sketch}
+\includegraphics[width=1\textwidth,height=0.33\textheight,keepaspectratio]{figures/double_mach/sketch}
 \par\end{centering}
 \caption{\label{fig:double_mach_sketch}\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题的边界条件及初始条件示意图}
 \end{figure}
@@ -2532,8 +2537,8 @@ $t\in[0.0,0.2]$ 及图 \ref{fig:double_mach_sketch} 中虚线所围计算区域�
 
 \subfloat[\label{fig:double_mach_p=00003D2_h=00003D5e-3}$p=2$]{\includegraphics[width=1\textwidth]{../mdpi/figures/double_mach/p=2_h=5e-3}}
 
-\caption{\label{fig:double_mach_h=00003D5e-3}在只含 $h\approx1/200$ 的六面体单元的非结构网格上所得\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题
-$\rho(x,y,z=Z/2,t=0.2)$ 的 RKDG 近似解 (1/2)}
+\caption{\label{fig:double_mach_h=00003D5e-3}\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题在只含
+$h\approx1/200$ 六面体单元的非结构网格上的各阶 RKDG 近似解之比较 (1/2)}
 \end{figure}
 
 \newpage{}
@@ -2543,8 +2548,8 @@ $\rho(x,y,z=Z/2,t=0.2)$ 的 RKDG 近似解 (1/2)}
 
 \subfloat[\label{fig:double_mach_p=00003D3_h=00003D5e-3}$p=3$]{\includegraphics[width=1\textwidth]{../mdpi/figures/double_mach/p=3_h=5e-3}}
 
-\caption{在只含 $h\approx1/200$ 的六面体单元的非结构网格上所得\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题
-$\rho(x,y,z=Z/2,t=0.2)$ 的 RKDG 近似解 (2/2)}
+\caption{\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题在只含 $h\approx1/200$
+六面体单元的非结构网格上的各阶 RKDG 近似解之比较 (2/2)}
 \end{figure}
 
 三者给出的流场结构大致相同，都含有一道弓形激波与两组马赫反射；但只有高阶近似解才能捕捉到右下角的复杂涡系。这种差别再次体现了高阶 RKDG
@@ -2559,8 +2564,8 @@ RK3/DG3 求解器能够在三维非结构网格上正确地捕捉复杂的二维
 \begin{centering}
 \includegraphics[width=1\textwidth]{figures/double_mach/zhong}
 \par\end{centering}
-\caption{\label{fig:double_mach_p=00003D3_zhong}在只含 $h=1/240$ 的四边形单元的二维结构网格上所得\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题
-$\rho(x,y,t=0.2)$ 的 RK3/DG3 近似解\upcite{Zhong_2013}}
+\caption{\label{fig:double_mach_p=00003D3_zhong}\nameref{prob:=0053CC=009A6C=008D6B=0053CD=005C04}问题在
+$h=1/240$ 二维结构网格上的 RK3/DG3 近似解\upcite{Zhong_2013}}
 \end{figure}
 
 \newpage{}
@@ -2592,7 +2597,7 @@ $t\in[0.0,4.0]$ 内，求满足三维欧拉方程 (\ref{eq:euler_system}) 及初
 \includegraphics[width=1\textwidth,height=0.28\textheight,keepaspectratio]{../mdpi/figures/forward_step/mesh}
 \par\end{centering}
 \caption{\label{fig:forward_step_domain}用于求解\nameref{prob:=00524D=005411=0053F0=009636}问题的只含
-$h=1/20$ 的六面体单元的伪结构网格}
+$h=1/20$ 六面体单元的伪结构网格}
 \end{figure}
 
 由于该问题的解在上述时间范围内剧烈变化，最理想的呈现计算结果的方式应当是动画。本节仿照文献 \cite{Woodward_1984}
@@ -2617,8 +2622,8 @@ $h=1/20$ 的六面体单元的伪结构网格}
 \par\end{centering}
 }
 \par\end{centering}
-\caption{\label{fig:forward_step_p=00003D3}在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题的
-RK3/DG3 近似解 (1/5)}
+\caption{\label{fig:forward_step_p=00003D3}\nameref{prob:=00524D=005411=0053F0=009636}问题在
+$h=1/200$ 伪结构网格上的 RK3/DG3 近似解 (1/5)}
 \end{figure}
 
 大约在 $t=0.6$ 时刻，该弓形激波与风洞顶部发生碰撞并发生反射，如图 \ref{fig:forward_step_p=00003D3_t=00003D06e-1}
@@ -2647,7 +2652,7 @@ RK3/DG3 近似解 (1/5)}
 \par\end{centering}
 }
 \par\end{centering}
-\caption{在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题的
+\caption{\nameref{prob:=00524D=005411=0053F0=009636}问题在 $h=1/200$ 伪结构网格上的
 RK3/DG3 近似解 (2/5)}
 \end{figure}
 
@@ -2673,7 +2678,7 @@ RK3/DG3 近似解 (2/5)}
 \par\end{centering}
 }
 \par\end{centering}
-\caption{在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题的
+\caption{\nameref{prob:=00524D=005411=0053F0=009636}问题在 $h=1/200$ 伪结构网格上的
 RK3/DG3 近似解 (3/5)}
 \end{figure}
 
@@ -2697,7 +2702,7 @@ RK3/DG3 近似解 (3/5)}
 \par\end{centering}
 }
 \par\end{centering}
-\caption{在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题的
+\caption{\nameref{prob:=00524D=005411=0053F0=009636}问题在 $h=1/200$ 伪结构网格上的
 RK3/DG3 近似解 (4/5)}
 \end{figure}
 
@@ -2726,7 +2731,7 @@ RK3/DG3 求解器能够在三维伪结构网格上正确地捕捉复杂的二维
 \par\end{centering}
 }
 \par\end{centering}
-\caption{在 $h=1/200$ 的伪结构网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题的
+\caption{\nameref{prob:=00524D=005411=0053F0=009636}问题在 $h=1/200$ 伪结构网格上的
 RK3/DG3 近似解 (5/5)}
 \end{figure}
 
@@ -2734,7 +2739,7 @@ RK3/DG3 近似解 (5/5)}
 \begin{centering}
 \includegraphics[width=1\textwidth]{figures/forward_step/qiu}
 \par\end{centering}
-\caption{\label{fig:forward_step_p=00003D5_qiu}在三级自适应加密的二维网格上所得\nameref{prob:=00524D=005411=0053F0=009636}问题的
+\caption{\label{fig:forward_step_p=00003D5_qiu}\nameref{prob:=00524D=005411=0053F0=009636}问题在三级自适应加密的二维非结构网格上的
 RK3/DG5 近似解\upcite{Giri_2019}}
 \end{figure}
 
