@@ -15992,11 +15992,7 @@ name "prob:孤立旋翼轴向迎风"
 \begin_inset Formula $(-1,0,0)$
 \end_inset
 
- 为方向矢量。
-\end_layout
-
-\begin_layout Problem
-在时间范围 
+ 为方向矢量。在时间范围 
 \begin_inset Formula $t\in[0,1]$
 \end_inset
 
@@ -16114,6 +16110,13 @@ status open
 由于缺少试验数据，本文的所有含旋翼的算例都将采用这种方式来验证。
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -16634,11 +16637,7 @@ name "prob:孤立旋翼径向迎风"
 \begin_inset Formula $(0,0,1)$
 \end_inset
 
- 为方向矢量。
-\end_layout
-
-\begin_layout Problem
-在时间范围 
+ 为方向矢量。在时间范围 
 \begin_inset Formula $t\in[0,1]$
 \end_inset
 
@@ -16653,6 +16652,13 @@ noprefix "false"
 \end_inset
 
  及以下定解条件的广义解。
+\end_layout
+
+\begin_layout Problem
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Problem
