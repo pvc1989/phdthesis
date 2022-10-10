@@ -34,58 +34,78 @@
 \else
 \newtheorem{thm}{\protect\theoremname}[chapter]
 \fi
-\theoremstyle{definition}
-\newtheorem{defn}[thm]{\protect\definitionname}
+
+\def\th@plain{
+	\songti
+}
 \theoremstyle{plain}
 \newtheorem{lem}[thm]{\protect\lemmaname}
 \theoremstyle{plain}
 \newtheorem{cor}[thm]{\protect\corollaryname}
-\theoremstyle{remark}
-\newtheorem{rem}[thm]{\protect\remarkname}
-\theoremstyle{remark}
-\newtheorem*{rem*}{\protect\remarkname}
-\theoremstyle{definition}
-\newtheorem*{example*}{\protect\examplename}
 \theoremstyle{plain}
 \newtheorem{lyxalgorithm}[thm]{\protect\algorithmname}
-\theoremstyle{definition}
-\newtheorem{example}[thm]{\protect\examplename}
 \theoremstyle{plain}
 \newtheorem*{assumption*}{\protect\assumptionname}
 \theoremstyle{plain}
 \newtheorem{ax}[thm]{\protect\axiomname}
-\theoremstyle{remark}
-\newtheorem*{notation*}{\protect\notationname}
 \theoremstyle{plain}
 \newtheorem*{thm*}{\protect\theoremname}
-\theoremstyle{definition}
-\newtheorem*{defn*}{\protect\definitionname}
-\theoremstyle{remark}
-\newtheorem{notation}[thm]{\protect\notationname}
 \theoremstyle{plain}
 \newtheorem{conjecture}[thm]{\protect\conjecturename}
-\theoremstyle{remark}
-\newtheorem*{claim*}{\protect\claimname}
-\theoremstyle{definition}
-\newtheorem*{sol*}{\protect\solutionname}
 \theoremstyle{plain}
 \newtheorem{fact}[thm]{\protect\factname}
 \theoremstyle{plain}
 \newtheorem*{cor*}{\protect\corollaryname}
-\theoremstyle{definition}
-\newtheorem{problem}[thm]{\protect\problemname}
 \theoremstyle{plain}
 \newtheorem*{lem*}{\protect\lemmaname}
 \theoremstyle{plain}
 \newtheorem{assumption}[thm]{\protect\assumptionname}
+
+\def\th@definition{
+	\songti
+}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{\protect\definitionname}
+\theoremstyle{definition}
+\newtheorem*{example*}{\protect\examplename}
+\theoremstyle{definition}
+\newtheorem{example}[thm]{\protect\examplename}
+\theoremstyle{definition}
+\newtheorem*{sol*}{\protect\solutionname}
 \theoremstyle{definition}
 \newtheorem{condition}[thm]{\protect\conditionname}
+\theoremstyle{definition}
+\newtheorem*{defn*}{\protect\definitionname}
+
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{\protect\remarkname}
+\theoremstyle{remark}
+\newtheorem*{rem*}{\protect\remarkname}
+\theoremstyle{remark}
+\newtheorem*{notation*}{\protect\notationname}
+\theoremstyle{remark}
+\newtheorem{notation}[thm]{\protect\notationname}
+\theoremstyle{remark}
+\newtheorem*{claim*}{\protect\claimname}
+
+% theorem head for style "problem"
+\def\thmhead@problem#1#2#3{%
+	\thmname{#1}\thmnumber{\@ifnotempty{#1}{ }\@upn{#2}}%
+	%  \thmnote{ {\the\thm@notefont(#3)}}%
+}
+
+% theorem style "problem"
+\def\th@problem{%
+	\songti
+	\th@definition % inherits style "definition"
+	\let\thmhead\thmhead@problem
+}
+\theoremstyle{problem}
+\newtheorem{problem}[thm]{\protect\problemname}
+\newtheorem*{problem*}{\protect\problemname}
 
 \AddToHook{env/problem/begin}{\pushQED{\qed}}
 \AddToHook{env/problem/end}{\popQED}
-
-\def\th@plain{ \songti }
-\def\th@definition{ \songti }
 
 \makeatother
 
@@ -113,7 +133,7 @@
 \providecommand{\factname}{事实}
 \providecommand{\lemmaname}{引理}
 \providecommand{\notationname}{记号}
-\providecommand{\problemname}{问题}
+\providecommand{\problemname}{问题定义}
 \providecommand{\remarkname}{注}
 \providecommand{\solutionname}{解答}
 \providecommand{\theoremname}{定理}
