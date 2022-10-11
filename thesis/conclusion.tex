@@ -62,7 +62,7 @@ UMS–RKDG 混合方法，给出了该方法的一种支持分布式并行计算
 狭义的“高阶导数项”指二阶导数项（例如：耗散项、黏性项），广义的还包括三阶及以上高阶导数项（例如：色散项）。
 对线性单波而言，这意味着用线性对流–扩散方程，替换本文中求解的线性平流方程；对流体力学而言，这意味着用
 Navier–Stokes 方程，替换本文中求解的 Euler 方程。 
-可能的方案包括的 Cockburn 的“局部 DG (local DG, LDG)”方法\upcite{Cockburn_1998b,Cockburn_2001}、Liu 等的“直接 DG (direct DG, DDG)”方法\upcite{Liu_2009_DDG,Liu_2010_DDG,Cheng_2016}等。
+可能的方案包括的 Cockburn 的“局部 DG (local DG, LDG\nomenclature{LDG}{local discontinuous Galerkin})”方法\upcite{Cockburn_1998b,Cockburn_2001}、Liu 等的“直接 DG (direct DG, DDG\nomenclature{DDG}{direct discontinuous Galerkin})”方法\upcite{Liu_2009_DDG,Liu_2010_DDG,Cheng_2016}等。
 \item[提供对隐式时间推进格式的支持。]
 本文所使用的二阶、三阶显式 RK 格式具有“保持强稳定性 (SSP)”的优点，原则上也可以应用到扩散问题或黏性问题的求解中（Cockburn 在其 LDG 方法的实现中正是采用了这种方法）。
 然而，在使用显式时间推进格式时，时间步长（受稳定性条件限制）不能取得过大。

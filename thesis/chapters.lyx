@@ -6684,7 +6684,6 @@ literal "true"
 英文文献通常将“间断伽辽金”简记作 DG
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-prefix "DG"
 symbol "DG"
 description "discontinuous Galerkin"
 literal "false"
@@ -8349,7 +8348,6 @@ literal "false"
 在有限差分法框架内提出了“基本无振荡 (essentially non-oscillatory, ENO
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
-prefix "ENO"
 symbol "ENO"
 description "essentially non-oscillatory"
 literal "true"
@@ -9971,7 +9969,7 @@ status collapsed
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "RKDG"
-description "Runge--Kutta discontinuous Galerkin"
+description "Runge–Kutta discontinuous Galerkin"
 literal "true"
 
 \end_inset
@@ -11747,11 +11745,11 @@ noprefix "false"
 \end_inset
 
  的 
-\begin_inset Formula $L_{1}$
+\begin_inset Formula $L^{1}$
 \end_inset
 
  范数；取其他范数亦可，例如 
-\begin_inset Formula $L_{2}$
+\begin_inset Formula $L^{2}$
 \end_inset
 
  范数

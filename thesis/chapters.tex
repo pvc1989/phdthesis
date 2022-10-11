@@ -1031,7 +1031,7 @@ $V$ 取遍所有单元，即得最一般有限元方程：
 \item 若 $K=L$ 且 $\phi_{k}\stackrel{\forall k}{=}\psi_{k}$，则称此有限元法为“伽辽金
 (Galerkin)”型有限元，否则称之为“彼得罗夫–伽辽金 (Petrov–Galerkin)”型有限元。
 \end{itemize}
-英文文献通常将“间断伽辽金”简记作 DG\nomenclature[DG]{DG}{discontinuous Galerkin}
+英文文献通常将“间断伽辽金”简记作 DG\nomenclature{DG}{discontinuous Galerkin}
 (discontinuous Galerkin)。
 
 在 DG 有限元法中，式 (\ref{eq:coeff_matrix}) 是 $K\times K$ 的满阵，每次解线性方程组都需要
@@ -1448,7 +1448,7 @@ Leer\upcite{Van_Leer_1977,Van_Leer_1977a,van_Leer_1979,van_Leer_2021}
 minmod 型限制器，结合具有 TVD 性质（或更一般的 SSP 性质）的 RK 格式，能够使高阶 DG 近似解不含非物理振荡，但往往会降低光滑区域极值点处的精度阶数。
 
 为了克服后一缺点（在光滑极值点处降阶），Harten 等\upcite{Harten_1997}在有限差分法框架内提出了“基本无振荡
-(essentially non-oscillatory, ENO\nomenclature[ENO]{ENO}{essentially non-oscillatory})”格式，其核心思想是：
+(essentially non-oscillatory, ENO\nomenclature{ENO}{essentially non-oscillatory})”格式，其核心思想是：
 \begin{itemize}
 \item 为每个结点指定多个“候选模板 (candidate stencil)”。
 \item 在每个候选模板上分别构造一个“候选多项式 (candidate polynomial)”。
@@ -1880,7 +1880,7 @@ $p$ 阶 RK 格式避免了大型代数方程组的生成与求解，简化了程
 格式\footnote{为明确区分时间离散与空间离散的阶数，这里及本文剩余部分把用 $p$ 阶 (SSP) RK 格式做时间推进、用 $q$ 阶 DG
 有限元法做空间离散的具体格式称为“RK$p$/DG$q$ 格式”，并称基于该格式的求解器、近似解为“RK$p$/DG$q$
 求解器、近似解”；称构造这些格式的方法为“RKDG 方法”。若时空精度皆为 $p$，则“RK$p$/DG$q$”（格式、求解器、近似解）也可简称为“$p$
-阶 RKDG”（格式、求解器、近似解）。}具有高度的可并行性。\nomenclature{RKDG}{Runge--Kutta discontinuous Galerkin}\nomenclature{RK$p$/DG$q$}{$p$th order Runge–Kutta and $q$th order discontinuous Galerkin}
+阶 RKDG”（格式、求解器、近似解）。}具有高度的可并行性。\nomenclature{RKDG}{Runge–Kutta discontinuous Galerkin}\nomenclature{RK$p$/DG$q$}{$p$th order Runge–Kutta and $q$th order discontinuous Galerkin}
 \item [{避免了对动态网格技术的依赖}] 该方法以非定常动量源 (UMS) 模型表示桨叶对流场的扰动，避免了旋翼 CFD 对变形网格、滑动网格、重叠网格等动态网格技术的依赖，大大降低了程序实现的难度。该模型与高阶
 RKDG 格式相结合，能够在较为粗糙的三维非结构网格上，高效（相对于动态网格技术）且高精度（相对于经典有限体积）捕获旋翼流场的非定常特征。
 \item [{压制了高阶近似解的数值振荡}] 该方法以紧致型 WENO 重构技术，压制高阶 RKDG 及高阶 UMS–RKDG 近似解在间断附近的数值振荡。本文所借鉴的二维
@@ -2177,8 +2177,8 @@ RKDG 近似解之比较 (2/2)}
 \begin{equation}
 \varepsilon(x)=\left(\left|U_{1}^{h}-U_{1}^{\star}\right|+\left|U_{2}^{h}-U_{2}^{\star}\right|\right)_{y=0.5,\,z=0.25,\,t=0.3}.
 \end{equation}
-实际上，这正是 $\underline{U}-\underline{U}^{\star}$ 的 $L_{1}$ 范数；取其他范数亦可，例如
-$L_{2}$ 范数
+实际上，这正是 $\underline{U}-\underline{U}^{\star}$ 的 $L^{1}$ 范数；取其他范数亦可，例如
+$L^{2}$ 范数
 \begin{equation}
 \varepsilon(x)=\left(\left|U_{1}^{h}-U_{1}^{\star}\right|^{2}+\left|U_{2}^{h}-U_{2}^{\star}\right|^{2}\right)_{y=0.5,\,z=0.25,\,t=0.3}^{1/2}.
 \end{equation}
