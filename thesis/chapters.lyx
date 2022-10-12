@@ -7585,8 +7585,8 @@ literal "true"
 \begin{equation}
 \begin{bmatrix}L\dd{s}\\
 D\dd{s}
-\end{bmatrix}=\frac{1}{2}\rho(u^{2}+w^{2})\begin{bmatrix}C_{L}(\alpha,M)\\
-C_{D}(\alpha,M)
+\end{bmatrix}=\frac{1}{2}\rho(u^{2}+w^{2})\begin{bmatrix}C_{L}(\alpha,M\!a)\\
+C_{D}(\alpha,M\!a)
 \end{bmatrix}c\dd{s},
 \end{equation}
 
