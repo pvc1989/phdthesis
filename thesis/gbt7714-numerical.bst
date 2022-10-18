@@ -47,15 +47,15 @@ FUNCTION {load.config}
 {
   #0 'uppercase.name :=
   #3 'max.num.authors :=
-  #0 'sentence.case.title :=
-  #0 'link.title :=
+  #1 'sentence.case.title :=
+  #1 'link.title :=
   #1 'title.in.journal :=
   #1 'show.mark :=
   #1 'show.medium.type :=
   #1 'slash.for.extraction :=
   #0 'in.booktitle :=
   #0 'abbreviate.journal :=
-  #0 'italic.journal :=
+  #1 'italic.journal :=
   #0 'bold.journal.volume :=
   #1 'show.missing.address.publisher :=
   #1 'space.before.pages :=
@@ -667,7 +667,7 @@ FUNCTION {add.link}
 { url empty$ not
     { "\href{" url * "}{" * swap$ * "}" * }
     { doi empty$ not
-        { "\href{http://dx.doi.org/" doi * "}{" * swap$ * "}" * }
+        { "\href{https://doi.org/" doi * "}{" * swap$ * "}" * }
         'skip$
       if$
     }
