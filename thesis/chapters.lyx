@@ -2288,7 +2288,7 @@ noprefix "false"
 利用矢量分析公式
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Zorich2004"
+key "Zorich_2016"
 literal "false"
 
 \end_inset
