@@ -55,7 +55,7 @@ FUNCTION {load.config}
   #1 'slash.for.extraction :=
   #0 'in.booktitle :=
   #0 'abbreviate.journal :=
-  #1 'italic.journal :=
+  #0 'italic.journal :=
   #0 'bold.journal.volume :=
   #1 'show.missing.address.publisher :=
   #1 'space.before.pages :=
