@@ -935,7 +935,8 @@ The LaTeX template for thesis of BUAA]
             \fi
         \end{flushright}
     \fi
-    \centerline{\heiti\zihao{3} 摘~~~~要}
+    % 学位办：摘要章标题加粗
+    \centerline{\heiti\zihao{3}\bfseries 摘~~~~要}
     \ifbuaa@bachelor
         \vskip 10bp
         \par
@@ -983,7 +984,8 @@ The LaTeX template for thesis of BUAA]
             \fi
         \end{flushright}
     \fi
-    \centerline{\bf\zihao{3} Abstract}
+    % ZYK：多余空格
+    \centerline{\bf\zihao{3}Abstract}
     \ifbuaa@bachelor
         \vskip 10bp
         \par
