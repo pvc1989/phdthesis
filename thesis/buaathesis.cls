@@ -590,7 +590,8 @@ The LaTeX template for thesis of BUAA]
     \ifbuaa@bachelor
         \pagenumbering{Roman}
     \else
-        \pagenumbering{roman}
+        % 学位办：页码应该为大写罗马数字
+        \pagenumbering{Roman}
     \fi
 }
 
