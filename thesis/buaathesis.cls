@@ -1250,6 +1250,13 @@ The LaTeX template for thesis of BUAA]
 %%%%%%%%%% settings for custom pages %%%%%%%%%%
 % 首页重定义
 
+\newcommand{\addEmptyPage}{
+  \newpage
+  \thispagestyle{empty}%
+  \null
+  \newpage
+}
+
 \renewcommand{\maketitle}{%
     \titlech
     \ifbuaa@bachelor
@@ -1270,9 +1277,13 @@ The LaTeX template for thesis of BUAA]
             \clearemptydoublepage
             \frontmatter
         \else
+            \addEmptyPage
             \titleeng                 %研究生英文封面
+            \addEmptyPage
             \timingye                 %研究生题名页
+            \addEmptyPage
             \creationanduse           %研究生独创性声明和使用授权书
+            \addEmptyPage
             \clearemptydoublepage
             \frontmatter
         \fi
