@@ -327,12 +327,15 @@ SmallCapsFeatures={Numbers=OldStyle}
 \renewcommand\cite[2][]{}
 \renewcommand\upcite[2][]{}
 
-\phantomsection
-\addcontentsline{toc}{chapter}{插图目录}
+
+% 学位办：目录中不包括摘要图表
+% \phantomsection
+% \addcontentsline{toc}{chapter}{插图目录}
 \listoffigures
 
-\phantomsection
-\addcontentsline{toc}{chapter}{表格目录}
+% 学位办：目录中不包括摘要图表
+% \phantomsection
+% \addcontentsline{toc}{chapter}{表格目录}
 \listoftables
 
 \endgroup % 为了 lof lot 中不出现 cite
