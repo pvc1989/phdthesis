@@ -117,7 +117,8 @@ The LaTeX template for thesis of BUAA]
 \savegeometry{bachelortaskgeometry}
 
 \newgeometry{
-    top=25mm, bottom=25mm, left=30mm, right=20mm,
+    % 学位办：学位论文的上下左右边距均为 25mm
+    top=25mm, bottom=25mm, left=25mm, right=25mm,
     headsep=5mm, headheight=10mm, footskip=10mm,
 }
 \savegeometry{mastergeometry}
