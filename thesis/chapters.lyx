@@ -10,7 +10,7 @@
 \end_preamble
 \use_default_options true
 \begin_modules
-theorems-ams
+theorems-amsdp
 theorems-ams-extended
 theorems-chap
 \end_modules
@@ -3005,7 +3005,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /Users/pvc/code/manuscript/review/figures/ship-helicopter-interaction.jpg
+	filename ../review/figures/ship-helicopter-interaction.jpg
 	lyxscale 15
 	width 100text%
 	height 33theight%
