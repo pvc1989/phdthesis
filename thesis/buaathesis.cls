@@ -244,7 +244,7 @@ The LaTeX template for thesis of BUAA]
 % 格式
 \ctexset{
     chapter={
-        format={\centering\zihao{3}\heiti},
+        format={\centering\zihao{3}\linespread{1}\heiti},
         nameformat={},
         aftername={\quad},
         titleformat={},
@@ -252,24 +252,25 @@ The LaTeX template for thesis of BUAA]
         afterskip={\baselineskip},
     },
     section={
+        format+={\linespread{1}\selectfont},
         aftername={\quad},
         beforeskip={.5\baselineskip},
         afterskip={.5\baselineskip},
     },
     subsection={
-        format={\zihao{-4}\heiti},
+        format={\zihao{-4}\linespread{1}\heiti},
         aftername={\quad},
         beforeskip={.5\baselineskip},
         afterskip={.5\baselineskip},
     },
     subsubsection={
-        format={\zihao{-4}\heiti},
+        format={\zihao{-4}\linespread{1}\heiti},
         aftername={\quad},
         beforeskip={.5\baselineskip},
         afterskip={.5\baselineskip},
     },
     paragraph={
-        format={\zihao{-4}\heiti},
+        format={\zihao{-4}\linespread{1}\heiti},
         aftername={\quad},
         beforeskip={.5\baselineskip},
     },
