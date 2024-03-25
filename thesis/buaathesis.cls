@@ -138,6 +138,44 @@ The LaTeX template for thesis of BUAA]
 % \setlength{\abovecaptionskip}{10pt plus 1pt minus 1pt} % 图形中的图与标题之间的距离
 % \setlength{\belowcaptionskip}{3pt plus 1pt minus 2pt} % 表格中的表与标题之间的距离
 \setlength{\intextsep}{.5\baselineskip}
+\setlength{\textfloatsep}{.5\baselineskip}
+
+\newlength\intextvsep  % like \intextsep but only for floats in vmode
+\setlength\intextvsep{\intextsep}
+
+% 抑制浮动体与之后正文之间的额外间距
+% https://tex.stackexchange.com/a/40363
+% https://www.zhihu.com/question/46618031/answer/102310514
+\usepackage{xpatch}
+\xpatchcmd{\@addtocurcol}%
+  {\vskip \intextsep}%
+  {\edef\save@first@penalty{\the\lastpenalty}\unpenalty
+    \ifnum \lastpenalty = \@M  % hopefully the OR penalty
+      \unpenalty
+    \else
+      \penalty \save@first@penalty \relax % put it back
+    \fi
+    \ifnum\outputpenalty <-\@Mii
+                        \addvspace\intextvsep
+                        \vskip\parskip
+    \else  
+                        \addvspace\intextsep   
+    \fi}%
+  {}{\PatchFailed}
+
+\xpatchcmd{\@addtocurcol}%
+  {\vskip\intextsep \ifnum\outputpenalty <-\@Mii \vskip -\parskip\fi}%
+  {\fix@second@intextsep}%
+  {}{\PatchFailed}
+\def\fix@second@intextsep {%
+% was the float seen in vertical mode?
+  \ifnum\outputpenalty <-\@Mii 
+    \aftergroup\vskip\aftergroup\intextvsep
+    \aftergroup\nointerlineskip
+  \else
+    \vskip\intextsep
+  \fi
+}
 
 %%%%%%%%%% header & footer %%%%%%%%%%
 % 页眉页脚
