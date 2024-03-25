@@ -134,9 +134,9 @@ The LaTeX template for thesis of BUAA]
 
 \renewcommand{\baselinestretch}{1.5}
 \setlength{\parindent}{2em}
-\setlength{\floatsep}{3pt plus 3pt minus 2pt}      % 图形之间或图形与正文之间的距离
-\setlength{\abovecaptionskip}{10pt plus 1pt minus 1pt} % 图形中的图与标题之间的距离
-\setlength{\belowcaptionskip}{3pt plus 1pt minus 2pt} % 表格中的表与标题之间的距离
+\setlength{\floatsep}{3pt}      % 图形之间或图形与正文之间的距离
+% \setlength{\abovecaptionskip}{10pt plus 1pt minus 1pt} % 图形中的图与标题之间的距离
+% \setlength{\belowcaptionskip}{3pt plus 1pt minus 2pt} % 表格中的表与标题之间的距离
 
 %%%%%%%%%% header & footer %%%%%%%%%%
 % 页眉页脚
@@ -543,9 +543,9 @@ The LaTeX template for thesis of BUAA]
         \@removefromreset{table}{chapter}
         \@removefromreset{figure}{chapter}
         %使图表的标号与章节无关
-        \captionsetup[figure]{format=masterfigure,labelsep=quad}
-        \captionsetup[table]{format=mastertable,labelsep=quad}
-        \captionsetup[lstlisting]{format=masterlstlisting,labelsep=quad}
+        \captionsetup[figure]{format=masterfigure,labelsep=quad,skip=.5\baselineskip}
+        \captionsetup[table]{format=mastertable,labelsep=quad,skip=.5\baselineskip}
+        \captionsetup[lstlisting]{format=masterlstlisting,labelsep=quad,skip=.5\baselineskip}
         \renewcommand{\thefigure}{\arabic{figure}}
         \renewcommand{\thetable}{\arabic{table}}
         \renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
