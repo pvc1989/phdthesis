@@ -8,7 +8,7 @@
 \begin{table}
 \caption{\label{tab:shipborne-helicopter}国外主要舰载直升机}
 
-\begin{longtable}[c]{cccccc}
+\begin{tabular}[c]{cccccc}
 \toprule 
 首飞时间 & 研制单位 & 型号 & 别名/绰号 & 构型 & 旋翼直径 (m)\tabularnewline
 \midrule
@@ -29,7 +29,7 @@
 1989 & 美国贝尔直升机公司 & V-22 & Osprey & 双旋翼横列式 & 11.61\tabularnewline
 1997 & 俄罗斯卡莫夫公司 & Ka-52 & Alligator & 双旋翼共轴式 & 14.43\tabularnewline
 \bottomrule
-\end{longtable}
+\end{tabular}
 \centering{}注：表中的“首飞时间”按原型机计；V-22 的“构型”只考虑其直升机形态。
 \end{table}
 
@@ -557,7 +557,7 @@ RKDG 方法虽然能在非结构网格上构造出高阶格式，但对于含有
 (mesh/grid)”。为方便叙述，表 \ref{tab:mesh} 列出了本文用到的网格术语及记号，其中“对象 $X$”指代由网格成员组成的任意子集。
 \begin{table}
 \centering{}\caption{\label{tab:mesh}网格术语及记号}
-\begin{longtable}[c]{ccccc}
+\begin{tabular}[c]{ccccc}
 \toprule 
 中文名 & 英文名 & 记号 & 简写 & 含义\tabularnewline
 \midrule
@@ -571,7 +571,7 @@ RKDG 方法虽然能在非结构网格上构造出高阶格式，但对于含有
 结点 & Point & $P(X,i)$\nomenclature{$P(X,i)$}{表示对象 $X$ 中的第 $i$ 号结点} & $P_{i}$ & 对象 $X$ 中的第 $i$ 号结点\tabularnewline
  &  & $P(X)$ 或 $P_{X}$\nomenclature{$P(X)$ 或 $P_{X}$}{表示对象 $X$ 中的所有结点} & $P$ & 对象 $X$ 中的所有结点\tabularnewline
 \bottomrule
-\end{longtable}
+\end{tabular}
 \end{table}
 
 从几何的角度看，网格应恰好填满整个区域，即\nomenclature{$\varOmega$}{表示计算区域}

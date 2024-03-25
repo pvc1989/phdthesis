@@ -7,3 +7,6 @@ tex 和 lyx 存在不一致：
   -\includegraphics[width=1\textwidth,height=0.33\textheight,keepaspectratio]{/Users/pvc/code/manuscript/review/figures/ship-helicopter-interaction}
   +\includegraphics[width=1\textwidth,height=0.33\textheight,keepaspectratio]{../review/figures/ship-helicopter-interaction}
   ```
+
+- tex 里，两处 `\begin{longtable}` 改成了 `\begin{tabular}`
+  原来的 `longtable` 导致表格编号跳号
