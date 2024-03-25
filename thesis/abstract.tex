@@ -26,7 +26,7 @@
 本文以舰载直升机气动干扰问题为研究对象，
 提出了一种支持分布式并行计算的动量源--高阶有限元混合方法，
 为舰载直升机气动干扰问题的研究，提供了一种高效且具有高阶精度的数值计算工具。
-\newpage{}
+% \newpage{}
 \end{cabstract}
 
 \begin{eabstract}
@@ -42,7 +42,7 @@ The main goal of this thesis is to provide a computational method that can handl
 To this end, the main contents of this thesis include:
 \begin{enumerate}[wide]
 \item Propose a high-order numerical method suitable for the computation of the flow field of shipborne helicopters. In this method, the discontinuous Galerkin finite element method is used as the spatial discretization method, the Runge--Kutta scheme which is strong stability preserving is used for explicit time marching, and an unsteady momentum source model is used to represent the unsteady disturbance of the blade to the flow field. Numerical oscillations near the blade are suppressed by a weighted essentially non-oscillatory reconstruction technique.
-\newpage{}
+% \newpage{}
 \item Quantitatively verify the correctness and order of accuracy of the above high-order numerical methods using one-dimensional standard examples with analytical solutions or numerically accurate solutions. Qualitatively verify the above high-order numerical methods using two-dimensional standard examples with recognized numerical solutions. The method's ability to capture complex flowing images.
 \item On this basis, taking the mathematically equivalent to the classical finite volume solution and the physically reliable first-order approximate solution as a reference, the correctness and precision advantages of the third-order approximate solution are qualitatively verified.
 \item Propose and implement a distributed parallel acceleration scheme of the above-mentioned high-order numerical method, and measured the speedup ratio and parallel efficiency on a small cluster built by the laboratory.
