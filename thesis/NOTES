@@ -1,0 +1,9 @@
+tex 和 lyx 存在不一致：
+
+- tex 里，插入图片的路径从绝对路径，改成了相对路径
+ （为了能在 zyk 电脑上编译）
+ 
+  ```diff
+  -\includegraphics[width=1\textwidth,height=0.33\textheight,keepaspectratio]{/Users/pvc/code/manuscript/review/figures/ship-helicopter-interaction}
+  +\includegraphics[width=1\textwidth,height=0.33\textheight,keepaspectratio]{../review/figures/ship-helicopter-interaction}
+  ```
