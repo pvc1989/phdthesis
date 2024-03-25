@@ -134,7 +134,7 @@ The LaTeX template for thesis of BUAA]
 
 \renewcommand{\baselinestretch}{1.5}
 \setlength{\parindent}{2em}
-\setlength{\floatsep}{3pt}      % 图形之间或图形与正文之间的距离
+\setlength{\floatsep}{\baselineskip}      % 图形之间的距离
 % \setlength{\abovecaptionskip}{10pt plus 1pt minus 1pt} % 图形中的图与标题之间的距离
 % \setlength{\belowcaptionskip}{3pt plus 1pt minus 2pt} % 表格中的表与标题之间的距离
 \setlength{\intextsep}{.5\baselineskip}
