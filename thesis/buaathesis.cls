@@ -310,7 +310,7 @@ The LaTeX template for thesis of BUAA]
     paragraph={
         format={\zihao{-4}\linespread{1}\heiti},
         aftername={\quad},
-        beforeskip={.5\baselineskip},
+        beforeskip={0pt},
     },
     secnumdepth=subsubsection,
 }
