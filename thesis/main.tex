@@ -10,21 +10,21 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
 \newcommand{\noun}[1]{\textsc{#1}}
-\long\def\lyxmintcaption[#1]#2{%
-	\ifx#1t\vskip\baselineskip\fi%
-	\refstepcounter{listing}\noindent%
-	\addcontentsline{lol}{listing}%
-	{\protect\numberline{\thelisting}{\ignorespaces #2}}%
-	\setbox\@tempboxa\hbox{\listingscaption~\thelisting: #2}%
-	\ifdim \wd\@tempboxa >\linewidth%
-	\parbox[t]{\linewidth}{\unhbox\@tempboxa}\else%
-	\hbox to\linewidth{\hfil\box\@tempboxa\hfil}\fi%
-	\ifx#1b\vskip\baselineskip\fi
-}
-\AtBeginDocument{
-	\renewcommand{\listingscaption}{代码片段}
-	\renewcommand{\listoflistingscaption}{代码目录}
-}
+% \long\def\lyxmintcaption[#1]#2{%
+% 	\ifx#1t\vskip\baselineskip\fi%
+% 	\refstepcounter{listing}\noindent%
+% 	\addcontentsline{lol}{listing}%
+% 	{\protect\numberline{\thelisting}{\ignorespaces #2}}%
+% 	\setbox\@tempboxa\hbox{\listingscaption~\thelisting: #2}%
+% 	\ifdim \wd\@tempboxa >\linewidth%
+% 	\parbox[t]{\linewidth}{\unhbox\@tempboxa}\else%
+% 	\hbox to\linewidth{\hfil\box\@tempboxa\hfil}\fi%
+% 	\ifx#1b\vskip\baselineskip\fi
+% }
+% \AtBeginDocument{
+% 	\renewcommand{\listingscaption}{代码片段}
+% 	\renewcommand{\listoflistingscaption}{代码目录}
+% }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
 \makeatletter
@@ -114,13 +114,14 @@
 \makenomenclature
 \renewcommand{\nomname}{主要符号对照表}
 
-\usepackage[chapter]{minted}
-\setminted{style=xcode,
-	frame=leftline,
-	baselinestretch={1.2},
-	breaklines=true,
-	fontsize={\normalsize}
-}
+\usepackage{float}
+% \usepackage[chapter]{minted}
+% \setminted{style=xcode,
+% 	frame=leftline,
+% 	baselinestretch={1.2},
+% 	breaklines=true,
+% 	fontsize={\normalsize}
+% }
 
 \providecommand{\algorithmname}{算法}
 \providecommand{\assumptionname}{假设}
