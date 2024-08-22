@@ -1,3 +1,10 @@
+### Jekyll.gitignore ###
+Gemfile.lock
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
 *.zip
 *.tmp
 ### TeX.gitignore ###
