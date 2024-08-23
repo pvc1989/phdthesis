@@ -247,23 +247,88 @@ $$
 
 ## 3.1 基于线性平流问题解析解的定量验证
 
+|  方案  | 结果  |
+| :---: | :---: |
+| 不加限制器 | ![](./thesis/figures/linear_scalar/gibbs.svg) |
+| 加密 $$h\downarrow$$ | ![](./thesis/figures/linear_scalar/h_vary.svg) |
+| 升阶 $$p\uparrow$$ | ![](./thesis/figures/linear_scalar/p_vary.svg) |
+
+|       |  一阶  | 三阶 |
+| :---: | :---: | :---: |
+|  云图  | ![](./thesis/figures/linear_scalar/p=3_h=2^-2.png) | ![](./thesis/figures/linear_scalar/p=1_h=2^-5.png) |
+| 单元尺寸 | $$2^{-5}$$ | $$2^{-2}$$ |
+| 计算时间 | $$306.3$$ | $$4.147$$ |
+| $$L_1$$ 误差 | $$1.108$$ | $$1.021$$ |
+
 ## 3.2 基于一维流场数值精确解的定量验证
+
+|       |  Sod  |  Lax  |
+| :---: | :---: | :---: |
+|  云图  | ![](./mdpi/figures/shock_tubes/sod/contour_tetra.png) | ![](./mdpi/figures/shock_tubes/lax/contour_tetra.png) |
+|  线图  | ![](./thesis/figures/shock_tubes/sod/result_tetra.svg) | ![](./thesis/figures/shock_tubes/lax/result_tetra.svg) |
 
 ## 3.3 基于二维流场高精度近似解的定性验证
 
+### 双马赫反射问题
+
+|  方案  | 结果  |
+| :---: | :---: |
+| 时空一阶 | ![](./mdpi/figures/double_mach/p=1_h=5e-3.png) |
+| 时空二阶 | ![](./mdpi/figures/double_mach/p=2_h=5e-3.png) |
+| 时空三阶 | ![](./mdpi/figures/double_mach/p=3_h=5e-3.png) |
+| [Zhong (2013)](https://doi.org/10.1016/j.jcp.2012.08.028) | ![](./thesis/figures/double_mach/zhong.png) |
+
+### 前向台阶问题
+
+|  方案  | 结果  |
+| :---: | :---: |
+| 时空三阶 | ![](./mdpi/figures/forward_step/p=3_t=40e-1.png) |
+| [Giri (2019)](https://doi.org/10.1002/fld.4757) | ![](./thesis/figures/forward_step/qiu.png) |
+
 ## 3.4 本章小结
 
-# 四、三维流场的并行计算及并行性能测评
+# 四、旋翼流场计算的并行加速及性能测评
 
-## 4.1 分布式并行计算
+## 4.1 旋翼流场计算
 
-## 4.2 双马赫反射问题的并行性能测评
+计算网格：
 
-## 4.3 三维流场的并行计算及性能测评
+![](./mdpi/figures/rotor_in_tunnel/mesh.png)
 
-## 4.4 旋翼流场的并行计算及性能测评
+|  方案  |  爬升  |  前飞  |
+| :---: | :---: | :---: |
+| 时空一阶 | ![](./thesis/figures/upward/p=1/Frame100.png) | ![](./thesis/figures/forward/p=1/Frame100.png) |
+| 时空三阶 | ![](./thesis/figures/upward/p=3/Frame100.png) | ![](./thesis/figures/forward/p=3/Frame100.png) |
 
-## 4.5 本章小结
+## 4.2 并行加速方案
+
+## 4.3 并行性能测评
+
+用 [METIS](https://github.com/pvc1989/METIS) 对非结构网格分块：
+
+| 双马赫反射 | 孤立旋翼爬升 |
+| :------: | :--------: |
+| ![](./thesis/figures/double_mach/partition.png) | ![](./thesis/figures/upward/partition.png) |
+
+各进程单元数量的波动小于 $$3\%$$，大致满足负载均衡：
+
+| 双马赫反射 | 孤立旋翼爬升 |
+| :------: | :--------: |
+| ![](./thesis/figures/double_mach/balance.svg) | ![](./thesis/figures/upward/balance.svg) |
+
+加速比 $$S=\dfrac{T_1}{T_P}$$ 实测值：
+
+| 双马赫反射 | 孤立旋翼爬升 |
+| :------: | :--------: |
+| ![](./thesis/figures/double_mach/speedup.svg) | ![](./thesis/figures/upward/speedup.svg) |
+
+并行效率 $$E=\dfrac{S}{P}=\dfrac{T_1}{PT_P}$$ 实测值：
+
+| 双马赫反射 | 孤立旋翼爬升 |
+| :------: | :--------: |
+| ![](./thesis/figures/double_mach/efficiency.svg) | ![](./thesis/figures/upward/efficiency.svg) |
+
+## 4.4 本章小结
 
 # 五、舰载直升机典型工况气动干扰的模拟
 
