@@ -3,6 +3,22 @@ layout: page
 title: Presentation
 ---
 
+<div class="title">
+  <h1>舰载直升机气动干扰计算方法研究</h1>
+  <h1>Study on Computational Method for Aerodynamic Interference of Shipborne Helicopters</h1>
+</div>
+
+----
+
+| 中文关键词 | English Keywords |
+|:--------:|:----------------:|
+| 舰载直升机 | shipborne helicopter |
+| 气动干扰 | aerodynamic interference |
+| 旋翼空气动力学 | rotor aerodynamics |
+| 间断伽辽金有限元法 | discontinuous Galerkin (DG) finite element method |
+| 加权基本无振荡重构 | weighted essentially non-oscillatory (WENO) reconstruction |
+| 非定常动量源模型 | unsteady momentum source (UMS) model |
+
 # 一、绪论
 
 ## 1.1 研究背景和意义
@@ -389,6 +405,24 @@ $$
 
 ## 结论
 
+本文提出的 UMS–RKDG 求解器是模拟旋翼流场、研究舰载直升机气动干扰的一种高效、高精度的计算方法。
+- 适用于三维非结构网格的 RKDG 求解器，能够处理具有复杂几何外形的边界，适用于航空航天领域的工程问题。
+- 基于邻接单元的 WENO 重构过程，能够有效地压制间断附近的数值振荡，同时保持 RKDG 方法的紧致性、可并行性。
+- 高阶 RKDG 求解器的数值耗散较低，能够在相对较粗的非结构网格上捕获复杂的流动细节，具有更高的性价比。
+- 非定常动量源 (UMS) 模型与高阶 RKDG 求解器配合使用，能够在静态网格上高效、高精度地模拟旋翼对流场的扰动，避免了传统旋翼 CFD 方法对动态网格、滑动网格、重叠网格等高级网格技术的依赖。
+- 动量源附近存在物理间断，可能在高阶近似解中引起数值振荡，必须像处理高速气流中的间断那样加以抑制。
+
 ## 创新点
 
+提出、实现并验证了一种
+- 适应非结构网格、支持分布式并行计算的高阶有限元 (RKDG) 方法。
+- 适合旋翼流场计算的动量源--高阶有限元 (UMS--RKDG) 混合方法。
+- 将 WENO 重构用于抑制高阶多项式解在桨叶附近产生数值振荡的方法。
+
 ## 后续研究方向
+
+- 增加对高阶导数项的支持。
+- 提供对隐式时间推进格式的支持。
+- 提高前/后处理模块的并行化程度。
+- 在公共高性能计算平台上测试并行性能。
+- 尝试仅传递面单元（而非体单元）上的信息。
