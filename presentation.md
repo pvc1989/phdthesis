@@ -271,7 +271,7 @@ $$
 
 |       |  一阶  | 三阶 |
 | :---: | :---: | :---: |
-|  云图  | ![](./thesis/figures/linear_scalar/p=3_h=2^-2.png) | ![](./thesis/figures/linear_scalar/p=1_h=2^-5.png) |
+|  云图  | ![](./thesis/figures/linear_scalar/p=1_h=2^-5.png) | ![](./thesis/figures/linear_scalar/p=3_h=2^-2.png) |
 | 单元尺寸 | $$2^{-5}$$ | $$2^{-2}$$ |
 | 计算时间 | $$306.3$$ | $$4.147$$ |
 | $$L_1$$ 误差 | $$1.108$$ | $$1.021$$ |
