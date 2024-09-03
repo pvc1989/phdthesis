@@ -24,8 +24,9 @@ title: Presentation
 ## 1.1 研究背景和意义
 
 - 美国海军陆战队 CH-46D 着舰事故案例
+  - [![](https://forgifs.com/gallery/d/62562-4/CH46_Sea_Knight_Navy_crash.gif)](https://forgifs.com/gallery/v/Cool/CH46_Sea_Knight_Navy_crash.gif.html)
 - 英国海军舰载直升机着舰标准作业流程（本文研究的[典型工况](#ship)）
-  [![](./thesis/figures/landing.jpg)](https://doi.org/10.2514/1.C031535)
+  - [![](./thesis/figures/landing.jpg)](https://doi.org/10.2514/1.C031535)
 
 ## 1.2 国内外研究现状
 
